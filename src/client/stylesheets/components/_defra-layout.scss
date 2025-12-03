@@ -1,0 +1,126 @@
+@use "../variables/colours" as *;
+
+// ===== Layout containers =====
+
+.defra-width-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.defra-main-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 60px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Remove top padding between header and hero
+.govuk-main-wrapper {
+  padding-top: 0;
+  overflow-x: visible;
+}
+
+// ===== Hero =====
+
+.defra-hero {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background-color: $defra-dark-green;
+  color: $govuk-white;
+  padding: 40px 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.defra-hero .govuk-heading-xl,
+.defra-hero .govuk-body-l {
+  color: $govuk-white;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.defra-hero__whats-new {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 16px 20px;
+  background-color: transparent;
+}
+
+.defra-hero__whats-new,
+.defra-hero__whats-new * {
+  color: $govuk-white;
+}
+
+// ===== Version banner =====
+
+.defra-version-banner {
+  margin: 20px 0 32px;
+  padding: 15px 20px;
+  border: 1px solid $govuk-mid-grey;
+  background-color: $govuk-light-grey;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.defra-version-banner__label {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: $govuk-mid-grey;
+  color: $govuk-black;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.defra-version-banner__text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: $govuk-black;
+  
+  a {
+    color: $govuk-blue;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #003078;
+      text-decoration-thickness: max(3px, .1875rem, .12em);
+    }
+    
+    &:focus {
+      outline: 3px solid transparent;
+      color: $govuk-black;
+      background-color: $govuk-yellow;
+      box-shadow: 0 -2px $govuk-yellow, 0 4px $govuk-black;
+      text-decoration: none;
+    }
+  }
+}
+
+// ===== Sections =====
+
+.defra-section {
+  margin-top: 40px;
+}
+
+.defra-section:first-of-type {
+  margin-top: 0;
+}
+
+.defra-section > .govuk-body {
+  margin-bottom: 12px;
+}

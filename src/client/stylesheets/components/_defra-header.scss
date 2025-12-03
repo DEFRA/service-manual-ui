@@ -1,0 +1,120 @@
+@use "../variables/colours" as *;
+
+// ===== Header with logo + search =====
+
+.defra-header {
+  background-color: $govuk-white;
+  border-bottom: 1px solid $govuk-mid-grey;
+}
+
+.defra-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.defra-header__brand-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.defra-header__logo-link {
+  display: flex;
+  align-items: center;
+  
+  &:focus {
+    outline: 3px solid $govuk-yellow;
+    outline-offset: 2px;
+  }
+}
+
+.defra-header__logo {
+  height: 60px;
+  width: auto;
+}
+
+.defra-header__service-name {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 22px;
+  font-weight: 700;
+  color: $defra-dark-green;
+  line-height: 1.2;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.15em;
+  }
+  
+  &:focus {
+    outline: 3px solid $govuk-yellow;
+    outline-offset: 2px;
+    background-color: $govuk-yellow;
+    box-shadow: none;
+    text-decoration: none;
+  }
+  
+  &:visited {
+    color: $defra-dark-green;
+  }
+}
+
+// ===== Header search =====
+
+.defra-header-search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.defra-header-search--nhs {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid $govuk-black;
+  background-color: $govuk-white;
+}
+
+.defra-header-search__input {
+  border: 0;
+  box-shadow: none;
+  width: 220px;
+  max-width: 100%;
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
+.defra-header-search__button {
+  border: 0;
+  border-left: 1px solid $govuk-black;
+  background-color: $govuk-light-grey;
+  padding: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.defra-header-search__icon {
+  width: 16px;
+  height: 16px;
+  stroke: $govuk-black;
+  fill: none;
+}
+
+.defra-header-search--nhs:focus-within {
+  outline: 3px solid #ffbf47;
+  outline-offset: 1px;
+}

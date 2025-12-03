@@ -1,2 +1,15 @@
-// Example custom CSS variables
+// Defra brand colours
+$defra-green: #00a33b;
+$defra-dark-green: #005a30;
+$defra-brand-colour: $defra-green;
+
+// GOV.UK colours (direct values to avoid function dependency)
+$govuk-white: #ffffff;
+$govuk-black: #0b0c0c;
+$govuk-blue: #1d70b8;
+$govuk-light-grey: #f3f2f1;
+$govuk-mid-grey: #b1b4b6;
+$govuk-yellow: #ffdd00;
+$govuk-focus-colour: #fd0;
+
 $app-light-grey: #f8f8f8;

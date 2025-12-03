@@ -1,0 +1,118 @@
+@use "../variables/colours" as *;
+
+// ===== Primary navigation =====
+
+.defra-primary-nav {
+  background-color: $defra-dark-green;
+  margin-bottom: 0;
+}
+
+.defra-primary-nav__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 8px 15px 6px;
+}
+
+.defra-primary-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.defra-primary-nav__link,
+.defra-primary-nav__link:link,
+.defra-primary-nav__link:visited {
+  color: $govuk-white !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.defra-primary-nav__link:hover,
+.defra-primary-nav__link:focus,
+.defra-primary-nav__link--current,
+.defra-primary-nav__link--current:link,
+.defra-primary-nav__link--current:visited {
+  color: $govuk-white !important;
+  text-decoration: underline;
+}
+
+// ===== Manual navigation =====
+
+.manual-navigation__link--current {
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ===== Sub navigation (side nav) =====
+
+.app-subnav {
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.app-subnav__section {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-subnav__section-item {
+  padding: 10px 0;
+  border-bottom: 1px solid $govuk-mid-grey;
+}
+
+.app-subnav__section-item:first-child {
+  padding-top: 0;
+}
+
+.app-subnav__section-item--current .app-subnav__link {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.app-subnav__link {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1578em;
+  
+  &:hover {
+    text-decoration-thickness: max(3px, .1875rem, .12em);
+    text-decoration-skip-ink: none;
+  }
+  
+  &:focus {
+    outline: 3px solid transparent;
+    color: $govuk-black;
+    background-color: $govuk-yellow;
+    box-shadow: 0 -2px $govuk-yellow, 0 4px $govuk-black;
+    text-decoration: none;
+  }
+  
+  &:link {
+    color: $govuk-blue;
+  }
+  
+  &:visited {
+    color: #4c2c92;
+  }
+  
+  &:hover {
+    color: #003078;
+  }
+  
+  &:active {
+    color: $govuk-black;
+  }
+}

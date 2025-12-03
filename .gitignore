@@ -10,3 +10,4 @@ coverage
 .envrc
 tsconfig.tsbuildinfo
 .env
+temp_prompts/

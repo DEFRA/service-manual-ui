@@ -1,0 +1,65 @@
+@use "../variables/colours" as *;
+
+// ===== Tiles =====
+
+.defra-tile-grid {
+  margin: 16px -15px 24px;
+  padding: 0;
+}
+
+.defra-tile {
+  display: block;
+  border: 1px solid $govuk-mid-grey;
+  padding: 18px 18px 22px;
+  text-decoration: none;
+  color: $govuk-black;
+  background-color: $govuk-white;
+  min-height: 140px;
+  transform: translateY(0);
+  transition:
+    border-color 0.1s ease-out,
+    box-shadow 0.1s ease-out,
+    background-color 0.1s ease-out,
+    transform 0.1s ease-out;
+}
+
+.defra-tile:hover {
+  border-color: $defra-dark-green;
+  background-color: $govuk-light-grey;
+  box-shadow: 0 2px 0 $govuk-black;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.defra-tile:focus-visible {
+  border-color: $govuk-black;
+  outline: 3px solid $govuk-focus-colour;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px $govuk-black;
+  background-color: $govuk-white;
+  text-decoration: none;
+}
+
+.defra-tile:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.defra-tile__title {
+  margin-bottom: 8px;
+}
+
+.defra-tile:link .defra-tile__title,
+.defra-tile:visited .defra-tile__title {
+  color: $govuk-blue;
+  text-decoration: underline;
+}
+
+.defra-tile:hover .defra-tile__title,
+.defra-tile:focus-visible .defra-tile__title {
+  color: $govuk-blue;
+  text-decoration: underline;
+}
+
+.defra-tile__body {
+  margin-bottom: 0;
+}
