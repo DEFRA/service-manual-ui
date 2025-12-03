@@ -1,0 +1,46 @@
+name: Check Pull Request
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+jobs:
+  pr-validator:
+    name: Run Pull Request Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test code and Create Test Coverage Reports
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: |
+          npm ci
+          npm run build:frontend
+          npm run format:check
+          npm run lint
+          npm test
+
+      - name: Test Docker Image Build
+        run: |
+          set +e
+          docker build --no-cache --tag cdp-node-frontend-template .
+          exit $?
+
+#      - name: SonarCloud Scan
+#        if: github.actor != 'dependabot[bot]'
+#        uses: SonarSource/sonarqube-scan-action@v5.3.1 #  (or check latest version on https://github.com/marketplace/actions/official-sonarqube-scan)
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
