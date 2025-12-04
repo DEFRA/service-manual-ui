@@ -1,10 +1,10 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import matter from 'gray-matter'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const CONTENT_DIR = path.resolve(__dirname, '../../../../src/content')
+const dirname = path.dirname(fileURLToPath(import.meta.url))
+const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
 
 export function loadContent(filename) {
   const fullPath = path.join(CONTENT_DIR, filename)

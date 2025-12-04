@@ -1,7 +1,5 @@
-// TODO move this out of src
-
 import { fileURLToPath } from 'node:url'
-import path from 'path'
+import path from 'node:path'
 import nunjucks from 'nunjucks'
 import { load } from 'cheerio'
 import { camelCase } from 'lodash'

@@ -22,6 +22,6 @@ export function setupProxy() {
 
     // global-agent (axios/request/and others)
     bootstrap()
-    global.GLOBAL_AGENT.HTTP_PROXY = proxyUrl
+    globalThis.GLOBAL_AGENT.HTTP_PROXY = proxyUrl
   }
 }

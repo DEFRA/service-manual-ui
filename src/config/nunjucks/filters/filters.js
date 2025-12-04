@@ -1,7 +1,4 @@
-import assign from 'lodash/assign.js'
-
-import { formatDate } from './format-date.js'
-import { formatCurrency } from './format-currency.js'
-import { markdown } from './markdown.js'
-
-export { assign, formatDate, formatCurrency, markdown }
+export { default as assign } from 'lodash/assign.js'
+export { formatDate } from './format-date.js'
+export { formatCurrency } from './format-currency.js'
+export { markdown } from './markdown.js'

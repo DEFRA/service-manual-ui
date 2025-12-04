@@ -3,7 +3,7 @@ import { getMarkdownPage } from './controller.js'
 export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
-    register: async (server, options) => {
+    register: async (server) => {
       server.route([
         {
           method: 'GET',
