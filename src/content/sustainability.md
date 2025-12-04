@@ -3,7 +3,11 @@ title: 15. Deliver a sustainable service
 caption: Service Standard
 description: Understand any social and environmental risks created by your service and take steps to reduce these as far as possible.
 layout: sustainability
-showSupportBox: true
+supportBox:
+  title: Get support
+  description: The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
+  items:
+    - 'Email: <a href="mailto:sustainable-it@defra.gov.uk" class="govuk-link">sustainable-it@defra.gov.uk</a>'
 ---
 
 Defra adheres to the cross-government [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard). All services must meet the standard's 14 points.

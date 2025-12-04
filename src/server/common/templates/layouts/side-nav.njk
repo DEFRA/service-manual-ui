@@ -8,6 +8,7 @@
   <div class="govuk-grid-column-three-quarters">
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     {{ content | markdown | safe }}
+    {% include "partials/support-box.njk" %}
   </div>
 </div>
 {% endblock %}
