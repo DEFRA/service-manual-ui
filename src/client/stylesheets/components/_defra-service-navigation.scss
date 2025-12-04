@@ -44,7 +44,6 @@
 
   &:hover {
     color: $govuk-white;
-    background-color: rgba(255, 255, 255, 0.1);
     text-decoration: underline;
     text-decoration-color: $govuk-white;
     text-decoration-thickness: 3px;
@@ -58,6 +57,11 @@
     color: $govuk-black;
     border-bottom-color: $govuk-black;
   }
+}
+
+// Remove left padding on first item to align with logo
+.defra-service-navigation__item:first-child .defra-service-navigation__link {
+  padding-left: 0;
 }
 
 .defra-service-navigation__link--active {
