@@ -2,7 +2,19 @@
 title: Architecture and software development
 caption: Your role at Defra
 description: Guidance on designing and building digital services at Defra.
-layout: two-thirds
+layout: section
+sectionTitle: Architecture and software development
+sectionNav:
+  - title: In this section
+    items:
+      - text: Architecture and software development
+        href: /architecture-and-software-development
+  - title: How to do this
+    items:
+      - text: Design your service
+        href: /architecture-and-software-development/design-your-service
+      - text: Common tools
+        href: /architecture-and-software-development/common-tools
 supportBox:
   title: Get support
   description: If you need help designing or building your service, contact the <strong>Delivery Architecture team</strong>.
@@ -43,27 +55,3 @@ Strategic Architecture are responsible for managing, maintaining and working wit
 Use when planning and delivering complex technical solutions within Defra Group.
 
 [View the Technology Guardrails Service SharePoint site](https://defra.sharepoint.com/teams/Team3221/SitePages/Technology-Guardrails-Service.aspx)
-
----
-
-## Core Delivery Platform
-
-Enables teams to create, deploy, run and monitor services at DEFRA.
-
-### When to use
-
-Use the documentation and guidance on the Core Delivery Platform portal when designing your service. Use the portal to create, deploy, test and monitor your microservices.
-
-[View the Core Delivery Platform portal](https://portal.cdp-int.defra.cloud/)
-
----
-
-## The Tools Radar
-
-The Tools Radar is a tool that helps teams to choose technology for their service. It is a list of tools that are available to use at Defra.
-
-### When to use
-
-Use when choosing a technology that is not recommended by the Core Delivery Platform or Software Development Standards.
-
-[View the Tools Radar Jira board](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630)

@@ -4,13 +4,12 @@
 
 .defra-header {
   background-color: $govuk-white;
-  border-bottom: 1px solid $govuk-mid-grey;
 }
 
 .defra-header__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -21,9 +20,7 @@
 }
 
 .defra-header__brand-group {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: contents;
 }
 
 .defra-header__logo-link {
@@ -42,7 +39,8 @@
 }
 
 .defra-header__service-name {
-  font-family: 'GDS Transport', arial, sans-serif;
+  justify-self: center;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 22px;
@@ -97,20 +95,24 @@
 
 .defra-header-search__button {
   border: 0;
-  border-left: 1px solid $govuk-black;
-  background-color: $govuk-light-grey;
+  border-left: 1px solid $defra-dark-green;
+  background-color: $defra-dark-green;
   padding: 0;
   width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  &:hover {
+    background-color: $defra-green;
+  }
 }
 
 .defra-header-search__icon {
   width: 16px;
   height: 16px;
-  stroke: $govuk-black;
+  stroke: $govuk-white;
   fill: none;
 }
 

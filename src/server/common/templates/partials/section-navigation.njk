@@ -1,0 +1,15 @@
+<nav class="app-sub-navigation" aria-label="Sub navigation">
+  {% for section in sectionNav %}
+  <h3 class="app-subnav__header">{{ section.title }}</h3>
+  <ul class="app-subnav__list">
+    {% for item in section.items %}
+    <li class="app-subnav__item">
+      <a class="app-subnav__link{% if currentUrl == item.href %} app-subnav__link--current{% endif %}" href="{{ item.href }}"{% if currentUrl == item.href %} aria-current="page"{% endif %}>
+        {{ item.text }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</nav>
+

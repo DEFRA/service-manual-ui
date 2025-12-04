@@ -24,15 +24,16 @@
           class="defra-header__logo"
         />
       </a>
-      <a href="/service-manual" class="defra-header__service-name">Digital service manual</a>
+      <a href="/" class="defra-header__service-name">Digital service manual</a>
     </div>
     {% include "partials/header-search.njk" %}
   </div>
 </header>
+{% include "partials/service-navigation.njk" %}
 {% endblock %}
 
 {% block pageTitle %}
-  {{ pageTitle }} | {{ serviceName }}
+  {{ pageTitle or title }} | {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -46,24 +47,7 @@
 {% block content %}{% endblock %}
 
 {% block footer %}
-  {{ govukFooter({
-    meta: {
-      items: [
-        {
-          href: "https://www.gov.uk/help/privacy-notice",
-          text: "Privacy"
-        },
-        {
-          href: "https://www.gov.uk/help/cookies",
-          text: "Cookies"
-        },
-        {
-          href: "https://www.gov.uk/help/accessibility-statement",
-          text: "Accessibility statement"
-        }
-      ]
-    }
-  }) }}
+  {% include "partials/footer.njk" %}
 {% endblock %}
 
 {% block bodyEnd %}

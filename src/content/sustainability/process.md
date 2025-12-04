@@ -2,7 +2,21 @@
 title: Assess risk and write statements
 caption: How to meet the standard
 description: There are three broad steps services need to go through.
-layout: sustainability
+layout: section
+sectionTitle: Sustainability
+sectionNav:
+  - title: In this section
+    items:
+      - text: Deliver a sustainable service
+        href: /sustainability
+      - text: Defra's six objectives
+        href: /sustainability/objectives
+  - title: How to do this
+    items:
+      - text: Assess risk and write statements
+        href: /sustainability/process
+      - text: Measure sustainability
+        href: /sustainability/metrics
 ---
 
 ## 1. Risk evaluation

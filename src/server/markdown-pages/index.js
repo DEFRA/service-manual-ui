@@ -12,8 +12,27 @@ export const markdownPages = {
         },
         {
           method: 'GET',
+          path: '/service-assessments',
+          handler: getMarkdownPage('service-assessments.md')
+        },
+        {
+          method: 'GET',
           path: '/architecture-and-software-development',
           handler: getMarkdownPage('architecture-and-software-development.md')
+        },
+        {
+          method: 'GET',
+          path: '/architecture-and-software-development/design-your-service',
+          handler: getMarkdownPage(
+            'architecture-and-software-development/design-your-service.md'
+          )
+        },
+        {
+          method: 'GET',
+          path: '/architecture-and-software-development/common-tools',
+          handler: getMarkdownPage(
+            'architecture-and-software-development/common-tools.md'
+          )
         },
         {
           method: 'GET',

@@ -2,7 +2,21 @@
 title: 15. Deliver a sustainable service
 caption: Service Standard
 description: Understand any social and environmental risks created by your service and take steps to reduce these as far as possible.
-layout: sustainability
+layout: section
+sectionTitle: Sustainability
+sectionNav:
+  - title: In this section
+    items:
+      - text: Deliver a sustainable service
+        href: /sustainability
+      - text: Defra's six objectives
+        href: /sustainability/objectives
+  - title: How to do this
+    items:
+      - text: Assess risk and write statements
+        href: /sustainability/process
+      - text: Measure sustainability
+        href: /sustainability/metrics
 supportBox:
   title: Get support
   description: The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
