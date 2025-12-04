@@ -21,19 +21,7 @@
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body-l">{{ description }}</p>
     {{ content | markdown | safe }}
-
-    {% if showSupportBox %}
-    <div class="defra-support-box">
-      <h3 class="govuk-heading-m">Get support</h3>
-      <p class="govuk-body">
-        The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
-      </p>
-      <ul class="govuk-list">
-        <li>Email: <a href="mailto:sustainable-it@defra.gov.uk" class="govuk-link">sustainable-it@defra.gov.uk</a></li>
-      </ul>
-    </div>
-    {% endif %}
+    {% include "partials/support-box.njk" %}
   </div>
 </div>
 {% endblock %}
-

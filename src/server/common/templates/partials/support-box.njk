@@ -1,0 +1,16 @@
+{% if supportBox %}
+<div class="defra-support-box">
+  <h3 class="govuk-heading-m">{{ supportBox.title | default('Get support') }}</h3>
+  {% if supportBox.description %}
+  <p class="govuk-body">{{ supportBox.description | safe }}</p>
+  {% endif %}
+  {% if supportBox.items %}
+  <ul class="govuk-list">
+    {% for item in supportBox.items %}
+    <li>{{ item | safe }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endif %}
+

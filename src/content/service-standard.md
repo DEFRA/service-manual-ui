@@ -3,6 +3,11 @@ title: Service standard
 caption: Standards
 description: The 15 points of the Service Standard with Defra context.
 layout: two-thirds
+supportBox:
+  title: Get support
+  description: If you need help understanding the Service Standard or preparing for assessments, contact the <strong>Service Assessment team</strong>.
+  items:
+    - 'Email: <a href="mailto:service.assessment@defra.gov.uk" class="govuk-link">service.assessment@defra.gov.uk</a>'
 ---
 
 ## 1. Understand users and their needs
