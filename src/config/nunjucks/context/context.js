@@ -18,7 +18,7 @@ export function context(request) {
   if (!webpackManifest) {
     try {
       webpackManifest = JSON.parse(readFileSync(manifestPath, 'utf-8'))
-    } catch (error) {
+    } catch {
       logger.error(`Webpack ${path.basename(manifestPath)} not found`)
     }
   }

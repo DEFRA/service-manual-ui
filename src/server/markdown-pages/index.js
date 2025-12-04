@@ -3,7 +3,7 @@ import { getMarkdownPage } from './controller.js'
 export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
-    register: async (server, options) => {
+    register: async (server) => {
       server.route([
         {
           method: 'GET',
@@ -34,9 +34,28 @@ export const markdownPages = {
           method: 'GET',
           path: '/working-with-defra',
           handler: getMarkdownPage('working-with-defra.md')
+        },
+        {
+          method: 'GET',
+          path: '/sustainability',
+          handler: getMarkdownPage('sustainability.md')
+        },
+        {
+          method: 'GET',
+          path: '/sustainability/objectives',
+          handler: getMarkdownPage('sustainability/objectives.md')
+        },
+        {
+          method: 'GET',
+          path: '/sustainability/process',
+          handler: getMarkdownPage('sustainability/process.md')
+        },
+        {
+          method: 'GET',
+          path: '/sustainability/metrics',
+          handler: getMarkdownPage('sustainability/metrics.md')
         }
       ])
     }
   }
 }
-

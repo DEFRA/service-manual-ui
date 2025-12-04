@@ -1,0 +1,39 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    { text: "Defra Service Manual", href: "/service-manual" },
+    { text: "Sustainability" }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  
+  <div class="govuk-grid-column-one-third">
+    {% include "partials/sustainability-navigation.njk" %}
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-xl">{{ caption }}</span>
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body-l">{{ description }}</p>
+    {{ content | markdown | safe }}
+
+    {% if showSupportBox %}
+    <div class="defra-support-box">
+      <h3 class="govuk-heading-m">Get support</h3>
+      <p class="govuk-body">
+        The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
+      </p>
+      <ul class="govuk-list">
+        <li>Email: <a href="mailto:sustainable-it@defra.gov.uk" class="govuk-link">sustainable-it@defra.gov.uk</a></li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+

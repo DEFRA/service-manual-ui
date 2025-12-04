@@ -10,7 +10,7 @@ permissions:
 
 env:
   AWS_REGION: eu-west-2
-  AWS_ACCOUNT_ID: "094954420758"
+  AWS_ACCOUNT_ID: '094954420758'
 
 jobs:
   build:
@@ -38,7 +38,6 @@ jobs:
         uses: DEFRA/cdp-build-action/build-hotfix@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
 #      - name: SonarCloud Scan
 #        uses: SonarSource/sonarqube-scan-action@v5.3.1 #  (or check latest version on https://github.com/marketplace/actions/official-sonarqube-scan)
 #        env:

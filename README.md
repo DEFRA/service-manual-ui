@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_service-manual-ui&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DEFRA_service-manual-ui)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_service-manual-ui&metric=coverage)](https://sonarcloud.io/summary/new_code?id=DEFRA_service-manual-ui)
 
-Core delivery platform Node.js Frontend Template.
+Digital service manual
 
 - [Requirements](#requirements)
   - [Node.js](#nodejs)

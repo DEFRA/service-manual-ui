@@ -29,7 +29,9 @@ describe('#markdownPagesController', () => {
         url: '/architecture-and-software-development'
       })
 
-      expect(result).toEqual(expect.stringContaining('Architecture and software development'))
+      expect(result).toEqual(
+        expect.stringContaining('Architecture and software development')
+      )
     })
 
     test('Should render markdown content as HTML', async () => {
@@ -39,7 +41,9 @@ describe('#markdownPagesController', () => {
       })
 
       // Check that markdown headings are converted to HTML
-      expect(result).toEqual(expect.stringContaining('Software development standards'))
+      expect(result).toEqual(
+        expect.stringContaining('Software development standards')
+      )
     })
   })
 
@@ -107,4 +111,3 @@ describe('#markdownPagesController', () => {
     })
   })
 })
-

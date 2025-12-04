@@ -18,7 +18,9 @@ describe('#loadContent', () => {
     })
 
     test('Should return markdown content as string', () => {
-      const { content } = loadContent('architecture-and-software-development.md')
+      const { content } = loadContent(
+        'architecture-and-software-development.md'
+      )
 
       expect(typeof content).toBe('string')
       expect(content.length).toBeGreaterThan(0)
@@ -33,4 +35,3 @@ describe('#loadContent', () => {
     })
   })
 })
-

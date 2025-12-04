@@ -13,12 +13,36 @@ md.use(markdownItGovuk, {
 })
 
 // Custom render for hr to add govuk class
-md.renderer.rules.hr = (tokens, idx, options, env, self) => {
+md.renderer.rules.hr = () => {
   return '<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--xl">'
 }
 
-export function markdown(content) {
-  if (!content) return ''
-  return md.render(content)
+// Custom render for links - external links open in new tab
+const defaultLinkRender =
+  md.renderer.rules.link_open ||
+  function (_tokens, _idx, _options, _env, self) {
+    return self.renderToken(_tokens, _idx, _options)
+  }
+
+md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
+  const token = tokens[idx]
+  const hrefIndex = token.attrIndex('href')
+
+  if (hrefIndex >= 0) {
+    const href = token.attrs[hrefIndex][1]
+    // Check if external link (starts with http:// or https://)
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      token.attrPush(['target', '_blank'])
+      token.attrPush(['rel', 'noreferrer noopener'])
+    }
+  }
+
+  return defaultLinkRender(tokens, idx, options, _env, self)
 }
 
+export function markdown(content) {
+  if (!content) {
+    return ''
+  }
+  return md.render(content)
+}
