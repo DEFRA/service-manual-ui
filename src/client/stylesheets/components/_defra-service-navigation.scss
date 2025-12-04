@@ -1,0 +1,250 @@
+@use '../variables/colours' as *;
+
+.defra-service-navigation {
+  background-color: $defra-dark-green;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.defra-service-navigation__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.defra-service-navigation__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.defra-service-navigation__item {
+  position: relative;
+}
+
+.defra-service-navigation__link {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 4px solid transparent;
+
+  &,
+  &:link,
+  &:visited {
+    color: $govuk-white;
+  }
+
+  &:hover {
+    color: $govuk-white;
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
+    text-decoration-color: $govuk-white;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.1em;
+  }
+
+  &:focus {
+    outline: 3px solid $govuk-yellow;
+    outline-offset: 0;
+    background-color: $govuk-yellow;
+    color: $govuk-black;
+    border-bottom-color: $govuk-black;
+  }
+}
+
+.defra-service-navigation__link--active {
+  border-bottom-color: $govuk-white;
+}
+
+// Dropdown styles
+.defra-service-navigation__item--has-dropdown {
+  &:hover .defra-service-navigation__dropdown,
+  &:focus-within .defra-service-navigation__dropdown {
+    display: block;
+  }
+}
+
+.defra-service-navigation__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  min-width: 300px;
+  background-color: $govuk-white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid $defra-dark-green;
+}
+
+.defra-service-navigation__dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.defra-service-navigation__dropdown-item {
+  border-bottom: 1px solid $govuk-light-grey;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.defra-service-navigation__dropdown-link {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: $govuk-black;
+
+  &:hover {
+    background-color: $govuk-light-grey;
+  }
+
+  &:focus {
+    outline: 3px solid $govuk-yellow;
+    outline-offset: -3px;
+    background-color: $govuk-yellow;
+  }
+}
+
+.defra-service-navigation__dropdown-title {
+  display: block;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-weight: 700;
+  color: $govuk-blue;
+  margin-bottom: 4px;
+
+  .defra-service-navigation__dropdown-link:hover & {
+    text-decoration: underline;
+    text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+  }
+}
+
+.defra-service-navigation__dropdown-description {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: $govuk-black;
+}
+
+// Mobile toggle button
+.defra-service-navigation__toggle {
+  display: none;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: transparent;
+  border: none;
+  color: $govuk-white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 8px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $govuk-white;
+    vertical-align: middle;
+  }
+
+  &[aria-expanded='true']::after {
+    border-top: none;
+    border-bottom: 5px solid $govuk-white;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:focus {
+    outline: 3px solid $govuk-yellow;
+    outline-offset: 0;
+    background-color: $govuk-yellow;
+    color: $govuk-black;
+
+    &::after {
+      border-top-color: $govuk-black;
+    }
+
+    &[aria-expanded='true']::after {
+      border-bottom-color: $govuk-black;
+    }
+  }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+  .defra-service-navigation__toggle {
+    display: block;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .defra-service-navigation__list {
+    display: none;
+    flex-direction: column;
+
+    &.defra-service-navigation__list--open {
+      display: flex;
+    }
+  }
+
+  .defra-service-navigation__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .defra-service-navigation__link {
+    padding: 12px 16px;
+  }
+
+  .defra-service-navigation__dropdown {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    background-color: rgba(0, 0, 0, 0.1);
+    min-width: auto;
+  }
+
+  .defra-service-navigation__item--has-dropdown {
+    .defra-service-navigation__dropdown {
+      display: block;
+    }
+  }
+
+  .defra-service-navigation__dropdown-link {
+    padding: 12px 16px 12px 32px;
+    color: $govuk-white;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .defra-service-navigation__dropdown-title {
+    color: $govuk-white;
+  }
+
+  .defra-service-navigation__dropdown-description {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

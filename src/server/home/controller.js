@@ -1,17 +1,7 @@
 /**
- * A GDS styled example home page controller.
- * Provided as an example, remove or modify as required.
+ * Service manual home page controller.
  */
 export const homeController = {
-  handler(_request, h) {
-    return h.view('home/index', {
-      pageTitle: 'Home',
-      heading: 'Home'
-    })
-  }
-}
-
-export const serviceManualController = {
   handler(_request, h) {
     return h.view('home/service-manual', {
       pageTitle: 'Service Manual',
