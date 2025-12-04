@@ -6,7 +6,7 @@ export const getMarkdownPage = (filename) => {
       const { meta, content } = loadContent(filename)
       const layout = meta.layout || 'page' // Default to page if not specified, though prompt implies specific layouts
       const template = `common/templates/layouts/${layout}.njk`
-      
+
       return h.view(template, {
         ...meta,
         content,
@@ -19,4 +19,3 @@ export const getMarkdownPage = (filename) => {
     }
   }
 }
-

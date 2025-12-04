@@ -8,7 +8,7 @@ const CONTENT_DIR = path.resolve(__dirname, '../../../../src/content')
 
 export function loadContent(filename) {
   const fullPath = path.join(CONTENT_DIR, filename)
-  
+
   if (!fs.existsSync(fullPath)) {
     throw new Error(`Content file not found: ${filename}`)
   }
@@ -21,4 +21,3 @@ export function loadContent(filename) {
     content
   }
 }
-

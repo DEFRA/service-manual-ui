@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+# Directory Purposes
+
+| Directory | Purpose |
+|-----------|---------|
+| `src/client/` | Frontend assets - images, JavaScript, and SCSS stylesheets |
+| `src/client/stylesheets/components/` | Defra-specific component styles (header, tiles, navigation, layout) |
+| `src/config/` | Application and template engine configuration |
+| `src/config/nunjucks/filters/` | Custom Nunjucks filters including the markdown renderer |
+| `src/content/` | **Markdown content files** - edit these to update page content |
+| `src/server/` | Backend Hapi.js server modules |
+| `src/server/common/templates/layouts/` | Page layout templates (base, side-nav, two-thirds) |
+| `src/server/common/templates/partials/` | Reusable template fragments (navigation, search) |
+| `src/server/common/helpers/` | Server utilities including the content loader |
+| `src/server/markdown-pages/` | Controller for rendering markdown content pages |
+| `src/server/home/` | Home and service manual landing page |

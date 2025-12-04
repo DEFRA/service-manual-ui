@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+
+- Always prefer simple solutions
+- Consider the impact on tests
+- Make components reusable
+- Apply layouts consistenly where possible using inheritance
+- Avoid duplicate logic in controllers
