@@ -15,20 +15,25 @@ createAll(Header)
 createAll(Radios)
 createAll(SkipLink)
 
-// Service navigation mobile toggle
-function initServiceNavigation() {
+/**
+ * Service navigation mobile toggle
+ * Shows/hides the navigation menu on mobile devices
+ */
+export function initServiceNavigation() {
   const toggleButton = document.querySelector('.js-service-navigation-toggle')
   const navList = document.getElementById('service-navigation-list')
 
-  if (toggleButton && navList) {
-    toggleButton.hidden = false
-
-    toggleButton.addEventListener('click', function () {
-      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true'
-      toggleButton.setAttribute('aria-expanded', !isExpanded)
-      navList.classList.toggle('defra-service-navigation__list--open')
-    })
+  if (!toggleButton || !navList) {
+    return
   }
+
+  toggleButton.hidden = false
+
+  toggleButton.addEventListener('click', function () {
+    const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true'
+    toggleButton.setAttribute('aria-expanded', String(!isExpanded))
+    navList.classList.toggle('defra-service-navigation__list--open')
+  })
 }
 
 initServiceNavigation()
