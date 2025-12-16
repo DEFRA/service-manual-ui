@@ -83,8 +83,8 @@ Services undergoing Defra Service Assessments will receive a red, amber, or gree
 
 The RAG rating should reflect the level of confidence that the assessor has that the project has taken or plans to take the actions on sustainability that is within their gift, given the constraints faced.
 
-| Rating | Qualification |
-|--------|---------------|
-| Green | The service team have taken, or are planning to take, the majority of the meaningful sustainability actions possible given the context and constraints faced |
-| Amber | The service team have taken, or are planning to take, a number of the meaningful sustainability actions possible given the context and constraints faced |
-| Red | The service team have not taken, or are not planning to take any meaningful sustainability actions possible given the context and constraints faced |
+| Rating | Qualification                                                                                                                                                |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Green  | The service team have taken, or are planning to take, the majority of the meaningful sustainability actions possible given the context and constraints faced |
+| Amber  | The service team have taken, or are planning to take, a number of the meaningful sustainability actions possible given the context and constraints faced     |
+| Red    | The service team have not taken, or are not planning to take any meaningful sustainability actions possible given the context and constraints faced          |
