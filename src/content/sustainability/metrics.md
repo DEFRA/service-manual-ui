@@ -19,11 +19,8 @@ sectionNav:
         href: /sustainability/metrics
 ---
 
-We do not currently expect services to have developed a carbon metric. Many meaningful sustainability actions can be taken without measurement.
+While we have a clear ambition for Defra services to be tracking their carbon footprint, you don't need to be measuring the carbon footprint of your service straight away.
 
-For example:
+If data is not available, then we expect services to lay out the metrics that they would be measuring (such as carbon per user transaction).
 
-- reducing data capture and storage
-- turning off environments when not in use
-- reusing components rather than developing them from scratch
-- ensuring hardware is treated in as circular a manner as possible
+Many meaningful sustainability actions can be taken without measurement, such as reducing data capture and storage, turning off environments when not in use, re-using components rather than developing them from scratch, and ensuring that any hardware is treated in as circular a manner as possible.

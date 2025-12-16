@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { readFileSync } from 'node:fs'
+import { readFileSync, statSync } from 'node:fs'
 
 import { config } from '../../config.js'
 import { buildNavigation } from './build-navigation.js'
@@ -11,16 +11,31 @@ const manifestPath = path.join(
   config.get('root'),
   '.public/assets-manifest.json'
 )
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 let webpackManifest
+let manifestMtime = 0
 
-export function context(request) {
-  if (!webpackManifest) {
-    try {
+function loadManifest() {
+  try {
+    const stats = statSync(manifestPath)
+    // Only reload if file has changed (or is new)
+    if (!webpackManifest || stats.mtimeMs !== manifestMtime) {
       webpackManifest = JSON.parse(readFileSync(manifestPath, 'utf-8'))
-    } catch {
+      manifestMtime = stats.mtimeMs
+    }
+  } catch {
+    if (!webpackManifest) {
       logger.error(`Webpack ${path.basename(manifestPath)} not found`)
     }
+  }
+}
+
+export function context(request) {
+  // In development, always check for updated manifest
+  // In production, only load once for performance
+  if (isDevelopment || !webpackManifest) {
+    loadManifest()
   }
 
   return {
