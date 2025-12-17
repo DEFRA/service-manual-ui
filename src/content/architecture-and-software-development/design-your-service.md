@@ -13,8 +13,12 @@ sectionNav:
     items:
       - text: Design your service
         href: /architecture-and-software-development/design-your-service
-      - text: Common tools
+  - title: Common tools
+    items:
+      - text: Overview
         href: /architecture-and-software-development/common-tools
+      - text: Defra Customer Identity
+        href: /architecture-and-software-development/defra-customer-identity
 supportBox:
   title: Get support
   description: If you need help designing your service, contact the <strong>Delivery Architecture team</strong>.

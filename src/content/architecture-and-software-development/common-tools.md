@@ -13,8 +13,12 @@ sectionNav:
     items:
       - text: Design your service
         href: /architecture-and-software-development/design-your-service
-      - text: Common tools
+  - title: Common tools
+    items:
+      - text: Overview
         href: /architecture-and-software-development/common-tools
+      - text: Defra Customer Identity
+        href: /architecture-and-software-development/defra-customer-identity
 supportBox:
   title: Get support
   description: If you need help choosing tools for your service, contact the <strong>Delivery Architecture team</strong>.
@@ -30,8 +34,8 @@ Defra provides a set of common tools and platforms to help teams meet [Service S
 
 ## Common tools
 
-| Tool                                                                                                                                                                         | What to use it for                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [Core Delivery Platform](https://portal.cdp-int.defra.cloud/)                                                                                                                | To create, deploy, test and monitor services at Defra.                                                     |
-| [Defra Customer Identity](https://defra.sharepoint.com/sites/Community3868/SitePages/Customer%20Identity.aspx?csf=1&web=1&e=1R5BUF&cid=132dae20-48e4-4518-969d-2984c9932fa6) | To allow users to sign in once and access multiple Defra services.                                         |
-| [Defra Forms](https://defra.github.io/forms-engine-plugin/)                                                                                                                  | To create accessible, GOV.UK-styled forms without writing code. Forms are hosted and maintained centrally. |
+| Tool                                                                                      | What to use it for                                                                                         |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| [Core Delivery Platform](https://portal.cdp-int.defra.cloud/)                             | To create, deploy, test and monitor services at Defra.                                                     |
+| [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | To allow users to sign in once and access multiple Defra services.                                         |
+| [Defra Forms](https://defra.github.io/forms-engine-plugin/)                               | To create accessible, GOV.UK-styled forms without writing code. Forms are hosted and maintained centrally. |

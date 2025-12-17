@@ -36,6 +36,13 @@ export const markdownPages = {
         },
         {
           method: 'GET',
+          path: '/architecture-and-software-development/defra-customer-identity',
+          handler: getMarkdownPage(
+            'architecture-and-software-development/defra-customer-identity.md'
+          )
+        },
+        {
+          method: 'GET',
           path: '/accessibility',
           handler: getMarkdownPage('accessibility.md')
         },
