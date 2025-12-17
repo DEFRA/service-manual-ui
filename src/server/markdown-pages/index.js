@@ -1,87 +1,36 @@
 import { getMarkdownPage } from './controller.js'
 
+/**
+ * Markdown page routes - maps URL paths to markdown files
+ */
+const markdownRoutes = [
+  '/service-standard',
+  '/service-assessments',
+  '/architecture-and-software-development',
+  '/architecture-and-software-development/design-your-service',
+  '/architecture-and-software-development/common-tools',
+  '/architecture-and-software-development/defra-customer-identity',
+  '/accessibility',
+  '/components',
+  '/patterns',
+  '/working-with-defra',
+  '/sustainability',
+  '/sustainability/objectives',
+  '/sustainability/process',
+  '/sustainability/metrics'
+]
+
 export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
     register: async (server) => {
-      server.route([
-        {
-          method: 'GET',
-          path: '/service-standard',
-          handler: getMarkdownPage('service-standard.md')
-        },
-        {
-          method: 'GET',
-          path: '/service-assessments',
-          handler: getMarkdownPage('service-assessments.md')
-        },
-        {
-          method: 'GET',
-          path: '/architecture-and-software-development',
-          handler: getMarkdownPage('architecture-and-software-development.md')
-        },
-        {
-          method: 'GET',
-          path: '/architecture-and-software-development/design-your-service',
-          handler: getMarkdownPage(
-            'architecture-and-software-development/design-your-service.md'
-          )
-        },
-        {
-          method: 'GET',
-          path: '/architecture-and-software-development/common-tools',
-          handler: getMarkdownPage(
-            'architecture-and-software-development/common-tools.md'
-          )
-        },
-        {
-          method: 'GET',
-          path: '/architecture-and-software-development/defra-customer-identity',
-          handler: getMarkdownPage(
-            'architecture-and-software-development/defra-customer-identity.md'
-          )
-        },
-        {
-          method: 'GET',
-          path: '/accessibility',
-          handler: getMarkdownPage('accessibility.md')
-        },
-        {
-          method: 'GET',
-          path: '/components',
-          handler: getMarkdownPage('components.md')
-        },
-        {
-          method: 'GET',
-          path: '/patterns',
-          handler: getMarkdownPage('patterns.md')
-        },
-        {
-          method: 'GET',
-          path: '/working-with-defra',
-          handler: getMarkdownPage('working-with-defra.md')
-        },
-        {
-          method: 'GET',
-          path: '/sustainability',
-          handler: getMarkdownPage('sustainability.md')
-        },
-        {
-          method: 'GET',
-          path: '/sustainability/objectives',
-          handler: getMarkdownPage('sustainability/objectives.md')
-        },
-        {
-          method: 'GET',
-          path: '/sustainability/process',
-          handler: getMarkdownPage('sustainability/process.md')
-        },
-        {
-          method: 'GET',
-          path: '/sustainability/metrics',
-          handler: getMarkdownPage('sustainability/metrics.md')
-        }
-      ])
+      const routes = markdownRoutes.map((path) => ({
+        method: 'GET',
+        path,
+        handler: getMarkdownPage(`${path.slice(1)}.md`)
+      }))
+
+      server.route(routes)
     }
   }
 }
