@@ -5,14 +5,18 @@ export const serveStaticFiles = {
   plugin: {
     name: 'staticFiles',
     register(server) {
+      const cacheConfig = config.get('isDevelopment')
+        ? false
+        : {
+            expiresIn: config.get('staticCacheTimeout'),
+            privacy: 'private'
+          }
+
       server.route([
         {
           options: {
             auth: false,
-            cache: {
-              expiresIn: config.get('staticCacheTimeout'),
-              privacy: 'private'
-            }
+            cache: cacheConfig
           },
           method: 'GET',
           path: '/favicon.ico',
@@ -23,10 +27,7 @@ export const serveStaticFiles = {
         {
           options: {
             auth: false,
-            cache: {
-              expiresIn: config.get('staticCacheTimeout'),
-              privacy: 'private'
-            }
+            cache: cacheConfig
           },
           method: 'GET',
           path: `${config.get('assetPath')}/{param*}`,

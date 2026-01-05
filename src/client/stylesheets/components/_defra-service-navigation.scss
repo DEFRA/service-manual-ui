@@ -66,6 +66,10 @@
 
 .defra-service-navigation__link--active {
   border-bottom-color: $govuk-white;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 // Dropdown styles

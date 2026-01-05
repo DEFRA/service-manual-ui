@@ -11,6 +11,8 @@ const markdownRoutes = [
   '/architecture-and-software-development/common-tools',
   '/architecture-and-software-development/defra-customer-identity',
   '/accessibility',
+  '/accessibility/manage-accessibility',
+  '/accessibility/test-for-accessibility',
   '/components',
   '/patterns',
   '/working-with-defra',
