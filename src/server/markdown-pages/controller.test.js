@@ -42,7 +42,7 @@ describe('#markdownPagesController', () => {
 
       // Check that markdown headings are converted to HTML
       expect(result).toEqual(
-        expect.stringContaining('Software development standards')
+        expect.stringContaining('Defra software development standards')
       )
     })
   })

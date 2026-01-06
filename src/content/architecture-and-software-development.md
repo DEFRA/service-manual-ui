@@ -9,16 +9,14 @@ sectionNav:
     items:
       - text: Architecture and software development
         href: /architecture-and-software-development
-  - title: How to do this
-    items:
-      - text: Design your service
-        href: /architecture-and-software-development/design-your-service
   - title: Common tools
     items:
-      - text: Overview
-        href: /architecture-and-software-development/common-tools
+      - text: Core Delivery Platform
+        href: /architecture-and-software-development/core-delivery-platform
       - text: Defra Customer Identity
         href: /architecture-and-software-development/defra-customer-identity
+      - text: Defra Accessible Maps
+        href: /architecture-and-software-development/defra-accessible-maps
 supportBox:
   title: Get support
   description: If you need help designing or building your service, contact the <strong>Delivery Architecture team</strong>.
@@ -26,60 +24,45 @@ supportBox:
     - 'Email: <a href="mailto:delivery.architecture@defra.gov.uk" class="govuk-link">delivery.architecture@defra.gov.uk</a>'
 ---
 
-## Software development standards
+This guidance extends the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology).
 
-Standards and guidance that apply to all software development undertaken on behalf of the Defra group, whether by staff, contingent workers or suppliers. All developers working on behalf of Defra need to be aware of their obligation to follow these standards.
+## Getting started
 
-### When to use
+To get started you should:
 
-Use throughout the development lifecycle. Any deviation must be managed as an exception under Defra's architectural governance processes.
+- Contact the [Delivery Architecture team](https://defra.sharepoint.com/teams/Team3221/SitePages/Nav-Delivery-Architecture.aspx) to discuss your service. They will help you architect your service and understand governance requirements
+- Read the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/) documentation to understand the technology and processes of Defra's internal developer platform
+- Decide if the Core Delivery Platform is right for your service
+- Read and follow the [Defra software development standards](https://defra.github.io/software-development-standards/)
 
-[View the software development standards (opens in new tab)](https://defra.github.io/software-development-standards/)
+## Languages and code
 
----
+Frontend digital services at Defra are developed in Node.JS using JavaScript and the HAPI framework. Backend services are developed in Node.JS or Microsoft's .NET if you are building on top of commercial software products.
 
-## Delivery architecture
+Store all code in the [Defra GitHub organisation](https://github.com/DEFRA).
 
-The Delivery Architecture team ensures the successful and effective delivery of complex solutions within Defra Group. The team focuses on designing, planning, and overseeing the technical aspects of project delivery, aiming to create technology solutions that deliver business goals and requirements effectively, efficiently and sustainably.
+Exceptions to this should be managed through Delivery Architecture governance process.
 
-### When to use
+## Documentation
 
-Use when planning and delivering complex technical solutions within Defra Group.
+Every GitHub repository must have a README file in its root and follow the [README standards.](https://defra.github.io/software-development-standards/standards/readme_standards/)
 
-[View the Delivery Architecture SharePoint site (opens in new tab)](https://defra.sharepoint.com/teams/Team3221/SitePages/Nav-Delivery-Architecture.aspx)
+You must maintain the following documentation about your digital service
 
----
+- An overview of the solution
+- Architecture decision records
+- Diagrams
 
-## Technology guardrails service
+## Common tools
 
-Strategic Architecture are responsible for managing, maintaining and working with others to develop and design guardrails to support consistent, cost-effective, sustainable and efficient delivery.
+Defra provides a set of common tools and platforms to help teams focus on solving users problems.
 
-### When to use
+| Tool                                                                                      | What to use it for                                                 |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)   | To create, deploy, test and monitor services at Defra.             |
+| [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | To allow users to sign in once and access multiple Defra services. |
+| [Defra Accessible Maps](/architecture-and-software-development/defra-accessible-maps)     | To create accessible, GOV.UK-styled frontend maps.                 |
 
-Use when planning and delivering complex technical solutions within Defra Group.
+## Approved technologies
 
-[View the Technology Guardrails Service SharePoint site (opens in new tab)](https://defra.sharepoint.com/teams/Team3221/SitePages/Technology-Guardrails-Service.aspx)
-
----
-
-## Core Delivery Platform
-
-Enables teams to create, deploy, run and monitor services at DEFRA.
-
-### When to use
-
-Use the documentation and guidance on the Core Delivery Platform portal when designing your service. Use the portal to create, deploy, test and monitor your microservices.
-
-[View the Core Delivery Platform portal (opens in new tab)](https://portal.cdp-int.defra.cloud/)
-
----
-
-## The Tools Radar
-
-The Tools Radar is a tool that helps teams to choose technology for their service. It is a list of tools that are available to use at Defra.
-
-### When to use
-
-Use when choosing a technology that is not recommended by the Core Delivery Platform or Software Development Standards.
-
-[View the Tools Radar Jira board (opens in new tab)](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630)
+If you require additional technology, you can review approved technologies and request new technologies using the [Defra Tools Radar on Jira](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630).
