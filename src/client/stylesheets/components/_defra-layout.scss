@@ -60,7 +60,7 @@
 // ===== Version banner =====
 
 .defra-version-banner {
-  margin: 20px 0 32px;
+  margin: 20px -15px 32px;
   padding: 15px 20px;
   border: 1px solid $govuk-mid-grey;
   background-color: $govuk-light-grey;
@@ -115,13 +115,20 @@
 
 .defra-section {
   margin-top: 40px;
+
+  // Align headings and body with the tiles and version banner
+  .govuk-heading-l,
+  .govuk-heading-m:not(.defra-tile__title),
+  .govuk-body {
+    margin-left: -15px;
+  }
 }
 
 .defra-section:first-of-type {
   margin-top: 0;
 }
 
-.defra-section > .govuk-body {
+.defra-section>.govuk-body {
   margin-bottom: 12px;
 }
 
