@@ -6,6 +6,9 @@ import { getMarkdownPage } from './controller.js'
 const markdownRoutes = [
   '/service-standard',
   '/service-assessments',
+  '/service-assessments/book-an-assessment',
+  '/service-assessments/become-an-assessor',
+  '/service-assessments/gov-uk-exemptions',
   '/architecture-and-software-development',
   '/architecture-and-software-development/core-delivery-platform',
   '/architecture-and-software-development/defra-customer-identity',
