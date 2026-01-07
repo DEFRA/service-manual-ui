@@ -11,4 +11,4 @@ coverage
 tsconfig.tsbuildinfo
 .env
 temp_prompts/
-.claude/
+.claude
