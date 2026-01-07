@@ -1,9 +1,0 @@
----
-description: Git Workflow Reminders
-globs: 
----
-
-# Git Workflow
-
-- **Always pull from main** before starting a new task to ensure you are working on the latest version and minimize conflicts.
-- `git pull origin main`
