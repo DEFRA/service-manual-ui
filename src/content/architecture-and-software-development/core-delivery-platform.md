@@ -32,6 +32,6 @@ The Core Delivery Platform is Defra's internal development platform. It provides
 
 To get started and decide if the platform is right for your service, you should:
 
-- Read the [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
-- Read the [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
-- Read the relevant [how to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
+- read the [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
+- read the [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
+- read the relevant [how to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
