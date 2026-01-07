@@ -30,39 +30,34 @@ This guidance extends the [GOV.UK Service Standard](https://www.gov.uk/service-m
 
 To get started you should:
 
-- Contact the [Delivery Architecture team](https://defra.sharepoint.com/teams/Team3221/SitePages/Nav-Delivery-Architecture.aspx) to discuss your service. They will help you architect your service and understand governance requirements
-- Read the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/) documentation to understand the technology and processes of Defra's internal developer platform
-- Decide if the Core Delivery Platform is right for your service
-- Read and follow the [Defra software development standards](https://defra.github.io/software-development-standards/)
+1. Contact the [Delivery Architecture team](https://defra.sharepoint.com/teams/Team3221/SitePages/Nav-Delivery-Architecture.aspx).
+   - tell them what you are building
+   - they will help you architect your service and explain governance requirements
+2. Get access to the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/).
+   - you will need to use a Defra device or VPN
+   - this is Defra's internal developer platform for building, deploying and running services
+   - most services should use this platform
+3. Review the [Defra software development standards](https://defra.github.io/software-development-standards/).
+   - these are mandatory and exceptions are handled through the Delivery Architecture governance process
+4. Decide if the Core Delivery Platform is right for your service.
+   - read the [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
+   - read the [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
+   - read the relevant [how to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
 
-## Languages and code
+## Recommended approach
 
-Frontend digital services at Defra are developed in Node.JS using JavaScript and the HAPI framework. Backend services are developed in Node.JS or Microsoft's .NET if you are building on top of commercial software products.
+Follow these guidelines to deliver services that meet user needs faster and more cost-effectively.
 
-Store all code in the [Defra GitHub organisation](https://github.com/DEFRA).
-
-Exceptions to this should be managed through Delivery Architecture governance process.
-
-## Documentation
-
-Every GitHub repository must have a README file in its root and follow the [README standards.](https://defra.github.io/software-development-standards/standards/readme_standards/)
-
-You must maintain the following documentation about your digital service
-
-- An overview of the solution
-- Architecture decision records
-- Diagrams
-
-## Common tools
-
-Defra provides a set of common tools and platforms to help teams focus on solving users problems.
-
-| Tool                                                                                      | What to use it for                                                 |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)   | To create, deploy, test and monitor services at Defra.             |
-| [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | To allow users to sign in once and access multiple Defra services. |
-| [Defra Accessible Maps](/architecture-and-software-development/defra-accessible-maps)     | To create accessible, GOV.UK-styled frontend maps.                 |
+- build on the Core Delivery Platform
+- use Node.js with the hapi framework for frontend services
+- use vanilla JavaScript
+- use Node.js or .NET for backend services
+- store code in the [Defra GitHub organisation](https://github.com/DEFRA)
+- use [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) for external authentication and authorisation
+- use [Defra Accessible Maps](/architecture-and-software-development/defra-accessible-maps) if your service includes mapping
+- follow Defra's [README standards](https://defra.github.io/software-development-standards/standards/readme_standards/)
+- maintain solution overview documentation, architecture decision records and architecture diagrams
 
 ## Approved technologies
 
-If you require additional technology, you can review approved technologies and request new technologies using the [Defra Tools Radar on Jira](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630).
+If you need additional technology, you can review approved technologies and request new ones using the [Defra Tools Radar on Jira](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630).
