@@ -3,28 +3,27 @@
 // ===== Search autocomplete styling =====
 // Customises accessible-autocomplete to match Defra header design
 
-.defra-header-search__wrapper {
-  position: relative;
-  flex: 1;
-}
-
-// Override accessible-autocomplete input styling
+// Override accessible-autocomplete wrapper styling
+// The parent .defra-header-search__wrapper dimensions are set in _defra-header.scss
 .defra-header-search__wrapper .autocomplete__wrapper {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
+// Override accessible-autocomplete input styling to match original input
 .defra-header-search__wrapper .autocomplete__input {
   border: 0;
   box-shadow: none;
   width: 100%;
-  max-width: 100%;
+  height: 100%;
   padding: 6px 10px;
   font-size: 16px;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  height: auto;
+  box-sizing: border-box;
 
   &:focus {
     outline: none;

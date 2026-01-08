@@ -84,18 +84,23 @@
   background-color: $govuk-white;
 }
 
-// Search input wrapper - ensures consistent width during JS initialisation
+// Search input wrapper - ensures consistent dimensions during JS initialisation
+// The wrapper has fixed dimensions so the container doesn't resize when
+// accessible-autocomplete replaces the input element
 .defra-header-search__wrapper {
   width: 220px;
+  height: 34px;
+  position: relative;
 }
 
 .defra-header-search__input {
   border: 0;
   box-shadow: none;
   width: 100%;
-  max-width: 100%;
+  height: 100%;
   padding: 6px 10px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 .defra-header-search__button {
