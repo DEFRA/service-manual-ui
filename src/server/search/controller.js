@@ -4,6 +4,8 @@ import {
   getSearchIndex
 } from '../common/helpers/search-index.js'
 
+const MAX_AUTOCOMPLETE_SUGGESTIONS = 5
+
 /**
  * Search results page controller
  */
@@ -29,7 +31,9 @@ export const searchController = {
 export const searchSuggestionsController = {
   handler(request) {
     const query = request.query.q || ''
-    const suggestions = query ? getSuggestions(query, 5) : []
+    const suggestions = query
+      ? getSuggestions(query, MAX_AUTOCOMPLETE_SUGGESTIONS)
+      : []
 
     return suggestions
   }

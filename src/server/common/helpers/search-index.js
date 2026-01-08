@@ -7,6 +7,22 @@ const dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
 
 /**
+ * Search scoring weights
+ */
+const SCORE_WEIGHTS = {
+  TITLE_MATCH: 100,
+  SECTION_MATCH: 50,
+  DESCRIPTION_MATCH: 30,
+  HEADING_MATCH: 20,
+  CONTENT_MATCH: 10,
+  TITLE_PHRASE_BOOST: 50,
+  DESCRIPTION_PHRASE_BOOST: 20
+}
+
+const DEFAULT_RESULT_LIMIT = 20
+const DEFAULT_SUGGESTION_LIMIT = 5
+
+/**
  * Recursively find all markdown files in a directory
  * @param {string} dir - Directory to search
  * @param {string} basePath - Base path for URL generation
@@ -37,28 +53,17 @@ function findMarkdownFiles(dir, basePath = '') {
  * @returns {string} Plain text content
  */
 function extractText(markdown) {
-  return (
-    markdown
-      // Remove code blocks
-      .replace(/```[\s\S]*?```/g, '')
-      // Remove inline code
-      .replace(/`[^`]+`/g, '')
-      // Remove links but keep text
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-      // Remove images
-      .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
-      // Remove headers markdown but keep text
-      .replace(/^#{1,6}\s+/gm, '')
-      // Remove bold/italic
-      .replace(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1')
-      // Remove horizontal rules
-      .replace(/^[-*_]{3,}\s*$/gm, '')
-      // Remove HTML tags
-      .replace(/<[^>]+>/g, '')
-      // Normalise whitespace
-      .replace(/\s+/g, ' ')
-      .trim()
-  )
+  return markdown
+    .replaceAll(/```[\s\S]*?```/g, '') // Remove code blocks
+    .replaceAll(/`[^`]+`/g, '') // Remove inline code
+    .replaceAll(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Remove links but keep text
+    .replaceAll(/!\[[^\]]*\]\([^)]+\)/g, '') // Remove images
+    .replaceAll(/^#{1,6}\s+/gm, '') // Remove headers markdown but keep text
+    .replaceAll(/[*_]{1,3}([^*_]+)[*_]{1,3}/g, '$1') // Remove bold/italic
+    .replaceAll(/^[-*_]{3,}\s*$/gm, '') // Remove horizontal rules
+    .replaceAll(/<[^>]+>/g, '') // Remove HTML tags
+    .replaceAll(/\s+/g, ' ') // Normalise whitespace
+    .trim()
 }
 
 /**
@@ -124,17 +129,68 @@ export function getSearchIndex() {
 }
 
 /**
+ * Calculate match score for a single entry against query terms
+ * @param {Object} entry - Search index entry
+ * @param {string[]} queryTerms - Array of search terms
+ * @param {string} queryLower - Full query in lowercase
+ * @returns {{score: number, matched: boolean}} Score and match status
+ */
+function calculateEntryScore(entry, queryTerms, queryLower) {
+  const titleLower = entry.title.toLowerCase()
+  const descriptionLower = entry.description.toLowerCase()
+  const sectionLower = entry.sectionTitle.toLowerCase()
+  const headingsLower = entry.headings.join(' ').toLowerCase()
+  const contentLower = entry.content.toLowerCase()
+
+  let score = 0
+  let matched = false
+
+  for (const term of queryTerms) {
+    if (titleLower.includes(term)) {
+      score += SCORE_WEIGHTS.TITLE_MATCH
+      matched = true
+    }
+    if (sectionLower.includes(term)) {
+      score += SCORE_WEIGHTS.SECTION_MATCH
+      matched = true
+    }
+    if (descriptionLower.includes(term)) {
+      score += SCORE_WEIGHTS.DESCRIPTION_MATCH
+      matched = true
+    }
+    if (headingsLower.includes(term)) {
+      score += SCORE_WEIGHTS.HEADING_MATCH
+      matched = true
+    }
+    if (contentLower.includes(term)) {
+      score += SCORE_WEIGHTS.CONTENT_MATCH
+      matched = true
+    }
+  }
+
+  // Boost exact phrase matches
+  if (titleLower.includes(queryLower)) {
+    score += SCORE_WEIGHTS.TITLE_PHRASE_BOOST
+  }
+  if (descriptionLower.includes(queryLower)) {
+    score += SCORE_WEIGHTS.DESCRIPTION_PHRASE_BOOST
+  }
+
+  return { score, matched }
+}
+
+/**
  * Search the index for matching results
  * @param {string} query - Search query
  * @param {number} limit - Maximum results to return
  * @returns {Object[]} Matching search results
  */
-export function searchContent(query, limit = 20) {
+export function searchContent(query, limit = DEFAULT_RESULT_LIMIT) {
   if (!query || typeof query !== 'string') {
     return []
   }
 
-  const searchIndex = getSearchIndex()
+  const searchIdx = getSearchIndex()
   const queryLower = query.toLowerCase().trim()
   const queryTerms = queryLower.split(/\s+/).filter(Boolean)
 
@@ -144,51 +200,12 @@ export function searchContent(query, limit = 20) {
 
   const results = []
 
-  for (const entry of searchIndex) {
-    const titleLower = entry.title.toLowerCase()
-    const descriptionLower = entry.description.toLowerCase()
-    const sectionLower = entry.sectionTitle.toLowerCase()
-    const headingsLower = entry.headings.join(' ').toLowerCase()
-    const contentLower = entry.content.toLowerCase()
-
-    let score = 0
-    let matched = false
-
-    for (const term of queryTerms) {
-      // Title matches score highest
-      if (titleLower.includes(term)) {
-        score += 100
-        matched = true
-      }
-      // Section title matches
-      if (sectionLower.includes(term)) {
-        score += 50
-        matched = true
-      }
-      // Description matches
-      if (descriptionLower.includes(term)) {
-        score += 30
-        matched = true
-      }
-      // Heading matches
-      if (headingsLower.includes(term)) {
-        score += 20
-        matched = true
-      }
-      // Content matches
-      if (contentLower.includes(term)) {
-        score += 10
-        matched = true
-      }
-    }
-
-    // Boost exact phrase matches
-    if (titleLower.includes(queryLower)) {
-      score += 50
-    }
-    if (descriptionLower.includes(queryLower)) {
-      score += 20
-    }
+  for (const entry of searchIdx) {
+    const { score, matched } = calculateEntryScore(
+      entry,
+      queryTerms,
+      queryLower
+    )
 
     if (matched) {
       results.push({
@@ -213,6 +230,6 @@ export function searchContent(query, limit = 20) {
  * @param {number} limit - Maximum suggestions to return
  * @returns {Object[]} Suggested results for autocomplete
  */
-export function getSuggestions(query, limit = 5) {
+export function getSuggestions(query, limit = DEFAULT_SUGGESTION_LIMIT) {
   return searchContent(query, limit)
 }

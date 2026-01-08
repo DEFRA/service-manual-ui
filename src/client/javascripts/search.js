@@ -1,6 +1,19 @@
 import accessibleAutocomplete from 'accessible-autocomplete'
 
 /**
+ * Search scoring weights
+ */
+const SCORE_WEIGHTS = {
+  TITLE_MATCH: 100,
+  SECTION_MATCH: 50,
+  DESCRIPTION_MATCH: 30,
+  EXACT_PHRASE_BOOST: 50
+}
+
+const MIN_QUERY_LENGTH = 2
+const MAX_SUGGESTIONS = 5
+
+/**
  * Search index cache
  * @type {Array|null}
  */
@@ -29,13 +42,51 @@ async function fetchSearchIndex() {
 }
 
 /**
+ * Calculate match score for a single entry against query terms
+ * @param {Object} entry - Search index entry
+ * @param {string[]} queryTerms - Array of search terms
+ * @param {string} queryLower - Full query in lowercase
+ * @returns {{score: number, matched: boolean}} Score and match status
+ */
+function calculateEntryScore(entry, queryTerms, queryLower) {
+  const titleLower = entry.title.toLowerCase()
+  const descriptionLower = (entry.description || '').toLowerCase()
+  const sectionLower = (entry.sectionTitle || '').toLowerCase()
+
+  let score = 0
+  let matched = false
+
+  for (const term of queryTerms) {
+    if (titleLower.includes(term)) {
+      score += SCORE_WEIGHTS.TITLE_MATCH
+      matched = true
+    }
+    if (sectionLower.includes(term)) {
+      score += SCORE_WEIGHTS.SECTION_MATCH
+      matched = true
+    }
+    if (descriptionLower.includes(term)) {
+      score += SCORE_WEIGHTS.DESCRIPTION_MATCH
+      matched = true
+    }
+  }
+
+  // Boost exact phrase matches
+  if (titleLower.includes(queryLower)) {
+    score += SCORE_WEIGHTS.EXACT_PHRASE_BOOST
+  }
+
+  return { score, matched }
+}
+
+/**
  * Search the index for matching results
  * @param {string} query - Search query
- * @param {Array} index - Search index
+ * @param {Array} searchData - Search index
  * @returns {Array} Matching results
  */
-function searchInIndex(query, index) {
-  if (!query || query.length < 2) {
+function searchInIndex(query, searchData) {
+  if (!query || query.length < MIN_QUERY_LENGTH) {
     return []
   }
 
@@ -48,33 +99,12 @@ function searchInIndex(query, index) {
 
   const results = []
 
-  for (const entry of index) {
-    const titleLower = entry.title.toLowerCase()
-    const descriptionLower = (entry.description || '').toLowerCase()
-    const sectionLower = (entry.sectionTitle || '').toLowerCase()
-
-    let score = 0
-    let matched = false
-
-    for (const term of queryTerms) {
-      if (titleLower.includes(term)) {
-        score += 100
-        matched = true
-      }
-      if (sectionLower.includes(term)) {
-        score += 50
-        matched = true
-      }
-      if (descriptionLower.includes(term)) {
-        score += 30
-        matched = true
-      }
-    }
-
-    // Boost exact phrase matches
-    if (titleLower.includes(queryLower)) {
-      score += 50
-    }
+  for (const entry of searchData) {
+    const { score, matched } = calculateEntryScore(
+      entry,
+      queryTerms,
+      queryLower
+    )
 
     if (matched) {
       results.push({ ...entry, score })
@@ -84,7 +114,7 @@ function searchInIndex(query, index) {
   // Sort by score descending
   results.sort((a, b) => b.score - a.score)
 
-  return results.slice(0, 5)
+  return results.slice(0, MAX_SUGGESTIONS)
 }
 
 /**
@@ -99,9 +129,9 @@ export async function initSearch() {
   }
 
   // Fetch the search index
-  const index = await fetchSearchIndex()
+  const indexData = await fetchSearchIndex()
 
-  if (index.length === 0) {
+  if (indexData.length === 0) {
     // If no index, keep the basic search form working
     return
   }
@@ -119,38 +149,42 @@ export async function initSearch() {
     name: 'q',
     placeholder: 'Search',
     showNoOptionsFound: false,
-    minLength: 2,
+    minLength: MIN_QUERY_LENGTH,
     defaultValue: existingValue,
     source: (query, populateResults) => {
-      const results = searchInIndex(query, index)
+      const results = searchInIndex(query, indexData)
       populateResults(results.map((r) => r.title))
     },
     templates: {
       inputValue: (result) => result,
       suggestion: (result) => {
-        if (!result) return ''
+        if (!result) {
+          return ''
+        }
         // Find the full result object to get the section title
-        const match = index.find((item) => item.title === result)
-        if (match && match.sectionTitle) {
+        const match = indexData.find((item) => item.title === result)
+        if (match?.sectionTitle) {
           return `<span class="defra-search-suggestion__title">${result}</span><span class="defra-search-suggestion__section">${match.sectionTitle}</span>`
         }
         return result
       }
     },
     onConfirm: (selected) => {
-      if (!selected) return
+      if (!selected) {
+        return
+      }
 
       // Find the matching result and navigate to it
-      const match = index.find((item) => item.title === selected)
-      if (match && match.url) {
-        window.location.href = match.url
+      const match = indexData.find((item) => item.title === selected)
+      if (match?.url) {
+        globalThis.location.href = match.url
       }
     },
     tStatusQueryTooShort: (minQueryLength) =>
       `Type ${minQueryLength} or more characters for suggestions`,
     tStatusNoResults: () => 'No suggestions found',
-    tStatusSelectedOption: (selectedOption, length, index) =>
-      `${selectedOption} (${index + 1} of ${length}) is highlighted`,
+    tStatusSelectedOption: (selectedOption, length, position) =>
+      `${selectedOption} (${position + 1} of ${length}) is highlighted`,
     tStatusResults: (length, contentSelectedOption) => {
       const suffix = length === 1 ? 'suggestion' : 'suggestions'
       return `${length} ${suffix} available. ${contentSelectedOption}`

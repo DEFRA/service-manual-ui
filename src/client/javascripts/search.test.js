@@ -192,11 +192,12 @@ describe('initSearch', () => {
 
   describe('onConfirm callback', () => {
     test('should navigate to selected result URL', async () => {
-      // Mock window.location
+      // Mock globalThis.location
       const locationMock = { href: '' }
-      Object.defineProperty(window, 'location', {
+      Object.defineProperty(globalThis, 'location', {
         value: locationMock,
-        writable: true
+        writable: true,
+        configurable: true
       })
 
       await initSearch()
@@ -210,9 +211,10 @@ describe('initSearch', () => {
 
     test('should not navigate when selection is null', async () => {
       const locationMock = { href: '/original' }
-      Object.defineProperty(window, 'location', {
+      Object.defineProperty(globalThis, 'location', {
         value: locationMock,
-        writable: true
+        writable: true,
+        configurable: true
       })
 
       await initSearch()
@@ -226,9 +228,10 @@ describe('initSearch', () => {
 
     test('should not navigate when selection not found in index', async () => {
       const locationMock = { href: '/original' }
-      Object.defineProperty(window, 'location', {
+      Object.defineProperty(globalThis, 'location', {
         value: locationMock,
-        writable: true
+        writable: true,
+        configurable: true
       })
 
       await initSearch()
