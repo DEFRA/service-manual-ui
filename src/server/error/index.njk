@@ -1,13 +1,33 @@
 {% extends 'layouts/page.njk' %}
 
-{% block content %}
-  {{ appHeading({
-    text: heading
-  }) }}
+{% block beforeContent %}
+  {# No breadcrumbs on error pages as per GOV.UK guidance #}
+{% endblock %}
 
-  <div class="govuk-grid-row">
+{% block content %}
+  <div class="govuk-grid-row govuk-!-margin-top-6">
     <div class="govuk-grid-column-two-thirds">
-      <p>{{ message }}</p>
+      <h1 class="govuk-heading-xl">{{ heading }}</h1>
+
+      {% if statusCode == 404 %}
+        <p class="govuk-body">If you typed the web address, check it is correct.</p>
+        <p class="govuk-body">If you pasted the web address, check you copied the entire address.</p>
+        <p class="govuk-body">You can <a href="/" class="govuk-link">return to the home page</a> or use the search to find what you need.</p>
+      {% elif statusCode == 403 %}
+        <p class="govuk-body">You do not have permission to view this page.</p>
+        <p class="govuk-body">If you think you should have access, contact your administrator.</p>
+        <p class="govuk-body">You can <a href="/" class="govuk-link">return to the home page</a>.</p>
+      {% elif statusCode == 401 %}
+        <p class="govuk-body">You need to sign in to access this page.</p>
+        <p class="govuk-body">You can <a href="/" class="govuk-link">return to the home page</a>.</p>
+      {% elif statusCode == 400 %}
+        <p class="govuk-body">Check the web address and try again.</p>
+        <p class="govuk-body">You can <a href="/" class="govuk-link">return to the home page</a>.</p>
+      {% else %}
+        {# 500 and other server errors #}
+        <p class="govuk-body">Try again later.</p>
+        <p class="govuk-body">You can <a href="/" class="govuk-link">return to the home page</a> and try what you were doing again.</p>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
