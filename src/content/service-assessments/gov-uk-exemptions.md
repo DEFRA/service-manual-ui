@@ -2,7 +2,21 @@
 title: GOV.UK exemptions
 caption: Service assessments
 description: Understand when a service should be on GOV.UK and how to request an exemption.
-layout: two-thirds
+layout: section
+sectionTitle: Service assessments
+sectionNav:
+  - title: In this section
+    items:
+      - text: Service assessments
+        href: /service-assessments
+  - title: How to do this
+    items:
+      - text: Book an assessment
+        href: /service-assessments/book-an-assessment
+      - text: Become an assessor
+        href: /service-assessments/become-an-assessor
+      - text: GOV.UK exemptions
+        href: /service-assessments/gov-uk-exemptions
 ---
 
 All new digital services must be designed for hosting on GOV.UK and meet the [Service Standard](https://www.gov.uk/service-manual/service-standard).

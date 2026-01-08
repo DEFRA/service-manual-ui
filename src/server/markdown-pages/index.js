@@ -22,7 +22,9 @@ const markdownRoutes = [
   '/sustainability',
   '/sustainability/objectives',
   '/sustainability/process',
-  '/sustainability/metrics'
+  '/sustainability/metrics',
+  '/suggest-content',
+  '/take-part-in-research'
 ]
 
 export const markdownPages = {
