@@ -1,20 +1,33 @@
 import { statusCodes } from '../constants/status-codes.js'
 
-function statusCodeMessage(statusCode) {
+/**
+ * Get user-friendly heading for error status codes
+ * Following GOV.UK Design System guidance - no technical jargon or error codes
+ * @param {number} statusCode - HTTP status code
+ * @returns {string} User-friendly error heading
+ */
+function getErrorHeading(statusCode) {
   switch (statusCode) {
     case statusCodes.notFound:
       return 'Page not found'
     case statusCodes.forbidden:
-      return 'Forbidden'
+      return 'Access denied'
     case statusCodes.unauthorized:
-      return 'Unauthorized'
+      return 'Sign in required'
     case statusCodes.badRequest:
-      return 'Bad Request'
+      return 'Bad request'
     default:
-      return 'Something went wrong'
+      return 'Sorry, there is a problem with the service'
   }
 }
 
+/**
+ * Hapi onPreResponse extension to catch and render error pages
+ * Follows GOV.UK Design System error page patterns
+ * @param {object} request - Hapi request object
+ * @param {object} h - Hapi response toolkit
+ * @returns {object} Rendered error view or continue
+ */
 export function catchAll(request, h) {
   const { response } = request
 
@@ -23,7 +36,7 @@ export function catchAll(request, h) {
   }
 
   const statusCode = response.output.statusCode
-  const errorMessage = statusCodeMessage(statusCode)
+  const heading = getErrorHeading(statusCode)
 
   if (statusCode >= statusCodes.internalServerError) {
     request.logger.error(response?.stack)
@@ -31,9 +44,9 @@ export function catchAll(request, h) {
 
   return h
     .view('error/index', {
-      pageTitle: errorMessage,
-      heading: statusCode,
-      message: errorMessage
+      pageTitle: heading,
+      heading,
+      statusCode
     })
     .code(statusCode)
 }
