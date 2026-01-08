@@ -1,0 +1,66 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    { text: "Defra Service Manual", href: "/" },
+    { text: "Search results" }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">{{ heading }}</h1>
+
+    {% if query %}
+      <p class="govuk-body-l">
+        {% if resultsCount === 0 %}
+          No results found for <strong>"{{ query }}"</strong>
+        {% elif resultsCount === 1 %}
+          <strong>1</strong> result found for <strong>"{{ query }}"</strong>
+        {% else %}
+          <strong>{{ resultsCount }}</strong> results found for <strong>"{{ query }}"</strong>
+        {% endif %}
+      </p>
+
+      {% if resultsCount > 0 %}
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <div class="defra-search-results">
+          {% for result in results %}
+            <div class="defra-search-results__item">
+              <h2 class="govuk-heading-m">
+                <a href="{{ result.url }}" class="govuk-link">{{ result.title }}</a>
+              </h2>
+              {% if result.sectionTitle %}
+                <p class="govuk-body-s defra-search-results__section">{{ result.sectionTitle }}</p>
+              {% endif %}
+              {% if result.description %}
+                <p class="govuk-body">{{ result.description }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h2 class="govuk-heading-m">Suggestions</h2>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Check your spelling</li>
+          <li>Try different keywords</li>
+          <li>Try more general keywords</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">Browse the manual</h2>
+        <p class="govuk-body">
+          You can also <a href="/" class="govuk-link">browse the service manual</a> to find what you are looking for.
+        </p>
+      {% endif %}
+    {% else %}
+      <p class="govuk-body-l">Enter a search term to find content in the service manual.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

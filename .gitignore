@@ -13,3 +13,4 @@ tsconfig.tsbuildinfo
 temp_prompts/
 .cursor
 .claude
+CLAUDE.md

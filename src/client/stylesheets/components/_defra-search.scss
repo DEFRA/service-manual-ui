@@ -1,0 +1,153 @@
+@use '../variables/colours' as *;
+
+// ===== Search autocomplete styling =====
+// Customises accessible-autocomplete to match Defra header design
+
+.defra-header-search__wrapper {
+  position: relative;
+  flex: 1;
+}
+
+// Override accessible-autocomplete input styling
+.defra-header-search__wrapper .autocomplete__wrapper {
+  position: relative;
+}
+
+.defra-header-search__wrapper .autocomplete__input {
+  border: 0;
+  box-shadow: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 6px 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  height: auto;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &::placeholder {
+    color: #505a5f;
+  }
+}
+
+.defra-header-search__wrapper .autocomplete__menu {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  right: -41px; // Account for the search button width + border
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: $govuk-white;
+  border: 1px solid $govuk-black;
+  border-top: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.defra-header-search__wrapper .autocomplete__menu--visible {
+  display: block;
+}
+
+.defra-header-search__wrapper .autocomplete__menu--hidden {
+  display: none;
+}
+
+.defra-header-search__wrapper .autocomplete__option {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: $govuk-black;
+  border-bottom: 1px solid #b1b4b6;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.defra-header-search__wrapper .autocomplete__option:hover,
+.defra-header-search__wrapper .autocomplete__option--focused {
+  background-color: #f3f2f1;
+  outline: none;
+}
+
+.defra-header-search__wrapper .autocomplete__option--no-results {
+  color: #505a5f;
+  font-style: italic;
+  cursor: default;
+
+  &:hover {
+    background-color: $govuk-white;
+  }
+}
+
+// Search suggestion templates
+.defra-search-suggestion__title {
+  display: block;
+  font-weight: 700;
+  color: $defra-dark-green;
+}
+
+.defra-search-suggestion__section {
+  display: block;
+  font-size: 14px;
+  color: #505a5f;
+  margin-top: 2px;
+}
+
+// Visually hidden hint (for screen readers)
+.defra-header-search__wrapper .autocomplete__hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Status message (for screen readers)
+.defra-header-search__wrapper .autocomplete__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// ===== Search results page styling =====
+
+.defra-search-results__item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #b1b4b6;
+
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.defra-search-results__item h2 {
+  margin-bottom: 5px;
+}
+
+.defra-search-results__section {
+  color: #505a5f;
+  margin-bottom: 10px;
+}

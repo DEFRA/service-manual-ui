@@ -3,15 +3,18 @@
   role="search"
   action="/search"
   method="get">
-  <label class="govuk-visually-hidden" for="defra-search">
-    Search the manual
-  </label>
-  <input
-    class="govuk-input defra-header-search__input"
-    id="defra-search"
-    name="q"
-    type="search"
-    placeholder="Search">
+  <div class="defra-header-search__wrapper" id="search-autocomplete-container">
+    <label class="govuk-visually-hidden" for="defra-search">
+      Search the manual
+    </label>
+    <input
+      class="govuk-input defra-header-search__input"
+      id="defra-search"
+      name="q"
+      type="search"
+      placeholder="Search"
+      autocomplete="off">
+  </div>
   <button
     class="defra-header-search__button"
     type="submit">
