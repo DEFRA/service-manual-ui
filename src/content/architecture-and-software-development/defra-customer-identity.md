@@ -15,6 +15,8 @@ sectionNav:
         href: /architecture-and-software-development/core-delivery-platform
       - text: Defra Customer Identity
         href: /architecture-and-software-development/defra-customer-identity
+      - text: Defra Forms
+        href: /architecture-and-software-development/defra-forms
       - text: Defra Accessible Maps
         href: /architecture-and-software-development/defra-accessible-maps
 supportBox:

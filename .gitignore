@@ -12,3 +12,4 @@ tsconfig.tsbuildinfo
 .env
 temp_prompts/
 .cursor
+.claude
