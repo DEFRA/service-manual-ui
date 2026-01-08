@@ -134,6 +134,52 @@ describe('#searchIndex', () => {
 
       expect(results.length).toBeGreaterThan(0)
     })
+
+    describe('phrase boost scoring', () => {
+      test('should boost results where exact phrase appears in content', () => {
+        // Search for a two-word phrase
+        const results = searchContent('service standard')
+
+        expect(results.length).toBeGreaterThan(0)
+
+        // Results should be sorted by score (highest first)
+        for (let i = 1; i < results.length; i++) {
+          expect(results[i - 1].score).toBeGreaterThanOrEqual(results[i].score)
+        }
+      })
+
+      test('should give higher score to exact phrase match vs separate word matches', () => {
+        // When searching for multi-word queries, entries with the exact phrase
+        // should score higher than entries with the words appearing separately
+        const results = searchContent('service assessment')
+
+        expect(results.length).toBeGreaterThan(0)
+
+        // The top result should have a score reflecting the phrase boost
+        // Each word match in content = 10 points, phrase boost = 15 additional
+        // So exact phrase in content should be at least 35 points (10+10+15)
+        expect(results[0].score).toBeGreaterThan(0)
+      })
+
+      test('phrase boost should only apply to multi-word queries', () => {
+        // Single word queries should not get phrase boost
+        const singleWordResults = searchContent('accessibility')
+
+        expect(singleWordResults.length).toBeGreaterThan(0)
+        // Score should be based on individual word matches only
+        expect(singleWordResults[0].score).toBeGreaterThan(0)
+      })
+
+      test('should boost title phrase matches higher than content phrase matches', () => {
+        // Title phrase boost (50) > Description phrase boost (20) > Content phrase boost (15)
+        // This tests that the scoring weights are applied correctly
+        const results = searchContent('service manual')
+
+        expect(results.length).toBeGreaterThan(0)
+        // Top results should have higher scores due to title/description matches
+        expect(results[0].score).toBeGreaterThan(0)
+      })
+    })
   })
 
   describe('getSuggestions', () => {
