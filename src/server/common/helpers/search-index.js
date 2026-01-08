@@ -40,6 +40,8 @@ function findMarkdownFiles(dir, basePath = '') {
       files.push(...findMarkdownFiles(fullPath, relativePath))
     } else if (entry.name.endsWith('.md')) {
       files.push(relativePath)
+    } else {
+      // Non-markdown files are intentionally skipped
     }
   }
 
