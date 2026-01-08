@@ -84,10 +84,15 @@
   background-color: $govuk-white;
 }
 
+// Search input wrapper - ensures consistent width during JS initialisation
+.defra-header-search__wrapper {
+  width: 220px;
+}
+
 .defra-header-search__input {
   border: 0;
   box-shadow: none;
-  width: 220px;
+  width: 100%;
   max-width: 100%;
   padding: 6px 10px;
   font-size: 16px;
