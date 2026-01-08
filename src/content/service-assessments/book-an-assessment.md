@@ -2,7 +2,21 @@
 title: Book an assessment
 caption: Service assessments
 description: How to book a service assessment and what information you need to provide.
-layout: two-thirds
+layout: section
+sectionTitle: Service assessments
+sectionNav:
+  - title: In this section
+    items:
+      - text: Service assessments
+        href: /service-assessments
+  - title: How to do this
+    items:
+      - text: Book an assessment
+        href: /service-assessments/book-an-assessment
+      - text: Become an assessor
+        href: /service-assessments/become-an-assessor
+      - text: GOV.UK exemptions
+        href: /service-assessments/gov-uk-exemptions
 ---
 
 Service assessments are performed by either:
