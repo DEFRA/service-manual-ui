@@ -45,6 +45,7 @@
     "@hapi/scooter": "7.0.0",
     "@hapi/vision": "7.0.3",
     "@hapi/yar": "11.0.3",
+    "accessible-autocomplete": "3.0.1",
     "aws-embedded-metrics": "4.2.0",
     "blankie": "5.0.0",
     "convict": "6.2.4",

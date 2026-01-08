@@ -8,6 +8,8 @@ import {
   SkipLink
 } from 'govuk-frontend'
 
+import { initSearch } from './search.js'
+
 createAll(Button)
 createAll(Checkboxes)
 createAll(ErrorSummary)
@@ -37,3 +39,4 @@ export function initServiceNavigation() {
 }
 
 initServiceNavigation()
+initSearch()
