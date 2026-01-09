@@ -69,6 +69,8 @@ jobs:
         with:
           configPath: ./lighthouserc.json
           uploadArtifacts: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
       - name: Format Lighthouse results
         id: format
@@ -90,6 +92,8 @@ jobs:
             ${{ steps.format.outputs.table }}
 
             > 🟢 90-100 | 🟠 50-89 | 🔴 0-49
+
+            [Download detailed HTML reports](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
 
   # SonarCloud scan - runs in parallel after pr-validator
   sonarcloud:
