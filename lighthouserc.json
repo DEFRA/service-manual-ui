@@ -9,7 +9,9 @@
         "http://localhost:3000/service-standard",
         "http://localhost:3000/architecture-and-software-development"
       ],
-      "numberOfRuns": 3,
+      "numberOfRuns": 2,
+      "startServerCommand": "NODE_ENV=production PORT=3000 SESSION_CACHE_ENGINE=memory npm start",
+      "startServerReadyPattern": "Server started successfully",
       "settings": {
         "chromeFlags": "--no-sandbox --headless=new"
       }
@@ -23,8 +25,7 @@
       }
     },
     "upload": {
-      "target": "filesystem",
-      "outputDir": "./lhci-report"
+      "target": "temporary-public-storage"
     }
   }
 }
