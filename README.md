@@ -8,6 +8,7 @@ Digital service manual
 
 - [Requirements](#requirements)
   - [Node.js](#nodejs)
+- [Documentation](#documentation)
 - [Server-side Caching](#server-side-caching)
 - [Redis](#redis)
 - [Local Development](#local-development)
@@ -40,6 +41,12 @@ To use the correct version of Node.js for this application, via nvm:
 cd service-manual-ui
 nvm use
 ```
+
+## Documentation
+
+Technical documentation for specific features can be found in the [docs](./docs) folder:
+
+- [Search functionality](./docs/search.md) - How the search and autocomplete works
 
 ## Server-side Caching
 
