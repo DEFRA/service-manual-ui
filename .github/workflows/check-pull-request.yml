@@ -38,6 +38,31 @@ jobs:
           docker build --no-cache --tag cdp-node-frontend-template .
           exit $?
 
+      # Lighthouse CI - runs performance, accessibility, best-practices, and SEO audits
+      # URLs are explicitly listed in lighthouserc.json to test key pages:
+      # - Homepage, main section pages, and search functionality
+      # To tighten thresholds: change "warn" to "error" in lighthouserc.json assertions
+      - name: Install Lighthouse CI dependencies
+        run: npm install --no-save @lhci/cli wait-on
+
+      - name: Start production server for Lighthouse
+        run: |
+          # Start server in background with CI-safe configuration
+          NODE_ENV=production PORT=3000 SESSION_CACHE_ENGINE=memory npm start &
+          # Wait for server to be ready (timeout after 60 seconds)
+          npx wait-on http://localhost:3000 --timeout 60000
+
+      - name: Run Lighthouse CI
+        run: npx lhci autorun
+
+      - name: Upload Lighthouse reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-reports
+          path: ./lhci-report
+          retention-days: 14
+
       - name: SonarCloud Scan
         if: github.actor != 'dependabot[bot]'
         uses: SonarSource/sonarqube-scan-action@v5.3.1 #  (or check latest version on https://github.com/marketplace/actions/official-sonarqube-scan)
