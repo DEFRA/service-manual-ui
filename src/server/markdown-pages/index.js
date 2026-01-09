@@ -27,7 +27,10 @@ const markdownRoutes = [
   '/suggest-content',
   '/take-part-in-research',
   '/business-analysis',
-  '/business-analysis/ways-of-working'
+  '/business-analysis/ways-of-working',
+  '/product-and-delivery',
+  '/product-and-delivery/governance',
+  '/product-and-delivery/tools-and-access'
 ]
 
 export const markdownPages = {
