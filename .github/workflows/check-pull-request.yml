@@ -70,15 +70,26 @@ jobs:
           configPath: ./lighthouserc.json
           uploadArtifacts: true
 
-      - name: Write Lighthouse summary
+      - name: Format Lighthouse results
+        id: format
         run: |
-          echo "## Lighthouse Results" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Page | Performance | Accessibility | Best Practices | SEO |" >> $GITHUB_STEP_SUMMARY
-          echo "|------|-------------|---------------|----------------|-----|" >> $GITHUB_STEP_SUMMARY
-          echo '${{ steps.lighthouse.outputs.manifest }}' | jq -r '.[] | "| `\(.url | split("localhost:3000") | .[1] // "/")` | \((.summary.performance * 100) | floor) | \((.summary.accessibility * 100) | floor) | \((.summary["best-practices"] * 100) | floor) | \((.summary.seo * 100) | floor) |"' >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "> Scores: 🟢 90-100 (good) | 🟠 50-89 (needs improvement) | 🔴 0-49 (poor)" >> $GITHUB_STEP_SUMMARY
+          ROWS=$(echo '${{ steps.lighthouse.outputs.manifest }}' | jq -r '.[] | "| `\(.url | split("localhost:3000") | .[1] // "/")` | \((.summary.performance * 100) | floor) | \((.summary.accessibility * 100) | floor) | \((.summary["best-practices"] * 100) | floor) | \((.summary.seo * 100) | floor) |"')
+          echo "table<<EOF" >> $GITHUB_OUTPUT
+          echo "$ROWS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: lighthouse
+          message: |
+            ## Lighthouse Results
+
+            | Page | Performance | Accessibility | Best Practices | SEO |
+            |------|-------------|---------------|----------------|-----|
+            ${{ steps.format.outputs.table }}
+
+            > 🟢 90-100 | 🟠 50-89 | 🔴 0-49
 
   # SonarCloud scan - runs in parallel after pr-validator
   sonarcloud:
