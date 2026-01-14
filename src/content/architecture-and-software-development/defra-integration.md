@@ -1,7 +1,7 @@
 ---
-title: Defra Accessible Maps
+title: Defra Integration
 caption: Common tools
-description: Create accessible, GOV.UK-styled frontend maps for your digital service at Defra.
+description: Publish your APIs for consumption and discover other Defra APIs.
 layout: section
 sectionTitle: Architecture and software development
 sectionNav:
@@ -23,9 +23,9 @@ sectionNav:
         href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
-  description: If you need help with geospatial data or mapping, contact the <strong>Defra map team</strong>.
+  description: If you need help with APIs, contact the <strong>Defra integration team</strong>.
   items:
-    - 'Email: <a href="mailto:accessible.maps@defra.gov.uk" class="govuk-link">accessible.maps@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:defra.integration@defra.gov.uk" class="govuk-link">defra.integration@defra.gov.uk</a>'
 ---
 
-The [Defra Maps](https://github.com/DEFRA/defra-map/tree/main-v1) component is currently under development. You should review what has been done so far and get support below.
+The Defra Integration service is currently under development. You should review what has been done so far and get support below.
