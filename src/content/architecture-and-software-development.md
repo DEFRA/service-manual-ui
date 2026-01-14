@@ -19,6 +19,8 @@ sectionNav:
         href: /architecture-and-software-development/defra-forms
       - text: Defra Accessible Maps
         href: /architecture-and-software-development/defra-accessible-maps
+      - text: Defra Integration
+        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help designing or building your service, contact the <strong>Delivery Architecture team</strong>.
@@ -50,14 +52,19 @@ To get started, you should:
 
 Follow these guidelines to deliver services that meet user needs faster and at lower cost.
 
-- build on the Core Delivery Platform
-- use Node.js with the hapi framework for frontend services
+- build on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)
+- containerise applications
+- use Node.js with the Hapi framework for frontend services
+- use Node.js with the Hapi framework for backend services as well, but consider .NET or Python for workloads where Node.js is not suitable
+- use the [GOV.UK Frontend Nunjucks templates](https://frontend.design-system.service.gov.uk/use-nunjucks/) to build your pages, don't use other frontend frameworks like Vue or React
 - use vanilla JavaScript
-- use Node.js or .NET for backend services
+- code in the open from the start
 - store code in the [Defra GitHub organisation](https://github.com/DEFRA)
+- analyse code in the [Defra SonarQube Cloud organisation](https://sonarcloud.io/organizations/defra)
 - use [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) for external authentication and authorisation
 - use [Defra Forms](/architecture-and-software-development/defra-forms) to create accessible forms that follow GOV.UK standards
 - use [Defra Accessible Maps](/architecture-and-software-development/defra-accessible-maps) if your service includes mapping
+- use [Defra Integration](/architecture-and-software-development/defra-integration) to publish your APIs
 - follow Defra's [README standards](https://defra.github.io/software-development-standards/standards/readme_standards/)
 - maintain solution overview documentation, architecture decision records and architecture diagrams
 
