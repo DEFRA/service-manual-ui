@@ -1,0 +1,347 @@
+/**
+ * Service Manual UI - Architecture Model
+ *
+ * This file defines the complete architecture of the Defra Service Manual
+ * using LikeC4 DSL with C4 model levels:
+ * - Level 1: System Context
+ * - Level 2: Container
+ * - Level 3: Component
+ */
+
+specification {
+  element actor {
+    style {
+      shape person
+    }
+  }
+  element system {
+    style {
+      color green
+    }
+  }
+  element externalSystem {
+    style {
+      color muted
+    }
+  }
+  element container {
+    style {
+      color secondary
+    }
+  }
+  element component
+  element database {
+    style {
+      shape storage
+    }
+  }
+  element library {
+    style {
+      color muted
+    }
+  }
+}
+
+model {
+  // ===========================
+  // LEVEL 1: SYSTEM CONTEXT
+  // ===========================
+
+  defraStaff = actor 'Defra Staff' {
+    description 'Staff members seeking digital service guidance and standards'
+  }
+
+  deliveryTeams = actor 'Delivery Teams' {
+    description 'Teams building digital services for Defra'
+  }
+
+  assessors = actor 'Service Assessors' {
+    description 'Assessors conducting service standard assessments'
+  }
+
+  serviceManual = system 'Service Manual' {
+    description 'Provides digital service guidance, standards, and best practices for Defra'
+
+    // ===========================
+    // LEVEL 2: CONTAINERS
+    // ===========================
+
+    webApp = container 'Web Application' {
+      description 'Serves content pages with GOV.UK styling'
+      technology 'Node.js v22, Hapi.js'
+
+      // ===========================
+      // LEVEL 3: COMPONENTS
+      // ===========================
+
+      // Core Framework Components
+      hapiServer = component 'Hapi Server' {
+        description 'HTTP server framework handling requests and responses'
+        technology '@hapi/hapi v21'
+      }
+
+      router = component 'Router' {
+        description 'Registers and manages all application routes'
+        technology 'Hapi.js plugins'
+      }
+
+      // Route Controllers
+      homeController = component 'Home Controller' {
+        description 'Handles homepage rendering'
+        technology 'src/server/home/controller.js'
+      }
+
+      markdownController = component 'Markdown Pages Controller' {
+        description 'Renders markdown content files as HTML pages'
+        technology 'src/server/markdown-pages/controller.js'
+      }
+
+      searchController = component 'Search Controller' {
+        description 'Handles search requests and returns results'
+        technology 'src/server/search/controller.js'
+      }
+
+      healthController = component 'Health Controller' {
+        description 'Platform health check endpoint'
+        technology 'src/server/health/controller.js'
+      }
+
+      // Core Helpers
+      contentLoader = component 'Content Loader' {
+        description 'Loads and parses markdown files with YAML frontmatter'
+        technology 'gray-matter, fs'
+      }
+
+      searchIndexer = component 'Search Indexer' {
+        description 'Builds in-memory search index from markdown content'
+        technology 'src/server/common/helpers/search-index.js'
+      }
+
+      sessionManager = component 'Session Manager' {
+        description 'Manages user session state'
+        technology '@hapi/yar, Catbox'
+      }
+
+      // Template Engine
+      nunjucksEngine = component 'Nunjucks Engine' {
+        description 'Template engine for rendering HTML with GOV.UK components'
+        technology 'Nunjucks, @hapi/vision'
+      }
+
+      markdownRenderer = component 'Markdown Renderer' {
+        description 'Converts markdown to GOV.UK-styled HTML'
+        technology 'markdown-it, markdown-it-govuk'
+      }
+
+      navigationBuilder = component 'Navigation Builder' {
+        description 'Builds navigation context from page structure'
+        technology 'src/config/nunjucks/context/build-navigation.js'
+      }
+
+      // Security & Middleware
+      cspHandler = component 'CSP Handler' {
+        description 'Content Security Policy configuration'
+        technology 'blankie'
+      }
+
+      requestLogger = component 'Request Logger' {
+        description 'Structured logging for requests and errors'
+        technology 'hapi-pino, pino'
+      }
+
+      requestTracer = component 'Request Tracer' {
+        description 'Distributed tracing for requests'
+        technology '@defra/hapi-tracing'
+      }
+
+      staticFileServer = component 'Static File Server' {
+        description 'Serves webpack-built frontend assets'
+        technology '@hapi/inert'
+      }
+
+      // Component Relationships
+      hapiServer -> router 'registers plugins'
+
+      router -> homeController 'route: GET /'
+      router -> markdownController 'route: GET /section/page'
+      router -> searchController 'route: GET /search'
+      router -> healthController 'route: GET /health'
+      router -> staticFileServer 'route: GET /assets/*'
+
+      homeController -> nunjucksEngine 'renders template'
+
+      markdownController -> contentLoader 'loads markdown file'
+      markdownController -> nunjucksEngine 'renders template'
+
+      searchController -> searchIndexer 'queries index'
+      searchController -> nunjucksEngine 'renders results'
+
+      contentLoader -> markdownRenderer 'parses markdown'
+
+      searchIndexer -> contentLoader 'reads all markdown files'
+
+      nunjucksEngine -> navigationBuilder 'gets navigation context'
+      nunjucksEngine -> markdownRenderer 'renders markdown content'
+
+      hapiServer -> sessionManager 'manages sessions'
+      hapiServer -> cspHandler 'applies security headers'
+      hapiServer -> requestLogger 'logs requests'
+      hapiServer -> requestTracer 'traces requests'
+    }
+
+    contentFiles = container 'Content Files' {
+      description 'Markdown files with YAML frontmatter containing guidance content'
+      technology 'Markdown, gray-matter'
+    }
+
+    clientAssets = container 'Client Assets' {
+      description 'Frontend JavaScript, CSS, and images'
+      technology 'JavaScript, SCSS, Webpack'
+
+      // Client-side Components
+      searchClient = component 'Search Autocomplete Client' {
+        description 'Client-side autocomplete search functionality'
+        technology 'accessible-autocomplete'
+      }
+
+      defraStyles = component 'Defra Styles' {
+        description 'Custom Defra branding and component styles'
+        technology 'SCSS'
+      }
+
+      // Client relationships
+      searchClient -> webApp 'fetches: GET /api/search/index'
+    }
+
+    sessionCache = database 'Session Cache' {
+      description 'Stores user session data'
+      technology 'Redis (production) / Memory (dev)'
+    }
+
+    // Container-level relationships
+    webApp -> contentFiles 'reads markdown files'
+    webApp -> sessionCache 'stores and retrieves sessions'
+    webApp -> clientAssets 'serves static assets'
+  }
+
+  govukFrontend = externalSystem 'GOV.UK Frontend' {
+    description 'GDS Design System - Components, patterns, and styles'
+    technology 'v5.11.0'
+  }
+
+  redisService = externalSystem 'Redis Service' {
+    description 'External Redis instance for production session storage'
+    technology 'Redis'
+  }
+
+  // System-level relationships
+  defraStaff -> serviceManual 'reads guidance'
+  deliveryTeams -> serviceManual 'reads standards and patterns'
+  assessors -> serviceManual 'reads assessment criteria'
+
+  serviceManual -> govukFrontend 'uses design system components'
+  serviceManual.sessionCache -> redisService 'connects to (production only)'
+}
+
+views {
+  // ===========================
+  // LEVEL 1: SYSTEM CONTEXT
+  // ===========================
+
+  view systemContext {
+    title 'System Context - Service Manual'
+    description 'Shows the Service Manual system and its users and external dependencies'
+
+    include
+      defraStaff,
+      deliveryTeams,
+      assessors,
+      serviceManual,
+      govukFrontend,
+      redisService
+  }
+
+  // ===========================
+  // LEVEL 2: CONTAINER DIAGRAM
+  // ===========================
+
+  view containers of serviceManual {
+    title 'Container Diagram - Service Manual'
+    description 'Shows the high-level technical building blocks of the Service Manual'
+
+    include *
+    include govukFrontend
+    include redisService
+    include defraStaff
+    include deliveryTeams
+    include assessors
+  }
+
+  // ===========================
+  // LEVEL 3: COMPONENT DIAGRAMS
+  // ===========================
+
+  view webAppComponents of serviceManual.webApp {
+    title 'Web Application Components'
+    description 'Shows the internal components of the Node.js web application'
+
+    include *
+    exclude staticFileServer // Simplify view by excluding less critical component
+  }
+
+  view routingComponents of serviceManual.webApp {
+    title 'Routing Components'
+    description 'Shows how routes are handled by controllers'
+
+    include
+      hapiServer,
+      router,
+      homeController,
+      markdownController,
+      searchController,
+      healthController,
+      nunjucksEngine
+  }
+
+  view contentComponents of serviceManual.webApp {
+    title 'Content Processing Components'
+    description 'Shows how markdown content is loaded and rendered'
+
+    include
+      markdownController,
+      contentLoader,
+      markdownRenderer,
+      nunjucksEngine,
+      navigationBuilder
+
+    include serviceManual.contentFiles
+  }
+
+  view searchComponents of serviceManual.webApp {
+    title 'Search Components'
+    description 'Shows server-side and client-side search architecture'
+
+    include
+      searchController,
+      searchIndexer,
+      contentLoader,
+      nunjucksEngine
+
+    include serviceManual.clientAssets.searchClient
+    include serviceManual.contentFiles
+  }
+
+  view securityComponents of serviceManual.webApp {
+    title 'Security & Middleware Components'
+    description 'Shows security, logging, and session management'
+
+    include
+      hapiServer,
+      sessionManager,
+      cspHandler,
+      requestLogger,
+      requestTracer
+
+    include serviceManual.sessionCache
+  }
+}
