@@ -19,6 +19,8 @@ sectionNav:
         href: /architecture-and-software-development/defra-forms
       - text: Defra Accessible Maps
         href: /architecture-and-software-development/defra-accessible-maps
+      - text: Defra Integration
+        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help with Defra Forms, contact the <strong>Forms team</strong>.
