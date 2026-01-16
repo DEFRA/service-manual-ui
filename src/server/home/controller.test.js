@@ -25,4 +25,14 @@ describe('#homeController', () => {
     )
     expect(statusCode).toBe(statusCodes.ok)
   })
+
+  test('Should include Standards tile in How to do things section', async () => {
+    const { result } = await server.inject({
+      method: 'GET',
+      url: '/'
+    })
+
+    expect(result).toEqual(expect.stringContaining('href="/standards"'))
+    expect(result).toEqual(expect.stringContaining('Standards'))
+  })
 })

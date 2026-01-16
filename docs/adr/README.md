@@ -8,9 +8,9 @@ An Architecture Decision Record captures a significant architectural decision al
 
 ## ADR Index
 
-| Number | Title         | Status | Date |
-| ------ | ------------- | ------ | ---- |
-| -      | _No ADRs yet_ | -      | -    |
+| Number | Title                                                                    | Status   | Date       |
+| ------ | ------------------------------------------------------------------------ | -------- | ---------- |
+| 0001   | [Standards Browser Architecture](0001-standards-browser-architecture.md) | Accepted | 2026-01-16 |
 
 ## When to Create an ADR
 
