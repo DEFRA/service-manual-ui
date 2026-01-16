@@ -1,0 +1,216 @@
+/**
+ * Standards Browser - Architecture Diagram
+ *
+ * This file defines the architecture of the Standards Browser feature
+ * using LikeC4 DSL at the Component level (C4 Level 3).
+ *
+ * The Standards Browser allows users to browse, search, and filter
+ * Defra standards from a single page.
+ */
+
+specification {
+  element actor {
+    style {
+      shape person
+    }
+  }
+  element system {
+    style {
+      color green
+    }
+  }
+  element container {
+    style {
+      color secondary
+    }
+  }
+  element component
+  element dataStore {
+    style {
+      shape storage
+      color muted
+    }
+  }
+}
+
+model {
+  // Actors
+  serviceTeamMember = actor 'Service Team Member' {
+    description 'Defra staff building or maintaining digital services'
+  }
+
+  deliveryManager = actor 'Delivery Manager' {
+    description 'Manager referencing standards in governance discussions'
+  }
+
+  // Standards Browser System
+  standardsBrowser = system 'Standards Browser' {
+    description 'Allows users to browse, search, and filter Defra standards'
+
+    // Web Application Container
+    webApp = container 'Web Application' {
+      description 'Hapi.js server handling standards requests'
+      technology 'Node.js v22, Hapi.js'
+
+      // Route Handler
+      standardsController = component 'Standards Controller' {
+        description 'Handles GET /standards requests with search, filter, and pagination'
+        technology 'src/server/standards/controller.js'
+      }
+
+      // Data Provider
+      standardsData = component 'Standards Data' {
+        description 'Exports array of standard definitions with title, description, area, sourceUrl'
+        technology 'src/server/standards/data.js'
+      }
+
+      // Filter/Search Logic
+      filterEngine = component 'Filter Engine' {
+        description 'Filters standards by area and search query'
+        technology 'Array.filter(), String.includes()'
+      }
+
+      // Pagination Logic
+      paginationEngine = component 'Pagination Engine' {
+        description 'Slices filtered results into pages'
+        technology 'Array.slice()'
+      }
+
+      // Template Renderer
+      nunjucksRenderer = component 'Nunjucks Renderer' {
+        description 'Renders standards list with GOV.UK components'
+        technology 'Nunjucks, @hapi/vision'
+      }
+
+      // URL State Manager
+      urlStateManager = component 'URL State Manager' {
+        description 'Reads and preserves query parameters (q, area, page)'
+        technology 'request.query'
+      }
+
+      // Component Relationships
+      standardsController -> urlStateManager 'reads query params'
+      standardsController -> standardsData 'loads all standards'
+      standardsController -> filterEngine 'filters by area and search'
+      filterEngine -> paginationEngine 'paginates results'
+      standardsController -> nunjucksRenderer 'renders template with data'
+    }
+
+    // Standards Template
+    standardsTemplate = container 'Standards Template' {
+      description 'Nunjucks template for the standards page'
+      technology 'src/server/standards/standards.njk'
+
+      searchForm = component 'Search Form' {
+        description 'Text input for keyword search'
+        technology 'HTML form, GOV.UK input'
+      }
+
+      filterCheckboxes = component 'Filter Checkboxes' {
+        description 'Checkbox group for area filtering'
+        technology 'HTML fieldset, GOV.UK checkboxes'
+      }
+
+      standardsList = component 'Standards List' {
+        description 'Displays filtered standards with title, description, area'
+        technology 'GOV.UK summary list pattern'
+      }
+
+      paginationControls = component 'Pagination Controls' {
+        description 'Page navigation with previous/next and page numbers'
+        technology 'GOV.UK pagination component'
+      }
+
+      noResultsMessage = component 'No Results Message' {
+        description 'Displayed when search/filter yields no matches'
+        technology 'GOV.UK inset text'
+      }
+    }
+
+    // Home Page Integration
+    homePage = container 'Home Page' {
+      description 'Landing page with navigation tiles'
+      technology 'src/server/home/service-manual.njk'
+
+      standardsTile = component 'Standards Tile' {
+        description 'Navigation tile linking to /standards'
+        technology 'defra-tile component'
+      }
+    }
+
+    // Relationships between containers
+    webApp.nunjucksRenderer -> standardsTemplate 'renders'
+    homePage.standardsTile -> webApp 'links to GET /standards'
+  }
+
+  // External references (guidance pages)
+  guidancePages = system 'Guidance Pages' {
+    description 'Source pages with full standard details'
+    technology 'Markdown content'
+  }
+
+  // User relationships
+  serviceTeamMember -> standardsBrowser 'browses and searches standards'
+  deliveryManager -> standardsBrowser 'references standards'
+
+  // System relationships
+  standardsBrowser -> guidancePages 'links to source pages'
+}
+
+views {
+  // System Context View
+  view standardsContext {
+    title 'Standards Browser - System Context'
+    description 'Shows users and external systems interacting with Standards Browser'
+
+    include
+      serviceTeamMember,
+      deliveryManager,
+      standardsBrowser,
+      guidancePages
+  }
+
+  // Container View
+  view standardsContainers of standardsBrowser {
+    title 'Standards Browser - Containers'
+    description 'Shows high-level technical components of Standards Browser'
+
+    include *
+    include guidancePages
+    include serviceTeamMember
+    include deliveryManager
+  }
+
+  // Component View - Web Application
+  view standardsComponents of standardsBrowser.webApp {
+    title 'Standards Browser - Web Application Components'
+    description 'Shows internal components of the standards request handling'
+
+    include *
+  }
+
+  // Component View - Template
+  view standardsTemplateComponents of standardsBrowser.standardsTemplate {
+    title 'Standards Browser - Template Components'
+    description 'Shows UI components in the standards page template'
+
+    include *
+  }
+
+  // Data Flow View
+  view standardsDataFlow {
+    title 'Standards Browser - Request Flow'
+    description 'Shows how a request flows through the system'
+
+    include
+      serviceTeamMember,
+      standardsBrowser.webApp.standardsController,
+      standardsBrowser.webApp.urlStateManager,
+      standardsBrowser.webApp.standardsData,
+      standardsBrowser.webApp.filterEngine,
+      standardsBrowser.webApp.paginationEngine,
+      standardsBrowser.webApp.nunjucksRenderer,
+      standardsBrowser.standardsTemplate.standardsList,
+      standardsBrowser.standardsTemplate.paginationControls
+  }
+}

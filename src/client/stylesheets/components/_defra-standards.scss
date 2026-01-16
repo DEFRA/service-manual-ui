@@ -1,0 +1,51 @@
+// ===== Standards Browser =====
+
+.defra-standards-filters {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: govuk-colour('light-grey');
+}
+
+.defra-standards-filters__clear {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid govuk-colour('mid-grey');
+
+  a {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.defra-standards__count {
+  color: govuk-colour('dark-grey');
+}
+
+.defra-standards-list {
+  margin-bottom: 30px;
+}
+
+.defra-standard {
+  padding: 20px 0;
+  border-bottom: 1px solid govuk-colour('mid-grey');
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.defra-standard__title {
+  margin-bottom: 10px;
+}
+
+.defra-standard__description {
+  margin-bottom: 10px;
+}
+
+.defra-standard__meta {
+  margin-bottom: 0;
+}

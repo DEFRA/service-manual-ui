@@ -1,0 +1,125 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: [
+    { text: "Service Manual", href: "/" },
+    { text: "Standards" }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">{{ heading }}</h1>
+    <p class="govuk-body-l">
+      Browse all Defra standards in one place. Each standard links to the full guidance.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <form action="/standards" method="get" class="defra-standards-filters">
+      <div class="govuk-form-group">
+        {{ govukInput({
+          id: "search-standards",
+          name: "q",
+          type: "search",
+          value: query,
+          label: {
+            text: "Search standards",
+            classes: "govuk-label--s"
+          },
+          hint: {
+            text: "Search by title or description"
+          }
+        }) }}
+      </div>
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          Filter by area
+        </legend>
+
+        {{ govukCheckboxes({
+          idPrefix: "area",
+          name: "area",
+          classes: "govuk-checkboxes--small",
+          items: areaCheckboxes
+        }) }}
+      </fieldset>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Apply filters",
+          type: "submit"
+        }) }}
+      </div>
+
+      {% if hasActiveSearchOrFilters %}
+        <div class="defra-standards-filters__clear">
+          {% if hasActiveSearch %}
+            <a href="{{ clearSearchUrl }}" class="govuk-link">Clear search</a>
+          {% endif %}
+          {% if hasActiveFilters %}
+            <a href="{{ clearFiltersUrl }}" class="govuk-link">Clear filters</a>
+          {% endif %}
+          {% if hasActiveSearch and hasActiveFilters %}
+            <a href="/standards" class="govuk-link">Clear all</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds" id="standards-results">
+    {% if showNoResults %}
+      <div class="govuk-inset-text">
+        <p class="govuk-body">No standards found matching your search or filters.</p>
+        <p class="govuk-body">Try:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>using different keywords</li>
+          <li>removing some filters</li>
+          <li><a href="/standards" class="govuk-link">clearing all filters</a></li>
+        </ul>
+      </div>
+    {% else %}
+      <p class="govuk-body defra-standards__count">
+        Showing {{ pagination.startIndex }} to {{ pagination.endIndex }} of {{ filteredCount }} standard{% if filteredCount !== 1 %}s{% endif %}
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <div class="defra-standards-list">
+        {% for standard in standards %}
+          <div class="defra-standard">
+            <h2 class="govuk-heading-m defra-standard__title">
+              <a href="{{ standard.sourceUrl }}" class="govuk-link">{{ standard.title }}</a>
+            </h2>
+            <p class="govuk-body defra-standard__description">{{ standard.description }}</p>
+            <p class="govuk-body-s defra-standard__meta">
+              {{ govukTag({
+                text: standard.area,
+                classes: "govuk-tag--grey"
+              }) }}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if paginationLinks %}
+        {{ govukPagination(paginationLinks) }}
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
