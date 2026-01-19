@@ -28,7 +28,12 @@ supportBox:
     - 'Email: <a href="mailto:delivery.architecture@defra.gov.uk" class="govuk-link">delivery.architecture@defra.gov.uk</a>'
 ---
 
-This guidance extends the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology).
+This guidance extends the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology). This guidance should be followed when you are:
+
+- building a GOV.UK digital service
+- building an internal digital service at Defra
+
+This guidance may not apply if you are deploying a commercial off the shelf software.
 
 ## Getting started
 
