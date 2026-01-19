@@ -1,5 +1,6 @@
 import path from 'node:path'
 import hapi from '@hapi/hapi'
+// Trigger restart for config update
 import Scooter from '@hapi/scooter'
 
 import { router } from './router.js'

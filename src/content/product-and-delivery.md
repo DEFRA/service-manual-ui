@@ -17,9 +17,10 @@ sectionNav:
         href: /product-and-delivery/tools-and-access
 supportBox:
   title: Get support
-  description: The <strong>Product Community</strong> can help you understand these standards.
+  description: The <strong>Product Community</strong> and <strong>Delivery Management Community</strong> can help you understand these standards.<br><br>Let them know if you work at Defra through resource augmentation or with a supplier. They will add you to the relevant community.
   items:
-    - 'Email: <a href="mailto:product.management@defra.gov.uk" class="govuk-link">product.management@defra.gov.uk</a>'
+    - 'Product management email: <a href="mailto:product.management@defra.gov.uk" class="govuk-link">product.management@defra.gov.uk</a>'
+    - 'Delivery management email: <a href="mailto:delivery.management@defra.gov.uk" class="govuk-link">delivery.management@defra.gov.uk</a>'
 ---
 
 ## Getting started
@@ -35,13 +36,7 @@ Determine which delivery group the service you are working on belongs to. You ca
 You should identify your:
 
 - delivery group lead
-- delivery centre lead
+- delivery centre lead (this may be your programme delivery manager)
 - profession leads working within your delivery group
 
-Arrange a meeting with your programme delivery manager. They will help you gain access to any specific guidance and SharePoint repositories which are relevant to your delivery.
-
-## Join the community
-
-If you are a product manager, [get in touch with the product community](mailto:product.management@defra.gov.uk).
-
-Let them know if you are at Defra via resource augmentation or working with a specific supplier, and they will add you to the relevant product community.
+Arrange a meeting with your delivery centre lead or programme delivery manager. They will help you gain access to any specific guidance and SharePoint repositories which are relevant to your delivery.

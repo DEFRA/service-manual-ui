@@ -23,7 +23,7 @@ describe('#errors', () => {
     })
 
     expect(result).toEqual(
-      expect.stringContaining('Page not found | service-manual-ui')
+      expect.stringContaining('Page not found | Defra digital service manual')
     )
     expect(statusCode).toBe(statusCodes.notFound)
   })

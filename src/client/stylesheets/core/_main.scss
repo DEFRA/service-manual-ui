@@ -2,6 +2,10 @@
 
 // Example namespaced custom element style CSS classes
 
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .app-main-wrapper {
   display: block;
   padding-top: govuk-spacing(4);
