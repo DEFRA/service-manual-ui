@@ -48,27 +48,15 @@ Colours should be consistent with the [GOV.UK frontend palette](https://design-s
 
 You can use the Defra specific colours sparingly, for example in headers or navigation borders.
 
-<table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Defra colours</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Colour</th>
-      <th scope="col" class="govuk-table__header">Hex</th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">Defra Green</td>
-      <td class="govuk-table__cell"><code>#00a33b</code></td>
-    </tr>
-  </tbody>
-</table>
+| Colour      | Hex       |
+| ----------- | --------- |
+| Defra Green | `#00a33b` |
+
+{: .govuk-table}
 
 **Accessibility:** You must make sure that the contrast ratio of text and interactive elements meets [WCAG 2.2 level AA](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
 
-<div class="govuk-inset-text">
-  Check the <a href="https://github.com/DEFRA/design-standards" class="govuk-link">Defra Design Standards on GitHub</a> for the latest templates and assets.
-</div>
+^ Check the [Defra Design Standards on GitHub](https://github.com/DEFRA/design-standards) for the latest templates and assets.
 
 ## Logos
 

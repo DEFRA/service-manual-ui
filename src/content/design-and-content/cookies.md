@@ -40,6 +40,4 @@ A user must be able to:
 - change their cookie settings at any time
 - use the service without consenting to cookies
 
-<div class="govuk-inset-text">
-  Read the full <a href="https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md" class="govuk-link">guidance on cookies and similar technologies</a> on GitHub.
-</div>
+^ Read the full [guidance on cookies and similar technologies](https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md) on GitHub.
