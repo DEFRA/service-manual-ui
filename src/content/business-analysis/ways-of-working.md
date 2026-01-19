@@ -21,7 +21,7 @@ Defra BAs use BPMN 2.0 for process mapping. Create diagrams in MS Visio or Mural
 
 Capture user stories and acceptance criteria in Jira (including Confluence) or Azure DevOps. They must adhere to INVEST.
 
-If these tools are not available, use the **[User Story Template (Excel)](https://example.com/placeholder-excel)**.
+If these tools are not available, download the **[User story template (Excel spreadsheet)](https://defra.sharepoint.com/:x:/r/teams/Team924/_layouts/15/Doc.aspx?sourcedoc=%7B2496D0D7-6AC3-4F5A-A8B0-47CF2925EC95%7D&file=User%20Story%20Template%20-%20V1.2%20including%20user%20needs.xlsx&action=default&mobileredirect=true)**.
 
 ## Manage your artifacts
 

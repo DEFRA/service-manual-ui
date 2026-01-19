@@ -81,7 +81,9 @@ describe('#searchController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
-      expect(result).toEqual(expect.stringContaining('Defra Service Manual'))
+      expect(result).toEqual(
+        expect.stringContaining('Defra digital service manual')
+      )
     })
   })
 

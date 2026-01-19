@@ -22,20 +22,15 @@ supportBox:
 
 Defra uses business analysts (BAs) in all phases of delivery, from Discovery to Live. They align with the [Government Digital and Data role description](https://ddat-capability-framework.service.gov.uk/role/business-analyst).
 
-## Role of a business analyst
-
-Business analysts help teams to:
-
-- understand business problems and opportunities
-- research how a business area works, including its people, processes, data and technology
-- identify improvements and feasible options
-- analyse the effects of change and define success measures
-- identify user and business needs to help design services
-- make prioritisation decisions using analysis-led insights
-- ensure products meet business and user needs
-- understand business and policy constraints
-
 ## Getting started
+
+You should read:
+
+- [DDTS Business Analysis](https://defra.sharepoint.com/teams/Team924/SitePages/Business-Analysis-Page.aspx) - for general guidance and community updates
+- [BA Toolkit](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Toolkit.aspx) - for templates, tools, and methods
+- [BA Repository](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Repository.aspx) - to store and find project artifacts
+
+## Join the community
 
 Contact your Delivery Group Principal Business Analyst. They will:
 
@@ -44,9 +39,3 @@ Contact your Delivery Group Principal Business Analyst. They will:
 - arrange access to tools and sites
 
 Find your Principal BA on the [Delivery Group BAs SharePoint site](https://defra.sharepoint.com/teams/Team924/SitePages/What-We-are-working-On.aspx).
-
-You should also read:
-
-- [DDTS Business Analysis](https://defra.sharepoint.com/teams/Team924/SitePages/Business-Analysis-Page.aspx) - for general guidance and community updates
-- [BA Toolkit](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Toolkit.aspx) - for templates, tools, and methods
-- [BA Repository](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Repository.aspx) - to store and find project artifacts

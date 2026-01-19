@@ -58,5 +58,5 @@ If you are unsure, assume you must follow the standards.
 ### Common misunderstandings
 
 - **Internal use:** Staff software is not exempt. It must meet the same standards as public services.
-- **Maps:** Maps are not exempt. You must provide the information in an accessible digital format.
+- **Maps:** Maps are not exempt. You must provide essential information in an accessible non-visual format, such as text or a list.
 - **No complaints:** A lack of complaints does not mean your service is accessible or legal.
