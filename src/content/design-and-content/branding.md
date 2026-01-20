@@ -52,11 +52,9 @@ You can use the Defra specific colours sparingly, for example in headers or navi
 | ----------- | --------- |
 | Defra Green | `#00a33b` |
 
-{: .govuk-table}
-
 **Accessibility:** You must make sure that the contrast ratio of text and interactive elements meets [WCAG 2.2 level AA](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
 
-^ Check the [Defra Design Standards on GitHub](https://github.com/DEFRA/design-standards) for the latest templates and assets.
+^ Check the [Defra Design Standards on GitHub](https://github.com/DEFRA/design-standards) for the latest templates and assets. ^
 
 ## Logos
 
