@@ -40,4 +40,4 @@ A user must be able to:
 - change their cookie settings at any time
 - use the service without consenting to cookies
 
-^ Read the full [guidance on cookies and similar technologies](https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md) on GitHub.
+^ Read the full [guidance on cookies and similar technologies](https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md) on GitHub. ^
