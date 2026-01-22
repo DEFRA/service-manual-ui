@@ -1,0 +1,64 @@
+{% extends "layouts/page.njk" %}
+
+{% block pageTitle %}
+  {{ pageTitle }} | {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+  <div class="defra-hero">
+    <div class="defra-width-container">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">
+            {{ heading }}
+          </h1>
+          <p class="govuk-body-l">
+            Understanding the standards, governance and assurance process for your delivery group.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="defra-width-container govuk-!-margin-top-5">
+    <div class="govuk-grid-row defra-tile-grid">
+      <div class="govuk-grid-column-one-half">
+        <a href="#" class="defra-tile">
+          <h2 class="govuk-heading-m defra-tile__title">
+            Get delivery assurance
+          </h2>
+          <p class="govuk-body defra-tile__body">Track and manage the progress of your deliveries.</p>
+        </a>
+      </div>
+      
+      <div class="govuk-grid-column-one-half">
+        <a href="#" class="defra-tile">
+          <h2 class="govuk-heading-m defra-tile__title">
+            Follow delivery governance
+          </h2>
+          <p class="govuk-body defra-tile__body">Understand the boards, approvals and reporting required for your group.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="govuk-grid-row defra-tile-grid">
+      <div class="govuk-grid-column-one-half">
+        <a href="#" class="defra-tile">
+          <h2 class="govuk-heading-m defra-tile__title">
+            Meet delivery standards
+          </h2>
+          <p class="govuk-body defra-tile__body">How to meet the standards expected of a high-performing delivery group.</p>
+        </a>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <a href="#" class="defra-tile">
+          <h2 class="govuk-heading-m defra-tile__title">
+            View service insights
+          </h2>
+          <p class="govuk-body defra-tile__body">View end-to-end service maps and insights across Defra.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

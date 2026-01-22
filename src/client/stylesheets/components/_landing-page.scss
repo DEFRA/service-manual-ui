@@ -1,0 +1,45 @@
+// stylelint-disable declaration-no-important
+@use '../variables/colours' as *;
+
+.app-coming-soon {
+  background-color: $defra-light-green;
+  padding: 20px;
+  margin-top: govuk-spacing(8);
+  border-left: 10px solid $defra-dark-green;
+  // margin-left: -30px; // Align text with the grid edge (10px border + 20px padding)
+
+  // Ensure button doesn't have a bottom margin if it's the last item
+  .govuk-button {
+    margin-bottom: 0;
+  }
+}
+
+// FORCE BREADCRUMB STYLES
+.defra-breadcrumbs--inverse {
+  margin-top: -45px !important;
+  margin-bottom: 20px;
+  padding-top: 0;
+  position: relative;
+  z-index: 100;
+}
+
+.defra-breadcrumbs--inverse.govuk-breadcrumbs {
+  color: #ffffff !important;
+}
+
+.defra-breadcrumbs--inverse .govuk-breadcrumbs__link,
+.defra-breadcrumbs--inverse .govuk-breadcrumbs__list-item {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.defra-breadcrumbs--inverse .govuk-breadcrumbs__list-item::before {
+  border-color: #ffffff !important;
+  // Chevron arrow
+  color: #ffffff !important;
+  // Slash separator fallback
+}
+
+.defra-breadcrumbs--inverse .govuk-breadcrumbs__link:hover {
+  text-decoration: underline !important;
+}

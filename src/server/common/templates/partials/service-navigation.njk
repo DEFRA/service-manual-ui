@@ -5,17 +5,22 @@
     </button>
     <ul class="defra-service-navigation__list" id="service-navigation-list">
       <li class="defra-service-navigation__item">
-        <a class="defra-service-navigation__link{% if currentUrl == '/service-assessments' %} defra-service-navigation__link--active{% endif %}" href="/service-assessments">
+        <a class="defra-service-navigation__link" href="/landing">
+          Defra digital
+        </a>
+      </li>
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link"{% if currentUrl == '/service-assessments' %} aria-current="page"{% endif %} href="/service-assessments">
           Service assessments
         </a>
       </li>
       <li class="defra-service-navigation__item">
-        <a class="defra-service-navigation__link{% if currentUrl and currentUrl.startsWith('/sustainability') %} defra-service-navigation__link--active{% endif %}" href="/sustainability">
+        <a class="defra-service-navigation__link"{% if currentUrl and currentUrl.startsWith('/sustainability') %} aria-current="page"{% endif %} href="/sustainability">
           Sustainability
         </a>
       </li>
       <li class="defra-service-navigation__item">
-        <a class="defra-service-navigation__link{% if currentUrl == '/accessibility' %} defra-service-navigation__link--active{% endif %}" href="/accessibility">
+        <a class="defra-service-navigation__link"{% if currentUrl == '/accessibility' %} aria-current="page"{% endif %} href="/accessibility">
           Accessibility
         </a>
       </li>

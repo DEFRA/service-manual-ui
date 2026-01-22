@@ -139,6 +139,43 @@
   padding-bottom: 10px;
 }
 
+// stylelint-disable declaration-no-important
+.defra-breadcrumbs--inverse {
+  margin-top: -30px;
+  margin-bottom: 20px;
+  padding-top: 0;
+
+  &.govuk-breadcrumbs {
+    color: $govuk-white !important;
+  }
+
+  .govuk-breadcrumbs__list-item {
+    &::before {
+      border-color: $govuk-white !important;
+      color: $govuk-white !important;
+    }
+  }
+
+  .govuk-breadcrumbs__link {
+    color: $govuk-white !important;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $govuk-white !important;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background-color: $govuk-yellow !important;
+      color: $govuk-black !important;
+      box-shadow: 0 -2px $govuk-yellow, 0 4px $govuk-black;
+      text-decoration: none;
+    }
+  }
+}
+
+
 .defra-support-box {
   margin-top: 40px;
   padding: 20px;
