@@ -24,12 +24,14 @@
           class="defra-header__logo"
         />
       </a>
-      <a href="/" class="defra-header__service-name">Digital service manual</a>
+      <a href="{{ headerServiceUrl | default('/') }}" class="defra-header__service-name">{{ headerServiceName | default('Digital service manual') }}</a>
     </div>
     {% include "partials/header-search.njk" %}
   </div>
 </header>
+{% if not hideServiceNavigation %}
 {% include "partials/service-navigation.njk" %}
+{% endif %}
 {% endblock %}
 
 {% block pageTitle %}
