@@ -4,8 +4,12 @@ export const deliveryGroupsController = {
       pageTitle: 'Delivery Groups',
       heading: 'Delivery Groups',
       headerServiceName: 'Defra Digital',
-      headerServiceUrl: '/landing',
-      hideServiceNavigation: true
+      headerServiceUrl: '/',
+      hideServiceNavigation: true,
+      breadcrumbs: [
+        { text: 'Defra Digital', href: '/' },
+        { text: 'Delivery Groups' }
+      ]
     })
   }
 }

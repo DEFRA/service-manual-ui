@@ -11,7 +11,7 @@ export const landingPage = {
       server.route([
         {
           method: 'GET',
-          path: '/landing',
+          path: '/',
           ...landingPageController
         }
       ])

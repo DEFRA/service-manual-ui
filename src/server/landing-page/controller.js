@@ -7,7 +7,7 @@ export const landingPageController = {
       pageTitle: 'Welcome to Defra Service Manual',
       heading: 'Deliver digital services at Defra',
       headerServiceName: 'Defra Digital',
-      headerServiceUrl: '/landing',
+      headerServiceUrl: '/',
       hideServiceNavigation: true
     })
   }

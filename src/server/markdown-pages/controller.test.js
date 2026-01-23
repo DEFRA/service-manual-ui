@@ -110,4 +110,19 @@ describe('#markdownPagesController', () => {
       expect(statusCode).toBe(statusCodes.ok)
     })
   })
+
+  describe('Breadcrumbs', () => {
+    test('should include breadcrumbs with full navigation path', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Defra Digital'))
+      expect(result).toEqual(expect.stringContaining('href="/"'))
+      expect(result).toEqual(expect.stringContaining('Service Manual'))
+      expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
+    })
+  })
 })

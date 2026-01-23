@@ -1,7 +1,7 @@
 import { homeController } from './controller.js'
 
 /**
- * Sets up the routes used in the home page.
+ * Sets up the routes used in the service manual home page.
  * These routes are registered in src/server/router.js.
  */
 export const home = {
@@ -11,7 +11,7 @@ export const home = {
       server.route([
         {
           method: 'GET',
-          path: '/',
+          path: '/service-manual',
           ...homeController
         }
       ])

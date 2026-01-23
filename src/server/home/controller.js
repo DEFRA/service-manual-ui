@@ -7,7 +7,11 @@ export const homeController = {
       pageTitle: 'Service Manual',
       heading: 'Service Manual',
       headerServiceName: 'Digital service manual',
-      headerServiceUrl: '/'
+      headerServiceUrl: '/service-manual',
+      breadcrumbs: [
+        { text: 'Defra Digital', href: '/' },
+        { text: 'Service Manual' }
+      ]
     })
   }
 }
