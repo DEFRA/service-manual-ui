@@ -23,20 +23,25 @@
   overflow-x: visible;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 // ===== Hero =====
 
 .defra-hero {
   position: relative;
   left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  transform: translateX(-50%);
   width: 100vw;
   background-color: $defra-dark-green;
   color: $govuk-white;
-  padding: 40px 0;
+  padding: 40px 15px;
   margin-top: 0;
   margin-bottom: 0;
+  box-sizing: border-box;
 }
 
 .defra-hero .govuk-heading-xl,
