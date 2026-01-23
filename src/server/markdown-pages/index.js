@@ -40,7 +40,9 @@ const markdownRoutes = [
   '/delivery-groups/meet-delivery-standards/define-outcomes',
   '/delivery-groups/meet-delivery-standards/products-and-services',
   '/delivery-groups/meet-delivery-standards/roadmap-for-change',
-  '/delivery-groups/meet-delivery-standards/success-measures'
+  '/delivery-groups/meet-delivery-standards/success-measures',
+  '/testing-and-assurance',
+  '/testing-and-assurance/recommended-approach'
 ]
 
 export const markdownPages = {

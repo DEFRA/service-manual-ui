@@ -130,3 +130,35 @@
   outline: 3px solid #ffbf47;
   outline-offset: 1px;
 }
+
+// Responsive header styles
+@media (max-width: 768px) {
+  .defra-header__inner {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+  }
+
+  .defra-header-search,
+  .defra-header-search--nhs {
+    display: none;
+  }
+
+  .defra-header__service-name {
+    font-size: 18px;
+    justify-self: start;
+  }
+
+  .defra-header__logo {
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .defra-header__service-name {
+    font-size: 16px;
+  }
+
+  .defra-header__logo {
+    height: 40px;
+  }
+}
