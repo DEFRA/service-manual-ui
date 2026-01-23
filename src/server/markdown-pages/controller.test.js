@@ -119,9 +119,9 @@ describe('#markdownPagesController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
-      expect(result).toEqual(expect.stringContaining('Defra Digital'))
+      expect(result).toEqual(expect.stringContaining('Defra digital'))
       expect(result).toEqual(expect.stringContaining('href="/"'))
-      expect(result).toEqual(expect.stringContaining('Service Manual'))
+      expect(result).toEqual(expect.stringContaining('Service manual'))
       expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
     })
   })
