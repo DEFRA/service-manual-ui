@@ -1,13 +1,14 @@
 /**
- * Service manual home page controller.
+ * Home page controller.
  */
 export const homeController = {
   handler(_request, h) {
-    return h.view('home/service-manual', {
-      pageTitle: 'Service Manual',
-      heading: 'Service Manual',
-      headerServiceName: 'Digital service manual',
-      headerServiceUrl: '/'
+    return h.view('home/home', {
+      pageTitle: 'Welcome to Defra Service Manual',
+      heading: 'Deliver digital services at Defra',
+      headerServiceName: 'Defra Digital',
+      headerServiceUrl: '/',
+      hideServiceNavigation: true
     })
   }
 }

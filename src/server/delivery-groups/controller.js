@@ -1,11 +1,15 @@
+const PAGE_TITLE = 'Delivery Groups'
+const DEFRA_DIGITAL = 'Defra Digital'
+
 export const deliveryGroupsController = {
   handler(_request, h) {
     return h.view('delivery-groups/delivery-groups', {
-      pageTitle: 'Delivery Groups',
-      heading: 'Delivery Groups',
-      headerServiceName: 'Defra Digital',
-      headerServiceUrl: '/landing',
-      hideServiceNavigation: true
+      pageTitle: PAGE_TITLE,
+      heading: PAGE_TITLE,
+      headerServiceName: DEFRA_DIGITAL,
+      headerServiceUrl: '/',
+      hideServiceNavigation: true,
+      breadcrumbs: [{ text: DEFRA_DIGITAL, href: '/' }, { text: PAGE_TITLE }]
     })
   }
 }

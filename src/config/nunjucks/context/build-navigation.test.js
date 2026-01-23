@@ -12,7 +12,7 @@ describe('#buildNavigation', () => {
       {
         current: false,
         text: 'Home',
-        href: '/'
+        href: '/service-manual'
       },
       {
         current: false,
@@ -22,12 +22,12 @@ describe('#buildNavigation', () => {
     ])
   })
 
-  test('Should provide expected highlighted navigation details', () => {
-    expect(buildNavigation(mockRequest({ path: '/' }))).toEqual([
+  test('Should provide expected highlighted navigation details for service manual', () => {
+    expect(buildNavigation(mockRequest({ path: '/service-manual' }))).toEqual([
       {
         current: true,
         text: 'Home',
-        href: '/'
+        href: '/service-manual'
       },
       {
         current: false,

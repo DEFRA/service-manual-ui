@@ -3,7 +3,8 @@
 {% block beforeContent %}
 {{ govukBreadcrumbs({
   items: [
-    { text: "Digital service manual", href: "/" },
+    { text: "Defra Digital", href: "/" },
+    { text: "Service Manual", href: "/service-manual" },
     { text: "Search results" }
   ]
 }) }}
@@ -55,7 +56,7 @@
 
         <h2 class="govuk-heading-m">Browse the manual</h2>
         <p class="govuk-body">
-          You can also <a href="/" class="govuk-link">browse the service manual</a> to find what you are looking for.
+          You can also <a href="/service-manual" class="govuk-link">browse the service manual</a> to find what you are looking for.
         </p>
       {% endif %}
     {% else %}
