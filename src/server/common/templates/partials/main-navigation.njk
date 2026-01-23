@@ -5,11 +5,6 @@
     </button>
     <ul class="defra-service-navigation__list" id="main-navigation-list">
       <li class="defra-service-navigation__item">
-        <a class="defra-service-navigation__link"{% if currentUrl == '/' %} aria-current="page"{% endif %} href="/">
-          Home
-        </a>
-      </li>
-      <li class="defra-service-navigation__item">
         <a class="defra-service-navigation__link"{% if currentUrl and currentUrl.startsWith('/service-manual') %} aria-current="page"{% endif %} href="/service-manual">
           Service manual
         </a>

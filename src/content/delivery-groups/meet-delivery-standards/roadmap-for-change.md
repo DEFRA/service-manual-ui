@@ -2,7 +2,9 @@
 title: 3. Publish a roadmap for change
 caption: Delivery group standards
 description: A clear, prioritised roadmap showing how you'll evolve to deliver better outcomes.
-layout: delivery-groups
+layout: two-thirds
+headerServiceName: Defra digital
+showMainNavigation: true
 breadcrumbs:
   - text: Home
     href: /

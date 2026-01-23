@@ -59,7 +59,7 @@ describe('#deliveryGroupsController', () => {
   })
 
   describe('Tiles', () => {
-    test('should display Follow delivery governance tile with description', async () => {
+    test('should display Follow delivery governance tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
@@ -67,6 +67,11 @@ describe('#deliveryGroupsController', () => {
 
       expect(result).toEqual(
         expect.stringContaining('Follow delivery governance')
+      )
+      expect(result).toEqual(
+        expect.stringContaining(
+          'href="/delivery-groups/follow-delivery-governance"'
+        )
       )
       expect(result).toEqual(
         expect.stringContaining(
