@@ -29,7 +29,9 @@
     {% include "partials/header-search.njk" %}
   </div>
 </header>
-{% if not hideServiceNavigation %}
+{% if showMainNavigation %}
+{% include "partials/main-navigation.njk" %}
+{% elif not hideServiceNavigation %}
 {% include "partials/service-navigation.njk" %}
 {% endif %}
 {% endblock %}

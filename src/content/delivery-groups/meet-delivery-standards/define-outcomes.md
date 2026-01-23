@@ -2,7 +2,9 @@
 title: 1. Define and share outcomes
 caption: Delivery group standards
 description: Set a small number of clear outcomes and make sure everyone understands them.
-layout: delivery-groups
+layout: two-thirds
+headerServiceName: Defra digital
+showMainNavigation: true
 breadcrumbs:
   - text: Home
     href: /

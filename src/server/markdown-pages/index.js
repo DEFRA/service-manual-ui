@@ -41,6 +41,13 @@ const markdownRoutes = [
   '/delivery-groups/meet-delivery-standards/products-and-services',
   '/delivery-groups/meet-delivery-standards/roadmap-for-change',
   '/delivery-groups/meet-delivery-standards/success-measures',
+  '/delivery-groups/follow-delivery-governance',
+  '/delivery-groups/follow-delivery-governance/governance-model',
+  '/delivery-groups/follow-delivery-governance/assurance',
+  '/delivery-groups/follow-delivery-governance/assurance/spend-control',
+  '/delivery-groups/follow-delivery-governance/assurance/service-assessments',
+  '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness',
+  '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types',
   '/testing-and-assurance',
   '/testing-and-assurance/recommended-approach'
 ]

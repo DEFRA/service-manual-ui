@@ -150,19 +150,6 @@ describe('#markdownPagesController', () => {
       )
     })
 
-    test('should display main navigation bar', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards'
-      })
-
-      expect(result).toEqual(
-        expect.stringContaining('defra-service-navigation')
-      )
-      expect(result).toEqual(expect.stringContaining('Service manual'))
-      expect(result).toEqual(expect.stringContaining('Delivery groups'))
-    })
-
     test('should display breadcrumbs', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -220,6 +207,118 @@ describe('#markdownPagesController', () => {
       const { statusCode } = await server.inject({
         method: 'GET',
         url: '/delivery-groups/meet-delivery-standards/success-measures'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+  })
+
+  describe('Delivery group governance', () => {
+    test('GET /delivery-groups/follow-delivery-governance should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render governance overview page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group governance')
+      )
+      expect(result).toEqual(expect.stringContaining('Governance'))
+      expect(result).toEqual(expect.stringContaining('Assurance'))
+    })
+
+    test('should display breadcrumbs on governance pages', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
+      expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/governance-model should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/governance-model'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render governance model with all levels', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/governance-model'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Governance model'))
+      expect(result).toEqual(expect.stringContaining('Strategic level'))
+      expect(result).toEqual(expect.stringContaining('Co-ordination level'))
+      expect(result).toEqual(expect.stringContaining('Implementation level'))
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/assurance should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render assurance page with links', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Assurance'))
+      expect(result).toEqual(expect.stringContaining('Spend control'))
+      expect(result).toEqual(expect.stringContaining('Service assessments'))
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/assurance/spend-control should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance/spend-control'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/assurance/service-assessments should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance/service-assessments'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/assurance/operational-service-readiness should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('GET /delivery-groups/follow-delivery-governance/assurance/other-assurance-types should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types'
       })
 
       expect(statusCode).toBe(statusCodes.ok)

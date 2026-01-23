@@ -2,7 +2,9 @@
 title: 4. Define success measures and share progress
 caption: Delivery group standards
 description: Define and share clear measures of success so everyone can see whether outcomes are being achieved.
-layout: delivery-groups
+layout: two-thirds
+headerServiceName: Defra digital
+showMainNavigation: true
 breadcrumbs:
   - text: Home
     href: /

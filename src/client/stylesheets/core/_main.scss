@@ -11,3 +11,12 @@ body {
   padding-top: govuk-spacing(4);
   padding-bottom: govuk-spacing(3);
 }
+
+// Constrain images within content areas
+.govuk-grid-column-two-thirds,
+.govuk-grid-column-full {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

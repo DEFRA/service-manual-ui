@@ -1,6 +1,11 @@
 {% extends "layouts/page.njk" %}
 
 {% block beforeContent %}
+{% if breadcrumbs %}
+{{ govukBreadcrumbs({
+  items: breadcrumbs
+}) }}
+{% else %}
 {{ govukBreadcrumbs({
   items: [
     { text: "Defra digital", href: "/" },
@@ -8,6 +13,7 @@
     { text: title }
   ]
 }) }}
+{% endif %}
 {% endblock %}
 
 {% block content %}
