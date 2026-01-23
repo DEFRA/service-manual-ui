@@ -125,4 +125,104 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
     })
   })
+
+  describe('Delivery group standards', () => {
+    test('GET /delivery-groups/meet-delivery-standards should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render overview page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group standards')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('help teams run successful delivery groups')
+      )
+    })
+
+    test('should display main navigation bar', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('defra-service-navigation')
+      )
+      expect(result).toEqual(expect.stringContaining('Service manual'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
+    })
+
+    test('should display breadcrumbs', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
+      expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
+    })
+
+    test('GET /delivery-groups/meet-delivery-standards/define-outcomes should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/define-outcomes'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render standard 1 with RAG ratings', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/define-outcomes'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('1. Define and share outcomes')
+      )
+      expect(result).toEqual(expect.stringContaining('Why this matters'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--green'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--yellow'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--red'))
+    })
+
+    test('GET /delivery-groups/meet-delivery-standards/products-and-services should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/products-and-services'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('GET /delivery-groups/meet-delivery-standards/roadmap-for-change should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/roadmap-for-change'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('GET /delivery-groups/meet-delivery-standards/success-measures should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/success-measures'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+  })
 })

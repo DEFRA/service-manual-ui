@@ -20,11 +20,7 @@
     {% include "partials/header-search.njk" %}
   </div>
 </header>
-<div class="defra-breadcrumb-bar">
-  <div class="govuk-width-container">
-    <a href="/" class="defra-breadcrumb-bar__link">Home</a>
-  </div>
-</div>
+{% include "partials/main-navigation.njk" %}
 {% endblock %}
 
 {% block content %}
@@ -55,7 +51,7 @@
       </div>
 
       <div class="govuk-grid-column-one-half">
-        <a href="#" class="defra-tile">
+        <a href="/delivery-groups/meet-delivery-standards" class="defra-tile">
           <h2 class="govuk-heading-m defra-tile__title">
             Meet delivery standards
           </h2>

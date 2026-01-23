@@ -105,15 +105,17 @@ describe('#homeController', () => {
   })
 
   describe('Navigation', () => {
-    test('should not display navigation bar on home page', async () => {
+    test('should display main navigation bar', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/'
       })
 
-      expect(result).not.toEqual(
+      expect(result).toEqual(
         expect.stringContaining('defra-service-navigation')
       )
+      expect(result).toEqual(expect.stringContaining('Service manual'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
     })
   })
 
