@@ -29,4 +29,18 @@
       color: $govuk-white;
     }
   }
+
+  &__separator {
+    color: $govuk-white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+
+  &__current {
+    color: $govuk-white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+  }
 }

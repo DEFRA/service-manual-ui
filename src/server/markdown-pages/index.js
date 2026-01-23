@@ -35,7 +35,12 @@ const markdownRoutes = [
   '/business-analysis/ways-of-working',
   '/product-and-delivery',
   '/product-and-delivery/governance',
-  '/product-and-delivery/tools-and-access'
+  '/product-and-delivery/tools-and-access',
+  '/delivery-groups/meet-delivery-standards',
+  '/delivery-groups/meet-delivery-standards/define-outcomes',
+  '/delivery-groups/meet-delivery-standards/products-and-services',
+  '/delivery-groups/meet-delivery-standards/roadmap-for-change',
+  '/delivery-groups/meet-delivery-standards/success-measures'
 ]
 
 export const markdownPages = {

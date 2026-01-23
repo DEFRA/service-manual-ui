@@ -1,0 +1,24 @@
+<nav class="defra-service-navigation" aria-label="Main navigation" data-module="defra-service-navigation">
+  <div class="defra-service-navigation__inner">
+    <button type="button" class="defra-service-navigation__toggle js-service-navigation-toggle" aria-controls="main-navigation-list" aria-expanded="false" hidden>
+      Menu
+    </button>
+    <ul class="defra-service-navigation__list" id="main-navigation-list">
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link"{% if currentUrl == '/' %} aria-current="page"{% endif %} href="/">
+          Home
+        </a>
+      </li>
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link"{% if currentUrl and currentUrl.startsWith('/service-manual') %} aria-current="page"{% endif %} href="/service-manual">
+          Service manual
+        </a>
+      </li>
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link"{% if currentUrl and currentUrl.startsWith('/delivery-groups') %} aria-current="page"{% endif %} href="/delivery-groups">
+          Delivery groups
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

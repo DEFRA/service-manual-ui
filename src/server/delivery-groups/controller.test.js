@@ -75,13 +75,18 @@ describe('#deliveryGroupsController', () => {
       )
     })
 
-    test('should display Meet delivery standards tile with description', async () => {
+    test('should display Meet delivery standards tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
       expect(result).toEqual(expect.stringContaining('Meet delivery standards'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'href="/delivery-groups/meet-delivery-standards"'
+        )
+      )
       expect(result).toEqual(
         expect.stringContaining(
           'How to meet the standards expected of a high-performing delivery group'
@@ -101,29 +106,19 @@ describe('#deliveryGroupsController', () => {
     })
   })
 
-  describe('Breadcrumb bar', () => {
-    test('should display green breadcrumb bar with Home link', async () => {
+  describe('Navigation', () => {
+    test('should display main navigation bar', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('defra-breadcrumb-bar'))
-      expect(result).toEqual(expect.stringContaining('href="/"'))
       expect(result).toEqual(
-        expect.stringContaining('defra-breadcrumb-bar__link')
-      )
-    })
-
-    test('should not display navigation bar', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
-      expect(result).not.toEqual(
         expect.stringContaining('defra-service-navigation')
       )
+      expect(result).toEqual(expect.stringContaining('href="/"'))
+      expect(result).toEqual(expect.stringContaining('Service manual'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
     })
   })
 })
