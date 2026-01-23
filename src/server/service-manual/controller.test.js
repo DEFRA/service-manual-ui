@@ -40,15 +40,26 @@ describe('#serviceManualController', () => {
       expect(result).toEqual(expect.stringContaining('Accessibility'))
     })
 
-    test('should display breadcrumbs back to landing page', async () => {
+    test('should not display breadcrumbs (has hero instead)', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/service-manual'
       })
 
-      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
-      expect(result).toEqual(expect.stringContaining('Defra Digital'))
-      expect(result).toEqual(expect.stringContaining('href="/"'))
+      expect(result).not.toEqual(expect.stringContaining('govuk-breadcrumbs'))
+    })
+
+    test('should display service navigation with Home link', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/service-manual'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('defra-service-navigation')
+      )
+      // Check for Home link in navigation
+      expect(result).toMatch(/defra-service-navigation__link.*href="\/"/s)
     })
   })
 })

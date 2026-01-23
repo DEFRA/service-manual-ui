@@ -29,7 +29,7 @@ describe('#deliveryGroupsController', () => {
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('Delivery Groups'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
       expect(result).toEqual(
         expect.stringContaining(
           'Understanding the standards, governance and assurance process'
@@ -44,7 +44,7 @@ describe('#deliveryGroupsController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('<title>'))
-      expect(result).toEqual(expect.stringContaining('Delivery Groups'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
     })
 
     test('should display Defra header with logo', async () => {
@@ -59,20 +59,6 @@ describe('#deliveryGroupsController', () => {
   })
 
   describe('Tiles', () => {
-    test('should display Get delivery assurance tile with description', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
-      expect(result).toEqual(expect.stringContaining('Get delivery assurance'))
-      expect(result).toEqual(
-        expect.stringContaining(
-          'Track and manage the progress of your deliveries'
-        )
-      )
-    })
-
     test('should display Follow delivery governance tile with description', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -103,18 +89,6 @@ describe('#deliveryGroupsController', () => {
       )
     })
 
-    test('should display View service insights tile with description', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
-      expect(result).toEqual(expect.stringContaining('View service insights'))
-      expect(result).toEqual(
-        expect.stringContaining('View end-to-end service maps and insights')
-      )
-    })
-
     test('should display all tiles with defra-tile class', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -123,60 +97,33 @@ describe('#deliveryGroupsController', () => {
 
       const tileMatches = result.match(/class="defra-tile"/g)
       expect(tileMatches).not.toBeNull()
-      expect(tileMatches.length).toBe(4)
+      expect(tileMatches.length).toBe(2)
     })
   })
 
-  describe('Breadcrumbs', () => {
-    test('should display breadcrumbs with Defra Digital link', async () => {
+  describe('Breadcrumb bar', () => {
+    test('should display green breadcrumb bar with Home link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
-      expect(result).toEqual(expect.stringContaining('Defra Digital'))
+      expect(result).toEqual(expect.stringContaining('defra-breadcrumb-bar'))
       expect(result).toEqual(expect.stringContaining('href="/"'))
-    })
-
-    test('should display current page in breadcrumbs', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
-      expect(result).toEqual(expect.stringContaining('Delivery Groups'))
-    })
-  })
-
-  describe('Navigation', () => {
-    test('should display landing navigation bar', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
       expect(result).toEqual(
-        expect.stringContaining('defra-service-navigation')
+        expect.stringContaining('defra-breadcrumb-bar__link')
       )
     })
 
-    test('should include Service Manual link in navigation', async () => {
+    test('should not display navigation bar', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
-    })
-
-    test('should include Delivery Groups link in navigation', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups'
-      })
-
-      expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
+      expect(result).not.toEqual(
+        expect.stringContaining('defra-service-navigation')
+      )
     })
   })
 })
