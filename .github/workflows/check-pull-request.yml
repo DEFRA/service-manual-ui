@@ -13,19 +13,22 @@ on:
       - ready_for_review
 
 jobs:
+  # Main validation job - runs tests, linting, and docker build
   pr-validator:
-    name: Run Pull Request Checks
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Test code and Create Test Coverage Reports
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
-      - run: |
+
+      - name: Install dependencies and run checks
+        run: |
           npm ci
           npm run build:frontend
           npm run format:check
@@ -38,9 +41,86 @@ jobs:
           docker build --no-cache --tag cdp-node-frontend-template .
           exit $?
 
+  # Lighthouse CI - runs in parallel after pr-validator
+  # Tests performance, accessibility, best-practices, and SEO on key pages
+  # Results visible in job summary with links to full reports
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    needs: pr-validator
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build:frontend
+
+      - name: Run Lighthouse CI
+        id: lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Format Lighthouse results
+        id: format
+        run: |
+          ROWS=$(echo '${{ steps.lighthouse.outputs.manifest }}' | jq -r '.[] | "| `\(.url | split("localhost:3000") | .[1] // "/")` | \((.summary.performance * 100) | floor) | \((.summary.accessibility * 100) | floor) | \((.summary["best-practices"] * 100) | floor) | \((.summary.seo * 100) | floor) |"')
+          echo "table<<EOF" >> $GITHUB_OUTPUT
+          echo "$ROWS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: lighthouse
+          message: |
+            ## Lighthouse Results
+
+            | Page | Performance | Accessibility | Best Practices | SEO |
+            |------|-------------|---------------|----------------|-----|
+            ${{ steps.format.outputs.table }}
+
+            > 🟢 90-100 | 🟠 50-89 | 🔴 0-49
+
+            [Download detailed HTML reports](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+  # SonarCloud scan - runs in parallel after pr-validator
+  sonarcloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    needs: pr-validator
+    if: github.actor != 'dependabot[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies and run tests for coverage
+        run: |
+          npm ci
+          npm run build:frontend
+          npm test
+
       - name: SonarCloud Scan
-        if: github.actor != 'dependabot[bot]'
-        uses: SonarSource/sonarqube-scan-action@v5.3.1 #  (or check latest version on https://github.com/marketplace/actions/official-sonarqube-scan)
+        uses: SonarSource/sonarqube-scan-action@v5.3.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
