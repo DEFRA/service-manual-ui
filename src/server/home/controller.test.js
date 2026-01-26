@@ -128,7 +128,7 @@ describe('#homeController', () => {
 
       expect(result).toEqual(expect.stringContaining('Coming soon'))
       expect(result).toEqual(
-        expect.stringContaining('More guidance and resources will be available')
+        expect.stringContaining('We are adding more guidance soon. Contact us to suggest content.')
       )
     })
 
@@ -143,3 +143,4 @@ describe('#homeController', () => {
     })
   })
 })
+

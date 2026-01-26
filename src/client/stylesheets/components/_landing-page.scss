@@ -1,16 +1,21 @@
 // stylelint-disable declaration-no-important
 @use '../variables/colours' as *;
+@use "sass:map";
+@use "../../../node_modules/govuk-frontend/dist/govuk/base" as govuk;
 
 .app-coming-soon {
-  background-color: $defra-light-green;
-  padding: 20px;
-  margin-top: govuk-spacing(8);
-  border-left: 10px solid $defra-dark-green;
-  // margin-left: -30px; // Align text with the grid edge (10px border + 20px padding)
+  background-color: #f3f2f1 !important; // $govuk-light-grey
+  border-left: 5px solid $defra-dark-green;
+  padding: govuk.govuk-spacing(3); // Reduced from 20px/spacing(4)
+  margin-top: govuk.govuk-spacing(6);
 
-  // Ensure button doesn't have a bottom margin if it's the last item
+  .govuk-heading-m {
+    margin-bottom: govuk.govuk-spacing(2); // Tighter heading
+  }
+
   .govuk-button {
     margin-bottom: 0;
+    margin-top: govuk.govuk-spacing(2); // Closer to text
   }
 }
 
