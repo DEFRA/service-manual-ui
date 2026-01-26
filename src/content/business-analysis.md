@@ -27,8 +27,8 @@ Defra uses business analysts (BAs) in all phases of delivery, from Discovery to 
 You should read:
 
 - [DDTS Business Analysis](https://defra.sharepoint.com/teams/Team924/SitePages/Business-Analysis-Page.aspx) - for general guidance and community updates
-- [BA Toolkit](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Toolkit.aspx) - for templates, tools, and methods
-- [BA Repository](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Repository.aspx) - to store and find project artifacts
+- [BA Toolkit](https://defra.sharepoint.com/teams/Team924/SitePages/BA-Toolkit.aspx) - for templates, tools, and methods
+- [BA repository](https://defra.sharepoint.com/teams/Team924/Lists/DDTS) - to store and find project artifacts
 
 ## Join the community
 
