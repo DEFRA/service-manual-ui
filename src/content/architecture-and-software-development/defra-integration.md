@@ -28,4 +28,4 @@ supportBox:
     - 'Email: <a href="mailto:defra.integration@defra.gov.uk" class="govuk-link">defra.integration@defra.gov.uk</a>'
 ---
 
-The Defra Integration service is currently under development. You should review what has been done so far and get support below.
+^ The Defra Integration service is currently under development. You should review what has been done so far and get support below.

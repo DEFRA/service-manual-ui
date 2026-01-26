@@ -30,37 +30,4 @@ supportBox:
 
 [Defra Interactive Map](https://github.com/DEFRA/interactive-map) is an open-source mapping component designed for government services, with accessibility at its core.
 
-^ This project is currently in beta. APIs may change without notice.
-
-## Features
-
-The component includes a flexible architecture with a core map and optional plugins:
-
-- drawing tools
-- search functionality
-- custom datasets
-- styling controls
-- scale bars
-- location services
-
-## Map providers
-
-### MapLibre (recommended)
-
-MapLibre is the reference provider offering out-of-the-box functionality with vector tile support and improved accessibility features.
-
-### Esri (experimental)
-
-An alternative provider with native support for British National Grid coordinate systems. This provider remains experimental with incomplete features.
-
-## Technology
-
-The component is built using:
-
-- React for the UI framework
-- MapLibre as the primary mapping engine
-- Webpack for bundling
-- Jest for testing
-- SCSS for styling
-
-The component follows GOV.UK standards and design patterns.
+^ This map is currently in beta and not yet stable. Documentation and support are not yet available.
