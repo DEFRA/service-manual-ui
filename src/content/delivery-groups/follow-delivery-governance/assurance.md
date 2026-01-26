@@ -22,7 +22,7 @@ There are several ways we can assure our delivery, meaning we can keep on track,
 Assurances a delivery group must use:
 
 - [Spend control](/delivery-groups/follow-delivery-governance/assurance/spend-control)
-- [Service assessments](/delivery-groups/follow-delivery-governance/assurance/service-assessments)
+- [Service assessments](/service-assessments)
 - [Operational service readiness](/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness)
 
 [Other assurances](/delivery-groups/follow-delivery-governance/assurance/other-assurance-types) a delivery group is encouraged to use:
