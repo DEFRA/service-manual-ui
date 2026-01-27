@@ -24,6 +24,7 @@ const markdownRoutes = [
   '/design-and-content/cookies',
   '/design-and-content/data-visualisation',
   '/patterns',
+  '/user-research',
   '/working-with-defra',
   '/sustainability',
   '/sustainability/objectives',
