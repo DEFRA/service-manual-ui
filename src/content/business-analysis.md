@@ -28,7 +28,7 @@ You should read:
 
 - [DDTS Business Analysis](https://defra.sharepoint.com/teams/Team924/SitePages/Business-Analysis-Page.aspx) - for general guidance and community updates
 - [BA Toolkit](https://defra.sharepoint.com/teams/Team924/SitePages/BA-Toolkit.aspx) - for templates, tools, and methods
-- [BA repository](https://defra.sharepoint.com/teams/Team924/Lists/DDTS) - to store and find project artifacts
+- [BA repository](https://defra.sharepoint.com/teams/Team924/Lists/DDTS%20BA%20Repository/AllItems.aspx) - to store and find project artifacts
 
 ## Join the community
 
