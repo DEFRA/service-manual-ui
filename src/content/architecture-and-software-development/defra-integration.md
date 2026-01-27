@@ -17,7 +17,7 @@ sectionNav:
         href: /architecture-and-software-development/defra-customer-identity
       - text: Defra Forms
         href: /architecture-and-software-development/defra-forms
-      - text: Defra Accessible Maps
+      - text: Defra Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
       - text: Defra Integration
         href: /architecture-and-software-development/defra-integration
@@ -28,4 +28,4 @@ supportBox:
     - 'Email: <a href="mailto:defra.integration@defra.gov.uk" class="govuk-link">defra.integration@defra.gov.uk</a>'
 ---
 
-The Defra Integration service is currently under development. You should review what has been done so far and get support below.
+^ The Defra Integration service is currently under development. You should review what has been done so far and get support below.
