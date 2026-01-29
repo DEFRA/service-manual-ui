@@ -31,8 +31,8 @@ Recruitment panels are managed groups of research participants who have consente
 
 Check if an existing panel covers your user group. Defra has panels for:
 
-- Farming
-- Circular economy (resources and waste)
+- [Farming](https://defra.sharepoint.com/teams/Team2730/SitePages/research-panels.aspx#farming-panel)
+- [Circular economy (resources and waste)](https://defra.sharepoint.com/teams/Team2730/SitePages/research-panels.aspx#circular-economy-panel)
 
 Contact Research Operations to avoid duplication.
 
@@ -56,7 +56,7 @@ Include links to:
 - the Defra research privacy notice
 - your Qualtrics accessibility statement
 
-REMOVE data from Qualtrics every 3 months. Move it to your secure panel storage.
+Remove data from Qualtrics every 3 months. Move it to your secure panel storage.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -74,7 +74,7 @@ REMOVE data from Qualtrics every 3 months. Move it to your secure panel storage.
       <li>type of business</li>
       <li>region</li>
     </ul>
-    <p>Email <code>DDTSUserResearchOperations@defra.gov.uk</code> for templates.</p>
+    <p>Email <a href="mailto:DDTSUserResearchOperations@defra.gov.uk">DDTSUserResearchOperations@defra.gov.uk</a> for templates.</p>
   </div>
 </details>
 
@@ -105,12 +105,32 @@ If you ask about protected characteristics:
 2.  Explain **how** you will use it.
 3.  Obtain **explicit consent**.
 
-### Consent question
-
-> "To help us develop more inclusive and accessible services, we’d like to ask you some optional questions about any accessibility needs. Some questions may be sensitive. We will process your data in line with Defra’s research privacy notice and only use it for user research. Do you consent to Defra processing this data?"
-
-- [ ] Yes, I consent
-- [ ] No, I do not consent (skip this section)
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+       Example consent question
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>"To help us develop more inclusive and accessible services, we’d like to ask you some optional questions about any accessibility needs. Some questions may be sensitive. We will process your data in line with Defra’s research privacy notice and only use it for user research. Do you consent to Defra processing this data?"</p>
+    <div class="govuk-form-group">
+      <div class="govuk-radios govuk-radios--small">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="consent-yes" name="consent" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="consent-yes">
+            Yes, I consent
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="consent-no" name="consent" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="consent-no">
+            No, I do not consent (skip this section)
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</details>
 
 ### Age
 
@@ -128,7 +148,7 @@ Use Defra’s age bands:
 
 ## Accessibility and disability
 
-Use inclusive language. Identifying access needs helps identify barriers.
+Use [inclusive language](https://www.gov.uk/government/publications/inclusive-communication/inclusive-language-words-to-use-and-avoid-when-writing-about-disability#:~:text=Don%27t%20automatically%20refer%20to%2cif%20it%20seems%20more%20appropriate). Identifying access needs helps identify barriers.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -161,6 +181,17 @@ Use inclusive language. Identifying access needs helps identify barriers.
 
 Ask about tools when testing service compatibility.
 
+**When to ask:**
+
+- to ensure compatibility with specific tools
+- to screen for users of specific assistive technologies
+- to understand how users interact with services
+
+**When not to ask:**
+
+- if you focus on broader user experiences
+- if specific tool usage is not essential to your objectives
+
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
@@ -183,10 +214,23 @@ Ask about tools when testing service compatibility.
 
 ## Digital inclusion
 
-We do not use self-assessment questions for digital literacy because they are often inaccurate.
+We use the term **digital inclusion** rather than **digital literacy**. Digital literacy focuses on skills, while digital inclusion considers access, confidence, motivation, and barriers.
 
-Instead, assess digital inclusion during research sessions through:
+Use the [Digital Inclusion Scale](https://www.gov.uk/government/publications/government-digital-inclusion-strategy/government-digital-inclusion-strategy#measuring-digital-exclusion) to understand users’ needs.
+
+### Why we do not use self-assessment
+
+Defra does not use universal self-assessment questions in screeners. They are often inaccurate because:
+
+- people overestimate or underestimate their skills
+- terms are open to interpretation
+- grid-style formats are not accessible
+- digital skills change quickly
+
+### How to assess digital inclusion
+
+Assess digital inclusion during research sessions instead. Use:
 
 - **Observation**: Watch users interact with services.
-- **Context**: Consider environment and device.
+- **Context**: Consider the environment, device, and motivation.
 - **Barriers**: Identify what prevents access (cost, connectivity, confidence).

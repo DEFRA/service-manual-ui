@@ -27,8 +27,8 @@ sectionNav:
 
 Defra has panels for:
 
-- Farming
-- Circular Economy (Resources and Waste)
+- [Farming panel](https://defra.sharepoint.com/teams/Team2730/SitePages/research-panels.aspx#farming-panel)
+- [Circular economy (resources and waste) panel](https://defra.sharepoint.com/teams/Team2730/SitePages/research-panels.aspx#circular-economy-panel)
 
 ### Process for researchers
 
@@ -82,6 +82,7 @@ You can use professional networks or external organisations (trade associations,
     <ul class="govuk-list govuk-list--bullet">
       <li><strong>Selection bias:</strong> Referred people may share characteristics.</li>
       <li><strong>Social desirability bias:</strong> Participants may try to please the referrer.</li>
+      <li><strong>Acquiescence bias:</strong> Participants may agree with statements to please the researcher or the referrer, rather than expressing their true opinions.</li>
     </ul>
     <p>Mitigate this by diversifying sources and using neutral language.</p>
   </div>
@@ -93,15 +94,21 @@ Consult your engagement team to find relevant events. If you attend, you **must 
 
 ## Social media
 
-Social media (like LinkedIn) is **not widely used** due to reputation risks. Use official programme accounts if necessary.
+Communication teams per programme will have official accounts which you may be able to use for recruitment.
+
+However, in cases where you may not be allowed, you will need to use personal social media accounts for communications.
+
+<div class="govuk-inset-text">
+  When using social media for user research recruitment, be aware your profile will be viewed by members of the public. You may need to be cautious when dealing with members of the public.
+</div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <h3 class="govuk-heading-s">Do</h3>
     <ul class="govuk-list govuk-list--bullet">
-      <li>Share a link to a screener</li>
-      <li>Explain what’s involved</li>
-      <li>Ask trade associations to help</li>
+      <li>Share a screener or panel link</li>
+      <li>Explain goals and experience</li>
+      <li>Describe what is involved</li>
     </ul>
   </div>
   <div class="govuk-grid-column-one-half">
@@ -118,11 +125,19 @@ Social media (like LinkedIn) is **not widely used** due to reputation risks. Use
 
 Use incentives at your discretion. They must be peer-reviewed and signed off.
 
+If you want to use an agency to pay participants you have recruited yourself, find out about [using incentives for user research](https://defra.sharepoint.com/teams/Team2730/SitePages/incentives-for-user-research.aspx).
+
 **Indicative rates:**
 
 - **Citizens**: £50–£75 (1 hour)
 - **Business professionals**: £60–£80
 - **Accessibility sessions**: Higher rates may apply
+
+### Participant queries and consent
+
+Provide clear info on payment methods and timing. Use the incentive consent form template (Word) and explain how payments might affect means-tested benefits.
+
+Email [DDTSUserResearchOperations@defra.gov.uk](mailto:DDTSUserResearchOperations@defra.gov.uk) with any questions.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -132,12 +147,15 @@ Use incentives at your discretion. They must be peer-reviewed and signed off.
   </summary>
   <div class="govuk-details__text">
     <ol class="govuk-list govuk-list--number">
-      <li><strong>Confirm</strong> willingness to pay with your Delivery Manager.</li>
+      <li><strong>Confirm</strong> willingness to pay with your Delivery Manager and budget holders.</li>
       <li><strong>Estimate</strong> total spend and raise a Purchase Order (PO).</li>
-      <li><strong>Inform</strong> Research Operations.</li>
-      <li><strong>Run sessions</strong> and track attendance.</li>
-      <li><strong>Supplier pays</strong> the participants.</li>
-      <li><strong>Keep records</strong> of all incentives paid.</li>
+      <li><strong>Business case</strong> (optional): Capture rationale, audience, and expected outcomes.</li>
+      <li><strong>Inform</strong> Research Operations using the incentives form.</li>
+      <li><strong>Raise a PO</strong>: Share the PO with Research Operations so they can instruct the supplier.</li>
+      <li><strong>Promote and run</strong>: Coordinate with panel managers to avoid over-contacting.</li>
+      <li><strong>Track sessions</strong>: Research Operations will add your project to the tracker.</li>
+      <li><strong>Payments</strong>: The external supplier pays participants.</li>
+      <li><strong>Keep records</strong>: Retain attendance and incentive records.</li>
     </ol>
   </div>
 </details>

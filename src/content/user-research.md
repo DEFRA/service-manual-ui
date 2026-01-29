@@ -27,14 +27,15 @@ supportBox:
   title: Get support
   description: Contact the <strong>User Research community</strong> with questions about user research at Defra.
   items:
-    - 'Email: <a href="mailto:userresearch@defra.gov.uk" class="govuk-link">userresearch@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:DDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'Community: <a href="https://teams.microsoft.com/l/team/19%3AtIUxMW8fOpuNyVj8oJxDN6a9aft79mo-lTEVfDqbUSs1%40thread.tacv2/conversations?groupId=18c7d465-109f-4c55-b2ab-a5da06e89c17&tenantId=770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the User Research community on Teams</a>'
 ---
 
 Defra uses user researchers in all phases of delivery, from Discovery to Live. They align with the [Government Digital and Data role description](https://ddat-capability-framework.service.gov.uk/role/user-researcher).
 
 ## Join the community
 
-Contact your User Research Lead or the Head of User Research. They will:
+Contact the User Research Lead within your Delivery Group to:
 
 - provide an overview of the profession
 - explain governance and ethics

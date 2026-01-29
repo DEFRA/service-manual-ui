@@ -68,7 +68,7 @@ Store plans in Defra’s Data Vault.
 
 ## Methods
 
-Use the **Defra template user research plan**. Use this for any work managed or assured by Defra DDTS.
+Use the [Defra template user research plan](https://defra.sharepoint.com/:w:/r/teams/Team2730/_layouts/15/Doc.aspx?sourcedoc=%7BE7AA60FA-E3D5-40AF-8E79-34EC4E21EBDB%7D&file=DDTS-UR-Defra-UserResearchPlan.docx&action=default&mobileredirect=true). Use this for any work managed or assured by Defra DDTS.
 
 Create a plan at the start of each project phase (like Discovery or Alpha). Create more frequent plans for complex activities.
 
@@ -82,7 +82,7 @@ Ask a Defra Lead User Researcher to peer review your draft. They will:
 - suggest improvements
 - spot issues or gaps
 
-Once your research plan is firm, email it to `DDTSUserResearchOperations@defra.gov.uk` with your data protection screening form.
+Once your research plan is firm, email it to [DDTSUserResearchOperations@defra.gov.uk](mailto:DDTSUserResearchOperations@defra.gov.uk) with your [data protection screening form](https://defra.sharepoint.com/teams/Team2730/SitePages/set-up-data-protection-measures-for-user-research.aspx#step-5-%E2%80%93-screen-your-research-plan-for-data-protection-risks).
 
 ## Artefacts
 
@@ -98,11 +98,3 @@ You can also save a working copy in your project’s SharePoint site for collabo
 - [Getting informed consent for user research](https://www.gov.uk/service-manual/user-research/getting-informed-consent-for-user-research)
 - [Managing user research data and participant privacy](https://www.gov.uk/service-manual/user-research/managing-user-research-data-and-participant-privacy)
 - [Making your service accessible: an introduction](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction)
-
-### Support in Defra
-
-- **User Research community**: Teams channel for examples and advice.
-- **Research Operations**: Logistics, data handling, and archiving.
-- **Accessibility specialists**: Inclusive methods.
-- **Data Protection**: DPIAs and lawful basis.
-- **Content design**: Plain English and templates.

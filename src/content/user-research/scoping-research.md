@@ -64,7 +64,7 @@ Hold a planning workshop with stakeholders. Capture research questions, assumpti
 
 ## Methods
 
-Use the **Defra Mural template** to run a collaborative workshop. This allows you to:
+Use the [Defra Mural template](https://app.mural.co/t/coredefra2548/template/8a9926bd-e418-47f3-b387-d23b329a2bc7) to run a collaborative workshop. This allows you to:
 
 - capture and prioritise research questions
 - convert assumptions into testable questions
@@ -82,8 +82,3 @@ Create a **Defra research scope summary** as the master reference. It should set
 - approvals and next steps
 
 Store materials in the team’s approved UR Vault or repository. Restrict access if personal data is involved.
-
-## Extra resources
-
-- **GOV.UK Service Manual**: [Plan user research for your service](https://www.gov.uk/service-manual/user-research/plan-user-research-for-your-service)
-- **Community**: Join the User Research community on Teams.
