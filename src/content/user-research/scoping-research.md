@@ -23,8 +23,6 @@ sectionNav:
         href: /user-research/preparing-for-data-collection
 ---
 
-Do this stage to kick off research and bring stakeholders together.
-
 The User Researcher runs this stage. They consult programme stakeholders and User Research Leads.
 
 ## Why we do this
