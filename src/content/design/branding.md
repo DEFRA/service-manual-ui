@@ -1,22 +1,22 @@
 ---
 title: Branding and look and feel
-caption: Design and content
+caption: Design
 description: Standards for headers, footers, colours, and logos on Defra services.
 layout: section
-sectionTitle: Design and content
+sectionTitle: Design
 sectionNav:
   - title: In this section
     items:
-      - text: Design and content
-        href: /design-and-content
+      - text: Design
+        href: /design
   - title: Specific guidance
     items:
       - text: Branding and look and feel
-        href: /design-and-content/branding
+        href: /design/branding
       - text: Cookies
-        href: /design-and-content/cookies
+        href: /design/cookies
       - text: Data visualisation
-        href: /design-and-content/data-visualisation
+        href: /design/data-visualisation
 ---
 
 Services must look and feel like government services so users trust them, but Defra services have specific branding requirements.

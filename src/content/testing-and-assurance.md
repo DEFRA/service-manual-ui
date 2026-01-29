@@ -20,9 +20,15 @@ supportBox:
     - '<a href="mailto:QATestResourcing@defra.gov.uk" class="govuk-link">QATestResourcing@defra.gov.uk</a>'
 ---
 
+Guidance on assuring quality and testing your digital services at Defra.
+
 This guidance extends the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology).
 
 Testing ideas and designs supports the 'shift left' mentality. It reduces the risks and additional costs of defects appearing later in development stages.
+
+<div class="govuk-inset-text">
+  See our <a href="/testing-and-assurance/recommended-approach">recommended approach to quality assurance and testing</a>.
+</div>
 
 Read more about [testing your service regularly in the GOV.UK Service Manual](https://www.gov.uk/service-manual/technology/quality-assurance-testing-your-service-regularly).
 

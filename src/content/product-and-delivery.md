@@ -25,18 +25,44 @@ supportBox:
 
 ## Getting started
 
-Read the [product and delivery content in the GOV.UK service manual](https://www.gov.uk/service-manual/agile-delivery).
+Read about [product and delivery in the GOV.UK Service Manual](https://www.gov.uk/service-manual/agile-delivery).
 
-You should also familiarise yourself with the [Defra outcome delivery group model](https://defra.sharepoint.com/:u:/r/teams/Team177/SitePages/DDTS-Delivery-Groups.aspx?csf=1&web=1&e=ajLnoX).
+You should also review the [Defra outcome delivery group model](https://defra.sharepoint.com/:u:/r/teams/Team177/SitePages/DDTS-Delivery-Groups.aspx?csf=1&web=1&e=ajLnoX).
+
+### Recruitment and resourcing
+
+All product roles at Defra are recruited through the DDTS product profession.
+
+<div class="govuk-inset-text">
+  <p class="govuk-body">You must:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>contact the Head of Product to discuss your role requirements before you start recruiting</li>
+    <li>follow the agreed product recruitment process</li>
+  </ul>
+</div>
+
+Do not recruit product roles outside this process.
+
+This ensures we hire suitably experienced specialists. It also prevents assigning product responsibilities to people without the right skills.
 
 ### Your delivery group
 
-Determine which delivery group the service you are working on belongs to. You can find a list of [Delivery Groups and Leads on SharePoint](https://defra.sharepoint.com/teams/Team177/SitePages/Delivery-Groups-and-Leads.aspx).
+Defra delivers services through delivery groups. You must understand which delivery group your service belongs to and how it works.
 
-You should identify your:
+Each delivery group has a strategic roadmap team that sets direction and priorities.
+
+[Find a list of Delivery Groups and Leads on SharePoint](https://defra.sharepoint.com/teams/Team177/SitePages/Delivery-Groups-and-Leads.aspx).
+
+If you are a delivery manager, identify your:
 
 - delivery group lead
 - delivery centre lead (this may be your programme delivery manager)
-- profession leads working within your delivery group
+- profession leads within your delivery group
 
-Arrange a meeting with your delivery centre lead or programme delivery manager. They will help you gain access to any specific guidance and SharePoint repositories which are relevant to your delivery.
+Arrange a meeting with your delivery centre lead or programme delivery manager. They will give you access to guidance and SharePoint repositories for your delivery.
+
+**Product managers:** speak to your Lead Product Manager about direction, priorities, and alignment.
+
+**Lead Product Managers:** speak to your delivery centre lead.
+
+This ensures services align with delivery group priorities and decisions have the right oversight.

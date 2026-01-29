@@ -1,22 +1,22 @@
 ---
 title: Data visualisation
-caption: Design and content
+caption: Design
 description: Guidance on using maps and charts accessible.
 layout: section
-sectionTitle: Design and content
+sectionTitle: Design
 sectionNav:
   - title: In this section
     items:
-      - text: Design and content
-        href: /design-and-content
+      - text: Design
+        href: /design
   - title: Specific guidance
     items:
       - text: Branding and look and feel
-        href: /design-and-content/branding
+        href: /design/branding
       - text: Cookies
-        href: /design-and-content/cookies
+        href: /design/cookies
       - text: Data visualisation
-        href: /design-and-content/data-visualisation
+        href: /design/data-visualisation
 ---
 
 ## Maps
