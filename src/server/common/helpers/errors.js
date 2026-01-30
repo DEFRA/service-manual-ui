@@ -39,7 +39,7 @@ export function catchAll(request, h) {
   const heading = getErrorHeading(statusCode)
 
   if (statusCode >= statusCodes.internalServerError) {
-    request.logger.error(response?.stack)
+    request.logger.error({ err: response }, 'Internal server error')
   }
 
   return h

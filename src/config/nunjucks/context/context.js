@@ -24,9 +24,17 @@ function loadManifest() {
       webpackManifest = JSON.parse(readFileSync(manifestPath, 'utf-8'))
       manifestMtime = stats.mtimeMs
     }
-  } catch {
-    if (!webpackManifest) {
-      logger.error(`Webpack ${path.basename(manifestPath)} not found`)
+  } catch (error) {
+    if (webpackManifest) {
+      logger.warn(
+        { err: error },
+        `Webpack ${path.basename(manifestPath)} reload failed, using cached version`
+      )
+    } else {
+      logger.error(
+        { err: error },
+        `Webpack ${path.basename(manifestPath)} not found`
+      )
     }
   }
 }

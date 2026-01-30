@@ -2,6 +2,7 @@ import { vi } from 'vitest'
 
 const mockReadFileSync = vi.fn()
 const mockLoggerError = vi.fn()
+const mockLoggerWarn = vi.fn()
 
 vi.mock('node:fs', async () => {
   const nodeFs = await import('node:fs')
@@ -12,13 +13,17 @@ vi.mock('node:fs', async () => {
   }
 })
 vi.mock('../../../server/common/helpers/logging/logger.js', () => ({
-  createLogger: () => ({ error: (...args) => mockLoggerError(...args) })
+  createLogger: () => ({
+    error: (...args) => mockLoggerError(...args),
+    warn: (...args) => mockLoggerWarn(...args)
+  })
 }))
 
 describe('context and cache', () => {
   beforeEach(() => {
     mockReadFileSync.mockReset()
     mockLoggerError.mockReset()
+    mockLoggerWarn.mockReset()
     vi.resetModules()
   })
 
@@ -97,6 +102,7 @@ describe('context and cache', () => {
 
       test('Should log that the Webpack Manifest file is not available', () => {
         expect(mockLoggerError).toHaveBeenCalledWith(
+          { err: expect.any(Error) },
           'Webpack assets-manifest.json not found'
         )
       })
