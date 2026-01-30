@@ -25,15 +25,15 @@ function loadManifest() {
       manifestMtime = stats.mtimeMs
     }
   } catch (error) {
-    if (!webpackManifest) {
-      logger.error(
-        { err: error },
-        `Webpack ${path.basename(manifestPath)} not found`
-      )
-    } else {
+    if (webpackManifest) {
       logger.warn(
         { err: error },
         `Webpack ${path.basename(manifestPath)} reload failed, using cached version`
+      )
+    } else {
+      logger.error(
+        { err: error },
+        `Webpack ${path.basename(manifestPath)} not found`
       )
     }
   }
