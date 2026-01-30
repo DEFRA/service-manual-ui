@@ -1,22 +1,22 @@
 ---
 title: Cookies
-caption: Design and content
+caption: Design
 description: Rules for using cookies and similar technologies.
 layout: section
-sectionTitle: Design and content
+sectionTitle: Design
 sectionNav:
   - title: In this section
     items:
-      - text: Design and content
-        href: /design-and-content
+      - text: Design
+        href: /design
   - title: Specific guidance
     items:
       - text: Branding and look and feel
-        href: /design-and-content/branding
+        href: /design/branding
       - text: Cookies
-        href: /design-and-content/cookies
+        href: /design/cookies
       - text: Data visualisation
-        href: /design-and-content/data-visualisation
+        href: /design/data-visualisation
 ---
 
 To comply with the Privacy and Electronic Communications Regulations (PECR), you must manage how your service uses cookies.

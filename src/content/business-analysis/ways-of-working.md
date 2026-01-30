@@ -30,4 +30,4 @@ You must:
 - create artifacts in tools Defra can access
 - save artifacts to the delivery document library and the BA repository
 
-When you finish work, add it to the [BA repository](https://defra.sharepoint.com/sites/DDTSBusinessAnalysis/SitePages/BA-Repository.aspx).
+When you finish work, add it to the [BA repository](https://defra.sharepoint.com/teams/Team924/Lists/DDTS%20%20BA%20Repository/AllItems.aspx?ovuser=770a2450%2D0227%2D4c62%2D90c7%2D4e38537f1102%2Cedward%2Ecrysell%40defra%2Egov%2Euk&OR=Teams%2DHL&CT=1769618792058&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNTExMzAwMTMxMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D).
