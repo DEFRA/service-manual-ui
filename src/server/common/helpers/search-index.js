@@ -3,6 +3,9 @@ import path from 'node:path'
 import matter from 'gray-matter'
 import { fileURLToPath } from 'node:url'
 
+import { createLogger } from './logging/logger.js'
+
+const logger = createLogger()
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
 
@@ -30,7 +33,14 @@ const DEFAULT_SUGGESTION_LIMIT = 5
  */
 function findMarkdownFiles(dir, basePath = '') {
   const files = []
-  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  let entries
+
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true })
+  } catch (error) {
+    logger.error({ err: error, dir }, 'Failed to read content directory')
+    return []
+  }
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name)
@@ -94,25 +104,32 @@ export function buildSearchIndex() {
   const index = []
 
   for (const filePath of markdownFiles) {
-    const fullPath = path.join(CONTENT_DIR, filePath)
-    const fileContent = fs.readFileSync(fullPath, 'utf8')
-    const { data, content } = matter(fileContent)
+    try {
+      const fullPath = path.join(CONTENT_DIR, filePath)
+      const fileContent = fs.readFileSync(fullPath, 'utf8')
+      const { data, content } = matter(fileContent)
 
-    // Convert file path to URL path
-    // e.g., 'accessibility/manage-accessibility.md' -> '/accessibility/manage-accessibility'
-    const url = '/' + filePath.replace(/\.md$/, '')
+      // Convert file path to URL path
+      // e.g., 'accessibility/manage-accessibility.md' -> '/accessibility/manage-accessibility'
+      const url = '/' + filePath.replace(/\.md$/, '')
 
-    const entry = {
-      title: data.title || '',
-      description: data.description || '',
-      caption: data.caption || '',
-      sectionTitle: data.sectionTitle || '',
-      url,
-      headings: extractHeadings(content),
-      content: extractText(content)
+      const entry = {
+        title: data.title || '',
+        description: data.description || '',
+        caption: data.caption || '',
+        sectionTitle: data.sectionTitle || '',
+        url,
+        headings: extractHeadings(content),
+        content: extractText(content)
+      }
+
+      index.push(entry)
+    } catch (error) {
+      logger.error(
+        { err: error, filePath },
+        'Failed to index markdown file, skipping'
+      )
     }
-
-    index.push(entry)
   }
 
   return index

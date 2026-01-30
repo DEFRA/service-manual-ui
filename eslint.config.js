@@ -32,7 +32,17 @@ export default [
 
       // MAJOR - Code maintainability
       'no-shadow': 'warn', // Variable shadowing (SonarQube issue)
-      'default-case-last': 'error' // Switch statement best practice
+      'default-case-last': 'error', // Switch statement best practice
+
+      // Enforce logger usage over console
+      'no-console': 'error'
+    }
+  },
+  // Allow console.error in client-side code (no server logger available)
+  {
+    files: ['src/client/**/*.js'],
+    rules: {
+      'no-console': ['warn', { allow: ['error'] }]
     }
   },
   // Separate config for test files - more lenient

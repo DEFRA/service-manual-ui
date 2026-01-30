@@ -89,7 +89,10 @@ describe('#metrics', () => {
     })
 
     test('Should log expected error', () => {
-      expect(mockLoggerError).toHaveBeenCalledWith(Error(mockError), mockError)
+      expect(mockLoggerError).toHaveBeenCalledWith(
+        { err: Error(mockError) },
+        'Failed to send metrics'
+      )
     })
   })
 })

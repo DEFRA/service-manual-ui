@@ -14,7 +14,7 @@ export const getMarkdownPage = (filename) => {
         currentUrl: request.path
       })
     } catch (error) {
-      console.error(error)
+      request.logger.error({ err: error }, 'Failed to load markdown page')
       return h.response('Page not found').code(statusCodes.notFound)
     }
   }
