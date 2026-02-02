@@ -46,7 +46,7 @@ describe('#homeController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Welcome to Defra service manual')
+        expect.stringContaining('Welcome to Defra digital')
       )
     })
 
@@ -68,7 +68,7 @@ describe('#homeController', () => {
         url: '/'
       })
 
-      expect(result).toEqual(expect.stringContaining('Defra service manual'))
+      expect(result).toEqual(expect.stringContaining('Digital service manual'))
       expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
       expect(result).toEqual(
         expect.stringContaining(
@@ -114,7 +114,7 @@ describe('#homeController', () => {
       expect(result).toEqual(
         expect.stringContaining('defra-service-navigation')
       )
-      expect(result).toEqual(expect.stringContaining('Service manual'))
+      expect(result).toEqual(expect.stringContaining('Digital service manual'))
       expect(result).toEqual(expect.stringContaining('Delivery groups'))
     })
   })

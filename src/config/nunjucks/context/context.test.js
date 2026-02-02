@@ -65,7 +65,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'Defra digital service manual',
+          serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
       })
@@ -155,7 +155,7 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
-          serviceName: 'Defra digital service manual',
+          serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
       })
