@@ -1,7 +1,7 @@
 ---
 title: 5. Make sure everyone can use the service
 caption: Service Standard
-description: Meet accessibility standards and legal requirements for Defra services.
+description:
 layout: section
 sectionTitle: Accessibility
 sectionNav:
@@ -22,23 +22,27 @@ supportBox:
     - 'Email: <a href="mailto:accessibility@defra.gov.uk" class="govuk-link">accessibility@defra.gov.uk</a>'
 ---
 
-Defra adheres to the cross-government [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard). All services must meet the standard's 15 points.
+## What this standard is about
 
-To meet point 5 of the Service Standard, your software or service must conform to the **Web Content Accessibility Guidelines (WCAG) 2.2** at level **AA**.
+Meeting accessibility standards is about creating services that are inclusive for all users. It is covered in [point 5 of the cross-government GOV.UK Service Manual](https://www.gov.uk/service-manual/service-standard/point-5-make-sure-everyone-can-use-the-service) and is a legal requirement for all Defra services.
 
 ## Why it's important
 
-Services must be accessible to everyone who needs to use them. This includes people who use assistive technologies, such as screen readers, voice recognition software, or screen magnifiers.
+Designing with accessibility at the forefront has benefits for all users.
 
-Accessibility is also a legal requirement. The Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018 require public sector services to meet accessibility standards. The Equality Act 2010 also places a duty on public bodies to make reasonable adjustments.
+Anyone can face barriers using your service. These barriers are often referred to as universal barriers. Universal barriers include matters such as a user’s trust and access levels, through to their surrounding environment and personal circumstances.
 
-## What it means
+Legislation is also in place to make sure that accessibility requirements are met. This includes The Public Sector Bodies (Websites and Mobile Applications) Accessibility Regulations 2018 and The Equality Act 2010.
 
-Your service must meet WCAG 2.2 level AA and work with common assistive technologies. This applies to all services with a human interface, whether they are for the public, specialist users, or Defra staff.
+## What you need to do
 
-**Public-facing services** must work with the technologies listed in the [GDS testing with assistive technologies guidance](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies).
+Your service must meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA. It should also be compatible with common assistive technologies, such as screen readers, voice recognition software, or screen magnifiers.
 
-**Staff-facing software** must work with the assistive technologies currently used within Defra:
+This applies to all services with a human interface, whether they are for the public, specialist users, or Defra staff.
+
+Public-facing services must work with the technologies listed in the [GDS testing with assistive technologies guidance](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies).
+
+Staff-facing software must work with the assistive technologies currently used within Defra. This can include:
 
 - Dragon (voice recognition)
 - Read and Write (screen reader and dyslexia aid)
@@ -46,7 +50,7 @@ Your service must meet WCAG 2.2 level AA and work with common assistive technolo
 - JAWS (screen reader)
 - Microsoft Windows Voice Access, Magnifier, and Narrator
 
-### Exemptions
+## When accessibility exemptions apply
 
 You are exempt only if the software is:
 
@@ -55,8 +59,10 @@ You are exempt only if the software is:
 
 If you are unsure, assume you must follow the standards.
 
-### Common misunderstandings
+## Common misunderstandings about accessibility
 
-- **Internal use:** Staff software is not exempt. It must meet the same standards as public services.
-- **Maps:** Maps are not exempt. You must provide essential information in an accessible non-visual format, such as text or a list.
-- **No complaints:** A lack of complaints does not mean your service is accessible or legal.
+Designing an accessible service needs to be factored into each stage of delivery. The following misunderstandings are not reasons why accessibility requirements shouldn’t be met:
+
+- **Your service is for internal use only:** Staff software must meet the same standards as public services.
+- **Maps are exempt:** You must provide essential information in an accessible non-visual format, such as text or a list.
+- **No complaints have been made:** A lack of complaints does not mean your service is accessible or legal.

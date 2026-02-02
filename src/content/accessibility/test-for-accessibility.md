@@ -1,7 +1,7 @@
 ---
 title: Test for accessibility
 caption: How to meet the standard
-description: Using automated tools, manual checks, and commissioning audits.
+description:
 layout: section
 sectionTitle: Accessibility
 sectionNav:
@@ -19,11 +19,11 @@ sectionNav:
 
 You must use a combination of automated tools, manual checks, and professional audits. Each method finds different types of issues, so you need all three.
 
-## 1. Automated testing
+## 1. Run automated testing
 
 Automated tools can quickly find common accessibility problems, such as missing alt text, colour contrast issues, or missing form labels.
 
-Run automated tests regularly during development, not just before going live. Fix issues as you find them.
+You should run automated tests regularly during development, not just before going live and fix issues as you find them.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -32,7 +32,7 @@ Run automated tests regularly during development, not just before going live. Fi
     </span>
   </summary>
   <div class="govuk-details__text">
-    <p class="govuk-body">Use the <a href="https://defra-design.github.io/accessibility/" class="govuk-link">Defra Accessibility Resources on GitHub</a> for guides on:</p>
+    <p class="govuk-body">Use the <a href="https://defra-design.github.io/accessibility/" class="govuk-link" target="_blank" rel="noreferrer noopener">Defra accessibility resources on GitHub (opens in a new tab)</a> for guides on:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>estimating user needs</li>
       <li>common accessibility errors</li>
@@ -40,7 +40,7 @@ Run automated tests regularly during development, not just before going live. Fi
     </ul>
     <p class="govuk-body">Common automated testing tools include:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>axe DevTools browser extension</li>
+      <li>Axe DevTools browser extension</li>
       <li>WAVE browser extension</li>
       <li>Lighthouse (built into Chrome DevTools)</li>
       <li>Pa11y (command-line tool)</li>
@@ -48,11 +48,13 @@ Run automated tests regularly during development, not just before going live. Fi
   </div>
 </details>
 
-## 2. Manual testing
+## 2. Manually test with assistive technology
 
-Automated tools cannot find everything. You must also test manually with assistive technologies.
+Automated tools cannot find everything. You must also test manually with assistive technologies and test with the same assistive technologies your users will use.
 
-Test with the same assistive technologies your users will use. For public-facing services, follow the [GDS testing with assistive technologies guidance](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies). For staff-facing software, test with the assistive technologies used within Defra.
+For public-facing services, follow the <a href="https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies" class="govuk-link">GDS testing with assistive technologies guidance</a>.
+
+For staff-facing software, test with the assistive technologies used within Defra.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -73,11 +75,11 @@ Test with the same assistive technologies your users will use. For public-facing
   </div>
 </details>
 
-## 3. Professional audit
+## 3. Book a professional audit
 
-For Gate 4, you will usually need an independent accessibility audit. This provides third-party assurance that your service meets WCAG 2.2 level AA.
+For Stage Gate 4, you will usually need an independent accessibility audit. This provides third-party assurance that your service meets Web Content Accessibility Guidelines (WCAG) 2.2 at level AA.
 
-Book your audit well in advance of your go-live date. Audits typically take 2 to 4 weeks to complete, and you will need time to fix any issues found.
+You must book your audit well in advance of your go-live date. Audits typically take 2 to 4 weeks to complete, and you will need time to fix any issues found.
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -86,15 +88,15 @@ Book your audit well in advance of your go-live date. Audits typically take 2 to
     </span>
   </summary>
   <div class="govuk-details__text">
-    <p class="govuk-body">Read the full guide on <a href="https://defra-design.github.io/accessibility/resources/content/how-to-get-accessibility-audit-defra/" class="govuk-link">How to get an accessibility audit in Defra</a>.</p>
     <p class="govuk-body">The process typically involves:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>contacting the Defra Accessibility Team for recommendations</li>
-      <li>obtaining quotes from approved auditors</li>
+      <li>getting quotes from approved auditors</li>
       <li>scheduling the audit (usually 2 to 4 weeks before your planned go-live date)</li>
       <li>providing access to your service and any necessary documentation</li>
       <li>receiving a written audit report with findings and recommendations</li>
     </ul>
+    <p class="govuk-body">Read the full guide on <a href="https://defra-design.github.io/accessibility/resources/content/how-to-get-accessibility-audit-defra/" class="govuk-link" target="_blank" rel="noreferrer noopener">how to get an accessibility audit in Defra (opens in a new tab)</a>.</p>
   </div>
 </details>
 
@@ -105,7 +107,7 @@ Book your audit well in advance of your go-live date. Audits typically take 2 to
     </span>
   </summary>
   <div class="govuk-details__text">
-    <p class="govuk-body"><strong>Cost:</strong> Between £8,000 and £30,000 depending on the complexity of your service.</p>
+    <p class="govuk-body">An audit can cost between £8,000 and £30,000 depending on how complex your service is.</p>
     <p class="govuk-body">Factors that affect cost include:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>number of pages or screens</li>
@@ -113,6 +115,6 @@ Book your audit well in advance of your go-live date. Audits typically take 2 to
       <li>whether mobile apps are included</li>
       <li>whether you need testing with real users of assistive technology</li>
     </ul>
-    <p class="govuk-body"><strong>Timing:</strong> Book at least 6 to 8 weeks before your go-live date to allow time for the audit and any fixes.</p>
+    <p class="govuk-body"><strong>Timing:</strong> Book your audit 6 to 8 weeks before your go-live date. This gives enough time to schedule the audit 2 to 4 weeks before launch, complete it, and address any required fixes.</p>
   </div>
 </details>
