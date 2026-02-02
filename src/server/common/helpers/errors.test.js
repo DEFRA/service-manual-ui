@@ -136,7 +136,12 @@ describe('#catchAll', () => {
   test('Should provide service error page and log error for 500', () => {
     catchAll(mockRequest(statusCodes.internalServerError), mockToolkit)
 
-    expect(mockErrorLogger).toHaveBeenCalledWith(mockStack)
+    expect(mockErrorLogger).toHaveBeenCalledWith(
+      {
+        err: expect.objectContaining({ stack: mockStack })
+      },
+      'Internal server error'
+    )
     expect(mockToolkitView).toHaveBeenCalledWith(errorPage, {
       pageTitle: 'Sorry, there is a problem with the service',
       heading: 'Sorry, there is a problem with the service',
