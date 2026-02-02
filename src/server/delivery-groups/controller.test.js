@@ -122,7 +122,7 @@ describe('#deliveryGroupsController', () => {
         expect.stringContaining('defra-service-navigation')
       )
       expect(result).toEqual(expect.stringContaining('href="/"'))
-      expect(result).toEqual(expect.stringContaining('Service manual'))
+      expect(result).toEqual(expect.stringContaining('Digital service manual'))
       expect(result).toEqual(expect.stringContaining('Delivery groups'))
     })
   })

@@ -21,9 +21,7 @@ describe('#serviceManualController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.ok)
-      expect(result).toEqual(
-        expect.stringContaining('Defra digital service manual')
-      )
+      expect(result).toEqual(expect.stringContaining('Digital service manual'))
       expect(result).toEqual(
         expect.stringContaining('Design and build digital services for Defra')
       )

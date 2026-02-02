@@ -1,4 +1,4 @@
-const PAGE_TITLE = 'Service manual'
+const PAGE_TITLE = 'Digital Service Manual'
 
 /**
  * Service manual home page controller.

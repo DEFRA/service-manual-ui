@@ -1,7 +1,7 @@
 /**
  * Service Manual UI - Architecture Model
  *
- * This file defines the complete architecture of the Defra Service Manual
+ * This file defines the complete architecture of the Digital Service Manual
  * using LikeC4 DSL with C4 model levels:
  * - Level 1: System Context
  * - Level 2: Container

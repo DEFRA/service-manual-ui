@@ -21,7 +21,7 @@ describe('#buildRedisClient', () => {
       expect(Redis).toHaveBeenCalledWith({
         db: 0,
         host: '127.0.0.1',
-        keyPrefix: 'Defra digital service manual:',
+        keyPrefix: 'Digital service manual:',
         port: 6379
       })
     })
@@ -43,7 +43,7 @@ describe('#buildRedisClient', () => {
         [{ host: '127.0.0.1', port: 6379 }],
         {
           dnsLookup: expect.any(Function),
-          keyPrefix: 'Defra digital service manual:',
+          keyPrefix: 'Digital service manual:',
           redisOptions: { db: 0, password: 'pass', tls: {}, username: 'user' },
           slotsRefreshTimeout: 10000
         }

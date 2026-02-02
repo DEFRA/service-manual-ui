@@ -1,10 +1,10 @@
 ---
 title: Suggest content
-description: How to propose new content or changes to the Defra Service Manual.
+description: How to propose new content or changes to the Digital Service Manual.
 layout: two-thirds
 ---
 
-The Defra Service Manual is created with you, the digital communities and people across Defra.
+The Digital Service Manual is created with you, the digital communities and people across Defra.
 
 You can suggest content that you would like to be added.
 
@@ -16,9 +16,9 @@ Do not worry about the format or how content is written.
 
 ## What happens next
 
-We will let you know if the content fits in the Defra Service Manual or suggest another place to publish it.
+We will let you know if the content fits in the Digital Service Manual or suggest another place to publish it.
 
-If your content fits in the Defra Service Manual, we will review it and share our edits with you.
+If your content fits in the Digital Service Manual, we will review it and share our edits with you.
 
 ## Get content updated
 

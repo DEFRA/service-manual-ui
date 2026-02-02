@@ -1,6 +1,6 @@
 ---
 title: Take part in user research
-description: Sign up to help us improve the Defra Service Manual.
+description: Sign up to help us improve the Digital Service Manual.
 layout: two-thirds
 ---
 
