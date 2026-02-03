@@ -4,6 +4,7 @@ import { getMarkdownPage } from './controller.js'
  * Markdown page routes - maps URL paths to markdown files
  */
 const markdownRoutes = [
+  '/accessibility-statement',
   '/service-standard',
   '/service-assessments',
   '/service-assessments/book-an-assessment',
