@@ -45,7 +45,7 @@
   -moz-osx-font-smoothing: grayscale;
   font-size: 22px;
   font-weight: 700;
-  color: $defra-dark-green;
+  color: $defra-green;
   line-height: 1.2;
   text-decoration: none;
 
@@ -64,7 +64,7 @@
   }
 
   &:visited {
-    color: $defra-dark-green;
+    color: $defra-green;
   }
 }
 
@@ -105,8 +105,8 @@
 
 .defra-header-search__button {
   border: 0;
-  border-left: 1px solid $defra-dark-green;
-  background-color: $defra-dark-green;
+  border-left: 1px solid $defra-green;
+  background-color: $defra-green;
   padding: 0;
   width: 40px;
   display: flex;

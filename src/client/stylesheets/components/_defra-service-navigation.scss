@@ -1,7 +1,7 @@
 @use '../variables/colours' as *;
 
 .defra-service-navigation {
-  background-color: $defra-dark-green;
+  background-color: $defra-green;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -65,7 +65,7 @@
 }
 
 // Active state using aria-current for accessibility
-.defra-service-navigation__link[aria-current="page"] {
+.defra-service-navigation__link[aria-current='page'] {
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -4px 0 0 $govuk-white;
   font-weight: 700;
@@ -97,7 +97,7 @@
   min-width: 300px;
   background-color: $govuk-white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-top: 4px solid $defra-dark-green;
+  border-top: 4px solid $defra-green;
 }
 
 .defra-service-navigation__dropdown-list {
