@@ -3,7 +3,7 @@
 // ===== Primary navigation =====
 
 .defra-primary-nav {
-  background-color: $defra-dark-green;
+  background-color: $defra-green;
   margin-bottom: 0;
 }
 
@@ -23,6 +23,7 @@
 }
 
 .defra-primary-nav__link {
+
   &,
   &:link,
   &:visited {
@@ -41,6 +42,7 @@
 }
 
 .defra-primary-nav__link--current {
+
   &,
   &:link,
   &:visited {
@@ -160,7 +162,7 @@
   color: $govuk-black;
   text-decoration: none;
   font-weight: 400;
-  border-left: 4px solid $defra-dark-green;
+  border-left: 4px solid $defra-green;
   padding: 8px 10px;
   margin-left: -14px;
   background-color: $govuk-light-grey;

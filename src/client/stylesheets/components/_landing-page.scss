@@ -1,11 +1,11 @@
 // stylelint-disable declaration-no-important
 @use '../variables/colours' as *;
-@use "sass:map";
-@use "../../../node_modules/govuk-frontend/dist/govuk/base" as govuk;
+@use 'sass:map';
+@use '../../../node_modules/govuk-frontend/dist/govuk/base' as govuk;
 
 .app-coming-soon {
   background-color: #f3f2f1 !important; // $govuk-light-grey
-  border-left: 5px solid $defra-dark-green;
+  border-left: 5px solid $defra-green;
   padding: govuk.govuk-spacing(3); // Reduced from 20px/spacing(4)
   margin-top: govuk.govuk-spacing(6);
 
@@ -14,8 +14,13 @@
   }
 
   .govuk-button {
+    background-color: $defra-green;
     margin-bottom: 0;
     margin-top: govuk.govuk-spacing(2); // Closer to text
+
+    &:hover {
+      background-color: govuk.govuk-shade($defra-green, 20%);
+    }
   }
 }
 
