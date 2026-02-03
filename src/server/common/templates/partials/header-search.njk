@@ -4,21 +4,20 @@
   action="/search"
   method="get">
   <div class="defra-header-search__wrapper" id="search-autocomplete-container">
-    <label class="govuk-visually-hidden" for="defra-search">
-      Search the manual
+    <label class="defra-header-search__label" for="defra-search">
+      Search
     </label>
     <input
       class="govuk-input defra-header-search__input"
       id="defra-search"
       name="q"
       type="search"
-      placeholder="Search"
       autocomplete="off">
   </div>
   <button
     class="defra-header-search__button"
-    type="submit">
-    <span class="govuk-visually-hidden">Search</span>
+    type="submit"
+    aria-label="Search the manual">
     <svg class="defra-header-search__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
       <circle cx="7" cy="7" r="5" stroke-width="2"></circle>
       <line x1="10.5" y1="10.5" x2="14" y2="14" stroke-width="2"></line>

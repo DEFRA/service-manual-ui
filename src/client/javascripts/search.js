@@ -139,8 +139,16 @@ export async function initSearch() {
   // Get any existing value from the input
   const existingValue = existingInput.value
 
+  // Preserve the label element if it exists
+  const existingLabel = container.querySelector('label')
+
   // Clear the container (remove the existing input)
   container.innerHTML = ''
+
+  // Re-add the label if it existed
+  if (existingLabel) {
+    container.appendChild(existingLabel)
+  }
 
   // Initialise accessible-autocomplete
   accessibleAutocomplete({
@@ -196,5 +204,24 @@ export async function initSearch() {
   if (autocompleteInput) {
     autocompleteInput.classList.add('defra-header-search__input')
     autocompleteInput.setAttribute('type', 'search')
+
+    // Handle label visibility based on input value
+    const label = container.querySelector('label')
+    if (label) {
+      const updateLabelVisibility = () => {
+        if (autocompleteInput.value) {
+          label.classList.add('defra-header-search__label--hidden')
+        } else {
+          label.classList.remove('defra-header-search__label--hidden')
+        }
+      }
+
+      // Update on input changes
+      autocompleteInput.addEventListener('input', updateLabelVisibility)
+      autocompleteInput.addEventListener('change', updateLabelVisibility)
+
+      // Initial check
+      updateLabelVisibility()
+    }
   }
 }
