@@ -1,10 +1,10 @@
-# service-manual-ui
+# Digital Service Manual
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_service-manual-ui&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DEFRA_service-manual-ui)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_service-manual-ui&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DEFRA_service-manual-ui)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_service-manual-ui&metric=coverage)](https://sonarcloud.io/summary/new_code?id=DEFRA_service-manual-ui)
 
-Digital service manual
+The Defra Digital Service Manual provides guidance and standards for digital teams building services.
 
 - [Requirements](#requirements)
   - [Node.js](#nodejs)
