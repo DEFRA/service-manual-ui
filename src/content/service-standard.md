@@ -28,6 +28,8 @@ supportBox:
 
 ## 9. Create a secure service which protects users' privacy
 
+[Read more about creating a secure service](/service-standard/9-create-a-secure-service)
+
 ## 10. Define what success looks like and publish performance data
 
 ## 11. Choose the right tools and technology

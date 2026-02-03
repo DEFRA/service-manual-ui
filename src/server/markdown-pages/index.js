@@ -57,7 +57,9 @@ const markdownRoutes = [
   '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness',
   '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types',
   '/testing-and-assurance',
-  '/testing-and-assurance/recommended-approach'
+  '/testing-and-assurance/recommended-approach',
+  '/security',
+  '/security/common-tasks'
 ]
 
 export const markdownPages = {
@@ -74,3 +76,19 @@ export const markdownPages = {
     }
   }
 }
+// force restart
+// force restart 5
+// force restart 7
+// force restart 8
+// force restart 9
+// force restart 10
+// force restart 11
+// force restart 12
+// force restart 13
+// force restart 14
+// force restart 15
+// force restart 16
+// force restart 17
+// force restart 18
+// force restart 19
+// force restart 20
