@@ -56,6 +56,22 @@ describe('#deliveryGroupsController', () => {
       expect(result).toEqual(expect.stringContaining('defra-header'))
       expect(result).toEqual(expect.stringContaining('defra-logo.svg'))
     })
+
+    test('should have logo as non-interactive image (not a link)', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups'
+      })
+
+      // Logo should NOT be wrapped in a link (accessibility fix)
+      expect(result).not.toEqual(
+        expect.stringContaining('defra-header__logo-link')
+      )
+      // Service name should still be a link
+      expect(result).toEqual(
+        expect.stringContaining('class="defra-header__service-name"')
+      )
+    })
   })
 
   describe('Tiles', () => {

@@ -111,6 +111,51 @@ describe('#markdownPagesController', () => {
     })
   })
 
+  describe('GET /accessibility-statement', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Accessibility statement'))
+    })
+
+    test('Should state full WCAG 2.2 AA compliance', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(expect.stringContaining('fully compliant'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Web Content Accessibility Guidelines version 2.2'
+        )
+      )
+    })
+
+    test('Should include contact information', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('cctsassurance@defra.gov.uk')
+      )
+    })
+  })
+
   describe('Breadcrumbs', () => {
     test('should include breadcrumbs with full navigation path', async () => {
       const { result } = await server.inject({

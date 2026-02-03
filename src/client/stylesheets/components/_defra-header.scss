@@ -23,16 +23,6 @@
   display: contents;
 }
 
-.defra-header__logo-link {
-  display: flex;
-  align-items: center;
-
-  &:focus {
-    outline: 3px solid $govuk-yellow;
-    outline-offset: 2px;
-  }
-}
-
 .defra-header__logo {
   height: 60px;
   width: auto;
