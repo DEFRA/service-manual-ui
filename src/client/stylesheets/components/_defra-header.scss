@@ -45,11 +45,21 @@
   -moz-osx-font-smoothing: grayscale;
   font-size: 22px;
   font-weight: 700;
-  color: $defra-brand-green;
+  color: $defra-green-aa;
   line-height: 1.2;
   text-decoration: none;
 
+  // Explicit link states to override govuk-frontend global `a{color:#1d70b8}`
+  &:link {
+    color: $defra-green-aa;
+  }
+
+  &:visited {
+    color: $defra-green-aa;
+  }
+
   &:hover {
+    color: $defra-green-aa;
     text-decoration: underline;
     text-decoration-thickness: 3px;
     text-underline-offset: 0.15em;
@@ -64,7 +74,7 @@
   }
 
   &:visited {
-    color: $defra-brand-green;
+    color: $defra-green-aa;
   }
 }
 
@@ -91,6 +101,31 @@
   width: 220px;
   height: 34px;
   position: relative;
+}
+
+.defra-header-search__label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #0b0c0c; // GOV.UK black for better contrast
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Hide label when input has focus or contains text
+.defra-header-search__wrapper:focus-within .defra-header-search__label,
+.defra-header-search__label--hidden {
+  // Use clip to hide but keep accessible
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .defra-header-search__input {
