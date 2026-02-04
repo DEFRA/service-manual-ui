@@ -25,6 +25,11 @@
         </a>
       </li>
       <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link"{% if currentUrl and currentUrl.startsWith('/security') %} aria-current="page"{% endif %} href="/security">
+          Security
+        </a>
+      </li>
+      <li class="defra-service-navigation__item">
         <a class="defra-service-navigation__link" href="/service-manual#your-role">
           Your role at Defra
         </a>
