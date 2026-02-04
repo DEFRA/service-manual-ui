@@ -19,9 +19,9 @@ DDTS have a [Software Development and QA policy](https://apps.powerapps.com/play
 
 Test Assurance can be used to underpin some of that rationale. Where projects or programmes are not reaching expected standards, the risk will be heightened and remediation plans are put in place.
 
-Following these artefacts will help your team deliver services to the quality DEFRA demands.
+Following these artefacts will help your team deliver services to the quality Defra demands:
 
-- [DEFRA DDTS Test Strategy](https://defra.sharepoint.com/sites/ContentCloudPlus/_layouts/15/DocIdRedir.aspx?ID=CCPLUS-1046792359-1999)
+- [Defra DDTS Test Strategy](https://defra.sharepoint.com/sites/ContentCloudPlus/_layouts/15/DocIdRedir.aspx?ID=CCPLUS-1046792359-1999)
 - [Defra software development standards](https://defra.github.io/software-development-standards/standards/quality_assurance_standards/)
 - [Performance test strategy](https://defra.sharepoint.com/sites/ContentCloudPlus/_layouts/15/DocIdRedir.aspx?ID=CCPLUS-1046792359-2078)
 
