@@ -19,7 +19,8 @@ const SCORE_WEIGHTS = {
   HEADING_MATCH: 20,
   CONTENT_MATCH: 10,
   TITLE_PHRASE_BOOST: 50,
-  DESCRIPTION_PHRASE_BOOST: 20
+  DESCRIPTION_PHRASE_BOOST: 20,
+  CONTENT_PHRASE_BOOST: 15
 }
 
 const DEFAULT_RESULT_LIMIT = 20
@@ -187,12 +188,17 @@ function calculateEntryScore(entry, queryTerms, queryLower) {
     }
   }
 
-  // Boost exact phrase matches
-  if (titleLower.includes(queryLower)) {
-    score += SCORE_WEIGHTS.TITLE_PHRASE_BOOST
-  }
-  if (descriptionLower.includes(queryLower)) {
-    score += SCORE_WEIGHTS.DESCRIPTION_PHRASE_BOOST
+  // Boost exact phrase matches (multi-word queries appearing together)
+  if (queryTerms.length > 1) {
+    if (titleLower.includes(queryLower)) {
+      score += SCORE_WEIGHTS.TITLE_PHRASE_BOOST
+    }
+    if (descriptionLower.includes(queryLower)) {
+      score += SCORE_WEIGHTS.DESCRIPTION_PHRASE_BOOST
+    }
+    if (contentLower.includes(queryLower)) {
+      score += SCORE_WEIGHTS.CONTENT_PHRASE_BOOST
+    }
   }
 
   return { score, matched }
