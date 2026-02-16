@@ -1,5 +1,4 @@
 @use 'variables/colours' as *;
-@use 'sass:color';
 
 .app-interruption-card {
     padding: 30px; // govuk-spacing(6)
@@ -11,10 +10,5 @@
 
     .govuk-button {
         background-color: $defra-green;
-
-        &:hover {
-            // Darken by 20% to match govuk-shade($defra-green, 20%)
-            background-color: color.adjust($defra-green, $lightness: -20%);
-        }
     }
 }
