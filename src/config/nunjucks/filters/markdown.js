@@ -4,7 +4,7 @@ import markdownItGovuk from 'markdown-it-govuk'
 const md = markdownIt({
   html: true,
   breaks: true,
-  linkify: true
+  linkify: false
 })
 
 md.use(markdownItGovuk, {
