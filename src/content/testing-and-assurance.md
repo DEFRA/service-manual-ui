@@ -21,18 +21,18 @@ supportBox:
 ---
 
 This section builds on the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology).
- 
+
 Shifting quality checks to the left of the development process (testing ideas and designs early) reduces the risks and additional costs of defects appearing later.
- 
+
 You can read more about our [recommended approach](/testing-and-assurance/recommended-approach) to quality assurance at Defra.
- 
+
 For broader guidance, see [testing your service regularly in the GOV.UK Service Manual](https://www.gov.uk/service-manual/technology/quality-assurance-testing-your-service-regularly).
- 
+
 ## Why test for quality
- 
+
 Testing for quality helps:
- 
+
 - provide evidence that the service does what your users need it to do
 - provide evidence that the service behaves how it is expected (e.g. performance, resilience, security).
- 
+
 This builds customer confidence and ensures the service is fit for use.
