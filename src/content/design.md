@@ -1,6 +1,6 @@
 ---
 title: Design
-caption: Ways of working
+caption: Your role at Defra
 description: Standards for branding, domains, and internal services at Defra.
 layout: section
 sectionTitle: Design

@@ -1,0 +1,3 @@
+{% macro interruptionLink(params) %}
+  <a href="/interruption-card?targetUrl={{ params.url | urlencode }}" class="govuk-link {{ params.classes }}">{{ params.text }}</a>
+{% endmacro %}

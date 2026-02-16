@@ -1,7 +1,7 @@
 ---
 title: Quality Assurance and Test
 caption: Your role at Defra
-description: Guidance on assuring quality and testing your digital services at DEFRA.
+description: Guidance on assuring quality and testing your digital services at Defra.
 layout: section
 sectionTitle: Quality Assurance and Test
 sectionNav:

@@ -7,6 +7,7 @@ import { search } from './search/index.js'
 import { serviceManual } from './service-manual/index.js'
 import { deliveryGroups } from './delivery-groups/index.js'
 import { serveStaticFiles } from './common/helpers/serve-static-files.js'
+import { interruption } from './interruption/index.js'
 
 export const router = {
   plugin: {
@@ -23,7 +24,8 @@ export const router = {
         serviceManual,
         markdownPages,
         search,
-        deliveryGroups
+        deliveryGroups,
+        interruption
       ])
 
       // Static assets

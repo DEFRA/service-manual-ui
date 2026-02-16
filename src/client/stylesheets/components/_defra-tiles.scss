@@ -1,17 +1,22 @@
 @use '../variables/colours' as *;
 
 // ===== Tiles =====
+// Accessible card pattern: only the heading is the semantic link,
+// with a CSS ::after pseudo-element stretching the click target
+// across the whole card. This gives screen readers a concise link
+// name while preserving full-card clickability for mouse/touch users.
 
 .defra-tile-grid {
   margin: 16px -30px 24px;
   padding: 0;
+  list-style: none;
 }
 
 .defra-tile {
   display: block;
+  position: relative;
   border: 1px solid $govuk-mid-grey;
   padding: 18px 18px 22px;
-  text-decoration: none;
   color: $govuk-black;
   background-color: $govuk-white;
   min-height: 140px;
@@ -23,39 +28,56 @@
     transform 0.1s ease-out;
 }
 
+// Hover effect on the card (triggered by :has() when the link inside is hovered)
 .defra-tile:hover {
   border-color: $defra-green;
   background-color: $govuk-light-grey;
   box-shadow: 0 2px 0 $govuk-black;
-  text-decoration: none;
   transform: translateY(-1px);
 }
 
-.defra-tile:focus-visible {
+// Focus-visible on the card when the link inside is focused
+.defra-tile:has(.defra-tile__link:focus-visible) {
   border-color: $govuk-black;
   outline: 3px solid $govuk-focus-colour;
   outline-offset: 0;
   box-shadow: 0 0 0 1px $govuk-black;
   background-color: $govuk-white;
-  text-decoration: none;
-}
-
-.defra-tile:focus:not(:focus-visible) {
-  outline: none;
 }
 
 .defra-tile__title {
   margin-bottom: 8px;
 }
 
-.defra-tile:link .defra-tile__title,
-.defra-tile:visited .defra-tile__title {
+// The heading link — only the heading text is the accessible link
+.defra-tile__link {
   color: $govuk-blue;
   text-decoration: underline;
+
+  // Stretch the click target across the entire card
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
-.defra-tile:hover .defra-tile__title,
-.defra-tile:focus-visible .defra-tile__title {
+.defra-tile__link:visited {
+  color: $govuk-blue;
+}
+
+.defra-tile:hover .defra-tile__link {
   color: $govuk-blue;
   text-decoration: underline;
 }

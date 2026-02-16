@@ -1,0 +1,40 @@
+{% extends "layouts/page.njk" %}
+
+{# Import GOV.UK Frontend macros #}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.back()"
+    }) }}
+
+    <div class="app-interruption-card">
+      <h1 class="govuk-heading-l">
+        You are going to an internal service
+      </h1>
+      
+      <p class="govuk-body">
+        The page you are navigating to is not part of the Service Manual.
+      </p>
+
+      <p class="govuk-body">
+        You may need to be on the Virtual Private Network (VPN) or be on a Defra approved device to access it.
+      </p>
+
+      <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+          text: "Continue",
+          href: targetUrl,
+          classes: "govuk-!-margin-bottom-0"
+        }) }}
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
