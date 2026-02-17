@@ -1,5 +1,6 @@
 ---
 title: Working in the beta phase
+caption: Delivery phases
 layout: section
 sectionNav:
   - title: In this section

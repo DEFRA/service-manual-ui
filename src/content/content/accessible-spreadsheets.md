@@ -1,5 +1,6 @@
 ---
 title: Accessible spreadsheets
+caption: Designing for everyone
 layout: section
 sectionNav:
   - title: In this section
@@ -50,7 +51,7 @@ sectionNav:
 
 - [Releasing statistics in spreadsheets](https://gss.civilservice.gov.uk/policy-store/releasing-statistics-in-spreadsheets/)
 - [Making analytical publications accessible](https://gss.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/)
-- [Making spreadsheets accessible - video recording](https://www.youtube.com/watch?v=RlihILhpXoE)
+- [Making spreadsheets accessible](https://www.youtube.com/watch?v=RlihILhpXoE) - video recording
 
 ## More resources
 

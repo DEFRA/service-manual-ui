@@ -1,5 +1,6 @@
 ---
 title: Designing different content types
+caption: Content design best practice
 layout: section
 sectionNav:
   - title: In this section

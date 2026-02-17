@@ -1,5 +1,6 @@
 ---
 title: Legal content
+caption: Legal content and translation
 layout: section
 sectionNav:
   - title: In this section
@@ -72,7 +73,7 @@ The privacy notice tells users what information will be collected from them and 
 
 The privacy notice must be specific to the service and available to the user at any point in the service. It must be linked to from the footer.
 
-The service manual says that a privacy notice must explain:
+The [service manual](https://www.gov.uk/service-manual/design/collecting-personal-information-from-users) says that a privacy notice must explain:
 
 - step by step, what you’ll do with the personal information once you’ve collected it
 - why you’re collecting their personal information
@@ -86,7 +87,7 @@ Contact the relevant team at:
 - [data.protection@defra.gov.uk](mailto:data.protection@defra.gov.uk)
 - [dataprotection@environment-agency.gov.uk](mailto:dataprotection@environment-agency.gov.uk)
 
-[Read more about collecting personal information from users and privacy notices](https://www.gov.uk/service-manual/design/collecting-personal-information-from-users).
+Read more about [collecting personal information from users and privacy notices](https://www.gov.uk/service-manual/design/collecting-personal-information-from-users).
 
 ### Examples of privacy notices
 
@@ -111,7 +112,7 @@ The accessibility statement must be accessible from every page of the service.
 
 Some accessibility issues may be resolved by the time your service is live. You should make a note to revisit and update the accessibility statement as and when is necessary.
 
-[Read how to write an accessibility statement on Github](https://defra-design.github.io/accessibility/resources/content/how-to-write-accessibility-statement/).
+Read [how to write an accessibility statement on Github](https://defra-design.github.io/accessibility/resources/content/how-to-write-accessibility-statement/).
 
 Once drafted, email a copy to the Defra accessibility team [accessibility@defra.gov.uk](mailto:accessibility@defra.gov.uk) for their feedback.
 
@@ -119,7 +120,7 @@ You should check whether anyone needs to formally sign off the accessibility sta
 
 If the statement says that the service is partially or not compliant then you should get sign off from the senior responsible officer (SRO). You should advise them of the impact on disabled users and the risk of a legal challenge, as the service will not meet the legal standard for accessibility.
 
-[Read GDS guidance on how to make your website or app accessible and publish an accessibility statement](https://www.gov.uk/guidance/make-your-website-or-app-accessible-and-publish-an-accessibility-statement).
+Read GDS guidance on [how to make your website or app accessible and publish an accessibility statement](https://www.gov.uk/guidance/make-your-website-or-app-accessible-and-publish-an-accessibility-statement).
 
 ### Examples of accessibility statements
 

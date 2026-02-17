@@ -1,5 +1,6 @@
 ---
 title: Sharing designs and recording decisions
+caption: Content design best practice
 layout: section
 sectionNav:
   - title: In this section

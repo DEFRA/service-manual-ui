@@ -1,5 +1,6 @@
 ---
 title: Accessibility design and testing tools
+caption: Designing for everyone
 layout: section
 sectionNav:
   - title: In this section

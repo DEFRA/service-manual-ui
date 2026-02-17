@@ -1,5 +1,6 @@
 ---
 title: Inclusive, clear language
+caption: Content design best practice
 layout: section
 sectionNav:
   - title: In this section

@@ -1,5 +1,6 @@
 ---
 title: Working in the alpha phase
+caption: Delivery phases
 layout: section
 sectionNav:
   - title: In this section
@@ -42,7 +43,7 @@ sectionNav:
         href: /content/accessibility-tools
 ---
 
-It’s common for content designers to join a project at the beginning of or during the alpha phase. There should be a discovery report you can read when you start on an alpha.
+It’s common for content designers to join a project at the beginning of or during the [alpha](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works) phase. There should be a discovery report you can read when you start on an alpha.
 
 It’s worth reading the [service manual on how the discovery phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works) if you’re new to services. This will help you understand what should have happened before this stage.
 
@@ -130,7 +131,7 @@ Don’t worry if you’ve not used Figma or the prototype kit before. Ask your i
 
 ### Design histories
 
-Design histories sit alongside your prototypes as part of a sprint. You should support the team by [writing these design histories](https://dfedigital.blog.gov.uk/2020/09/01/design-history/) as they’ll be important supporting documents to keep a record of your work, to feed decisions back to stakeholders and to review before assessment.
+Design histories sit alongside your prototypes as part of a sprint. You should support the team by writing these design histories as they’ll be important supporting documents to keep a record of your work, to feed decisions back to stakeholders and to review before assessment.
 
 They often detail:
 
@@ -139,7 +140,7 @@ They often detail:
 - what the design team did
 - key milestones, for example, testing a new component or message
 
-It can be helpful to approach a design history like a blog. Use informative headers and plain language to give the reader and clear understanding of the sprint.
+It can be helpful to [approach a design history like a blog](https://dfedigital.blog.gov.uk/2020/09/01/design-history/). Use informative headers and plain language to give the reader and clear understanding of the sprint.
 
 ### Copy decks
 
@@ -170,7 +171,7 @@ This is the same process for Welsh language translations.
 
 ## Service assessment
 
-A service assessment measures a [service against the 14 points of the GOV.UK Service Standard](https://www.gov.uk/service-manual/service-assessments). It's a space for service teams to get expert advice from a panel of specialists. They will look at the design, technical and delivery elements of the service, as well as accessibility.
+A [service assessment](https://www.gov.uk/service-manual/service-assessments) measures a service against the 14 points of the GOV.UK Service Standard. It's a space for service teams to get expert advice from a panel of specialists. They will look at the design, technical and delivery elements of the service, as well as accessibility.
 
 A service assessment is often booked in advance by the delivery manager. You’ll work with the wider team to understand what is needed to prepare for the assessment.
 
@@ -214,7 +215,7 @@ Your service will also receive an overall rating of red, amber or green.
 
 Some services will not progress to [beta](/content/working-in-beta). This could be for several reasons, including budgets and policy changes, but it can also be a team decision based on your findings.
 
-Part of alpha is understanding the constraints and limits to your service. It’s a good use of time and resources to [come to this decision](https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works#deciding-whether-to-move-on-to-beta). In fact, testing things out and pivoting is the whole point of alpha.
+Part of alpha is understanding the constraints and limits to your service. It’s a good use of time and resources to come to this decision. In fact, testing things out and pivoting is the whole point of alpha.
 
 ### Further reading
 

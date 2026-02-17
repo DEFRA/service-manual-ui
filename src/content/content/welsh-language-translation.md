@@ -1,5 +1,6 @@
 ---
 title: Welsh language translation
+caption: Legal content and translation
 layout: section
 sectionNav:
   - title: In this section
@@ -44,9 +45,9 @@ sectionNav:
 
 Public organisations and citizen-facing services operating in Wales must provide the same service in Welsh as they do in English.
 
-[Welsh language standards](https://www.welshlanguagecommissioner.wales/public-organisations/welsh-language-schemes) are set by the [Welsh Language Commissioner](https://www.welshlanguagecommissioner.wales/about-us) and ensure that the Welsh language is not treated less favourably than the English language in Wales.
+Welsh language standards are set by the [Welsh Language Commissioner](https://www.welshlanguagecommissioner.wales/about-us) and ensure that the Welsh language is not treated less favourably than the English language in Wales.
 
-Under the Welsh Language Act 1993, several public organisations are required to prepare a Welsh language scheme. For examples see the [APHA Welsh language scheme](https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/welsh-language-scheme) and the [Rural Payments Agency Welsh language scheme](https://www.gov.uk/government/publications/welsh-language-scheme-rural-payments-agency/welsh-language-scheme-revised-2020-in-english).
+Under the Welsh Language Act 1993, several public organisations are required to prepare a [Welsh language scheme](https://www.welshlanguagecommissioner.wales/public-organisations/welsh-language-schemes). For examples see the [APHA Welsh language scheme](https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/welsh-language-scheme) and the [Rural Payments Agency Welsh language scheme](https://www.gov.uk/government/publications/welsh-language-scheme-rural-payments-agency/welsh-language-scheme-revised-2020-in-english).
 
 Defra does not appear to have a Welsh language scheme in place, but this doesn’t mean Welsh translation is not needed!
 
@@ -68,7 +69,7 @@ You will need to arrange translations for all content in an online service such 
 - accessibility statements
 - hidden text used by screen readers
 
-Letters, emails and texts sent to users in Wales also need translating. There is [guidance from GDS about the translation of GOV.UK pages](https://www.gov.uk/guidance/contact-the-government-digital-service/request-a-thing#welsh-language-translation). You should also consider arrangements for users who need support over the phone.
+Letters, emails and texts sent to users in Wales also need translating. There is [guidance from GDS](https://www.gov.uk/guidance/contact-the-government-digital-service/request-a-thing#welsh-language-translation) about the translation of GOV.UK pages. You should also consider arrangements for users who need support over the phone.
 
 ## How to get a Welsh translation
 
