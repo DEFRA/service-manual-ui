@@ -8,6 +8,40 @@ sectionNav:
     items:
       - text: Content design
         href: /content
+  - title: Content design best practice
+    items:
+      - text: Inclusive, clear language
+        href: /content/inclusive-clear-language
+      - text: Designing different content types
+        href: /content/designing-different-content-types
+      - text: Sharing designs and recording decisions
+        href: /content/sharing-designs-recording-decisions
+  - title: Delivery phases
+    items:
+      - text: Working in the discovery phase
+        href: /content/working-in-discovery
+      - text: Working in the alpha phase
+        href: /content/working-in-alpha
+      - text: Working in the beta phase
+        href: /content/working-in-beta
+      - text: Working in the live phase
+        href: /content/working-in-live
+      - text: Assessment questions
+        href: /content/assessment-questions
+  - title: Legal content and translation
+    items:
+      - text: Legal content
+        href: /content/legal-content
+      - text: Welsh language translation
+        href: /content/welsh-language-translation
+  - title: Designing for everyone
+    items:
+      - text: Colour contrast and colour blindness
+        href: /content/colour-contrast
+      - text: Accessible spreadsheets
+        href: /content/accessible-spreadsheets
+      - text: Accessibility design and testing tools
+        href: /content/accessibility-tools
 supportBox:
   title: Get support
   description: Contact the content team with questions about content standards.
