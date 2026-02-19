@@ -38,6 +38,8 @@
 }
 
 .defra-footer__link {
+  display: inline-block;
+  padding-block: 2px;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

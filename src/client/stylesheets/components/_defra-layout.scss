@@ -164,6 +164,7 @@ body {
   .govuk-breadcrumbs__link {
     color: $govuk-white !important;
     text-decoration: none;
+    padding-block: 2px;
 
     &:hover,
     &:focus {
