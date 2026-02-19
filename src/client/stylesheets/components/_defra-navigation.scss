@@ -60,6 +60,13 @@
   }
 }
 
+// ===== Manual navigation links =====
+
+.manual-navigation .govuk-link {
+  display: inline-block;
+  padding-block: 2px;
+}
+
 // ===== Sub navigation (side nav) =====
 
 .app-subnav {
@@ -120,6 +127,8 @@
 }
 
 .app-subnav__link {
+  display: inline-block;
+  padding-block: 2px;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

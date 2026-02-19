@@ -1,14 +1,14 @@
 @use 'variables/colours' as *;
 
 .app-interruption-card {
-    padding: 30px; // govuk-spacing(6)
-    margin-top: 30px; // govuk-spacing(6)
-    background-color: $govuk-light-grey;
-    color: $govuk-black;
-    border: none;
-    text-align: left;
+  padding: 30px; // govuk-spacing(6)
+  margin-top: 30px; // govuk-spacing(6)
+  background-color: $govuk-light-grey;
+  color: $govuk-black;
+  border: none;
+  text-align: left;
 
-    .govuk-button {
-        background-color: $defra-green;
-    }
+  .govuk-button {
+    background-color: $defra-green;
+  }
 }

@@ -1,6 +1,6 @@
 {% if supportBox %}
 <div class="defra-support-box">
-  <h3 class="govuk-heading-m">{{ supportBox.title | default('Get support') }}</h3>
+  <h2 class="govuk-heading-m">{{ supportBox.title | default('Get support') }}</h2>
   {% if supportBox.description %}
   <p class="govuk-body">{{ supportBox.description | safe }}</p>
   {% endif %}
