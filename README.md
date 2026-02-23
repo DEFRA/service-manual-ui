@@ -9,8 +9,6 @@ The Defra Digital Service Manual provides guidance and standards for digital tea
 - [Requirements](#requirements)
   - [Node.js](#nodejs)
 - [Documentation](#documentation)
-- [Server-side Caching](#server-side-caching)
-- [Redis](#redis)
 - [Local Development](#local-development)
   - [Setup](#setup)
   - [Development](#development)
@@ -44,28 +42,10 @@ nvm use
 
 ## Documentation
 
-Technical documentation for specific features can be found in the [docs](./docs) folder:
+Technical documentation is in the [docs](./docs) folder:
 
 - [Search functionality](./docs/search.md) - How the search and autocomplete works
-
-## Server-side Caching
-
-We use Catbox for server-side caching. By default the service will use CatboxRedis when deployed and CatboxMemory for
-local development.
-You can override the default behaviour by setting the `SESSION_CACHE_ENGINE` environment variable to either `redis` or
-`memory`.
-
-Please note: CatboxMemory (`memory`) is _not_ suitable for production use! The cache will not be shared between each
-instance of the service and it will not persist between restarts.
-
-## Redis
-
-Redis is an in-memory key-value store. Every instance of a service has access to the same Redis key-value store similar
-to how services might have a database (or MongoDB). All frontend services are given access to a namespaced prefixed that
-matches the service name. e.g. `my-service` will have access to everything in Redis that is prefixed with `my-service`.
-
-If your service does not require a session cache to be shared between instances or if you don't require Redis, you can
-disable setting `SESSION_CACHE_ENGINE=false` or changing the default value in `src/config/index.js`.
+- [Architecture diagrams](./docs/architecture/README.md) - C4 architecture model
 
 ## Proxy
 
@@ -184,7 +164,6 @@ docker run -p 3000:3000 service-manual-ui
 A local environment with:
 
 - Localstack for AWS services (S3, SQS)
-- Redis
 - MongoDB
 - This service.
 - A commented out backend example.
