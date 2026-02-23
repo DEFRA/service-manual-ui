@@ -11,12 +11,18 @@ sectionNav:
         href: /design
   - title: Specific guidance
     items:
-      - text: Branding and look and feel
+      - text: Branding
         href: /design/branding
       - text: Cookies
         href: /design/cookies
       - text: Data visualisation
         href: /design/data-visualisation
+      - text: Prototyping
+        href: /design/prototyping
+      - text: Tools
+        href: /design/tools
+      - text: Components and patterns
+        href: /design/components-and-patterns
 ---
 
 To comply with the Privacy and Electronic Communications Regulations (PECR), you must manage how your service uses cookies.
@@ -40,4 +46,4 @@ A user must be able to:
 - change their cookie settings at any time
 - use the service without consenting to cookies
 
-^ Read the full [guidance on cookies and similar technologies](https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md) on GitHub. ^
+Read the full [guidance on cookies and similar technologies](https://github.com/DEFRA/design-standards/blob/master/Cookies-and-similar-technologies.md) on GitHub.

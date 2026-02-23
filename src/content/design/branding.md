@@ -1,5 +1,5 @@
 ---
-title: Branding and look and feel
+title: Branding
 caption: Design
 description: Standards for headers, footers, colours, and logos on Defra services.
 layout: section
@@ -11,25 +11,31 @@ sectionNav:
         href: /design
   - title: Specific guidance
     items:
-      - text: Branding and look and feel
+      - text: Branding
         href: /design/branding
       - text: Cookies
         href: /design/cookies
       - text: Data visualisation
         href: /design/data-visualisation
+      - text: Prototyping
+        href: /design/prototyping
+      - text: Tools
+        href: /design/tools
+      - text: Components and patterns
+        href: /design/components-and-patterns
 ---
 
-Services must look and feel like government services so users trust them, but Defra services have specific branding requirements.
+Services must look and feel like government services, so users trust them, but Defra services have specific branding requirements.
 
-## Services not on GOV.UK
+## Services not on [GOV.UK](https://www.gov.uk)
 
-Services hosted on domains that are not GOV.UK **must not** look exactly like GOV.UK.
+Services hosted on domains that are not [GOV.UK](https://www.gov.uk) **must not** look exactly like [GOV.UK](https://www.gov.uk).
 
 ### You must not use
 
 - The "New Transport" font
-- The GOV.UK header or Crown logo
-- The GOV.UK footer
+- The [GOV.UK](https://www.gov.uk) header or Crown logo
+- The [GOV.UK](https://www.gov.uk) footer
 
 ### You must use
 
@@ -38,7 +44,7 @@ Services hosted on domains that are not GOV.UK **must not** look exactly like GO
 - **Logo:** The Defra logo (or agency logo)
 - **Footer:** The Defra footer (or agency equivalent)
 
-For internal services or external sites not on GOV.UK, use the Defra page templates.
+For internal services or external sites not on [GOV.UK](https://www.gov.uk), use the Defra page templates.
 
 ## Colours
 
@@ -54,12 +60,10 @@ You can use the Defra specific colours sparingly, for example in headers or navi
 
 **Accessibility:** You must make sure that the contrast ratio of text and interactive elements meets [WCAG 2.2 level AA](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
 
-^ Check the [Defra Design Standards on GitHub](https://github.com/DEFRA/design-standards) for the latest templates and assets. ^
-
 ## Logos
 
-For external facing sites not on GOV.UK, you must use a Defra or supporting agency logo.
+For external facing sites not on [GOV.UK](https://www.gov.uk), you must use a Defra or supporting agency logo.
 
-- Organisation logos must be included as an SVG where possible.
-- The crest image itself must be ignored by screen readers.
-- Links in the logo must be focusable and usable with keyboards and assistive technology.
+- Organisation logos must be included as an SVG where possible
+- The crest image itself must be ignored by screen readers
+- Links in the logo must be focusable and usable with keyboards and assistive technology
