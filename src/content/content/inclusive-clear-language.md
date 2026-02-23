@@ -25,8 +25,6 @@ sectionNav:
         href: /content/working-in-beta
       - text: Working in the live phase
         href: /content/working-in-live
-      - text: Assessment questions
-        href: /content/assessment-questions
   - title: Legal content and translation
     items:
       - text: Legal content
