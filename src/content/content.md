@@ -26,8 +26,6 @@ sectionNav:
         href: /content/working-in-beta
       - text: Working in the live phase
         href: /content/working-in-live
-      - text: Assessment questions
-        href: /content/assessment-questions
   - title: Legal content and translation
     items:
       - text: Legal content
@@ -57,7 +55,7 @@ Defra uses content designers in all phases of delivery, from Discovery to Live. 
 
 When writing content for Defra services, content designers must follow the:
 
-- [Government Service Standard](https://www.gov.uk/service-manual/service-standard) - features the 12 points your service team must meet at a service assessment to prove that you’re designing a good service
+- [Government Service Standard](https://www.gov.uk/service-manual/service-standard) - features the 14 points your service team must meet at a service assessment to prove that you’re designing a good service
 - [Government Digital Service guidance on writing for GOV.UK](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) - Government Digital Service guidance on how to write well for your audience, including specialists
 - [GOV.UK proposition](https://www.gov.uk/government/publications/govuk-proposition/govuk-proposition) - the proposition tells you what must go on GOV.UK and what must not
 - [Government Digital Service style guide](https://www.gov.uk/guidance/style-guide/a-to-z) - covers style, spelling and grammar conventions for all content published on GOV.UK, arranged alphabetically
@@ -66,7 +64,7 @@ When writing content for Defra services, content designers must follow the:
 
 ## Join the community
 
-Contact the content design lead within your delivery group to:
+Contact the content design lead within your delivery group or the head of content to:
 
 - provide an overview of the profession
 - explain governance and ethics
