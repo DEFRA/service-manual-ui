@@ -17,10 +17,8 @@ sectionNav:
         href: /architecture-and-software-development/defra-customer-identity
       - text: Defra Forms
         href: /architecture-and-software-development/defra-forms
-      - text: Interactive Map
+      - text: Defra Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
-      - text: Defra Integration
-        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help designing or building your service, contact the <strong>Delivery Architecture team</strong>.
@@ -89,5 +87,4 @@ More details can be found in the [Defra software development standards](https://
 | [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)   | Defra's internal developer platform for building, deploying and running services |
 | [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | External authentication and authorisation                                        |
 | [Defra Forms](/architecture-and-software-development/defra-forms)                         | Create accessible forms that follow GOV.UK standards                             |
-| [Interactive Map](/architecture-and-software-development/defra-accessible-maps)           | Accessible frontend mapping component                                            |
-| [Defra Integration](/architecture-and-software-development/defra-integration)             | Publish and manage your APIs                                                     |
+| [Defra Interactive Map](/architecture-and-software-development/defra-accessible-maps)     | Accessible frontend mapping component                                            |
