@@ -19,8 +19,6 @@ sectionNav:
         href: /architecture-and-software-development/defra-forms
       - text: Defra Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
-      - text: Defra Integration
-        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help with authentication, contact the <strong>Customer Identity team</strong>.

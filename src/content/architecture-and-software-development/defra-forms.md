@@ -19,8 +19,6 @@ sectionNav:
         href: /architecture-and-software-development/defra-forms
       - text: Defra Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
-      - text: Defra Integration
-        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help with Defra Forms, contact the <strong>Forms team</strong>.
@@ -55,4 +53,4 @@ Using Defra Forms means you:
 - get accessible forms that meet GOV.UK standards
 - do not need to build your own form builder
 
-[Defra Forms documentation (opens in new tab)](https://defra.github.io/forms-engine-plugin/GETTING_STARTED.html)
+[View Defra Forms documentation (opens in a new tab)](https://defra.github.io/forms-engine-plugin/GETTING_STARTED.html)
