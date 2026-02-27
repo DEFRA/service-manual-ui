@@ -17,7 +17,7 @@ sectionNav:
         href: /architecture-and-software-development/defra-customer-identity
       - text: Defra Forms
         href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
+      - text: Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
       - text: Defra Integration
         href: /architecture-and-software-development/defra-integration
