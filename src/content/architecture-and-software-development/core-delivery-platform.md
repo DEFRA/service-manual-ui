@@ -19,8 +19,6 @@ sectionNav:
         href: /architecture-and-software-development/defra-forms
       - text: Defra Interactive Map
         href: /architecture-and-software-development/defra-accessible-maps
-      - text: Defra Integration
-        href: /architecture-and-software-development/defra-integration
 supportBox:
   title: Get support
   description: If you need help with the Core Delivery Platform, join the <strong>cdp-support</strong> channel in the Defra Digital Team slack.
@@ -34,8 +32,10 @@ The Core Delivery Platform is Defra's internal development platform. It provides
 
 ## Getting started
 
-To get started and decide if the platform is right for your service, you should:
+You will need to read the following documentation if your service adopts the Core Delivery Platform:
 
-- read the [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
-- read the [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
-- read the relevant [how to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
+- [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
+- [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
+- [how-to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
+
+To access the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/), you will need to be on a Defra device or VPN.
