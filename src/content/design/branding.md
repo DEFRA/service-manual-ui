@@ -27,7 +27,11 @@ sectionNav:
 
 Services must look and feel like government services, so users trust them, but Defra services have specific branding requirements.
 
-## Services not on [GOV.UK](https://www.gov.uk)
+## If you are hosting a service on GOV.UK
+
+Services on [GOV.UK](https://www.gov.uk) must follow the standard [GOV.UK Design System](https://design-system.service.gov.uk/) for headers, footers, fonts, and logos.
+
+## If you are hosting a service somewhere other than GOV.UK
 
 Services hosted on domains that are not [GOV.UK](https://www.gov.uk) **must not** look exactly like [GOV.UK](https://www.gov.uk).
 
@@ -46,6 +50,14 @@ Services hosted on domains that are not [GOV.UK](https://www.gov.uk) **must not*
 
 For internal services or external sites not on [GOV.UK](https://www.gov.uk), use the Defra page templates.
 
+### Logos
+
+For external facing sites not on [GOV.UK](https://www.gov.uk), you must use a Defra or supporting agency logo.
+
+- Organisation logos must be included as an SVG where possible
+- The crest image itself must be ignored by screen readers
+- Links in the logo must be focusable and usable with keyboards and assistive technology
+
 ## Colours
 
 Colours should be consistent with the [GOV.UK frontend palette](https://design-system.service.gov.uk/styles/colour/).
@@ -59,11 +71,3 @@ You can use the Defra specific colours sparingly, for example in headers or navi
 | Defra Green | `#00a33b` |
 
 **Accessibility:** You must make sure that the contrast ratio of text and interactive elements meets [WCAG 2.2 level AA](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html).
-
-## Logos
-
-For external facing sites not on [GOV.UK](https://www.gov.uk), you must use a Defra or supporting agency logo.
-
-- Organisation logos must be included as an SVG where possible
-- The crest image itself must be ignored by screen readers
-- Links in the logo must be focusable and usable with keyboards and assistive technology
