@@ -41,7 +41,7 @@ All Defra services must meet the [Government Service Standard](https://www.gov.u
 
 ## Inclusive design
 
-We design for everyone. Our principles are:
+We design for everyone. We design services to be:
 
 - **Inclusive:** safe, easy, and dignified for everyone
 - **Responsive:** based on what people say they need
