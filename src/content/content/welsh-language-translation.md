@@ -25,8 +25,6 @@ sectionNav:
         href: /content/working-in-beta
       - text: Working in the live phase
         href: /content/working-in-live
-      - text: Assessment questions
-        href: /content/assessment-questions
   - title: Legal content and translation
     items:
       - text: Legal content
@@ -48,8 +46,6 @@ Public organisations and citizen-facing services operating in Wales must provide
 Welsh language standards are set by the [Welsh Language Commissioner](https://www.welshlanguagecommissioner.wales/about-us) and ensure that the Welsh language is not treated less favourably than the English language in Wales.
 
 Under the Welsh Language Act 1993, several public organisations are required to prepare a [Welsh language scheme](https://www.welshlanguagecommissioner.wales/public-organisations/welsh-language-schemes). For examples see the [APHA Welsh language scheme](https://www.gov.uk/government/organisations/animal-and-plant-health-agency/about/welsh-language-scheme) and the [Rural Payments Agency Welsh language scheme](https://www.gov.uk/government/publications/welsh-language-scheme-rural-payments-agency/welsh-language-scheme-revised-2020-in-english).
-
-Defra does not appear to have a Welsh language scheme in place, but this doesn’t mean Welsh translation is not needed!
 
 ### Useful links
 
