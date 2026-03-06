@@ -2,6 +2,7 @@ import inert from '@hapi/inert'
 
 import { home } from './home/index.js'
 import { health } from './health/index.js'
+import { cookies } from './cookies/index.js'
 import { markdownPages } from './markdown-pages/index.js'
 import { search } from './search/index.js'
 import { serviceManual } from './service-manual/index.js'
@@ -21,6 +22,7 @@ export const router = {
       // Application specific routes, add your own routes here
       await server.register([
         home,
+        cookies,
         serviceManual,
         markdownPages,
         search,
