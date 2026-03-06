@@ -3,20 +3,21 @@ import Blankie from 'blankie'
 import { config } from '../../../config/config.js'
 
 const gaMeasurementId = config.get('googleAnalytics.measurementId')
+const GA_ANALYTICS_DOMAIN = 'https://www.google-analytics.com'
 
 const gaScriptSrc = gaMeasurementId
-  ? ['https://www.googletagmanager.com', 'https://www.google-analytics.com']
+  ? ['https://www.googletagmanager.com', GA_ANALYTICS_DOMAIN]
   : []
 
 const gaConnectSrc = gaMeasurementId
   ? [
-      'https://www.google-analytics.com',
+      GA_ANALYTICS_DOMAIN,
       'https://analytics.google.com',
       'https://region1.google-analytics.com'
     ]
   : []
 
-const gaImgSrc = gaMeasurementId ? ['https://www.google-analytics.com'] : []
+const gaImgSrc = gaMeasurementId ? [GA_ANALYTICS_DOMAIN] : []
 
 /**
  * Manage content security policies.

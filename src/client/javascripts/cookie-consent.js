@@ -40,9 +40,9 @@ export function loadGoogleAnalytics(measurementId) {
   script.async = true
   document.head.appendChild(script)
 
-  window.dataLayer = window.dataLayer || []
-  function gtag() {
-    window.dataLayer.push(arguments)
+  globalThis.dataLayer = globalThis.dataLayer || []
+  function gtag(...args) {
+    globalThis.dataLayer.push(args)
   }
   gtag('js', new Date())
   gtag('config', measurementId, { anonymize_ip: true })
@@ -50,48 +50,24 @@ export function loadGoogleAnalytics(measurementId) {
 
 export function removeAnalyticsCookies() {
   const cookies = document.cookie.split('; ')
+  const hostname = globalThis.location.hostname
   for (const cookie of cookies) {
     const name = cookie.split('=')[0]
     if (name.startsWith('_ga')) {
       document.cookie = `${name}=; path=/; max-age=0`
-      document.cookie = `${name}=; path=/; max-age=0; domain=${window.location.hostname}`
-      document.cookie = `${name}=; path=/; max-age=0; domain=.${window.location.hostname}`
+      document.cookie = `${name}=; path=/; max-age=0; domain=${hostname}`
+      document.cookie = `${name}=; path=/; max-age=0; domain=.${hostname}`
     }
   }
 }
 
-export function initCookieBanner() {
-  const banner = document.querySelector('.govuk-cookie-banner')
-
-  if (!banner) {
-    return
-  }
-
-  const measurementId = banner.dataset.gaMeasurementId
-  const messages = banner.querySelectorAll('.govuk-cookie-banner__message')
-  const mainMessage = messages[0]
-  const acceptedMessage = messages[1]
-  const rejectedMessage = messages[2]
-
-  // If consent already set and no server-side confirmation showing, hide and load GA if accepted
-  if (
-    hasConsentBeenSet() &&
-    !banner.querySelector('[role="alert"]:not([hidden])')
-  ) {
-    banner.hidden = true
-    const consent = getCookieConsent()
-    if (consent?.analytics && measurementId) {
-      loadGoogleAnalytics(measurementId)
-    }
-    return
-  }
-
-  // If a server-side confirmation is visible, load GA if it was accept
-  if (acceptedMessage && !acceptedMessage.hidden && measurementId) {
-    loadGoogleAnalytics(measurementId)
-  }
-
-  // Intercept form submissions for progressive enhancement
+function handleBannerConsent(
+  banner,
+  mainMessage,
+  acceptedMessage,
+  rejectedMessage,
+  measurementId
+) {
   const forms = mainMessage.querySelectorAll('form')
   for (const form of forms) {
     form.addEventListener('submit', function (event) {
@@ -118,7 +94,6 @@ export function initCookieBanner() {
     })
   }
 
-  // Hide buttons on confirmation messages
   const hideButtons = banner.querySelectorAll(
     '.govuk-cookie-banner__message[role="alert"] button'
   )
@@ -127,6 +102,44 @@ export function initCookieBanner() {
       banner.hidden = true
     })
   }
+}
+
+export function initCookieBanner() {
+  const banner = document.querySelector('.govuk-cookie-banner')
+
+  if (!banner) {
+    return
+  }
+
+  const measurementId = banner.dataset.gaMeasurementId
+  const messages = banner.querySelectorAll('.govuk-cookie-banner__message')
+  const mainMessage = messages[0]
+  const acceptedMessage = messages[1]
+  const rejectedMessage = messages[2]
+
+  if (
+    hasConsentBeenSet() &&
+    !banner.querySelector('[role="alert"]:not([hidden])')
+  ) {
+    banner.hidden = true
+    const consent = getCookieConsent()
+    if (consent?.analytics && measurementId) {
+      loadGoogleAnalytics(measurementId)
+    }
+    return
+  }
+
+  if (acceptedMessage && !acceptedMessage.hidden && measurementId) {
+    loadGoogleAnalytics(measurementId)
+  }
+
+  handleBannerConsent(
+    banner,
+    mainMessage,
+    acceptedMessage,
+    rejectedMessage,
+    measurementId
+  )
 }
 
 export function initCookiesPage() {

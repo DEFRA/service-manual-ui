@@ -129,8 +129,8 @@ describe('cookie-consent', () => {
     it('should initialise the dataLayer', () => {
       loadGoogleAnalytics('G-TEST123')
 
-      expect(window.dataLayer).toBeDefined()
-      expect(window.dataLayer.length).toBeGreaterThan(0)
+      expect(globalThis.dataLayer).toBeDefined()
+      expect(globalThis.dataLayer.length).toBeGreaterThan(0)
     })
   })
 
@@ -148,7 +148,8 @@ describe('cookie-consent', () => {
   describe('#initCookieBanner', () => {
     it('should do nothing when no banner is present', () => {
       initCookieBanner()
-      // No error thrown
+
+      expect(document.querySelector('.govuk-cookie-banner')).toBeNull()
     })
 
     it('should hide banner when consent has already been set', () => {
@@ -282,7 +283,8 @@ describe('cookie-consent', () => {
   describe('#initCookiesPage', () => {
     it('should do nothing when no form is present', () => {
       initCookiesPage()
-      // No error thrown
+
+      expect(document.getElementById('cookies-form')).toBeNull()
     })
 
     it('should set consent cookie on form submit with yes selected', () => {
