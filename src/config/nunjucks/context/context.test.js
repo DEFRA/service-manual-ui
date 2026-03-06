@@ -1,5 +1,7 @@
 import { vi } from 'vitest'
 
+import { config } from '../../config.js'
+
 const mockReadFileSync = vi.fn()
 const mockLoggerError = vi.fn()
 const mockLoggerWarn = vi.fn()
@@ -65,6 +67,10 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
+          cookieAction: null,
+          cookieConsentSet: false,
+          currentUrl: '/',
+          gaMeasurementId: config.get('googleAnalytics.measurementId'),
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
@@ -155,6 +161,10 @@ describe('context and cache', () => {
               href: '/about'
             }
           ],
+          cookieAction: null,
+          cookieConsentSet: false,
+          currentUrl: '/',
+          gaMeasurementId: config.get('googleAnalytics.measurementId'),
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })

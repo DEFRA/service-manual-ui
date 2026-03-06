@@ -129,6 +129,15 @@ export const config = convict({
       default: isDevelopment
     }
   },
+  googleAnalytics: {
+    measurementId: {
+      doc: 'Google Analytics 4 measurement ID',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'GA4_MEASUREMENT_ID'
+    }
+  },
   tracing: {
     header: {
       doc: 'Which header to track',

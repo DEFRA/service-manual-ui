@@ -46,12 +46,19 @@ export function context(request) {
     loadManifest()
   }
 
+  const cookieConsentSet = Boolean(request.state?.defra_cookies_policy_set)
+  const cookieAction = request.query?.cookieAction || null
+
   return {
     assetPath: `${assetPath}/assets`,
     serviceName: config.get('serviceName'),
     serviceUrl: '/',
     breadcrumbs: [],
     navigation: buildNavigation(request),
+    gaMeasurementId: config.get('googleAnalytics.measurementId'),
+    cookieConsentSet,
+    cookieAction,
+    currentUrl: request.path,
     getAssetPath(asset) {
       const webpackAssetPath = webpackManifest?.[asset]
       return `${assetPath}/${webpackAssetPath ?? asset}`
