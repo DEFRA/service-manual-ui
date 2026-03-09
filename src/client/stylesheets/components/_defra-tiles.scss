@@ -7,9 +7,24 @@
 // name while preserving full-card clickability for mouse/touch users.
 
 .defra-tile-grid {
-  margin: 16px -30px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 16px 0 24px;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 48.0525em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.defra-tile-grid--half {
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: 48.0525em) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .defra-tile {
