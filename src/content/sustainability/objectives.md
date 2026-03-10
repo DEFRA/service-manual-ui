@@ -13,9 +13,9 @@ sectionNav:
         href: /sustainability/objectives
   - title: How to do this
     items:
-      - text: Assess risk and write statements
+      - text: Assess risks and record sustainability actions
         href: /sustainability/process
-      - text: Measure sustainability
+      - text: Taking action and tracking sustainability performance
         href: /sustainability/metrics
 ---
 
