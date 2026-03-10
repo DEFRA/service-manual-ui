@@ -70,7 +70,8 @@ describe('context and cache', () => {
           cookieAction: null,
           cookieConsentSet: false,
           currentUrl: '/',
-          gaMeasurementId: config.get('googleAnalytics.measurementId'),
+          gtmContainerId: config.get('googleTagManager.containerId'),
+          hasAnalyticsConsent: false,
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
@@ -164,7 +165,8 @@ describe('context and cache', () => {
           cookieAction: null,
           cookieConsentSet: false,
           currentUrl: '/',
-          gaMeasurementId: config.get('googleAnalytics.measurementId'),
+          gtmContainerId: config.get('googleTagManager.containerId'),
+          hasAnalyticsConsent: false,
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })

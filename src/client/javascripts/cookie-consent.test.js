@@ -7,7 +7,7 @@ import {
   getCookieConsent,
   setCookieConsent,
   hasConsentBeenSet,
-  loadGoogleAnalytics,
+  loadGoogleTagManager,
   removeAnalyticsCookies,
   initCookieBanner,
   initCookiesPage
@@ -20,9 +20,9 @@ function clearCookies() {
   })
 }
 
-function createBannerHtml(measurementId) {
+function createBannerHtml(containerId) {
   return `
-    <div class="govuk-cookie-banner" data-ga-measurement-id="${measurementId}">
+    <div class="govuk-cookie-banner" data-gtm-container-id="${containerId}">
       <div class="govuk-cookie-banner__message">
         <form method="post" action="/cookies/accept">
           <input type="hidden" name="returnUrl" value="/">
@@ -104,33 +104,36 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#loadGoogleAnalytics', () => {
-    it('should inject gtag script into head', () => {
-      loadGoogleAnalytics('G-TEST123')
+  describe('#loadGoogleTagManager', () => {
+    it('should inject GTM script into head', () => {
+      loadGoogleTagManager('GTM-TEST123')
 
       const script = document.querySelector(
-        'script[src*="googletagmanager.com/gtag"]'
+        'script[src*="googletagmanager.com/gtm.js"]'
       )
       expect(script).not.toBeNull()
-      expect(script.src).toContain('G-TEST123')
+      expect(script.src).toContain('GTM-TEST123')
       expect(script.async).toBe(true)
     })
 
     it('should not inject duplicate scripts', () => {
-      loadGoogleAnalytics('G-TEST123')
-      loadGoogleAnalytics('G-TEST123')
+      loadGoogleTagManager('GTM-TEST123')
+      loadGoogleTagManager('GTM-TEST123')
 
       const scripts = document.querySelectorAll(
-        'script[src*="googletagmanager.com/gtag"]'
+        'script[src*="googletagmanager.com/gtm.js"]'
       )
       expect(scripts).toHaveLength(1)
     })
 
-    it('should initialise the dataLayer', () => {
-      loadGoogleAnalytics('G-TEST123')
+    it('should initialise the dataLayer with GTM start event', () => {
+      loadGoogleTagManager('GTM-TEST123')
 
       expect(globalThis.dataLayer).toBeDefined()
-      expect(globalThis.dataLayer.length).toBeGreaterThan(0)
+      expect(globalThis.dataLayer[0]).toMatchObject({
+        'gtm.start': expect.any(Number),
+        event: 'gtm.js'
+      })
     })
   })
 
@@ -153,7 +156,7 @@ describe('cookie-consent', () => {
     })
 
     it('should hide banner when consent has already been set', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
       setCookieConsent({ analytics: false })
 
       initCookieBanner()
@@ -162,20 +165,20 @@ describe('cookie-consent', () => {
       expect(banner.hidden).toBe(true)
     })
 
-    it('should load GA when consent was previously accepted', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+    it('should load GTM when consent was previously accepted', () => {
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
       setCookieConsent({ analytics: true })
 
       initCookieBanner()
 
       const script = document.querySelector(
-        'script[src*="googletagmanager.com/gtag"]'
+        'script[src*="googletagmanager.com/gtm.js"]'
       )
       expect(script).not.toBeNull()
     })
 
     it('should accept cookies when accept form is submitted', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 
@@ -194,7 +197,7 @@ describe('cookie-consent', () => {
     })
 
     it('should reject cookies when reject form is submitted', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 
@@ -213,7 +216,7 @@ describe('cookie-consent', () => {
     })
 
     it('should prevent default form submission for progressive enhancement', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 
@@ -227,7 +230,7 @@ describe('cookie-consent', () => {
     })
 
     it('should focus the confirmation message after accepting', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 
@@ -243,7 +246,7 @@ describe('cookie-consent', () => {
     })
 
     it('should focus the confirmation message after rejecting', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 
@@ -259,7 +262,7 @@ describe('cookie-consent', () => {
     })
 
     it('should hide banner when hide button is clicked', () => {
-      document.body.innerHTML = createBannerHtml('G-TEST123')
+      document.body.innerHTML = createBannerHtml('GTM-TEST123')
 
       initCookieBanner()
 

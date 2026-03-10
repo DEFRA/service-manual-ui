@@ -129,13 +129,13 @@ export const config = convict({
       default: isDevelopment
     }
   },
-  googleAnalytics: {
-    measurementId: {
-      doc: 'Google Analytics 4 measurement ID',
+  googleTagManager: {
+    containerId: {
+      doc: 'Google Tag Manager container ID',
       format: String,
       nullable: true,
       default: null,
-      env: 'GA4_MEASUREMENT_ID'
+      env: 'GTM_CONTAINER_ID'
     }
   },
   tracing: {

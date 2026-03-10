@@ -1,5 +1,5 @@
-{% if gaMeasurementId and (not cookieConsentSet or cookieAction) and not hideCookieBanner %}
-<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the Defra digital service manual" data-ga-measurement-id="{{ gaMeasurementId }}">
+{% if gtmContainerId and (not cookieConsentSet or cookieAction) and not hideCookieBanner %}
+<div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on the Defra digital service manual" data-gtm-container-id="{{ gtmContainerId }}">
 
   <div class="govuk-cookie-banner__message govuk-width-container"{% if cookieAction %} hidden{% endif %}>
     <div class="govuk-grid-row">
