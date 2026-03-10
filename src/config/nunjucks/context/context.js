@@ -39,6 +39,14 @@ function loadManifest() {
   }
 }
 
+function parseAnalyticsConsent(cookieValue) {
+  try {
+    return JSON.parse(decodeURIComponent(cookieValue || '')).analytics === true
+  } catch {
+    return false
+  }
+}
+
 export function context(request) {
   // In development, always check for updated manifest
   // In production, only load once for performance
@@ -48,6 +56,9 @@ export function context(request) {
 
   const cookieConsentSet = Boolean(request.state?.defra_cookies_policy_set)
   const cookieAction = request.query?.cookieAction || null
+  const hasAnalyticsConsent = parseAnalyticsConsent(
+    request.state?.defra_cookies_policy
+  )
 
   return {
     assetPath: `${assetPath}/assets`,
@@ -55,9 +66,10 @@ export function context(request) {
     serviceUrl: '/',
     breadcrumbs: [],
     navigation: buildNavigation(request),
-    gaMeasurementId: config.get('googleAnalytics.measurementId'),
+    gtmContainerId: config.get('googleTagManager.containerId'),
     cookieConsentSet,
     cookieAction,
+    hasAnalyticsConsent,
     currentUrl: request.path,
     getAssetPath(asset) {
       const webpackAssetPath = webpackManifest?.[asset]

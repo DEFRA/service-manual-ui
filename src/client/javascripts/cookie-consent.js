@@ -30,22 +30,21 @@ export function hasConsentBeenSet() {
     .some((row) => row.startsWith(`${COOKIE_SET_NAME}=`))
 }
 
-export function loadGoogleAnalytics(measurementId) {
-  if (document.querySelector(`script[src*="googletagmanager.com/gtag"]`)) {
+export function loadGoogleTagManager(containerId) {
+  if (document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
     return
   }
 
+  globalThis.dataLayer = globalThis.dataLayer || []
+  globalThis.dataLayer.push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js'
+  })
+
   const script = document.createElement('script')
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${containerId}`
   script.async = true
   document.head.appendChild(script)
-
-  globalThis.dataLayer = globalThis.dataLayer || []
-  function gtag(...args) {
-    globalThis.dataLayer.push(args)
-  }
-  gtag('js', new Date())
-  gtag('config', measurementId, { anonymize_ip: true })
 }
 
 export function removeAnalyticsCookies() {
@@ -66,7 +65,7 @@ function handleBannerConsent(
   mainMessage,
   acceptedMessage,
   rejectedMessage,
-  measurementId
+  containerId
 ) {
   const forms = mainMessage.querySelectorAll('form')
   for (const form of forms) {
@@ -76,8 +75,8 @@ function handleBannerConsent(
       const button = form.querySelector('button')
       if (button.value === 'accept') {
         setCookieConsent({ analytics: true })
-        if (measurementId) {
-          loadGoogleAnalytics(measurementId)
+        if (containerId) {
+          loadGoogleTagManager(containerId)
         }
         mainMessage.hidden = true
         acceptedMessage.hidden = false
@@ -111,7 +110,7 @@ export function initCookieBanner() {
     return
   }
 
-  const measurementId = banner.dataset.gaMeasurementId
+  const containerId = banner.dataset.gtmContainerId
   const messages = banner.querySelectorAll('.govuk-cookie-banner__message')
   const mainMessage = messages[0]
   const acceptedMessage = messages[1]
@@ -123,14 +122,14 @@ export function initCookieBanner() {
   ) {
     banner.hidden = true
     const consent = getCookieConsent()
-    if (consent?.analytics && measurementId) {
-      loadGoogleAnalytics(measurementId)
+    if (consent?.analytics && containerId) {
+      loadGoogleTagManager(containerId)
     }
     return
   }
 
-  if (acceptedMessage && !acceptedMessage.hidden && measurementId) {
-    loadGoogleAnalytics(measurementId)
+  if (acceptedMessage && !acceptedMessage.hidden && containerId) {
+    loadGoogleTagManager(containerId)
   }
 
   handleBannerConsent(
@@ -138,7 +137,7 @@ export function initCookieBanner() {
     mainMessage,
     acceptedMessage,
     rejectedMessage,
-    measurementId
+    containerId
   )
 }
 

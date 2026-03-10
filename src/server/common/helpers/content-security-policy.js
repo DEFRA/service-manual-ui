@@ -2,22 +2,23 @@ import Blankie from 'blankie'
 
 import { config } from '../../../config/config.js'
 
-const gaMeasurementId = config.get('googleAnalytics.measurementId')
-const GA_ANALYTICS_DOMAIN = 'https://www.google-analytics.com'
+const gtmContainerId = config.get('googleTagManager.containerId')
+const GA_DOMAIN = 'https://www.google-analytics.com'
+const GTM_DOMAIN = 'https://www.googletagmanager.com'
 
-const gaScriptSrc = gaMeasurementId
-  ? ['https://www.googletagmanager.com', GA_ANALYTICS_DOMAIN]
-  : []
+const gtmScriptSrc = gtmContainerId ? [GTM_DOMAIN, GA_DOMAIN] : []
 
-const gaConnectSrc = gaMeasurementId
+const gtmConnectSrc = gtmContainerId
   ? [
-      GA_ANALYTICS_DOMAIN,
+      GA_DOMAIN,
       'https://analytics.google.com',
       'https://region1.google-analytics.com'
     ]
   : []
 
-const gaImgSrc = gaMeasurementId ? [GA_ANALYTICS_DOMAIN] : []
+const gtmImgSrc = gtmContainerId ? [GA_DOMAIN, GTM_DOMAIN] : []
+
+const gtmFrameSrc = gtmContainerId ? [GTM_DOMAIN] : []
 
 /**
  * Manage content security policies.
@@ -30,16 +31,16 @@ const contentSecurityPolicy = {
     // https://frontend.design-system.service.gov.uk/import-javascript/#if-our-inline-javascript-snippet-is-blocked-by-a-content-security-policy
     defaultSrc: ['self'],
     fontSrc: ['self', 'data:'],
-    connectSrc: ['self', 'wss', 'data:', ...gaConnectSrc],
+    connectSrc: ['self', 'wss', 'data:', ...gtmConnectSrc],
     mediaSrc: ['self'],
     styleSrc: ['self'],
     scriptSrc: [
       'self',
       "'sha256-GUQ5ad8JK5KmEWmROf3LZd9ge94daqNvd8xy9YS1iDw='",
-      ...gaScriptSrc
+      ...gtmScriptSrc
     ],
-    imgSrc: ['self', 'data:', ...gaImgSrc],
-    frameSrc: ['self', 'data:'],
+    imgSrc: ['self', 'data:', ...gtmImgSrc],
+    frameSrc: ['self', 'data:', ...gtmFrameSrc],
     objectSrc: ['none'],
     frameAncestors: ['none'],
     formAction: ['self'],

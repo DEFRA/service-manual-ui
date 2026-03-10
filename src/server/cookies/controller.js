@@ -1,6 +1,6 @@
 import { config } from '../../config/config.js'
 
-const gaMeasurementId = config.get('googleAnalytics.measurementId')
+const gtmContainerId = config.get('googleTagManager.containerId')
 
 function parseConsentCookie(cookieValue) {
   try {
@@ -23,7 +23,7 @@ const cookiesGetController = {
       saved,
       currentAnalytics,
       hideCookieBanner: true,
-      gaMeasurementId,
+      gtmContainerId,
       breadcrumbs: [{ text: 'Home', href: '/' }, { text: 'Cookies' }]
     })
   }
