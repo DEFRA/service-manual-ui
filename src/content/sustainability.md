@@ -1,7 +1,6 @@
 ---
 title: 15. Deliver a sustainable service
-caption: Service Standard
-description: Understand any social and environmental risks created by your service and take steps to reduce these as far as possible.
+caption: Service standard
 layout: section
 sectionTitle: Sustainability
 sectionNav:
@@ -13,41 +12,43 @@ sectionNav:
         href: /sustainability/objectives
   - title: How to do this
     items:
-      - text: Assess risk and write statements
+      - text: Assess risks and record sustainability actions
         href: /sustainability/process
-      - text: Measure sustainability
+      - text: Taking action and tracking sustainability performance
         href: /sustainability/metrics
 supportBox:
   title: Get support
   description: The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
   items:
-    - 'Email: <a href="mailto:sustainable-it@defra.gov.uk" class="govuk-link">sustainable-it@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:sustainableICT@defra.gov.uk" class="govuk-link">sustainableICT@defra.gov.uk</a>'
 ---
 
-Defra adheres to the cross-government [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard). All services must meet the standard's 14 points.
+All services must meet the 14 points of the cross-government [GOV.UK service standard](https://www.gov.uk/service-manual/service-standard). Due to Defra's role in protecting the environment, services must also meet an additional 15th point about sustainability.
 
-Because of Defra's role in protecting the environment, services must also meet this 15th point about sustainability.
+## What this standard is about
+
+This standard covers the social and environmental risks your service may create and the steps you should take to reduce them.
 
 ## Why it's important
 
 Defra's services aim to bring tangible environmental benefits to our society – from improving water quality to boosting the nation's resilience to flooding. Benefits can also come from replacing existing processes that are relatively resource intensive with more lightweight and modern equivalents.
 
-However, the use of technology for government services also contributes to climate change and other sustainability risks.
+The use of technology for government services also contributes to climate change and other sustainability risks. This can include:
 
-- **Energy use** contributes to warming greenhouse gases.
-- **Hardware manufacturing** (mining and processing) can lead to water scarcity, resource depletion, and biodiversity loss.
-- **Supply chains** can have unintended social impacts, such as labour exploitation.
+- **energy use** that contributes to warming greenhouse gases
+- **hardware manufacturing** (mining and processing) that leads to water scarcity, resource depletion, and biodiversity loss
+- **supply chains** with unintended social impacts, such as labour exploitation
 
-The Greening Government Commitments and [Defra's Digital Sustainability Strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030) set objectives to reduce the impacts of the use of digital technology.
+You can [read more about the environmental impacts and Defra's 5 year digital sustainability strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030) on GOV.UK (opens in a new tab).
 
-## What it means
+## What you need to do
 
-Service teams should design, develop, and operate their services to be as sustainable as possible, and set out their approach in a **sustainability statement**.
+Service teams should design, develop, and operate their services to be as sustainable as possible. For information on how to do this throughout your service's lifecycle, [read the greener service principles guidance](https://greenerservices.github.io/). The greener service principles are under review and updated guidance will be available later this year.
 
-The statement should lay out what actions have been taken, and those that are planned, against the [6 objectives](/sustainability/objectives) of [Defra's Digital Sustainability Strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030).
+You will also need to set out your approach in a sustainability statement.
 
-### Detailed guidance
+A sustainability statement should lay out what actions have been taken, and those that are planned, against the [6 objectives in Defra's digital sustainability strategy](/sustainability/objectives).
 
-More detailed guidance on reducing the impacts of services through their lifecycle can be found in the [Greener Service Principles](https://greenerservices.github.io/).
+## Where to find out more on sustainability
 
-Guidance on artificial intelligence can be found in [Defra's AI sustainability guidance](https://defra.sharepoint.com/:w:/t/Team740/ESn6XK_adQRJurJYDXe_c6YBfU63gFpOVGQiaNoCvQgV8A?e=Bi9U2s).
+For information about sustainability and artificial intelligence, read [Defra's AI sustainability guidance](https://defra.sharepoint.com/:w:/t/Team740/ESn6XK_adQRJurJYDXe_c6YBfU63gFpOVGQiaNoCvQgV8A?e=Bi9U2s).
