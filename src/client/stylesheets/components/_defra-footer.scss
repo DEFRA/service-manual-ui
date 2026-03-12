@@ -7,22 +7,8 @@
   background-color: $govuk-light-grey;
 }
 
-.defra-footer__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 15px;
-}
-
-.defra-footer__meta-item {
-  flex-grow: 1;
-  flex-basis: 100%;
-  text-align: left;
-}
-
 .defra-footer__inline-list {
-  margin: 0 0 15px;
+  margin: 0 0 20px;
   padding: 0;
   list-style: none;
 }
@@ -69,10 +55,15 @@
 }
 
 .defra-footer__licence-description {
+  margin: 0 0 20px;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 1.25;
   color: $govuk-black;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

@@ -1,0 +1,25 @@
+#main-content .govuk-cookie-banner__message .govuk-button-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0;
+
+  form {
+    display: contents;
+
+    .govuk-button {
+      margin-bottom: 0;
+      margin-right: 15px;
+      vertical-align: middle;
+    }
+  }
+
+  .govuk-link {
+    margin: 0;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    transform: translateY(4px); // Aggressive nudge to align text baseline with buttons
+  }
+}

@@ -3,7 +3,7 @@ title: Delivery group standards
 caption: Delivery groups
 description: The delivery group standards help teams run successful delivery groups.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

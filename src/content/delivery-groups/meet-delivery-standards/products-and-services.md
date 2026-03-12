@@ -3,7 +3,7 @@ title: 2. Maintain a list of products and services
 caption: Delivery group standards
 description: Maintain a clear, up-to-date list of all your services and who owns them.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

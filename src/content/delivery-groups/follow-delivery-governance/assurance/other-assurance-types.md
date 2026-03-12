@@ -3,7 +3,7 @@ title: Other assurance types
 caption: Assurance
 description: Additional assurances that delivery groups are encouraged to use.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

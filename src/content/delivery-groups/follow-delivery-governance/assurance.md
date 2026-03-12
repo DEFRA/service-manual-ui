@@ -3,7 +3,7 @@ title: Assurance
 caption: Delivery group governance
 description: How we ensure quality, follow best practice and mitigate risk.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

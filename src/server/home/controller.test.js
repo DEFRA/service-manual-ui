@@ -46,7 +46,7 @@ describe('#homeController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Welcome to Defra digital')
+        expect.stringContaining('Welcome to Digital Defra')
       )
     })
 

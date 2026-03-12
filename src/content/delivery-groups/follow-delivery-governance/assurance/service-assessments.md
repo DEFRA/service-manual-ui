@@ -3,7 +3,7 @@ title: Service assessments
 caption: Assurance
 description: A service assessment measures a service against the 14 points of the GOV.UK Service Standard.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home
