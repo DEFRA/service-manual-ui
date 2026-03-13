@@ -3,7 +3,7 @@ title: Governance model
 caption: Delivery group governance
 description: The governance model defines how each level and function supports the delivery group.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

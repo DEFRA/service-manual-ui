@@ -4,9 +4,9 @@
 export const homeController = {
   handler(_request, h) {
     return h.view('home/home', {
-      pageTitle: 'Welcome to Defra digital',
+      pageTitle: 'Welcome to Digital Defra',
       heading: 'Deliver digital services at Defra',
-      headerServiceName: 'Defra digital',
+      headerServiceName: 'Digital Defra',
       headerServiceUrl: '/'
     })
   }

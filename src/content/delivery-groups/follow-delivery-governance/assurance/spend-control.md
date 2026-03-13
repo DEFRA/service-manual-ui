@@ -3,7 +3,7 @@ title: Spend control
 caption: Assurance
 description: Spend control ensures government departments get approval before spending government money on technology.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

@@ -3,7 +3,7 @@ title: Operational service readiness
 caption: Assurance
 description: Operational service readiness makes sure that new or significantly changed services are safe and secure, and meet Defra's requirements for managing live services.
 layout: two-thirds
-headerServiceName: Defra digital
+headerServiceName: Digital Defra
 showMainNavigation: true
 breadcrumbs:
   - text: Home

@@ -23,7 +23,7 @@ sectionNav:
 
 **When: Before the end of Discovery or Stage Gate 3**
 
-The Defra digital and data transformation strategy states that all IT projects and programmes, whether public or internally facing, must be assessed for sustainability impacts and benefits.
+The Digital Defra and data transformation strategy states that all IT projects and programmes, whether public or internally facing, must be assessed for sustainability impacts and benefits.
 
 Assessment for sustainability risks occurs through the DDTS digital sustainability risk assessment.
 
