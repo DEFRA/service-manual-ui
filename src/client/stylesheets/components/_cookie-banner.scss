@@ -1,25 +1,34 @@
-.govuk-cookie-banner .govuk-cookie-banner__message .govuk-button-group {
+.govuk-cookie-banner__message {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.govuk-cookie-banner__message .govuk-button-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 0;
+  margin-top: 20px;
+  margin-bottom: 5px; // Subtle offset for visual balance
 
   form {
     display: contents;
+  }
 
-    .govuk-button {
-      margin-bottom: 0;
-      margin-right: 15px;
-      vertical-align: middle;
-    }
+  .govuk-button {
+    margin-bottom: 0;
+    margin-right: 15px;
+    vertical-align: middle;
   }
 
   .govuk-link {
     margin: 0;
-    line-height: 1;
+    line-height: 1.25;
     display: inline-flex;
     align-items: center;
-    transform: translateY(4px); // Aggressive nudge to align text baseline with buttons
+    padding: 8px 0; // Match button vertical presence
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
   }
 }

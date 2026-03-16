@@ -22,6 +22,8 @@ sectionNav:
 
 The Digital Sustainability Statement provides a document for service teams to record what sustainability actions they have been able to take, or plan to, and how sustainability performance is being tracked for each of the 6 strategic sustainability objectives.
 
+This page lays out key digital sustainability questions to consider at the Alpha and Beta phases of projects, as well as guidance on metrics. More detailed advice on the sustainability actions a project can take can be found in the [‘Greener Service Principles’](https://greenerservices.github.io/) v1.0. An updated version will soon be made available in its place.
+
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">

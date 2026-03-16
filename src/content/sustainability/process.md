@@ -67,7 +67,7 @@ After you submit your assessment, you will receive a response from the DDTS Digi
 The response will include:
 
 - an impact rating for your project, with some suggested sustainability risks and opportunities
-- links to guidance about relevant project risks and how to mitigate them
+- specific, relevant actions that a project can take to address the sustainability risks that have been identified, from the [‘Greener Service Principles’](https://greenerservices.github.io/).
 - for high impact projects, an offer of a further meeting for individual project support
 
 When you receive a response, you should record your impact rating and act upon any guidance before Stage Gate 3 or your Alpha Assessment.
