@@ -12,7 +12,6 @@ import { requestLogger } from './common/helpers/logging/request-logger.js'
 import { secureContext } from '@defra/hapi-secure-context'
 import { contentSecurityPolicy } from './common/helpers/content-security-policy.js'
 
-// Trigger restart for screenshot
 export async function createServer() {
   setupProxy()
   const server = hapi.server({
