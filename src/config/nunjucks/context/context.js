@@ -54,10 +54,7 @@ export function context(request) {
     loadManifest()
   }
 
-  const forceBanner = isDevelopment && request.query?.forceBanner === 'true'
-  const cookieConsentSet = forceBanner
-    ? false
-    : Boolean(request.state?.defra_cookies_policy_set)
+  const cookieConsentSet = Boolean(request.state?.defra_cookies_policy_set)
   const cookieAction = request.query?.cookieAction || null
   const hasAnalyticsConsent = parseAnalyticsConsent(
     request.state?.defra_cookies_policy
@@ -69,9 +66,7 @@ export function context(request) {
     serviceUrl: '/',
     breadcrumbs: [],
     navigation: buildNavigation(request),
-    gtmContainerId: forceBanner
-      ? config.get('googleTagManager.containerId') || 'GTM-DEBUG'
-      : config.get('googleTagManager.containerId'),
+    gtmContainerId: config.get('googleTagManager.containerId'),
     cookieConsentSet,
     cookieAction,
     hasAnalyticsConsent,
