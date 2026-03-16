@@ -27,7 +27,7 @@ const markdownRoutes = [
   '/content/working-in-alpha',
   '/content/working-in-beta',
   '/content/working-in-live',
-  '/content/assessment-questions',
+  '/service-assessments/assessment-questions',
   '/content/legal-content',
   '/content/welsh-language-translation',
   '/content/colour-contrast',
