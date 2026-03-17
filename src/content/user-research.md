@@ -19,7 +19,7 @@ sectionNav:
     items:
       - text: Research scoping and planning
         href: /user-research/scoping-research
-      - text: Participant recruitment
+      - text: Recruiting participants
         href: /user-research/recruiting-participants
 supportBox:
   title: Get support
