@@ -7,20 +7,18 @@ sectionNav:
     items:
       - text: User research
         href: /user-research
-  - title: How to do this
+  - title: Ways of working
     items:
-      - text: Scoping research
+      - text: Standards and guidance
+        href: /user-research/standards-and-guidance
+      - text: Tools
+        href: /user-research/tools
+  - title: Research process
+    items:
+      - text: Research scoping and planning
         href: /user-research/scoping-research
-      - text: Planning research
-        href: /user-research/planning-research
       - text: Recruiting participants
         href: /user-research/recruiting-participants
-      - text: Participant recruitment methods
-        href: /user-research/participant-recruitment-methods
-      - text: Gathering consent
-        href: /user-research/gathering-consent
-      - text: Preparing for data collection
-        href: /user-research/preparing-for-data-collection
 ---
 
 ## Use Defra’s user research panels (preferred)

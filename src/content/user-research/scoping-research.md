@@ -1,82 +1,39 @@
 ---
-title: Scoping research
-description: Kick off research and bring stakeholders together early.
+title: Research scoping and planning
+description: Defra user researchers run scoping workshops and create research plans to build a shared understanding of the problem and ensure research meets programme and stakeholder needs before delivery starts.
 layout: section
 sectionNav:
   - title: In this section
     items:
       - text: User research
         href: /user-research
-  - title: How to do this
+  - title: Ways of working
     items:
-      - text: Scoping research
+      - text: Standards and guidance
+        href: /user-research/standards-and-guidance
+      - text: Tools
+        href: /user-research/tools
+  - title: Research process
+    items:
+      - text: Research scoping and planning
         href: /user-research/scoping-research
-      - text: Planning research
-        href: /user-research/planning-research
       - text: Recruiting participants
         href: /user-research/recruiting-participants
-      - text: Participant recruitment methods
-        href: /user-research/participant-recruitment-methods
-      - text: Gathering consent
-        href: /user-research/gathering-consent
-      - text: Preparing for data collection
-        href: /user-research/preparing-for-data-collection
 ---
 
-The User Researcher runs this stage. They consult programme stakeholders and User Research Leads.
+Research plans are mandatory for all DDTS user researchers.
 
-## Why we do this
+The process, guidance and templates are listed below:
 
-Agree the purpose of the upcoming research. Set the boundaries of what you will and will not cover.
+## Research scoping and planning process
 
-Turn assumptions into research questions. Identify priority user groups, constraints, and early risks.
+1. Run a research scoping workshop with key stakeholders and colleagues using the [research scoping workshop template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/1.%20Research%20scoping%20workshop%20template.docx?d=w9d8a63ff5d704f4bb89672409e03744b&csf=1&web=1&e=7Ioo0j).
+2. Capture the agreed scope in the [research plan template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/2.%20Research%20plan%20template.docx?d=w806e25a77a8548f4a583eb0659605710&csf=1&web=1&e=7bWwtW).
+3. Submit the research plan to your lead user researcher (if your delivery group has one) for review or approval.
+4. Share the approved plan with your team to ensure everyone is aligned.
+5. Send the final research plan to Research Operations for archiving.
 
-By the end, the team should agree on:
+## Defra guidance and templates
 
-- the evidence needed
-- the decisions that evidence will inform
-- a first draft research plan
-- a short scope summary
-
-## Before you start
-
-Describe the programme goals and the problem to solve.
-
-Hold a planning workshop with stakeholders. Capture research questions, assumptions, and hypotheses.
-
-## Governance
-
-<details class="govuk-details" data-module="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      Roles and approvals
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    <p><strong>User Research Lead</strong>: Reviews the scope for quality, ethical practice, and feasibility.</p>
-    <p><strong>Service Owner or Product Manager</strong>: Agrees the objectives, research questions, and decision-making process.</p>
-    <p><strong>User Researcher</strong>: Runs the planning workshop, drafts the scope summary, and starts the risk assessment.</p>
-    <p>Consult the Delivery team, Research Operations, and the User Research Lead.</p>
-  </div>
-</details>
-
-## Methods
-
-Use the [Defra Mural template](https://app.mural.co/t/coredefra2548/template/8a9926bd-e418-47f3-b387-d23b329a2bc7) to run a collaborative workshop. This allows you to:
-
-- capture and prioritise research questions
-- convert assumptions into testable questions
-
-## Artefacts
-
-Create a **Defra research scope summary** as the master reference. It should set out:
-
-- purpose and goals
-- questions, assumptions, and hypotheses
-- user groups
-- suitable methods
-- logistics
-- risks and mitigations
-- approvals and next steps
-
-Store materials in the team’s approved UR Vault or repository. Restrict access if personal data is involved.
+- [Research scoping workshop template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/1.%20Research%20scoping%20workshop%20template.docx?d=w9d8a63ff5d704f4bb89672409e03744b&csf=1&web=1&e=7Ioo0j) - to copy the template, select the link, then click ‘New mural from template’ in the top left and save.
+- [Research plan template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/2.%20Research%20plan%20template.docx?d=w806e25a77a8548f4a583eb0659605710&csf=1&web=1&e=7bWwtW) and [Research plan guidance](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/3.%20Research%20plan%20guidance.docx?d=wee1942ac81324a49ab8ce2fdb0687d0f&csf=1&web=1&e=osBVtD)
