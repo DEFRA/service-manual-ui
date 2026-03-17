@@ -11,6 +11,8 @@ sectionNav:
         href: /service-assessments
   - title: How to do this
     items:
+      - text: Assessment questions
+        href: /service-assessments/assessment-questions
       - text: Book an assessment
         href: /service-assessments/book-an-assessment
       - text: Become an assessor
