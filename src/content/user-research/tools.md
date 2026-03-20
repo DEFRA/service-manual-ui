@@ -7,7 +7,7 @@ sectionNav:
     items:
       - text: User research
         href: /user-research
-  - title: Ways of working
+  - title: Standards, guidance and tools
     items:
       - text: Standards and guidance
         href: /user-research/standards-and-guidance
@@ -17,11 +17,11 @@ sectionNav:
     items:
       - text: Research scoping and planning
         href: /user-research/scoping-research
-      - text: Recruiting participants
+      - text: Participant recruitment
         href: /user-research/recruiting-participants
 ---
 
-### Tools:
+### Use Defra tools
 
 - [Microsoft Office](https://defra.sharepoint.com/sites/Defraintranet/SitePages/Microsoft-365.aspx)
 - [Microsoft Copilot 365](https://defra.sharepoint.com/teams/Team177/SitePages/Full-Copilot-for-DDTS.aspx)

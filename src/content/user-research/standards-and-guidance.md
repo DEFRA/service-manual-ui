@@ -7,7 +7,7 @@ sectionNav:
     items:
       - text: User research
         href: /user-research
-  - title: Ways of working
+  - title: Standards, guidance and tools
     items:
       - text: Standards and guidance
         href: /user-research/standards-and-guidance
@@ -17,11 +17,13 @@ sectionNav:
     items:
       - text: Research scoping and planning
         href: /user-research/scoping-research
-      - text: Recruiting participants
+      - text: Participant recruitment
         href: /user-research/recruiting-participants
 ---
 
 Research must meet the standards and guidance listed below:
+
+## Recognised user research profession standards and guidance
 
 - [Market research society (MRS) code of conduct](https://www.mrs.org.uk/standards/code-of-conduct)
 - [User research - Service Manual - GOV.UK](https://www.gov.uk/service-manual/user-research)
