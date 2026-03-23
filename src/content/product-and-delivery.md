@@ -53,13 +53,13 @@ Each delivery group has a strategic roadmap team that sets direction and priorit
 
 [Find a list of Delivery Groups and Leads on SharePoint](https://defra.sharepoint.com/teams/Team177/SitePages/Delivery-Groups-and-Leads.aspx).
 
-If you are a delivery manager, identify your:
+Identify your:
 
 - delivery group lead
 - delivery centre lead (this may be your programme delivery manager)
 - profession leads within your delivery group
 
-Arrange a meeting with your delivery centre lead or programme delivery manager. They will give you access to guidance and SharePoint repositories for your delivery.
+**Delivery managers:** arrange a meeting with your delivery centre lead or programme delivery manager. They will give you access to guidance and SharePoint repositories for your delivery.
 
 **Product managers:** speak to your Lead Product Manager about direction, priorities, and alignment.
 
