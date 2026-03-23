@@ -49,13 +49,15 @@ export function loadGoogleTagManager(containerId) {
 
 export function removeAnalyticsCookies() {
   const cookies = document.cookie.split('; ')
-  const hostname = globalThis.location.hostname
+  const parts = globalThis.location.hostname.split('.')
+  const cookieDomain =
+    parts.length > 2 ? parts.slice(1).join('.') : parts.join('.')
+
   for (const cookie of cookies) {
     const name = cookie.split('=')[0]
     if (name.startsWith('_ga')) {
       document.cookie = `${name}=; path=/; max-age=0`
-      document.cookie = `${name}=; path=/; max-age=0; domain=${hostname}`
-      document.cookie = `${name}=; path=/; max-age=0; domain=.${hostname}`
+      document.cookie = `${name}=; path=/; max-age=0; domain=.${cookieDomain}`
     }
   }
 }
