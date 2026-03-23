@@ -146,6 +146,18 @@ describe('cookie-consent', () => {
 
       expect(document.cookie).not.toContain('_ga')
     })
+
+    it('should attempt deletion on parent domain for subdomains', () => {
+      vi.spyOn(globalThis, 'location', 'get').mockReturnValue({
+        hostname: 'service-manual.defra.gov.uk'
+      })
+
+      document.cookie = '_ga=test; path=/'
+
+      removeAnalyticsCookies()
+
+      expect(document.cookie).not.toContain('_ga')
+    })
   })
 
   describe('#initCookieBanner', () => {
