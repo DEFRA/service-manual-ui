@@ -26,6 +26,6 @@ supportBox:
     - 'Slack: <a href="https://defra-digital-team.slack.com/archives/C080WP62PJP" class="govuk-link">interactive-map</a>'
 ---
 
-[Defra Interactive Map](https://github.com/DEFRA/interactive-map) is an open-source mapping component designed for government services, with accessibility at its core.
+[Defra Interactive Map](https://defra.github.io/interactive-map/) is an open-source mapping component designed for government services, with accessibility at its core.
 
 ^ This map is currently in beta and not yet stable. Documentation and support are not yet available.
