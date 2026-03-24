@@ -23,7 +23,6 @@ sectionNav:
 
 Research plans are mandatory for all DDTS user researchers.
 
-The process, guidance and templates are listed below:
 
 ## Research scoping and planning process
 

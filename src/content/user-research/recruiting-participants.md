@@ -37,11 +37,11 @@ The recruitment process, guidance and templates are listed below:
 
 - [Identify your users](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B282B7036-EF72-4B43-9A69-8FBF1205691D%7D&file=601.%20Identify%20your%20users.docx&action=default&mobileredirect=true)
 - [Recruitment channels](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B8E0D044D-10DB-4DBB-B536-702F0FA225E3%7D&file=602.%20Recruitment%20channels.docx&action=default&mobileredirect=true)
+- [Incentives](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B85DC7133-DB74-40A0-A311-E8AFCE42C47A%7D&file=603.%20Incentives.docx&action=default&mobileredirect=true)
 - [Screen participants](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BEBEE1627-0734-439B-8A7C-451E8749491C%7D&file=604.%20Screen%20participants.docx&action=default&mobileredirect=true)
+- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B768A041D-CD1D-4B0A-8073-C765999E5790%7D&file=305.%20Informed%20consent%20and%20privacy%20notices.docx&action=default&mobileredirect=true&DefaultItemOpen=1)
 - [Planning research sessions with participants](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BF10CABC8-98C0-45C2-AA43-DD9E84F8DC56%7D&file=605.%20Planning%20research%20sessions%20with%20participants.docx&action=default&mobileredirect=true)
 - [Research observation and note-taking](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BD86B7783-4CA0-4C61-B75C-65F8E7A690DD%7D&file=606.%20Research%20observation%20and%20note-taking.docx&action=default&mobileredirect=true)
-- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B768A041D-CD1D-4B0A-8073-C765999E5790%7D&file=305.%20Informed%20consent%20and%20privacy%20notices.docx&action=default&mobileredirect=true&DefaultItemOpen=1)
-- [Incentives](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B85DC7133-DB74-40A0-A311-E8AFCE42C47A%7D&file=603.%20Incentives.docx&action=default&mobileredirect=true)
 
 ## Standards
 
