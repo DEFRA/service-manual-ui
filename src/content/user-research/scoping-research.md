@@ -23,7 +23,6 @@ sectionNav:
 
 Research plans are mandatory for all DDTS user researchers.
 
-The process, guidance and templates are listed below:
 
 ## Research scoping and planning process
 
@@ -35,6 +34,6 @@ The process, guidance and templates are listed below:
 
 ## Defra guidance and templates
 
-- [Research scoping workshop template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/1.%20Research%20scoping%20workshop%20template.docx?d=w9d8a63ff5d704f4bb89672409e03744b&csf=1&web=1&e=7Ioo0j) - to copy the template, select the link, then click ‘New mural from template’ in the top left and save.
+- [Research scoping workshop template](https://app.mural.co/t/coredefra2548/template/4fc50ae2-8a7b-4a60-bb73-b028c392925f) - to copy the template, select the link, then click ‘New mural from template’ in the top left and save.
 - [Research plan template](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/2.%20Research%20plan%20template.docx?d=w806e25a77a8548f4a583eb0659605710&csf=1&web=1&e=7bWwtW)
 - [Research plan guidance](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/500.%20Research%20scoping%20and%20planning/3.%20Research%20plan%20guidance.docx?d=wee1942ac81324a49ab8ce2fdb0687d0f&csf=1&web=1&e=osBVtD)

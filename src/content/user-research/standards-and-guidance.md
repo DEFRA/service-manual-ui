@@ -33,6 +33,7 @@ Research must meet the standards and guidance listed below:
 - [Ethics, safeguarding and bias management](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/301.%20Standard%20-%20Ethics,%20safeguarding%20and%20bias%20management.docx?d=w51e266a1d4a441929d90766ffcab29f1&csf=1&web=1&e=GTK3Hc)
 - [Inclusive and accessible research](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/302.%20Standard%20-%20Inclusive%20and%20accessible%20research.docx?d=w6f24caa7673740e487c59ec8b9db182b&csf=1&web=1&e=ZrLm3N)
 - [Using AI safely and responsibly](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/303.%20Standard%20-%20Using%20AI%20safely%20and%20responsibly.docx?d=wdf045f3483384181b52e01bda08c9b36&csf=1&web=1&e=EEI0L4)
+- [User research during election periods](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B949DCABA-D98B-4E54-8262-628628BD4EBA%7D&file=308.%20Standard%20-%20User%20research%20during%20election%20periods.docx&action=default&mobileredirect=true)
 
 ## Data handling
 

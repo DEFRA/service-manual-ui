@@ -30,7 +30,7 @@ supportBox:
 
 ## Standards, guidance and tools
 
-Defra user researchers follow recognised user research standards, use approved tools and work with their teams to make sure services meet the GDS Service Standard. These are listed below:
+Defra user researchers follow recognised user research standards, work with their teams to make sure services meet the GDS Service Standard and use approved tools. These are listed below:
 
 - [Standards and guidance](/user-research/standards-and-guidance)
 - [Tools](/user-research/tools)
