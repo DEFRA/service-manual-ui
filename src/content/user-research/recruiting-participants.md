@@ -28,7 +28,7 @@ The recruitment process, guidance and templates are listed below:
 1. Define the users and identify participants for research
 2. Choose the recruitment channels and incentives (if needed)
 3. Screen participants to check they represent your target users
-4. Get informed consent before the session.
+4. Get informed consent before the session
 5. Plan your research sessions with participants
 6. Prepare observers for research sessions and note-taking
 7. Consider accessibility throughout
