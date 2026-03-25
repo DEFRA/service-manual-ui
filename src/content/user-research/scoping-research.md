@@ -23,7 +23,6 @@ sectionNav:
 
 Research plans are mandatory for all DDTS user researchers.
 
-
 ## Research scoping and planning process
 
 1. Run a research scoping workshop with key stakeholders and colleagues using the research scoping workshop template.
