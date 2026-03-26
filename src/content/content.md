@@ -42,9 +42,8 @@ sectionNav:
         href: /content/accessibility-tools
 supportBox:
   title: Get support
-  description: Contact the content team with questions about content standards.
-  items:
-    - 'Email: <a href="mailto:contentteam@defra.gov.uk" class="govuk-link">contentteam@defra.gov.uk</a>'
+  description: 'Contact the content team with questions about content standards by messaging on the <a href="https://defra-digital.slack.com/archives/C0ESWJQSK" class="govuk-link">#content slack channel</a>.'
+  items: []
 ---
 
 Content design makes services easy to understand and use. It involves planning, writing and managing content so that it meets user needs.

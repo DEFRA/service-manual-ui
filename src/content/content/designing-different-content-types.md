@@ -43,9 +43,7 @@ sectionNav:
 
 ## Service pages (URL ending service.gov.uk)
 
-Service pages are made up of components. The content you write for each page design will guide the user to interact with the service.
-
-You’ll work with an interaction designer on these pages including:
+You’ll work with an interaction designer on these pages, including:
 
 - content for buttons, radio options, text inputs and links
 - error messages
@@ -57,9 +55,9 @@ You’ll work with an interaction designer on these pages including:
 
 ## GOV.UK start page and guidance
 
-Public-facing services in public beta or live must have a starting point hosted on GOV.UK.
+Public-facing services must have a start page hosted on GOV.UK.
 
-Our business as usual (BAU) team manage this content.
+Our business as usual (BAU) team manage this content, as well as guidance. If your service is public-facing or if it’s to be used by over 100,000 people read the advice on mainstream content and GDS.
 
 You should get in touch with the relevant BAU team as early as possible in service delivery. They can help you to understand what content and guidance you'll need to provide in relation to your service, and how to identify and manage existing content.
 
@@ -69,7 +67,7 @@ You will work with the BAU team to:
 - identify how the service start page relates to existing content
 - understand how users find their way to your service on GOV.UK
 
-You can contact the BAU team by emailing [contentteam@defra.gov.uk](mailto:contentteam@defra.gov.uk).
+You can contact the BAU team by messaging on the [#content slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
 
 For further guidance:
 
@@ -77,13 +75,13 @@ For further guidance:
 
 ## Mainstream content and GDS
 
-The content team at GDS is responsible for creating ‘mainstream’ start points on GOV.UK. Mainstream content is content aimed at the general public, or at meeting business needs that are not sector-specific.
+If your service is public-facing or if it’s to be used by over 100,000 people, it is classed as mainstream.
 
-‘Whitehall’ content is owned by a government department’s BAU content team.
+Mainstream content is content aimed at the general public, or at meeting business needs that are not sector-specific.
 
-If your service is public-facing or if it’s to be used by over 100,000 people, GDS will get involved with the start page and guidance as it would be classed as mainstream content.
+The content team at GDS leads on the mainstream content associated with a service, including the start page and guidance.
 
-You can contact the BAU team to find out more about the process of creating or updating mainstream content by emailing [contentteam@defra.gov.uk](mailto:contentteam@defra.gov.uk).
+You can contact the BAU team to find out more about the process of creating or updating mainstream content by messaging on the [#content slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
 
 ## Content touchpoints outside the user journey
 

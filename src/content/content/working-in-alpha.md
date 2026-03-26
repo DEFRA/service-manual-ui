@@ -81,7 +81,7 @@ Just as in discovery, you’ll work with a multidisciplinary team in alpha phase
 
 Often, the same team works on discovery and alpha phases. This helps with continuity. But it’s also common for new teammates to join for alpha. This helps bring assumptions and fresh ideas to the surface.
 
-As a service content designer in alpha, you also need to keep in close contact with the content designer in the BAU team who works on the GOV.UK guidance for this area. Contact them at [contentteam@defra.gov.uk](mailto:contentteam@defra.gov.uk).
+As a service content designer in alpha, you also need to keep in close contact with the content designer in the BAU team who works on the GOV.UK guidance for this area. Contact them by messaging on the [#content slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
 
 They can help you with background, policy contacts and will be the team you’ll need to work with if you need any GOV.UK guidance page updates.
 
