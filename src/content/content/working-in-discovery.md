@@ -41,7 +41,7 @@ sectionNav:
         href: /content/accessibility-tools
 ---
 
-Content designers are not always part of a discovery team (although they should be wherever possible!). So, if you’re joining a team in the discovery phase for the first time and are feeling uncertain about how to contribute, you’re not alone!
+Content designers are not always part of a discovery team (although they should be wherever possible!).
 
 ## What is the discovery phase?
 
@@ -70,8 +70,6 @@ You’ll work on the discovery as part of a multidisciplinary team but every dis
 
 ## How content designers contribute to a discovery
 
-Being a content designer in the discovery phase can feel unsettling if you’ve not done it before, or if you’re used to working in alpha or beta phases. As the focus of this phase is to discover, you’ll not have as many tangible outputs as you might be used to.
-
 As a content designer you can help with:
 
 - defining user needs
@@ -84,10 +82,6 @@ Some content designers may perform these tasks in a discovery, but others may on
 
 The following advice is based on the experience of content designers who have worked in the discovery phase before.
 
-### Be flexible
-
-It’s important to be flexible in a discovery team. Use all your skills and knowledge, especially if you’re the only civil servant among contractors or suppliers.
-
 ### Support your user researcher
 
 It’s important to work closely with your user researcher. They will likely be the busiest person on the team in the discovery phase.
@@ -99,7 +93,7 @@ Speak to your user researcher about their expectations of content design and how
 - attending user research sessions and note-taking
 - helping to analyse or present research
 
-This will help you understand what users are trying to do, how they go about doing it and the language they use (as well as being a supportive colleague!).
+This will help you understand what users are trying to do, how they go about doing it and the language they use.
 
 ### Do a content audit
 
@@ -159,7 +153,7 @@ Think about the best way to show the narrative of your discovery. You need to te
 - any existing policy or solution constraints or business requirements
 - your next steps
 
-You’ll need put together a slide deck, but the check-in will likely be a free-flowing discussion. So, do not be a slave to your slides!
+You’ll need put together a slide deck, but the check-in will likely be a free-flowing discussion. So, be prepared to deviate from your slides!
 
 During the check-in, you can use whatever you want to tell your story or explain a point – for example, virtual boards, documents, wireframe sketches.
 

@@ -56,5 +56,4 @@ You will need to use a tool like WebAIM: [Contrast Checker](https://webaim.org/r
 - WebAIM’s [colour contrast checking tool](https://webaim.org/resources/contrastchecker/)
 - Coblis [colour blindness simulator](http://www.color-blindness.com/coblis-color-blindness-simulator/)
 - Brandwood [colour contrast checker for text on a background image](https://www.brandwood.com/a11y/)
-- GDS’s [contrast checker](https://contrast-checker.glitch.me/), which allows you to check 3 colours against each other
 - [Contrast Finder, find correct color contrasts for web accessibility (WCAG)](https://app.contrast-finder.org/)
