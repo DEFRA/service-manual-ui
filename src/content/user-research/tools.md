@@ -21,7 +21,7 @@ sectionNav:
         href: /user-research/recruiting-participants
 ---
 
-### Use Defra-approved tools for your research.
+### Use Defra-approved tools for your research
 
 Approved tools meet Defra's security standards, protect participant data, and support consistent ways of working. Using unapproved tools risks data breaches, may breach Defra policy, and can delay delivery while the tool is reviewed.
 

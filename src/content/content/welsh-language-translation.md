@@ -69,18 +69,30 @@ Letters, emails and texts sent to users in Wales also need translating. There is
 
 ## How to get a Welsh translation
 
-### Through the FCDO
+### Through FCDO Services
 
-Defra buys translation services from the Foreign, Commonwealth and Development Office (FCDO) under a Memorandum of Understanding that covers Core Defra and its ALBs (though only APHA and VMD are mentioned) – see [Translations on Defra Intranet](https://defra.sharepoint.com/sites/Defraintranet/SitePages/Translations.aspx). Translations take 2 to 3 working days.
+Defra buys translation services from the Translation and Interpreting service at Foreign, Commonwealth and Development Office Services (FCDO Services) under a Memorandum of Understanding that covers Core Defra customers.
 
-Email [translationrequests@fcdo.gov.uk](mailto:translationrequests@fcdo.gov.uk) for a quote for the translation. It can take a couple of weeks between getting a quote for the translation (from FCDO) to getting a purchase order for it (from your finance team). Your delivery manager can help you with the finance part of this.
+Charges and timeframes for translations are dependent on the:
 
-Here’s an example of how the ‘Taking a pet from Great Britain to Northern Ireland’ team did this:
+1. number of words to be translated
+2. language you want the source text to be translated into
 
-1.  Estimated the number of words needing translation 2 to 4 weeks in advance.
-2.  Asked [translationrequests@fcdo.gov.uk](mailto:translationrequests@fcdo.gov.uk) for a quote. Guess on the generous side to allow for leeway. Charges may vary, but as a guide 1,000 words will cost £160 + VAT and there is a minimum charge of £75 (as of August 2024).
-3.  Send the quote to your Finance contact to raise a purchase order.
-4.  Around 2 to 4 weeks later, send the purchase order and the content you’ve gathered for translation to FCDO. At the same time, start the process off again asking for a purchase order ready for the next batch of Welsh translation.
+Email [translationrequests@fcdo.gov.uk](mailto:translationrequests@fcdo.gov.uk) for a quote. The Translation and Interpreting service aims to reply to all enquiries with 12 hours of receipt.
+
+It can take a couple of weeks between getting a quote for the translation from the Translation and Interpreting service to getting a purchase order (from your finance team). Your delivery manager can help you with the finance part of this.
+
+The Translation and Interpreting service does not need a copy of the purchase order to start the translation. They will start the translation on receipt of written confirmation from the Defra customer that a purchase order in the amount quoted is being raised.
+
+Purchase orders should be raised to FCDO Services (not FCDO).
+
+Here's an example of how the 'Taking a pet from Great Britain to Northern Ireland' team did this:
+
+1. Estimated the number of words needing translation 2 to 4 weeks in advance.
+2. Asked [translationrequests@fcdo.gov.uk](mailto:translationrequests@fcdo.gov.uk) for a quote.
+3. Sent the quote to their finance contact to raise a purchase order.
+4. Sent a PDF copy of the purchase order to the Translation and Interpreting service as soon as it had been raised.
+5. The translation was delivered by e-mail on the agreed delivery date.
 
 ### Through Natural Resources Wales
 

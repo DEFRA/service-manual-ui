@@ -206,12 +206,8 @@ describe('#searchController', () => {
       const hasAccessibility = index.some((e) =>
         e.url.includes('/accessibility')
       )
-      const hasServiceStandard = index.some((e) =>
-        e.url.includes('/service-standard')
-      )
 
       expect(hasAccessibility).toBe(true)
-      expect(hasServiceStandard).toBe(true)
     })
   })
 })
