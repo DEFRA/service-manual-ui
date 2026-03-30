@@ -17,6 +17,11 @@
   {% endif %}
 {% endblock %}
 
+{% block headIcons %}
+  <link rel="icon" sizes="48x48" href="{{ getAssetPath('images/favicon.ico') }}">
+  <link rel="apple-touch-icon" href="{{ getAssetPath('images/favicon.ico') }}">
+{% endblock %}
+
 {% block head %}
   <link href="{{ getAssetPath('stylesheets/application.scss') }}" rel="stylesheet">
 
