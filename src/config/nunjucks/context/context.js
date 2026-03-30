@@ -71,6 +71,7 @@ export function context(request) {
     cookieAction,
     hasAnalyticsConsent,
     currentUrl: request.path,
+    requestHost: `${request.server.info.protocol}://${request.info.host}`,
     getAssetPath(asset) {
       const webpackAssetPath = webpackManifest?.[asset]
       return `${assetPath}/${webpackAssetPath ?? asset}`
