@@ -155,7 +155,7 @@
 // Responsive header styles
 @media (max-width: 768px) {
   .defra-header__inner {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
     gap: 12px;
   }
 
@@ -164,13 +164,13 @@
     display: none;
   }
 
-  .defra-header__service-name {
-    font-size: 18px;
+  .defra-header__logo {
     justify-self: start;
+    height: 45px;
   }
 
-  .defra-header__logo {
-    height: 45px;
+  .defra-header__service-name {
+    font-size: 18px;
   }
 }
 
