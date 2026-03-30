@@ -189,7 +189,7 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 3px solid $govuk-yellow;
     outline-offset: 0;
     background-color: $govuk-yellow;
@@ -226,10 +226,32 @@
 
   .defra-service-navigation__item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:first-child {
+      display: none; // Hide 'Home' on mobile as the logo acts as Home
+    }
   }
 
   .defra-service-navigation__link {
-    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px; // Ensure min 44px tap target height
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid $govuk-white;
+      border-right: 2px solid $govuk-white;
+      transform: rotate(45deg);
+      margin-left: 10px;
+    }
+  }
+
+  .defra-service-navigation__link[aria-current='page'] {
+    box-shadow: inset 4px 0 0 0 $govuk-white; // Switch from bottom border to left border for vertical lists
   }
 
   .defra-service-navigation__dropdown {
