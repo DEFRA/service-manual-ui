@@ -39,7 +39,7 @@ The component can be extended through plugins to meet the specific needs of a se
 
 **This project is currently in beta and is not yet stable. Documentation and support are not yet available.**
 
-[Read the GitHub guidance on InteractiveMap](https://github.com/DEFRA/interactive-map)
+[View the InteractiveMap GitHub page](https://defra.github.io/interactive-map/)
 
 ## Charts and graphs
 
