@@ -72,6 +72,7 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           hasAnalyticsConsent: false,
+          requestHost: '',
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
@@ -167,6 +168,7 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           hasAnalyticsConsent: false,
+          requestHost: '',
           serviceName: 'Digital service manual',
           serviceUrl: '/'
         })
