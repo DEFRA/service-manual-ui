@@ -17,6 +17,16 @@
   {% endif %}
 {% endblock %}
 
+{% block headIcons %}
+  {# SVG icon — modern browsers #}
+  <link rel="icon" href="{{ getAssetPath('images/favicon.svg') }}" type="image/svg+xml">
+  {# ICO fallback — older browsers #}
+  <link rel="icon" sizes="48x48" href="{{ getAssetPath('images/favicon.ico') }}">
+  {# Apple touch icon — iOS home screen #}
+  <link rel="apple-touch-icon" href="{{ getAssetPath('images/apple-touch-icon.png') }}">
+{% endblock %}
+
+
 {% block head %}
   <link href="{{ getAssetPath('stylesheets/application.scss') }}" rel="stylesheet">
 
