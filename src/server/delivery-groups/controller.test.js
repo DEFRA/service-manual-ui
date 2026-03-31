@@ -86,7 +86,7 @@ describe('#deliveryGroupsController', () => {
       )
       expect(result).toEqual(
         expect.stringContaining(
-          'href="/delivery-groups/follow-delivery-governance"'
+          'href="https://defra.github.io/delivery-group-governance/"'
         )
       )
       expect(result).toEqual(

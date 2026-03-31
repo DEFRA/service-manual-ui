@@ -86,4 +86,74 @@ describe('#markdown', () => {
       expect(result).not.toContain('target="_blank"')
     })
   })
+
+  describe('internal service link interception', () => {
+    test('should rewrite SharePoint links to interruption card', () => {
+      const result = markdown(
+        '[BA Toolkit](https://defra.sharepoint.com/teams/Team924/SitePages/BA-Toolkit.aspx)'
+      )
+      expect(result).toContain(
+        'href="/interruption-card?targetUrl=https%3A%2F%2Fdefra.sharepoint.com%2Fteams%2FTeam924%2FSitePages%2FBA-Toolkit.aspx"'
+      )
+    })
+
+    test('should rewrite Teams links to interruption card', () => {
+      const result = markdown(
+        '[Join channel](https://teams.microsoft.com/l/team/123)'
+      )
+      expect(result).toContain(
+        'href="/interruption-card?targetUrl=https%3A%2F%2Fteams.microsoft.com%2Fl%2Fteam%2F123"'
+      )
+    })
+
+    test('should not add target="_blank" to intercepted links', () => {
+      const result = markdown('[Internal](https://defra.sharepoint.com/page)')
+      expect(result).not.toContain('target="_blank"')
+      expect(result).not.toContain('rel="noreferrer noopener"')
+    })
+
+    test('should not intercept non-internal external links', () => {
+      const result = markdown('[GOV.UK](https://www.gov.uk/service-manual)')
+      expect(result).not.toContain('/interruption-card')
+      expect(result).toContain('href="https://www.gov.uk/service-manual"')
+    })
+
+    test('should rewrite CDP links to interruption card', () => {
+      const result = markdown(
+        '[CDP](https://portal.cdp-int.defra.cloud/documentation)'
+      )
+      expect(result).toContain('/interruption-card?targetUrl=')
+      expect(result).toContain('portal.cdp-int.defra.cloud')
+    })
+
+    test('should rewrite Slack links to interruption card', () => {
+      const result = markdown(
+        '[#channel](https://defra-digital.slack.com/archives/C06HH978YJ3)'
+      )
+      expect(result).toContain('/interruption-card?targetUrl=')
+      expect(result).toContain('defra-digital.slack.com')
+    })
+
+    test('should rewrite Jira links to interruption card', () => {
+      const result = markdown(
+        '[Tools Radar](https://eaflood.atlassian.net/jira/software/projects/TR)'
+      )
+      expect(result).toContain('/interruption-card?targetUrl=')
+      expect(result).toContain('eaflood.atlassian.net')
+    })
+
+    test('should rewrite Mural links to interruption card', () => {
+      const result = markdown(
+        '[Template](https://app.mural.co/t/coredefra2548/template/123)'
+      )
+      expect(result).toContain('/interruption-card?targetUrl=')
+      expect(result).toContain('app.mural.co')
+    })
+
+    test('should not intercept internal path links', () => {
+      const result = markdown('[Page](/accessibility)')
+      expect(result).not.toContain('/interruption-card')
+      expect(result).toContain('href="/accessibility"')
+    })
+  })
 })
