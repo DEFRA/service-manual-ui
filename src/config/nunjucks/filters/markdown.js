@@ -78,6 +78,8 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
     } else if (href.startsWith('http://') || href.startsWith('https://')) {
       token.attrPush(['target', '_blank'])
       token.attrPush(['rel', 'noreferrer noopener'])
+    } else {
+      // Internal path or relative links — no modification needed
     }
   }
 
