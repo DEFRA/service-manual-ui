@@ -54,5 +54,17 @@ describe('#interruptionController', () => {
       )
       expect(result).toEqual(expect.stringContaining('Continue'))
     })
+
+    test('should open the continue link in a new tab', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/interruption-card?targetUrl=https://example.com'
+      })
+
+      expect(result).toEqual(expect.stringContaining('target="_blank"'))
+      expect(result).toEqual(
+        expect.stringContaining('rel="noreferrer noopener"')
+      )
+    })
   })
 })

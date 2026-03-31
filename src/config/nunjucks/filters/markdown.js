@@ -36,6 +36,27 @@ md.renderer.rules.govspeak_warning_callout_close = () => {
   return '</strong></div>'
 }
 
+// Domains that require VPN or Defra device access
+const internalDomains = [
+  'defra.sharepoint.com',
+  'teams.microsoft.com',
+  'portal.cdp-int.defra.cloud',
+  'defra-digital.slack.com',
+  'eaflood.atlassian.net',
+  'app.mural.co'
+]
+
+function isInternalLink(href) {
+  try {
+    const url = new URL(href)
+    return internalDomains.some(
+      (domain) => url.hostname === domain || url.hostname.endsWith('.' + domain)
+    )
+  } catch {
+    return false
+  }
+}
+
 // Custom render for links - external links open in new tab
 const defaultLinkRender =
   md.renderer.rules.link_open ||
@@ -49,10 +70,16 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
 
   if (hrefIndex >= 0) {
     const href = token.attrs[hrefIndex][1]
-    // Check if external link (starts with http:// or https://)
-    if (href.startsWith('http://') || href.startsWith('https://')) {
+
+    if (isInternalLink(href)) {
+      // Route through interruption card for internal/auth-gated services
+      token.attrs[hrefIndex][1] =
+        `/interruption-card?targetUrl=${encodeURIComponent(href)}`
+    } else if (href.startsWith('http://') || href.startsWith('https://')) {
       token.attrPush(['target', '_blank'])
       token.attrPush(['rel', 'noreferrer noopener'])
+    } else {
+      // Internal path or relative links — no modification needed
     }
   }
 
