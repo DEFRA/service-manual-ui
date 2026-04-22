@@ -1,5 +1,5 @@
 ---
-title: Designing different content types
+title: Designing for different content types
 caption: Content design best practice
 layout: section
 sectionNav:
@@ -11,7 +11,7 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
@@ -92,7 +92,7 @@ The majority of the content Defra designs and maintains on GOV.UK is classed as 
 - is aimed at specific audiences who already have an understanding of the topic
 - assumes the user has some expert knowledge that will allow them to understand the guidance and take action
 
-If you need to publish or update specialist guidance as part of your project, you will need access to Whitehall publisher. Read information about Whitehall publisher at the GDS content design manual.
+If you need to publish or update specialist guidance as part of your project, you will need access to Whitehall publisher. [Read information about Whitehall publisher at the GDS content design manual](https://www.gov.uk/guidance/how-to-publish-on-gov-uk/introduction-and-access-to-whitehall-publisher).
 
 To request access to Whitehall publisher, post a comment in the [#content slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK). Someone from the team will be able to raise a request with GDS on your behalf.
 

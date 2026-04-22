@@ -11,7 +11,7 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
@@ -63,7 +63,7 @@ If you need access to any of these, post a comment on the [#content slack channe
 
 Content designers generally use GOV.UK Whitehall publisher to manage and update content.
 
-[Find out how to get access to Whitehall publisher](/content/designing-different-content-types).
+[Find out how to get access to Whitehall publisher](https://www.gov.uk/guidance/how-to-publish-on-gov-uk/introduction-and-access-to-whitehall-publisher).
 
 ## Project management and collaboration
 
