@@ -22,6 +22,7 @@ const markdownRoutes = [
   '/content/inclusive-clear-language',
   '/content/designing-different-content-types',
   '/content/sharing-designs-recording-decisions',
+  '/content/tools',
   '/content/working-in-discovery',
   '/content/working-in-alpha',
   '/content/working-in-beta',
