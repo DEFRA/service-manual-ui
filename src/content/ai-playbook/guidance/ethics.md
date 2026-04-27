@@ -1,7 +1,7 @@
 ---
 title: Ethics
 caption: Responsible AI
-description: How to use AI responsibly: stay accountable, prevent harm, protect data. Includes a 5-question check.
+description: How to use AI responsibly. Stay accountable, prevent harm, protect data. Includes a 5-question check.
 layout: section
 sectionTitle: Guidance
 sectionNav:
@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -107,4 +107,4 @@ If you cannot answer "yes" to all five, change your approach.
 
 ## Public trust
 
-Government services depend on public trust. AI introduces new ways for that trust to be lost — through unexplainable decisions, biased outputs or mishandled data. Be transparent about where AI is used in services that affect citizens.
+Government services depend on public trust. AI introduces new ways for that trust to be lost. Through unexplainable decisions, biased outputs or mishandled data. Be transparent about where AI is used in services that affect citizens.

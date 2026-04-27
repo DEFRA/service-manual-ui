@@ -7,9 +7,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 breadcrumbItems:
@@ -20,6 +20,6 @@ breadcrumbItems:
 questionCaption: Question 1 of 5
 questionInputType: email
 questionHint: We will use this to get back to you with patterns, advice or a follow-up call.
-questionBackHref: /ai-playbook
+QuestionBackHref: /ai-playbook
 questionContinueHref: /ai-playbook/triage/question-2
 ---

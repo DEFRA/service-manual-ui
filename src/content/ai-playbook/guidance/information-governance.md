@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -100,7 +100,7 @@ Generative AI tools send your prompts and content to models hosted by external p
 - Amazon (Bedrock)
 - another provider
 
-Some tools can be configured to use approved cloud platforms — for example AWS Bedrock or Azure AI Foundry — that keep data in regions and tenancies that meet UK government requirements.
+Some tools can be configured to use approved cloud platforms. For example [AWS Bedrock](/ai-playbook/tools/aws-bedrock) or [Azure AI Foundry](/ai-playbook/tools/azure-ai-foundry). That keep data in regions and tenancies that meet UK government requirements.
 
 Always check the [tools radar](/ai-playbook/tools) entry for your tool to see how data is routed and what approvals apply at Defra. Consult your team's own information governance policies as well.
 

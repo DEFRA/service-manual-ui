@@ -41,9 +41,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -68,7 +68,7 @@ supportBox:
   <span class="app-tool-meta__category">Platform</span>
 </p>
 
-AWS Bedrock AgentCore is a managed cloud platform for running AI agents in production. It provides hosting, memory, identity and observability for agent-based services.
+[AWS Bedrock](/ai-playbook/tools/aws-bedrock) AgentCore is a managed cloud platform for running AI agents in production. It provides hosting, memory, identity and observability for agent-based services.
 
 ## What assess means here
 

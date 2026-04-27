@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -89,15 +89,15 @@ Before you prompt the model, articulate what you want to build in your own words
 
 Write a comprehensive markdown document covering, where relevant:
 
-- **Purpose and scope** — what are we going to do?
-- **User interactions** — how will people use this?
-- **Frontend requirements** — interface elements, user flows, visual design
-- **Backend requirements** — processing logic, data handling, system behaviour
-- **Data considerations** — what information will be stored, processed or displayed?
-- **Business rules** — constraints, validations, compliance requirements
-- **Integration points** — how this connects with existing systems
-- **Performance expectations** — speed, capacity, reliability
-- **Security requirements** — authentication, authorisation, data protection
+- **Purpose and scope.** What are we going to do?
+- **User interactions.** How will people use this?
+- **Frontend requirements.** Interface elements, user flows, visual design
+- **Backend requirements.** Processing logic, data handling, system behaviour
+- **Data considerations.** What information will be stored, processed or displayed?
+- **Business rules.** Constraints, validations, compliance requirements
+- **Integration points.** How this connects with existing systems
+- **Performance expectations.** Speed, capacity, reliability
+- **Security requirements.** Authentication, authorisation, data protection
 
 Writing with clarity here forces you to think the problem through. The document becomes the basis for everything the AI generates.
 
@@ -116,11 +116,11 @@ You can then ask the AI to convert the mockups into a text description of the in
 
 When your work needs user stories, use a prompt template to expand your feature description into stories with acceptance criteria. Iterate by talking with the model.
 
-The [SDLC prompt library](https://defra.github.io/defra-ai-sdlc/) has reusable prompts for user-story creation, combined requirements and PRD generation.
+The SDLC prompt library has reusable prompts for user-story creation, combined requirements and PRD generation.
 
 ## Generate Product Requirements Documents (PRDs) with AI
 
-For larger pieces of work — for example, a new epic — use AI to expand the feature description into a full PRD covering requirements, features and user stories together.
+For larger pieces of work. For example, a new epic. Use AI to expand the feature description into a full PRD covering requirements, features and user stories together.
 
 Refine through conversation rather than expecting a perfect document on the first prompt.
 
@@ -152,4 +152,4 @@ Before you start feature development, ask the AI to review the requirements you 
 
 ## Reusable prompts
 
-Many of these tasks have ready-made prompt templates in the [SDLC prompt library](https://defra.github.io/defra-ai-sdlc/). Adapt them to your context rather than starting from scratch.
+Many of these tasks have ready-made prompt templates in the SDLC prompt library. Adapt them to your context rather than starting from scratch.

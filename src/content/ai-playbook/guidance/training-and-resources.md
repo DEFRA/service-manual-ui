@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -93,19 +93,19 @@ The AI Capability and Enablement team and partners across Defra Digital run trai
 
 Most AI tool providers offer free learning paths and certifications. Useful starting points:
 
-- [Microsoft Copilot Learning Hub](https://learn.microsoft.com/copilot/) — official training for GitHub Copilot and Microsoft 365 Copilot
-- [Anthropic Claude documentation and courses](https://www.anthropic.com/learn) — guides for prompt engineering and Claude APIs
-- [AWS AI training](https://aws.amazon.com/training/learn-about/machine-learning/) — courses covering Bedrock and AWS AI services
-- [Google Gemini and Vertex AI documentation](https://cloud.google.com/learn/training) — training paths for Google Cloud AI
-- [OpenAI Academy](https://academy.openai.com/) — practical courses on building with OpenAI models
+- [Microsoft Copilot Learning Hub](https://learn.microsoft.com/copilot/). Official training for [GitHub Copilot](/ai-playbook/tools/github-copilot) and Microsoft 365 Copilot
+- [Anthropic Claude documentation and courses](https://www.anthropic.com/learn). Guides for prompt engineering and Claude APIs
+- [AWS AI training](https://aws.amazon.com/training/learn-about/machine-learning/). Courses covering Bedrock and AWS AI services
+- [Google Gemini and Vertex AI documentation](https://cloud.google.com/learn/training). Training paths for Google Cloud AI
+- [OpenAI Academy](https://academy.openai.com/). Practical courses on building with OpenAI models
 
 Pick the path that matches the tool your team is using. You do not need to learn all of them.
 
 ## Defra-specific resources
 
-- [AI SDLC playbook](https://defra.github.io/defra-ai-sdlc/) — the practitioner playbook for AI-assisted development at Defra
-- [AI modernisation playbook](https://defra.github.io/defra-ai-modernisation-playbook/) — how Defra teams modernise legacy services with AI
-- [Tools radar](/ai-playbook/tools) — what is approved, in pilot or under assessment
+- AI SDLC playbook. The practitioner playbook for AI-assisted development at Defra
+- [AI modernisation playbook](https://defra.github.io/defra-ai-modernisation-playbook/). How Defra teams modernise legacy services with AI
+- [Tools radar](/ai-playbook/tools). What is approved, in pilot or under assessment
 
 ## Get hands-on help
 

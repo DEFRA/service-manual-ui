@@ -41,9 +41,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -90,10 +90,10 @@ Bedrock may be a good fit if you need:
 
 You can deploy Bedrock in different ways:
 
-- **Standard cloud** — models run in AWS public cloud regions
-- **Private connection** — connect without using the public internet, using AWS PrivateLink
-- **Dedicated capacity** — reserved computing power for consistent performance
-- **On your premises** — run some models in your own data centres through EKS Anywhere
+- **Standard cloud.** Models run in AWS public cloud regions
+- **Private connection.** Connect without using the public internet, using AWS PrivateLink
+- **Dedicated capacity.** Reserved computing power for consistent performance
+- **On your premises.** Run some models in your own data centres through EKS Anywhere
 
 ## Detail
 
@@ -108,10 +108,10 @@ You can deploy Bedrock in different ways:
 <h4 class="govuk-heading-s">Privacy controls</h4>
 <p class="govuk-body">Bedrock protects your data by default:</p>
 <ul class="govuk-list govuk-list--bullet">
-<li><strong>No model training</strong> — your data does not train or improve AI models. This is the default</li>
-<li><strong>Private endpoints</strong> — keep traffic off the public internet using AWS PrivateLink</li>
-<li><strong>Health data settings</strong> — configure the service to handle protected health information, if your account is eligible</li>
-<li><strong>Knowledge base privacy</strong> — control whether your knowledge base data improves the service</li>
+<li><strong>No model training</strong>. Your data does not train or improve AI models. This is the default</li>
+<li><strong>Private endpoints</strong>. Keep traffic off the public internet using AWS PrivateLink</li>
+<li><strong>Health data settings</strong>. Configure the service to handle protected health information, if your account is eligible</li>
+<li><strong>Knowledge base privacy</strong>. Control whether your knowledge base data improves the service</li>
 </ul>
 <h4 class="govuk-heading-s">Terms and data ownership</h4>
 <ul class="govuk-list govuk-list--bullet">

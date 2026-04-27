@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -87,10 +87,10 @@ That includes engineers, designers, user researchers, business analysts, product
 
 The guidance is grouped into four sections:
 
-- **Get started** — the basics: mindset, models, project setup, training
-- **Working with AI** — practical guides for prompts, requirements, feature development and rules for AI in your repo
-- **Responsible AI** — ethics, security, sustainability and how to handle data correctly
-- **From the field** — what other Defra teams have done, with case studies, lessons and real cost figures
+- **Get started.** The basics: mindset, models, project setup, training
+- **Working with AI.** Practical guides for prompts, requirements, feature development and rules for AI in your repo
+- **Responsible AI.** Ethics, security, sustainability and how to handle data correctly
+- **From the field.** What other Defra teams have done, with case studies, lessons and real cost figures
 
 ## Where to start
 
@@ -106,7 +106,7 @@ If you have already used AI for a while, jump to whichever section is most usefu
 
 The Defra AI pilot programme started in March 2025. Since then, around 200 people across 20 teams have used AI in real delivery work. This guidance brings together what they have learned, with material from:
 
-- the Defra [AI SDLC playbook](https://defra.github.io/defra-ai-sdlc/)
+- the Defra AI SDLC playbook
 - the Defra [AI modernisation playbook](https://defra.github.io/defra-ai-modernisation-playbook/)
 - the Defra [AI service manual](https://ai-service-manual.dev.cdp-int.defra.cloud/) (the original microsite)
 - experience reports from teams that have shipped AI-assisted services

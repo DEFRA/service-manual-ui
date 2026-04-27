@@ -41,9 +41,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -105,11 +105,11 @@ Copilot is not yet suitable for OFFICIAL-SENSITIVE or above unless your team has
 <h4 class="govuk-heading-s">Privacy controls</h4>
 <p class="govuk-body">The Business plan turns off data collection for model training by default. Available controls include:</p>
 <ul class="govuk-list govuk-list--bullet">
-<li><strong>Public code filtering</strong> — stops suggestions that closely match public GitHub code</li>
-<li><strong>Content exclusions</strong> — admins can exclude specific paths so they are never referenced in prompts or suggestions</li>
-<li><strong>No retention of prompts or completions</strong> — prompts and completions are not used for training</li>
-<li><strong>Choice of AI model</strong> — organisations can turn off third-party models so all processing stays on Microsoft and GitHub infrastructure</li>
-<li><strong>Organisation-wide enforcement</strong> — privacy settings are set once and cannot be overridden by individual users</li>
+<li><strong>Public code filtering</strong>. Stops suggestions that closely match public GitHub code</li>
+<li><strong>Content exclusions</strong>. Admins can exclude specific paths so they are never referenced in prompts or suggestions</li>
+<li><strong>No retention of prompts or completions</strong>. Prompts and completions are not used for training</li>
+<li><strong>Choice of AI model</strong>. Organisations can turn off third-party models so all processing stays on Microsoft and GitHub infrastructure</li>
+<li><strong>Organisation-wide enforcement</strong>. Privacy settings are set once and cannot be overridden by individual users</li>
 </ul>
 <h4 class="govuk-heading-s">Terms and data ownership</h4>
 <p class="govuk-body">GitHub's Terms for Copilot and the GitHub Privacy Statement apply. The Business plan contractually confirms that:</p>

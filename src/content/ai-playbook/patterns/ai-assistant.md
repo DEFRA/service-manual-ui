@@ -1,13 +1,29 @@
 ---
 title: AI assistant
-caption: Proofs of concept
-description: ''
-layout: article
+caption: Proof of concept
+description: A proof of concept from the AI Capability and Enablement team.
+layout: section
+sectionTitle: Patterns
+sectionNav:
+  - title: Proofs of concept
+    items:
+      - text: Agent swarms
+        href: /ai-playbook/patterns/agent-swarms
+      - text: AI assistant
+        href: /ai-playbook/patterns/ai-assistant
+      - text: Green summarisation
+        href: /ai-playbook/patterns/green-summarisation
+      - text: Token optimisation
+        href: /ai-playbook/patterns/token-optimisation
+  - title: Want to contribute?
+    items:
+      - text: Email the team
+        href: 'mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution'
 customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -19,13 +35,14 @@ breadcrumbItems:
     href: /
   - text: AI playbook
     href: /ai-playbook
-  - text: Proofs of concept
+  - text: Patterns
+    href: /ai-playbook/patterns
   - text: AI assistant
 supportBox:
-  title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  title: Contribute a pattern
+  description: If your team has a reusable approach you want to share, the AI Capability and Enablement team can help you write it up.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 ## The problem

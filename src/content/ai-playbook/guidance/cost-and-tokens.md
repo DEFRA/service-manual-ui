@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -85,16 +85,16 @@ AI tools charge by tokens. A token is roughly a word or part of a word. The more
 
 Cost varies with the volume of input material and the model you choose. The main drivers:
 
-- **Number and size of images** — each image-to-text or image-to-HTML conversion is a separate model call
-- **Length of input documents** — longer transcripts or codebases use more tokens
-- **Size of the source codebase** — larger codebases need more tokens for analysis steps
-- **Model choice** — more capable models cost more per token. See [Choosing models](/ai-playbook/guidance/choosing-models)
+- **Number and size of images.** Each image-to-text or image-to-HTML conversion is a separate model call
+- **Length of input documents.** Longer transcripts or codebases use more tokens
+- **Size of the source codebase.** Larger codebases need more tokens for analysis steps
+- **Model choice.** More capable models cost more per token. See [Choosing models](/ai-playbook/guidance/choosing-models)
 
 ## What real Defra projects spend
 
 A typical reverse-engineering project from the modernisation pilot (around 20 to 40 screenshots, 2 to 3 interview transcripts and a medium-sized codebase) costs in the region of **tens of dollars** for the full pipeline.
 
-Day-to-day coding assistance (using endorsed tools like GitHub Copilot Business) sits inside the seat-based subscription, so cost-per-call is not usually a worry for normal feature work.
+Day-to-day coding assistance (using endorsed tools like [GitHub Copilot](/ai-playbook/tools/github-copilot) Business) sits inside the seat-based subscription, so cost-per-call is not usually a worry for normal feature work.
 
 Where costs grow is in:
 

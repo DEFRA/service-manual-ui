@@ -41,9 +41,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -108,13 +108,13 @@ Foundry may be a good fit if you need:
 <div id="foundry-accordion-content-1" class="govuk-accordion__section-content">
 <h4 class="govuk-heading-s">Privacy settings</h4>
 <ul class="govuk-list govuk-list--bullet">
-<li><strong>Network isolation</strong> — configure private endpoints and restrict internet exposure with "Allow Only Approved Outbound" traffic controls</li>
-<li><strong>Virtual network integration</strong> — connect securely with existing government infrastructure without public internet exposure</li>
-<li><strong>Customer-managed encryption keys</strong> — maintain control through Azure Key Vault with system-assigned or user-assigned managed identities</li>
-<li><strong>Project-level isolation</strong> — separate file storage, thread storage and search indexes between departments and projects</li>
-<li><strong>Abuse monitoring opt-out</strong> — disable data logging for content filtering on sensitive workloads (requires Microsoft approval)</li>
-<li><strong>Role-based access control</strong> — integrate with Microsoft Entra ID, supporting conditional access and multi-factor authentication</li>
-<li><strong>IP network rules</strong> — configure up to 200 specific address ranges for additional access restrictions</li>
+<li><strong>Network isolation</strong>. Configure private endpoints and restrict internet exposure with "Allow Only Approved Outbound" traffic controls</li>
+<li><strong>Virtual network integration</strong>. Connect securely with existing government infrastructure without public internet exposure</li>
+<li><strong>Customer-managed encryption keys</strong>. Maintain control through Azure Key Vault with system-assigned or user-assigned managed identities</li>
+<li><strong>Project-level isolation</strong>. Separate file storage, thread storage and search indexes between departments and projects</li>
+<li><strong>Abuse monitoring opt-out</strong>. Disable data logging for content filtering on sensitive workloads (requires Microsoft approval)</li>
+<li><strong>Role-based access control</strong>. Integrate with Microsoft Entra ID, supporting conditional access and multi-factor authentication</li>
+<li><strong>IP network rules</strong>. Configure up to 200 specific address ranges for additional access restrictions</li>
 </ul>
 <h4 class="govuk-heading-s">Terms and data ownership</h4>
 <p class="govuk-body">Government organisations engage through the Microsoft Customer Agreement (for direct subscriptions), Enterprise Agreements (for volume licensing), and the Data Protection Addendum (which establishes Microsoft as data processor with GDPR compliance).</p>
@@ -127,12 +127,12 @@ Foundry may be a good fit if you need:
 </ul>
 <p class="govuk-body">The Copilot Copyright Commitment provides indemnification against copyright claims when you use the recommended guardrails.</p>
 <h4 class="govuk-heading-s">Where your data goes</h4>
-<p class="govuk-body"><strong>Multi-regional processing.</strong> Azure operates two UK data centres certified to ISO 27001, SOC 2 and PCI DSS — UK South in London and UK West in Cardiff. Geography-based storage controls keep customer data within UK borders. Data at rest stays within the UK geography, with Microsoft only replicating between UK regions for redundancy. Single region residency is available when absolute data locality is required.</p>
+<p class="govuk-body"><strong>Multi-regional processing.</strong> Azure operates two UK data centres certified to ISO 27001, SOC 2 and PCI DSS. UK South in London and UK West in Cardiff. Geography-based storage controls keep customer data within UK borders. Data at rest stays within the UK geography, with Microsoft only replicating between UK regions for redundancy. Single region residency is available when absolute data locality is required.</p>
 <p class="govuk-body">The service is approved for UK OFFICIAL data through G-Cloud certification. SECRET and TOP SECRET classifications require additional secure networks beyond standard offerings.</p>
 <p class="govuk-body"><strong>In transit.</strong> HTTPS with minimum TLS 1.2 and Perfect Forward Secrecy. 2048-bit RSA or 256-bit ECC keys for key exchange. MACsec encryption (IEEE 802.1AE) between Azure data centres. SHA-384 message authentication and AES-256 data encryption. These exceed NCSC Principle 1 requirements for data in transit.</p>
 <p class="govuk-body"><strong>At rest.</strong> FIPS 140-2 compliant 256-bit AES encryption for all data, transparent to applications. Customer-managed keys are available through Hardware Security Modules in Azure Key Vault. Double encryption is available for additional protection layers.</p>
 <h4 class="govuk-heading-s">Data retention</h4>
-<p class="govuk-body">Foundry holds no default retention for prompts and completions in the base service — they are processed in real time without storage. Deleted resources enter a 48-hour recovery window before permanent purging.</p>
+<p class="govuk-body">Foundry holds no default retention for prompts and completions in the base service. They are processed in real time without storage. Deleted resources enter a 48-hour recovery window before permanent purging.</p>
 <p class="govuk-body">Customer-controlled retention policies let departments configure storage lifecycle from days to years. Log Analytics retention defaults to 30 days and extends up to 12 years for compliance needs.</p>
 <p class="govuk-body">Fine-tuning data stays under your control until you delete it, and is never used for model improvement without consent. Cryptographic erasure through customer-managed key revocation immediately renders encrypted data unrecoverable, supporting data subject requests.</p>
 </div>
@@ -147,11 +147,11 @@ Foundry may be a good fit if you need:
 <h4 class="govuk-heading-s">Auditing</h4>
 <p class="govuk-body">Azure Monitor provides comprehensive audit logging:</p>
 <ul class="govuk-list govuk-list--bullet">
-<li>three log categories — control and management operations, data plane interactions, and security alerts from Microsoft Defender</li>
+<li>three log categories. Control and management operations, data plane interactions, and security alerts from Microsoft Defender</li>
 <li>90-day default retention, extending up to 12 years through Log Analytics</li>
 <li>export in CSV, JSON and other formats via PowerShell, Azure CLI and REST APIs</li>
 <li>real-time streaming to SIEM systems through Azure Event Hubs</li>
-<li>immutability features — system-generated logs cannot be modified, and WORM blob storage is available for archives</li>
+<li>immutability features. System-generated logs cannot be modified, and WORM blob storage is available for archives</li>
 </ul>
 <p class="govuk-body">The platform meets NCSC audit requirements (Principle 13) and integrates natively with Microsoft Sentinel and other government SIEM platforms such as Splunk and QRadar.</p>
 <h4 class="govuk-heading-s">Access controls</h4>

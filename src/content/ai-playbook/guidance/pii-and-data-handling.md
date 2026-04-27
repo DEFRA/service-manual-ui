@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -139,9 +139,9 @@ Review source code before committing it to a repository the AI will read.
 
 If PII is discovered in any output:
 
-1. remove it immediately
-2. re-run the processing step that produced the output
-3. tell your line manager or information asset owner
-4. log the incident as required by your team's policies
+1. Remove it immediately
+2. Re-run the processing step that produced the output
+3. Tell your line manager or information asset owner
+4. Log the incident as required by your team's policies
 
 Do not commit the affected file to version control until it is clean.

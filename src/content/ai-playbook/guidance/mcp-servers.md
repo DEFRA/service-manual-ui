@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -81,7 +81,7 @@ supportBox:
 
 **Status:** MCP is currently under review at Defra. Only designated pilot projects can use MCP until further notice.
 
-Model Context Protocol (MCP) lets an AI assistant access approved systems such as Jira, GitHub, Confluence, Azure DevOps and SonarQube in a controlled way. This page explains how to use MCP safely within Defra and how it fits with the rest of this guidance.
+[Model Context Protocol](/ai-playbook/tools/model-context-protocol) (MCP) lets an AI assistant access approved systems such as Jira, GitHub, Confluence, Azure DevOps and SonarQube in a controlled way. This page explains how to use MCP safely within Defra and how it fits with the rest of this guidance.
 
 ## What is MCP?
 
@@ -100,10 +100,10 @@ For Defra, **remote vendor-hosted MCP servers are preferred** because they provi
 
 MCP can give AI access to:
 
-- **code context** — repositories, branches, pull requests, build logs
-- **runtime context** — CI/CD pipelines, telemetry, deployment status
-- **work management** — Jira issues, Azure DevOps work items, Confluence pages
-- **product and user context** — analytics, support tickets
+- **code context.** Repositories, branches, pull requests, build logs
+- **runtime context.** CI/CD pipelines, telemetry, deployment status
+- **work management.** Jira issues, Azure DevOps work items, Confluence pages
+- **product and user context.** Analytics, support tickets
 
 ## When to consider MCP
 
@@ -111,11 +111,11 @@ Use MCP when you need an AI assistant to work with real project data while keepi
 
 Benefits include:
 
-- **Improved accuracy** — the AI can see the right tickets, documents and code, so answers are grounded in your project reality
-- **Controlled data sharing** — only approved data sources and scopes are exposed
-- **Reusable integrations** — standard connectors work across teams and services
-- **Reduced complexity** — you avoid one-off scripts and bespoke API wrappers
-- **Trust and transparency** — you can trace where information came from and what tools were used
+- **Improved accuracy.** The AI can see the right tickets, documents and code, so answers are grounded in your project reality
+- **Controlled data sharing.** Only approved data sources and scopes are exposed
+- **Reusable integrations.** Standard connectors work across teams and services
+- **Reduced complexity.** You avoid one-off scripts and bespoke API wrappers
+- **Trust and transparency.** You can trace where information came from and what tools were used
 
 ## Security and data protection
 

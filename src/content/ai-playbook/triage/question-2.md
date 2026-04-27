@@ -7,9 +7,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 breadcrumbItems:
@@ -20,7 +20,7 @@ breadcrumbItems:
 questionCaption: Question 2 of 5
 questionInputType: textarea
 questionHint: Describe the problem you are trying to solve. Keep it plain. No need for jargon.
-questionRows: 6
+QuestionRows: 6
 questionBackHref: /ai-playbook/triage/question-1
 questionContinueHref: /ai-playbook/triage/question-3
 ---

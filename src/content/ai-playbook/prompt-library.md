@@ -7,7 +7,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -39,7 +39,7 @@ The library contains three types of content.
 
 **Workflows** are multi-step processes that combine several prompts in sequence. For example, the AI prototyping workflow takes you from design screenshots through to a working prototype.
 
-**Repositories** are collections of agent rules and skills for AI coding assistants like GitHub Copilot, Cursor and Claude Code. These help configure your tools to follow Defra standards automatically.
+**Repositories** are collections of agent rules and skills for AI coding assistants like [GitHub Copilot](/ai-playbook/tools/github-copilot), Cursor and Claude Code. These help configure your tools to follow Defra standards automatically.
 
 ## How to contribute
 

@@ -7,9 +7,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 breadcrumbItems:
@@ -20,7 +20,7 @@ breadcrumbItems:
 questionCaption: Question 4 of 5
 questionInputType: textarea
 questionHint: For example, faster decisions, less manual work, fewer errors, better service for citizens.
-questionRows: 6
+QuestionRows: 6
 questionBackHref: /ai-playbook/triage/question-3
 questionContinueHref: /ai-playbook/triage/question-5
 ---

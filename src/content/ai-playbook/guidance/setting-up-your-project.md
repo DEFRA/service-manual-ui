@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -99,16 +99,16 @@ Add a rules and instructions file to your repository so the AI follows your code
 
 Each tool has its own format and location:
 
-- **GitHub Copilot** — `.github/copilot-instructions.md` and `.github/instructions/*.instructions.md`
-- **Cursor** — `.cursor/rules/*.mdc`
-- **Claude Code** — `CLAUDE.md` and `.claude/rules/*.md`
-- **Windsurf** — `.windsurf/rules/*.md`
+- **[GitHub Copilot](/ai-playbook/tools/github-copilot).** `.github/copilot-instructions.md` and `.github/instructions/*.instructions.md`
+- **Cursor.** `.cursor/rules/*.mdc`
+- **Claude Code.** `CLAUDE.md` and `.claude/rules/*.md`
+- **Windsurf.** `.windsurf/rules/*.md`
 
 Commit these files to version control. Every team member and every AI interaction will then follow the same standards. See [Rules for AI in your repo](/ai-playbook/guidance/rules-for-ai) for what to put in them.
 
 ## Configure MCP connections (pilot projects only)
 
-MCP (Model Context Protocol) lets your AI assistant talk to Jira, GitHub, Azure DevOps and similar systems. It is currently under review at Defra and limited to designated pilot projects.
+MCP ([Model Context Protocol](/ai-playbook/tools/model-context-protocol)) lets your AI assistant talk to Jira, GitHub, Azure DevOps and similar systems. It is currently under review at Defra and limited to designated pilot projects.
 
 If your project is approved to use MCP, follow the rules in [MCP servers and integrations](/ai-playbook/guidance/mcp-servers).
 

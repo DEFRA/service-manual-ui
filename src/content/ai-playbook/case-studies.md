@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -83,25 +83,25 @@ These case studies come from real Defra delivery teams using AI in production wo
 
 Each one captures what the team set out to do, what worked, what did not, and the measurable outcome.
 
-## NRF Discovery — 56% faster research synthesis
+## NRF Discovery. 56% faster research synthesis
 
 A small team used AI across all phases of a 12-week discovery. They produced all standard outputs while cutting user research synthesis time by more than half.
 
 [Read the NRF Discovery case study](/ai-playbook/case-studies/nrf-discovery).
 
-## IPAFFS replatforming — 75% faster migration
+## IPAFFS replatforming. 75% faster migration
 
 A legacy service was moved to new CDP cloud infrastructure in around a quarter of the time originally estimated.
 
 [Read the IPAFFS case study](/ai-playbook/case-studies/ipaffs-replatforming).
 
-## PLP cycle time — 61% faster delivery
+## PLP cycle time. 61% faster delivery
 
-GitHub Copilot adoption reduced development cycle time by 61% over three months. Half of new features included AI-assisted documentation.
+[GitHub Copilot](/ai-playbook/tools/github-copilot) adoption reduced development cycle time by 61% over three months. Half of new features included AI-assisted documentation.
 
 [Read the PLP case study](/ai-playbook/case-studies/plp-cycle-time).
 
-## NRF Alpha — exceptional assessment score
+## NRF Alpha. Exceptional assessment score
 
 Following a successful AI-enabled discovery, the alpha phase achieved one of the highest service standard assessment scores recorded for a Defra project.
 

@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -137,7 +137,7 @@ Ask the assistant for the minimum implementation that makes the tests pass. Revi
 
 Refactor for clarity, performance or maintainability. Tests must stay green. Review every change.
 
-The [SDLC prompt library](https://defra.github.io/defra-ai-sdlc/) has TDD-specific prompts for each step.
+The SDLC prompt library has TDD-specific prompts for each step.
 
 ## Guidelines
 

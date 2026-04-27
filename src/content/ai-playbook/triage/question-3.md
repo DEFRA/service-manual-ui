@@ -7,9 +7,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 breadcrumbItems:
@@ -20,7 +20,7 @@ breadcrumbItems:
 questionCaption: Question 3 of 5
 questionInputType: textarea
 questionHint: For example, caseworkers, members of the public, internal teams. Include rough numbers if you can.
-questionRows: 6
+QuestionRows: 6
 questionBackHref: /ai-playbook/triage/question-2
 questionContinueHref: /ai-playbook/triage/question-4
 ---

@@ -57,7 +57,7 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
@@ -79,99 +79,103 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20writing%20prompts" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-A good prompt is the difference between a useful AI response and a generic one. The model has been trained on a vast range of content, so your job is to give it enough context and clear enough instructions for it to focus on what you actually need.
+A clear prompt gets you a useful answer. A vague one gets you a generic one. Most of the difference is just being specific about what you want, what you do not want, and what good looks like.
 
-## What to put in a prompt
+## Six things a good prompt has
 
-A well-crafted prompt usually contains some or all of these elements. You do not need every element in every prompt. Use this as a checklist.
+You do not need all six in every prompt. Use them as a checklist when a prompt is not working.
 
 ### Context
 
-Give the model the relevant background. For example: *"Programming in Python within a microservices architecture..."*.
+Tell the model what you are working on. For example: *"Programming in Python within a microservices architecture.."*
 
 ### Role
 
-Specify the expertise or persona you want the model to take. For example: *"You are an experienced software engineer with specialised knowledge in JavaScript."*.
+Tell the model who to be. For example: *"You are an experienced software engineer specialising in JavaScript."*
 
 ### Tasks
 
-Break the work into clear steps. For example: *"First, summarise your understanding of the requirements. Next, identify the current conventions in the codebase. Then propose a design before writing code."*.
+Break the work into steps. For example: *"First, summarise the requirements. Next, identify the conventions used in the existing code. Then propose a design before writing anything."*
 
 ### Constraints
 
-Make the boundaries explicit. For example: *"Do not implement sections outside the specified requirements."*.
+Tell the model what not to do. For example: *"Do not implement anything outside the specified requirements."*
 
 ### Examples
 
-Show what good output looks like. A worked example shapes the response more than any amount of description.
+Show what a good answer looks like. A worked example shapes the response more than any amount of description.
 
 ### Output format
 
-Where it matters, say what shape you want the output in. For example: *"Create a detailed user story document in markdown, structured as follows..."*.
+Tell the model what shape you want the answer in. For example: *"Write the result as a user story document in markdown, with these sections.."*
 
-## Be specific and verbose
+## Be specific. Be longer than feels necessary.
 
-Ambiguous or short prompts produce unpredictable results. Provide clear instructions, sufficient context and examples.
+Short prompts produce unpredictable results. Detailed prompts produce focused ones. It is almost always better to be too detailed than too brief.
 
-It is almost always better to be too detailed than too brief.
+## Get the model to improve your prompt
 
-## Use meta-prompting
+Before you run a complex prompt, ask the model to refine it. This is one of the most effective techniques you can use.
 
-Ask the model to improve your prompt before you run it. This is one of the most effective techniques.
+> "I am drafting a prompt to implement a user story using Claude Sonnet and Cursor. Please give me an improved version of this prompt."
 
-For example: *"I am drafting a prompt to implement a user story using Claude Sonnet and Cursor. Please provide an improved version of this prompt."*.
+The model often spots gaps you missed.
 
-The model often spots gaps you missed. Many of the prompts in the [SDLC prompt library](https://defra.github.io/defra-ai-sdlc/) were refined this way.
+## Ask for variants
 
-## Generate variants
+When you are not sure how to phrase something, ask for several versions.
 
-When you are not sure how to phrase something, ask for several versions. For example: *"Provide three alternative prompts for summarising technical documents."*.
+> "Give me three alternative prompts for summarising technical documents."
 
-If you have access to more than one model (Anthropic, OpenAI, Google), try the same prompt on each. Different models will sometimes show you a better way to ask.
+If you have access to more than one model (Anthropic, OpenAI, Google), try the same prompt on each. The differences in how each model interprets a prompt often show you a better way to ask.
 
-## Solve problems collaboratively
+## Work in steps
 
-For complex tasks, do not expect a finished solution in one go. Work in steps:
+For complex tasks, do not expect a finished answer in one go. Work in stages:
 
-1. Ask for a comprehensive analysis without any code changes
+1. Ask for analysis only, no changes yet
 2. Use the analysis as the basis for the next prompt
-3. Ask the assistant to plan and prompt you for feedback before generating
+3. Ask the assistant to plan and pause for your feedback before generating
 4. Then ask it to execute some or all of the plan
 
-You can also focus on one section at a time: *"Analyse this product requirements document and only implement section 5.1. Do not address any other sections."*.
+You can also narrow scope: *"Analyse this product requirements document and only implement section 5.1. Do not address any other section."*
 
 ## Avoid the "doom loop"
 
-If you find yourself making rapid edits and getting compounding errors, stop. The pattern is:
+You are in the doom loop when:
 
-- prompt is unclear or rushed
-- model produces something close but wrong
-- you nudge with another quick prompt
-- result drifts further from what you wanted
-- you keep nudging
+- your prompt was unclear
+- the model produced something close but wrong
+- you nudged with a quick follow-up
+- the result drifted further from what you wanted
+- you kept nudging
 
-Roll back to a clean state and rewrite the original prompt with proper context, role, tasks and constraints. This is faster than trying to dig out of the loop.
+Roll back to a clean state. Rewrite the original prompt with proper context, role, tasks and constraints. This takes less time than trying to dig out of the loop.
 
-## Ask for feedback
+## Ask the model what was missing
 
-If your work needed several rounds of unintended iterations, end with: *"What was missing from the original prompt that contributed to the problems?"*.
+If you needed several unintended rounds of iteration, end with:
 
-The model's answer is often a useful prompt-template you can reuse next time.
+> "What was missing from my original prompt that caused the problems?"
 
-## Narrow the scope as complexity grows
+The model's answer is often a useful prompt template for next time.
 
-As the task or codebase gets bigger, narrow the focus of each prompt. Reference specific files instead of relying on the model to find them. Use phrases like *"make targeted edits"* to stop the model rewriting more than you wanted.
+## Narrow the focus as the task grows
 
-## Encourage step-by-step reasoning
+As the codebase or task gets bigger, narrow each prompt. Reference specific files rather than relying on the model to find them. Use phrases like *"make targeted edits"* to stop the model rewriting more than you asked for.
 
-For complex tasks, ask the model to *"think step by step"*. For example: *"Before addressing this issue, outline a step-by-step plan considering the entire codebase."*.
+## Ask for step-by-step reasoning
 
-You may not need this for reasoning models that already plan internally.
+For complex tasks, ask the model to *"think step by step"*.
+
+> "Before addressing this issue, outline a step-by-step plan that considers the whole codebase."
+
+Reasoning models often do this internally, so you may not need to ask explicitly.
 
 ## Use contextual markers
 
-Many AI-powered IDEs let you reference docs and the web with markers like `@docs` or `@web`. Use these to feed the model the specific context it needs rather than relying on its training.
+Many AI IDEs let you reference docs and the web with markers like `@docs` or `@web`. Use them to give the model the specific context it needs rather than relying on its training.
 
-## Work multimodally
+## Work with images, not just text
 
-For UI work, attach screenshots. For tricky bugs, include the relevant browser markup or stack trace. The model can use images and structured text alongside your words.
+For UI work, attach screenshots. For tricky bugs, include the browser markup or stack trace. The model can use images and structured text alongside your words.

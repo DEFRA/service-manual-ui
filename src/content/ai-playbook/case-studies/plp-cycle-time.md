@@ -57,9 +57,9 @@ customNav:
   - text: Home
     href: /
   - text: Patterns
-    href: /ai-playbook/proofs-of-concept/ai-assistant
+    href: /ai-playbook/patterns
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -82,7 +82,7 @@ supportBox:
 
 # PLP development cycle time
 
-A delivery team used GitHub Copilot between September and November 2025. They measured the impact on development speed and documentation quality. The team saw a 61% reduction in cycle time.
+A delivery team used [GitHub Copilot](/ai-playbook/tools/github-copilot) between September and November 2025. They measured the impact on development speed and documentation quality. The team saw a 61% reduction in cycle time.
 
 ## Overview
 
