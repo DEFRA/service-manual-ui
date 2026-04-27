@@ -1,7 +1,7 @@
 ---
-title: IPAFFS replatforming
-caption: Case studies
-description: ''
+title: Security
+caption: Responsible AI
+description: How to keep AI-generated code, secrets, and your development environment secure.
 layout: section
 sectionTitle: Guidance
 sectionNav:
@@ -59,7 +59,7 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -71,29 +71,36 @@ breadcrumbItems:
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
-  - text: Case studies
-  - text: IPAFFS replatforming
+  - text: Security
 supportBox:
-  title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  title: Get help with this
+  description: Ask the AI Capability and Enablement team for advice or hands-on support.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20security" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-# IPAFFS replatforming
+AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.
 
-A legacy service moved to new cloud infrastructure. The migration completed in 25% of the estimated time for a standard migration.
+## Review for known vulnerabilities
 
-## Overview
+AI models may produce code with common security flaws such as injection attacks, insecure deserialisation, or broken access controls. Review generated code against the OWASP Top 10 and other relevant security benchmarks.
 
-The team re-platformed a legacy service onto new cloud infrastructure. The work finished far faster than expected.
+## Check for embedded credentials
 
-## Key outcome
+AI sometimes hardcodes API keys, passwords, or tokens into generated code. Always scan output for secrets before committing. Use secret detection tools as part of your CI pipeline.
 
-### 75% faster migration
+## Use static analysis
 
-The migration took 25% of the time estimated for a traditional approach. This represents a 75% reduction in delivery time.
+Run Static Application Security Testing (SAST) tools on all generated code. These catch security issues that manual review might miss. Integrate SAST into your build process so every change is checked automatically.
 
-## What happened
+## Scan dependencies
 
-More details coming soon.
+AI may suggest packages that are outdated or have known vulnerabilities. Use Software Composition Analysis (SCA) tools to check every dependency. Keep libraries up to date and remove unused packages.
+
+## Protect your development environment
+
+Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Be cautious with AI tools that require broad access to your codebase or environment.
+
+## Human review remains essential
+
+Automated tools catch a lot but not everything. A human review of AI-generated code remains essential, especially for security-critical paths. Pair on the review when you can.

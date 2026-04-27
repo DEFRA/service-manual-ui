@@ -1,7 +1,7 @@
 ---
-title: IPAFFS replatforming
-caption: Case studies
-description: ''
+title: Case studies
+caption: From the field
+description: What real Defra teams have done with AI, with measurable outcomes.
 layout: section
 sectionTitle: Guidance
 sectionNav:
@@ -59,7 +59,7 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -72,28 +72,41 @@ breadcrumbItems:
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Case studies
-  - text: IPAFFS replatforming
 supportBox:
-  title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  title: Get help with this
+  description: Ask the AI Capability and Enablement team for advice or hands-on support.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Case%20study%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-# IPAFFS replatforming
+These case studies come from real Defra delivery teams using AI in production work since the AI pilot began in March 2025.
 
-A legacy service moved to new cloud infrastructure. The migration completed in 25% of the estimated time for a standard migration.
+Each one captures what the team set out to do, what worked, what did not, and the measurable outcome.
 
-## Overview
+## NRF Discovery — 56% faster research synthesis
 
-The team re-platformed a legacy service onto new cloud infrastructure. The work finished far faster than expected.
+A small team used AI across all phases of a 12-week discovery. They produced all standard outputs while cutting user research synthesis time by more than half.
 
-## Key outcome
+[Read the NRF Discovery case study](/ai-playbook/case-studies/nrf-discovery).
 
-### 75% faster migration
+## IPAFFS replatforming — 75% faster migration
 
-The migration took 25% of the time estimated for a traditional approach. This represents a 75% reduction in delivery time.
+A legacy service was moved to new CDP cloud infrastructure in around a quarter of the time originally estimated.
 
-## What happened
+[Read the IPAFFS case study](/ai-playbook/case-studies/ipaffs-replatforming).
 
-More details coming soon.
+## PLP cycle time — 61% faster delivery
+
+GitHub Copilot adoption reduced development cycle time by 61% over three months. Half of new features included AI-assisted documentation.
+
+[Read the PLP case study](/ai-playbook/case-studies/plp-cycle-time).
+
+## NRF Alpha — exceptional assessment score
+
+Following a successful AI-enabled discovery, the alpha phase achieved one of the highest service standard assessment scores recorded for a Defra project.
+
+[Read the NRF Alpha case study](/ai-playbook/case-studies/nrf-alpha).
+
+## Want to share your team's case study?
+
+If your team has worked on something we should add here, contact the AI Capability and Enablement team. We can help write it up.

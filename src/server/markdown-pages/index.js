@@ -129,7 +129,28 @@ const markdownRoutes = [
   '/ai-playbook/triage/question-3',
   '/ai-playbook/triage/question-4',
   '/ai-playbook/triage/question-5',
-  '/ai-playbook/triage/thank-you'
+  '/ai-playbook/triage/thank-you',
+  '/ai-playbook/guidance',
+  '/ai-playbook/guidance/welcome',
+  '/ai-playbook/guidance/choosing-models',
+  '/ai-playbook/guidance/working-mindset',
+  '/ai-playbook/guidance/four-pillars',
+  '/ai-playbook/guidance/setting-up-your-project',
+  '/ai-playbook/guidance/training-and-resources',
+  '/ai-playbook/guidance/workflow',
+  '/ai-playbook/guidance/writing-good-prompts',
+  '/ai-playbook/guidance/generating-requirements',
+  '/ai-playbook/guidance/feature-development',
+  '/ai-playbook/guidance/rules-for-ai',
+  '/ai-playbook/guidance/mcp-servers',
+  '/ai-playbook/guidance/ethics',
+  '/ai-playbook/guidance/security',
+  '/ai-playbook/guidance/sustainability',
+  '/ai-playbook/guidance/information-governance',
+  '/ai-playbook/guidance/pii-and-data-handling',
+  '/ai-playbook/guidance/cost-and-tokens',
+  '/ai-playbook/case-studies',
+  '/ai-playbook/lessons-learned'
 ]
 
 export const markdownPages = {

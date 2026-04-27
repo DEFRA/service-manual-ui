@@ -9,24 +9,23 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI in practice
+headerServiceName: AI playbook
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI in practice
+  - text: AI playbook
     href: /ai-playbook
   - text: Proofs of concept
   - text: AI assistant
 supportBox:
   title: Get involved
-  description: The <strong>AI Capabilities and Enablement team</strong> welcomes contributions and feedback.
+  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
   items:
-    - 'Slack: <strong>#ask-ace</strong>'
-    - 'Email: <a href="mailto:cctsassurance@defra.gov.uk" class="govuk-link">cctsassurance@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 ## The problem

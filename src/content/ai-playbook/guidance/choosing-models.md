@@ -1,7 +1,7 @@
 ---
-title: IPAFFS replatforming
-caption: Case studies
-description: ''
+title: Choosing models
+caption: Get started
+description: How to pick the right model for your task. Not every job needs the most powerful option.
 layout: section
 sectionTitle: Guidance
 sectionNav:
@@ -59,7 +59,7 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -71,29 +71,43 @@ breadcrumbItems:
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
-  - text: Case studies
-  - text: IPAFFS replatforming
+  - text: Choosing models
 supportBox:
-  title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  title: Get help with this
+  description: Ask the AI Capability and Enablement team for advice or hands-on support.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20choosing%20models" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-# IPAFFS replatforming
+Not every task needs the most powerful model. Picking the right tier saves money, reduces latency, and cuts energy use.
 
-A legacy service moved to new cloud infrastructure. The migration completed in 25% of the estimated time for a standard migration.
+Model recommendations date quickly. Check with the AI Capability and Enablement team for the latest approved options.
 
-## Overview
+## Lightweight models
 
-The team re-platformed a legacy service onto new cloud infrastructure. The work finished far faster than expected.
+Best for autocomplete, boilerplate generation, and simple formatting tasks. Examples include Claude Haiku and GPT-4o mini. These are fast and cheap, making them ideal for high-volume, low-complexity work.
 
-## Key outcome
+## Mid-range models
 
-### 75% faster migration
+Suitable for writing functions, generating tests, creating documentation, and standard refactoring. Examples include Claude Sonnet and GPT-4o. These balance capability with cost for most everyday development tasks.
 
-The migration took 25% of the time estimated for a traditional approach. This represents a 75% reduction in delivery time.
+## Advanced models
 
-## What happened
+Use for architectural design, complex debugging, multi-step reasoning, and generating detailed requirements. Examples include Claude Opus and OpenAI Codex. Reserve these for work that genuinely needs deep reasoning.
 
-More details coming soon.
+## Matching tasks to tiers
+
+| Task | Recommended tier |
+| --- | --- |
+| Code autocomplete | Lightweight |
+| Boilerplate scaffolding | Lightweight |
+| Writing unit tests | Mid-range |
+| Generating documentation | Mid-range |
+| Standard refactoring | Mid-range |
+| Generating requirements | Advanced |
+| Architectural design | Advanced |
+| Complex debugging | Advanced |
+
+## Cost and energy
+
+More capable models cost more per request and use more energy. Treat your model choice as part of your sustainability practice. See [Sustainability](/ai-playbook/guidance/sustainability).

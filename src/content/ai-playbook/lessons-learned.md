@@ -1,7 +1,7 @@
 ---
-title: IPAFFS replatforming
-caption: Case studies
-description: ''
+title: Lessons learned
+caption: From the field
+description: Hard-won lessons from teams using AI in real Defra delivery. What we wish we had known earlier.
 layout: section
 sectionTitle: Guidance
 sectionNav:
@@ -59,7 +59,7 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 headerServiceName: AI playbook
@@ -71,29 +71,34 @@ breadcrumbItems:
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
-  - text: Case studies
-  - text: IPAFFS replatforming
+  - text: Lessons learned
 supportBox:
-  title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  title: Get help with this
+  description: Ask the AI Capability and Enablement team for advice or hands-on support.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Lessons%20learned%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-# IPAFFS replatforming
+These lessons come from teams that have used AI on real delivery work. Some of them were learned the hard way.
 
-A legacy service moved to new cloud infrastructure. The migration completed in 25% of the estimated time for a standard migration.
+## AI-generated code quality
 
-## Overview
+Polished-looking AI code can hide structural problems. Teams have shipped code that read well but proved difficult to maintain or extend. Review AI output for maintainability, not just correctness.
 
-The team re-platformed a legacy service onto new cloud infrastructure. The work finished far faster than expected.
+[Read the AI-generated code quality lesson](/ai-playbook/lessons-learned/code-quality).
 
-## Key outcome
+## Clear governance is essential
 
-### 75% faster migration
+Without clear governance, shadow IT emerges. Teams use unapproved tools because the approved set is unclear or feels too restrictive. The fix is to establish clear processes, maintain a list of approved tools, and be explicit about data classification.
 
-The migration took 25% of the time estimated for a traditional approach. This represents a 75% reduction in delivery time.
+[Read the governance lesson](/ai-playbook/lessons-learned/governance).
 
-## What happened
+## Always validate AI outputs
 
-More details coming soon.
+Well-designed AI-generated content can hide inaccurate data. Without validation built into the workflow, errors pass through undetected. Use a second model, automated checks or human review as a counter-weight.
+
+[Read the validation lesson](/ai-playbook/lessons-learned/output-validation).
+
+## Want to share your team's lesson?
+
+If your team has hit something we should warn others about, contact the AI Capability and Enablement team. Lessons can be anonymous if needed.

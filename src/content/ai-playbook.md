@@ -10,7 +10,7 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
 layout: triage
@@ -31,8 +31,8 @@ primaryCards:
     description: Tested approaches your team can reuse with confidence. Agent swarms and more.
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    description: How to get started safely. Lessons learned and practical advice from delivery teams.
-    href: /ai-playbook/getting-started
+    description: For digital practitioners. Get started, working with AI, responsible practice and case studies.
+    href: /ai-playbook/guidance
   - text: Tools
     description: Which AI tools are endorsed, under pilot or should be avoided across Defra.
     href: /ai-playbook/tools

@@ -9,23 +9,22 @@ customNav:
   - text: Patterns
     href: /ai-playbook/proofs-of-concept/ai-assistant
   - text: Guidance
-    href: /ai-playbook/getting-started
+    href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI in practice
+headerServiceName: AI playbook
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI in practice
+  - text: AI playbook
     href: /ai-playbook
   - text: Prompt library
 supportBox:
   title: Get involved
-  description: The <strong>AI Capabilities and Enablement team</strong> welcomes contributions and feedback.
+  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
   items:
-    - 'Slack: <strong>#ask-ace</strong>'
-    - 'Email: <a href="mailto:cctsassurance@defra.gov.uk" class="govuk-link">cctsassurance@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 Tried and tested prompts shared by delivery teams to help you get the most out of AI tools.
@@ -46,7 +45,7 @@ The library contains three types of content.
 
 If you have a prompt, workflow or set of agent rules that has worked well for your team, you can submit it to the library. Sharing what works helps other teams get started faster and avoids people solving the same problems independently.
 
-Contact the ACE team on Slack at [#ask-ace](https://defra-digital.slack.com/archives/ask-ace) to submit a contribution.
+Email the AI Capability and Enablement team at [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk) to submit a contribution.
 
 ## Browse the library
 
