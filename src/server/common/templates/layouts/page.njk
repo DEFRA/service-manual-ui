@@ -37,6 +37,21 @@
 </header>
 {% if showMainNavigation %}
 {% include "partials/main-navigation.njk" %}
+{% elif customNav | length %}
+<nav class="defra-service-navigation" aria-label="Service navigation" data-module="defra-service-navigation">
+  <div class="defra-service-navigation__inner">
+    <button type="button" class="defra-service-navigation__toggle js-service-navigation-toggle" aria-controls="service-navigation-list" aria-expanded="false" hidden>
+      Menu
+    </button>
+    <ul class="defra-service-navigation__list" id="service-navigation-list">
+      {% for item in customNav %}
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link" href="{{ item.href }}">{{ item.text }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
 {% elif not hideServiceNavigation %}
 {% include "partials/service-navigation.njk" %}
 {% endif %}

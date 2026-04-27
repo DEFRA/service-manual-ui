@@ -1,0 +1,63 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: breadcrumbItems or [
+    { text: "Digital Defra", href: "/" },
+    { text: "Digital service manual", href: "/service-manual" },
+    { text: title }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="app-hub">
+  <div class="app-hub__header">
+    <span class="govuk-caption-xl">{{ caption }}</span>
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body-l">{{ description }}</p>
+  </div>
+
+  {% if statCards | length %}
+  <div class="app-hub__stats">
+    {% for stat in statCards %}
+    <a href="{{ stat.href }}" class="app-stat-card">
+      <span class="app-stat-card__number">{{ stat.number }}</span>
+      <span class="app-stat-card__label">{{ stat.label }}</span>
+      <span class="app-stat-card__description">{{ stat.description }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if hubSections | length %}
+  {% for section in hubSections %}
+  <div class="app-hub__section">
+    <h2 class="govuk-heading-l">{{ section.title }}</h2>
+    {% if section.description %}
+    <p class="govuk-body">{{ section.description }}</p>
+    {% endif %}
+    <ul class="app-hub__card-list">
+      {% for item in section.items %}
+      <li class="app-hub__card">
+        <h3 class="govuk-heading-s app-hub__card-title">
+          <a href="{{ item.href }}" class="govuk-link">{{ item.text }}</a>
+        </h3>
+        {% if item.description %}
+        <p class="govuk-body-s app-hub__card-description">{{ item.description }}</p>
+        {% endif %}
+        {% if item.tag %}
+        <strong class="govuk-tag govuk-tag--{{ item.tagColour | default('green') }}">{{ item.tag }}</strong>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {{ content | markdown | safe }}
+
+  {% include "partials/support-box.njk" %}
+</div>
+{% endblock %}

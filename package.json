@@ -53,6 +53,7 @@
     "cssnano": "7.0.7",
     "cssnano-preset-default": "7.0.7",
     "date-fns": "4.1.0",
+    "docx": "9.6.1",
     "global-agent": "3.0.0",
     "govuk-frontend": "5.11.0",
     "gray-matter": "4.0.3",

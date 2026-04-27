@@ -1,0 +1,84 @@
+@use '../variables/colours' as *;
+
+// ===== Hero section layout =====
+// Full-bleed green hero banner with Defra-green start button.
+
+.app-hero-section__banner {
+  background-color: $defra-green;
+  color: $govuk-white;
+  padding: 45px 0 50px;
+}
+
+.app-hero-section__banner-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.app-hero-section__banner-content {
+  max-width: 640px;
+}
+
+.app-hero-section__title {
+  color: $govuk-white;
+  margin-bottom: 15px;
+  font-size: 48px;
+  line-height: 1.04;
+  font-family: "GDS Transport", arial, sans-serif;
+  font-weight: 700;
+
+  @media (max-width: 48.0525em) {
+    font-size: 32px;
+  }
+}
+
+.app-hero-section__description {
+  color: $govuk-white;
+  margin-bottom: 30px;
+  font-size: 24px;
+  line-height: 1.25;
+
+  @media (max-width: 48.0525em) {
+    font-size: 19px;
+  }
+}
+
+// Defra-green button on white background, not the blue GOV.UK default
+.app-hero-section__button.govuk-button--inverse {
+  color: $defra-green;
+  background-color: $govuk-white;
+  box-shadow: 0 2px 0 darken($govuk-white, 30%);
+  margin-bottom: 0;
+
+  &:hover {
+    color: darken($defra-green, 10%);
+    background-color: darken($govuk-white, 5%);
+  }
+
+  &:focus {
+    color: $govuk-black;
+    background-color: $govuk-focus-colour;
+    box-shadow: 0 2px 0 $govuk-black;
+  }
+
+  .govuk-button__start-icon {
+    fill: currentColor;
+  }
+}
+
+// Content below the hero, aligned to the same 960px container
+.app-hero-section__body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 15px 0;
+
+  // Remove double padding from govuk-main-wrapper
+  .govuk-main-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.app-hero-section__tiles {
+  margin: 0 0 40px;
+}

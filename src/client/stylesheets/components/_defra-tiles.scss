@@ -27,13 +27,19 @@
   }
 }
 
+.defra-tile-grid > li {
+  display: flex;
+}
+
 .defra-tile {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative;
   border: 1px solid $govuk-mid-grey;
   padding: 18px 18px 22px;
   color: $govuk-black;
   background-color: $govuk-white;
+  width: 100%;
   min-height: 140px;
   transform: translateY(0);
   transition:

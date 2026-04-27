@@ -1,0 +1,46 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}{% endblock %}
+{% block content %}{% endblock %}
+
+{% block main %}
+<div class="app-hero-section__banner">
+  <div class="app-hero-section__banner-inner">
+    <div class="app-hero-section__banner-content">
+      <h1 class="govuk-heading-xl app-hero-section__title">{{ title }}</h1>
+      <p class="govuk-body-l app-hero-section__description">{{ description }}</p>
+      {% if heroButtonText %}
+      <a href="{{ heroButtonHref }}" role="button" draggable="false" class="govuk-button govuk-button--inverse govuk-button--start app-hero-section__button" data-module="govuk-button">
+        {{ heroButtonText }}
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="app-hero-section__body">
+  <main class="govuk-main-wrapper app-main-wrapper" id="main-content">
+    {% if heroTiles | length %}
+    <ul class="defra-tile-grid app-hero-section__tiles">
+      {% for tile in heroTiles %}
+      <li>
+        <div class="defra-tile">
+          <h2 class="govuk-heading-m defra-tile__title">
+            <a href="{{ tile.href }}" class="defra-tile__link">{{ tile.text }}</a>
+          </h2>
+          <p class="govuk-body defra-tile__body">{{ tile.description }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {{ content | markdown | safe }}
+
+    {% include "partials/support-box.njk" %}
+  </main>
+</div>
+{% endblock %}

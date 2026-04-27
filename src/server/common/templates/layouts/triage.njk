@@ -1,0 +1,78 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}{% endblock %}
+{% block content %}{% endblock %}
+
+{% block main %}
+<div class="app-triage__start-banner">
+  <div class="app-triage__start-inner">
+    <div class="app-triage__start-content">
+      {% if caption %}<span class="govuk-caption-xl app-triage__start-caption">{{ caption }}</span>{% endif %}
+      <h1 class="govuk-heading-xl app-triage__start-title">{{ triageTitle or title }}</h1>
+      <p class="govuk-body-l app-triage__start-description">{{ triageDescription }}</p>
+      {% if triageButtonText %}
+      <a href="{{ triageButtonHref }}" role="button" draggable="false" class="govuk-button govuk-button--start app-triage__start-button" data-module="govuk-button">
+        {{ triageButtonText }}
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
+        </svg>
+      </a>
+      {% if triageSecondaryText %}
+      <p class="app-triage__start-secondary">
+        {{ triageSecondaryText }} <a href="{{ triageSecondaryHref }}" class="govuk-link app-triage__start-secondary-link">{{ triageSecondaryLinkText }}</a>
+      </p>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="app-triage__body">
+  <main class="govuk-main-wrapper app-main-wrapper" id="main-content">
+
+    {% if audiencePaths | length %}
+    <div class="app-triage__audiences">
+      <h2 class="govuk-heading-l">{{ audienceHeading }}</h2>
+      <div class="app-triage__audience-grid">
+        {% for path in audiencePaths %}
+        <div class="app-triage__audience-card">
+          <h3 class="govuk-heading-m app-triage__audience-title">{{ path.title }}</h3>
+          <p class="govuk-body">{{ path.description }}</p>
+          <ul class="govuk-list app-triage__audience-links">
+            {% for link in path.links %}
+            <li>
+              <a href="{{ link.href }}" class="govuk-link govuk-link--no-visited-state">{{ link.text }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if primaryCards | length %}
+    <h2 class="govuk-heading-l app-triage__section-heading">{{ primaryCardsHeading or title }}</h2>
+    {% if primaryCardsDescription %}<p class="govuk-body-l">{{ primaryCardsDescription }}</p>{% endif %}
+
+    <div class="app-triage__cards">
+      {% for card in primaryCards %}
+      <a href="{{ card.href }}" class="app-triage__card">
+        <div class="app-triage__card-content">
+          <h3 class="govuk-heading-m app-triage__card-title">{{ card.text }}</h3>
+          <p class="govuk-body app-triage__card-description">{{ card.description }}</p>
+        </div>
+        <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+        </svg>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {{ content | markdown | safe }}
+
+    {% include "partials/support-box.njk" %}
+  </main>
+</div>
+{% endblock %}
