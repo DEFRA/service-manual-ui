@@ -5,6 +5,10 @@ description: Who this guidance is for, what is in it, and where to start.
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -96,27 +96,24 @@ If you are not sure where your work fits, contact the AI Capability and Enableme
 
 ## What you will find here
 
-The guidance is grouped into four sections:
+The guidance is grouped into three sections:
 
-- **Get started.** The basics: mindset, models, project setup, training
-- **Working with AI.** Practical guides for prompts, requirements, feature development and rules for AI in your repo
-- **Responsible AI.** Ethics, security, sustainability and how to handle data correctly
-- **From the field.** What other Defra teams have done, with case studies, lessons and real cost figures
+- **Get started:** mindset, models, project setup and training.
+- **Working with AI:** practical guides for prompts, requirements, feature development, rules for AI in your repo, and cost.
+- **Responsible AI:** ethics, security, sustainability and how to handle data correctly.
+
+For real outcomes and lessons from Defra teams using AI, see [From the field](/ai-playbook/from-the-field).
 
 ## Where to start
 
 If you are new to AI in your role:
 
-1. Read [Working mindset](/ai-playbook/guidance/working-mindset) and [The four pillars](/ai-playbook/guidance/four-pillars) for the foundations
-2. Read [Setting up your project](/ai-playbook/guidance/setting-up-your-project) to get your tools and privacy settings right
-3. Pick the page that matches your next task: [Writing good prompts](/ai-playbook/guidance/writing-good-prompts), [Generating requirements](/ai-playbook/guidance/generating-requirements), or [Feature development with AI](/ai-playbook/guidance/feature-development)
+1. Read [Working mindset](/ai-playbook/guidance/working-mindset) and [The four pillars](/ai-playbook/guidance/four-pillars) for the foundations.
+2. Read [Setting up your project](/ai-playbook/guidance/setting-up-your-project) to get your tools and privacy settings right.
+3. Pick the page that matches your next task: [Writing good prompts](/ai-playbook/guidance/writing-good-prompts), [Generating requirements](/ai-playbook/guidance/generating-requirements), or [Feature development with AI](/ai-playbook/guidance/feature-development).
 
 If you have already used AI for a while, jump to whichever section is most useful for your current work. The left navigation lists every page.
 
 ## What this guidance is based on
 
 The Defra AI pilot programme started in March 2025. Since then, around 200 people across 20 teams have used AI in real delivery work. This guidance brings together what they have learned and what the AI Capability and Enablement team has tested.
-
-## Get involved
-
-If you want to contribute a case study, share a pattern, or get hands-on help, contact the AI Capability and Enablement team.

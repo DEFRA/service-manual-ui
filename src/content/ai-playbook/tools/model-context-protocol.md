@@ -5,11 +5,15 @@ description: Open standard for connecting AI assistants to data sources. Under a
 layout: section
 sectionTitle: Model Context Protocol (MCP)
 sectionNav:
-  - title: Endorsed
+  - title: In this section
+    items:
+      - text: Tools radar
+        href: /ai-playbook/tools
+  - title: Endorse
     items:
       - text: GitHub Copilot
         href: /ai-playbook/tools/github-copilot
-  - title: In pilot
+  - title: Pilot
     items:
       - text: AWS Bedrock
         href: /ai-playbook/tools/aws-bedrock
@@ -40,18 +44,20 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Tools radar
     href: /ai-playbook/tools

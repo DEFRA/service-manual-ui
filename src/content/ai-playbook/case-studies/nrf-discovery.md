@@ -1,87 +1,59 @@
 ---
-title: "NRF discovery: AI-accelerated user research"
+title: Nature Restoration Fund Discovery
 caption: Case studies
-description: ''
+description: AI-accelerated user research synthesis on a 12-week discovery.
 layout: section
-sectionTitle: Guidance
+sectionTitle: From the field
 sectionNav:
-  - title: Get started
+  - title: In this section
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-playbook/guidance/welcome
-      - text: Choosing models
-        href: /ai-playbook/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-playbook/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-playbook/guidance/four-pillars
-      - text: Setting up your project
-        href: /ai-playbook/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-playbook/guidance/training-and-resources
-  - title: Working with AI
+      - text: From the field
+        href: /ai-playbook/from-the-field
+  - title: Case studies
     items:
-      - text: The AI development workflow
-        href: /ai-playbook/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-playbook/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-playbook/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-playbook/guidance/feature-development
-      - text: Rules for AI in your repo
-        href: /ai-playbook/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-playbook/guidance/mcp-servers
-  - title: Responsible AI
+      - text: Nature Restoration Fund Discovery
+        href: /ai-playbook/case-studies/nrf-discovery
+      - text: IPAFFS replatforming
+        href: /ai-playbook/case-studies/ipaffs-replatforming
+      - text: Packing List Parser cycle time
+        href: /ai-playbook/case-studies/plp-cycle-time
+      - text: Nature Restoration Fund Alpha
+        href: /ai-playbook/case-studies/nrf-alpha
+  - title: Lessons learned
     items:
-      - text: Ethics
-        href: /ai-playbook/guidance/ethics
-      - text: Security
-        href: /ai-playbook/guidance/security
-      - text: Sustainability
-        href: /ai-playbook/guidance/sustainability
-      - text: Information governance
-        href: /ai-playbook/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
+      - text: Polished AI code can hide problems
+        href: /ai-playbook/lessons-learned/code-quality
+      - text: Set clear rules to avoid shadow IT
+        href: /ai-playbook/lessons-learned/governance
+      - text: Always validate AI outputs
+        href: /ai-playbook/lessons-learned/output-validation
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
-  - text: Guidance
-    href: /ai-playbook/guidance
-  - text: Case studies
-  - text: NRF Discovery
+  - text: From the field
+    href: /ai-playbook/from-the-field
+  - text: Nature Restoration Fund Discovery
 supportBox:
   title: Get involved
   description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-# NRF discovery: AI-accelerated user research
-
 A 12-week discovery completed in September 2025. The team used AI throughout and delivered comprehensive results.
 
 ## Overview

@@ -116,49 +116,6 @@
   }
 }
 
-// ── Audience paths ──
-// Two-column grid showing distinct user journeys.
-
-.app-triage__audiences {
-  margin-top: 10px;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid $govuk-mid-grey;
-}
-
-.app-triage__audience-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-
-  @media (max-width: 48.0525em) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.app-triage__audience-card {
-  border-left: 4px solid $defra-green;
-  padding: 25px 30px 30px;
-  background-color: $govuk-light-grey;
-}
-
-.app-triage__audience-title {
-  margin-bottom: 10px;
-}
-
-.app-triage__audience-links {
-  margin-top: 15px;
-  margin-bottom: 0;
-
-  li {
-    margin-bottom: 5px;
-  }
-
-  a {
-    font-weight: 700;
-  }
-}
-
 .app-triage__section-heading {
   margin-top: 30px;
 }
@@ -179,7 +136,6 @@
   position: relative;
   padding: 20px 50px 20px 0;
   border-bottom: 1px solid $govuk-mid-grey;
-  text-decoration: none;
   color: $govuk-black;
   transition: background-color 0.15s ease-out;
 
@@ -189,21 +145,43 @@
 
   &:hover {
     background-color: $govuk-light-grey;
-    color: $govuk-black;
   }
 
-  &:focus {
+  // Keyboard focus state — outline on the card, link itself loses outline
+  &:has(.app-triage__card-link:focus-visible) {
     outline: 3px solid $govuk-focus-colour;
     outline-offset: -3px;
     box-shadow: inset 0 -3px 0 $govuk-black;
   }
 }
 
+// Stretches click target across the whole card
+.app-triage__card-link {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
 .app-triage__card-title {
-  color: $govuk-blue;
   margin-bottom: 5px;
 
-  .app-triage__card:hover & {
+  a,
+  a:link,
+  a:visited {
+    color: $govuk-blue;
+  }
+
+  .app-triage__card:hover & a {
     text-decoration: underline;
   }
 }
@@ -211,6 +189,18 @@
 .app-triage__card-description {
   color: #505a5f;
   margin-bottom: 0;
+}
+
+// Optional caption above the card title.
+// Used for case study impact stats (e.g. "56% faster research synthesis").
+// Quiet label that orients the eye without competing with the title below.
+.app-triage__card-caption {
+  display: block;
+  font-family: 'GDS Transport', arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #505a5f;
+  margin-bottom: 4px;
 }
 
 .app-triage__card-chevron {

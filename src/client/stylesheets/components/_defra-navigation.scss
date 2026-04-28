@@ -98,6 +98,18 @@
 
 .app-sub-navigation {
   margin-bottom: 30px;
+
+  // On desktop, keep the sub-nav in view as the user scrolls.
+  // Falls back to normal flow on tablet/mobile (where it stacks above content).
+  // max-height + overflow-y handle pages with many items (e.g. Guidance, 18 entries)
+  // without pushing content off-screen on shorter viewports.
+  @media (min-width: 40.0625em) {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
 }
 
 .app-subnav__header {

@@ -10,10 +10,13 @@
     <div class="defra-header__brand-group">
       <img
         src="{{ getAssetPath('images/defra-logo.svg') }}"
-        alt="Department for Environment, Food &amp; Rural Affairs"
+        alt=""
+        role="presentation"
         class="defra-header__logo"
       />
-      <a href="/" class="defra-header__service-name">{{ headerServiceName | default('Digital Defra') }}</a>
+      <a href="/" class="defra-header__service-name">
+        <span class="govuk-visually-hidden">Department for Environment, Food and Rural Affairs: </span>{{ headerServiceName | default('Digital Defra') }}
+      </a>
     </div>
     {% include "partials/header-search.njk" %}
   </div>
@@ -65,11 +68,11 @@
     <ul class="defra-tile-grid defra-tile-grid--half govuk-!-margin-top-2">
       <li>
         <div class="defra-tile">
-          <span class="govuk-caption-m">Toolkit</span>
+          <span class="govuk-caption-m">Resources</span>
           <h2 class="govuk-heading-m defra-tile__title">
-            <a href="/ai-playbook" class="defra-tile__link">AI playbook</a>
+            <a href="/ai-playbook" class="defra-tile__link">AI digital toolkit</a>
           </h2>
-          <p class="govuk-body defra-tile__body">Patterns, guidance and tools to help Defra teams adopt AI responsibly.</p>
+          <p class="govuk-body defra-tile__body">Guidance, tools and patterns to help Defra teams adopt AI responsibly.</p>
         </div>
       </li>
     </ul>

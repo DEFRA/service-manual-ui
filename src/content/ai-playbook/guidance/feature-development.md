@@ -5,6 +5,10 @@ description: Agent-mode workflow, test-driven development, refactoring and revie
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -92,6 +92,8 @@ Before you start a feature:
 These are the four pillars in practice.
 
 ## Standard workflow
+
+A good default for most feature work. Use this unless you have a specific reason to follow the test-driven approach below.
 
 ### 1. Create a new git branch
 
@@ -121,34 +123,55 @@ Review and refactor while keeping tests green. Small, deliberate refactors are s
 - update documentation using a documentation prompt
 - update your AI rules and prompt library based on what you learned
 
-## Test-driven development with AI
+## More approaches
 
-For test-first work, run the RED-GREEN-REFACTOR cycle through the assistant:
+<div class="govuk-accordion" data-module="govuk-accordion" id="feature-accordion">
 
-### 1. RED: write failing tests
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="feature-accordion-heading-1">Test-driven development</span>
+</h3>
+</div>
+<div id="feature-accordion-content-1" class="govuk-accordion__section-content">
 
-Reference your requirements directly. The assistant writes failing tests. Review and refine them before moving on.
+<p class="govuk-body">For test-first work, run the RED-GREEN-REFACTOR cycle through the assistant.</p>
 
-### 2. GREEN: minimal code to pass
+<h4 class="govuk-heading-s">1. RED: write failing tests</h4>
+<p class="govuk-body">Reference your requirements directly. The assistant writes failing tests. Review and refine them before moving on.</p>
 
-Ask the assistant for the minimum implementation that makes the tests pass. Review and refine the code generated.
+<h4 class="govuk-heading-s">2. GREEN: minimal code to pass</h4>
+<p class="govuk-body">Ask the assistant for the minimum implementation that makes the tests pass. Review and refine the code generated.</p>
 
-### 3. REFACTOR: improve while keeping tests green
+<h4 class="govuk-heading-s">3. REFACTOR: improve while keeping tests green</h4>
+<p class="govuk-body">Refactor for clarity, performance or maintainability. Tests must stay green. Review every change.</p>
 
-Refactor for clarity, performance or maintainability. Tests must stay green. Review every change.
+<p class="govuk-body">The <a href="/ai-playbook/prompt-library" class="govuk-link">prompt library</a> has TDD-specific prompts for each step.</p>
 
-The SDLC prompt library has TDD-specific prompts for each step.
+</div>
+</div>
 
-## Guidelines
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="feature-accordion-heading-2">Guidelines for any AI-assisted work</span>
+</h3>
+</div>
+<div id="feature-accordion-content-2" class="govuk-accordion__section-content">
 
-**Use an appropriate model.** A weaker model will produce weaker code. Match the model to the work. See [Choosing models](/ai-playbook/guidance/choosing-models).
+<p class="govuk-body"><strong>Use an appropriate model.</strong> A weaker model will produce weaker code. Match the model to the work. See <a href="/ai-playbook/guidance/choosing-models" class="govuk-link">Choosing models</a>.</p>
 
-**Get consistent results.** Combine rules and instructions for AI, prompt templates and clear requirements. The four pillars compound.
+<p class="govuk-body"><strong>Get consistent results.</strong> Combine rules and instructions for AI, prompt templates and clear requirements. The four pillars compound.</p>
 
-**Review everything generated.** You are responsible for what you ship. Read every diff.
+<p class="govuk-body"><strong>Review everything generated.</strong> You are responsible for what you ship. Read every diff.</p>
 
-**Debug with logs.** Generate code that logs detailed information during development. When errors come up, paste them back into the assistant for faster fixes.
+<p class="govuk-body"><strong>Debug with logs.</strong> Generate code that logs detailed information during development. When errors come up, paste them back into the assistant for faster fixes.</p>
 
-**Avoid the "doom loop".** If you need many iterations, your prompt was unclear. Roll back, refine the prompt, and try again. See [Writing good prompts](/ai-playbook/guidance/writing-good-prompts).
+<p class="govuk-body"><strong>Avoid the "doom loop".</strong> If you need many iterations, your prompt was unclear. Roll back, refine the prompt, and try again. See <a href="/ai-playbook/guidance/writing-good-prompts" class="govuk-link">Writing good prompts</a>.</p>
 
-**Match scope to complexity.** As the codebase grows, give the AI more specific tasks rather than letting it reason across more and more code.
+<p class="govuk-body"><strong>Match scope to complexity.</strong> As the codebase grows, give the AI more specific tasks rather than letting it reason across more and more code.</p>
+
+</div>
+</div>
+
+</div>

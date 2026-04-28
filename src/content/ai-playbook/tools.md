@@ -1,25 +1,26 @@
 ---
-title: Tools radar
-caption: Tools
+title: Tools
 description: AI tools, platforms and frameworks the AI Capability and Enablement team has evaluated for use across Defra.
 layout: article
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
-  - text: Tools radar
+  - text: Tools
 supportBox:
   title: Get involved
   description: Suggest a tool, platform or framework for the radar.
@@ -57,11 +58,11 @@ supportBox:
   </div>
   <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-1"><strong>Filter by status</strong></p>
   <ul class="app-radar-chips">
-    <li><a href="#radar" class="app-radar-chips__item" aria-current="true" data-radar-chip="all">All <span class="app-radar-chips__count">(11)</span></a></li>
-    <li><a href="#endorse" class="app-radar-chips__item" data-radar-chip="endorse">Endorse <span class="app-radar-chips__count">(1)</span></a></li>
-    <li><a href="#pilot" class="app-radar-chips__item" data-radar-chip="pilot">Pilot <span class="app-radar-chips__count">(2)</span></a></li>
-    <li><a href="#assess" class="app-radar-chips__item" data-radar-chip="assess">Assess <span class="app-radar-chips__count">(8)</span></a></li>
-    <li><a href="#avoid" class="app-radar-chips__item" data-radar-chip="avoid">Do not use <span class="app-radar-chips__count">(0)</span></a></li>
+    <li><a href="#radar" class="app-radar-chips__item" aria-current="true" data-radar-chip="all">All</a></li>
+    <li><a href="#endorse" class="app-radar-chips__item" data-radar-chip="endorse">Endorse</a></li>
+    <li><a href="#pilot" class="app-radar-chips__item" data-radar-chip="pilot">Pilot</a></li>
+    <li><a href="#assess" class="app-radar-chips__item" data-radar-chip="assess">Assess</a></li>
+    <li><a href="#avoid" class="app-radar-chips__item" data-radar-chip="avoid">Do not use</a></li>
   </ul>
 </div>
 
@@ -73,18 +74,17 @@ supportBox:
   <a class="govuk-button" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Tool%20enquiry%20for%20the%20radar" data-radar-noresults-link>
     Ask about this
   </a>
-  <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0"><a href="#" class="govuk-link" data-radar-clear>Or clear your search</a></p>
+  <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0"><button type="button" class="govuk-link app-radar-link-button" data-radar-clear>Clear your search</button></p>
 </div>
 
 <section class="app-radar-section" id="endorse" data-section="endorse">
 
-## Endorsed
+## Endorse
 
 <ul class="app-radar-grid">
 
 <li class="app-radar-card" data-status="endorse" data-category="tool" data-name="github copilot">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--green">Endorse</strong>
     <span class="app-radar-card__category">Tool</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/github-copilot" class="govuk-link app-radar-card__link">GitHub Copilot</a></h3>
@@ -96,13 +96,12 @@ supportBox:
 
 <section class="app-radar-section" id="pilot" data-section="pilot">
 
-## In pilot
+## Pilot
 
 <ul class="app-radar-grid">
 
 <li class="app-radar-card" data-status="pilot" data-category="platform" data-name="aws bedrock">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--blue">Pilot</strong>
     <span class="app-radar-card__category">Platform</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/aws-bedrock" class="govuk-link app-radar-card__link">AWS Bedrock</a></h3>
@@ -111,7 +110,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="pilot" data-category="platform" data-name="azure ai foundry">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--blue">Pilot</strong>
     <span class="app-radar-card__category">Platform</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/azure-ai-foundry" class="govuk-link app-radar-card__link">Azure AI Foundry</a></h3>
@@ -129,7 +127,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="framework" data-name="model context protocol mcp">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Framework</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/model-context-protocol" class="govuk-link app-radar-card__link">Model Context Protocol (MCP)</a></h3>
@@ -138,7 +135,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="framework" data-name="agent to agent a2a">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Framework</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/agent-to-agent" class="govuk-link app-radar-card__link">Agent-to-Agent (A2A)</a></h3>
@@ -147,7 +143,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="framework" data-name="langgraph">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Framework</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/langgraph" class="govuk-link app-radar-card__link">LangGraph</a></h3>
@@ -156,7 +151,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="framework" data-name="retrieval augmented generation rag">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Framework</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/retrieval-augmented-generation" class="govuk-link app-radar-card__link">Retrieval-augmented generation (RAG)</a></h3>
@@ -165,7 +159,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="platform" data-name="langfuse">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Platform</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/langfuse" class="govuk-link app-radar-card__link">Langfuse</a></h3>
@@ -174,7 +167,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="platform" data-name="aws bedrock agentcore">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Platform</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/aws-bedrock-agentcore" class="govuk-link app-radar-card__link">AWS Bedrock AgentCore</a></h3>
@@ -183,7 +175,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="tool" data-name="claude code plugin marketplace">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Tool</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/claude-code-marketplace" class="govuk-link app-radar-card__link">Claude Code plugin marketplace</a></h3>
@@ -192,7 +183,6 @@ supportBox:
 
 <li class="app-radar-card" data-status="assess" data-category="tool" data-name="git ai">
   <div class="app-radar-card__head">
-    <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
     <span class="app-radar-card__category">Tool</span>
   </div>
   <h3 class="app-radar-card__title"><a href="/ai-playbook/tools/git-ai" class="govuk-link app-radar-card__link">Git AI</a></h3>

@@ -1,41 +1,41 @@
 ---
-title: AI playbook
+title: AI digital toolkit
 caption:
 description: From the AI Capability and Enablement team. We make it easier and safer for Defra teams to adopt AI responsibly.
-headerServiceName: AI playbook
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
 layout: triage
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
 triageTitle: Check if AI is right for your idea
-triageDescription: From the AI Capability and Enablement team. Whether you work in policy, operations or a digital role, find out how AI could help.
+triageDescription: From the AI Capability and Enablement team. See how AI could help your work, whatever your role.
 triageButtonText: Start now
 triageButtonHref: /ai-playbook/triage/question-1
-triageSecondaryText: Already using AI?
-triageSecondaryLinkText: Go to patterns, guidance and tools
-triageSecondaryHref: /ai-playbook/patterns
 primaryCardsHeading: Browse by topic
+primaryCardsDescription: Get guidance, check the tools radar or find a pattern.
 primaryCards:
-  - text: Patterns
-    description: Reusable approaches Defra teams are exploring. Agent swarms, AI assistant and more.
-    href: /ai-playbook/patterns
   - text: Guidance
-    description: For digital practitioners. Get started, working with AI, responsible practice and case studies.
+    description: Practical advice for digital practitioners working with AI on Defra services.
     href: /ai-playbook/guidance
   - text: Tools
     description: Which AI tools are endorsed, under pilot or should be avoided across Defra.
     href: /ai-playbook/tools
+  - text: Patterns
+    description: Reusable approaches Defra teams have tested, including agent swarms and AI assistant.
+    href: /ai-playbook/patterns
 supportBox:
   title: Contact the AI Capability and Enablement team
   description: Get hands-on help, request a pattern review or suggest new content.
@@ -43,54 +43,49 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<section aria-labelledby="from-the-field-heading" class="govuk-!-margin-top-8">
+<h2 class="govuk-heading-l app-triage__section-heading">From the field</h2>
 
-<h2 id="from-the-field-heading" class="govuk-heading-l">From the field</h2>
+<p class="govuk-body">Real outcomes from 200 people across 20 Defra teams using AI since March 2025.</p>
 
-<p class="govuk-body-l">Real outcomes from teams using AI in Defra delivery. Around 200 people across 20 teams have used AI on real work since the pilot started in March 2025.</p>
-
-<ul class="defra-tile-grid defra-tile-grid--half">
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">56% faster research synthesis</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-playbook/case-studies/nrf-discovery" class="defra-tile__link">NRF Discovery</a>
+<div class="app-triage__cards">
+  <div class="app-triage__card">
+    <div class="app-triage__card-content">
+      <span class="app-triage__card-caption">56% faster research synthesis</span>
+      <h3 class="govuk-heading-m app-triage__card-title">
+        <a href="/ai-playbook/case-studies/nrf-discovery" class="govuk-link app-triage__card-link">Nature Restoration Fund Discovery</a>
       </h3>
-      <p class="govuk-body defra-tile__body">A small team used AI across all phases of a 12-week discovery, cutting user research synthesis time by more than half.</p>
+      <p class="govuk-body app-triage__card-description">Small team used AI across a 12-week discovery and cut research synthesis time by half.</p>
     </div>
-  </li>
+    <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+    </svg>
+  </div>
 
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">75% faster migration</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-playbook/case-studies/ipaffs-replatforming" class="defra-tile__link">IPAFFS replatforming</a>
+  <div class="app-triage__card">
+    <div class="app-triage__card-content">
+      <span class="app-triage__card-caption">75% faster migration</span>
+      <h3 class="govuk-heading-m app-triage__card-title">
+        <a href="/ai-playbook/case-studies/ipaffs-replatforming" class="govuk-link app-triage__card-link">IPAFFS replatforming</a>
       </h3>
-      <p class="govuk-body defra-tile__body">A legacy service moved to new CDP cloud infrastructure in around a quarter of the time originally estimated.</p>
+      <p class="govuk-body app-triage__card-description">Legacy service moved to new CDP cloud infrastructure in a quarter of the estimated time.</p>
     </div>
-  </li>
+    <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+    </svg>
+  </div>
 
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">61% faster delivery cycle</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-playbook/case-studies/plp-cycle-time" class="defra-tile__link">PLP cycle time</a>
+  <div class="app-triage__card">
+    <div class="app-triage__card-content">
+      <span class="app-triage__card-caption">61% faster delivery cycle</span>
+      <h3 class="govuk-heading-m app-triage__card-title">
+        <a href="/ai-playbook/case-studies/plp-cycle-time" class="govuk-link app-triage__card-link">Packing List Parser cycle time</a>
       </h3>
-      <p class="govuk-body defra-tile__body">GitHub Copilot adoption reduced cycle time by 61% over three months, with half of new features including AI-assisted documentation.</p>
+      <p class="govuk-body app-triage__card-description">GitHub Copilot adoption cut delivery cycle time by 61% over three months.</p>
     </div>
-  </li>
+    <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+    </svg>
+  </div>
+</div>
 
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Highest assessment score</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-playbook/case-studies/nrf-alpha" class="defra-tile__link">NRF Alpha</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Following an AI-enabled discovery, the alpha phase achieved one of the highest service standard assessment scores recorded for a Defra project.</p>
-    </div>
-  </li>
-</ul>
-
-<p class="govuk-body govuk-!-margin-top-3"><a href="/ai-playbook/case-studies" class="govuk-link">All case studies</a> &middot; <a href="/ai-playbook/lessons-learned" class="govuk-link">Lessons learned</a></p>
-
-</section>
+<p class="govuk-body govuk-!-margin-top-4"><a href="/ai-playbook/from-the-field" class="govuk-link">See all case studies and lessons learned</a></p>

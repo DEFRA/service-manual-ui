@@ -106,17 +106,27 @@ export function initRadar() {
 
   // Filter chips — anchor links that JS upgrades to in-place filters.
   // Without JS the links jump to section anchors (progressive enhancement).
+  // When JS is active we swap aria-current for aria-pressed to match the
+  // semantics of a toggle control rather than navigation.
   chips.forEach((chip) => {
+    // Initial JS-upgrade: convert any pre-rendered aria-current to aria-pressed
+    if (chip.getAttribute('aria-current') === 'true') {
+      chip.removeAttribute('aria-current')
+      chip.setAttribute('aria-pressed', 'true')
+    } else {
+      chip.setAttribute('aria-pressed', 'false')
+    }
+
     chip.addEventListener('click', (event) => {
       event.preventDefault()
       activeStatus = chip.dataset.radarChip
 
       chips.forEach((other) => {
-        if (other === chip) {
-          other.setAttribute('aria-current', 'true')
-        } else {
-          other.removeAttribute('aria-current')
-        }
+        other.setAttribute(
+          'aria-pressed',
+          other === chip ? 'true' : 'false'
+        )
+        other.removeAttribute('aria-current')
       })
 
       applyFilters()
@@ -140,13 +150,14 @@ export function initRadar() {
       // Reset to "All" status too, since they probably want to start over
       activeStatus = 'all'
       chips.forEach((chip) => {
-        if (chip.dataset.radarChip === 'all') {
-          chip.setAttribute('aria-current', 'true')
-        } else {
-          chip.removeAttribute('aria-current')
-        }
+        chip.setAttribute(
+          'aria-pressed',
+          chip.dataset.radarChip === 'all' ? 'true' : 'false'
+        )
+        chip.removeAttribute('aria-current')
       })
       applyFilters()
+      // applyFilters writes to the live region, so SR users hear the new count
       search.focus()
     })
   }

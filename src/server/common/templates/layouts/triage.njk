@@ -4,6 +4,7 @@
 {% block content %}{% endblock %}
 
 {% block main %}
+<main id="main-content">
 <div class="app-triage__start-banner">
   <div class="app-triage__start-inner">
     <div class="app-triage__start-content">
@@ -28,44 +29,25 @@
 </div>
 
 <div class="app-triage__body">
-  <main class="govuk-main-wrapper app-main-wrapper" id="main-content">
-
-    {% if audiencePaths | length %}
-    <div class="app-triage__audiences">
-      <h2 class="govuk-heading-l">{{ audienceHeading }}</h2>
-      <div class="app-triage__audience-grid">
-        {% for path in audiencePaths %}
-        <div class="app-triage__audience-card">
-          <h3 class="govuk-heading-m app-triage__audience-title">{{ path.title }}</h3>
-          <p class="govuk-body">{{ path.description }}</p>
-          <ul class="govuk-list app-triage__audience-links">
-            {% for link in path.links %}
-            <li>
-              <a href="{{ link.href }}" class="govuk-link govuk-link--no-visited-state">{{ link.text }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
+  <div class="govuk-main-wrapper">
 
     {% if primaryCards | length %}
     <h2 class="govuk-heading-l app-triage__section-heading">{{ primaryCardsHeading or title }}</h2>
-    {% if primaryCardsDescription %}<p class="govuk-body-l">{{ primaryCardsDescription }}</p>{% endif %}
+    {% if primaryCardsDescription %}<p class="govuk-body">{{ primaryCardsDescription }}</p>{% endif %}
 
     <div class="app-triage__cards">
       {% for card in primaryCards %}
-      <a href="{{ card.href }}" class="app-triage__card">
+      <div class="app-triage__card">
         <div class="app-triage__card-content">
-          <h3 class="govuk-heading-m app-triage__card-title">{{ card.text }}</h3>
+          <h3 class="govuk-heading-m app-triage__card-title">
+            <a href="{{ card.href }}" class="govuk-link app-triage__card-link">{{ card.text }}</a>
+          </h3>
           <p class="govuk-body app-triage__card-description">{{ card.description }}</p>
         </div>
         <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
         </svg>
-      </a>
+      </div>
       {% endfor %}
     </div>
     {% endif %}
@@ -73,6 +55,7 @@
     {{ content | markdown | safe }}
 
     {% include "partials/support-box.njk" %}
-  </main>
+  </div>
 </div>
+</main>
 {% endblock %}

@@ -5,6 +5,10 @@ description: A proof of concept from the AI Capability and Enablement team.
 layout: section
 sectionTitle: Patterns
 sectionNav:
+  - title: In this section
+    items:
+      - text: Patterns
+        href: /ai-playbook/patterns
   - title: Proofs of concept
     items:
       - text: Agent swarms
@@ -15,25 +19,23 @@ sectionNav:
         href: /ai-playbook/patterns/green-summarisation
       - text: Token optimisation
         href: /ai-playbook/patterns/token-optimisation
-  - title: Want to contribute?
-    items:
-      - text: Email the team
-        href: 'mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution'
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Patterns
     href: /ai-playbook/patterns

@@ -27,10 +27,13 @@
     <div class="defra-header__brand-group">
       <img
         src="{{ getAssetPath('images/defra-logo.svg') }}"
-        alt="Department for Environment, Food &amp; Rural Affairs"
+        alt=""
+        role="presentation"
         class="defra-header__logo"
       />
-      <a href="{{ headerServiceUrl | default('/') }}" class="defra-header__service-name">{{ headerServiceName | default('Digital service manual') }}</a>
+      <a href="{{ headerServiceUrl | default('/') }}" class="defra-header__service-name">
+        <span class="govuk-visually-hidden">Department for Environment, Food and Rural Affairs: </span>{{ headerServiceName | default('Digital service manual') }}
+      </a>
     </div>
     {% include "partials/header-search.njk" %}
   </div>
@@ -45,8 +48,10 @@
     </button>
     <ul class="defra-service-navigation__list" id="service-navigation-list">
       {% for item in customNav %}
+      {% set isCurrent = currentUrl and item.href != '/' and currentUrl.startsWith(item.href) %}
+      {% set isHomeCurrent = item.href == '/' and currentUrl == '/' %}
       <li class="defra-service-navigation__item">
-        <a class="defra-service-navigation__link" href="{{ item.href }}">{{ item.text }}</a>
+        <a class="defra-service-navigation__link" href="{{ item.href }}"{% if isCurrent or isHomeCurrent %} aria-current="page"{% endif %}>{{ item.text }}</a>
       </li>
       {% endfor %}
     </ul>

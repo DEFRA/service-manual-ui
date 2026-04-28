@@ -1,6 +1,6 @@
-<nav class="app-sub-navigation" aria-label="Sub navigation">
+<nav class="app-sub-navigation" aria-label="Pages in this section">
   {% for section in sectionNav %}
-  <h3 class="app-subnav__header">{{ section.title }}</h3>
+  <p class="app-subnav__header">{{ section.title }}</p>
   <ul class="app-subnav__list">
     {% for item in section.items %}
     <li class="app-subnav__item">

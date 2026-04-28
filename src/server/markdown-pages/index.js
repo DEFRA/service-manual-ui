@@ -150,8 +150,7 @@ const markdownRoutes = [
   '/ai-playbook/guidance/information-governance',
   '/ai-playbook/guidance/pii-and-data-handling',
   '/ai-playbook/guidance/cost-and-tokens',
-  '/ai-playbook/case-studies',
-  '/ai-playbook/lessons-learned'
+  '/ai-playbook/from-the-field'
 ]
 
 export const markdownPages = {

@@ -12,6 +12,7 @@ import {
 import { initCookieBanner, initCookiesPage } from './cookie-consent.js'
 import { initSearch } from './search.js'
 import { initRadar } from './radar.js'
+import { initPatternFinder } from './pattern-finder.js'
 
 createAll(Accordion)
 createAll(Button)
@@ -47,3 +48,4 @@ initCookiesPage()
 initServiceNavigation()
 initSearch()
 initRadar()
+initPatternFinder()

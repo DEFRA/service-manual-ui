@@ -5,6 +5,10 @@ description: Install your AI assistant, turn on privacy settings, and add the ru
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -91,7 +91,7 @@ Privacy settings stop your code and data from being stored on AI providers' serv
 
 You must turn on privacy settings before using any AI assistant on Defra work.
 
-For tool-specific settings, see the page for your assistant in the [tools radar](/ai-playbook/tools), or the official [Defra AI SDLC tool guidance](https://defra.github.io/ai-sdlc-tool-guidance/).
+For tool-specific settings, see the page for your assistant in the [tools radar](/ai-playbook/tools).
 
 ## Add AI rules and instructions
 
@@ -116,4 +116,4 @@ If your project is approved to use MCP, follow the rules in [MCP servers and int
 
 Your assistant works better when it can see your user stories, technical designs, diagrams and interface designs.
 
-Some teams use [Obsidian](https://obsidian.md/) to manage these centrally, either as a vault inside the code repo or as a separate repo linked with git submodules. Use whatever approach works for your team, as long as the materials are easy to point your assistant at.
+Keep them somewhere your assistant can read, either inside the code repo or in a separate repo linked with git submodules. Use whatever approach works for your team, as long as the materials are easy to point your assistant at.

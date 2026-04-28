@@ -5,6 +5,10 @@ description: How to give your AI assistant the project context it needs. Convent
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -85,12 +85,37 @@ Commit your rules to version control alongside the code itself. Every developer 
 
 ## What each tool calls them
 
-| Tool | Name | Where they live |
-|---|---|---|
-| [GitHub Copilot](/ai-playbook/tools/github-copilot) | Instructions | `.github/copilot-instructions.md` and `.github/instructions/*.instructions.md` |
-| Cursor | Rules | `.cursor/rules/*.mdc` |
-| Claude Code | Project instructions | `CLAUDE.md` and `.claude/rules/*.md` |
-| Windsurf | Rules | `.windsurf/rules/*.md` |
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Tool</th>
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Where they live</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header"><a href="/ai-playbook/tools/github-copilot" class="govuk-link">GitHub Copilot</a></th>
+      <td class="govuk-table__cell">Instructions</td>
+      <td class="govuk-table__cell"><code>.github/copilot-instructions.md</code> and <code>.github/instructions/*.instructions.md</code></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Cursor</th>
+      <td class="govuk-table__cell">Rules</td>
+      <td class="govuk-table__cell"><code>.cursor/rules/*.mdc</code></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Claude Code</th>
+      <td class="govuk-table__cell">Project instructions</td>
+      <td class="govuk-table__cell"><code>CLAUDE.md</code> and <code>.claude/rules/*.md</code></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Windsurf</th>
+      <td class="govuk-table__cell">Rules</td>
+      <td class="govuk-table__cell"><code>.windsurf/rules/*.md</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ## What to put in them
 

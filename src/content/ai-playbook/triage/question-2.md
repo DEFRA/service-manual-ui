@@ -1,25 +1,27 @@
 ---
 title: What is the problem?
 layout: question
-headerServiceName: AI playbook
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
 questionCaption: Question 2 of 5
 questionInputType: textarea
-questionHint: Describe the problem you are trying to solve. Keep it plain. No need for jargon.
+questionHint: Describe the problem in plain English. Use the words your team uses.
 questionRows: 6
 questionBackHref: /ai-playbook/triage/question-1
 questionContinueHref: /ai-playbook/triage/question-3

@@ -42,12 +42,12 @@
 
           {# Email input #}
           {% if questionInputType == 'email' %}
-            <label class="govuk-label govuk-label--l" for="question-input">
-              {% if questionCaption %}
-              <span class="govuk-caption-l">{{ questionCaption }}</span>
-              {% endif %}
-              <h1 class="govuk-fieldset__heading">{{ title }}</h1>
-            </label>
+            {% if questionCaption %}
+            <span class="govuk-caption-l" id="question-caption">{{ questionCaption }}</span>
+            {% endif %}
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="question-input">{{ title }}</label>
+            </h1>
             {% if questionHint %}
             <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
             {% endif %}
@@ -58,17 +58,17 @@
               type="email"
               autocomplete="email"
               spellcheck="false"
-              {% if questionHint %}aria-describedby="question-hint"{% endif %}>
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}">
           {% endif %}
 
           {# Textarea input #}
           {% if questionInputType == 'textarea' %}
-            <label class="govuk-label govuk-label--l" for="question-input">
-              {% if questionCaption %}
-              <span class="govuk-caption-l">{{ questionCaption }}</span>
-              {% endif %}
-              <h1 class="govuk-fieldset__heading">{{ title }}</h1>
-            </label>
+            {% if questionCaption %}
+            <span class="govuk-caption-l" id="question-caption">{{ questionCaption }}</span>
+            {% endif %}
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="question-input">{{ title }}</label>
+            </h1>
             {% if questionHint %}
             <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
             {% endif %}
@@ -77,7 +77,7 @@
               id="question-input"
               name="answer"
               rows="{{ questionRows or 5 }}"
-              {% if questionHint %}aria-describedby="question-hint"{% endif %}></textarea>
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}"></textarea>
           {% endif %}
 
         </div>

@@ -5,6 +5,10 @@ description: How to use Model Context Protocol safely. What is approved at Defra
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -105,18 +105,6 @@ MCP can give AI access to:
 - **work management.** Jira issues, Azure DevOps work items, Confluence pages
 - **product and user context.** Analytics, support tickets
 
-## When to consider MCP
-
-Use MCP when you need an AI assistant to work with real project data while keeping control of what it can see and do.
-
-Benefits include:
-
-- **Improved accuracy.** The AI can see the right tickets, documents and code, so answers are grounded in your project reality
-- **Controlled data sharing.** Only approved data sources and scopes are exposed
-- **Reusable integrations.** Standard connectors work across teams and services
-- **Reduced complexity.** You avoid one-off scripts and bespoke API wrappers
-- **Trust and transparency.** You can trace where information came from and what tools were used
-
 ## Security and data protection
 
 When you configure MCP, treat tool calls as you would any integration between production systems.
@@ -146,17 +134,6 @@ Practical steps:
 
 **Command injection.** Malicious input causes unintended tool calls or actions. Do not auto-approve actions, and restrict tool scopes to the minimum needed.
 
-## Governance and best practice
-
-- Trust only **vendor-provided** MCP servers that have been assessed by Defra
-- Prefer **remote** MCP servers, and verify vendor domains and TLS certificates
-- Pin MCP server versions where possible and maintain a simple change log
-- Use OAuth2 with least-privilege scopes and rotate tokens regularly
-- Restrict access to only the repositories, projects and workspaces you need
-- Do not add personal or confidential data to prompts
-- Do not share credentials or API keys
-- Record significant AI usage and decisions in your project documentation
-
 ## When to use or avoid MCP
 
 Use MCP when:
@@ -173,15 +150,6 @@ Do not use MCP when:
 - your project or programme has not explicitly approved AI tool usage
 
 Any exception needs explicit written approval from the relevant Project Architect and the AI Capability and Enablement team.
-
-## Embedding MCP in delivery
-
-MCP should support existing delivery practices, not replace them.
-
-- Enable MCP at enterprise level for secure access to approved systems
-- Configure your IDE or assistant to use only trusted vendor MCP servers
-- Keep humans in control of tool calls and merging changes
-- Combine MCP with the [four pillars](/ai-playbook/guidance/four-pillars): clear requirements, good prompts, rules and instructions, capable model
 
 ## Approved MCP servers
 
@@ -202,14 +170,96 @@ These MCP servers are approved for use in Defra. Do not use other MCP servers un
 - [GitHub](https://github.com/github/github-mcp-server)
 - [Azure DevOps](https://github.com/microsoft/azure-devops-mcp)
 
-## Summary checklist
+## More on MCP
 
-Use this checklist when configuring or reviewing MCP usage:
+<div class="govuk-accordion" data-module="govuk-accordion" id="mcp-accordion">
 
-- use only vendor-provided, remote MCP servers
-- authenticate via OAuth with least-privilege scopes
-- exclude sensitive, personal or client data from prompts and context
-- keep secret scanning and security tooling enabled
-- maintain human-in-the-loop approval for tool actions
-- document MCP usage and material AI assistance in project docs
-- follow Defra AI, security and legal guidelines
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="mcp-accordion-heading-1">Why use MCP</span>
+</h3>
+</div>
+<div id="mcp-accordion-content-1" class="govuk-accordion__section-content">
+
+<p class="govuk-body">Use MCP when you need an AI assistant to work with real project data while keeping control of what it can see and do.</p>
+
+<p class="govuk-body">Benefits include:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li><strong>Improved accuracy.</strong> The AI can see the right tickets, documents and code, so answers are grounded in your project reality</li>
+<li><strong>Controlled data sharing.</strong> Only approved data sources and scopes are exposed</li>
+<li><strong>Reusable integrations.</strong> Standard connectors work across teams and services</li>
+<li><strong>Reduced complexity.</strong> You avoid one-off scripts and bespoke API wrappers</li>
+<li><strong>Trust and transparency.</strong> You can trace where information came from and what tools were used</li>
+</ul>
+
+</div>
+</div>
+
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="mcp-accordion-heading-2">Governance and best practice</span>
+</h3>
+</div>
+<div id="mcp-accordion-content-2" class="govuk-accordion__section-content">
+
+<ul class="govuk-list govuk-list--bullet">
+<li>Trust only <strong>vendor-provided</strong> MCP servers that have been assessed by Defra</li>
+<li>Prefer <strong>remote</strong> MCP servers, and verify vendor domains and TLS certificates</li>
+<li>Pin MCP server versions where possible and maintain a simple change log</li>
+<li>Use OAuth2 with least-privilege scopes and rotate tokens regularly</li>
+<li>Restrict access to only the repositories, projects and workspaces you need</li>
+<li>Do not add personal or confidential data to prompts</li>
+<li>Do not share credentials or API keys</li>
+<li>Record significant AI usage and decisions in your project documentation</li>
+</ul>
+
+</div>
+</div>
+
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="mcp-accordion-heading-3">Embedding MCP in delivery</span>
+</h3>
+</div>
+<div id="mcp-accordion-content-3" class="govuk-accordion__section-content">
+
+<p class="govuk-body">MCP should support existing delivery practices, not replace them.</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>Enable MCP at enterprise level for secure access to approved systems</li>
+<li>Configure your IDE or assistant to use only trusted vendor MCP servers</li>
+<li>Keep humans in control of tool calls and merging changes</li>
+<li>Combine MCP with the <a href="/ai-playbook/guidance/four-pillars" class="govuk-link">four pillars</a>: clear requirements, good prompts, rules and instructions, capable model</li>
+</ul>
+
+</div>
+</div>
+
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="mcp-accordion-heading-4">Quick checklist</span>
+</h3>
+</div>
+<div id="mcp-accordion-content-4" class="govuk-accordion__section-content">
+
+<p class="govuk-body">Use this when configuring or reviewing MCP usage:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+<li>use only vendor-provided, remote MCP servers</li>
+<li>authenticate via OAuth with least-privilege scopes</li>
+<li>exclude sensitive, personal or client data from prompts and context</li>
+<li>keep secret scanning and security tooling enabled</li>
+<li>maintain human-in-the-loop approval for tool actions</li>
+<li>document MCP usage and material AI assistance in project docs</li>
+<li>follow Defra AI, security and legal guidelines</li>
+</ul>
+
+</div>
+</div>
+
+</div>

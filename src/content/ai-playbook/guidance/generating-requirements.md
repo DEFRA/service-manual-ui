@@ -5,6 +5,10 @@ description: How to use AI to draft user stories, PRDs, data models and architec
 layout: section
 sectionTitle: Guidance
 sectionNav:
+  - title: In this section
+    items:
+      - text: Guidance
+        href: /ai-playbook/guidance
   - title: Get started
     items:
       - text: Welcome to AI at Defra
@@ -33,6 +37,8 @@ sectionNav:
         href: /ai-playbook/guidance/rules-for-ai
       - text: MCP servers and integrations
         href: /ai-playbook/guidance/mcp-servers
+      - text: Cost and tokens
+        href: /ai-playbook/guidance/cost-and-tokens
   - title: Responsible AI
     items:
       - text: Ethics
@@ -45,29 +51,23 @@ sectionNav:
         href: /ai-playbook/guidance/information-governance
       - text: PII and data handling
         href: /ai-playbook/guidance/pii-and-data-handling
-  - title: From the field
-    items:
-      - text: Case studies
-        href: /ai-playbook/case-studies
-      - text: Lessons learned
-        href: /ai-playbook/lessons-learned
-      - text: Cost and tokens
-        href: /ai-playbook/guidance/cost-and-tokens
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Guidance
     href: /ai-playbook/guidance
@@ -112,44 +112,74 @@ For anything users see, develop mockups in Figma, Miro or similar. Annotate them
 
 You can then ask the AI to convert the mockups into a text description of the interface, which becomes useful context for code generation.
 
-## Generate user stories with AI
+## Generate artefacts with AI
 
-When your work needs user stories, use a prompt template to expand your feature description into stories with acceptance criteria. Iterate by talking with the model.
+Once your feature description and any mockups are in place, AI can help you draft the supporting artefacts. Pick the ones your work needs.
 
-The SDLC prompt library has reusable prompts for user-story creation, combined requirements and PRD generation.
+<div class="govuk-accordion" data-module="govuk-accordion" id="requirements-accordion">
 
-## Generate Product Requirements Documents (PRDs) with AI
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="requirements-accordion-heading-1">Stories and requirements documents</span>
+</h3>
+</div>
+<div id="requirements-accordion-content-1" class="govuk-accordion__section-content">
 
-For larger pieces of work. For example, a new epic. Use AI to expand the feature description into a full PRD covering requirements, features and user stories together.
+<h4 class="govuk-heading-s">Generate user stories</h4>
+<p class="govuk-body">When your work needs user stories, use a prompt template to expand your feature description into stories with acceptance criteria. Iterate by talking with the model.</p>
+<p class="govuk-body">The <a href="/ai-playbook/prompt-library" class="govuk-link">prompt library</a> has reusable prompts for user-story creation, combined requirements and PRD generation.</p>
 
-Refine through conversation rather than expecting a perfect document on the first prompt.
+<h4 class="govuk-heading-s">Generate Product Requirements Documents (PRDs)</h4>
+<p class="govuk-body">For larger pieces of work, for example a new epic, use AI to expand the feature description into a full PRD covering requirements, features and user stories together.</p>
+<p class="govuk-body">Refine through conversation rather than expecting a perfect document on the first prompt.</p>
 
-## Visualise your architecture with AI
+<h4 class="govuk-heading-s">Review your requirements</h4>
+<p class="govuk-body">Before you start feature development, ask the AI to review the requirements you have generated. It can identify gaps in documentation and surface alternatives you have missed.</p>
 
-Architecture diagrams help the AI understand how components fit together.
+</div>
+</div>
 
-Use a prompt template to generate a high-level architecture diagram from your requirements. Iterate until it accurately represents your system.
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="requirements-accordion-heading-2">Diagrams and models</span>
+</h3>
+</div>
+<div id="requirements-accordion-content-2" class="govuk-accordion__section-content">
 
-## Create your data models with AI
+<h4 class="govuk-heading-s">Visualise your architecture</h4>
+<p class="govuk-body">Architecture diagrams help the AI understand how components fit together.</p>
+<p class="govuk-body">Use a prompt template to generate a high-level architecture diagram from your requirements. Iterate until it accurately represents your system.</p>
 
-When your work involves a data model, generate it from your product requirements as context. Iterate until the model accurately represents your domain.
+<h4 class="govuk-heading-s">Create your data models</h4>
+<p class="govuk-body">When your work involves a data model, generate it from your product requirements as context. Iterate until the model accurately represents your domain.</p>
 
-## Map system interactions with AI
+<h4 class="govuk-heading-s">Map system interactions</h4>
+<p class="govuk-body">For workflows where multiple components need to communicate, generate a sequence diagram. Refine through conversation.</p>
 
-For workflows where multiple components need to communicate, generate a sequence diagram. Refine through conversation.
+</div>
+</div>
 
-## Document your API specifications with AI
+<div class="govuk-accordion__section">
+<div class="govuk-accordion__section-header">
+<h3 class="govuk-accordion__section-heading">
+<span class="govuk-accordion__section-button" id="requirements-accordion-heading-3">Technical artefacts</span>
+</h3>
+</div>
+<div id="requirements-accordion-content-3" class="govuk-accordion__section-content">
 
-For services that expose APIs, generate API specifications from the requirements. Refine through conversation.
+<h4 class="govuk-heading-s">Document your API specifications</h4>
+<p class="govuk-body">For services that expose APIs, generate API specifications from the requirements. Refine through conversation.</p>
 
-## Create architectural decision records (ADRs) with AI
+<h4 class="govuk-heading-s">Create architectural decision records (ADRs)</h4>
+<p class="govuk-body">Use AI to draft architectural decision records that capture key technical choices and the reasoning behind them. Iterate until the record is sharp enough to share with the team.</p>
 
-Use AI to draft architectural decision records that capture key technical choices and the reasoning behind them. Iterate until the record is sharp enough to share with the team.
+</div>
+</div>
 
-## Review your requirements with AI
-
-Before you start feature development, ask the AI to review the requirements you have generated. It can identify gaps in documentation and surface alternatives you have missed.
+</div>
 
 ## Reusable prompts
 
-Many of these tasks have ready-made prompt templates in the SDLC prompt library. Adapt them to your context rather than starting from scratch.
+Many of these tasks have ready-made prompt templates in the [prompt library](/ai-playbook/prompt-library). Adapt them to your context rather than starting from scratch.

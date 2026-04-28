@@ -1,9 +1,13 @@
 ---
 title: Patterns
-description: Reusable approaches Defra teams are exploring with AI. Early today, more coming as proofs of concept mature.
+description: Reusable approaches Defra teams are exploring with AI.
 layout: section
 sectionTitle: Patterns
 sectionNav:
+  - title: In this section
+    items:
+      - text: Patterns
+        href: /ai-playbook/patterns
   - title: Proofs of concept
     items:
       - text: Agent swarms
@@ -14,70 +18,113 @@ sectionNav:
         href: /ai-playbook/patterns/green-summarisation
       - text: Token optimisation
         href: /ai-playbook/patterns/token-optimisation
-  - title: Want to contribute?
-    items:
-      - text: Email the team
-        href: 'mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution'
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
-headerServiceName: AI playbook
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
   - text: Patterns
-supportBox:
-  title: Contribute a pattern
-  description: If your team has a reusable approach you want to share, the AI Capability and Enablement team can help you write it up.
-  items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-A pattern is a reusable approach to a recurring problem. When one team works out how to do something well, a pattern turns that solution into the starting point for the next team.
+A pattern is a reusable approach to a recurring problem, written up so the next team does not have to start from scratch.
 
-## Patterns at Defra are early
+These are early proofs of concept, aimed at engineers and technical architects. More are coming for other digital roles. [Email the team](mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry) if one fits your work, whatever your role.
 
-Most of the AI work across Defra is still in the pilot phase. The patterns on this page are **proofs of concept**: things we have tried, often successfully, but not yet hardened into approaches every team should use.
+## Find a pattern that fits
 
-Each one has a clear problem, a stated hypothesis, what we found, and the limitations of what we did. Treat them as evidence, not yet as recipes.
+<div class="app-pattern-finder" data-pattern-finder hidden>
+  <form data-pattern-finder-form>
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Which of these is your team's priority right now?
+      </legend>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-1" name="finder" type="radio" value="agent-swarms">
+          <label class="govuk-label govuk-radios__label" for="finder-1">Producing higher-quality analysis on complex problems</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-2" name="finder" type="radio" value="ai-assistant">
+          <label class="govuk-label govuk-radios__label" for="finder-2">A single Defra interface to multiple AI providers</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-3" name="finder" type="radio" value="green-summarisation">
+          <label class="govuk-label govuk-radios__label" for="finder-3">Reducing the energy use of AI workloads</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-4" name="finder" type="radio" value="token-optimisation">
+          <label class="govuk-label govuk-radios__label" for="finder-4">Cutting token cost on AI calls</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-5" name="finder" type="radio" value="none">
+          <label class="govuk-label govuk-radios__label" for="finder-5">None of these, or not sure</label>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 
-As proofs of concept mature into proven, reusable patterns, they will move out of this section and become full patterns with worked examples and templates. As other teams document what they have built, more will be added.
+  <div class="app-pattern-finder__result" aria-live="polite" data-pattern-finder-result hidden></div>
 
-## Proofs of concept today
+  <template data-pattern-finder-rec="agent-swarms">
+    <p class="govuk-body-l govuk-!-margin-bottom-2">Try <strong>Agent swarms</strong></p>
+    <p class="govuk-body">Multiple specialist agents working together tend to produce richer analysis than a single agent, especially on complex policy or strategic questions.</p>
+    <a href="/ai-playbook/patterns/agent-swarms" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Read the agent swarms proof of concept
+    </a>
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20agent%20swarms" class="govuk-link">email the team</a> to discuss this for your project.</p>
+  </template>
 
-### Agent swarms
+  <template data-pattern-finder-rec="ai-assistant">
+    <p class="govuk-body-l govuk-!-margin-bottom-2">Try the <strong>AI assistant</strong></p>
+    <p class="govuk-body">The team's prototype Defra-hosted AI stack lets you run multiple providers behind a single interface, with consistent guardrails and monitoring.</p>
+    <a href="/ai-playbook/patterns/ai-assistant" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Read the AI assistant proof of concept
+    </a>
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20AI%20assistant" class="govuk-link">email the team</a> to discuss this for your project.</p>
+  </template>
 
-Multiple specialist AI agents collaborate on a single task. Tested on policy document analysis. Showed that a coordinated swarm can produce richer output than a single agent working alone, with a human-in-the-loop step keeping quality under control.
+  <template data-pattern-finder-rec="green-summarisation">
+    <p class="govuk-body-l govuk-!-margin-bottom-2">Try <strong>Green summarisation</strong></p>
+    <p class="govuk-body">Smaller, local models can match cloud LLMs for short summaries. Useful when sustainability matters and the task is constrained.</p>
+    <a href="/ai-playbook/patterns/green-summarisation" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Read the green summarisation proof of concept
+    </a>
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20green%20summarisation" class="govuk-link">email the team</a> to discuss this for your project.</p>
+  </template>
 
-[Read the agent swarms proof of concept](/ai-playbook/patterns/agent-swarms).
+  <template data-pattern-finder-rec="token-optimisation">
+    <p class="govuk-body-l govuk-!-margin-bottom-2">Try <strong>Token optimisation</strong></p>
+    <p class="govuk-body">Prompt compression techniques can reduce token cost on repeat prompts. Results vary by task; the proof of concept shows where it works and where it does not.</p>
+    <a href="/ai-playbook/patterns/token-optimisation" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Read the token optimisation proof of concept
+    </a>
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20token%20optimisation" class="govuk-link">email the team</a> to discuss this for your project.</p>
+  </template>
 
-### AI assistant
-
-A Defra-hosted AI stack that swaps between leading providers (Anthropic, OpenAI, Microsoft) and local models. Aims to give teams a flexible, sovereign platform with consistent guardrails and monitoring. In progress.
-
-[Read the AI assistant proof of concept](/ai-playbook/patterns/ai-assistant).
-
-### Green summarisation
-
-Smaller, local transformer models tested against cloud-based LLMs for document summarisation. Showed that local models can match LLMs for short summaries but fall short on longer, more detailed ones.
-
-[Read the green summarisation proof of concept](/ai-playbook/patterns/green-summarisation).
-
-### Token optimisation
-
-Compressing prompts to reduce token cost and latency without losing output quality. Tested two compression methods on a single model, with mixed results.
-
-[Read the token optimisation proof of concept](/ai-playbook/patterns/token-optimisation).
-
-## Help us build the next pattern
-
-If your team has worked out a reusable approach, we want to write it up. The team can pair with you on documentation, or just help you frame what you have done so other teams can adopt it.
+  <template data-pattern-finder-rec="none">
+    <p class="govuk-body-l govuk-!-margin-bottom-2"><strong>Talk to the team</strong></p>
+    <p class="govuk-body">If none of the four fits, your work might be a candidate for a new pattern. The team is also currently exploring:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Hallucination detection at scale</li>
+      <li>LLM-as-a-judge for output validation</li>
+      <li>Async inference patterns</li>
+      <li>AI frameworks evaluation (LangChain, LangGraph, AWS Bedrock Agents)</li>
+    </ul>
+    <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Email the team
+    </a>
+  </template>
+</div>

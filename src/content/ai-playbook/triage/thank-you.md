@@ -2,21 +2,23 @@
 title: Thank you
 layout: question
 isResult: true
-headerServiceName: AI playbook
+headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-playbook
 customNav:
   - text: Home
     href: /
-  - text: Patterns
-    href: /ai-playbook/patterns
   - text: Guidance
     href: /ai-playbook/guidance
   - text: Tools
     href: /ai-playbook/tools
+  - text: Patterns
+    href: /ai-playbook/patterns
+  - text: From the field
+    href: /ai-playbook/from-the-field
 breadcrumbItems:
   - text: Digital Defra
     href: /
-  - text: AI playbook
+  - text: AI digital toolkit
     href: /ai-playbook
 questionBackHref: /ai-playbook
 ---

@@ -79,7 +79,10 @@
       0 4px $govuk-black;
   }
 
-  &[aria-current='true'] {
+  // Active state: aria-current='true' for no-JS (anchor link),
+  // aria-pressed='true' once JS upgrades the chips to filter buttons.
+  &[aria-current='true'],
+  &[aria-pressed='true'] {
     background: $govuk-black;
     color: $govuk-white;
 
@@ -178,30 +181,27 @@
 }
 
 .app-radar-card[data-status='endorse'] {
-  border-left-color: #00703c;
+  border-left-color: $status-endorse;
 }
 
 .app-radar-card[data-status='pilot'] {
-  border-left-color: #1d70b8;
+  border-left-color: $status-pilot;
 }
 
 .app-radar-card[data-status='assess'] {
-  border-left-color: #b58840;
+  border-left-color: $status-assess;
 }
 
 .app-radar-card[data-status='avoid'] {
-  border-left-color: #d4351c;
+  border-left-color: $status-avoid;
 }
 
 .app-radar-card__head {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
   margin-bottom: 8px;
 }
 
 .app-radar-card__category {
+  display: inline-block;
   font-size: 14px;
   color: #505a5f;
   font-family: 'GDS Transport', arial, sans-serif;
@@ -267,6 +267,17 @@
   margin: 0 0 16px;
   font-size: 16px;
   color: $govuk-black;
+}
+
+// Button styled to look like a link — for JS-only actions inside the radar
+// (e.g. clear search). Semantically a button, visually GOV.UK link.
+.app-radar-link-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }
 
 // Status classifications key — explains what each status means
