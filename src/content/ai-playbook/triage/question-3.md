@@ -20,7 +20,7 @@ breadcrumbItems:
 questionCaption: Question 3 of 5
 questionInputType: textarea
 questionHint: For example, caseworkers, members of the public, internal teams. Include rough numbers if you can.
-QuestionRows: 6
+questionRows: 6
 questionBackHref: /ai-playbook/triage/question-2
 questionContinueHref: /ai-playbook/triage/question-4
 ---

@@ -83,6 +83,17 @@ This guidance is for digital practitioners at Defra who are using or considering
 
 That includes engineers, designers, user researchers, business analysts, product managers, delivery managers, content designers and architects.
 
+## This is one part of a wider Defra AI landscape
+
+Several teams across Defra are working on AI in different ways. This guidance focuses on digital practitioners. If your work is closer to one of these areas, start here instead:
+
+- **AI training and safe use.** The [AI Training and Guidance page on SharePoint](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-&-Guidance.aspx) is the starting point for everyone, including Civil Service learning courses on safe and responsible AI use. Complete this before using AI on Defra work.
+- **AI policy and governance.** The [AI Governance page on SharePoint](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx) covers Defra-wide AI policy, what is allowed and what needs sign-off.
+- **CDP and Amazon Bedrock.** The Core Delivery Platform team owns the Defra Bedrock integration, including approved models, guardrails and cost controls. See the [CDP documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/bedrock-ai.md) and the CDP support channel.
+- **AI in arm's length bodies.** Teams across the Defra group (Environment Agency, Natural England, APHA, RPA, MMO and others) run their own AI initiatives. If you're in one of these organisations, check your team's own AI guidance first.
+
+If you are not sure where your work fits, contact the AI Capability and Enablement team and we will point you to the right place.
+
 ## What you will find here
 
 The guidance is grouped into four sections:
@@ -104,12 +115,7 @@ If you have already used AI for a while, jump to whichever section is most usefu
 
 ## What this guidance is based on
 
-The Defra AI pilot programme started in March 2025. Since then, around 200 people across 20 teams have used AI in real delivery work. This guidance brings together what they have learned, with material from:
-
-- the Defra AI SDLC playbook
-- the Defra [AI modernisation playbook](https://defra.github.io/defra-ai-modernisation-playbook/)
-- the Defra [AI service manual](https://ai-service-manual.dev.cdp-int.defra.cloud/) (the original microsite)
-- experience reports from teams that have shipped AI-assisted services
+The Defra AI pilot programme started in March 2025. Since then, around 200 people across 20 teams have used AI in real delivery work. This guidance brings together what they have learned and what the AI Capability and Enablement team has tested.
 
 ## Get involved
 

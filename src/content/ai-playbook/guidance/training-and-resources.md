@@ -83,11 +83,12 @@ Use these resources to build your skills and stay up to date.
 
 ## Defra training
 
-The AI Capability and Enablement team and partners across Defra Digital run training and surgery sessions. To find the latest:
+Start with these two SharePoint pages. They cover what every Defra colleague should know before using AI on Defra work.
 
-- check the Defra Digital SharePoint for upcoming AI sessions and on-demand recordings
-- ask your line manager about role-specific training pathways
-- review your team's own AI governance and security guidance
+- [AI Training and Guidance](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-&-Guidance.aspx). Civil Service learning courses on the safe and responsible use of AI. Required reading before you use AI on Defra data.
+- [AI Governance](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx). Defra-wide AI policy, what is allowed and what needs sign-off.
+
+The AI Capability and Enablement team and partners across Defra Digital also run training and surgery sessions. Ask your line manager about role-specific pathways, or contact the team directly for upcoming sessions.
 
 ## Vendor learning hubs
 
@@ -101,11 +102,11 @@ Most AI tool providers offer free learning paths and certifications. Useful star
 
 Pick the path that matches the tool your team is using. You do not need to learn all of them.
 
-## Defra-specific resources
+## Other Defra resources
 
-- AI SDLC playbook. The practitioner playbook for AI-assisted development at Defra
-- [AI modernisation playbook](https://defra.github.io/defra-ai-modernisation-playbook/). How Defra teams modernise legacy services with AI
 - [Tools radar](/ai-playbook/tools). What is approved, in pilot or under assessment
+- [Patterns](/ai-playbook/patterns). Reusable approaches Defra teams are exploring
+- [CDP Bedrock documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/bedrock-ai.md). For teams using AWS Bedrock through the Core Delivery Platform
 
 ## Get hands-on help
 

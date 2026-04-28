@@ -20,7 +20,7 @@ breadcrumbItems:
 questionCaption: Question 4 of 5
 questionInputType: textarea
 questionHint: For example, faster decisions, less manual work, fewer errors, better service for citizens.
-QuestionRows: 6
+questionRows: 6
 questionBackHref: /ai-playbook/triage/question-3
 questionContinueHref: /ai-playbook/triage/question-5
 ---
