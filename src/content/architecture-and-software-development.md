@@ -47,7 +47,7 @@ To get started, you should:
    - they'll let you know the principal architect for your delivery group
 2. Review the [Defra software development standards](https://defra.github.io/software-development-standards/)
    - these are mandatory and the Delivery Architecture team handles any exceptions through their governance process
-3. Work with the Delivery Architecture team to decide if the Core Delivery Platform is right for your service. This is Defra's strategic platform for building and deploying services.
+3. Work with the Delivery Architecture team to decide if the Core Delivery Platform (CDP) is right for your service. This is Defra's strategic platform for building and deploying services.
 
 You will need to read the following documentation if your service adopts the Core Delivery Platform:
 
