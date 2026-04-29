@@ -39,7 +39,7 @@ export function initPatternFinder() {
 
   form.addEventListener('change', (event) => {
     const target = event.target
-    if (!target || target.name !== 'finder') {
+    if (target?.name !== 'finder') {
       return
     }
 
