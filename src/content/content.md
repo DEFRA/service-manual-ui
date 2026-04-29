@@ -12,10 +12,12 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
@@ -42,9 +44,8 @@ sectionNav:
         href: /content/accessibility-tools
 supportBox:
   title: Get support
-  description: Contact the content team with questions about content standards.
-  items:
-    - 'Email: <a href="mailto:contentteam@defra.gov.uk" class="govuk-link">contentteam@defra.gov.uk</a>'
+  description: 'Contact the content team with questions about content by messaging on the <a href="https://defra-digital.slack.com/archives/C0ESWJQSK" class="govuk-link">#content slack channel</a>'
+  items: []
 ---
 
 Content design makes services easy to understand and use. It involves planning, writing and managing content so that it meets user needs.
@@ -62,9 +63,6 @@ When writing content for Defra services, content designers must follow the:
 - [GOV.UK design system](https://design-system.service.gov.uk/) - includes styles, components and patterns that you’ll use to design a government service
 - [Accessibility requirements for public sector bodies](https://www.gov.uk/guidance/accessibility-requirements-for-public-sector-websites-and-apps) - guidance to help you and your team understand why you need to meet the website and mobile app accessibility regulations
 
-## Join the community
+## Find out about the community
 
-Contact the content design lead within your delivery group or the head of content to:
-
-- provide an overview of the profession
-- explain governance and ethics
+Contact the content design lead within your delivery group or the head of content to find out more about who we are and how we work.

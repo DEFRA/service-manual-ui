@@ -17,8 +17,42 @@
   {% endif %}
 {% endblock %}
 
+{% block headIcons %}
+  {# SVG icon — modern browsers #}
+  <link rel="icon" href="{{ getAssetPath('images/favicon.svg') }}" type="image/svg+xml">
+  {# ICO fallback — older browsers #}
+  <link rel="icon" sizes="48x48" href="{{ getAssetPath('images/favicon.ico') }}">
+  {# Apple touch icon — iOS home screen #}
+  <link rel="apple-touch-icon" href="{{ getAssetPath('images/apple-touch-icon.png') }}">
+{% endblock %}
+
+
 {% block head %}
   <link href="{{ getAssetPath('stylesheets/application.scss') }}" rel="stylesheet">
+
+  {# ===== Open Graph / Social Unfurl Tags ===== #}
+  {# These power the rich preview cards when a link is shared on Slack, Teams, LinkedIn etc. #}
+  {% set ogTitle = (pageTitle or title or serviceName) + ' | Defra Digital service manual' %}
+  {% set ogDescription = description or 'Tools, guidance and support to help you design, build and operate successful services for Defra.' %}
+  {% set ogUrl = requestHost + currentUrl %}
+  {% set ogImage = requestHost + getAssetPath('images/social-share.png') %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Defra Digital service manual">
+  <meta property="og:title" content="{{ ogTitle }}">
+  <meta property="og:description" content="{{ ogDescription }}">
+  <meta property="og:url" content="{{ ogUrl }}">
+  <meta property="og:image" content="{{ ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Defra Digital service manual — green banner with crown icon">
+
+  {# Twitter / X Card #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle }}">
+  <meta name="twitter:description" content="{{ ogDescription }}">
+  <meta name="twitter:image" content="{{ ogImage }}">
+  <meta name="twitter:image:alt" content="Defra Digital service manual — green banner with crown icon">
 {% endblock %}
 
 {% block header %}

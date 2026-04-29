@@ -23,14 +23,18 @@
       </p>
 
       <p class="govuk-body">
-        You may need to be on the Virtual Private Network (VPN) or be on a Defra approved device to access it.
+        You may need to be on the Virtual Private Network (VPN), have an authorised account or be on a Defra approved device to access it.
       </p>
 
       <div class="govuk-button-group govuk-!-margin-top-6">
         {{ govukButton({
           text: "Continue",
           href: targetUrl,
-          classes: "govuk-!-margin-bottom-0"
+          classes: "govuk-!-margin-bottom-0",
+          attributes: {
+            target: "_blank",
+            rel: "noreferrer noopener"
+          }
         }) }}
       </div>
     </div>

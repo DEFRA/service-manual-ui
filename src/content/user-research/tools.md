@@ -1,6 +1,6 @@
 ---
 title: Tools
-description: Defra user researchers use a range of tools. The list of tools and guidance on how to access and use them effectively are listed below.
+description: Defra user researchers use a range of tools. The list of tools and guidance on how to access and use them are listed below.
 layout: section
 sectionNav:
   - title: In this section
@@ -21,15 +21,13 @@ sectionNav:
         href: /user-research/recruiting-participants
 ---
 
-### Use approved tools only
+### Use Defra-approved tools for your research
 
-You must use only Defra approved tools for user research. Approved tools meet security standards and protect the people who take part in research. They also make it easier for teams to work together and share findings consistently.
+Approved tools meet Defra's security standards, protect participant data, and support consistent ways of working. Using unapproved tools risks data breaches, may breach Defra policy, and can delay delivery while the tool is reviewed.
 
-Using unapproved tools can put participant data at risk and may breach departmental policies. It can also delay your project if we need to pause work and review the tools you used.
+When using an approved tool, check that the tool is suitable for the data you plan to collect before you start your research. Not all approved tools can collect or store identifiable data – this is outlined in the documents below.
 
-Even when using approved tools, some of these tools aren’t suitable for identifiable data. Make sure you follow the correct data-handling processes.
-
-If you need a tool that is not currently approved, contact Research Operations on [DefraDDTSUserResearchOperations@defra.gov.uk](mailto:DefraDDTSUserResearchOperations@defra.gov.uk).
+If you need a tool that is not currently approved, or you are unsure whether a tool is suitable for identifiable data, contact Research Operations.
 
 **Defra tools:**
 

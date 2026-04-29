@@ -11,10 +11,12 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
@@ -76,7 +78,7 @@ In the beta phase, your team may include:
 - performance analysts
 - tech lead
 
-As a service content designer in beta, you also need to keep in close contact with the content designer in the BAU team who works on the GOV.UK guidance for this area. Contact them at [contentteam@defra.gov.uk](mailto:contentteam@defra.gov.uk).
+As a service content designer in beta, you also need to keep in close contact with the content designer in the BAU team who works on the GOV.UK guidance for this area. Contact them by messaging on the [#content slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
 
 They can help you with background, policy contacts and will be the team you’ll need to work with if you need any GOV.UK guidance page updates.
 

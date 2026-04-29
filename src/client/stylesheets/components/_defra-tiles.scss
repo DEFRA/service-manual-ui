@@ -16,6 +16,7 @@
 
   @media (max-width: 48.0525em) {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 }
 
@@ -47,6 +48,10 @@
     box-shadow 0.1s ease-out,
     background-color 0.1s ease-out,
     transform 0.1s ease-out;
+
+  @media (max-width: 48.0525em) {
+    min-height: 0;
+  }
 }
 
 // Hover effect on the card (triggered by :has() when the link inside is hovered)

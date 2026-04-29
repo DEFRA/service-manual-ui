@@ -67,17 +67,6 @@ describe('#markdownPagesController', () => {
     })
   })
 
-  describe('GET /service-standard', () => {
-    test('Should return 200 status code', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/service-standard'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-  })
-
   describe('GET /components', () => {
     test('Should return 200 status code', async () => {
       const { statusCode } = await server.inject({

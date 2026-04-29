@@ -11,10 +11,12 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
@@ -49,7 +51,7 @@ Remember, these content types must be [translated into Welsh](/content/welsh-lan
 
 ## Terms and conditions
 
-Before your service goes into private beta, you’ll need to create a terms and conditions. It’ll usually fall to you as the ‘words person’ to coordinate this.
+Before your service goes into private beta, you’ll need to create a terms and conditions.
 
 You should be able to work with legal and policy stakeholders to draft the terms and conditions in a user-centred way.
 
@@ -80,11 +82,6 @@ The [service manual](https://www.gov.uk/service-manual/design/collecting-persona
 
 The data protection team must check the privacy notice before it’s published.
 
-Contact the relevant team at:
-
-- [data.protection@defra.gov.uk](mailto:data.protection@defra.gov.uk)
-- [dataprotection@environment-agency.gov.uk](mailto:dataprotection@environment-agency.gov.uk)
-
 Read more about [collecting personal information from users and privacy notices](https://www.gov.uk/service-manual/design/collecting-personal-information-from-users).
 
 ### Examples of privacy notices
@@ -108,7 +105,7 @@ The accessibility statement must explain:
 
 The accessibility statement must be accessible from every page of the service.
 
-Some accessibility issues may be resolved by the time your service is live. You should make a note to revisit and update the accessibility statement as and when is necessary.
+You should make a note to revisit and update the accessibility statement as and when is necessary.
 
 Read [how to write an accessibility statement on Github](https://defra-design.github.io/accessibility/resources/content/how-to-write-accessibility-statement/).
 
@@ -122,7 +119,6 @@ Read GDS guidance on [how to make your website or app accessible and publish an 
 
 ### Examples of accessibility statements
 
-- [Get a rod fishing licence accessibility statement](https://get-fishing-licence.service.gov.uk/guidance/accessibility-statement)
 - [Check for flooding accessibility statement](https://check-for-flooding.service.gov.uk/accessibility-statement)
 - [Find an apprenticeship accessibility statement](https://www.findapprenticeship.service.gov.uk/Home/accessibility-statement)
 
@@ -138,10 +134,7 @@ Before you can write the cookies policy, you need to have your technical team in
 
 You should draft and agree the content of the policy with the service team following a self assessment. Ask your delivery manager about this process.
 
-The data protection team don't sign off cookie policies but they can provide basic guidance. Contact them early in the process if you need support:
-
-- [data.protection@defra.gov.uk](mailto:data.protection@defra.gov.uk)
-- [dataprotection@environment-agency.gov.uk](mailto:dataprotection@environment-agency.gov.uk)
+The data protection team don't sign off cookie policies but they can provide basic guidance. Contact them early in the process if you need support.
 
 Further guidance:
 
@@ -150,6 +143,5 @@ Further guidance:
 
 ### Examples of cookies policies
 
-- [Get a rod fishing licence cookies policy](https://get-fishing-licence.service.gov.uk/guidance/cookies)
 - [Teachers: claim back your student loan repayments cookies policy](https://www.claim-additional-teaching-payment.service.gov.uk/student-loans/cookies)
 - [GOV.UK Notify cookies policy](https://www.notifications.service.gov.uk/cookies)

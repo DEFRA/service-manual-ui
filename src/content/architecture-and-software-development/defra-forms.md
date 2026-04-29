@@ -53,4 +53,4 @@ Using Defra Forms means you:
 - get accessible forms that meet GOV.UK standards
 - do not need to build your own form builder
 
-[View Defra Forms documentation (opens in a new tab)](https://defra.github.io/forms-engine-plugin/GETTING_STARTED.html)
+[View Defra Forms documentation (opens in a new tab)](https://forms.defra.gov.uk/)

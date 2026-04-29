@@ -11,10 +11,12 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
@@ -43,15 +45,15 @@ sectionNav:
 
 ## Making technical content easier for users
 
-You should write in plain English to make things easier for your users. When you need to use technical or legal terms, you can. But explain them the first time you use them.
+Write in plain English to make your guidance easy to understand. Use the terms your users recognise.
 
-For example: You can only burn authorised fuel, unless you use a Defra approved appliance – this is known as an ‘exempt appliance’.
+If there’s a proven need to use a technical or legal term, explain it the first time it appears.
 
-You should use the language that your users understand and use. For example, in guidance about combustion plants, use 'combustion', not 'burning'.
+For example: You can only burn authorised fuel unless you use a Defra-approved appliance, known as an ‘exempt appliance’.
 
-But you should put technical words in short, active sentences that make it easier for people to read.
+Keep technical words in short, active sentences to make the text easier to read.
 
-See [GDS writing well for specialists advice](https://www.gov.uk/guidance/content-design/writing-for-gov-uk#writing-well-for-specialists).
+Read [GDS's advice on writing well for specialists](https://www.gov.uk/guidance/content-design/writing-for-gov-uk#writing-well-for-specialists).
 
 ## Experts prefer clear language
 

@@ -5,7 +5,6 @@ import { getMarkdownPage } from './controller.js'
  */
 const markdownRoutes = [
   '/accessibility-statement',
-  '/service-standard',
   '/service-assessments',
   '/service-assessments/book-an-assessment',
   '/service-assessments/become-an-assessor',
@@ -23,6 +22,7 @@ const markdownRoutes = [
   '/content/inclusive-clear-language',
   '/content/designing-different-content-types',
   '/content/sharing-designs-recording-decisions',
+  '/content/tools',
   '/content/working-in-discovery',
   '/content/working-in-alpha',
   '/content/working-in-beta',

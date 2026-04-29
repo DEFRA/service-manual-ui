@@ -11,10 +11,12 @@ sectionNav:
     items:
       - text: Inclusive, clear language
         href: /content/inclusive-clear-language
-      - text: Designing different content types
+      - text: Designing for different content types
         href: /content/designing-different-content-types
       - text: Sharing designs and recording decisions
         href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
@@ -56,5 +58,4 @@ You will need to use a tool like WebAIM: [Contrast Checker](https://webaim.org/r
 - WebAIM’s [colour contrast checking tool](https://webaim.org/resources/contrastchecker/)
 - Coblis [colour blindness simulator](http://www.color-blindness.com/coblis-color-blindness-simulator/)
 - Brandwood [colour contrast checker for text on a background image](https://www.brandwood.com/a11y/)
-- GDS’s [contrast checker](https://contrast-checker.glitch.me/), which allows you to check 3 colours against each other
 - [Contrast Finder, find correct color contrasts for web accessibility (WCAG)](https://app.contrast-finder.org/)

@@ -23,7 +23,7 @@ supportBox:
   title: Get support
   description: If you need help with authentication, contact the <strong>Customer Identity team</strong>.
   items:
-    - 'Email: <a href="mailto:customer.identity@defra.gov.uk" class="govuk-link">customer.identity@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:giocustomeridentity@defra.gov.uk" class="govuk-link">giocustomeridentity@defra.gov.uk</a>'
 ---
 
 Defra Customer Identity (also known as IDMv2 or Defra ID) lets users sign in once to access multiple Defra services.
