@@ -2,13 +2,13 @@
 
 // ===== Pattern finder =====
 // Inline decision aid on /ai-playbook/patterns. The primary interaction on the
-// page — there is no static catalogue beneath it. Hidden in HTML by default;
+// page; there is no static catalogue beneath it. Hidden in HTML by default;
 // JS removes [hidden] when the bundle loads.
 //
 // Without JS, the page falls back to the introductory paragraphs, the left-nav
 // listing of the four pattern detail pages, and the "Patterns in flight" panel.
 
-// The finder reads as a "tool" — white panel with a thin mid-grey border on
+// The finder reads as a "tool". White panel with a thin mid-grey border on
 // three sides, and the Defra-green stripe on the left as the brand signature.
 // This deliberately differs from the support box at the bottom of the page
 // (light-grey background, green left border only), which is a system pattern
@@ -33,7 +33,7 @@
   }
 }
 
-// Result panel — appears below the radios when a priority is selected.
+// Result panel. Appears below the radios when a priority is selected.
 // Sits on a tinted-grey background inside the white card so it reads as a
 // distinct "answer" zone. No competing borders.
 .app-pattern-finder__result {

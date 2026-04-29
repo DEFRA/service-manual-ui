@@ -1,5 +1,5 @@
 /**
- * Pattern finder — inline decision aid on /ai-playbook/patterns.
+ * Pattern finder. Inline decision aid on /ai-playbook/patterns.
  *
  * Without JavaScript, the finder is hidden (`hidden` attribute on the wrapper)
  * and users see only the static catalogue and the "Patterns in flight" panel.
@@ -7,7 +7,7 @@
  * With JavaScript, the finder is revealed: the user picks one priority from a
  * radio group, and a recommendation panel populates inline. The recommendations
  * are pre-rendered as <template> elements in the markdown, so editorial control
- * stays with content authors — JS just clones the right one into place.
+ * stays with content authors. JS just clones the right one into place.
  *
  * Accessibility:
  * - The result panel has aria-live="polite" so SR users hear the new
@@ -31,7 +31,7 @@ export function initPatternFinder() {
     return
   }
 
-  // Prevent accidental form submission — the form has no action and there's
+  // Prevent accidental form submission. The form has no action and there's
   // no backend handler. The recommendation appears via the change handler.
   form.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -44,9 +44,7 @@ export function initPatternFinder() {
     }
 
     const value = target.value
-    const template = root.querySelector(
-      `[data-pattern-finder-rec="${value}"]`
-    )
+    const template = root.querySelector(`[data-pattern-finder-rec="${value}"]`)
 
     if (!template) {
       return
