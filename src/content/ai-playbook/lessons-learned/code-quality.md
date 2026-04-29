@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 Polished code that had passed senior reviews became impossible to maintain. Two developers using AI created thousands of lines that could not be fixed or extended.
 
 ## Overview

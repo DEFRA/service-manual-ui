@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 A 12-week discovery completed in September 2025. The team used AI throughout and delivered comprehensive results.
 
 ## Overview

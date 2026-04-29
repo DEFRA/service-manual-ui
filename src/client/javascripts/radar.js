@@ -130,10 +130,7 @@ export function initRadar() {
       activeStatus = chip.dataset.radarChip
 
       chips.forEach((other) => {
-        other.setAttribute(
-          'aria-pressed',
-          other === chip ? 'true' : 'false'
-        )
+        other.setAttribute('aria-pressed', other === chip ? 'true' : 'false')
         other.removeAttribute('aria-current')
       })
 
@@ -169,5 +166,4 @@ export function initRadar() {
       search.focus()
     })
   }
-
 }

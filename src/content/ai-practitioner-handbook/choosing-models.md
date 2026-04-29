@@ -97,16 +97,16 @@ Use for architectural design, complex debugging, multi-step reasoning, and gener
 
 ## Matching tasks to tiers
 
-| Task | Recommended tier |
-| --- | --- |
-| Code autocomplete | Lightweight |
-| Boilerplate scaffolding | Lightweight |
-| Writing unit tests | Mid-range |
-| Generating documentation | Mid-range |
-| Building functions from specs | Mid-range |
-| Architectural planning | Advanced |
-| Complex debugging | Advanced |
-| Requirements generation | Advanced |
+| Task                          | Recommended tier |
+| ----------------------------- | ---------------- |
+| Code autocomplete             | Lightweight      |
+| Boilerplate scaffolding       | Lightweight      |
+| Writing unit tests            | Mid-range        |
+| Generating documentation      | Mid-range        |
+| Building functions from specs | Mid-range        |
+| Architectural planning        | Advanced         |
+| Complex debugging             | Advanced         |
+| Requirements generation       | Advanced         |
 
 ## Be aware of costs
 

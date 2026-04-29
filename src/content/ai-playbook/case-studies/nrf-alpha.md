@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 Completed in January 2026. The team moved from a successful AI-enabled discovery phase into an alpha phase. They received one of the best service standards assessments ever recorded for a Defra alpha project.
 
 ## Overview

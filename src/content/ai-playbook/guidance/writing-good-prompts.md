@@ -87,19 +87,19 @@ You do not need all six in every prompt. Use them as a checklist when a prompt i
 
 ### Context
 
-Tell the model what you are working on. For example: *"Programming in Python within a microservices architecture..."*
+Tell the model what you are working on. For example: _"Programming in Python within a microservices architecture..."_
 
 ### Role
 
-Tell the model who to be. For example: *"You are an experienced software engineer specialising in JavaScript."*
+Tell the model who to be. For example: _"You are an experienced software engineer specialising in JavaScript."_
 
 ### Tasks
 
-Break the work into steps. For example: *"First, summarise the requirements. Next, identify the conventions used in the existing code. Then propose a design before writing anything."*
+Break the work into steps. For example: _"First, summarise the requirements. Next, identify the conventions used in the existing code. Then propose a design before writing anything."_
 
 ### Constraints
 
-Tell the model what not to do. For example: *"Do not implement anything outside the specified requirements."*
+Tell the model what not to do. For example: _"Do not implement anything outside the specified requirements."_
 
 ### Examples
 
@@ -107,7 +107,7 @@ Show what a good answer looks like. A worked example shapes the response more th
 
 ### Output format
 
-Tell the model what shape you want the answer in. For example: *"Write the result as a user story document in markdown, with these sections..."*
+Tell the model what shape you want the answer in. For example: _"Write the result as a user story document in markdown, with these sections..."_
 
 ## More techniques
 

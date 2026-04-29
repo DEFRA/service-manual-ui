@@ -153,12 +153,13 @@ A scoped instruction file activates only when Copilot is working on matching fil
 
 ```markdown
 ---
-applyTo: "**/*.js,**/*.mjs"
+applyTo: '**/*.js,**/*.mjs'
 ---
 
 # Node.js backend
 
 ## Language rules
+
 - Use vanilla JavaScript. Do not use TypeScript without an approved exception.
 - Use JSDoc for type annotations.
 - Use ES modules (import/export) by default.
@@ -166,6 +167,7 @@ applyTo: "**/*.js,**/*.mjs"
 - Lint with ESLint and format with Prettier.
 
 ## Framework
+
 - Use Hapi for all HTTP servers. Do not use Express, Fastify, or Koa.
 - Use joi (standalone) for request validation. Do not use the deprecated @hapi/joi.
 - Use @hapi/crumb for CSRF protection.

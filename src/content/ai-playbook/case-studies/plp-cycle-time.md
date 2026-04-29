@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 A delivery team used [GitHub Copilot](/ai-playbook/tools/github-copilot) between September and November 2025. They measured the impact on development speed and documentation quality. The team saw a 61% reduction in cycle time.
 
 ## Overview

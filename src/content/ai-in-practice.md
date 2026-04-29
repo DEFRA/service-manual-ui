@@ -11,19 +11,19 @@ breadcrumbItems:
   - text: AI in practice
 layout: hub
 statCards:
-  - number: "56%"
+  - number: '56%'
     label: Faster synthesis
     description: NRF Discovery research
     href: /ai-practitioner-handbook/nrf-discovery
-  - number: "75%"
+  - number: '75%'
     label: Faster migration
     description: IPAFFS replatforming
     href: /ai-practitioner-handbook/ipaffs-replatforming
-  - number: "61%"
+  - number: '61%'
     label: Faster delivery
     description: PLP cycle time
     href: /ai-practitioner-handbook/plp-cycle-time
-  - number: "Top"
+  - number: 'Top'
     label: Assessment score
     description: NRF Alpha
     href: /ai-practitioner-handbook/nrf-alpha

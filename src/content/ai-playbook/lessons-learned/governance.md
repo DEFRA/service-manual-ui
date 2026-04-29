@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 Having no single source of truth for what AI tools teams can use. The most diligent people restrict themselves while the least careful take the biggest risks.
 
 ## Overview

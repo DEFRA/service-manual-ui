@@ -50,6 +50,7 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
+
 AI invented housing statistics for a discovery report. The numbers looked accurate at first glance, the formatting was excellent, but the data was fabricated.
 
 ## Overview
