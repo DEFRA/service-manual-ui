@@ -48,7 +48,7 @@
   }
 }
 
-// White button on green banner — Defra branded
+// White button on green banner. Defra branded.
 .app-triage__start-button.govuk-button--start {
   background-color: $govuk-white;
   color: $defra-green;
@@ -147,7 +147,7 @@
     background-color: $govuk-light-grey;
   }
 
-  // Keyboard focus state — outline on the card, link itself loses outline
+  // Keyboard focus state: outline on the card, link itself loses outline.
   &:has(.app-triage__card-link:focus-visible) {
     outline: 3px solid $govuk-focus-colour;
     outline-offset: -3px;

@@ -1,5 +1,5 @@
 /**
- * AI tools radar — progressive-enhancement filter and search.
+ * AI tools radar. Progressive-enhancement filter and search.
  *
  * Without JavaScript, the radar shows all entries grouped by status
  * and all CTAs use generic mailto subjects.
@@ -112,7 +112,7 @@ export function initRadar() {
     }
   }
 
-  // Filter chips — anchor links that JS upgrades to in-place filters.
+  // Filter chips: anchor links that JS upgrades to in-place filters.
   // Without JS the links jump to section anchors (progressive enhancement).
   // When JS is active we swap aria-current for aria-pressed to match the
   // semantics of a toggle control rather than navigation.
@@ -141,7 +141,7 @@ export function initRadar() {
     })
   })
 
-  // Search — filter by name as user types
+  // Search: filter by name as user types
   if (search) {
     search.addEventListener('input', (event) => {
       activeQuery = event.target.value.toLowerCase().trim()

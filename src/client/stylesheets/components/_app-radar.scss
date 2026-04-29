@@ -5,10 +5,10 @@
 // Progressive enhancement: works without JS, JS adds live filter/search.
 
 .app-radar {
-  // Layout container — no max-width, inherits from parent
+  // Layout container. No max-width, inherits from parent.
 }
 
-// Filter controls — search input and status chips
+// Filter controls: search input and status chips
 .app-radar-controls {
   margin: 0 0 24px;
   padding: 16px;
@@ -33,7 +33,7 @@
   min-width: 200px;
 }
 
-// Filter chips — quick status filter
+// Filter chips: quick status filter
 .app-radar-chips {
   display: flex;
   flex-wrap: wrap;
@@ -99,7 +99,7 @@
   opacity: 0.85;
 }
 
-// Section heading — one per status group
+// Section heading: one per status group
 .app-radar-section {
   margin: 0 0 32px;
 
@@ -127,7 +127,7 @@
   }
 }
 
-// Card — accessible card pattern from defra-tile:
+// Card. Accessible card pattern from defra-tile:
 // only the heading is the semantic link, ::after stretches click target
 // across the whole card so any click on the card opens the detail page.
 .app-radar-card {
@@ -232,7 +232,7 @@
   margin-bottom: 0;
 }
 
-// Empty state — when a section has no entries (e.g. Do not use)
+// Empty state. Used when a section has no entries (for example, Do not use).
 .app-radar-empty {
   padding: 16px;
   background: $govuk-light-grey;
@@ -241,7 +241,7 @@
   font-style: italic;
 }
 
-// No results — when search/filter returns nothing
+// No results. Used when search or filter returns nothing.
 // Styled as search feedback (typography + thin rule), not a callout panel,
 // so it's visually distinct from the support box on the same page.
 .app-radar-noresults {
@@ -269,7 +269,7 @@
   color: $govuk-black;
 }
 
-// Button styled to look like a link — for JS-only actions inside the radar
+// Button styled to look like a link, for JS-only actions inside the radar.
 // (e.g. clear search). Semantically a button, visually GOV.UK link.
 .app-radar-link-button {
   background: none;
@@ -280,7 +280,7 @@
   cursor: pointer;
 }
 
-// Status classifications key — explains what each status means
+// Status classifications key: explains what each status means.
 .app-radar-key {
   margin: 0 0 24px;
   padding: 0;
@@ -311,7 +311,7 @@
   color: $govuk-black;
 }
 
-// Tool detail page — inline meta strip at the top
+// Tool detail page. Inline meta strip at the top.
 // Sits below the H1 to anchor the reader in status + category context
 .app-tool-meta {
   display: flex;
@@ -329,7 +329,7 @@
   letter-spacing: 0.5px;
 }
 
-// "On this page" / "Contents" navigation — GOV.UK Service Manual style
+// "On this page" / "Contents" navigation, GOV.UK Service Manual style.
 // Sits below the intro and above the first H2, lets users jump to a section
 .app-contents {
   margin: 24px 0 32px;

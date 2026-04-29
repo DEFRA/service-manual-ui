@@ -22,7 +22,7 @@ body {
 }
 
 // Respect users who have asked the OS for reduced motion.
-// Strips transitions and animations everywhere — focus rings and other
+// Strips transitions and animations everywhere. Focus rings and other
 // instant state changes still work, but the gentle hover/colour eases stop.
 @media (prefers-reduced-motion: reduce) {
   *,
