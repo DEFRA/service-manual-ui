@@ -88,7 +88,7 @@ describe('#homeController', () => {
       expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
       expect(result).toEqual(
         expect.stringContaining(
-          'Check the requirements you need to follow and how to design and deliver great services'
+          "Deliver services using Defra's standards and guidance."
         )
       )
     })
@@ -103,12 +103,27 @@ describe('#homeController', () => {
       expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
       expect(result).toEqual(
         expect.stringContaining(
-          'Find out about the different delivery groups and how they support your work'
+          'Learn how delivery groups support your work across Defra.'
         )
       )
     })
 
-    test('should display two main tiles', async () => {
+    test('should display AI digital toolkit tile with correct link and description', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/'
+      })
+
+      expect(result).toEqual(expect.stringContaining('AI digital toolkit'))
+      expect(result).toEqual(expect.stringContaining('href="/ai-playbook"'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Adopt AI responsibly with guidance, tools and patterns.'
+        )
+      )
+    })
+
+    test('should display three main tiles', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/'
@@ -116,7 +131,7 @@ describe('#homeController', () => {
 
       const tileMatches = result.match(/class="defra-tile"/g)
       expect(tileMatches).not.toBeNull()
-      expect(tileMatches.length).toBe(2)
+      expect(tileMatches.length).toBe(3)
     })
   })
 

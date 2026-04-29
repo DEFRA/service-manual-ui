@@ -1,0 +1,190 @@
+{% extends 'layouts/page.njk' %}
+
+{% block pageTitle %}
+  {{ pageTitle }} | {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<div class="defra-hero">
+  <div class="defra-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          {{ heading }}
+        </h1>
+        <p class="govuk-body-l">
+          Patterns, tools and guidance for using AI responsibly
+          and effectively at Defra.
+        </p>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+        <aside class="defra-hero__whats-new" aria-label="About this handbook">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+            About this handbook
+          </h2>
+          <p class="govuk-body-s" style="color: #ffffff;">
+            This handbook helps practitioners across Defra use AI in ways
+            that are safe, effective and aligned with government standards.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="defra-width-container defra-main-inner">
+  <div class="defra-version-banner">
+    <span class="defra-version-banner__label">New</span>
+    <span class="defra-version-banner__text">
+      We are building the AI practitioner handbook.
+      <a href="mailto:cctsassurance@defra.gov.uk" class="govuk-link">Get involved or suggest content</a>.
+    </span>
+  </div>
+
+  <section class="defra-section">
+    <h2 class="govuk-heading-l">Patterns for using AI</h2>
+    <p class="govuk-body">Reusable approaches for common AI tasks across Defra.</p>
+
+    <ul class="defra-tile-grid">
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/summarising-content" class="defra-tile__link">Summarising content</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Use AI to summarise long documents, consultations
+            and research findings.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/drafting-and-editing" class="defra-tile__link">Drafting and editing</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Use AI to draft, restructure or improve written
+            content for services and guidance.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/analysing-data" class="defra-tile__link">Analysing data</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Use AI to find patterns, trends and insights
+            in structured and unstructured data.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr
+    class="govuk-section-break govuk-section-break--visible govuk-section-break--l"
+  />
+
+  <section class="defra-section">
+    <h2 class="govuk-heading-l">Before you start</h2>
+    <p class="govuk-body">Understand the rules, risks and responsibilities.</p>
+
+    <ul class="defra-tile-grid defra-tile-grid--half">
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/approved-tools" class="defra-tile__link">Approved tools</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Find out which AI tools are approved for use
+            at Defra and how to get access.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/using-ai-responsibly" class="defra-tile__link">Using AI responsibly</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Meet your obligations around ethics, bias, data
+            protection and transparency.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr
+    class="govuk-section-break govuk-section-break--visible govuk-section-break--l"
+  />
+
+  <section class="defra-section">
+    <h2 class="govuk-heading-l">Build your skills</h2>
+    <p class="govuk-body">Learn how to get better results from AI tools.</p>
+
+    <ul class="defra-tile-grid defra-tile-grid--half">
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/prompting-techniques" class="defra-tile__link">Prompting techniques</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Write clear, effective prompts that give you
+            useful and reliable results.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-practitioner-handbook/checking-ai-outputs" class="defra-tile__link">Checking AI outputs</a>
+          </h3>
+          <p class="govuk-body-s defra-tile__body">
+            Review, verify and fact-check content generated
+            by AI before using it.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr
+    class="govuk-section-break govuk-section-break--visible govuk-section-break--l"
+  />
+
+  <section class="defra-section">
+    <h2 class="govuk-heading-l">Get involved</h2>
+    <p class="govuk-body">Help shape how Defra uses AI.</p>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/ai-practitioner-handbook/share-a-pattern" class="govuk-link">Share a pattern</a>
+        </h3>
+        <p class="govuk-body">
+          Tell us how your team is using AI so we can turn it into a
+          pattern others can reuse.
+        </p>
+      </div>
+
+      <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <a href="/ai-practitioner-handbook/ai-and-sustainability" class="govuk-link">AI and sustainability</a>
+        </h3>
+        <p class="govuk-body">
+          Choose energy-efficient models and reduce the environmental
+          impact of AI in your service.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

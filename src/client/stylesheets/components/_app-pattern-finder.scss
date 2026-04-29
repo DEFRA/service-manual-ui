@@ -1,0 +1,57 @@
+@use '../variables/colours' as *;
+
+// ===== Pattern finder =====
+// Inline decision aid on /ai-playbook/patterns. The primary interaction on the
+// page; there is no static catalogue beneath it. Hidden in HTML by default;
+// JS removes [hidden] when the bundle loads.
+//
+// Without JS, the page falls back to the introductory paragraphs, the left-nav
+// listing of the four pattern detail pages, and the "Patterns in flight" panel.
+
+// The finder reads as a "tool". White panel with a thin mid-grey border on
+// three sides, and the Defra-green stripe on the left as the brand signature.
+// This deliberately differs from the support box at the bottom of the page
+// (light-grey background, green left border only), which is a system pattern
+// that appears on every page. Different visual language, different role.
+.app-pattern-finder {
+  margin: 0 0 40px;
+  padding: 24px 28px 28px;
+  background: $govuk-white;
+  border: 1px solid $govuk-mid-grey;
+  border-left: 4px solid $defra-green;
+
+  // Sit the first heading flush with the panel top.
+  h2:first-child,
+  .govuk-heading-m {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  // Tighten the legend so it reads as a question, not a section heading.
+  .govuk-fieldset__legend {
+    margin-bottom: 12px;
+  }
+}
+
+// Result panel. Appears below the radios when a priority is selected.
+// Sits on a tinted-grey background inside the white card so it reads as a
+// distinct "answer" zone. No competing borders.
+.app-pattern-finder__result {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background-color: $govuk-light-grey;
+
+  // Pull the bottom margin off the last button so the panel ends cleanly.
+  .govuk-button {
+    margin-bottom: 0;
+  }
+
+  // Tighten the spacing between the recommendation paragraphs.
+  .govuk-body-l {
+    margin-bottom: 8px;
+  }
+
+  .govuk-body {
+    margin-bottom: 16px;
+  }
+}

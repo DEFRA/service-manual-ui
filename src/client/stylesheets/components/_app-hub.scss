@@ -1,0 +1,128 @@
+@use '../variables/colours' as *;
+
+// ===== Hub layout =====
+// Card-based gateway page inspired by GOV.UK Service Manual
+// and NHS Design System hub pages. Visually distinct from the
+// left-nav section layout.
+
+.app-hub {
+  max-width: 960px;
+}
+
+.app-hub__header {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $govuk-mid-grey;
+}
+
+// ── Stat cards ──
+// Featured impact numbers in a row, each a clickable card.
+
+.app-hub__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+
+  @media (max-width: 48.0525em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 30em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-stat-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-top: 4px solid $defra-green;
+  background-color: $govuk-light-grey;
+  text-decoration: none;
+  color: $govuk-black;
+  transition: background-color 0.15s ease-out, border-color 0.15s ease-out;
+
+  &:hover {
+    background-color: darken(#f3f2f1, 5%);
+    border-top-color: darken(#008531, 10%);
+  }
+
+  &:focus {
+    outline: 3px solid $govuk-focus-colour;
+    outline-offset: 0;
+    box-shadow: inset 0 -3px 0 $govuk-black;
+  }
+}
+
+.app-stat-card__number {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: $defra-green;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.app-stat-card__label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 5px;
+  line-height: 1.25;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+.app-stat-card__description {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #505a5f;
+  line-height: 1.4;
+  font-family: "GDS Transport", arial, sans-serif;
+}
+
+// ── Hub sections ──
+// Grouped content areas with card lists.
+
+.app-hub__section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $govuk-mid-grey;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.app-hub__card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  @media (max-width: 48.0525em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-hub__card {
+  padding: 15px 15px 15px 0;
+  border-bottom: 1px solid #dee0e2;
+
+  &:nth-child(odd) {
+    padding-right: 30px;
+  }
+
+  &:nth-child(even) {
+    padding-left: 15px;
+  }
+}
+
+.app-hub__card-title {
+  margin-bottom: 5px;
+}
+
+.app-hub__card-description {
+  margin-bottom: 5px;
+  color: #505a5f;
+}

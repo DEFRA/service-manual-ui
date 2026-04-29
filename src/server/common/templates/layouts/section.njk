@@ -2,7 +2,7 @@
 
 {% block beforeContent %}
 {{ govukBreadcrumbs({
-  items: [
+  items: breadcrumbItems or [
     { text: "Digital Defra", href: "/" },
     { text: "Digital service manual", href: "/service-manual" },
     { text: sectionTitle or title }
@@ -18,9 +18,9 @@
   </div>
 
   <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-xl">{{ caption }}</span>
+    {% if caption %}<span class="govuk-caption-xl">{{ caption }}</span>{% endif %}
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body-l">{{ description }}</p>
+    {% if description %}<p class="govuk-body-l">{{ description }}</p>{% endif %}
     {{ content | markdown | safe }}
     {% include "partials/support-box.njk" %}
   </div>

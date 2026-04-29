@@ -10,10 +10,13 @@
     <div class="defra-header__brand-group">
       <img
         src="{{ getAssetPath('images/defra-logo.svg') }}"
-        alt="Department for Environment, Food &amp; Rural Affairs"
+        alt=""
+        role="presentation"
         class="defra-header__logo"
       />
-      <a href="/" class="defra-header__service-name">{{ headerServiceName | default('Digital Defra') }}</a>
+      <a href="/" class="defra-header__service-name">
+        <span class="govuk-visually-hidden">Department for Environment, Food and Rural Affairs: </span>{{ headerServiceName | default('Digital Defra') }}
+      </a>
     </div>
     {% include "partials/header-search.njk" %}
   </div>
@@ -47,7 +50,7 @@
           <h2 class="govuk-heading-m defra-tile__title">
             <a href="/service-manual" class="defra-tile__link">Digital service manual</a>
           </h2>
-          <p class="govuk-body defra-tile__body">Check the requirements you need to follow and how to design and deliver great services in Defra.</p>
+          <p class="govuk-body defra-tile__body">Deliver services using Defra's standards and guidance.</p>
         </div>
       </li>
 
@@ -57,7 +60,19 @@
           <h2 class="govuk-heading-m defra-tile__title">
             <a href="/delivery-groups" class="defra-tile__link">Delivery groups</a>
           </h2>
-          <p class="govuk-body defra-tile__body">Find out about the different delivery groups and how they support your work.</p>
+          <p class="govuk-body defra-tile__body">Learn how delivery groups support your work across Defra.</p>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="defra-tile-grid defra-tile-grid--half govuk-!-margin-top-2">
+      <li>
+        <div class="defra-tile">
+          <span class="govuk-caption-m">Resources</span>
+          <h2 class="govuk-heading-m defra-tile__title">
+            <a href="/ai-playbook" class="defra-tile__link">AI digital toolkit</a>
+          </h2>
+          <p class="govuk-body defra-tile__body">Adopt AI responsibly with guidance, tools and patterns.</p>
         </div>
       </li>
     </ul>
@@ -67,7 +82,6 @@
       <p class="govuk-body">We are adding more guidance soon. Contact us to suggest content.</p>
       <a href="mailto:cctsassurance@defra.gov.uk" class="govuk-button">Contact us</a>
     </div>
-
 
   </div>
 {% endblock %}

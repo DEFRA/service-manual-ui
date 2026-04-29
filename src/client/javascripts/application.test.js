@@ -8,6 +8,7 @@ import { initServiceNavigation } from './application.js'
 // Mock govuk-frontend before importing application.js
 vi.mock('govuk-frontend', () => ({
   createAll: vi.fn(),
+  Accordion: vi.fn(),
   Button: vi.fn(),
   Checkboxes: vi.fn(),
   ErrorSummary: vi.fn(),

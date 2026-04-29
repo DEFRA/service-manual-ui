@@ -1,0 +1,90 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+  <a href="{{ questionBackHref or 'javascript:history.back()' }}" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if isResult %}
+      <h1 class="govuk-heading-xl">{{ title }}</h1>
+      {{ content | markdown | safe }}
+    {% else %}
+      <form method="get" action="{{ questionContinueHref }}">
+        <div class="govuk-form-group">
+
+          {# Radio question (default) #}
+          {% if questionInputType == 'radio' or not questionInputType %}
+            {% if questionOptions %}
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                {% if questionCaption %}
+                <span class="govuk-caption-l">{{ questionCaption }}</span>
+                {% endif %}
+                <h1 class="govuk-fieldset__heading">{{ title }}</h1>
+              </legend>
+              {% if questionHint %}
+              <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
+              {% endif %}
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% for option in questionOptions %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="question-{{ loop.index }}" name="answer" type="radio" value="{{ option.text }}">
+                  <label class="govuk-label govuk-radios__label" for="question-{{ loop.index }}">{{ option.text }}</label>
+                </div>
+                {% endfor %}
+              </div>
+            </fieldset>
+            {% endif %}
+          {% endif %}
+
+          {# Email input #}
+          {% if questionInputType == 'email' %}
+            {% if questionCaption %}
+            <span class="govuk-caption-l" id="question-caption">{{ questionCaption }}</span>
+            {% endif %}
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="question-input">{{ title }}</label>
+            </h1>
+            {% if questionHint %}
+            <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
+            {% endif %}
+            <input
+              class="govuk-input govuk-input--width-30"
+              id="question-input"
+              name="answer"
+              type="email"
+              autocomplete="email"
+              spellcheck="false"
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}">
+          {% endif %}
+
+          {# Textarea input #}
+          {% if questionInputType == 'textarea' %}
+            {% if questionCaption %}
+            <span class="govuk-caption-l" id="question-caption">{{ questionCaption }}</span>
+            {% endif %}
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="question-input">{{ title }}</label>
+            </h1>
+            {% if questionHint %}
+            <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
+            {% endif %}
+            <textarea
+              class="govuk-textarea"
+              id="question-input"
+              name="answer"
+              rows="{{ questionRows or 5 }}"
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}"></textarea>
+          {% endif %}
+
+        </div>
+        <button type="submit" class="govuk-button" data-module="govuk-button">{{ questionContinueText or 'Continue' }}</button>
+      </form>
+    {% endif %}
+
+  </div>
+</div>
+{% endblock %}
