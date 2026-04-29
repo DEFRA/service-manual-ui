@@ -24,13 +24,15 @@ body {
 // Respect users who have asked the OS for reduced motion.
 // Strips transitions and animations everywhere. Focus rings and other
 // instant state changes still work, but the gentle hover/colour eases stop.
+// !important is the documented pattern for prefers-reduced-motion overrides:
+// we need to win against any component-level transitions defined elsewhere.
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important; // stylelint-disable-line declaration-no-important
+    animation-iteration-count: 1 !important; // stylelint-disable-line declaration-no-important
+    transition-duration: 0.001ms !important; // stylelint-disable-line declaration-no-important
+    scroll-behavior: auto !important; // stylelint-disable-line declaration-no-important
   }
 }
