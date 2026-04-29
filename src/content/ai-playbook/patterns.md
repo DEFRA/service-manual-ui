@@ -43,9 +43,8 @@ A pattern is a reusable approach to a recurring problem, written up so the next 
 
 These are early proofs of concept, aimed at engineers and technical architects. More are coming for other digital roles. [Email the team](mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry) if one fits your work, whatever your role.
 
-## Find a pattern that fits
-
 <div class="app-pattern-finder" data-pattern-finder hidden>
+  <h2 class="govuk-heading-m">Find a pattern that fits</h2>
   <form data-pattern-finder-form>
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
