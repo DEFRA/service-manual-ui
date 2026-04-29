@@ -13,8 +13,6 @@ sectionNav:
     items:
       - text: Nature Restoration Fund Discovery
         href: /ai-playbook/case-studies/nrf-discovery
-      - text: IPAFFS replatforming
-        href: /ai-playbook/case-studies/ipaffs-replatforming
       - text: Packing List Parser cycle time
         href: /ai-playbook/case-studies/plp-cycle-time
       - text: Nature Restoration Fund Alpha
@@ -45,8 +43,6 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-playbook
-  - text: From the field
-    href: /ai-playbook/from-the-field
   - text: Nature Restoration Fund Alpha
 supportBox:
   title: Get involved

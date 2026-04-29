@@ -63,7 +63,13 @@
 {% endblock %}
 
 {% block pageTitle %}
-  {{ pageTitle or title }} | {{ serviceName }}
+  {%- set suffix = headerServiceName or serviceName -%}
+  {%- set displayTitle = pageTitle or title -%}
+  {%- if displayTitle == suffix -%}
+    {{ displayTitle }}
+  {%- else -%}
+    {{ displayTitle }} | {{ suffix }}
+  {%- endif -%}
 {% endblock %}
 
 {% block beforeContent %}

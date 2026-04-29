@@ -63,11 +63,11 @@ supportBox:
 
   <div class="app-triage__card">
     <div class="app-triage__card-content">
-      <span class="app-triage__card-caption">75% faster migration</span>
+      <span class="app-triage__card-caption">Highest assessment score</span>
       <h3 class="govuk-heading-m app-triage__card-title">
-        <a href="/ai-playbook/case-studies/ipaffs-replatforming" class="govuk-link app-triage__card-link">IPAFFS replatforming</a>
+        <a href="/ai-playbook/case-studies/nrf-alpha" class="govuk-link app-triage__card-link">Nature Restoration Fund Alpha</a>
       </h3>
-      <p class="govuk-body app-triage__card-description">Legacy service moved to new CDP cloud infrastructure in a quarter of the estimated time.</p>
+      <p class="govuk-body app-triage__card-description">The team's AI-enabled discovery led to one of Defra's highest scores at alpha assessment.</p>
     </div>
     <svg class="app-triage__card-chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
@@ -87,5 +87,3 @@ supportBox:
     </svg>
   </div>
 </div>
-
-<p class="govuk-body govuk-!-margin-top-4"><a href="/ai-playbook/from-the-field" class="govuk-link">See all case studies and lessons learned</a></p>

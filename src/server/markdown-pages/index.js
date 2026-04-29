@@ -102,7 +102,6 @@ const markdownRoutes = [
   '/ai-playbook/getting-started',
   '/ai-playbook/case-studies/nrf-discovery',
   '/ai-playbook/case-studies/nrf-alpha',
-  '/ai-playbook/case-studies/ipaffs-replatforming',
   '/ai-playbook/case-studies/plp-cycle-time',
   '/ai-playbook/lessons-learned/code-quality',
   '/ai-playbook/lessons-learned/governance',

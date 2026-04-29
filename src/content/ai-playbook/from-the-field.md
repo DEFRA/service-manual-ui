@@ -12,8 +12,6 @@ sectionNav:
     items:
       - text: Nature Restoration Fund Discovery
         href: /ai-playbook/case-studies/nrf-discovery
-      - text: IPAFFS replatforming
-        href: /ai-playbook/case-studies/ipaffs-replatforming
       - text: Packing List Parser cycle time
         href: /ai-playbook/case-studies/plp-cycle-time
       - text: Nature Restoration Fund Alpha
@@ -59,7 +57,6 @@ What Defra teams have done with AI in real delivery work, and what they wish the
 Real outcomes from teams across the AI pilot, with measurable results.
 
 - [Nature Restoration Fund Discovery](/ai-playbook/case-studies/nrf-discovery): 56% faster research synthesis on a 12-week discovery.
-- [IPAFFS replatforming](/ai-playbook/case-studies/ipaffs-replatforming): 75% faster migration to CDP cloud infrastructure.
 - [Packing List Parser cycle time](/ai-playbook/case-studies/plp-cycle-time): 61% faster delivery cycle with GitHub Copilot.
 - [Nature Restoration Fund Alpha](/ai-playbook/case-studies/nrf-alpha): one of Defra's highest assessment scores after an AI-enabled discovery.
 
