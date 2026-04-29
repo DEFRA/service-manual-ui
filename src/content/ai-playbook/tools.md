@@ -50,7 +50,7 @@ supportBox:
 <div class="app-radar" id="radar" data-radar>
 
 <div class="app-radar-controls">
-  <div class="app-radar-controls__row">
+  <div class="app-radar-controls__row" data-radar-search-wrapper hidden>
     <div class="app-radar-controls__search govuk-form-group">
       <label class="govuk-label" for="radar-search">Search by name</label>
       <input class="govuk-input" id="radar-search" name="radar-search" type="search" data-radar-search autocomplete="off" spellcheck="false">

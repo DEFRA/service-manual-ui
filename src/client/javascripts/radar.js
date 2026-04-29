@@ -18,12 +18,20 @@ export function initRadar() {
   const cards = Array.from(root.querySelectorAll('.app-radar-card'))
   const sections = Array.from(root.querySelectorAll('.app-radar-section'))
   const chips = Array.from(root.querySelectorAll('[data-radar-chip]'))
+  const searchWrapper = root.querySelector('[data-radar-search-wrapper]')
   const search = root.querySelector('[data-radar-search]')
   const live = root.querySelector('[data-radar-live]')
   const noResults = root.querySelector('[data-radar-noresults]')
   const noResultsTitle = root.querySelector('[data-radar-noresults-title]')
   const noResultsLink = root.querySelector('[data-radar-noresults-link]')
   const clearLink = root.querySelector('[data-radar-clear]')
+
+  // Reveal the search input. It's hidden in HTML by default so users without
+  // JavaScript don't see a search box that wouldn't filter anything (no form
+  // wrapper, no server-side search). With JS, the box becomes the smart search.
+  if (searchWrapper) {
+    searchWrapper.hidden = false
+  }
 
   const MAILBOX = 'AICapabilityAndEnablement@defra.gov.uk'
 
