@@ -12,11 +12,6 @@ const isProduction = process.env.NODE_ENV === 'production'
 const isTest = process.env.NODE_ENV === 'test'
 const isDevelopment = process.env.NODE_ENV === 'development'
 
-// CDP injects ENVIRONMENT=dev|test|perf-test|prod at runtime in deployed
-// environments. It is unset locally. The AI digital toolkit defaults to
-// hidden in prod and visible everywhere else; AI_TOOLKIT_ENABLED overrides.
-const isProdEnvironment = process.env.ENVIRONMENT === 'prod'
-
 convict.addFormats(convictFormatWithValidator)
 
 export const config = convict({
@@ -151,19 +146,12 @@ export const config = convict({
       env: 'TRACING_HEADER'
     }
   },
-  environment: {
-    doc: 'The deployment environment name. Set by CDP to one of dev, test, perf-test, prod. Null when running locally.',
-    format: String,
-    nullable: true,
-    default: null,
-    env: 'ENVIRONMENT'
-  },
-  aiToolkit: {
+  aiContent: {
     enabled: {
-      doc: 'Whether the AI digital toolkit at /ai-playbook is visible. Defaults to off in prod and on everywhere else. Set AI_TOOLKIT_ENABLED to override.',
+      doc: 'Whether AI content (the AI digital toolkit at /ai-playbook) is visible. Defaults to false. Set ENABLE_AI_CONTENT=true on each environment that should show the content.',
       format: Boolean,
-      default: !isProdEnvironment,
-      env: 'AI_TOOLKIT_ENABLED'
+      default: false,
+      env: 'ENABLE_AI_CONTENT'
     }
   }
 })

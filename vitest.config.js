@@ -5,6 +5,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     clearMocks: true,
+    setupFiles: ['./vitest.setup.js'],
     coverage: {
       provider: 'v8',
       reportsDirectory: './coverage',

@@ -1,21 +1,23 @@
 /**
- * Home page and route registration tests with the AI digital toolkit gated off.
+ * Home page and route registration tests with AI content gated off.
  *
- * The gate is config-driven: AI_TOOLKIT_ENABLED=false (or ENVIRONMENT=prod via
- * the convict default) hides the home tile and unregisters the /ai-playbook
- * routes. Convict reads env vars once at module import, so this file sets the
- * env var, resets the module cache, then dynamically imports the server. That
- * keeps the gated state isolated to this test file and leaves the rest of the
- * suite running with the default-on configuration.
+ * The gate is config-driven: aiContent.enabled defaults to false unless
+ * ENABLE_AI_CONTENT=true is set. The wider test suite has it set to true via
+ * vitest.setup.js so the default-on tests pass. This file unsets the env var,
+ * resets the module cache, then dynamically imports the server. That keeps the
+ * gated state isolated to this file and leaves the rest of the suite running
+ * with content visible.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { statusCodes } from '../common/constants/status-codes.js'
 
-describe('AI toolkit gated off', () => {
+describe('AI content gated off', () => {
   let server
+  let previousEnableAiContent
 
   beforeAll(async () => {
-    process.env.AI_TOOLKIT_ENABLED = 'false'
+    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
+    delete process.env.ENABLE_AI_CONTENT
     vi.resetModules()
     const { createServer } = await import('../server.js')
     server = await createServer()
@@ -24,7 +26,11 @@ describe('AI toolkit gated off', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    delete process.env.AI_TOOLKIT_ENABLED
+    if (previousEnableAiContent === undefined) {
+      delete process.env.ENABLE_AI_CONTENT
+    } else {
+      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
+    }
     vi.resetModules()
   })
 

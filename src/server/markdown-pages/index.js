@@ -79,30 +79,6 @@ const markdownRoutes = [
   '/testing-and-assurance/recommended-approach',
   '/security',
   '/security/common-tasks',
-  '/ai-practitioner-handbook',
-  '/ai-practitioner-handbook/workflow',
-  '/ai-practitioner-handbook/the-four-pillars',
-  '/ai-practitioner-handbook/choosing-models',
-  '/ai-practitioner-handbook/working-mindset',
-  '/ai-practitioner-handbook/ethics',
-  '/ai-practitioner-handbook/security',
-  '/ai-practitioner-handbook/sustainability',
-  '/ai-practitioner-handbook/ai-assistant',
-  '/ai-practitioner-handbook/green-summarisation',
-  '/ai-practitioner-handbook/agent-swarms',
-  '/ai-practitioner-handbook/token-optimisation',
-  '/ai-practitioner-handbook/ai-code-quality',
-  '/ai-practitioner-handbook/ai-governance',
-  '/ai-practitioner-handbook/ai-output-validation',
-  '/ai-practitioner-handbook/approved-tools',
-  '/ai-practitioner-handbook/case-studies',
-  '/ai-practitioner-handbook/nrf-discovery',
-  '/ai-practitioner-handbook/ipaffs-replatforming',
-  '/ai-practitioner-handbook/plp-cycle-time',
-  '/ai-practitioner-handbook/nrf-alpha',
-  '/ai-practitioner-handbook/prompt-library',
-  '/ai-practitioner-handbook/tech-radar',
-  '/ai-in-practice',
   '/ai-playbook',
   '/ai-playbook/getting-started',
   '/ai-playbook/case-studies/nrf-discovery',
@@ -161,8 +137,8 @@ export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
     register: async (server) => {
-      const aiToolkitEnabled = config.get('aiToolkit.enabled')
-      const enabledRoutes = aiToolkitEnabled
+      const aiContentEnabled = config.get('aiContent.enabled')
+      const enabledRoutes = aiContentEnabled
         ? markdownRoutes
         : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
 
