@@ -145,6 +145,14 @@ export const config = convict({
       default: 'x-cdp-request-id',
       env: 'TRACING_HEADER'
     }
+  },
+  aiContent: {
+    enabled: {
+      doc: 'Whether AI content (the AI digital toolkit at /ai-playbook) is visible. Defaults to false. Set ENABLE_AI_CONTENT=true on each environment that should show the content.',
+      format: Boolean,
+      default: false,
+      env: 'ENABLE_AI_CONTENT'
+    }
   }
 })
 
