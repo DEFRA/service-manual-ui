@@ -1,4 +1,9 @@
+import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
+
+function isAiToolkitRoute(routePath) {
+  return routePath === '/ai-playbook' || routePath.startsWith('/ai-playbook/')
+}
 
 /**
  * Markdown page routes - maps URL paths to markdown files
@@ -156,7 +161,12 @@ export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
     register: async (server) => {
-      const routes = markdownRoutes.map((path) => ({
+      const aiToolkitEnabled = config.get('aiToolkit.enabled')
+      const enabledRoutes = aiToolkitEnabled
+        ? markdownRoutes
+        : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
+
+      const routes = enabledRoutes.map((path) => ({
         method: 'GET',
         path,
         handler: getMarkdownPage(`${path.slice(1)}.md`)

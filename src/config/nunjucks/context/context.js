@@ -67,6 +67,9 @@ export function context(request) {
     breadcrumbs: [],
     navigation: buildNavigation(request),
     gtmContainerId: config.get('googleTagManager.containerId'),
+    aiToolkit: {
+      enabled: config.get('aiToolkit.enabled')
+    },
     cookieConsentSet,
     cookieAction,
     hasAnalyticsConsent,
