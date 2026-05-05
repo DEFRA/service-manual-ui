@@ -1,15 +1,8 @@
 import { config } from '../../config/config.js'
 import * as controller from './controller.js'
+import { triageQuestions } from './questions.js'
 
 const checkYourAnswersPath = '/ai-toolkit/triage/check-your-answers'
-
-const triageQuestions = [
-  '/ai-toolkit/triage/question-1',
-  '/ai-toolkit/triage/question-2',
-  '/ai-toolkit/triage/question-3',
-  '/ai-toolkit/triage/question-4',
-  '/ai-toolkit/triage/question-5'
-]
 
 export const aiTriage = {
   plugin: {
@@ -19,7 +12,7 @@ export const aiTriage = {
         return
       }
 
-      const questionRoutes = triageQuestions.flatMap((path) => {
+      const triageRoutes = triageQuestions.flatMap((path) => {
         const filename = `${path.slice(1)}.md`
         return [
           {
@@ -41,7 +34,7 @@ export const aiTriage = {
         ]
       })
 
-      server.route(questionRoutes)
+      server.route(triageRoutes)
 
       server.route([
         {
