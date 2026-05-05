@@ -23,6 +23,8 @@ questionCaption: Question 3 of 5
 questionInputType: textarea
 questionHint: For example, caseworkers, the public or internal teams. Add numbers if you can.
 questionRows: 6
+questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-2
+questionSubmitHref: /ai-toolkit/triage/question-3
 questionContinueHref: /ai-toolkit/triage/question-4
 ---

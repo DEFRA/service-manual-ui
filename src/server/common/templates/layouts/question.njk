@@ -12,8 +12,20 @@
       <h1 class="govuk-heading-xl">{{ title }}</h1>
       {{ content | markdown | safe }}
     {% else %}
-      <form method="get" action="{{ questionContinueHref }}">
-        <div class="govuk-form-group">
+      {% if questionError %}
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">There is a problem</h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li><a href="#question-input">{{ questionError }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <form method="post" action="{{ questionSubmitHref }}">
+        <div class="govuk-form-group{% if questionError %} govuk-form-group--error{% endif %}">
 
           {# Radio question (default) #}
           {% if questionInputType == 'radio' or not questionInputType %}
@@ -28,10 +40,15 @@
               {% if questionHint %}
               <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
               {% endif %}
+              {% if questionError %}
+              <p id="question-input-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ questionError }}
+              </p>
+              {% endif %}
               <div class="govuk-radios" data-module="govuk-radios">
                 {% for option in questionOptions %}
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="question-{{ loop.index }}" name="answer" type="radio" value="{{ option.text }}">
+                  <input class="govuk-radios__input" id="question-{{ loop.index }}" name="answer" type="radio" value="{{ option.text }}"{% if questionValue == option.text %} checked{% endif %}>
                   <label class="govuk-label govuk-radios__label" for="question-{{ loop.index }}">{{ option.text }}</label>
                 </div>
                 {% endfor %}
@@ -51,14 +68,20 @@
             {% if questionHint %}
             <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
             {% endif %}
+            {% if questionError %}
+            <p id="question-input-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ questionError }}
+            </p>
+            {% endif %}
             <input
-              class="govuk-input govuk-input--width-30"
+              class="govuk-input govuk-input--width-30{% if questionError %} govuk-input--error{% endif %}"
               id="question-input"
               name="answer"
               type="email"
               autocomplete="email"
               spellcheck="false"
-              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}">
+              value="{{ questionValue or '' }}"
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint {% endif %}{% if questionError %}question-input-error{% endif %}">
           {% endif %}
 
           {# Textarea input #}
@@ -72,12 +95,17 @@
             {% if questionHint %}
             <div id="question-hint" class="govuk-hint">{{ questionHint }}</div>
             {% endif %}
+            {% if questionError %}
+            <p id="question-input-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ questionError }}
+            </p>
+            {% endif %}
             <textarea
-              class="govuk-textarea"
+              class="govuk-textarea{% if questionError %} govuk-textarea--error{% endif %}"
               id="question-input"
               name="answer"
               rows="{{ questionRows or 5 }}"
-              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint{% endif %}"></textarea>
+              aria-describedby="{% if questionCaption %}question-caption {% endif %}{% if questionHint %}question-hint {% endif %}{% if questionError %}question-input-error{% endif %}">{{ questionValue or '' }}</textarea>
           {% endif %}
 
         </div>

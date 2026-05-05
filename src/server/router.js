@@ -10,6 +10,7 @@ import { serviceManual } from './service-manual/index.js'
 import { deliveryGroups } from './delivery-groups/index.js'
 import { serveStaticFiles } from './common/helpers/serve-static-files.js'
 import { interruption } from './interruption/index.js'
+import { aiTriage } from './ai-triage/index.js'
 
 export const router = {
   plugin: {
@@ -17,7 +18,8 @@ export const router = {
     async register(server) {
       await server.register([inert])
 
-      // Health-check route. Used by platform to check if service is running, do not remove!
+      // Health-check route. Used by platform to check if service is
+      // running, do not remove!
       await server.register([health])
 
       // Application specific routes, add your own routes here
@@ -29,7 +31,8 @@ export const router = {
         redirects,
         search,
         deliveryGroups,
-        interruption
+        interruption,
+        aiTriage
       ])
 
       // Static assets

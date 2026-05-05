@@ -1,0 +1,153 @@
+import { createServer } from '../server.js'
+import { statusCodes } from '../common/constants/status-codes.js'
+
+describe('#aiTriageController', () => {
+  let server
+
+  beforeAll(async () => {
+    server = await createServer()
+    await server.initialize()
+  })
+
+  afterAll(async () => {
+    await server.stop({ timeout: 0 })
+  })
+
+  describe('GET /ai-toolkit/triage/question-1', () => {
+    test('returns 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/question-1'
+      })
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('renders the question title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/question-1'
+      })
+      expect(result).toEqual(
+        expect.stringContaining('What is your email address?')
+      )
+    })
+
+    test('renders a form with method post', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/question-1'
+      })
+      expect(result).toEqual(expect.stringContaining('method="post"'))
+    })
+  })
+
+  describe('POST /ai-toolkit/triage/question-1', () => {
+    const postQuestion1 = (answer) =>
+      server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/question-1',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: `answer=${encodeURIComponent(answer)}`
+      })
+
+    test('redirects to question-2 with a valid email', async () => {
+      const { statusCode, headers } = await postQuestion1('test@example.com')
+      expect(statusCode).toBe(statusCodes.found)
+      expect(headers.location).toBe('/ai-toolkit/triage/question-2')
+    })
+
+    test('returns 200 with error when payload is empty', async () => {
+      const { statusCode, result } = await postQuestion1('')
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('govuk-error-summary'))
+    })
+
+    test('returns 200 with error when email is invalid', async () => {
+      const { statusCode, result } = await postQuestion1('not-a-valid-email')
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('govuk-error-summary'))
+    })
+  })
+
+  describe('POST /ai-toolkit/triage/question-5', () => {
+    test('redirects to check-your-answers on valid submission', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/question-5',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: `answer=${encodeURIComponent('Some attempt to solve the problem')}`
+      })
+      expect(statusCode).toBe(statusCodes.found)
+      expect(headers.location).toBe('/ai-toolkit/triage/check-your-answers')
+    })
+  })
+
+  describe('GET /ai-toolkit/triage/thank-you', () => {
+    test('returns 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you'
+      })
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('renders the thank-you content', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you'
+      })
+      expect(result).toEqual(expect.stringContaining('Thank you'))
+    })
+  })
+
+  describe('GET /ai-toolkit/triage/check-your-answers', () => {
+    test('returns 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/check-your-answers'
+      })
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('renders the page title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/check-your-answers'
+      })
+      expect(result).toEqual(expect.stringContaining('Check your answers'))
+    })
+
+    test('renders summary cards', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/check-your-answers'
+      })
+      expect(result).toEqual(
+        expect.stringContaining('govuk-summary-card')
+      )
+    })
+
+    test('renders a Change link for each question', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/check-your-answers'
+      })
+      expect(result).toEqual(
+        expect.stringContaining('/ai-toolkit/triage/question-1')
+      )
+    })
+  })
+
+  describe('POST /ai-toolkit/triage/check-your-answers', () => {
+    test('redirects to thank-you', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/check-your-answers',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: ''
+      })
+      expect(statusCode).toBe(statusCodes.found)
+      expect(headers.location).toBe('/ai-toolkit/triage/thank-you')
+    })
+  })
+})
