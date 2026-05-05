@@ -51,6 +51,12 @@ describe('#searchIndex', () => {
       expect(entry.content).not.toMatch(/^#{1,6}\s/)
       expect(entry.content).not.toMatch(/\[.*\]\(.*\)/)
     })
+
+    test('should include AI toolkit pages when the flag is enabled', () => {
+      const index = buildSearchIndex()
+
+      expect(index.some((e) => e.url.startsWith('/ai-toolkit'))).toBe(true)
+    })
   })
 
   describe('getSearchIndex', () => {
