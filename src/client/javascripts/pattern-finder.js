@@ -1,5 +1,5 @@
 /**
- * Pattern finder. Inline decision aid on /ai-playbook/patterns.
+ * Pattern finder. Inline decision aid on /ai-toolkit/patterns.
  *
  * Without JavaScript, the finder is hidden (`hidden` attribute on the wrapper)
  * and users see only the static catalogue and the "Patterns in flight" panel.

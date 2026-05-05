@@ -51,7 +51,7 @@ describe('AI content gated off', () => {
       })
 
       expect(result).not.toEqual(expect.stringContaining('AI digital toolkit'))
-      expect(result).not.toEqual(expect.stringContaining('href="/ai-playbook"'))
+      expect(result).not.toEqual(expect.stringContaining('href="/ai-toolkit"'))
     })
 
     test('still renders the other tiles', async () => {
@@ -86,37 +86,37 @@ describe('AI content gated off', () => {
   })
 
   describe('Route registration', () => {
-    test('GET /ai-playbook returns 404', async () => {
+    test('GET /ai-toolkit returns 404', async () => {
       const { statusCode } = await server.inject({
         method: 'GET',
-        url: '/ai-playbook'
+        url: '/ai-toolkit'
       })
 
       expect(statusCode).toBe(statusCodes.notFound)
     })
 
-    test('GET /ai-playbook/tools returns 404', async () => {
+    test('GET /ai-toolkit/tools returns 404', async () => {
       const { statusCode } = await server.inject({
         method: 'GET',
-        url: '/ai-playbook/tools'
+        url: '/ai-toolkit/tools'
       })
 
       expect(statusCode).toBe(statusCodes.notFound)
     })
 
-    test('GET /ai-playbook/patterns returns 404', async () => {
+    test('GET /ai-toolkit/patterns returns 404', async () => {
       const { statusCode } = await server.inject({
         method: 'GET',
-        url: '/ai-playbook/patterns'
+        url: '/ai-toolkit/patterns'
       })
 
       expect(statusCode).toBe(statusCodes.notFound)
     })
 
-    test('GET /ai-playbook/from-the-field returns 404', async () => {
+    test('GET /ai-toolkit/from-the-field returns 404', async () => {
       const { statusCode } = await server.inject({
         method: 'GET',
-        url: '/ai-playbook/from-the-field'
+        url: '/ai-toolkit/from-the-field'
       })
 
       expect(statusCode).toBe(statusCodes.notFound)

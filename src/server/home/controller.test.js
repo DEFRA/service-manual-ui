@@ -115,7 +115,7 @@ describe('#homeController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('AI digital toolkit'))
-      expect(result).toEqual(expect.stringContaining('href="/ai-playbook"'))
+      expect(result).toEqual(expect.stringContaining('href="/ai-toolkit"'))
       expect(result).toEqual(
         expect.stringContaining(
           'Adopt AI responsibly with guidance, tools and patterns.'
