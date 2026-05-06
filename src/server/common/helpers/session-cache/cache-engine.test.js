@@ -59,9 +59,17 @@ describe('#getCacheEngine', () => {
   })
 
   describe('When In memory cache engine has been requested in Production', () => {
+    let originalValue
+
     beforeEach(() => {
+      originalValue = config.get('isProduction')
+
       config.set('isProduction', true)
       getCacheEngine()
+    })
+
+    afterEach(() => {
+      config.set('isProduction', originalValue)
     })
 
     test('Should log Production warning message', () => {

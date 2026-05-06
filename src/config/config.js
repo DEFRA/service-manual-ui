@@ -185,8 +185,12 @@ export const config = convict({
       },
       password: {
         doc: 'Session cookie encryption password (must be at least 32 characters)',
-        format: String,
-        default: 'the-password-must-be-at-least-32-characters-long',
+        format: value => {
+          if (typeof value !== 'string' || value.length < 32) {
+            throw new Error('must be a string with at least 32 characters')
+          }
+         },
+         default: null,
         env: 'SESSION_COOKIE_PASSWORD',
         sensitive: true
       },
