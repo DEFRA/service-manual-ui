@@ -1,5 +1,3 @@
-import { vi } from 'vitest'
-
 import { Engine as CatboxRedis } from '@hapi/catbox-redis'
 import { Engine as CatboxMemory } from '@hapi/catbox-memory'
 
@@ -18,6 +16,7 @@ vi.mock('ioredis', () => ({
     return { on: () => ({}) }
   })
 }))
+
 vi.mock('@hapi/catbox-redis')
 vi.mock('@hapi/catbox-memory')
 vi.mock('../logging/logger.js', () => ({
@@ -59,17 +58,16 @@ describe('#getCacheEngine', () => {
   })
 
   describe('When In memory cache engine has been requested in Production', () => {
-    let originalValue
+    let orgIsProduction
 
     beforeEach(() => {
-      originalValue = config.get('isProduction')
-
+      orgIsProduction = config.get('isProduction')
       config.set('isProduction', true)
       getCacheEngine()
     })
 
     afterEach(() => {
-      config.set('isProduction', originalValue)
+      config.set('isProduction', orgIsProduction)
     })
 
     test('Should log Production warning message', () => {
