@@ -125,13 +125,13 @@ Use title case. Write out in full on the first mention. Can be called CTS Online
 
 Write out list in full. Do not use 'bovine animals'.
 
-### Centre for Environment, Fisheries and Aquaculture Science (Cefas)
-
-Capitalise. After first mention, you can shorten to sentence case Cefas. Do not use 'the Cefas'.
-
 ### central point recording centre (CPRC)
 
 Lower case. Use CPRC after first mention.
+
+### Centre for Environment, Fisheries and Aquaculture Science (Cefas)
+
+Capitalise. After first mention, you can shorten to sentence case Cefas. Do not use 'the Cefas'.
 
 ### certificate of registration
 
@@ -229,16 +229,6 @@ They're used on tags (and other identifiers, such as tattoos) to identify where 
 
 Lower case. Do not just use 'alert'.
 
-### Floodline
-
-Always sentence case, never hyperlink it.
-
-### Floodline telephone number
-
-Telephone: 0345 988 1188
-
-In text messages 'call Floodline 0345 988 1188'.
-
 ### flood risk assessment
 
 Lower case.
@@ -256,6 +246,16 @@ Lower case. Do not just use 'warning'.
 Lower case. Relates to floods.
 
 See [Flood zones and what they mean](https://flood-map-for-planning.service.gov.uk/flood-zone-results-explained).
+
+### Floodline
+
+Always sentence case, never hyperlink it.
+
+### Floodline telephone number
+
+Telephone: 0345 988 1188
+
+In text messages 'call Floodline 0345 988 1188'.
 
 ### food chain information (FCI)
 
@@ -319,13 +319,13 @@ In the context of keeping livestock, for example 'the keeper of the sheep must..
 
 ## L
 
-### landowner
-
-One word. Do not use 'land owner' or 'landholder'.
-
 ### lame and lameness
 
 Familiar language with livestock keepers and vets; broad 'catch all' for symptoms such as limping, lying down, walking slower. We do not use this term for people.
+
+### landowner
+
+One word. Do not use 'land owner' or 'landholder'.
 
 ### livestock
 
