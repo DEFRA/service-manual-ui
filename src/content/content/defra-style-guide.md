@@ -49,10 +49,6 @@ supportBox:
   items: []
 ---
 
-Defra-specific terms and how to use them in content. Use this alongside the [GDS style guide A to Z](https://www.gov.uk/guidance/style-guide/a-to-z), which covers everything else.
-
-If a term is not listed here or in the GDS guide, prefer plain English and the words your users actually use. If you are unsure, ask in the [#content Slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
-
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [K](#k) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [W](#w) · [X](#x)
 
 ## A
@@ -81,7 +77,7 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 ### approved ear tag suppliers
 
-'Approved' is the preferred term, as the RPA approves ear tag suppliers to issue tags and other identifiers to keepers. Do not use 'official ear tag suppliers'.
+'Approved' is the preferred term, as RPA approves ear tag suppliers to issue tags and other identifies to keepers. Do not use 'official ear tag suppliers'.
 
 Also see 'tags' for related terms.
 
@@ -99,21 +95,21 @@ Cattle keepers are sent barcode labels when they register with the British Cattl
 
 ### bird flu v avian influenza
 
-Front-load the term depending on the user. For the general public, use 'bird flu (avian influenza)' on the first mention, and then use 'bird flu'.
+Front-load the term depending on the user. For the general public, use bird flu (avian influenza) on the first mention, and then use bird flu.
 
-For vets or a more specialist audience, use 'avian influenza (bird flu)' on the first mention, then use 'avian influenza'.
+For vets or a more specialist audience, use avian influenza (bird flu) on the first mention, then use avian influenza.
 
 ### bovine
 
-Do not use bovine to refer to cattle, bison and buffalo (write these out in full) as keepers are unlikely to use this language. Only use bovine when referring to specific animal diseases such as bovine viral diarrhoea (BVD).
+Do not use bovine to refer to cattle, bison and buffalo (you should write these out in full) as keepers are unlikely to use this language. Only use bovine when referring to specific animal diseases such as bovine viral diarrhoea (BVD).
 
 ### British Cattle Movement Service (BCMS)
 
-Name of an organisation, so use title case. Use BCMS after first mention.
+Name of an organisation so use title case. Use BCMS after first mention.
 
 ### business
 
-In the context of farms, default to 'business' instead of 'organisation'. Farmers see their farms as businesses (confirmed by testing).
+In the context of farms, default to business instead of organisation. Farmers see their farms as businesses (confirmed by testing).
 
 ## C
 
@@ -123,11 +119,11 @@ Use title case. Write out in full on the first mention. Can be called CTS Online
 
 ### cattle, bison and buffalo
 
-Write out the list in full. Do not use 'bovine animals'.
+Write out list in full. Do not use 'bovine animals'.
 
-### Centre for Environment, Fisheries and Aquaculture Science (Cefas)
+### Centre for Centre for Environment, Fisheries and Aquaculture Science (Cefas)
 
-Capitalise. After first mention, you can shorten to sentence case 'Cefas'. Do not use 'the Cefas'.
+Capitalise. After first mention, you can shorten to sentence case Cefas. Do not use 'the Cefas'.
 
 ### central point recording centre (CPRC)
 
@@ -139,11 +135,11 @@ Do not use 'certificate of CTS registration'.
 
 ### common land
 
-Lower case. Use 'common land', not 'Common Land'.
+Lower case. Use 'common land,' not 'Common Land'.
 
 ### company registration number
 
-Do not capitalise. Also, do not use 'Companies House registration number'.
+Do not capitalise. Also, do not use 'Companies House' registration number.
 
 ### compatible farm software
 
@@ -155,7 +151,7 @@ Use sentence case. You can refer to it as a CPH number after the first instance.
 
 ### crime reference number
 
-Lower case. Use 'crime reference number', not 'Crime Reference Number'.
+Lower case. Use 'crime reference number,' not 'Crime Reference Number'.
 
 ## D
 
@@ -169,12 +165,15 @@ Use to talk about disease zones more generally, if not referring to a specific z
 
 ### disease control zone abbreviations
 
-Never abbreviate control zone terms. Always spell them out in full:
+Never abbreviate control zone terms. For example, DCZ, RZ, PZ, SZ, TCZ should always be spelt out in full:.
 
-- RZ: restricted zone
-- PZ: protected zone
-- SZ: surveillance zone
-- TCZ: temporary control zone
+RZ – restricted zone
+
+PZ - protected zone
+
+SZ - surveillance zone
+
+TCZ – temporary control zone
 
 ## E
 
@@ -184,7 +183,7 @@ Always write out in full. Never shorten to EA. Can use with 'the' where appropri
 
 ### export
 
-Do not use 'export' for animals or goods moving within Great Britain or from Great Britain to Northern Ireland. Use 'moving', not 'export'.
+Do not use export for animals or goods moving within Great Britain or from Great Britain to Northern Ireland. Use moving, not export.
 
 ## F
 
@@ -198,19 +197,19 @@ Do not use 'carcass collection company'.
 
 ### field officers
 
-Do not use 'inspectors'. It was a Rural Payments Agency (RPA) decision to use 'field officers' to help improve their reputation. Be consistent with this in communication.
+Do not use 'inspectors'. It was a Rural Payments Agency (RPA) decision to use field officers to help improve their reputation, and be consistent with this in communication.
 
-These are people from the RPA who visit farms and other livestock premises to make sure they are following regulations.
+These are people from the RPA who visit farms and other livestock premises to make sure they're following regulations.
 
 ### field visit
 
-Do not use 'inspection'. It was a Rural Payments Agency (RPA) decision to use 'field visit' to help improve their reputation. Be consistent with this in communication.
+Do not use 'inspection'. It was a Rural Payments Agency (RPA) decision to use field visit to help improve their reputation, and be consistent with this in communication.
 
 This is a government check, to make sure the farmer or landowner is complying with regulations.
 
 ### first tag (sheep and goats)
 
-Use 'first tag' only for sheep and goats.
+Use first tag only for sheep and goats.
 
 ### flash flooding
 
@@ -218,9 +217,9 @@ Lower case.
 
 ### flock mark
 
-Use only for sheep. Do not use for other animals. (See 'herd mark' for the equivalent for cattle.)
+Use only for sheep. Do not use for other animals. (See 'herd mark' for the equivalent for cattle)
 
-Flock marks are used on tags (and other identifiers, such as tattoos) to identify where animals were born or last tagged. This is so the animals can be traced to help prevent and contain the spread of disease.
+They're used on tags (and other identifiers, such as tattoos) to identify where animals were born or last tagged. This is so the animals can be traced to help prevent and contain the spread of disease.
 
 ### flood alert
 
@@ -228,13 +227,13 @@ Lower case. Do not just use 'alert'.
 
 ### Floodline
 
-Always sentence case. Never hyperlink it.
+Always sentence case, never hyperlink it.
 
 ### Floodline telephone number
 
-Telephone: 0345 988 1188.
+Telephone: 0345 988 1188
 
-In text messages: 'call Floodline 0345 988 1188'.
+In text messages 'call Floodline 0345 988 1188'.
 
 ### flood risk assessment
 
@@ -252,13 +251,13 @@ Lower case. Do not just use 'warning'.
 
 Lower case. Relates to floods.
 
-See [Flood zones and what they mean](https://www.gov.uk/check-flood-risk).
+See [Flood zones and what they mean](https://flood-map-for-planning.service.gov.uk/flood-zone-results-explained).
 
 ### food chain information (FCI)
 
 Use FCI after first mention.
 
-It is a legal requirement to give this information about an animal before it enters the food chain.
+It's a legal requirement to give this information about an animal before it enters the food chain.
 
 ### forecast
 
@@ -278,7 +277,7 @@ One word.
 
 Do not use 'dam' or 'birth dam'.
 
-It is the biological female parent (mother) of an animal. It is distinct from the birth mother in embryo transfer, as the genetic dam provides the ovum or embryo while the recipient dam carries it.
+It's the biological female parent (mother) of an animal. It's distinct from the birth mother in embryo transfer, as the genetic dam provides the ovum or embryo, while the recipient dam carries it.
 
 ### groundwater
 
@@ -288,7 +287,7 @@ Lower case, one word.
 
 ### herd mark
 
-Use for cattle. Do not use for other animals. (See 'flock mark' for the equivalent for sheep.)
+Use for cattle. Do not use for other animals. (See 'flock mark' for the equivalent for sheep)
 
 ### holding
 
@@ -296,7 +295,7 @@ Use this term to describe the land and buildings used to keep livestock. Avoid '
 
 ### holding register
 
-Do not use 'herd register', 'farm records', or 'farm book'.
+Do not use 'herd register,' 'farm records,' or 'farm book'.
 
 ### House in Multiple Occupation (HMO)
 
@@ -306,7 +305,7 @@ Use title case. Spell it out in full the first time, then use 'HMO'.
 
 ### import
 
-Do not use 'import' for animals or goods moving within Great Britain or from Northern Ireland to Great Britain. Use 'moving', not 'import'.
+Do not use import for animals or goods moving within Great Britain or from Northern Ireland to Great Britain. Use moving, not import.
 
 ## K
 
@@ -322,7 +321,7 @@ One word. Do not use 'land owner' or 'landholder'.
 
 ### lame and lameness
 
-Familiar language with livestock keepers and vets. Broad catch-all for symptoms such as limping, lying down, walking slower. We do not use this term for people.
+Familiar language with livestock keepers and vets; broad 'catch all' for symptoms such as limping, lying down, walking slower. We do not use this term for people.
 
 ### livestock
 
@@ -342,20 +341,21 @@ Title case. Spell out in full the first time, then use the acronym.
 
 All upper case for 'MAGIC' and lower case for 'map'. Do not use 'Magic maps', 'mapping tool' or 'MAGIC map application'. MAGIC is an acronym.
 
-Refers to the mapping tool that Defra uses in content.
+Refers to the [mapping tool](https://magic.defra.gov.uk/) that Defra uses in content.
 
 ### management tag
 
-A keeper may put this on an animal in addition to an official ear tag. Use only to distinguish from an official ear tag.
+A keeper may put this on an animal in addition to an official ear tag. Use only to distinguish from official ear tag.
 
 ### mathematical symbols
 
 Avoid using mathematical symbols within sentences. For example, use:
 
-- 'less than' rather than '&lt;'
-- 'more than' rather than '&gt;'
+'less than' rather than '&lt;'
 
-Follow other [maths content guidance in the GOV.UK style guide](https://www.gov.uk/guidance/style-guide/a-to-z#numbers).
+'more than' rather than '&gt;'
+
+Follow other [maths content guidance in the GOV.UK style guide](https://www.gov.uk/guidance/style-guide/a-to-z#maths-content).
 
 ### micropig
 
@@ -387,7 +387,7 @@ Always check with the SME which type of number is relevant to the specific conte
 
 ### national park
 
-Lower case, unless you are using the name of the park. For example, Dartmoor National Park.
+Lower case, unless you're using the name of the park. For example, Dartmoor National Park.
 
 ### Natural England
 
@@ -395,17 +395,17 @@ Always write out in full. Never shorten to NE.
 
 ### net zero
 
-Lower case, for example, 'reaching net zero'. The exception is the full name of government strategies, for example, 'the Net Zero Strategy'.
+Lower case, for example, 'reaching net zero', except in the full name of government strategies, 'the Net Zero Strategy'
 
 ## O
 
 ### official ear tag number
 
-Use this to describe the unique 12-digit number used to identify cattle. Do not use 'ear tag', 'identifier', or 'tag'. Do not use for animals other than cattle.
+Use this to describe the unique 12-digit number used to identify cattle. Do not use 'ear tag,' 'identifier,' or 'tag'. Do not use for animals other than cattle.
 
 ### official identification number
 
-Use this to refer to the 6-digit number that is part of the official 12-digit ear tag number.
+Use this to refer to the 6-digit number that is part of the official (12-digit) ear tag number.
 
 ### Ordnance Survey (OS) grid reference
 
@@ -447,7 +447,7 @@ Users are required to record the movement in a holding register (not held within
 
 ### register a birth (cattle)
 
-Do not use 'register animal', 'apply for passport', or 'CPP12'.
+Do not use 'register animal,' 'apply for passport,' or 'CPP12'.
 
 ### replacement tag (cattle)
 
@@ -455,7 +455,7 @@ Do not use 'retagging'.
 
 ### report a movement
 
-Use only when referencing the legal requirement to report movements, births and deaths to the government. This is so animals can be traced, to prevent and control disease.
+Use only when referencing the legal requirement to report movements, births and deaths to the government. This is so that animals can be traced, to prevent and control disease.
 
 ### report movements online
 
@@ -463,19 +463,19 @@ Do not use 'report movements electronically'.
 
 ### restricted zone
 
-Use 'restricted zone'. Do not use 'restriction zone'.
+Use restricted zone. Do not use 'restriction zone'.
 
 In the context of animal disease.
 
 ### Rural Payments Agency (RPA)
 
-Capitalise RPA. Use 'the RPA' after first mention. For example, 'contact the Rural Payments Agency' or 'contact the RPA'.
+Capitalise RPA. Use 'the RPA' after first mention. For example, contact the Rural Payments Agency or contact the RPA.
 
 A Defra group arm's length body that runs the Rural Payments service.
 
 ### Rural Payments service
 
-Upper case 'Rural Payments', lower case 'service'.
+Upper case Rural Payments, lower case service.
 
 The Rural Payments service is an online service that pays farmers. Not to be confused with the Rural Payments Agency.
 
@@ -493,7 +493,7 @@ Lower case. Do not just use 'severe warning'.
 
 Sentence case (lower case, except if starting a sentence).
 
-A main Single Business Identifier (SBI) is a unique 9-digit number given to a farmer or business that is involved in an agricultural activity.
+A main Single Business Identifier (SBI) is a unique 9 digit number given to a farmer or business that is involved in an agricultural activity
 
 ### site visits
 
@@ -553,7 +553,7 @@ Avoid 'users'. Use 'people' wherever possible.
 
 ### whole movement reporting
 
-Use only in Livestock Information Service. In guidance, explain the term in plain English.
+Use only in Livestock Information Service. In guidance, explain term in plain English.
 
 ## X
 
