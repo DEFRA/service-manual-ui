@@ -55,6 +55,8 @@ If a term is not listed here or in the GDS guide, prefer plain English and the w
 
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [K](#k) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [W](#w) · [X](#x)
 
+<span id="a"></span>
+
 ## A
 
 ### agent
@@ -85,6 +87,8 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 Also see 'tags' for related terms.
 
+<span id="b"></span>
+
 ## B
 
 ### backyard keepers
@@ -114,6 +118,8 @@ Name of an organisation so use title case. Use BCMS after first mention.
 ### business
 
 In the context of farms, default to business instead of organisation. Farmers see their farms as businesses (confirmed by testing).
+
+<span id="c"></span>
 
 ## C
 
@@ -157,6 +163,8 @@ Use sentence case. You can refer to it as a CPH number after the first instance.
 
 Lower case. Use 'crime reference number,' not 'Crime Reference Number'.
 
+<span id="d"></span>
+
 ## D
 
 ### Defra
@@ -179,6 +187,8 @@ SZ - surveillance zone
 
 TCZ – temporary control zone
 
+<span id="e"></span>
+
 ## E
 
 ### Environment Agency
@@ -188,6 +198,8 @@ Always write out in full. Never shorten to EA. Can use with 'the' where appropri
 ### export
 
 Do not use export for animals or goods moving within Great Britain or from Great Britain to Northern Ireland. Use moving, not export.
+
+<span id="f"></span>
 
 ## F
 
@@ -271,6 +283,8 @@ Lower case. Relates to floods. For example, 'The flood forecast for the next 5 d
 
 Always write out in full. Never shorten to FC. Can use with 'the' where appropriate, for example, '...where the Forestry Commission will be available to offer advice on woodland creation'.
 
+<span id="g"></span>
+
 ## G
 
 ### gamebird
@@ -286,6 +300,8 @@ It's the biological female parent (mother) of an animal. It's distinct from the 
 ### groundwater
 
 Lower case, one word.
+
+<span id="h"></span>
 
 ## H
 
@@ -305,17 +321,23 @@ Do not use 'herd register,' 'farm records,' or 'farm book'.
 
 Use title case. Spell it out in full the first time, then use 'HMO'.
 
+<span id="i"></span>
+
 ## I
 
 ### import
 
 Do not use import for animals or goods moving within Great Britain or from Northern Ireland to Great Britain. Use moving, not import.
 
+<span id="k"></span>
+
 ## K
 
 ### keeper
 
 In the context of keeping livestock, for example 'the keeper of the sheep must...'. Do not use 'operator'.
+
+<span id="l"></span>
 
 ## L
 
@@ -338,6 +360,8 @@ Use LIS after first mention.
 ### Local Planning Authority (LPA)
 
 Title case. Spell out in full the first time, then use the acronym.
+
+<span id="m"></span>
 
 ## M
 
@@ -379,6 +403,8 @@ Do not use 'sending' or 'notifications'.
 
 Do not use 'receiving' or 'reports'.
 
+<span id="n"></span>
+
 ## N
 
 ### National Grid field number
@@ -400,6 +426,8 @@ Always write out in full. Never shorten to NE.
 ### net zero
 
 Lower case, for example, 'reaching net zero', except in the full name of government strategies, 'the Net Zero Strategy'
+
+<span id="o"></span>
 
 ## O
 
@@ -425,6 +453,8 @@ Do not use 'originating keeper' or 'counterparty'.
 
 Use to refer to the other person involved in reporting a movement of livestock in the Livestock Information Service.
 
+<span id="p"></span>
+
 ## P
 
 ### pastern band
@@ -440,6 +470,8 @@ Use 'people' wherever possible. Avoid 'users'.
 ### primary ear tag (cattle)
 
 Do not use 'yellow flag tag' except in brackets.
+
+<span id="r"></span>
 
 ## R
 
@@ -483,6 +515,8 @@ Upper case Rural Payments, lower case service.
 
 The Rural Payments service is an online service that pays farmers. Not to be confused with the Rural Payments Agency.
 
+<span id="s"></span>
+
 ## S
 
 ### same-day movement
@@ -519,6 +553,8 @@ Do not use 'abattoir operator'.
 
 Lower case.
 
+<span id="t"></span>
+
 ## T
 
 ### tag or tagging
@@ -543,6 +579,8 @@ Do not use 'track'.
 
 In the context of tracing animal diseases.
 
+<span id="u"></span>
+
 ## U
 
 ### unrestricted area
@@ -553,11 +591,15 @@ A succinct way to refer to land that is not in any disease restriction zone. The
 
 Avoid 'users'. Use 'people' wherever possible.
 
+<span id="w"></span>
+
 ## W
 
 ### whole movement reporting
 
 Use only in Livestock Information Service. In guidance, explain term in plain English.
+
+<span id="x"></span>
 
 ## X
 
