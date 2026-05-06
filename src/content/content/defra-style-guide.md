@@ -169,7 +169,7 @@ Use to talk about disease zones more generally, if not referring to a specific z
 
 ### disease control zone abbreviations
 
-Never abbreviate control zone terms. For example, DCZ, RZ, PZ, SZ, TCZ should always be spelt out in full:.
+Never abbreviate control zone terms. For example, DCZ, RZ, PZ, SZ, TCZ should always be spelt out in full:
 
 RZ – restricted zone
 
