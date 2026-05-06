@@ -1,0 +1,29 @@
+[
+    {
+        "scope": "https://api.notifications.service.gov.uk:443",
+        "method": "POST",
+        "path": "/v2/notifications/email",
+        "body": {
+            "template_id": "invalid-template-id",
+            "email_address": "test@example.com",
+            "personalisation": {
+                "emailAddress": "test@example.com",
+                "problem": "Test problem",
+                "users": "Test users",
+                "benefits": "Test benefits",
+                "solutionAttempts": "Test attempts"
+            },
+            "reference": "triage-error"
+        },
+        "status": 400,
+        "response": {
+            "errors": [
+                {
+                    "error": "BadRequestError",
+                    "message": "template_id is not a valid UUID"
+                }
+            ],
+            "status_code": 400
+        }
+    }
+]

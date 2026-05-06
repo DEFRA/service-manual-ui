@@ -1,32 +1,99 @@
+import { config } from '../../config/config.js'
+import { notifyClient } from '../../notify/notify-client.js'
+import { createLogger } from '../common/helpers/logging/logger.js'
+
+const logger = createLogger()
+
 /**
- * Get a single answer from the yar session by key.
- * @param {Object} yar - Hapi yar session object (request.yar)
- * @param {string} key - e.g., 'answer-question-1'
- * @returns {string|null} Stored answer or null
+ * @typedef {{ data: object, status: number }} NotifyError
  */
-export function getAnswer(yar, key) {
-  return yar.get(key) ?? null
+
+/**
+ * Sends an email via GOV.UK Notify, returning a result tuple to avoid leaking
+ * PII from the raw error response and allow the caller to decide how to handle errors.
+ * 
+ * @param {string} templateId
+ * @param {string} email
+ * @param {Record<string, object>} [params]
+ * @returns {Promise<[import('axios').AxiosResponse, null] | [null, NotifyError]>}
+ */
+async function trySendEmail(templateId, email, params = {}) {
+  try {
+    const response = await notifyClient.sendEmail(templateId, email, {
+      personalisation: params,
+      reference: `triage-${Date.now()}`
+    })
+
+    return [response, null]
+  } catch (error) {
+    if (!error.response) {
+      throw new Error(`Unknown error while attempting to send email via Notify: ${error.message || error.code}`)
+    }
+
+    const data = error.response?.data
+    const status = error.response?.status
+
+    return [null, { data, status }]
+  }
 }
 
 /**
- * Store an answer in the yar session.
- * @param {Object} yar - Hapi yar session object (request.yar)
- * @param {string} key - e.g., 'answer-question-1'
- * @param {string} value - Answer value
+ * Sends a triage submission email and returns a result object indicating success or failure.
+ * 
+ * @param {import('./models.js').TriageSubmission} submission
+ * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
-export function setAnswer(yar, key, value) {
-  yar.set(key, value)
+async function sendTriageEmail(submission) {
+  const templateId = config.get('notify.triageTemplateId')
+  const sharedMailbox = config.get('notify.aiceMailbox')
+
+  const [response, error] = await trySendEmail(templateId, sharedMailbox, {
+    emailAddress: submission.email,
+    problem: submission.problem,
+    users: submission.users,
+    benefits: submission.benefits,
+    solutionAttempts: submission.solutionAttempts
+  })
+
+  if (error) {
+    logger.error(
+      { err: error },
+      'Failed to send triage email via Gov.UK Notify'
+    )
+
+    return {
+      success: false,
+      error: {
+        details: error.data,
+        status: error.status
+      }
+    }
+  }
+
+  logger.info(
+    {
+      reference: response.data?.reference,
+    },
+    'Triage email sent successfully via Notify'
+  )
+
+  return {
+    success: true,
+    data: response.data
+  }
 }
 
 /**
- * Retrieve answers for a list of slugs from the yar session.
- * @param {Object} yar - Hapi yar session object (request.yar)
- * @param {string[]} slugs - e.g., ['question-1', 'question-2']
- * @returns {{ slug: string, answer: string|null }[]}
+ * Submits a triage request - returns an result object representing email sending
+ * outcome.
+ * 
+ * @param {import('./models.js').TriageSubmission} submission
+ * @returns {Promise<{ triageResult: { success: boolean, data?: object, error?: object } }>}
  */
-export function getAnswers(yar, slugs) {
-  return slugs.map((slug) => ({
-    slug,
-    answer: yar.get(`answer-${slug}`) ?? null
-  }))
+export async function submit(submission) {
+  const triageResult = await sendTriageEmail(submission)
+
+  return {
+    triageResult
+  }
 }

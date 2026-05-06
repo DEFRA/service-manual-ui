@@ -155,6 +155,30 @@ export const config = convict({
       env: 'ENABLE_AI_CONTENT'
     }
   },
+  notify: {
+    apiKey: {
+      doc: 'Gov.UK Notify API key',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'NOTIFY_API_KEY',
+      sensitive: true
+    },
+    triageTemplateId: {
+      doc: 'Gov.UK Notify template ID for triage submission to shared mailbox',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'NOTIFY_TRIAGE_TEMPLATE_ID'
+    },
+    aiceMailbox: {
+      doc: 'Shared mailbox email address to receive triage submissions',
+      format: String,
+      nullable: true,
+      default: null,
+      env: 'AICE_SHARED_MAILBOX_EMAIL'
+    }
+  },
   session: {
     cache: {
       engine: {

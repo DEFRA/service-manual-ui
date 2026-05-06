@@ -27,4 +27,6 @@ questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-3
 questionSubmitHref: /ai-toolkit/triage/question-4
 questionContinueHref: /ai-toolkit/triage/question-5
+fields:
+  answer: benefits
 ---
