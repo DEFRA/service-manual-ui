@@ -49,6 +49,10 @@ supportBox:
   items: []
 ---
 
+Defra-specific terms and how to use them in content. Use this alongside the [GDS style guide A to Z](https://www.gov.uk/guidance/style-guide/a-to-z), which covers everything else.
+
+If a term is not listed here or in the GDS guide, prefer plain English and the words your users actually use. If you're unsure, ask in the [#content Slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
+
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [K](#k) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [W](#w) · [X](#x)
 
 ## A
@@ -77,7 +81,7 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 ### approved ear tag suppliers
 
-'Approved' is the preferred term, as RPA approves ear tag suppliers to issue tags and other identifies to keepers. Do not use 'official ear tag suppliers'.
+'Approved' is the preferred term, as RPA approves ear tag suppliers to issue tags and other identifiers to keepers. Do not use 'official ear tag suppliers'.
 
 Also see 'tags' for related terms.
 
@@ -121,7 +125,7 @@ Use title case. Write out in full on the first mention. Can be called CTS Online
 
 Write out list in full. Do not use 'bovine animals'.
 
-### Centre for Centre for Environment, Fisheries and Aquaculture Science (Cefas)
+### Centre for Environment, Fisheries and Aquaculture Science (Cefas)
 
 Capitalise. After first mention, you can shorten to sentence case Cefas. Do not use 'the Cefas'.
 
@@ -493,7 +497,7 @@ Lower case. Do not just use 'severe warning'.
 
 Sentence case (lower case, except if starting a sentence).
 
-A main Single Business Identifier (SBI) is a unique 9 digit number given to a farmer or business that is involved in an agricultural activity
+A main Single Business Identifier (SBI) is a unique 9-digit number given to a farmer or business that is involved in an agricultural activity
 
 ### site visits
 
