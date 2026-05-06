@@ -28,6 +28,7 @@ export const markdownRoutes = [
   '/content/designing-different-content-types',
   '/content/sharing-designs-recording-decisions',
   '/content/tools',
+  '/content/defra-style-guide',
   '/content/working-in-discovery',
   '/content/working-in-alpha',
   '/content/working-in-beta',
