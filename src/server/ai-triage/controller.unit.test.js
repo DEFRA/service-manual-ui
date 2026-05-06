@@ -1,5 +1,4 @@
 import { describe, it, beforeEach, expect, vi } from 'vitest'
-import { statusCodes } from '../common/constants/status-codes.js'
 
 const mockLoadContent = vi.fn()
 vi.mock('../common/helpers/content-loader.js', () => ({

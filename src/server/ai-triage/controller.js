@@ -126,7 +126,10 @@ export const getSummaryPage = async (request, h) => {
       rows
     })
   } catch (error) {
-    request.logger.error({ err: error }, 'Failed to load ai-triage summary page')
+    request.logger.error(
+      { err: error },
+      'Failed to load ai-triage summary page'
+    )
     return h.response('Page not found').code(statusCodes.notFound)
   }
 }

@@ -122,9 +122,7 @@ describe('#aiTriageController', () => {
         method: 'GET',
         url: '/ai-toolkit/triage/check-your-answers'
       })
-      expect(result).toEqual(
-        expect.stringContaining('govuk-summary-card')
-      )
+      expect(result).toEqual(expect.stringContaining('govuk-summary-card'))
     })
 
     test('renders a Change link for each question', async () => {
