@@ -48,8 +48,12 @@ describe('sessionService', () => {
   describe('getAnswers', () => {
     it('returns an array of slug/answer pairs for each slug', () => {
       mockYar.get.mockImplementation((key) => {
-        if (key === 'answer-question-1') {return 'test@example.com'}
-        if (key === 'answer-question-2') {return 'Some problem'}
+        if (key === 'answer-question-1') {
+          return 'test@example.com'
+        }
+        if (key === 'answer-question-2') {
+          return 'Some problem'
+        }
         return null
       })
 

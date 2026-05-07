@@ -29,7 +29,9 @@ function validateAnswer(answer, meta) {
   const schema = schemas[schemaName]
 
   if (!schema) {
-    throw new Error(`Schema "${schemaName}" not found for question "${meta.title}"`)
+    throw new Error(
+      `Schema "${schemaName}" not found for question "${meta.title}"`
+    )
   }
 
   const { error } = schema.validate(answer)
