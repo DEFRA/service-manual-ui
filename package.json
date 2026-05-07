@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build:frontend": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development ENABLE_AI_CONTENT=true nodemon src/index.js --watch src/server --watch src/client",
+    "dev": "cross-env NODE_ENV=development ENABLE_AI_CONTENT=true nodemon --exec \"node --env-file-if-exists .env\" src/index.js --watch src/server --watch src/client",
     "dev:debug": "run-p frontend:watch server:debug",
     "docker:dev": "npm run dev",
     "format": "prettier --write \"src/**/*.js\" \"**/*.{js,cjs,md,json,config.js,test.js}\"",
@@ -25,8 +25,8 @@
     "pretest": "npm run build:frontend",
     "test": "cross-env TZ=UTC vitest run --coverage",
     "test:watch": "cross-env TZ=UTC vitest",
-    "server:watch": "nodemon --inspect=0.0.0.0 --ext js,json --legacy-watch ./src",
-    "server:debug": "nodemon --inspect-brk=0.0.0.0 --ext js,json --legacy-watch ./src",
+    "server:watch": "nodemon --exec \"node --env-file-if-exists .env --inspect=0.0.0.0\" --ext js,json --legacy-watch ./src",
+    "server:debug": "nodemon --exec \"node --env-file-if-exists .env --inspect-brk=0.0.0.0\" --ext js,json --legacy-watch ./src",
     "prestart": "npm run build:frontend",
     "start": "NODE_ENV=production node --use-strict .",
     "setup:husky": "node -e \"try { (await import('husky')).default() } catch (e) { if (e.code !== 'ERR_MODULE_NOT_FOUND') throw e }\" --input-type module"

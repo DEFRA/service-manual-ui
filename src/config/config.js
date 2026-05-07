@@ -190,7 +190,7 @@ export const config = convict({
             throw new Error('must be a string with at least 32 characters')
           }
          },
-         default: null,
+        default: null,
         env: 'SESSION_COOKIE_PASSWORD',
         sensitive: true
       },
