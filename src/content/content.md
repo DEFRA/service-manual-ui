@@ -18,6 +18,8 @@ sectionNav:
         href: /content/sharing-designs-recording-decisions
       - text: Tools used by Defra content designers
         href: /content/tools
+      - text: Defra style guide
+        href: /content/defra-style-guide
   - title: Delivery phases
     items:
       - text: Working in the discovery phase
