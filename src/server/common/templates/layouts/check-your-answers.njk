@@ -1,0 +1,49 @@
+{% extends "layouts/page.njk" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block beforeContent %}
+  <a href="{{ questionBackHref or 'javascript:history.back()' }}" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    <p class="govuk-body">Check your answers before sending them to the team.</p>
+
+    <form method="post" action="{{ questionSubmitHref }}">
+      {% for row in rows %}
+        {{ govukSummaryList({
+          card: {
+            title: { text: row.title },
+            actions: {
+              items: [
+                {
+                  href: row.changeHref,
+                  text: "Change",
+                  visuallyHiddenText: row.title | lower
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: { text: "Your answer" },
+              value: {
+                text: row.answer if row.answer else "Not answered",
+                classes: "" if row.answer else "govuk-hint"
+              }
+            }
+          ]
+        }) }}
+      {% endfor %}
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Send to the team
+      </button>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

@@ -23,7 +23,9 @@ questionCaption: Question 5 of 5
 questionInputType: textarea
 questionHint: Tell us what you have tried so far, including any AI or automation. Beginners welcome.
 questionRows: 6
+questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-4
-questionContinueHref: /ai-toolkit/triage/thank-you
-questionContinueText: Send to the team
+questionSubmitHref: /ai-toolkit/triage/question-5
+questionContinueHref: /ai-toolkit/triage/check-your-answers
+questionContinueText: Continue
 ---

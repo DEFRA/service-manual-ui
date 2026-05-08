@@ -23,6 +23,8 @@ questionCaption: Question 4 of 5
 questionInputType: textarea
 questionHint: For example, faster decisions, smoother work or better service for citizens.
 questionRows: 6
+questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-3
+questionSubmitHref: /ai-toolkit/triage/question-4
 questionContinueHref: /ai-toolkit/triage/question-5
 ---

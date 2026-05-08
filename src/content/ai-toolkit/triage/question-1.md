@@ -22,6 +22,8 @@ breadcrumbItems:
 questionCaption: Question 1 of 5
 questionInputType: email
 questionHint: We will use this to get back to you with patterns, advice or a follow-up call.
+questionSchema: email-required
 questionBackHref: /ai-toolkit
+questionSubmitHref: /ai-toolkit/triage/question-1
 questionContinueHref: /ai-toolkit/triage/question-2
 ---

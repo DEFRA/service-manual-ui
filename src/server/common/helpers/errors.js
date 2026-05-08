@@ -6,7 +6,7 @@ import { statusCodes } from '../constants/status-codes.js'
  * @param {number} statusCode - HTTP status code
  * @returns {string} User-friendly error heading
  */
-function getErrorHeading(statusCode) {
+export function getErrorHeading(statusCode) {
   switch (statusCode) {
     case statusCodes.notFound:
       return 'Page not found'

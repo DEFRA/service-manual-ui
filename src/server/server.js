@@ -11,6 +11,8 @@ import { requestTracing } from './common/helpers/request-tracing.js'
 import { requestLogger } from './common/helpers/logging/request-logger.js'
 import { secureContext } from '@defra/hapi-secure-context'
 import { contentSecurityPolicy } from './common/helpers/content-security-policy.js'
+import { sessionCache } from './common/helpers/session-cache/session-cache.js'
+import { getCacheEngine } from './common/helpers/session-cache/cache-engine.js'
 
 export async function createServer() {
   setupProxy()
@@ -40,6 +42,12 @@ export async function createServer() {
     router: {
       stripTrailingSlash: true
     },
+    cache: [
+      {
+        name: config.get('session.cache.name'),
+        engine: getCacheEngine(config.get('session.cache.engine'))
+      }
+    ],
     state: {
       strictHeader: false
     }
@@ -49,6 +57,7 @@ export async function createServer() {
     requestTracing,
     secureContext,
     pulse,
+    sessionCache,
     nunjucksConfig,
     Scooter,
     contentSecurityPolicy,

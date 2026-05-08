@@ -1,6 +1,5 @@
 ---
-title: What is the problem?
-layout: question
+title: Check your answers
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 customNav:
@@ -19,12 +18,6 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 2 of 5
-questionInputType: textarea
-questionHint: Describe the problem in plain English. Use the words your team uses.
-questionRows: 6
-questionSchema: text-required
-questionBackHref: /ai-toolkit/triage/question-1
-questionSubmitHref: /ai-toolkit/triage/question-2
-questionContinueHref: /ai-toolkit/triage/question-3
+questionBackHref: /ai-toolkit/triage/question-5
+questionSubmitHref: /ai-toolkit/triage/check-your-answers
 ---

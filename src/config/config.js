@@ -6,6 +6,7 @@ import convictFormatWithValidator from 'convict-format-with-validator'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const fourHoursMs = 14400000
 const oneWeekMs = 604800000
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -152,6 +153,122 @@ export const config = convict({
       format: Boolean,
       default: false,
       env: 'ENABLE_AI_CONTENT'
+    }
+  },
+  session: {
+    cache: {
+      engine: {
+        doc: 'Backend cache engine to use for sessions',
+        format: ['redis', 'memory'],
+        default: isProduction ? 'redis' : 'memory',
+        env: 'SESSION_CACHE_ENGINE'
+      },
+      name: {
+        doc: 'Server-side session cache name',
+        format: String,
+        default: 'session',
+        env: 'SESSION_CACHE_NAME'
+      },
+      ttl: {
+        doc: 'Server-side session cache TTL in milliseconds',
+        format: Number,
+        default: fourHoursMs,
+        env: 'SESSION_CACHE_TTL'
+      }
+    },
+    cookie: {
+      ttl: {
+        doc: 'Session cookie TTL in milliseconds',
+        format: Number,
+        default: fourHoursMs,
+        env: 'SESSION_COOKIE_TTL'
+      },
+      password: {
+        doc: 'Session cookie encryption password (must be at least 32 characters)',
+        format: (value) => {
+          if (typeof value !== 'string' || value.length < 32) {
+            throw new Error('must be a string with at least 32 characters')
+          }
+        },
+        default: null,
+        env: 'SESSION_COOKIE_PASSWORD',
+        sensitive: true
+      },
+      secure: {
+        doc: 'Set secure flag on session cookie',
+        format: Boolean,
+        default: isProduction,
+        env: 'SESSION_COOKIE_SECURE'
+      }
+    }
+  },
+  redis: {
+    port: {
+      doc: 'Redis port',
+      format: 'port',
+      default: 6379,
+      env: 'REDIS_PORT'
+    },
+    db: {
+      doc: 'Redis database number',
+      format: Number,
+      default: 0,
+      env: 'REDIS_DB'
+    },
+    host: {
+      doc: 'Redis cache host',
+      format: String,
+      default: '127.0.0.1',
+      env: 'REDIS_HOST'
+    },
+    username: {
+      doc: 'Redis cache username',
+      format: String,
+      default: '',
+      env: 'REDIS_USERNAME'
+    },
+    password: {
+      doc: 'Redis cache password',
+      format: '*',
+      default: '',
+      sensitive: true,
+      env: 'REDIS_PASSWORD'
+    },
+    keyPrefix: {
+      doc: 'Redis cache key prefix name used to isolate the cached results across multiple clients',
+      format: String,
+      default: 'service-manual-ui:',
+      env: 'REDIS_KEY_PREFIX'
+    },
+    useSingleInstanceCache: {
+      doc: 'Connect to a single instance of redis instead of a cluster.',
+      format: Boolean,
+      default: !isProduction,
+      env: 'USE_SINGLE_INSTANCE_CACHE'
+    },
+    useTLS: {
+      doc: 'Connect to redis using TLS',
+      format: Boolean,
+      default: isProduction,
+      env: 'REDIS_TLS'
+    },
+    retryDelayMs: {
+      doc: 'Redis retry delay in milliseconds',
+      format: Number,
+      default: 50,
+      env: 'REDIS_RETRY_DELAY_MS'
+    },
+    maxRetries: {
+      doc: 'Redis maximum connection retries',
+      format: Number,
+      default: 3,
+      env: 'REDIS_MAX_RETRIES'
+    },
+    slotsRefreshTimeout: {
+      doc: 'Redis cluster slots refresh timeout in milliseconds',
+      format: Number,
+      default: 10000,
+      env: 'REDIS_SLOTS_REFRESH_TIMEOUT'
     }
   }
 })
