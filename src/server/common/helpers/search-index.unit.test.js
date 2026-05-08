@@ -49,9 +49,11 @@ describe('#searchIndex error handling', () => {
 
   describe('When a single file fails to read', () => {
     test('Should skip the bad file and continue building the index', () => {
+      // Use filenames that map to real registered routes so the index
+      // filter does not drop them before the read is attempted.
       mockReaddirSync.mockReturnValue([
-        { name: 'good.md', isDirectory: () => false },
-        { name: 'bad.md', isDirectory: () => false }
+        { name: 'accessibility.md', isDirectory: () => false },
+        { name: 'patterns.md', isDirectory: () => false }
       ])
 
       let callCount = 0
@@ -70,7 +72,7 @@ describe('#searchIndex error handling', () => {
       expect(mockLoggerError).toHaveBeenCalledWith(
         expect.objectContaining({
           err: expect.any(Error),
-          filePath: 'bad.md'
+          filePath: 'patterns.md'
         }),
         'Failed to index markdown file, skipping'
       )

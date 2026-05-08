@@ -1,14 +1,14 @@
 import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
 
-function isAiToolkitRoute(routePath) {
+export function isAiToolkitRoute(routePath) {
   return routePath === '/ai-toolkit' || routePath.startsWith('/ai-toolkit/')
 }
 
 /**
  * Markdown page routes - maps URL paths to markdown files
  */
-const markdownRoutes = [
+export const markdownRoutes = [
   '/accessibility-statement',
   '/service-assessments',
   '/service-assessments/book-an-assessment',
@@ -28,6 +28,7 @@ const markdownRoutes = [
   '/content/designing-different-content-types',
   '/content/sharing-designs-recording-decisions',
   '/content/tools',
+  '/content/defra-style-guide',
   '/content/working-in-discovery',
   '/content/working-in-alpha',
   '/content/working-in-beta',
@@ -128,16 +129,23 @@ const markdownRoutes = [
   '/ai-toolkit/from-the-field'
 ]
 
+/**
+ * Returns the list of markdown routes that are currently enabled, applying
+ * the same flag-driven filtering that the plugin uses to register routes.
+ * Shared with the search index so gated content stays out of search results.
+ */
+export function getEnabledMarkdownRoutes() {
+  const aiContentEnabled = config.get('aiContent.enabled')
+  return aiContentEnabled
+    ? markdownRoutes
+    : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
+}
+
 export const markdownPages = {
   plugin: {
     name: 'markdown-pages',
     register: async (server) => {
-      const aiContentEnabled = config.get('aiContent.enabled')
-      const enabledRoutes = aiContentEnabled
-        ? markdownRoutes
-        : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
-
-      const routes = enabledRoutes.map((path) => ({
+      const routes = getEnabledMarkdownRoutes().map((path) => ({
         method: 'GET',
         path,
         handler: getMarkdownPage(`${path.slice(1)}.md`)
