@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { fileURLToPath } from 'node:url'
 
 import { createLogger } from './logging/logger.js'
+import { getEnabledMarkdownRoutes } from '../../markdown-pages/index.js'
 
 const logger = createLogger()
 const dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -101,6 +102,7 @@ function extractHeadings(markdown) {
  */
 export function buildSearchIndex() {
   const markdownFiles = findMarkdownFiles(CONTENT_DIR)
+  const enabledRoutes = new Set(getEnabledMarkdownRoutes())
   const index = []
 
   for (const filePath of markdownFiles) {
@@ -112,6 +114,12 @@ export function buildSearchIndex() {
       // Convert file path to URL path
       // e.g., 'accessibility/manage-accessibility.md' -> '/accessibility/manage-accessibility'
       const url = '/' + filePath.replace(/\.md$/, '')
+
+      // Skip files whose route is not registered (e.g. AI toolkit pages when
+      // aiContent.enabled is false) so search can't surface 404 links.
+      if (!enabledRoutes.has(url)) {
+        continue
+      }
 
       const entry = {
         title: data.title || '',

@@ -26,7 +26,13 @@ describe('#buildRedisClient', () => {
         db: 0,
         host: '127.0.0.1',
         keyPrefix: 'service-manual-ui:',
-        port: 6379
+        port: 6379,
+        connectTimeout: 5000,
+        commandTimeout: 5000,
+        keepAlive: 30000,
+        enableReadyCheck: true,
+        maxRetriesPerRequest: 3,
+        retryStrategy: expect.any(Function)
       })
     })
   })
@@ -46,9 +52,20 @@ describe('#buildRedisClient', () => {
       expect(Cluster).toHaveBeenCalledWith(
         [{ host: '127.0.0.1', port: 6379 }],
         {
+          clusterRetryStrategy: expect.any(Function),
           dnsLookup: expect.any(Function),
           keyPrefix: 'service-manual-ui:',
-          redisOptions: { db: 0, password: 'pass', tls: {}, username: 'user' },
+          redisOptions: {
+            db: 0,
+            connectTimeout: 5000,
+            commandTimeout: 5000,
+            keepAlive: 30000,
+            enableReadyCheck: true,
+            maxRetriesPerRequest: 3,
+            password: 'pass',
+            tls: {},
+            username: 'user'
+          },
           slotsRefreshTimeout: 10000
         }
       )

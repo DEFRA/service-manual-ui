@@ -209,12 +209,12 @@ export const config = convict({
       },
       password: {
         doc: 'Session cookie encryption password (must be at least 32 characters)',
-        format: value => {
+        format: (value) => {
           if (typeof value !== 'string' || value.length < 32) {
             throw new Error('must be a string with at least 32 characters')
           }
-         },
-         default: null,
+        },
+        default: null,
         env: 'SESSION_COOKIE_PASSWORD',
         sensitive: true
       },
@@ -227,6 +227,18 @@ export const config = convict({
     }
   },
   redis: {
+    port: {
+      doc: 'Redis port',
+      format: 'port',
+      default: 6379,
+      env: 'REDIS_PORT'
+    },
+    db: {
+      doc: 'Redis database number',
+      format: Number,
+      default: 0,
+      env: 'REDIS_DB'
+    },
     host: {
       doc: 'Redis cache host',
       format: String,
@@ -247,19 +259,19 @@ export const config = convict({
       env: 'REDIS_PASSWORD'
     },
     keyPrefix: {
-      doc: 'Redis key prefix to isolate cached results across multiple clients',
+      doc: 'Redis cache key prefix name used to isolate the cached results across multiple clients',
       format: String,
       default: 'service-manual-ui:',
       env: 'REDIS_KEY_PREFIX'
     },
     useSingleInstanceCache: {
-      doc: 'Connect to a single Redis instance instead of a cluster',
+      doc: 'Connect to a single instance of redis instead of a cluster.',
       format: Boolean,
       default: !isProduction,
       env: 'USE_SINGLE_INSTANCE_CACHE'
     },
     useTLS: {
-      doc: 'Connect to Redis using TLS',
+      doc: 'Connect to redis using TLS',
       format: Boolean,
       default: isProduction,
       env: 'REDIS_TLS'
@@ -293,6 +305,24 @@ export const config = convict({
       format: Number,
       default: 3,
       env: 'REDIS_MAX_RETRIES_PER_REQUEST'
+    },
+    retryDelayMs: {
+      doc: 'Redis retry delay in milliseconds',
+      format: Number,
+      default: 50,
+      env: 'REDIS_RETRY_DELAY_MS'
+    },
+    maxRetries: {
+      doc: 'Redis maximum connection retries',
+      format: Number,
+      default: 3,
+      env: 'REDIS_MAX_RETRIES'
+    },
+    slotsRefreshTimeout: {
+      doc: 'Redis cluster slots refresh timeout in milliseconds',
+      format: Number,
+      default: 10000,
+      env: 'REDIS_SLOTS_REFRESH_TIMEOUT'
     }
   }
 })

@@ -120,13 +120,23 @@ describe('initSearch', () => {
   })
 
   test('should handle fetch error gracefully', async () => {
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
+
     mockFetch.mockRejectedValue(new Error('Network error'))
 
     await expect(initSearch()).resolves.not.toThrow()
     expect(accessibleAutocomplete).not.toHaveBeenCalled()
+
+    consoleErrorSpy.mockRestore()
   })
 
   test('should handle non-ok response gracefully', async () => {
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
+
     mockFetch.mockResolvedValue({
       ok: false,
       status: 500
@@ -134,6 +144,8 @@ describe('initSearch', () => {
 
     await expect(initSearch()).resolves.not.toThrow()
     expect(accessibleAutocomplete).not.toHaveBeenCalled()
+
+    consoleErrorSpy.mockRestore()
   })
 
   test('should preserve existing input value as defaultValue', async () => {
