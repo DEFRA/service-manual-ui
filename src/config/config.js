@@ -203,6 +203,18 @@ export const config = convict({
     }
   },
   redis: {
+    port: {
+      doc: 'Redis port',
+      format: 'port',
+      default: 6379,
+      env: 'REDIS_PORT'
+    },
+    db: {
+      doc: 'Redis database number',
+      format: Number,
+      default: 0,
+      env: 'REDIS_DB'
+    },
     host: {
       doc: 'Redis cache host',
       format: String,
@@ -239,6 +251,24 @@ export const config = convict({
       format: Boolean,
       default: isProduction,
       env: 'REDIS_TLS'
+    },
+    retryDelayMs: {
+      doc: 'Redis retry delay in milliseconds',
+      format: Number,
+      default: 50,
+      env: 'REDIS_RETRY_DELAY_MS'
+    },
+    maxRetries: {
+      doc: 'Redis maximum connection retries',
+      format: Number,
+      default: 3,
+      env: 'REDIS_MAX_RETRIES'
+    },
+    slotsRefreshTimeout: {
+      doc: 'Redis cluster slots refresh timeout in milliseconds',
+      format: Number,
+      default: 10000,
+      env: 'REDIS_SLOTS_REFRESH_TIMEOUT'
     }
   }
 })
