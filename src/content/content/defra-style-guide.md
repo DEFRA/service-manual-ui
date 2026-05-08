@@ -75,7 +75,7 @@ Capitalise the Animal and Plant Health Agency. After first use, you can shorten 
 
 ### animal by-products (ABPs)
 
-Hyphenate. Do not use 'animal byproducts'. The acronym ABPs is common and is understood by users.
+Hyphenate. After first use, you can shorten to ABPs. Do not use 'animal byproducts'.
 
 ### animal health officer (AHO)
 
@@ -93,7 +93,7 @@ Also see 'tags' for related terms.
 
 ### backyard keepers
 
-We do not use this term on GOV.UK. Users told us that they do not see themselves as this, and it might be disrespectful. Alternatives are 'small flock keepers' or 'keepers of a small number of livestock'.
+Use 'small flock keepers' or 'keepers of a small number of livestock' instead.
 
 ### barcode labels
 
@@ -103,7 +103,7 @@ Cattle keepers are sent barcode labels when they register with the British Cattl
 
 ### bird flu v avian influenza
 
-Front-load the term depending on the user. For the general public, use bird flu (avian influenza) on the first mention, and then use bird flu.
+For the general public, use bird flu (avian influenza) on the first mention, and then use bird flu.
 
 For vets or a more specialist audience, use avian influenza (bird flu) on the first mention, then use avian influenza.
 
@@ -113,11 +113,11 @@ Do not use bovine to refer to cattle, bison and buffalo (you should write these 
 
 ### British Cattle Movement Service (BCMS)
 
-Name of an organisation so use title case. Use BCMS after first mention.
+Name of an organisation, so use title case. Use BCMS after first mention.
 
 ### business
 
-In the context of farms, default to business instead of organisation. Farmers see their farms as businesses (confirmed by testing).
+In the context of farms, default to business instead of organisation. Farmers see their farms as businesses.
 
 <span id="c"></span>
 
@@ -153,7 +153,7 @@ Do not capitalise. Also, do not use 'Companies House' registration number.
 
 ### compatible farm software
 
-Do not use 'compatible farming software'.
+Use instead of 'compatible farming software'.
 
 ### county parish holding number (CPH number)
 
@@ -205,7 +205,7 @@ Do not use export for animals or goods moving within Great Britain or from Great
 
 ### fallen stock
 
-Use this when writing for livestock keepers (based on user research). Do not use 'carcass' or 'dead livestock' for this user group.
+Use instead of 'carcass' or 'dead livestock' when writing for livestock keepers.
 
 ### fallen stock collection company
 
@@ -213,15 +213,11 @@ Do not use 'carcass collection company'.
 
 ### field officers
 
-Do not use 'inspectors'. It was a Rural Payments Agency (RPA) decision to use field officers to help improve their reputation, and be consistent with this in communication.
-
-These are people from the RPA who visit farms and other livestock premises to make sure they're following regulations.
+Do not use 'inspectors'.
 
 ### field visit
 
-Do not use 'inspection'. It was a Rural Payments Agency (RPA) decision to use field visit to help improve their reputation, and be consistent with this in communication.
-
-This is a government check, to make sure the farmer or landowner is complying with regulations.
+Do not use 'inspection'.
 
 ### first tag (sheep and goats)
 
@@ -335,7 +331,7 @@ Do not use import for animals or goods moving within Great Britain or from North
 
 ### keeper
 
-In the context of keeping livestock, for example 'the keeper of the sheep must...'. Do not use 'operator'.
+Use in the context of keeping livestock, for example 'the keeper of the sheep must...'. Do not use 'operator'.
 
 <span id="l"></span>
 
@@ -359,7 +355,7 @@ Use LIS after first mention.
 
 ### Local Planning Authority (LPA)
 
-Title case. Spell out in full the first time, then use the acronym.
+Title case, spell out in full the first time, then use the acronym.
 
 <span id="m"></span>
 
@@ -413,7 +409,7 @@ A 4-digit code used to identify a specific, small field parcel.
 
 Do not confuse with Ordnance Survey (OS) grid reference, which locates a point on a map using 2 letters and between 4 and 12 digits.
 
-Always check with the SME which type of number is relevant to the specific content, and be consistent in using it.
+Always check with the subject matter expert which type of number is relevant to the specific content, and be consistent in using it.
 
 ### national park
 
@@ -479,7 +475,7 @@ Do not use 'yellow flag tag' except in brackets.
 
 Refers to recording a movement of animals. Use only for holding register requirements.
 
-Users are required to record the movement in a holding register (not held within Defra). We use 'reporting a movement' when a user is submitting information online to us.
+We use 'reporting a movement' when someone is submitting information online to us.
 
 ### register a birth (cattle)
 
@@ -505,9 +501,7 @@ In the context of animal disease.
 
 ### Rural Payments Agency (RPA)
 
-Capitalise RPA. Use 'the RPA' after first mention. For example, contact the Rural Payments Agency or contact the RPA.
-
-A Defra group arm's length body that runs the Rural Payments service.
+Capitalise RPA. Use 'the RPA' after first mention. For example, 'contact the Rural Payments Agency' or 'contact the RPA'.
 
 ### Rural Payments service
 
@@ -585,11 +579,11 @@ In the context of tracing animal diseases.
 
 ### unrestricted area
 
-A succinct way to refer to land that is not in any disease restriction zone. The phrase 'out of a restricted zone' is a bit ambiguous.
+A succinct way to refer to land that is not in any disease restriction zone. Do not use 'out of a restricted zone' as it's ambiguous.
 
 ### users
 
-Avoid 'users'. Use 'people' wherever possible.
+Use 'people' wherever possible.
 
 <span id="w"></span>
 
