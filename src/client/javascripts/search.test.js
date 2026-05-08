@@ -120,7 +120,9 @@ describe('initSearch', () => {
   })
 
   test('should handle fetch error gracefully', async () => {
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
 
     mockFetch.mockRejectedValue(new Error('Network error'))
 
@@ -131,7 +133,9 @@ describe('initSearch', () => {
   })
 
   test('should handle non-ok response gracefully', async () => {
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const consoleErrorSpy = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => {})
 
     mockFetch.mockResolvedValue({
       ok: false,
