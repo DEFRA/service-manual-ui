@@ -223,52 +223,22 @@ export const config = convict({
       env: 'REDIS_PASSWORD'
     },
     keyPrefix: {
-      doc: 'Redis key prefix to isolate cached results across multiple clients',
+      doc: 'Redis cache key prefix name used to isolate the cached results across multiple clients',
       format: String,
       default: 'service-manual-ui:',
       env: 'REDIS_KEY_PREFIX'
     },
     useSingleInstanceCache: {
-      doc: 'Connect to a single Redis instance instead of a cluster',
+      doc: 'Connect to a single instance of redis instead of a cluster.',
       format: Boolean,
       default: !isProduction,
       env: 'USE_SINGLE_INSTANCE_CACHE'
     },
     useTLS: {
-      doc: 'Connect to Redis using TLS',
+      doc: 'Connect to redis using TLS',
       format: Boolean,
       default: isProduction,
       env: 'REDIS_TLS'
-    },
-    connectTimeout: {
-      doc: 'Redis connection timeout in milliseconds',
-      format: Number,
-      default: 5000,
-      env: 'REDIS_CONNECT_TIMEOUT'
-    },
-    commandTimeout: {
-      doc: 'Redis command timeout in milliseconds',
-      format: Number,
-      default: 5000,
-      env: 'REDIS_COMMAND_TIMEOUT'
-    },
-    keepAlive: {
-      doc: 'Redis keepAlive interval in milliseconds',
-      format: Number,
-      default: 30000,
-      env: 'REDIS_KEEPALIVE'
-    },
-    enableReadyCheck: {
-      doc: 'Enable Redis ready check',
-      format: Boolean,
-      default: true,
-      env: 'REDIS_ENABLE_READY_CHECK'
-    },
-    maxRetriesPerRequest: {
-      doc: 'Maximum number of retries per Redis request',
-      format: Number,
-      default: 3,
-      env: 'REDIS_MAX_RETRIES_PER_REQUEST'
     }
   }
 })

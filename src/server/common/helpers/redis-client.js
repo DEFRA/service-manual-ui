@@ -43,16 +43,7 @@ export function buildRedisClient(redisConfig) {
       host,
       db,
       keyPrefix,
-      connectTimeout: redisConfig.connectTimeout,
-      commandTimeout: redisConfig.commandTimeout,
-      keepAlive: redisConfig.keepAlive,
-      enableReadyCheck: redisConfig.enableReadyCheck,
-      maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
-      retryStrategy: createRetryStrategy(
-        redisConfig.maxRetriesPerRequest,
-        logger,
-        'single'
-      ),
+      retryStrategy: createRetryStrategy(3, logger, 'single'),
       ...credentials,
       ...tls
     })
@@ -61,18 +52,9 @@ export function buildRedisClient(redisConfig) {
       keyPrefix,
       slotsRefreshTimeout: 10000,
       dnsLookup: (address, callback) => callback(null, address),
-      clusterRetryStrategy: createRetryStrategy(
-        redisConfig.maxRetriesPerRequest,
-        logger,
-        'cluster'
-      ),
+      clusterRetryStrategy: createRetryStrategy(3, logger, 'cluster'),
       redisOptions: {
         db,
-        connectTimeout: redisConfig.connectTimeout,
-        commandTimeout: redisConfig.commandTimeout,
-        keepAlive: redisConfig.keepAlive,
-        enableReadyCheck: redisConfig.enableReadyCheck,
-        maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
         ...credentials,
         ...tls
       }
