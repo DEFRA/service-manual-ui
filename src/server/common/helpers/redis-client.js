@@ -2,7 +2,12 @@ import { Cluster, Redis } from 'ioredis'
 
 import { createLogger } from './logging/logger.js'
 
-function createRetryStrategy(maxRetries, retryDelayMs, logger, connectionType = 'single') {
+function createRetryStrategy(
+  maxRetries,
+  retryDelayMs,
+  logger,
+  connectionType = 'single'
+) {
   return (times) => {
     if (times > maxRetries) {
       const message =
@@ -23,7 +28,15 @@ function createRetryStrategy(maxRetries, retryDelayMs, logger, connectionType = 
  */
 export function buildRedisClient(redisConfig) {
   const logger = createLogger()
-  const { port, db, keyPrefix, host, retryDelayMs, maxRetries, slotsRefreshTimeout } = redisConfig
+  const {
+    port,
+    db,
+    keyPrefix,
+    host,
+    retryDelayMs,
+    maxRetries,
+    slotsRefreshTimeout
+  } = redisConfig
   let redisClient
 
   const credentials =
@@ -39,7 +52,12 @@ export function buildRedisClient(redisConfig) {
       host,
       db,
       keyPrefix,
-      retryStrategy: createRetryStrategy(maxRetries, retryDelayMs, logger, 'single'),
+      retryStrategy: createRetryStrategy(
+        maxRetries,
+        retryDelayMs,
+        logger,
+        'single'
+      ),
       ...credentials,
       ...tls
     })
@@ -48,7 +66,12 @@ export function buildRedisClient(redisConfig) {
       keyPrefix,
       slotsRefreshTimeout,
       dnsLookup: (address, callback) => callback(null, address),
-      clusterRetryStrategy: createRetryStrategy(maxRetries, retryDelayMs, logger, 'cluster'),
+      clusterRetryStrategy: createRetryStrategy(
+        maxRetries,
+        retryDelayMs,
+        logger,
+        'cluster'
+      ),
       redisOptions: {
         db,
         ...credentials,

@@ -57,7 +57,9 @@ export const getTriagePage = (filename) => {
       })
     } catch (error) {
       request.logger.error({ err: error }, 'Failed to load ai-triage page')
-      return h.response(getErrorHeading(statusCodes.notFound)).code(statusCodes.notFound)
+      return h
+        .response(getErrorHeading(statusCodes.notFound))
+        .code(statusCodes.notFound)
     }
   }
 }
@@ -86,7 +88,9 @@ export const postTriagePage = (filename) => {
       return h.redirect(meta.questionContinueHref)
     } catch (error) {
       request.logger.error({ err: error }, 'Failed to process ai-triage form')
-      return h.response(getErrorHeading(statusCodes.notFound)).code(statusCodes.notFound)
+      return h
+        .response(getErrorHeading(statusCodes.notFound))
+        .code(statusCodes.notFound)
     }
   }
 }
@@ -134,7 +138,9 @@ export const getSummaryPage = async (request, h) => {
       { err: error },
       'Failed to load ai-triage summary page'
     )
-    return h.response(getErrorHeading(statusCodes.notFound)).code(statusCodes.notFound)
+    return h
+      .response(getErrorHeading(statusCodes.notFound))
+      .code(statusCodes.notFound)
   }
 }
 
@@ -146,6 +152,8 @@ export const postSummaryPage = async (request, h) => {
       { err: error },
       'Failed to process ai-triage summary form'
     )
-    return h.response(getErrorHeading(statusCodes.notFound)).code(statusCodes.notFound)
+    return h
+      .response(getErrorHeading(statusCodes.notFound))
+      .code(statusCodes.notFound)
   }
 }
