@@ -441,7 +441,7 @@ Locates a point on a map using 2 letters and between 4 and 12 digits.
 
 Do not confuse with National Grid field number, which is a 4-digit code used to identify a specific, small field parcel.
 
-Always check with the SME which type of number is relevant to the specific content, and be consistent in using it.
+Always check with the subject matter expert which type of number is relevant to the specific content, and be consistent in using it.
 
 ### other keeper
 
