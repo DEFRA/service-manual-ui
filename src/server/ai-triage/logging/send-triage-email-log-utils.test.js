@@ -1,0 +1,53 @@
+import { describe, test, expect } from 'vitest'
+import {
+  buildSendTriageEmailErrorLog,
+  buildSendTriageEmailSuccessLog
+} from './send-triage-email-log-utils.js'
+
+describe('buildSendTriageEmailErrorLog', () => {
+  test('builds error log with code, joined messages, and type', () => {
+    const error = {
+      status: 400,
+      data: {
+        errors: [
+          { message: 'template_id is not a valid UUID' },
+          { message: 'email_address is required' }
+        ]
+      }
+    }
+
+    expect(buildSendTriageEmailErrorLog(error)).toEqual({
+      event: { type: 'send_triage_email', action: 'send', outcome: 'failure' },
+      error: {
+        code: 400,
+        message: 'template_id is not a valid UUID, email_address is required',
+        type: 'NotifyError'
+      }
+    })
+  })
+
+  test('builds error log with a single error message', () => {
+    const error = {
+      status: 403,
+      data: { errors: [{ message: 'Invalid token' }] }
+    }
+
+    expect(buildSendTriageEmailErrorLog(error)).toEqual({
+      event: { type: 'send_triage_email', action: 'send', outcome: 'failure' },
+      error: { code: 403, message: 'Invalid token', type: 'NotifyError' }
+    })
+  })
+})
+
+describe('buildSendTriageEmailSuccessLog', () => {
+  test('builds success log with reference', () => {
+    expect(buildSendTriageEmailSuccessLog('triage-123')).toEqual({
+      event: {
+        type: 'send_triage_email',
+        action: 'send',
+        outcome: 'success',
+        reference: 'triage-123'
+      }
+    })
+  })
+})

@@ -1,12 +1,17 @@
 import { config } from '../../config/config.js'
 import { createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
+import {
+  buildSendTriageEmailErrorLog,
+  buildSendTriageEmailSuccessLog
+} from './logging/send-triage-email-log-utils.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 
 /**
- * @typedef {{ data: object, status: number }} NotifyError
+ * @typedef {import('../../notify/notify-client.js').NotifyError} NotifyError
+ * @typedef {import('../../notify/notify-client.js').NotifySendEmailResponse} NotifySendEmailResponse
  */
 
 /**
@@ -16,7 +21,7 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
  * @param {string} templateId
  * @param {string} email
  * @param {Record<string, object>} [params]
- * @returns {Promise<[import('axios').AxiosResponse, null] | [null, NotifyError]>}
+ * @returns {Promise<[{ data: NotifySendEmailResponse, status: number }, null] | [null, NotifyError]>}
  */
 async function trySendEmail(templateId, email, params = {}) {
   try {
@@ -25,7 +30,7 @@ async function trySendEmail(templateId, email, params = {}) {
       reference: `triage-${Date.now()}`
     })
 
-    return [response, null]
+    return [{ data: response.data, status: response.status }, null]
   } catch (error) {
     if (!error.response) {
       throw new Error(
@@ -33,8 +38,8 @@ async function trySendEmail(templateId, email, params = {}) {
       )
     }
 
-    const data = error.response?.data
-    const status = error.response?.status
+    const data = error.response.data
+    const status = error.response.status
 
     return [null, { data, status }]
   }
@@ -60,7 +65,7 @@ async function sendTriageEmail(submission) {
 
   if (error) {
     logger.error(
-      { err: error },
+      buildSendTriageEmailErrorLog(error),
       'Failed to send triage email via Gov.UK Notify'
     )
 
@@ -74,9 +79,7 @@ async function sendTriageEmail(submission) {
   }
 
   logger.info(
-    {
-      reference: response.data?.reference
-    },
+    buildSendTriageEmailSuccessLog(response.data.reference),
     'Triage email sent successfully via Notify'
   )
 

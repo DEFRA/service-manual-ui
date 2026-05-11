@@ -161,7 +161,6 @@ export const config = convict({
       apiKey: {
         doc: 'Gov.UK Notify API key for the AI toolkit',
         format: String,
-        nullable: true,
         default: null,
         env: 'AI_TOOLKIT_NOTIFY_KEY',
         sensitive: true
