@@ -10,7 +10,6 @@ function slugFromQuestionPath(questionPath) {
  * A submission created from triage questionnaire session data.
  */
 export class TriageSubmission {
-
   /**
    * @param {string|null} email
    * @param {string|null} problem
@@ -40,7 +39,9 @@ export class TriageSubmission {
       const { meta } = loadContent(filename)
       const stored = sessionData[slug]
 
-      if (!stored || !meta.fields) continue
+      if (!stored || !meta.fields) {
+        continue
+      }
 
       for (const [inputName, serviceKey] of Object.entries(meta.fields)) {
         if (stored[inputName] != null) {

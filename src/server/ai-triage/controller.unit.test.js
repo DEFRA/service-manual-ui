@@ -20,7 +20,9 @@ vi.mock('./session.js', () => ({
 const mockFromSessionData = vi.fn()
 const mockTriageSummaryFromSessionData = vi.fn()
 vi.mock('./model.js', () => ({
-  TriageSubmission: { fromSessionData: (...args) => mockFromSessionData(...args) },
+  TriageSubmission: {
+    fromSessionData: (...args) => mockFromSessionData(...args)
+  },
   TriageSummaryViewModel: {
     fromSessionData: (...args) => mockTriageSummaryFromSessionData(...args)
   }
@@ -240,11 +242,36 @@ describe('#getSummaryPage', () => {
     })
     mockTriageSummaryFromSessionData.mockReturnValue({
       rows: [
-        { slug: 'question-1', title: 'Question 1', answer: 'test@example.com', changeHref: '/ai-toolkit/triage/question-1' },
-        { slug: 'question-2', title: 'Question 2', answer: 'Some problem description', changeHref: '/ai-toolkit/triage/question-2' },
-        { slug: 'question-3', title: 'Question 3', answer: 'Many users', changeHref: '/ai-toolkit/triage/question-3' },
-        { slug: 'question-4', title: 'Question 4', answer: 'Big benefit', changeHref: '/ai-toolkit/triage/question-4' },
-        { slug: 'question-5', title: 'Question 5', answer: 'Tried nothing', changeHref: '/ai-toolkit/triage/question-5' }
+        {
+          slug: 'question-1',
+          title: 'Question 1',
+          answer: 'test@example.com',
+          changeHref: '/ai-toolkit/triage/question-1'
+        },
+        {
+          slug: 'question-2',
+          title: 'Question 2',
+          answer: 'Some problem description',
+          changeHref: '/ai-toolkit/triage/question-2'
+        },
+        {
+          slug: 'question-3',
+          title: 'Question 3',
+          answer: 'Many users',
+          changeHref: '/ai-toolkit/triage/question-3'
+        },
+        {
+          slug: 'question-4',
+          title: 'Question 4',
+          answer: 'Big benefit',
+          changeHref: '/ai-toolkit/triage/question-4'
+        },
+        {
+          slug: 'question-5',
+          title: 'Question 5',
+          answer: 'Tried nothing',
+          changeHref: '/ai-toolkit/triage/question-5'
+        }
       ]
     })
     mockLoadContent.mockReturnValue({

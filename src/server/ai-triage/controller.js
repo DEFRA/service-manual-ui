@@ -91,10 +91,7 @@ export const postTriagePage = (filename) => {
 
       return h.redirect(meta.questionContinueHref)
     } catch (error) {
-      request.logger.error(
-        { err: error },
-        'Failed to process ai-triage form'
-      )
+      request.logger.error({ err: error }, 'Failed to process ai-triage form')
       return h
         .response(getErrorHeading(statusCodes.notFound))
         .code(statusCodes.notFound)
@@ -140,7 +137,10 @@ export const postSummaryPage = async (request, h) => {
     const { triageResult } = await aiTriageService.submit(submission)
 
     if (!triageResult.success) {
-      return renderSummaryWithErrors(request, h, { sendError: true, errors: [] })
+      return renderSummaryWithErrors(request, h, {
+        sendError: true,
+        errors: []
+      })
     }
 
     sessionHelper.clearTriageSession(request.yar)

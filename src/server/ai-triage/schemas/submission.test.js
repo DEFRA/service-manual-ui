@@ -28,7 +28,7 @@ describe('submission schema', () => {
       expect(value.email).toBe('test@example.com')
       expect(value.problem).toBe('A problem')
       expect(value.users).toBe('Some users')
-      expect(value.benefits).toBe('Some benefits'),
+      expect(value.benefits).toBe('Some benefits')
       expect(value.solutionAttempts).toBe('Some solution attempts')
     })
   })
@@ -115,7 +115,10 @@ describe('submission schema', () => {
 
   describe('solutionAttempts field', () => {
     test('should fail on missing solutionAttempts', () => {
-      const { error } = schema.validate({ ...valid, solutionAttempts: undefined })
+      const { error } = schema.validate({
+        ...valid,
+        solutionAttempts: undefined
+      })
       expect(error).toBeDefined()
       expect(error.message).toBe('Enter a description of the solution attempts')
     })

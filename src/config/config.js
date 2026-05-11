@@ -6,6 +6,7 @@ import convictFormatWithValidator from 'convict-format-with-validator'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const minSessionCookiePasswordLength = 32
 const fourHoursMs = 14400000
 const oneWeekMs = 604800000
 
@@ -210,10 +211,15 @@ export const config = convict({
         env: 'SESSION_COOKIE_TTL'
       },
       password: {
-        doc: 'Session cookie encryption password (must be at least 32 characters)',
+        doc: `Session cookie encryption password (must be at least ${minSessionCookiePasswordLength} characters)`,
         format: (value) => {
-          if (typeof value !== 'string' || value.length < 32) {
-            throw new Error('must be a string with at least 32 characters')
+          if (
+            typeof value !== 'string' ||
+            value.length < minSessionCookiePasswordLength
+          ) {
+            throw new Error(
+              `must be a string with at least ${minSessionCookiePasswordLength} characters`
+            )
           }
         },
         default: null,

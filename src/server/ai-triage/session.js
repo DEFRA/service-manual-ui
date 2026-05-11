@@ -38,4 +38,3 @@ export function getTriageSessionData(yar) {
 export function clearTriageSession(yar) {
   yar.clear(SESSION_KEY)
 }
-

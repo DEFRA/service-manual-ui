@@ -12,7 +12,7 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 /**
  * Sends an email via GOV.UK Notify, returning a result tuple to avoid leaking
  * PII from the raw error response and allow the caller to decide how to handle errors.
- * 
+ *
  * @param {string} templateId
  * @param {string} email
  * @param {Record<string, object>} [params]
@@ -28,7 +28,9 @@ async function trySendEmail(templateId, email, params = {}) {
     return [response, null]
   } catch (error) {
     if (!error.response) {
-      throw new Error(`Unknown error while attempting to send email via Notify: ${error.message || error.code}`)
+      throw new Error(
+        `Unknown error while attempting to send email via Notify: ${error.message || error.code}`
+      )
     }
 
     const data = error.response?.data
@@ -40,7 +42,7 @@ async function trySendEmail(templateId, email, params = {}) {
 
 /**
  * Sends a triage submission email and returns a result object indicating success or failure.
- * 
+ *
  * @param {import('./models.js').TriageSubmission} submission
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
@@ -73,7 +75,7 @@ async function sendTriageEmail(submission) {
 
   logger.info(
     {
-      reference: response.data?.reference,
+      reference: response.data?.reference
     },
     'Triage email sent successfully via Notify'
   )
@@ -87,7 +89,7 @@ async function sendTriageEmail(submission) {
 /**
  * Submits a triage request - returns an result object representing email sending
  * outcome.
- * 
+ *
  * @param {import('./models.js').TriageSubmission} submission
  * @returns {Promise<{ triageResult: { success: boolean, data?: object, error?: object } }>}
  */

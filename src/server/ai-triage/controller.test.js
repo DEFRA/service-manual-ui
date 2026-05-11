@@ -30,7 +30,9 @@ async function buildSession(server) {
   for (const { url, answer } of questions) {
     const res = await postForm(server, url, answer, cookie)
     const setCookie = res.headers['set-cookie']
-    if (setCookie) cookie = setCookie[0].split(';')[0]
+    if (setCookie) {
+      cookie = setCookie[0].split(';')[0]
+    }
   }
 
   return cookie

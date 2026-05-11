@@ -12,11 +12,16 @@ describe('aiTriageService', () => {
   })
 
   test('submit sends triage email successfully', async () => {
-    const fixturesDir = path.join(process.cwd(), 'src/server/ai-triage/__fixtures__')
-    const fixture = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'submit-success.json'), 'utf-8'))
+    const fixturesDir = path.join(
+      process.cwd(),
+      'src/server/ai-triage/__fixtures__'
+    )
+    const fixture = JSON.parse(
+      fs.readFileSync(path.join(fixturesDir, 'submit-success.json'), 'utf-8')
+    )
     const [record] = fixture
 
-     const baseUrl = 'https://api.notifications.service.gov.uk'
+    const baseUrl = 'https://api.notifications.service.gov.uk'
 
     let requestBody
     const scope = nock(baseUrl)
@@ -62,15 +67,18 @@ describe('aiTriageService', () => {
   })
 
   test('when triage email sending fails, submit returns false', async () => {
-    const fixturesDir = path.join(process.cwd(), 'src/server/ai-triage/__fixtures__')
-    const fixture = JSON.parse(fs.readFileSync(path.join(fixturesDir, 'submit-error.json'), 'utf-8'))
+    const fixturesDir = path.join(
+      process.cwd(),
+      'src/server/ai-triage/__fixtures__'
+    )
+    const fixture = JSON.parse(
+      fs.readFileSync(path.join(fixturesDir, 'submit-error.json'), 'utf-8')
+    )
     const [record] = fixture
 
     const baseUrl = 'https://api.notifications.service.gov.uk'
 
-    nock(baseUrl)
-      .post(record.path)
-      .reply(record.status, record.response)
+    nock(baseUrl).post(record.path).reply(record.status, record.response)
 
     const submission = {
       email: 'test@example.com',
@@ -91,8 +99,6 @@ describe('aiTriageService', () => {
     })
 
     nock.cleanAll()
-    nock(baseUrl)
-      .post(record.path)
-      .reply(record.status, record.response)
+    nock(baseUrl).post(record.path).reply(record.status, record.response)
   })
 })
