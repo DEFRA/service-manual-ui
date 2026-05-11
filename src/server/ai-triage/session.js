@@ -1,52 +1,41 @@
-import { triageQuestions } from './questions.js'
-
-/**
- * Generate session storage key for an answer
- * @param {string} slug - The question slug
- * @returns {string} The session key
- */
-export function answerKey(slug) {
-  return `answer-${slug}`
-}
+const SESSION_KEY = 'ai-triage'
 
 /**
  * @param {import('@hapi/yar').Yar} yar
- * @param {string} key
+ * @param {string} slug
  * @returns {unknown}
  */
-export function getAnswer(yar, key) {
-  return yar.get(key) ?? null
+export function getAnswer(yar, slug) {
+  const data = yar.get(SESSION_KEY)
+  return data?.[slug] ?? null
 }
 
 /**
  * @param {import('@hapi/yar').Yar} yar
- * @param {string[]} slugs
- * @returns {Record<string, unknown>}
+ * @param {string} slug
+ * @param {unknown} fields
+ * @returns {void}
  */
-export function getSessionData(yar, slugs) {
-  const data = {}
-  for (const slug of slugs) {
-    data[slug] = yar.get(`answer-${slug}`) ?? null
-  }
-  return data
+export function setAnswer(yar, slug, fields) {
+  const data = yar.get(SESSION_KEY) ?? {}
+  yar.set(SESSION_KEY, { ...data, [slug]: fields })
 }
 
 /**
  * Retrieve all session data for the triage questions
- * @param {import('@hapi/yar').Yar} yar - The session object
- * @returns {Record<string, unknown>} Session data for all questions
+ * @param {import('@hapi/yar').Yar} yar
+ * @returns {Record<string, unknown>}
  */
 export function getTriageSessionData(yar) {
-  const slugs = triageQuestions.map((p) => p.split('/').at(-1))
-  return getSessionData(yar, slugs)
+  return yar.get(SESSION_KEY) ?? {}
 }
 
 /**
+ * Clear all triage session data
  * @param {import('@hapi/yar').Yar} yar
- * @param {string} key
- * @param {unknown} fields
  * @returns {void}
  */
-export function setAnswer(yar, key, fields) {
-  yar.set(key, fields)
+export function clearTriageSession(yar) {
+  yar.clear(SESSION_KEY)
 }
+

@@ -49,10 +49,7 @@ export const getTriagePage = (filename) => {
     try {
       const { meta, content } = loadContent(filename)
       const slug = slugFromPath(request.path)
-      const stored = sessionHelper.getAnswer(
-        request.yar,
-        sessionHelper.answerKey(slug)
-      )
+      const stored = sessionHelper.getAnswer(request.yar, slug)
       const questionValue = stored?.answer ?? null
 
       return h.view('common/templates/layouts/question', {
@@ -90,9 +87,7 @@ export const postTriagePage = (filename) => {
 
       const slug = slugFromPath(request.path)
 
-      sessionHelper.setAnswer(request.yar, sessionHelper.answerKey(slug), {
-        answer: answer.trim()
-      })
+      sessionHelper.setAnswer(request.yar, slug, { answer: answer.trim() })
 
       return h.redirect(meta.questionContinueHref)
     } catch (error) {
@@ -147,6 +142,8 @@ export const postSummaryPage = async (request, h) => {
     if (!triageResult.success) {
       return renderSummaryWithErrors(request, h, { sendError: true, errors: [] })
     }
+
+    sessionHelper.clearTriageSession(request.yar)
 
     return h.redirect('/ai-toolkit/triage/thank-you')
   } catch (error) {

@@ -6,76 +6,110 @@ describe('sessionService', () => {
   beforeEach(() => {
     mockYar = {
       get: vi.fn(),
-      set: vi.fn()
+      set: vi.fn(),
+      clear: vi.fn()
     }
   })
 
   describe('getAnswer', () => {
-    test('should return the stored value for a key', () => {
-      mockYar.get.mockReturnValue('test@example.com')
+    test('should return the stored value for a slug', () => {
+      mockYar.get.mockReturnValue({
+        'question-1': { answer: 'test@example.com' }
+      })
 
-      const result = sessionService.getAnswer(mockYar, 'answer-question-1')
-      expect(result).toBe('test@example.com')
-      expect(mockYar.get).toHaveBeenCalledWith('answer-question-1')
+      const result = sessionService.getAnswer(mockYar, 'question-1')
+      expect(result).toEqual({ answer: 'test@example.com' })
+      expect(mockYar.get).toHaveBeenCalledWith('ai-triage')
     })
 
-    test('should return null if the key is not set', () => {
+    test('should return null if the slug is not stored', () => {
+      mockYar.get.mockReturnValue({ 'question-1': { answer: 'test' } })
+
+      const result = sessionService.getAnswer(mockYar, 'question-2')
+      expect(result).toBeNull()
+    })
+
+    test('should return null if session data is empty', () => {
       mockYar.get.mockReturnValue(null)
 
-      const result = sessionService.getAnswer(mockYar, 'answer-question-1')
+      const result = sessionService.getAnswer(mockYar, 'question-1')
       expect(result).toBeNull()
     })
 
     test('should return null if yar.get returns undefined', () => {
       mockYar.get.mockReturnValue(undefined)
 
-      const result = sessionService.getAnswer(mockYar, 'answer-question-1')
+      const result = sessionService.getAnswer(mockYar, 'question-1')
       expect(result).toBeNull()
     })
   })
 
   describe('setAnswer', () => {
-    test('should call yar.set with the key and value', () => {
-      sessionService.setAnswer(mockYar, 'answer-question-1', 'test@example.com')
-      expect(mockYar.set).toHaveBeenCalledWith(
-        'answer-question-1',
-        'test@example.com'
-      )
+    test('should store answer under the slug in session object', () => {
+      mockYar.get.mockReturnValue({
+        'question-1': { answer: 'existing' }
+      })
+
+      sessionService.setAnswer(mockYar, 'question-2', { answer: 'new' })
+
+      expect(mockYar.set).toHaveBeenCalledWith('ai-triage', {
+        'question-1': { answer: 'existing' },
+        'question-2': { answer: 'new' }
+      })
+    })
+
+    test('should create session object when none exists', () => {
+      mockYar.get.mockReturnValue(null)
+
+      sessionService.setAnswer(mockYar, 'question-1', {
+        answer: 'test@example.com'
+      })
+
+      expect(mockYar.set).toHaveBeenCalledWith('ai-triage', {
+        'question-1': { answer: 'test@example.com' }
+      })
+    })
+
+    test('should overwrite existing answer for the same slug', () => {
+      mockYar.get.mockReturnValue({
+        'question-1': { answer: 'old' }
+      })
+
+      sessionService.setAnswer(mockYar, 'question-1', { answer: 'updated' })
+
+      expect(mockYar.set).toHaveBeenCalledWith('ai-triage', {
+        'question-1': { answer: 'updated' }
+      })
     })
   })
 
-  describe('getSessionData', () => {
-    test('returns an array of slug/answer pairs for each slug', () => {
-      mockYar.get.mockImplementation((key) => {
-        if (key === 'answer-question-1') {return 'test@example.com'}
-        if (key === 'answer-question-2') {return 'Some problem'}
-        return null
-      })
+  describe('getTriageSessionData', () => {
+    test('should return all stored triage data', () => {
+      const data = {
+        'question-1': { answer: 'test@example.com' },
+        'question-2': { answer: 'Some problem' }
+      }
+      mockYar.get.mockReturnValue(data)
 
-      const result = sessionService.getSessionData(mockYar, [
-        'question-1',
-        'question-2',
-        'question-3'
-      ])
-
-      expect(result).toEqual({
-        'question-1': 'test@example.com',
-        'question-2': 'Some problem',
-        'question-3': null
-      })
+      const result = sessionService.getTriageSessionData(mockYar)
+      expect(result).toEqual(data)
+      expect(mockYar.get).toHaveBeenCalledWith('ai-triage')
     })
 
-    test('returns null for unanswered slugs', () => {
-      mockYar.get.mockReturnValue(undefined)
+    test('should return empty object when no data stored', () => {
+      mockYar.get.mockReturnValue(null)
 
-      const result = sessionService.getSessionData(mockYar, ['question-1'])
-      expect(result).toEqual({ 'question-1': null })
-    })
-
-    test('returns an empty object when given no slugs', () => {
-      const result = sessionService.getSessionData(mockYar, [])
+      const result = sessionService.getTriageSessionData(mockYar)
       expect(result).toEqual({})
     })
   })
-})
 
+  describe('clearTriageSession', () => {
+    test('should clear the session with a single call', () => {
+      sessionService.clearTriageSession(mockYar)
+
+      expect(mockYar.clear).toHaveBeenCalledTimes(1)
+      expect(mockYar.clear).toHaveBeenCalledWith('ai-triage')
+    })
+  })
+})
