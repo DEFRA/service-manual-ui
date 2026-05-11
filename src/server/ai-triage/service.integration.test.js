@@ -6,6 +6,10 @@ import nock from 'nock'
 import { submit } from './service.js'
 
 describe('aiTriageService', () => {
+  beforeEach(() => {
+    nock.disableNetConnect()
+  })
+
   afterEach(() => {
     nock.cleanAll()
     nock.enableNetConnect()
@@ -98,7 +102,5 @@ describe('aiTriageService', () => {
       }
     })
 
-    nock.cleanAll()
-    nock(baseUrl).post(record.path).reply(record.status, record.response)
   })
 })

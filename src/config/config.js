@@ -169,14 +169,12 @@ export const config = convict({
       templateId: {
         doc: 'Gov.UK Notify template ID for triage submission to shared mailbox',
         format: String,
-        nullable: true,
         default: null,
         env: 'AI_TOOLKIT_TRIAGE_TEMPLATE_ID'
       },
       mailbox: {
         doc: 'Shared mailbox email address to receive triage submissions',
         format: String,
-        nullable: true,
         default: null,
         env: 'AICE_SHARED_MAILBOX_EMAIL'
       }

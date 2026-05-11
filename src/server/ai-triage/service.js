@@ -43,7 +43,7 @@ async function trySendEmail(templateId, email, params = {}) {
 /**
  * Sends a triage submission email and returns a result object indicating success or failure.
  *
- * @param {import('./models.js').TriageSubmission} submission
+ * @param {import('./model.js').TriageSubmission} submission
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
 async function sendTriageEmail(submission) {
@@ -90,7 +90,7 @@ async function sendTriageEmail(submission) {
  * Submits a triage request - returns an result object representing email sending
  * outcome.
  *
- * @param {import('./models.js').TriageSubmission} submission
+ * @param {import('./model.js').TriageSubmission} submission
  * @returns {Promise<{ triageResult: { success: boolean, data?: object, error?: object } }>}
  */
 export async function submit(submission) {
