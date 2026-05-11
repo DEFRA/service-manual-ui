@@ -4,10 +4,11 @@ process.env.ENABLE_AI_CONTENT = 'true'
 process.env.AI_TOOLKIT_NOTIFY_KEY =
   process.env.AI_TOOLKIT_NOTIFY_KEY || 'dummy-api-key-for-tests'
 process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID =
-  process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID || 'dummy-template-id-for-tests'
+  process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID ||
+  '494e750c-007a-4982-8465-6cb4447023c1'
 process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID =
   process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID ||
-  'dummy-template-id-for-tests'
+  'b72e125f-7179-429d-a1bf-76cee401dadd'
 process.env.AICE_SHARED_MAILBOX_EMAIL =
   process.env.AICE_SHARED_MAILBOX_EMAIL ||
   'dummy-mailbox-email-for-tests@example.com'

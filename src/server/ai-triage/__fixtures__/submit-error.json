@@ -4,23 +4,23 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "invalid-template-id",
+      "template_id": "494e750c-007a-4982-8465-6cb4447023c1",
       "email_address": "test@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",
-        "problem": "Test problem",
-        "users": "Test users",
-        "benefits": "Test benefits",
-        "solutionAttempts": "Test attempts"
+        "problem": "Test problem description",
+        "users": "Test users description",
+        "benefits": "Test benefits description",
+        "solutionAttempts": "Test solution attempts description"
       },
-      "reference": "triage-error"
+      "reference": "triage-1700000000000"
     },
     "status": 400,
     "response": {
       "errors": [
         {
           "error": "BadRequestError",
-          "message": "template_id is not a valid UUID"
+          "message": "id is not a valid UUID"
         }
       ],
       "status_code": 400
