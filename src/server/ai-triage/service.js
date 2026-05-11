@@ -1,6 +1,10 @@
 import { config } from '../../config/config.js'
 import { createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
+import {
+  buildSendTriageEmailErrorLog,
+  buildSendTriageEmailSuccessLog
+} from './logging/send-triage-email-log-utils.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
@@ -25,7 +29,7 @@ async function trySendEmail(templateId, email, params = {}) {
       reference: `triage-${Date.now()}`
     })
 
-    return [response, null]
+    return [{ data: response.data, status: response.status }, null]
   } catch (error) {
     if (!error.response) {
       throw new Error(
@@ -60,7 +64,7 @@ async function sendTriageEmail(submission) {
 
   if (error) {
     logger.error(
-      { err: error },
+      buildSendTriageEmailErrorLog(error),
       'Failed to send triage email via Gov.UK Notify'
     )
 
@@ -74,9 +78,7 @@ async function sendTriageEmail(submission) {
   }
 
   logger.info(
-    {
-      reference: response.data?.reference
-    },
+    buildSendTriageEmailSuccessLog(response.data.reference),
     'Triage email sent successfully via Notify'
   )
 
