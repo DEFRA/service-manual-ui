@@ -10,7 +10,7 @@ async function loadSendEmailFixture(filename, onRequest) {
 
   const scope = nock(record.scope)
     .post(record.path, (body) => {
-      if (body.template_id !== record.body.template_id) return false
+      if (body.template_id !== record.body.template_id) {return false}
       onRequest?.(body)
       return true
     })
@@ -134,7 +134,7 @@ describe('aiTriageService', () => {
 
     test('when sending fails, returns failure with error details', async () => {
       await loadSendEmailFixture('submit-success.json')
-      
+
       const { scope, record } = await loadSendEmailFixture('confirm-error.json')
 
       const result = await submit(submission)
