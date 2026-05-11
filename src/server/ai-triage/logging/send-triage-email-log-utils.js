@@ -8,5 +8,10 @@ export const buildSendTriageEmailErrorLog = (error) => ({
 })
 
 export const buildSendTriageEmailSuccessLog = (reference) => ({
-  event: { type: 'send_triage_email', action: 'send', outcome: 'success', reference }
+  event: {
+    type: 'send_triage_email',
+    action: 'send',
+    outcome: 'success',
+    reference
+  }
 })
