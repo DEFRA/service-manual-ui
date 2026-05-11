@@ -1,0 +1,17 @@
+[
+  {
+    "scope": "https://api.notifications.service.gov.uk:443",
+    "method": "POST",
+    "path": "/v2/notifications/email",
+    "body": {
+      "template_id": "b72e125f-7179-429d-a1bf-76cee401dadd",
+      "email_address": "test@example.com",
+      "reference": "triage-123"
+    },
+    "status": 201,
+    "response": {
+      "id": "confirmation-id-123",
+      "reference": "triage-123"
+    }
+  }
+]

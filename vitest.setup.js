@@ -5,6 +5,9 @@ process.env.AI_TOOLKIT_NOTIFY_KEY =
   process.env.AI_TOOLKIT_NOTIFY_KEY || 'dummy-api-key-for-tests'
 process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID =
   process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID || 'dummy-template-id-for-tests'
+process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID =
+  process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID ||
+  'dummy-template-id-for-tests'
 process.env.AICE_SHARED_MAILBOX_EMAIL =
   process.env.AICE_SHARED_MAILBOX_EMAIL ||
   'dummy-mailbox-email-for-tests@example.com'

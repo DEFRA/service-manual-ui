@@ -165,11 +165,17 @@ export const config = convict({
         env: 'AI_TOOLKIT_NOTIFY_KEY',
         sensitive: true
       },
-      templateId: {
+      triageTemplateId: {
         doc: 'Gov.UK Notify template ID for triage submission to shared mailbox',
         format: String,
         default: null,
         env: 'AI_TOOLKIT_TRIAGE_TEMPLATE_ID'
+      },
+      confirmationTemplateId: {
+        doc: 'Gov.UK Notify template ID for sumbission cnfirmation',
+        format: String,
+        default: null,
+        env: 'AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID'
       },
       mailbox: {
         doc: 'Shared mailbox email address to receive triage submissions',

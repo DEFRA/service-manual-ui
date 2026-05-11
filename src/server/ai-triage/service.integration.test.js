@@ -102,4 +102,128 @@ describe('aiTriageService', () => {
       }
     })
   })
+
+  test('sends confirmation email to user after successful triage submission', async () => {
+    const fixturesDir = path.join(
+      process.cwd(),
+      'src/server/ai-triage/__fixtures__'
+    )
+    const triageFixture = JSON.parse(
+      fs.readFileSync(path.join(fixturesDir, 'submit-success.json'), 'utf-8')
+    )[0]
+    // Simulate confirmation email Notify response
+    const confirmationResponse = {
+      id: 'confirmation-id',
+      reference: 'triage-123'
+    }
+    const baseUrl = 'https://api.notifications.service.gov.uk'
+
+    // Mock triage email
+    const triageScope = nock(baseUrl)
+      .post(triageFixture.path)
+      .reply(triageFixture.status, triageFixture.response)
+
+    // Mock confirmation email (template ID must match your config/env)
+    const confirmationScope = nock(baseUrl)
+      .post('/v2/notifications/email', (body) => {
+        // Check correct template ID and recipient
+        return (
+          body.template_id ===
+            process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID &&
+          body.email_address === 'test@example.com'
+        )
+      })
+      .reply(201, confirmationResponse)
+
+    const submission = {
+      email: 'test@example.com',
+      problem: 'Test problem description',
+      users: 'Test users description',
+      benefits: 'Test benefits description',
+      solutionAttempts: 'Test solution attempts description'
+    }
+
+    const result = await submit(submission)
+
+    expect(triageScope.isDone()).toBe(true)
+    expect(confirmationScope.isDone()).toBe(true)
+    expect(result.confirmationResult).toEqual({
+      success: true,
+      data: confirmationResponse
+    })
+  })
+
+  test('does not send confirmation email if triage submission fails', async () => {
+    const fixturesDir = path.join(
+      process.cwd(),
+      'src/server/ai-triage/__fixtures__'
+    )
+    const triageFixture = JSON.parse(
+      fs.readFileSync(path.join(fixturesDir, 'submit-error.json'), 'utf-8')
+    )[0]
+    const baseUrl = 'https://api.notifications.service.gov.uk'
+
+    // Mock triage email to fail
+    const triageScope = nock(baseUrl)
+      .post(triageFixture.path)
+      .reply(triageFixture.status, triageFixture.response)
+
+    // Set up a nock for confirmation email that will error if called
+    const confirmationScope = nock(baseUrl)
+      .post('/v2/notifications/email')
+      .reply(() => {
+        throw new Error('Confirmation email should not be sent')
+      })
+
+    const submission = {
+      email: 'test@example.com',
+      problem: 'Test problem',
+      users: 'Test users',
+      benefits: 'Test benefits',
+      solutionAttempts: 'Test attempts'
+    }
+
+    const result = await submit(submission)
+
+    expect(triageScope.isDone()).toBe(true)
+    expect(confirmationScope.isDone()).toBe(false)
+    expect(result.triageResult.success).toBe(false)
+  })
+
+  test('if confirmation email fails, triage is still considered successful', async () => {
+    const fixturesDir = path.join(
+      process.cwd(),
+      'src/server/ai-triage/__fixtures__'
+    )
+    const triageFixture = JSON.parse(
+      fs.readFileSync(path.join(fixturesDir, 'submit-success.json'), 'utf-8')
+    )[0]
+    const baseUrl = 'https://api.notifications.service.gov.uk'
+
+    // Mock triage email to succeed
+    const triageScope = nock(baseUrl)
+      .post(triageFixture.path)
+      .reply(triageFixture.status, triageFixture.response)
+
+    // Mock confirmation email to fail
+    const confirmationScope = nock(baseUrl)
+      .post('/v2/notifications/email')
+      .reply(500, { message: 'Notify error' })
+
+    const submission = {
+      email: 'test@example.com',
+      problem: 'Test problem description',
+      users: 'Test users description',
+      benefits: 'Test benefits description',
+      solutionAttempts: 'Test solution attempts description'
+    }
+
+    const result = await submit(submission)
+
+    expect(triageScope.isDone()).toBe(true)
+    expect(confirmationScope.isDone()).toBe(true)
+    expect(result.triageResult.success).toBe(true)
+    expect(result.confirmationResult.success).toBe(false)
+    expect(result.confirmationResult.error).toBeDefined()
+  })
 })
