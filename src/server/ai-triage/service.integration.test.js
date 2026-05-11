@@ -101,6 +101,5 @@ describe('aiTriageService', () => {
         status: record.status
       }
     })
-
   })
 })
