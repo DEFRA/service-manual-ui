@@ -1,8 +1,9 @@
 import { config } from '../../config/config.js'
-import { notifyClient } from '../../notify/notify-client.js'
+import { createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
 
 const logger = createLogger()
+const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 
 /**
  * @typedef {{ data: object, status: number }} NotifyError
@@ -44,8 +45,8 @@ async function trySendEmail(templateId, email, params = {}) {
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
 async function sendTriageEmail(submission) {
-  const templateId = config.get('notify.triageTemplateId')
-  const sharedMailbox = config.get('notify.aiceMailbox')
+  const templateId = config.get('notify.aiToolkit.templateId')
+  const sharedMailbox = config.get('notify.aiToolkit.mailbox')
 
   const [response, error] = await trySendEmail(templateId, sharedMailbox, {
     emailAddress: submission.email,

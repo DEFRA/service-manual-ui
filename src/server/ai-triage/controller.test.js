@@ -2,7 +2,7 @@ import { statusCodes } from '../common/constants/status-codes.js'
 import { createServer } from '../server.js'
 
 vi.mock('../../notify/notify-client.js', () => ({
-  notifyClient: { sendEmail: vi.fn().mockResolvedValue({}) }
+  createNotifyClient: () => ({ sendEmail: vi.fn().mockResolvedValue({}) })
 }))
 
 const postForm = (server, url, answer, cookie) =>
