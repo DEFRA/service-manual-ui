@@ -10,7 +10,8 @@ const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 
 /**
- * @typedef {{ data: object, status: number }} NotifyError
+ * @typedef {import('../../notify/notify-client.js').NotifyError} NotifyError
+ * @typedef {import('../../notify/notify-client.js').NotifySendEmailResponse} NotifySendEmailResponse
  */
 
 /**
@@ -20,7 +21,7 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
  * @param {string} templateId
  * @param {string} email
  * @param {Record<string, object>} [params]
- * @returns {Promise<[import('axios').AxiosResponse, null] | [null, NotifyError]>}
+ * @returns {Promise<[{ data: NotifySendEmailResponse, status: number }, null] | [null, NotifyError]>}
  */
 async function trySendEmail(templateId, email, params = {}) {
   try {
@@ -37,8 +38,8 @@ async function trySendEmail(templateId, email, params = {}) {
       )
     }
 
-    const data = error.response?.data
-    const status = error.response?.status
+    const data = error.response.data
+    const status = error.response.status
 
     return [null, { data, status }]
   }
