@@ -4,7 +4,7 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "494e750c-007a-4982-8465-6cb4447023c1",
+      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
       "email_address": "test@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",

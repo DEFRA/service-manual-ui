@@ -4,7 +4,7 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "494e750c-007a-4982-8465-6cb4447023c1",
+      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
       "email_address": "AICapabilityAndEnablement@defra.gov.uk",
       "personalisation": {
         "emailAddress": "test@example.com",
@@ -27,8 +27,8 @@
       "reference": "triage-1778020260352",
       "scheduled_for": null,
       "template": {
-        "id": "494e750c-007a-4982-8465-6cb4447023c1",
-        "uri": "https://api.notifications.service.gov.uk/services/138452f8-f733-41a2-9fb4-796b22da1f58/templates/494e750c-007a-4982-8465-6cb4447023c1",
+        "id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
+        "uri": "https://api.notifications.service.gov.uk/services/138452f8-f733-41a2-9fb4-796b22da1f58/templates/89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
         "version": 6
       },
       "uri": "https://api.notifications.service.gov.uk/v2/notifications/e3543d38-0fca-4486-8292-5ddb363362f1"

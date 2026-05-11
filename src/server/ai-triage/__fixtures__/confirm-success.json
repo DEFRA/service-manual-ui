@@ -4,7 +4,7 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "b72e125f-7179-429d-a1bf-76cee401dadd",
+      "template_id": "b91e6fbc-565f-48ab-955f-b3ef040f6125",
       "email_address": "test@example.com",
       "reference": "triage-123"
     },
