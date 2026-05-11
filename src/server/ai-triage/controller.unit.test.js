@@ -7,11 +7,35 @@ vi.mock('../common/helpers/content-loader.js', () => ({
 
 const mockGetAnswer = vi.fn()
 const mockSetAnswer = vi.fn()
-const mockGetAnswers = vi.fn()
-vi.mock('./service.js', () => ({
+const mockGetTriageSessionData = vi.fn()
+const mockClearTriageSession = vi.fn()
+
+vi.mock('./session.js', () => ({
   getAnswer: (...args) => mockGetAnswer(...args),
   setAnswer: (...args) => mockSetAnswer(...args),
-  getAnswers: (...args) => mockGetAnswers(...args)
+  getTriageSessionData: (...args) => mockGetTriageSessionData(...args),
+  clearTriageSession: (...args) => mockClearTriageSession(...args)
+}))
+
+const mockFromSessionData = vi.fn()
+const mockTriageSummaryFromSessionData = vi.fn()
+vi.mock('./model.js', () => ({
+  TriageSubmission: {
+    fromSessionData: (...args) => mockFromSessionData(...args)
+  },
+  TriageSummaryViewModel: {
+    fromSessionData: (...args) => mockTriageSummaryFromSessionData(...args)
+  }
+}))
+
+const mockSubmit = vi.fn()
+vi.mock('./service.js', () => ({
+  submit: (...args) => mockSubmit(...args)
+}))
+
+const mockSubmissionValidate = vi.fn()
+vi.mock('./schemas/submission.js', () => ({
+  default: { validate: (...args) => mockSubmissionValidate(...args) }
 }))
 
 const { getTriagePage, postTriagePage, getSummaryPage, postSummaryPage } =
@@ -59,13 +83,13 @@ describe('#getTriagePage', () => {
       },
       content: ''
     })
-    mockGetAnswer.mockReturnValue('previous answer')
+    mockGetAnswer.mockReturnValue({ answer: 'previous answer' })
 
     const handler = getTriagePage('ai-toolkit/triage/question-1.md')
     await handler(buildRequest(), buildH())
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question.njk',
+      'common/templates/layouts/question',
       expect.objectContaining({
         title: 'Test Question',
         questionValue: 'previous answer',
@@ -76,7 +100,7 @@ describe('#getTriagePage', () => {
 
   it('rehydrates the session value using the slug as the answer key', async () => {
     mockLoadContent.mockReturnValue({ meta: {}, content: '' })
-    mockGetAnswer.mockReturnValue('stored answer')
+    mockGetAnswer.mockReturnValue({ answer: 'stored answer' })
 
     const handler = getTriagePage('ai-toolkit/triage/question-2.md')
     await handler(
@@ -84,7 +108,7 @@ describe('#getTriagePage', () => {
       buildH()
     )
 
-    expect(mockGetAnswer).toHaveBeenCalledWith(mockYar, 'answer-question-2')
+    expect(mockGetAnswer).toHaveBeenCalledWith(mockYar, 'question-2')
   })
 
   it('renders with null if no answer stored', async () => {
@@ -95,7 +119,7 @@ describe('#getTriagePage', () => {
     await handler(buildRequest(), buildH())
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question.njk',
+      'common/templates/layouts/question',
       expect.objectContaining({ questionValue: null })
     )
   })
@@ -135,11 +159,9 @@ describe('#postTriagePage', () => {
       buildH()
     )
 
-    expect(mockSetAnswer).toHaveBeenCalledWith(
-      mockYar,
-      'answer-question-1',
-      'test@example.com'
-    )
+    expect(mockSetAnswer).toHaveBeenCalledWith(mockYar, 'question-1', {
+      answer: 'test@example.com'
+    })
     expect(mockRedirect).toHaveBeenCalledWith('/next')
   })
 
@@ -161,11 +183,9 @@ describe('#postTriagePage', () => {
       buildH()
     )
 
-    expect(mockSetAnswer).toHaveBeenCalledWith(
-      mockYar,
-      'answer-question-3',
-      'answer with spaces'
-    )
+    expect(mockSetAnswer).toHaveBeenCalledWith(mockYar, 'question-3', {
+      answer: 'answer with spaces'
+    })
   })
 
   it('renders form with error on validation failure', async () => {
@@ -187,7 +207,7 @@ describe('#postTriagePage', () => {
     )
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question.njk',
+      'common/templates/layouts/question',
       expect.objectContaining({
         title: 'Email Question',
         questionError: 'Enter a valid email address',
@@ -212,31 +232,51 @@ describe('#postTriagePage', () => {
 })
 
 describe('#getSummaryPage', () => {
-  const mockQuestionMeta = (n) => ({
-    title: `Question ${n} title`,
-    questionSubmitHref: `/ai-toolkit/triage/question-${n}`
-  })
-
   beforeEach(() => {
-    mockGetAnswers.mockReturnValue([
-      { slug: 'question-1', answer: 'test@example.com' },
-      { slug: 'question-2', answer: 'Some problem description' },
-      { slug: 'question-3', answer: 'Many users' },
-      { slug: 'question-4', answer: 'Big benefit' },
-      { slug: 'question-5', answer: 'Tried nothing' }
-    ])
-    mockLoadContent.mockImplementation((filename) => {
-      const match = filename.match(/question-(\d)/)
-      if (match) {
-        return { meta: mockQuestionMeta(match[1]), content: '' }
-      }
-      return {
-        meta: {
-          title: 'Check your answers',
-          questionSubmitHref: '/ai-toolkit/triage/check-your-answers'
+    mockGetTriageSessionData.mockReturnValue({
+      'question-1': { answer: 'test@example.com' },
+      'question-2': { answer: 'Some problem description' },
+      'question-3': { answer: 'Many users' },
+      'question-4': { answer: 'Big benefit' },
+      'question-5': { answer: 'Tried nothing' }
+    })
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [
+        {
+          slug: 'question-1',
+          title: 'Question 1',
+          answer: 'test@example.com',
+          changeHref: '/ai-toolkit/triage/question-1'
         },
-        content: ''
-      }
+        {
+          slug: 'question-2',
+          title: 'Question 2',
+          answer: 'Some problem description',
+          changeHref: '/ai-toolkit/triage/question-2'
+        },
+        {
+          slug: 'question-3',
+          title: 'Question 3',
+          answer: 'Many users',
+          changeHref: '/ai-toolkit/triage/question-3'
+        },
+        {
+          slug: 'question-4',
+          title: 'Question 4',
+          answer: 'Big benefit',
+          changeHref: '/ai-toolkit/triage/question-4'
+        },
+        {
+          slug: 'question-5',
+          title: 'Question 5',
+          answer: 'Tried nothing',
+          changeHref: '/ai-toolkit/triage/question-5'
+        }
+      ]
+    })
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
     })
   })
 
@@ -247,7 +287,7 @@ describe('#getSummaryPage', () => {
     await getSummaryPage(request, buildH())
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/check-your-answers.njk',
+      'common/templates/layouts/check-your-answers',
       expect.objectContaining({
         title: 'Check your answers',
         rows: expect.arrayContaining([
@@ -285,9 +325,59 @@ describe('#getSummaryPage', () => {
 })
 
 describe('#postSummaryPage', () => {
+  beforeEach(() => {
+    mockGetTriageSessionData.mockReturnValue({
+      'question-1': { answer: 'test@example.com' },
+      'question-2': { answer: 'A problem' },
+      'question-3': { answer: 'Users' },
+      'question-4': { answer: 'Benefits' },
+      'question-5': { answer: 'Attempts' }
+    })
+    mockFromSessionData.mockReturnValue({
+      email: 'test@example.com',
+      problem: 'A problem',
+      users: 'Users',
+      benefits: 'Benefits',
+      solutionAttempts: 'Attempts'
+    })
+    mockSubmissionValidate.mockReturnValue({})
+    mockSubmit.mockResolvedValue({ triageResult: { success: true } })
+  })
+
   it('redirects to thank-you', async () => {
     const h = buildH()
     await postSummaryPage(buildRequest(), h)
     expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
+  })
+
+  it('clears the triage session on successful submit', async () => {
+    await postSummaryPage(buildRequest(), buildH())
+    expect(mockClearTriageSession).toHaveBeenCalledWith(mockYar)
+  })
+
+  it('does not clear session when validation fails', async () => {
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
+    mockTriageSummaryFromSessionData.mockReturnValue({ rows: [] })
+    mockSubmissionValidate.mockReturnValue({
+      error: { details: [{ message: 'required' }] }
+    })
+
+    await postSummaryPage(buildRequest(), buildH())
+    expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
+
+  it('does not clear session when submit fails', async () => {
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
+    mockTriageSummaryFromSessionData.mockReturnValue({ rows: [] })
+    mockSubmit.mockResolvedValue({ triageResult: { success: false } })
+
+    await postSummaryPage(buildRequest(), buildH())
+    expect(mockClearTriageSession).not.toHaveBeenCalled()
   })
 })

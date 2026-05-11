@@ -26,4 +26,6 @@ questionSchema: email-required
 questionBackHref: /ai-toolkit
 questionSubmitHref: /ai-toolkit/triage/question-1
 questionContinueHref: /ai-toolkit/triage/question-2
+fields:
+  answer: email
 ---

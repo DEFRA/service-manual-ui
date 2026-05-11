@@ -27,4 +27,6 @@ questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-2
 questionSubmitHref: /ai-toolkit/triage/question-3
 questionContinueHref: /ai-toolkit/triage/question-4
+fields:
+  answer: users
 ---

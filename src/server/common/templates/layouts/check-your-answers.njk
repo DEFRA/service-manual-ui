@@ -9,6 +9,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {% if errors and errors | length or sendError %}
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            {% if errors and errors | length %}
+              {% for error in errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+            {% elif sendError %}
+              <li>Your answers could not be sent to the team. Please try again.</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">Check your answers before sending them to the team.</p>
 

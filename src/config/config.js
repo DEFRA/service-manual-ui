@@ -6,6 +6,7 @@ import convictFormatWithValidator from 'convict-format-with-validator'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
+const minSessionCookiePasswordLength = 32
 const fourHoursMs = 14400000
 const oneWeekMs = 604800000
 
@@ -155,6 +156,30 @@ export const config = convict({
       env: 'ENABLE_AI_CONTENT'
     }
   },
+  notify: {
+    aiToolkit: {
+      apiKey: {
+        doc: 'Gov.UK Notify API key for the AI toolkit',
+        format: String,
+        nullable: true,
+        default: null,
+        env: 'AI_TOOLKIT_NOTIFY_KEY',
+        sensitive: true
+      },
+      templateId: {
+        doc: 'Gov.UK Notify template ID for triage submission to shared mailbox',
+        format: String,
+        default: null,
+        env: 'AI_TOOLKIT_TRIAGE_TEMPLATE_ID'
+      },
+      mailbox: {
+        doc: 'Shared mailbox email address to receive triage submissions',
+        format: String,
+        default: null,
+        env: 'AICE_SHARED_MAILBOX_EMAIL'
+      }
+    }
+  },
   session: {
     cache: {
       engine: {
@@ -184,10 +209,15 @@ export const config = convict({
         env: 'SESSION_COOKIE_TTL'
       },
       password: {
-        doc: 'Session cookie encryption password (must be at least 32 characters)',
+        doc: `Session cookie encryption password (must be at least ${minSessionCookiePasswordLength} characters)`,
         format: (value) => {
-          if (typeof value !== 'string' || value.length < 32) {
-            throw new Error('must be a string with at least 32 characters')
+          if (
+            typeof value !== 'string' ||
+            value.length < minSessionCookiePasswordLength
+          ) {
+            throw new Error(
+              `must be a string with at least ${minSessionCookiePasswordLength} characters`
+            )
           }
         },
         default: null,
@@ -251,6 +281,36 @@ export const config = convict({
       format: Boolean,
       default: isProduction,
       env: 'REDIS_TLS'
+    },
+    connectTimeout: {
+      doc: 'Redis connection timeout in milliseconds',
+      format: Number,
+      default: 5000,
+      env: 'REDIS_CONNECT_TIMEOUT'
+    },
+    commandTimeout: {
+      doc: 'Redis command timeout in milliseconds',
+      format: Number,
+      default: 5000,
+      env: 'REDIS_COMMAND_TIMEOUT'
+    },
+    keepAlive: {
+      doc: 'Redis keepAlive interval in milliseconds',
+      format: Number,
+      default: 30000,
+      env: 'REDIS_KEEPALIVE'
+    },
+    enableReadyCheck: {
+      doc: 'Enable Redis ready check',
+      format: Boolean,
+      default: true,
+      env: 'REDIS_ENABLE_READY_CHECK'
+    },
+    maxRetriesPerRequest: {
+      doc: 'Maximum number of retries per Redis request',
+      format: Number,
+      default: 3,
+      env: 'REDIS_MAX_RETRIES_PER_REQUEST'
     },
     retryDelayMs: {
       doc: 'Redis retry delay in milliseconds',

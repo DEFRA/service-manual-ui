@@ -28,4 +28,6 @@ questionBackHref: /ai-toolkit/triage/question-4
 questionSubmitHref: /ai-toolkit/triage/question-5
 questionContinueHref: /ai-toolkit/triage/check-your-answers
 questionContinueText: Continue
+fields:
+  answer: solutionAttempts
 ---

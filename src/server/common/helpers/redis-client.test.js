@@ -5,8 +5,8 @@ import { Cluster, Redis } from 'ioredis'
 import { config } from '../../../config/config.js'
 import { buildRedisClient } from './redis-client.js'
 
-vi.mock('ioredis', () => ({
-  ...vi.importActual('ioredis'),
+vi.mock('ioredis', async () => ({
+  ...(await vi.importActual('ioredis')),
   Cluster: vi.fn(function () {
     return { on: () => ({}) }
   }),
@@ -27,6 +27,11 @@ describe('#buildRedisClient', () => {
         host: '127.0.0.1',
         keyPrefix: 'service-manual-ui:',
         port: 6379,
+        connectTimeout: 5000,
+        commandTimeout: 5000,
+        keepAlive: 30000,
+        enableReadyCheck: true,
+        maxRetriesPerRequest: 3,
         retryStrategy: expect.any(Function)
       })
     })
@@ -50,7 +55,17 @@ describe('#buildRedisClient', () => {
           clusterRetryStrategy: expect.any(Function),
           dnsLookup: expect.any(Function),
           keyPrefix: 'service-manual-ui:',
-          redisOptions: { db: 0, password: 'pass', tls: {}, username: 'user' },
+          redisOptions: {
+            db: 0,
+            connectTimeout: 5000,
+            commandTimeout: 5000,
+            keepAlive: 30000,
+            enableReadyCheck: true,
+            maxRetriesPerRequest: 3,
+            password: 'pass',
+            tls: {},
+            username: 'user'
+          },
           slotsRefreshTimeout: 10000
         }
       )

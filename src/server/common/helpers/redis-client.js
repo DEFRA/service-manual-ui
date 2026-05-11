@@ -52,6 +52,11 @@ export function buildRedisClient(redisConfig) {
       host,
       db,
       keyPrefix,
+      connectTimeout: redisConfig.connectTimeout,
+      commandTimeout: redisConfig.commandTimeout,
+      keepAlive: redisConfig.keepAlive,
+      enableReadyCheck: redisConfig.enableReadyCheck,
+      maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
       retryStrategy: createRetryStrategy(
         maxRetries,
         retryDelayMs,
@@ -74,6 +79,11 @@ export function buildRedisClient(redisConfig) {
       ),
       redisOptions: {
         db,
+        connectTimeout: redisConfig.connectTimeout,
+        commandTimeout: redisConfig.commandTimeout,
+        keepAlive: redisConfig.keepAlive,
+        enableReadyCheck: redisConfig.enableReadyCheck,
+        maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
         ...credentials,
         ...tls
       }
