@@ -4,8 +4,8 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "not-a-valid-uuid",
-      "email_address": "ai@example.com",
+      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
+      "email_address": "dummy-mailbox-email-for-tests@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",
         "problem": "Test problem description",
@@ -20,7 +20,7 @@
       "errors": [
         {
           "error": "BadRequestError",
-          "message": "id is not a valid UUID"
+          "message": "template_id is not a valid UUID"
         }
       ],
       "status_code": 400
