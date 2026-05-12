@@ -15,8 +15,9 @@ async function loadSendEmailFixture(filename, onRequest) {
         ([key, value]) => JSON.stringify(body[key]) === JSON.stringify(value)
       )
 
-      if (!allMatch) return false
-
+      if (!allMatch) {
+        return false
+      }
       onRequest?.(body)
       return true
     })
