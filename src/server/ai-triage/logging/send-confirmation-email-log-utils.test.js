@@ -17,7 +17,11 @@ describe('buildSendConfirmationEmailErrorLog', () => {
     }
 
     expect(buildSendConfirmationEmailErrorLog(error)).toEqual({
-      event: { type: 'send_confirmation_email', action: 'send', outcome: 'failure' },
+      event: {
+        type: 'send_confirmation_email',
+        action: 'send',
+        outcome: 'failure'
+      },
       error: {
         code: 400,
         message: 'template_id is not a valid UUID, email_address is required',
@@ -33,7 +37,11 @@ describe('buildSendConfirmationEmailErrorLog', () => {
     }
 
     expect(buildSendConfirmationEmailErrorLog(error)).toEqual({
-      event: { type: 'send_confirmation_email', action: 'send', outcome: 'failure' },
+      event: {
+        type: 'send_confirmation_email',
+        action: 'send',
+        outcome: 'failure'
+      },
       error: { code: 403, message: 'Invalid token', type: 'NotifyError' }
     })
   })
@@ -41,7 +49,9 @@ describe('buildSendConfirmationEmailErrorLog', () => {
 
 describe('buildSendConfirmationEmailSuccessLog', () => {
   test('builds success log with reference', () => {
-    expect(buildSendConfirmationEmailSuccessLog('triage-1700000000000')).toEqual({
+    expect(
+      buildSendConfirmationEmailSuccessLog('triage-1700000000000')
+    ).toEqual({
       event: {
         type: 'send_confirmation_email',
         action: 'send',

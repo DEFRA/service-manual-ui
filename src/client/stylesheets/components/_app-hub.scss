@@ -41,7 +41,9 @@
   background-color: $govuk-light-grey;
   text-decoration: none;
   color: $govuk-black;
-  transition: background-color 0.15s ease-out, border-color 0.15s ease-out;
+  transition:
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out;
 
   &:hover {
     background-color: darken(#f3f2f1, 5%);
@@ -60,7 +62,7 @@
   font-weight: 700;
   line-height: 1.1;
   color: $defra-green;
-  font-family: "GDS Transport", arial, sans-serif;
+  font-family: 'GDS Transport', arial, sans-serif;
 }
 
 .app-stat-card__label {
@@ -68,7 +70,7 @@
   font-weight: 700;
   margin-top: 5px;
   line-height: 1.25;
-  font-family: "GDS Transport", arial, sans-serif;
+  font-family: 'GDS Transport', arial, sans-serif;
 }
 
 .app-stat-card__description {
@@ -76,7 +78,7 @@
   margin-top: 5px;
   color: #505a5f;
   line-height: 1.4;
-  font-family: "GDS Transport", arial, sans-serif;
+  font-family: 'GDS Transport', arial, sans-serif;
 }
 
 // ── Hub sections ──

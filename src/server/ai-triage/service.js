@@ -139,7 +139,7 @@ async function sendConfirmationEmail(submission, reference) {
  * outcome.
  *
  * @param {import('./model.js').TriageSubmission} submission
- * @returns {Promise<{ 
+ * @returns {Promise<{
  *    triageResult: { success: boolean, data?: object, error?: object },
  *    confirmationResult?: { success: boolean, data?: object, error?: object }
  * }>}
