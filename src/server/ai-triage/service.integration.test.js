@@ -10,9 +10,13 @@ async function loadSendEmailFixture(filename, onRequest) {
 
   const scope = nock(record.scope)
     .post(record.path, (body) => {
-      if (body.template_id !== record.body.template_id) {
-        return false
-      }
+      const expectedFields = Object.entries(record.body)
+      const allMatch = expectedFields.every(
+        ([key, value]) => JSON.stringify(body[key]) === JSON.stringify(value)
+      )
+
+      if (!allMatch) return false
+
       onRequest?.(body)
       return true
     })

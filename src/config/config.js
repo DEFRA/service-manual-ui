@@ -172,7 +172,7 @@ export const config = convict({
         env: 'AI_TOOLKIT_TRIAGE_TEMPLATE_ID'
       },
       confirmationTemplateId: {
-        doc: 'Gov.UK Notify template ID for sumbission cnfirmation',
+        doc: 'Gov.UK Notify template ID for submission confirmation',
         format: String,
         default: null,
         env: 'AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID'

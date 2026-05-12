@@ -4,8 +4,8 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
-      "email_address": "test@example.com",
+      "template_id": "not-a-valid-uuid",
+      "email_address": "ai@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",
         "problem": "Test problem description",

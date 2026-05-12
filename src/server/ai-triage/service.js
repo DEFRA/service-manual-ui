@@ -5,6 +5,10 @@ import {
   buildSendTriageEmailErrorLog,
   buildSendTriageEmailSuccessLog
 } from './logging/send-triage-email-log-utils.js'
+import {
+  buildSendConfirmationEmailErrorLog,
+  buildSendConfirmationEmailSuccessLog
+} from './logging/send-confirmation-email-log-utils.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
@@ -20,7 +24,7 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
  *
  * @param {string} templateId
  * @param {string} email
- * @param {Record<string, object>} [params]
+ * @param {{ personalisation?: Record<string, unknown>, reference?: string }} [params]
  * @returns {Promise<[{ data: NotifySendEmailResponse, status: number }, null] | [null, NotifyError]>}
  */
 async function trySendEmail(templateId, email, params = {}) {
@@ -49,6 +53,7 @@ async function trySendEmail(templateId, email, params = {}) {
  * Sends a triage submission email and returns a result object indicating success or failure.
  *
  * @param {import('./model.js').TriageSubmission} submission
+ * @param {string} reference
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
 async function sendTriageEmail(submission, reference) {
@@ -106,7 +111,7 @@ async function sendConfirmationEmail(submission, reference) {
 
   if (error) {
     logger.error(
-      { err: error },
+      buildSendConfirmationEmailErrorLog(error),
       'Failed to send confirmation email via Gov.UK Notify'
     )
 
@@ -120,9 +125,7 @@ async function sendConfirmationEmail(submission, reference) {
   }
 
   logger.info(
-    {
-      reference: response.data?.reference
-    },
+    buildSendConfirmationEmailSuccessLog(response.data?.reference),
     'Confirmation email sent successfully via Notify'
   )
 
@@ -136,7 +139,10 @@ async function sendConfirmationEmail(submission, reference) {
  * outcome.
  *
  * @param {import('./model.js').TriageSubmission} submission
- * @returns {Promise<{ triageResult: { success: boolean, data?: object, error?: object } }>}
+ * @returns {Promise<{ 
+ *    triageResult: { success: boolean, data?: object, error?: object },
+ *    confirmationResult?: { success: boolean, data?: object, error?: object }
+ * }>}
  */
 export async function submit(submission) {
   const reference = `triage-${Date.now()}`

@@ -6,12 +6,12 @@
     "body": {
       "template_id": "b91e6fbc-565f-48ab-955f-b3ef040f6125",
       "email_address": "test@example.com",
-      "reference": "triage-123"
+      "reference": "triage-1700000000000"
     },
     "status": 201,
     "response": {
       "id": "confirmation-id-123",
-      "reference": "triage-123"
+      "reference": "triage-1700000000000"
     }
   }
 ]
