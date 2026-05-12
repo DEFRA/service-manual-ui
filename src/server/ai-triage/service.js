@@ -96,6 +96,7 @@ async function sendTriageEmail(submission, reference) {
     data: response.data
   }
 }
+
 /**
  * Sends a confirmation email and returns a result object indicating success or failure.
  *
@@ -134,6 +135,7 @@ async function sendConfirmationEmail(submission, reference) {
     data: response.data
   }
 }
+
 /**
  * Submits a triage request - returns an result object representing email sending
  * outcome.
