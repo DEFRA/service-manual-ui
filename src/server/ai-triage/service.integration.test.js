@@ -1,105 +1,157 @@
-import fs from 'node:fs'
-import path from 'node:path'
+import fs from 'node:fs/promises'
 
 import nock from 'nock'
 
 import { submit } from './service.js'
 
+async function loadSendEmailFixture(filename, onRequest) {
+  const url = new URL(`./__fixtures__/${filename}`, import.meta.url)
+  const [record] = JSON.parse(await fs.readFile(url, 'utf-8'))
+
+  const scope = nock(record.scope)
+    .post(record.path, (body) => {
+      const expectedFields = Object.entries(record.body)
+      const allMatch = expectedFields.every(
+        ([key, value]) => JSON.stringify(body[key]) === JSON.stringify(value)
+      )
+
+      if (!allMatch) {
+        return false
+      }
+      onRequest?.(body)
+      return true
+    })
+    .reply(record.status, record.response)
+
+  return { scope, record }
+}
+
 describe('aiTriageService', () => {
   beforeEach(() => {
     nock.disableNetConnect()
+    vi.spyOn(Date, 'now').mockReturnValue(1700000000000)
   })
 
   afterEach(() => {
     nock.cleanAll()
     nock.enableNetConnect()
+    vi.restoreAllMocks()
   })
 
-  test('submit sends triage email successfully', async () => {
-    const fixturesDir = path.join(
-      process.cwd(),
-      'src/server/ai-triage/__fixtures__'
-    )
-    const fixture = JSON.parse(
-      fs.readFileSync(path.join(fixturesDir, 'submit-success.json'), 'utf-8')
-    )
-    const [record] = fixture
+  const submission = {
+    email: 'test@example.com',
+    problem: 'Test problem description',
+    users: 'Test users description',
+    benefits: 'Test benefits description',
+    solutionAttempts: 'Test solution attempts description'
+  }
 
-    const baseUrl = 'https://api.notifications.service.gov.uk'
+  describe('triage email', () => {
+    test('is sent to shared mailbox with correct content and reference', async () => {
+      let requestBody
 
-    let requestBody
-    const scope = nock(baseUrl)
-      .post(record.path, (body) => {
-        requestBody = body
-        return body.reference?.startsWith('triage-')
+      const { scope: triageScope, record } = await loadSendEmailFixture(
+        'submit-success.json',
+        (body) => {
+          requestBody = body
+        }
+      )
+
+      await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      expect(triageScope.isDone()).toBe(true)
+
+      expect(result.triageResult).toEqual({
+        success: true,
+        data: record.response
       })
-      .reply(record.status, record.response)
 
-    const submission = {
-      email: 'test@example.com',
-      problem: 'Test problem description',
-      users: 'Test users description',
-      benefits: 'Test benefits description',
-      solutionAttempts: 'Test solution attempts description'
-    }
-
-    const result = await submit(submission)
-
-    expect(result.triageResult).toEqual({
-      success: true,
-      data: record.response
-    })
-
-    expect(scope.isDone()).toBe(true)
-
-    expect(requestBody).toEqual(
-      expect.objectContaining({
-        personalisation: expect.objectContaining({
+      expect(requestBody).toEqual({
+        template_id: record.body.template_id,
+        email_address: process.env.AICE_SHARED_MAILBOX_EMAIL,
+        personalisation: {
           emailAddress: submission.email,
           problem: submission.problem,
           users: submission.users,
           benefits: submission.benefits,
           solutionAttempts: submission.solutionAttempts
-        }),
-        reference: expect.stringMatching(/^triage-\d+$/)
+        },
+        reference: 'triage-1700000000000'
       })
-    )
+    })
 
-    expect(record.response.id).toBeDefined()
-    expect(record.response.id).toMatch(/^[a-f0-9-]+$/)
-    expect(record.response.reference).toMatch(/^triage-/)
+    test('when sending fails, returns failure with error details', async () => {
+      const { record } = await loadSendEmailFixture('submit-error.json')
+
+      const result = await submit(submission)
+
+      expect(result.triageResult).toEqual({
+        success: false,
+        error: { details: record.response, status: record.status }
+      })
+
+      expect(result.confirmationResult).toBeUndefined()
+    })
   })
 
-  test('when triage email sending fails, submit returns false', async () => {
-    const fixturesDir = path.join(
-      process.cwd(),
-      'src/server/ai-triage/__fixtures__'
-    )
-    const fixture = JSON.parse(
-      fs.readFileSync(path.join(fixturesDir, 'submit-error.json'), 'utf-8')
-    )
-    const [record] = fixture
+  describe('confirmation email', () => {
+    test('is sent to submitter with correct reference', async () => {
+      await loadSendEmailFixture('submit-success.json')
 
-    const baseUrl = 'https://api.notifications.service.gov.uk'
+      let requestBody
 
-    nock(baseUrl).post(record.path).reply(record.status, record.response)
+      const { scope, record } = await loadSendEmailFixture(
+        'confirm-success.json',
+        (body) => {
+          requestBody = body
+        }
+      )
 
-    const submission = {
-      email: 'test@example.com',
-      problem: 'Test problem',
-      users: 'Test users',
-      benefits: 'Test benefits',
-      solutionAttempts: 'Test attempts'
-    }
+      const result = await submit(submission)
 
-    const result = await submit(submission)
+      expect(scope.isDone()).toBe(true)
 
-    expect(result.triageResult).toEqual({
-      success: false,
-      error: {
-        details: record.response,
-        status: record.status
-      }
+      expect(result.triageResult.success).toBe(true)
+
+      expect(result.confirmationResult).toEqual({
+        success: true,
+        data: record.response
+      })
+
+      expect(requestBody).toEqual({
+        template_id: record.body.template_id,
+        email_address: submission.email,
+        reference: 'triage-1700000000000'
+      })
+    })
+
+    test('is not sent when triage email fails', async () => {
+      await loadSendEmailFixture('submit-error.json')
+
+      const { scope } = await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      expect(scope.isDone()).toBe(false)
+      expect(result.triageResult.success).toBe(false)
+      expect(result.confirmationResult).toBeUndefined()
+    })
+
+    test('when sending fails, returns failure with error details', async () => {
+      await loadSendEmailFixture('submit-success.json')
+
+      const { scope, record } = await loadSendEmailFixture('confirm-error.json')
+
+      const result = await submit(submission)
+
+      expect(scope.isDone()).toBe(true)
+      expect(result.triageResult.success).toBe(true)
+      expect(result.confirmationResult).toEqual({
+        success: false,
+        error: { details: record.response, status: record.status }
+      })
     })
   })
 })

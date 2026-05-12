@@ -4,16 +4,16 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "invalid-template-id",
-      "email_address": "test@example.com",
+      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
+      "email_address": "dummy-mailbox-email-for-tests@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",
-        "problem": "Test problem",
-        "users": "Test users",
-        "benefits": "Test benefits",
-        "solutionAttempts": "Test attempts"
+        "problem": "Test problem description",
+        "users": "Test users description",
+        "benefits": "Test benefits description",
+        "solutionAttempts": "Test solution attempts description"
       },
-      "reference": "triage-error"
+      "reference": "triage-1700000000000"
     },
     "status": 400,
     "response": {

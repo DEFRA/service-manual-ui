@@ -4,8 +4,8 @@
     "method": "POST",
     "path": "/v2/notifications/email",
     "body": {
-      "template_id": "494e750c-007a-4982-8465-6cb4447023c1",
-      "email_address": "AICapabilityAndEnablement@defra.gov.uk",
+      "template_id": "89ee0b57-0fc3-47f5-b833-98f7a7ff2826",
+      "email_address": "dummy-mailbox-email-for-tests@example.com",
       "personalisation": {
         "emailAddress": "test@example.com",
         "problem": "Test problem description",
@@ -13,47 +13,16 @@
         "benefits": "Test benefits description",
         "solutionAttempts": "Test solution attempts description"
       },
-      "reference": "triage-1778020260352"
+      "reference": "triage-1700000000000"
     },
     "status": 201,
     "response": {
-      "content": {
-        "body": "A new triage submission has come through the AI digital toolkit.\r\n---\r\n\r\n# From\r\ntest@example.com\r\n# What is the problem?\r\n\r\nTest problem description\r\n# Who are the users, and how many are affected?\r\n\r\nTest users description\r\n# What are the benefits of solving this for Defra and end users?\r\n\r\nTest benefits description\r\n\r\n# How have you tried to solve the problem so far?\r\nTest solution attempts description\r\n\r\n---\r\n\r\nReply within 5 working days with one of:\r\n- a recommended pattern they can use today\r\n- a hands-on session with one of our practitioners\r\n- a referral to another Defra team better placed to help\r\n\r\nIf the question is about policy, approvals, or governance, refer to the AI Unit.",
-        "from_email": "defra.ai.capability.and.enablement.aice@notifications.service.gov.uk",
-        "one_click_unsubscribe_url": null,
-        "subject": "New AI digital toolkit triage submission from test@example.com"
-      },
       "id": "e3543d38-0fca-4486-8292-5ddb363362f1",
-      "reference": "triage-1778020260352",
-      "scheduled_for": null,
-      "template": {
-        "id": "494e750c-007a-4982-8465-6cb4447023c1",
-        "uri": "https://api.notifications.service.gov.uk/services/138452f8-f733-41a2-9fb4-796b22da1f58/templates/494e750c-007a-4982-8465-6cb4447023c1",
-        "version": 6
-      },
-      "uri": "https://api.notifications.service.gov.uk/v2/notifications/e3543d38-0fca-4486-8292-5ddb363362f1"
-    },
-    "rawHeaders": {
-      "access-control-allow-headers": "Content-Type,Authorization",
-      "access-control-allow-methods": "GET,PUT,POST,DELETE",
-      "access-control-allow-origin": "*",
-      "cache-control": "no-store, no-cache, private, must-revalidate",
-      "connection": "close",
-      "content-length": "1377",
-      "content-type": "application/json",
-      "date": "Tue, 05 May 2026 22:31:00 GMT",
-      "server": "gunicorn",
-      "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-      "via": "1.1 760bc344e49744534bb1d317b1f3f81e.cloudfront.net (CloudFront)",
-      "x-amz-cf-id": "oShuNWopuAw0ED4R2US3WwFUcvXE0L0VKFI2VZHEiumpOTOx9ppQMg==",
-      "x-amz-cf-pop": "LHR3-P4",
-      "x-b3-spanid": "self-e97ad2af057b8e78",
-      "x-b3-traceid": "oShuNWopuAw0ED4R2US3WwFUcvXE0L0VKFI2VZHEiumpOTOx9ppQMg==",
-      "x-cache": "Miss from cloudfront",
-      "x-content-type-options": "nosniff",
-      "x-frame-options": "SAMEORIGIN",
-      "x-permitted-cross-domain-policies": "none"
-    },
-    "responseIsBinary": false
+      "reference": "triage-1700000000000",
+      "content": {
+        "subject": "New AI digital toolkit triage submission from test@example.com",
+        "body": "A new triage submission has come through the AI digital toolkit."
+      }
+    }
   }
 ]
