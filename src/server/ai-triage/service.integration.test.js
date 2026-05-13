@@ -161,4 +161,24 @@ describe('aiTriageService', () => {
       })
     })
   })
+  describe('reference format', () => {
+    test('generates a reference in the correct AICE-YY-XXXXXX format', async () => {
+      await loadSendEmailFixture('submit-success.json')
+      await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      expect(result.reference).toMatch(/^AICE-\d{2}-[A-Z2-9]{6}$/)
+    })
+
+    test('reference does not contain ambiguous characters O, 0, I, 1', async () => {
+      await loadSendEmailFixture('submit-success.json')
+      await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      const suffix = result.reference.split('-')[2]
+      expect(suffix).not.toMatch(/[O0I1]/)
+    })
+  })
 })

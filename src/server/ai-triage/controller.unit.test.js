@@ -10,13 +10,17 @@ const mockSetAnswer = vi.fn()
 const mockGetTriageSessionData = vi.fn()
 const mockClearTriageSession = vi.fn()
 const mockSetReference = vi.fn()
+const mockGetReference = vi.fn()
+const mockClearReference = vi.fn()
 
 vi.mock('./session.js', () => ({
   getAnswer: (...args) => mockGetAnswer(...args),
   setAnswer: (...args) => mockSetAnswer(...args),
   getTriageSessionData: (...args) => mockGetTriageSessionData(...args),
   clearTriageSession: (...args) => mockClearTriageSession(...args),
-  setReference: (...args) => mockSetReference(...args)
+  setReference: (...args) => mockSetReference(...args),
+  getReference: (...args) => mockGetReference(...args), // ← add
+  clearReference: (...args) => mockClearReference(...args)
 }))
 
 const mockFromSessionData = vi.fn()
@@ -40,8 +44,13 @@ vi.mock('./schemas/submission.js', () => ({
   default: { validate: (...args) => mockSubmissionValidate(...args) }
 }))
 
-const { getTriagePage, postTriagePage, getSummaryPage, postSummaryPage } =
-  await import('./controller.js')
+const {
+  getTriagePage,
+  postTriagePage,
+  getSummaryPage,
+  postSummaryPage,
+  getThankYouPage
+} = await import('./controller.js')
 
 const mockView = vi.fn()
 const mockRedirect = vi.fn()
@@ -384,5 +393,37 @@ describe('#postSummaryPage', () => {
 
     await postSummaryPage(buildRequest(), buildH())
     expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
+})
+
+describe('#getThankYouPage', () => {
+  it('renders the confirmation template with the reference from session', async () => {
+    mockGetReference.mockReturnValue('AICE-26-TEST01')
+
+    await getThankYouPage(buildRequest(), buildH())
+
+    expect(mockView).toHaveBeenCalledWith(
+      'common/templates/layouts/confirmation',
+      expect.objectContaining({
+        title: 'Submission received',
+        reference: 'AICE-26-TEST01'
+      })
+    )
+  })
+
+  it('clears the reference after reading it', async () => {
+    mockGetReference.mockReturnValue('AICE-26-TEST01')
+    await getThankYouPage(buildRequest(), buildH())
+    expect(mockClearReference).toHaveBeenCalledWith(mockYar)
+  })
+
+  it('handles errors gracefully', async () => {
+    mockGetReference.mockImplementation(() => {
+      throw new Error('session error')
+    })
+    const h = buildH()
+    await getThankYouPage(buildRequest(), h)
+    expect(mockLoggerError).toHaveBeenCalled()
+    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })

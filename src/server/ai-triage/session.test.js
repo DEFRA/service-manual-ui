@@ -112,4 +112,35 @@ describe('sessionService', () => {
       expect(mockYar.clear).toHaveBeenCalledWith('ai-triage')
     })
   })
+  describe('setReference', () => {
+    test('should store the reference under its own key', () => {
+      sessionService.setReference(mockYar, 'AICE-26-TEST01')
+      expect(mockYar.set).toHaveBeenCalledWith(
+        'ai-triage-reference',
+        'AICE-26-TEST01'
+      )
+    })
+  })
+
+  describe('getReference', () => {
+    test('should return the stored reference', () => {
+      mockYar.get.mockReturnValue('AICE-26-TEST01')
+      const result = sessionService.getReference(mockYar)
+      expect(result).toBe('AICE-26-TEST01')
+      expect(mockYar.get).toHaveBeenCalledWith('ai-triage-reference')
+    })
+
+    test('should return null when no reference is stored', () => {
+      mockYar.get.mockReturnValue(null)
+      const result = sessionService.getReference(mockYar)
+      expect(result).toBeNull()
+    })
+  })
+
+  describe('clearReference', () => {
+    test('should clear the reference key', () => {
+      sessionService.clearReference(mockYar)
+      expect(mockYar.clear).toHaveBeenCalledWith('ai-triage-reference')
+    })
+  })
 })
