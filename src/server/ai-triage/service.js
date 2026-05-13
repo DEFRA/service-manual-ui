@@ -157,6 +157,7 @@ function generateReference() {
  * @returns {Promise<{
  *    triageResult: { success: boolean, data?: object, error?: object },
  *    confirmationResult?: { success: boolean, data?: object, error?: object }
+ *    reference?: string
  * }>}
  */
 export async function submit(submission) {

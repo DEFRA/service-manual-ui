@@ -36,10 +36,13 @@ async function loadSendEmailFixture(filename, onRequest) {
 
 describe('aiTriageService', () => {
   beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01'))
     nock.disableNetConnect()
   })
 
   afterEach(() => {
+    vi.useRealTimers()
     nock.cleanAll()
     nock.enableNetConnect()
     vi.restoreAllMocks()
