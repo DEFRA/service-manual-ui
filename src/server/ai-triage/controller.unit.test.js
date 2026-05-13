@@ -343,7 +343,10 @@ describe('#postSummaryPage', () => {
       solutionAttempts: 'Attempts'
     })
     mockSubmissionValidate.mockReturnValue({})
-    mockSubmit.mockResolvedValue({ triageResult: { success: true }, reference: 'AICE-26-TEST01' })
+    mockSubmit.mockResolvedValue({
+      triageResult: { success: true },
+      reference: 'AICE-26-TEST01'
+    })
   })
 
   it('redirects to thank-you', async () => {

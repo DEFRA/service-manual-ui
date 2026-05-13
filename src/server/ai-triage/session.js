@@ -67,4 +67,3 @@ export function getReference(yar) {
 export function clearReference(yar) {
   yar.clear(REFERENCE_KEY)
 }
-

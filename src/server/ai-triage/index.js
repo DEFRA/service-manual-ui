@@ -95,8 +95,9 @@ export const aiTriage = {
           path: '/ai-toolkit/triage/thank-you',
           handler: controller.getThankYouPage,
           options: {
-            ext: { 
-              onPreResponse: { method: handleFileNotFound } }
+            ext: {
+              onPreResponse: { method: handleFileNotFound }
+            }
           }
         }
       ])

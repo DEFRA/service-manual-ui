@@ -168,10 +168,12 @@ export const getThankYouPage = async (request, h) => {
       reference
     })
   } catch (error) {
-    request.logger.error({ err: error }, 'Failed to load ai-triage thank-you page')
+    request.logger.error(
+      { err: error },
+      'Failed to load ai-triage thank-you page'
+    )
     return h
       .response(getErrorHeading(statusCodes.notFound))
       .code(statusCodes.notFound)
   }
 }
-
