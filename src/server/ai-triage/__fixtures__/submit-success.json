@@ -13,12 +13,12 @@
         "benefits": "Test benefits description",
         "solutionAttempts": "Test solution attempts description"
       },
-      "reference": "triage-1700000000000"
+      "reference": "AICE-26-AAAAAA"
     },
     "status": 201,
     "response": {
       "id": "e3543d38-0fca-4486-8292-5ddb363362f1",
-      "reference": "triage-1700000000000",
+      "reference": "AICE-26-AAAAAA",
       "content": {
         "subject": "New AI digital toolkit triage submission from test@example.com",
         "body": "A new triage submission has come through the AI digital toolkit."

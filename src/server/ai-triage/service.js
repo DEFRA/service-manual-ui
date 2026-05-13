@@ -1,6 +1,7 @@
 import { config } from '../../config/config.js'
 import { createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
+import { randomBytes } from 'crypto'
 import {
   buildSendTriageEmailErrorLog,
   buildSendTriageEmailSuccessLog
@@ -136,6 +137,18 @@ async function sendConfirmationEmail(submission, reference) {
   }
 }
 
+function generateReference() {
+  // No O, 0, I, 1 — to avoid transcription errors
+  const CHARSET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+  const year = new Date().getFullYear().toString().slice(-2)
+  const bytes = randomBytes(6)
+  let suffix = ''
+  for (let i = 0; i < 6; i++) {
+    suffix += CHARSET[bytes[i] % CHARSET.length]
+  }
+  return `AICE-${year}-${suffix}`
+}
+
 /**
  * Submits a triage request - returns an result object representing email sending
  * outcome.
@@ -147,7 +160,7 @@ async function sendConfirmationEmail(submission, reference) {
  * }>}
  */
 export async function submit(submission) {
-  const reference = `triage-${Date.now()}`
+  const reference = generateReference()
   const triageResult = await sendTriageEmail(submission, reference)
   if (!triageResult.success) {
     return {
@@ -158,6 +171,7 @@ export async function submit(submission) {
 
   return {
     triageResult,
-    confirmationResult
+    confirmationResult,
+    reference
   }
 }

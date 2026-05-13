@@ -4,6 +4,14 @@ import nock from 'nock'
 
 import { submit } from './service.js'
 
+vi.mock('crypto', async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    randomBytes: vi.fn(() => Buffer.alloc(6, 0))
+  }
+})
+
 async function loadSendEmailFixture(filename, onRequest) {
   const url = new URL(`./__fixtures__/${filename}`, import.meta.url)
   const [record] = JSON.parse(await fs.readFile(url, 'utf-8'))
@@ -29,7 +37,6 @@ async function loadSendEmailFixture(filename, onRequest) {
 describe('aiTriageService', () => {
   beforeEach(() => {
     nock.disableNetConnect()
-    vi.spyOn(Date, 'now').mockReturnValue(1700000000000)
   })
 
   afterEach(() => {
@@ -78,7 +85,7 @@ describe('aiTriageService', () => {
           benefits: submission.benefits,
           solutionAttempts: submission.solutionAttempts
         },
-        reference: 'triage-1700000000000'
+        reference: 'AICE-26-AAAAAA'
       })
     })
 
@@ -123,7 +130,7 @@ describe('aiTriageService', () => {
       expect(requestBody).toEqual({
         template_id: record.body.template_id,
         email_address: submission.email,
-        reference: 'triage-1700000000000'
+        reference: 'AICE-26-AAAAAA'
       })
     })
 

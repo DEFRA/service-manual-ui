@@ -9,12 +9,14 @@ const mockGetAnswer = vi.fn()
 const mockSetAnswer = vi.fn()
 const mockGetTriageSessionData = vi.fn()
 const mockClearTriageSession = vi.fn()
+const mockSetReference = vi.fn()
 
 vi.mock('./session.js', () => ({
   getAnswer: (...args) => mockGetAnswer(...args),
   setAnswer: (...args) => mockSetAnswer(...args),
   getTriageSessionData: (...args) => mockGetTriageSessionData(...args),
-  clearTriageSession: (...args) => mockClearTriageSession(...args)
+  clearTriageSession: (...args) => mockClearTriageSession(...args),
+  setReference: (...args) => mockSetReference(...args)
 }))
 
 const mockFromSessionData = vi.fn()
@@ -341,7 +343,7 @@ describe('#postSummaryPage', () => {
       solutionAttempts: 'Attempts'
     })
     mockSubmissionValidate.mockReturnValue({})
-    mockSubmit.mockResolvedValue({ triageResult: { success: true } })
+    mockSubmit.mockResolvedValue({ triageResult: { success: true }, reference: 'AICE-26-TEST01' })
   })
 
   it('redirects to thank-you', async () => {
