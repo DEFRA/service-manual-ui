@@ -9,6 +9,8 @@ import * as aiTriageService from './service.js'
 import schemas from './schemas/index.js'
 import submissionSchema from './schemas/submission.js'
 
+const QUESTION_TEMPLATE = 'common/templates/layouts/question'
+
 function slugFromPath(requestPath) {
   return requestPath.split('/').at(-1)
 }
@@ -52,7 +54,7 @@ export const getTriagePage = (filename) => {
       const stored = sessionHelper.getAnswer(request.yar, slug)
       const questionValue = stored?.answer ?? null
 
-      return h.view('common/templates/layouts/question', {
+      return h.view('QUESTION_TEMPLATE', {
         ...meta,
         content,
         currentUrl: request.path,
@@ -76,7 +78,7 @@ export const postTriagePage = (filename) => {
       const error = validateAnswer(answer, meta)
 
       if (error) {
-        return h.view('common/templates/layouts/question', {
+        return h.view('QUESTION_TEMPLATE', {
           ...meta,
           content,
           currentUrl: request.path,
@@ -167,7 +169,7 @@ export const getThankYouPage = async (request, h) => {
   try {
     const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
 
-    return h.view('common/templates/layouts/question', {
+    return h.view('QUESTION_TEMPLATE', {
       ...meta,
       content,
       currentUrl: request.path,
