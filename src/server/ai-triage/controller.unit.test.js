@@ -38,8 +38,13 @@ vi.mock('./schemas/submission.js', () => ({
   default: { validate: (...args) => mockSubmissionValidate(...args) }
 }))
 
-const { getTriagePage, postTriagePage, getSummaryPage, postSummaryPage } =
-  await import('./controller.js')
+const {
+  getTriagePage,
+  postTriagePage,
+  getSummaryPage,
+  postSummaryPage,
+  getThankYouPage
+} = await import('./controller.js')
 
 const mockView = vi.fn()
 const mockRedirect = vi.fn()
@@ -60,10 +65,12 @@ const mockYar = {
 
 const buildRequest = ({
   path = '/ai-toolkit/triage/question-1',
-  payload = {}
+  payload = {},
+  query = {}
 } = {}) => ({
   path,
   payload,
+  query,
   yar: mockYar,
   logger: { error: mockLoggerError }
 })
@@ -350,6 +357,32 @@ describe('#postSummaryPage', () => {
     expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
   })
 
+  it('includes confirmationFailed=true in redirect when confirmation email fails', async () => {
+    mockSubmit.mockResolvedValue({
+      triageResult: { success: true },
+      confirmationResult: { success: false }
+    })
+
+    const h = buildH()
+    await postSummaryPage(buildRequest(), h)
+
+    expect(mockRedirect).toHaveBeenCalledWith(
+      '/ai-toolkit/triage/thank-you?confirmationFailed=true'
+    )
+  })
+
+  it('redirects to thank-you without query param when confirmation email succeeds', async () => {
+    mockSubmit.mockResolvedValue({
+      triageResult: { success: true },
+      confirmationResult: { success: true }
+    })
+
+    const h = buildH()
+    await postSummaryPage(buildRequest(), h)
+
+    expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
+  })
+
   it('clears the triage session on successful submit', async () => {
     await postSummaryPage(buildRequest(), buildH())
     expect(mockClearTriageSession).toHaveBeenCalledWith(mockYar)
@@ -379,5 +412,56 @@ describe('#postSummaryPage', () => {
 
     await postSummaryPage(buildRequest(), buildH())
     expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
+})
+
+describe('#getThankYouPage', () => {
+  beforeEach(() => {
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Thank you', isResult: true },
+      content: ''
+    })
+  })
+
+  it('renders with confirmationEmailFailed false when no query param', async () => {
+    await getThankYouPage(
+      buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }),
+      buildH()
+    )
+
+    expect(mockView).toHaveBeenCalledWith(
+      'common/templates/layouts/question',
+      expect.objectContaining({ confirmationEmailFailed: false })
+    )
+  })
+
+  it('renders with confirmationEmailFailed true when query param is set', async () => {
+    await getThankYouPage(
+      buildRequest({
+        path: '/ai-toolkit/triage/thank-you',
+        query: { confirmationFailed: 'true' }
+      }),
+      buildH()
+    )
+
+    expect(mockView).toHaveBeenCalledWith(
+      'common/templates/layouts/question',
+      expect.objectContaining({ confirmationEmailFailed: true })
+    )
+  })
+
+  it('handles errors gracefully', async () => {
+    mockLoadContent.mockImplementation(() => {
+      throw new Error('Failed to load content')
+    })
+
+    const h = buildH()
+    await getThankYouPage(
+      buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }),
+      h
+    )
+
+    expect(mockLoggerError).toHaveBeenCalled()
+    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })

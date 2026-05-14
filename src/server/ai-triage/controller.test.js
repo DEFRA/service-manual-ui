@@ -140,6 +140,29 @@ describe('#aiTriageController', () => {
       })
       expect(result).toEqual(expect.stringContaining('Thank you'))
     })
+
+    test('renders the notification banner when confirmationFailed=true', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you?confirmationFailed=true'
+      })
+      expect(result).toEqual(
+        expect.stringContaining('govuk-notification-banner')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('Your submission has been received')
+      )
+    })
+
+    test('does not render the notification banner without query param', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you'
+      })
+      expect(result).not.toEqual(
+        expect.stringContaining('govuk-notification-banner')
+      )
+    })
   })
 
   describe('GET /ai-toolkit/triage/check-your-answers', () => {

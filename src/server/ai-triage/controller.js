@@ -134,7 +134,8 @@ export const postSummaryPage = async (request, h) => {
       return renderSummaryWithErrors(request, h, { sendError: false, errors })
     }
 
-    const { triageResult } = await aiTriageService.submit(submission)
+    const { triageResult, confirmationResult } =
+      await aiTriageService.submit(submission)
 
     if (!triageResult.success) {
       return renderSummaryWithErrors(request, h, {
@@ -145,11 +146,37 @@ export const postSummaryPage = async (request, h) => {
 
     sessionHelper.clearTriageSession(request.yar)
 
-    return h.redirect('/ai-toolkit/triage/thank-you')
+    const confirmationFailed = confirmationResult?.success === false
+    const redirectUrl = confirmationFailed
+      ? '/ai-toolkit/triage/thank-you?confirmationFailed=true'
+      : '/ai-toolkit/triage/thank-you'
+
+    return h.redirect(redirectUrl)
   } catch (error) {
     request.logger.error(
       { err: error },
       'Failed to process ai-triage summary form'
+    )
+    return h
+      .response(getErrorHeading(statusCodes.notFound))
+      .code(statusCodes.notFound)
+  }
+}
+
+export const getThankYouPage = async (request, h) => {
+  try {
+    const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
+
+    return h.view('common/templates/layouts/question', {
+      ...meta,
+      content,
+      currentUrl: request.path,
+      confirmationEmailFailed: request.query.confirmationFailed === 'true'
+    })
+  } catch (error) {
+    request.logger.error(
+      { err: error },
+      'Failed to load ai-triage thank-you page'
     )
     return h
       .response(getErrorHeading(statusCodes.notFound))
