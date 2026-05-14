@@ -154,7 +154,16 @@ export async function submit(submission) {
       triageResult
     }
   }
-  const confirmationResult = await sendConfirmationEmail(submission, reference)
+  let confirmationResult
+  try {
+    confirmationResult = await sendConfirmationEmail(submission, reference)
+  } catch (error) {
+    logger.error(
+      { err: error },
+      'Unexpected error sending confirmation email after successful triage send'
+    )
+    confirmationResult = { success: false }
+  }
 
   return {
     triageResult,
