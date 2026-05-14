@@ -1,6 +1,7 @@
 import { Cluster, Redis } from 'ioredis'
 
 import { createLogger } from './logging/logger.js'
+import { buildErrorLog, buildEventLog } from './logging/build-error-log.js'
 
 function createRetryStrategy(
   maxRetries,
@@ -14,7 +15,17 @@ function createRetryStrategy(
         connectionType === 'cluster'
           ? 'Redis cluster max connection retries reached, giving up'
           : 'Redis max connection retries reached, giving up'
-      logger.warn(message)
+      logger.warn(
+        {
+          event: {
+            type: 'redis_connection',
+            action: 'retry',
+            outcome: 'failure',
+            reason: connectionType
+          }
+        },
+        message
+      )
       return null
     }
 
@@ -91,11 +102,20 @@ export function buildRedisClient(redisConfig) {
   }
 
   redisClient.on('connect', () => {
-    logger.info('Connected to Redis server')
+    logger.info(
+      buildEventLog({ type: 'redis_connection', action: 'connect' }),
+      'Connected to Redis server'
+    )
   })
 
   redisClient.on('error', (error) => {
-    logger.error(`Redis connection error ${error}`)
+    logger.error(
+      buildErrorLog(error, {
+        type: 'redis_connection',
+        action: 'connect'
+      }),
+      'Redis connection error'
+    )
   })
 
   return redisClient

@@ -53,10 +53,16 @@ describe('#context manifest reload', () => {
     })
     context(mockRequest)
 
-    expect(mockLoggerWarn).toHaveBeenCalledWith(
-      { err: expect.any(Error) },
-      'Webpack assets-manifest.json reload failed, using cached version'
-    )
+    const [payload, message] = mockLoggerWarn.mock.calls[0]
+    expect(message).toBe('Webpack manifest reload failed, using cached version')
+    expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+    expect(payload.event).toMatchObject({
+      type: 'webpack_manifest',
+      action: 'reload',
+      reference: 'assets-manifest.json',
+      outcome: 'failure'
+    })
+    expect(payload.error.message).toContain('ENOENT')
     expect(mockLoggerError).not.toHaveBeenCalled()
   })
 })

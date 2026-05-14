@@ -28,27 +28,44 @@ describe('#registerProcessErrorHandlers', () => {
   })
 
   describe('unhandledRejection', () => {
-    test('Should log error and set exit code', () => {
+    test('Should log error in ECS shape and set exit code', () => {
       const error = new Error('test rejection')
       handlers.unhandledRejection(error)
 
-      expect(mockLoggerError).toHaveBeenCalledWith(
-        { err: error },
-        'Unhandled rejection'
-      )
+      const [payload, message] = mockLoggerError.mock.calls[0]
+      expect(message).toBe('Unhandled rejection')
+      expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+      expect(payload.event).toEqual({
+        type: 'process_error',
+        action: 'unhandled_rejection',
+        outcome: 'failure'
+      })
+      expect(payload.error).toMatchObject({
+        message: 'test rejection',
+        type: 'Error'
+      })
+      expect(payload.error.stack_trace).toBe(error.stack)
       expect(mockProcess.exitCode).toBe(1)
     })
   })
 
   describe('uncaughtException', () => {
-    test('Should log error and set exit code', () => {
+    test('Should log error in ECS shape and set exit code', () => {
       const error = new Error('test exception')
       handlers.uncaughtException(error)
 
-      expect(mockLoggerError).toHaveBeenCalledWith(
-        { err: error },
-        'Uncaught exception'
-      )
+      const [payload, message] = mockLoggerError.mock.calls[0]
+      expect(message).toBe('Uncaught exception')
+      expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+      expect(payload.event).toEqual({
+        type: 'process_error',
+        action: 'uncaught_exception',
+        outcome: 'failure'
+      })
+      expect(payload.error).toMatchObject({
+        message: 'test exception',
+        type: 'Error'
+      })
       expect(mockProcess.exitCode).toBe(1)
     })
   })

@@ -40,10 +40,15 @@ describe('#searchIndex error handling', () => {
       const index = buildSearchIndex()
 
       expect(index).toEqual([])
-      expect(mockLoggerError).toHaveBeenCalledWith(
-        expect.objectContaining({ err: expect.any(Error) }),
-        'Failed to read content directory'
-      )
+      const [payload, message] = mockLoggerError.mock.calls[0]
+      expect(message).toBe('Failed to read content directory')
+      expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+      expect(payload.event).toMatchObject({
+        type: 'search_index_build',
+        action: 'read_dir',
+        outcome: 'failure'
+      })
+      expect(payload.error.message).toContain('ENOENT')
     })
   })
 
@@ -69,13 +74,16 @@ describe('#searchIndex error handling', () => {
 
       expect(index).toHaveLength(1)
       expect(index[0].title).toBe('Good Page')
-      expect(mockLoggerError).toHaveBeenCalledWith(
-        expect.objectContaining({
-          err: expect.any(Error),
-          filePath: 'patterns.md'
-        }),
-        'Failed to index markdown file, skipping'
-      )
+      const [payload, message] = mockLoggerError.mock.calls[0]
+      expect(message).toBe('Failed to index markdown file, skipping')
+      expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+      expect(payload.event).toMatchObject({
+        type: 'search_index_build',
+        action: 'index_file',
+        reference: 'patterns.md',
+        outcome: 'failure'
+      })
+      expect(payload.error.message).toContain('EACCES')
     })
   })
 })

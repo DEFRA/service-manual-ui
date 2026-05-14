@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { fileURLToPath } from 'node:url'
 
 import { createLogger } from './logging/logger.js'
+import { buildErrorLog } from './logging/build-error-log.js'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
@@ -26,7 +27,12 @@ export function loadContent(filename) {
     }
   } catch (error) {
     logger.error(
-      { err: error, filename, fullPath },
+      buildErrorLog(error, {
+        type: 'content_load',
+        action: 'read',
+        reference: filename,
+        reason: fullPath
+      }),
       'Failed to read or parse content file'
     )
     throw error

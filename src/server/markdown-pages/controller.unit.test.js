@@ -25,10 +25,20 @@ describe('#getMarkdownPage error handling', () => {
     const handler = getMarkdownPage('missing.md')
     const result = handler(request, h)
 
-    expect(mockLoggerError).toHaveBeenCalledWith(
-      { err: expect.any(Error) },
-      'Failed to load markdown page'
-    )
+    const [payload, message] = mockLoggerError.mock.calls[0]
+    expect(message).toBe('Failed to load markdown page')
+    expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+    expect(payload.event).toEqual({
+      type: 'page_load',
+      action: 'render',
+      category: 'markdown_pages',
+      reference: 'missing.md',
+      outcome: 'failure'
+    })
+    expect(payload.error).toMatchObject({
+      message: 'Content file not found: missing.md',
+      type: 'Error'
+    })
     expect(mockResponse).toHaveBeenCalledWith('Page not found')
     expect(mockCode).toHaveBeenCalledWith(statusCodes.notFound)
     expect(result).toBe('not found response')

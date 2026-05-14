@@ -6,6 +6,7 @@ import {
 
 import { config } from '../../../config/config.js'
 import { createLogger } from './logging/logger.js'
+import { buildErrorLog } from './logging/build-error-log.js'
 
 /**
  * Aws embedded metrics wrapper
@@ -27,6 +28,13 @@ export async function metricsCounter(metricName, value = 1) {
     )
     await metricsLogger.flush()
   } catch (error) {
-    createLogger().error({ err: error }, 'Failed to send metrics')
+    createLogger().error(
+      buildErrorLog(error, {
+        type: 'metrics_send',
+        action: 'put_metric',
+        reference: metricName
+      }),
+      'Failed to send metrics'
+    )
   }
 }

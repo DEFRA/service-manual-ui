@@ -53,8 +53,11 @@ describe('#catchAll', () => {
   const mockStack = 'Mock error stack'
   const errorPage = 'error/index'
   const mockRequest = (statusCode) => ({
+    method: 'get',
+    path: '/some/path',
     response: {
       isBoom: true,
+      message: 'kaboom',
       stack: mockStack,
       output: {
         statusCode
@@ -136,12 +139,17 @@ describe('#catchAll', () => {
   test('Should provide service error page and log error for 500', () => {
     catchAll(mockRequest(statusCodes.internalServerError), mockToolkit)
 
-    expect(mockErrorLogger).toHaveBeenCalledWith(
-      {
-        err: expect.objectContaining({ stack: mockStack })
-      },
-      'Internal server error'
-    )
+    const [payload, message] = mockErrorLogger.mock.calls[0]
+    expect(message).toBe('Internal server error')
+    expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+    expect(payload.event).toEqual({
+      type: 'http_error',
+      action: 'get',
+      category: '/some/path',
+      kind: String(statusCodes.internalServerError),
+      outcome: 'failure'
+    })
+    expect(payload.error.stack_trace).toBe(mockStack)
     expect(mockToolkitView).toHaveBeenCalledWith(errorPage, {
       pageTitle: 'Sorry, there is a problem with the service',
       heading: 'Sorry, there is a problem with the service',
