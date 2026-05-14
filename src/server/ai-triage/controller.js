@@ -54,7 +54,7 @@ export const getTriagePage = (filename) => {
       const stored = sessionHelper.getAnswer(request.yar, slug)
       const questionValue = stored?.answer ?? null
 
-      return h.view('QUESTION_TEMPLATE', {
+      return h.view(QUESTION_TEMPLATE, {
         ...meta,
         content,
         currentUrl: request.path,
@@ -78,7 +78,7 @@ export const postTriagePage = (filename) => {
       const error = validateAnswer(answer, meta)
 
       if (error) {
-        return h.view('QUESTION_TEMPLATE', {
+        return h.view(QUESTION_TEMPLATE, {
           ...meta,
           content,
           currentUrl: request.path,
@@ -169,7 +169,7 @@ export const getThankYouPage = async (request, h) => {
   try {
     const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
 
-    return h.view('QUESTION_TEMPLATE', {
+    return h.view(QUESTION_TEMPLATE, {
       ...meta,
       content,
       currentUrl: request.path,
