@@ -33,74 +33,60 @@ function createRetryStrategy(
   }
 }
 
-/**
- * Setup Redis and provide a redis client.
- * Local development uses a single Redis instance; environments use Elasticache / Redis Cluster.
- */
-export function buildRedisClient(redisConfig) {
-  const logger = createLogger()
-  const {
-    port,
-    db,
-    keyPrefix,
-    host,
-    retryDelayMs,
-    maxRetries,
-    slotsRefreshTimeout
-  } = redisConfig
-  let redisClient
+function buildCredentials(redisConfig) {
+  if (redisConfig.username === '') {
+    return {}
+  }
+  return { username: redisConfig.username, password: redisConfig.password }
+}
 
-  const credentials =
-    redisConfig.username === ''
-      ? {}
-      : { username: redisConfig.username, password: redisConfig.password }
+function buildSingleInstanceRedis(redisConfig, logger) {
+  return new Redis({
+    port: redisConfig.port,
+    host: redisConfig.host,
+    db: redisConfig.db,
+    keyPrefix: redisConfig.keyPrefix,
+    connectTimeout: redisConfig.connectTimeout,
+    commandTimeout: redisConfig.commandTimeout,
+    keepAlive: redisConfig.keepAlive,
+    enableReadyCheck: redisConfig.enableReadyCheck,
+    maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
+    retryStrategy: createRetryStrategy(
+      redisConfig.maxRetries,
+      redisConfig.retryDelayMs,
+      logger,
+      'single'
+    ),
+    ...buildCredentials(redisConfig),
+    ...(redisConfig.useTLS ? { tls: {} } : {})
+  })
+}
 
-  const tls = redisConfig.useTLS ? { tls: {} } : {}
-
-  if (redisConfig.useSingleInstanceCache) {
-    redisClient = new Redis({
-      port,
-      host,
-      db,
-      keyPrefix,
+function buildClusterRedis(redisConfig, logger) {
+  return new Cluster([{ host: redisConfig.host, port: redisConfig.port }], {
+    keyPrefix: redisConfig.keyPrefix,
+    slotsRefreshTimeout: redisConfig.slotsRefreshTimeout,
+    dnsLookup: (address, callback) => callback(null, address),
+    clusterRetryStrategy: createRetryStrategy(
+      redisConfig.maxRetries,
+      redisConfig.retryDelayMs,
+      logger,
+      'cluster'
+    ),
+    redisOptions: {
+      db: redisConfig.db,
       connectTimeout: redisConfig.connectTimeout,
       commandTimeout: redisConfig.commandTimeout,
       keepAlive: redisConfig.keepAlive,
       enableReadyCheck: redisConfig.enableReadyCheck,
       maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
-      retryStrategy: createRetryStrategy(
-        maxRetries,
-        retryDelayMs,
-        logger,
-        'single'
-      ),
-      ...credentials,
-      ...tls
-    })
-  } else {
-    redisClient = new Cluster([{ host, port }], {
-      keyPrefix,
-      slotsRefreshTimeout,
-      dnsLookup: (address, callback) => callback(null, address),
-      clusterRetryStrategy: createRetryStrategy(
-        maxRetries,
-        retryDelayMs,
-        logger,
-        'cluster'
-      ),
-      redisOptions: {
-        db,
-        connectTimeout: redisConfig.connectTimeout,
-        commandTimeout: redisConfig.commandTimeout,
-        keepAlive: redisConfig.keepAlive,
-        enableReadyCheck: redisConfig.enableReadyCheck,
-        maxRetriesPerRequest: redisConfig.maxRetriesPerRequest,
-        ...credentials,
-        ...tls
-      }
-    })
-  }
+      ...buildCredentials(redisConfig),
+      ...(redisConfig.useTLS ? { tls: {} } : {})
+    }
+  })
+}
 
+function attachConnectionLogging(redisClient, logger) {
   redisClient.on('connect', () => {
     logger.info(
       buildEventLog({ type: 'redis_connection', action: 'connect' }),
@@ -117,6 +103,18 @@ export function buildRedisClient(redisConfig) {
       'Redis connection error'
     )
   })
+}
 
+/**
+ * Setup Redis and provide a redis client.
+ * Local development uses a single Redis instance; environments use Elasticache / Redis Cluster.
+ */
+export function buildRedisClient(redisConfig) {
+  const logger = createLogger()
+  const redisClient = redisConfig.useSingleInstanceCache
+    ? buildSingleInstanceRedis(redisConfig, logger)
+    : buildClusterRedis(redisConfig, logger)
+
+  attachConnectionLogging(redisClient, logger)
   return redisClient
 }
