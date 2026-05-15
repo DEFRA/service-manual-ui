@@ -1,0 +1,21 @@
+{% extends "layouts/page.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-padding-top-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukPanel({
+      titleText: title,
+      html: "Your reference number<br><strong>" + reference + "</strong>" if reference else ""
+    }) }}
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">We have your details and will get back to you within 5 working days.</p>
+    <p class="govuk-body">A member of the AI Capability and Enablement team will read your answers and decide the best next step.</p>
+
+    <p class="govuk-body"><a href="/ai-toolkit" class="govuk-link">Return to the AI digital toolkit</a></p>
+
+  </div>
+</div>
+{% endblock %}

@@ -89,6 +89,16 @@ export const aiTriage = {
               onPreResponse: { method: handleFileNotFound }
             }
           }
+        },
+        {
+          method: 'GET',
+          path: '/ai-toolkit/triage/thank-you',
+          handler: controller.getThankYouPage,
+          options: {
+            ext: {
+              onPreResponse: { method: handleFileNotFound }
+            }
+          }
         }
       ])
     }

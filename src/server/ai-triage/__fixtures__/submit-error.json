@@ -13,7 +13,7 @@
         "benefits": "Test benefits description",
         "solutionAttempts": "Test solution attempts description"
       },
-      "reference": "triage-1700000000000"
+      "reference": "AICE-26-AAAAAA"
     },
     "status": 400,
     "response": {
