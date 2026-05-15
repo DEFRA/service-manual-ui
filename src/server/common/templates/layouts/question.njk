@@ -12,6 +12,7 @@
     {% if isResult %}
       {% if confirmationEmailFailed %}
         {{ govukNotificationBanner({
+          type: 'success',
           html: "<p class=\"govuk-body\">Your submission has been received.</p><p class=\"govuk-body\">We were unable to send you a confirmation email. Please do not resubmit this form.</p>"
         }) }}
       {% endif %}
