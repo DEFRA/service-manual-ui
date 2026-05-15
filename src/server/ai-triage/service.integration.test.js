@@ -164,7 +164,10 @@ describe('aiTriageService', () => {
       const result = await submit(submission)
 
       expect(result.triageResult.success).toBe(true)
-      expect(result.confirmationResult).toEqual({ success: false })
+      expect(result.confirmationResult).toEqual({
+        success: false,
+        error: { details: null, status: null }
+      })
     })
   })
 })
