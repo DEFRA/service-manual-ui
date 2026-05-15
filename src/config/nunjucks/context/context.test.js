@@ -110,10 +110,16 @@ describe('context and cache', () => {
       })
 
       test('Should log that the Webpack Manifest file is not available', () => {
-        expect(mockLoggerError).toHaveBeenCalledWith(
-          { err: expect.any(Error) },
-          'Webpack assets-manifest.json not found'
-        )
+        const [payload, message] = mockLoggerError.mock.calls[0]
+        expect(message).toBe('Webpack manifest not found')
+        expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+        expect(payload.event).toMatchObject({
+          type: 'webpack_manifest',
+          action: 'load',
+          reference: 'assets-manifest.json',
+          outcome: 'failure'
+        })
+        expect(payload.error.type).toBe('SyntaxError')
       })
     })
   })

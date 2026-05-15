@@ -3,6 +3,7 @@ import { stringify } from 'node:querystring'
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { getErrorHeading } from '../common/helpers/errors.js'
+import { buildErrorLog } from '../common/helpers/logging/build-error-log.js'
 
 import * as model from './model.js'
 import * as sessionHelper from './session.js'
@@ -66,7 +67,15 @@ export const getTriagePage = (filename) => {
         questionValue
       })
     } catch (error) {
-      request.logger.error({ err: error }, 'Failed to load ai-triage page')
+      request.logger.error(
+        buildErrorLog(error, {
+          type: 'page_load',
+          action: 'render',
+          category: 'ai_triage',
+          reference: filename
+        }),
+        'Failed to load ai-triage page'
+      )
       return h
         .response(getErrorHeading(statusCodes.notFound))
         .code(statusCodes.notFound)
@@ -98,7 +107,15 @@ export const postTriagePage = (filename) => {
 
       return h.redirect(meta.questionContinueHref)
     } catch (error) {
-      request.logger.error({ err: error }, 'Failed to process ai-triage form')
+      request.logger.error(
+        buildErrorLog(error, {
+          type: 'form_submit',
+          action: 'process_answer',
+          category: 'ai_triage',
+          reference: filename
+        }),
+        'Failed to process ai-triage form'
+      )
       return h
         .response(getErrorHeading(statusCodes.notFound))
         .code(statusCodes.notFound)
@@ -118,7 +135,12 @@ export const getSummaryPage = async (request, h) => {
     })
   } catch (error) {
     request.logger.error(
-      { err: error },
+      buildErrorLog(error, {
+        type: 'page_load',
+        action: 'render',
+        category: 'ai_triage',
+        reference: 'check-your-answers'
+      }),
       'Failed to load ai-triage summary page'
     )
     return h
@@ -159,7 +181,11 @@ export const postSummaryPage = async (request, h) => {
     return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
     request.logger.error(
-      { err: error },
+      buildErrorLog(error, {
+        type: 'form_submit',
+        action: 'submit_triage',
+        category: 'ai_triage'
+      }),
       'Failed to process ai-triage summary form'
     )
     return h

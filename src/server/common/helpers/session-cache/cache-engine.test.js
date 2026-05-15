@@ -36,8 +36,18 @@ describe('#getCacheEngine', () => {
       expect(CatboxRedis).toHaveBeenCalledWith(expect.any(Object))
     })
 
-    test('Should log expected Redis message', () => {
-      expect(mockLoggerInfo).toHaveBeenCalledWith('Using Redis session cache')
+    test('Should log expected Redis message in ECS shape', () => {
+      expect(mockLoggerInfo).toHaveBeenCalledWith(
+        {
+          event: {
+            type: 'session_cache_init',
+            action: 'select',
+            reason: 'redis',
+            outcome: 'success'
+          }
+        },
+        'Using Redis session cache'
+      )
     })
   })
 
@@ -50,8 +60,16 @@ describe('#getCacheEngine', () => {
       expect(CatboxMemory).toHaveBeenCalledTimes(1)
     })
 
-    test('Should log expected CatBox memory message', () => {
+    test('Should log expected CatBox memory message in ECS shape', () => {
       expect(mockLoggerInfo).toHaveBeenCalledWith(
+        {
+          event: {
+            type: 'session_cache_init',
+            action: 'select',
+            reason: 'catbox_memory',
+            outcome: 'success'
+          }
+        },
         'Using Catbox Memory session cache'
       )
     })
@@ -70,8 +88,16 @@ describe('#getCacheEngine', () => {
       config.set('isProduction', orgIsProduction)
     })
 
-    test('Should log Production warning message', () => {
+    test('Should log Production warning message in ECS shape', () => {
       expect(mockLoggerError).toHaveBeenCalledWith(
+        {
+          event: {
+            type: 'session_cache_init',
+            action: 'select',
+            reason: 'catbox_memory',
+            outcome: 'failure'
+          }
+        },
         'Catbox Memory is for local development only, it should not be used in production!'
       )
     })
@@ -80,8 +106,16 @@ describe('#getCacheEngine', () => {
       expect(CatboxMemory).toHaveBeenCalledTimes(1)
     })
 
-    test('Should log expected message', () => {
+    test('Should log expected message in ECS shape', () => {
       expect(mockLoggerInfo).toHaveBeenCalledWith(
+        {
+          event: {
+            type: 'session_cache_init',
+            action: 'select',
+            reason: 'catbox_memory',
+            outcome: 'success'
+          }
+        },
         'Using Catbox Memory session cache'
       )
     })

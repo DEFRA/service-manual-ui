@@ -4,6 +4,7 @@ import { readFileSync, statSync } from 'node:fs'
 import { config } from '../../config.js'
 import { buildNavigation } from './build-navigation.js'
 import { createLogger } from '../../../server/common/helpers/logging/logger.js'
+import { buildErrorLog } from '../../../server/common/helpers/logging/build-error-log.js'
 
 const logger = createLogger()
 const assetPath = config.get('assetPath')
@@ -27,13 +28,21 @@ function loadManifest() {
   } catch (error) {
     if (webpackManifest) {
       logger.warn(
-        { err: error },
-        `Webpack ${path.basename(manifestPath)} reload failed, using cached version`
+        buildErrorLog(error, {
+          type: 'webpack_manifest',
+          action: 'reload',
+          reference: path.basename(manifestPath)
+        }),
+        'Webpack manifest reload failed, using cached version'
       )
     } else {
       logger.error(
-        { err: error },
-        `Webpack ${path.basename(manifestPath)} not found`
+        buildErrorLog(error, {
+          type: 'webpack_manifest',
+          action: 'load',
+          reference: path.basename(manifestPath)
+        }),
+        'Webpack manifest not found'
       )
     }
   }
