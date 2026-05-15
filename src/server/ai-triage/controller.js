@@ -1,3 +1,5 @@
+import { stringify } from 'node:querystring'
+
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { getErrorHeading } from '../common/helpers/errors.js'
@@ -10,17 +12,20 @@ import schemas from './schemas/index.js'
 import submissionSchema from './schemas/submission.js'
 
 const QUESTION_TEMPLATE = 'common/templates/layouts/question'
+const CHECK_YOUR_ANSWERS_TEMPLATE =
+  'common/templates/layouts/check-your-answers'
+const CHECK_YOUR_ANSWERS_CONTENT = 'ai-toolkit/triage/check-your-answers.md'
 
 function slugFromPath(requestPath) {
   return requestPath.split('/').at(-1)
 }
 
 async function renderSummaryWithErrors(request, h, errorState) {
-  const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
+  const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
   const sessionData = sessionHelper.getTriageSessionData(request.yar)
   const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
 
-  return h.view('common/templates/layouts/check-your-answers', {
+  return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
     ...meta,
     rows: viewModel.rows,
     ...errorState
@@ -103,11 +108,11 @@ export const postTriagePage = (filename) => {
 
 export const getSummaryPage = async (request, h) => {
   try {
-    const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
+    const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
     const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
 
-    return h.view('common/templates/layouts/check-your-answers', {
+    return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
       rows: viewModel.rows
     })
@@ -145,15 +150,13 @@ export const postSummaryPage = async (request, h) => {
         errors: []
       })
     }
-
     sessionHelper.clearTriageSession(request.yar)
 
     const confirmationFailed = confirmationResult?.success === false
-    const redirectUrl = confirmationFailed
-      ? '/ai-toolkit/triage/thank-you?confirmationFailed=true'
-      : '/ai-toolkit/triage/thank-you'
-
-    return h.redirect(redirectUrl)
+    const qs = confirmationFailed
+      ? `?${stringify({ confirmationFailed: true })}`
+      : ''
+    return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
     request.logger.error(
       { err: error },

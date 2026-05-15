@@ -37,9 +37,10 @@ async function trySendEmail(templateId, email, params = {}) {
     return [{ data: response.data, status: response.status }, null]
   } catch (error) {
     if (!error.response) {
-      throw new Error(
-        `Unknown error while attempting to send email via Notify: ${error.message || error.code}`
-      )
+      return [
+        null,
+        { data: null, status: null, message: error.message || error.code }
+      ]
     }
 
     const data = error.response.data
@@ -154,16 +155,7 @@ export async function submit(submission) {
       triageResult
     }
   }
-  let confirmationResult
-  try {
-    confirmationResult = await sendConfirmationEmail(submission, reference)
-  } catch (error) {
-    logger.error(
-      { err: error },
-      'Unexpected error sending confirmation email after successful triage send'
-    )
-    confirmationResult = { success: false }
-  }
+  const confirmationResult = await sendConfirmationEmail(submission, reference)
 
   return {
     triageResult,

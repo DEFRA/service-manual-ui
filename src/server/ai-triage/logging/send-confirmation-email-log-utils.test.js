@@ -45,6 +45,23 @@ describe('buildSendConfirmationEmailErrorLog', () => {
       error: { code: 403, message: 'Invalid token', type: 'NotifyError' }
     })
   })
+
+  test('builds error log from message when data is null (unknown error)', () => {
+    const error = {
+      status: null,
+      data: null,
+      message: 'Network timeout'
+    }
+
+    expect(buildSendConfirmationEmailErrorLog(error)).toEqual({
+      event: {
+        type: 'send_confirmation_email',
+        action: 'send',
+        outcome: 'failure'
+      },
+      error: { code: null, message: 'Network timeout', type: 'NotifyError' }
+    })
+  })
 })
 
 describe('buildSendConfirmationEmailSuccessLog', () => {
