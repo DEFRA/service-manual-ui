@@ -2,6 +2,7 @@ import { ProxyAgent, setGlobalDispatcher } from 'undici'
 import { bootstrap } from 'global-agent'
 
 import { createLogger } from '../logging/logger.js'
+import { buildEventLog } from '../logging/build-error-log.js'
 import { config } from '../../../../config/config.js'
 
 const logger = createLogger()
@@ -15,7 +16,10 @@ export function setupProxy() {
   const proxyUrl = config.get('httpProxy')
 
   if (proxyUrl) {
-    logger.info('setting up global proxies')
+    logger.info(
+      buildEventLog({ type: 'proxy_setup', action: 'configure' }),
+      'Setting up global proxies'
+    )
 
     // Undici proxy
     setGlobalDispatcher(new ProxyAgent(proxyUrl))

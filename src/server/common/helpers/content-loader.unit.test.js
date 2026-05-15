@@ -35,13 +35,19 @@ describe('#loadContent error handling', () => {
       'EACCES: permission denied'
     )
 
-    expect(mockLoggerError).toHaveBeenCalledWith(
-      expect.objectContaining({
-        err: expect.any(Error),
-        filename: 'some-page.md',
-        fullPath: expect.stringContaining('some-page.md')
-      }),
-      'Failed to read or parse content file'
-    )
+    const [payload, message] = mockLoggerError.mock.calls[0]
+    expect(message).toBe('Failed to read or parse content file')
+    expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+    expect(payload.event).toMatchObject({
+      type: 'content_load',
+      action: 'read',
+      reference: 'some-page.md',
+      outcome: 'failure'
+    })
+    expect(payload.event.reason).toContain('some-page.md')
+    expect(payload.error).toMatchObject({
+      message: 'EACCES: permission denied',
+      type: 'Error'
+    })
   })
 })
