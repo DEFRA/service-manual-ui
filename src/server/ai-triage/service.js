@@ -4,11 +4,11 @@ import { createLogger } from '../common/helpers/logging/logger.js'
 import {
   buildSendTriageEmailErrorLog,
   buildSendTriageEmailSuccessLog
-} from './logging/send-triage-email-log-utils.js'
+} from '../common/helpers/logging/send-triage-email-log-utils.js'
 import {
   buildSendConfirmationEmailErrorLog,
   buildSendConfirmationEmailSuccessLog
-} from './logging/send-confirmation-email-log-utils.js'
+} from '../common/helpers/logging/send-confirmation-email-log-utils.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
