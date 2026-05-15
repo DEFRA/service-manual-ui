@@ -1,4 +1,5 @@
 {% extends "layouts/page.njk" %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
 {% block beforeContent %}
   <a href="{{ questionBackHref or 'javascript:history.back()' }}" class="govuk-back-link">Back</a>
@@ -9,6 +10,12 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if isResult %}
+      {% if confirmationEmailFailed %}
+        {{ govukNotificationBanner({
+          type: 'success',
+          html: "<p class=\"govuk-body\">Your submission has been received.</p><p class=\"govuk-body\">We were unable to send you a confirmation email. Please do not resubmit this form.</p>"
+        }) }}
+      {% endif %}
       <h1 class="govuk-heading-xl">{{ title }}</h1>
       {{ content | markdown | safe }}
     {% else %}

@@ -1,3 +1,5 @@
+import { stringify } from 'node:querystring'
+
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { getErrorHeading } from '../common/helpers/errors.js'
@@ -10,16 +12,21 @@ import * as aiTriageService from './service.js'
 import schemas from './schemas/index.js'
 import submissionSchema from './schemas/submission.js'
 
+const QUESTION_TEMPLATE = 'common/templates/layouts/question'
+const CHECK_YOUR_ANSWERS_TEMPLATE =
+  'common/templates/layouts/check-your-answers'
+const CHECK_YOUR_ANSWERS_CONTENT = 'ai-toolkit/triage/check-your-answers.md'
+
 function slugFromPath(requestPath) {
   return requestPath.split('/').at(-1)
 }
 
 async function renderSummaryWithErrors(request, h, errorState) {
-  const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
+  const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
   const sessionData = sessionHelper.getTriageSessionData(request.yar)
   const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
 
-  return h.view('common/templates/layouts/check-your-answers', {
+  return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
     ...meta,
     rows: viewModel.rows,
     ...errorState
@@ -53,7 +60,7 @@ export const getTriagePage = (filename) => {
       const stored = sessionHelper.getAnswer(request.yar, slug)
       const questionValue = stored?.answer ?? null
 
-      return h.view('common/templates/layouts/question', {
+      return h.view(QUESTION_TEMPLATE, {
         ...meta,
         content,
         currentUrl: request.path,
@@ -85,7 +92,7 @@ export const postTriagePage = (filename) => {
       const error = validateAnswer(answer, meta)
 
       if (error) {
-        return h.view('common/templates/layouts/question', {
+        return h.view(QUESTION_TEMPLATE, {
           ...meta,
           content,
           currentUrl: request.path,
@@ -118,11 +125,11 @@ export const postTriagePage = (filename) => {
 
 export const getSummaryPage = async (request, h) => {
   try {
-    const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
+    const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
     const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
 
-    return h.view('common/templates/layouts/check-your-answers', {
+    return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
       rows: viewModel.rows
     })
@@ -156,7 +163,8 @@ export const postSummaryPage = async (request, h) => {
       return renderSummaryWithErrors(request, h, { sendError: false, errors })
     }
 
-    const { triageResult } = await aiTriageService.submit(submission)
+    const { triageResult, confirmationResult } =
+      await aiTriageService.submit(submission)
 
     if (!triageResult.success) {
       return renderSummaryWithErrors(request, h, {
@@ -164,10 +172,13 @@ export const postSummaryPage = async (request, h) => {
         errors: []
       })
     }
-
     sessionHelper.clearTriageSession(request.yar)
 
-    return h.redirect('/ai-toolkit/triage/thank-you')
+    const confirmationFailed = confirmationResult?.success === false
+    const qs = confirmationFailed
+      ? `?${stringify({ confirmationFailed: true })}`
+      : ''
+    return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
     request.logger.error(
       buildErrorLog(error, {
@@ -176,6 +187,27 @@ export const postSummaryPage = async (request, h) => {
         category: 'ai_triage'
       }),
       'Failed to process ai-triage summary form'
+    )
+    return h
+      .response(getErrorHeading(statusCodes.notFound))
+      .code(statusCodes.notFound)
+  }
+}
+
+export const getThankYouPage = async (request, h) => {
+  try {
+    const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
+
+    return h.view(QUESTION_TEMPLATE, {
+      ...meta,
+      content,
+      currentUrl: request.path,
+      confirmationEmailFailed: request.query.confirmationFailed === 'true'
+    })
+  } catch (error) {
+    request.logger.error(
+      { err: error },
+      'Failed to load ai-triage thank-you page'
     )
     return h
       .response(getErrorHeading(statusCodes.notFound))
