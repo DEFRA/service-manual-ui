@@ -525,7 +525,7 @@ Lower case. Do not just use 'severe warning'.
 
 Sentence case (lower case, except if starting a sentence).
 
-A main Single Business Identifier (SBI) is a unique 9-digit number given to a farmer or business that is involved in an agricultural activity
+A main single business identifier (SBI) is a unique 9-digit number given to a farmer or business that is involved in an agricultural activity
 
 ### site visits
 
