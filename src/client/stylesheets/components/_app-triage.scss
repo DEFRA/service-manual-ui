@@ -217,8 +217,3 @@
 }
 
 // ── Confirmation email failure banner ──
-// Override GOV.UK success banner green to match Defra brand green.
-.govuk-notification-banner--success {
-  background-color: $defra-green;
-  border-color: $defra-green;
-}

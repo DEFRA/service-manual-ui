@@ -146,9 +146,7 @@ describe('#aiTriageController', () => {
         method: 'GET',
         url: '/ai-toolkit/triage/thank-you?confirmationFailed=true'
       })
-      expect(result).toEqual(
-        expect.stringContaining('govuk-notification-banner')
-      )
+      expect(result).toEqual(expect.stringContaining('defra-alert'))
       expect(result).toEqual(
         expect.stringContaining('Your submission has been received')
       )
@@ -159,9 +157,7 @@ describe('#aiTriageController', () => {
         method: 'GET',
         url: '/ai-toolkit/triage/thank-you'
       })
-      expect(result).not.toEqual(
-        expect.stringContaining('govuk-notification-banner')
-      )
+      expect(result).not.toEqual(expect.stringContaining('defra-alert'))
     })
   })
 
