@@ -1,0 +1,156 @@
+{
+  "uuid": "2230513b-3932-4706-8951-c9981df4bc8d",
+  "lastMigration": 33,
+  "name": "Notify",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 8080,
+  "hostname": "localhost",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e3d1ce96-1a7c-4cc3-9530-49f2b258019d",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "v2/notifications/email",
+      "responses": [
+        {
+          "uuid": "d35efcec-feac-4c97-8ad3-66c56ef24e9c",
+          "body": "{\n  data: {\n    \"status_code\": 500\n  }\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "template_id",
+              "value": "b72e125f-7179-429d-a1bf-76cee401dad4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "f93ac393-962a-4c3f-8fdb-2ac8f51a160a",
+          "body": "{\n  data: {\n    \"id\": \"201b576e-c09b-467b-9dfa-9c3b689ee730\", // required string - notification ID\n    \"reference\": \"your reference\", // optional string - reference you provided when sending the message\n    \"content\": {\n        \"subject\": \"Test\",  // required string - message subject\n        \"body\": \"Test email\",  // required string - message content\n        \"from_email\": \"test@example.com\", // required string - \"FROM\" email address, not a real inbox\n        \"one_click_unsubscribe_url\": \"https://example.com/unsubscribe.html?opaque=123456789\" // optional string\n    },\n    \"uri\": \"https://api.notifications.service.gov.uk/v2/notifications/201b576e-c09b-467b-9dfa-9c3b689ee730\", // required string\n    \"template\": {\n        \"id\": \"9d751e0e-f929-4891-82a1-a3e1c3c18ee3\", // required string - template ID\n        \"version\": 1, // required integer\n        \"uri\": \"https://api.notifications.service.gov.uk/v2/template/9d751e0e-f929-4891-82a1-a3e1c3c18ee3\" // required string\n    }\n  }\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "daeaf471-c8e3-40ac-a6d0-72715ff7f107",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "healthy",
+      "responses": [
+        {
+          "uuid": "14339bca-1051-4349-be36-9619fcf40ebe",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e3d1ce96-1a7c-4cc3-9530-49f2b258019d"
+    },
+    {
+      "type": "route",
+      "uuid": "daeaf471-c8e3-40ac-a6d0-72715ff7f107"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

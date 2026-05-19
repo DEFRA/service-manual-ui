@@ -10,6 +10,8 @@ import {
   buildSendConfirmationEmailSuccessLog
 } from '../common/helpers/logging/send-confirmation-email-log-utils.js'
 
+import submissionSchema from './schemas/submission.js'
+
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 
@@ -138,27 +140,32 @@ async function sendConfirmationEmail(submission, reference) {
 }
 
 /**
- * Submits a triage request - returns an result object representing email sending
+ * Submits a triage request - returns a result object representing email sending
  * outcome.
  *
  * @param {import('./model.js').TriageSubmission} submission
- * @returns {Promise<{
- *    triageResult: { success: boolean, data?: object, error?: object },
- *    confirmationResult?: { success: boolean, data?: object, error?: object }
- * }>}
+ * @returns {Promise<
+ *   { triageResult: { success: boolean, data?: object, error?: object }, confirmationResult: { success: boolean, data?: object, error?: object } } |
+ *   { validationError: import('joi').ValidationError }
+ * >}
  */
 export async function submit(submission) {
+  const { error: validationError } = submissionSchema.validate(submission, {
+    abortEarly: false
+  })
+
+  if (validationError) {
+    return { validationError }
+  }
+
   const reference = `triage-${Date.now()}`
   const triageResult = await sendTriageEmail(submission, reference)
+  
   if (!triageResult.success) {
-    return {
-      triageResult
-    }
+    return { triageResult, confirmationResult: { success: false } }
   }
+
   const confirmationResult = await sendConfirmationEmail(submission, reference)
 
-  return {
-    triageResult,
-    confirmationResult
-  }
+  return { triageResult, confirmationResult }
 }

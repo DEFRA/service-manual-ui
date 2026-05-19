@@ -47,6 +47,12 @@ describe('aiTriageService', () => {
   }
 
   describe('triage email', () => {
+    test('returns validationError when submission is invalid', async () => {
+      const result = await submit({ email: null, problem: null, users: null, benefits: null, solutionAttempts: null })
+      expect(result.validationError).toBeDefined()
+      expect(result.triageResult).toBeUndefined()
+    })
+
     test('is sent to shared mailbox with correct content and reference', async () => {
       let requestBody
 
@@ -170,4 +176,5 @@ describe('aiTriageService', () => {
       })
     })
   })
+
 })

@@ -17,11 +17,11 @@ vi.mock('./session.js', () => ({
   clearTriageSession: (...args) => mockClearTriageSession(...args)
 }))
 
-const mockFromSessionData = vi.fn()
+const mockTriageSubmissionFromSessionData = vi.fn()
 const mockTriageSummaryFromSessionData = vi.fn()
 vi.mock('./model.js', () => ({
   TriageSubmission: {
-    fromSessionData: (...args) => mockFromSessionData(...args)
+    fromSessionData: (...args) => mockTriageSubmissionFromSessionData(...args)
   },
   TriageSummaryViewModel: {
     fromSessionData: (...args) => mockTriageSummaryFromSessionData(...args)
@@ -31,11 +31,6 @@ vi.mock('./model.js', () => ({
 const mockSubmit = vi.fn()
 vi.mock('./service.js', () => ({
   submit: (...args) => mockSubmit(...args)
-}))
-
-const mockSubmissionValidate = vi.fn()
-vi.mock('./schemas/submission.js', () => ({
-  default: { validate: (...args) => mockSubmissionValidate(...args) }
 }))
 
 const {
@@ -52,10 +47,7 @@ const mockLoggerError = vi.fn()
 
 const buildH = () => ({
   view: mockView,
-  redirect: mockRedirect,
-  response: vi
-    .fn()
-    .mockReturnValue({ code: vi.fn().mockReturnValue('not-found') })
+  redirect: mockRedirect
 })
 
 const mockYar = {
@@ -131,17 +123,13 @@ describe('#getTriagePage', () => {
     )
   })
 
-  test('handles errors gracefully', async () => {
-    mockLoadContent.mockImplementation(() => {
-      throw new Error('Failed to load content')
-    })
+  test('logs and re-throws on error', async () => {
+    const boom = new Error('Failed to load content')
+    mockLoadContent.mockImplementation(() => { throw boom })
 
     const handler = getTriagePage('missing.md')
-    const h = buildH()
-    await handler(buildRequest(), h)
-
+    await expect(handler(buildRequest(), buildH())).rejects.toThrow(boom)
     expect(mockLoggerError).toHaveBeenCalled()
-    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })
 
@@ -224,17 +212,15 @@ describe('#postTriagePage', () => {
     expect(mockSetAnswer).not.toHaveBeenCalled()
   })
 
-  test('handles errors gracefully', async () => {
-    mockLoadContent.mockImplementation(() => {
-      throw new Error('Failed to load content')
-    })
+  test('logs and re-throws on error', async () => {
+    const boom = new Error('Failed to load content')
+    mockLoadContent.mockImplementation(() => { throw boom })
 
     const handler = postTriagePage('missing.md')
-    const h = buildH()
-    await handler(buildRequest({ payload: { answer: 'test' } }), h)
-
+    await expect(
+      handler(buildRequest({ payload: { answer: 'test' } }), buildH())
+    ).rejects.toThrow(boom)
     expect(mockLoggerError).toHaveBeenCalled()
-    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })
 
@@ -249,37 +235,13 @@ describe('#getSummaryPage', () => {
     })
     mockTriageSummaryFromSessionData.mockReturnValue({
       rows: [
-        {
-          slug: 'question-1',
-          title: 'Question 1',
-          answer: 'test@example.com',
-          changeHref: '/ai-toolkit/triage/question-1'
-        },
-        {
-          slug: 'question-2',
-          title: 'Question 2',
-          answer: 'Some problem description',
-          changeHref: '/ai-toolkit/triage/question-2'
-        },
-        {
-          slug: 'question-3',
-          title: 'Question 3',
-          answer: 'Many users',
-          changeHref: '/ai-toolkit/triage/question-3'
-        },
-        {
-          slug: 'question-4',
-          title: 'Question 4',
-          answer: 'Big benefit',
-          changeHref: '/ai-toolkit/triage/question-4'
-        },
-        {
-          slug: 'question-5',
-          title: 'Question 5',
-          answer: 'Tried nothing',
-          changeHref: '/ai-toolkit/triage/question-5'
-        }
-      ]
+        { slug: 'question-1', title: 'Question 1', answer: 'test@example.com', changeHref: '/ai-toolkit/triage/question-1' },
+        { slug: 'question-2', title: 'Question 2', answer: 'Some problem description', changeHref: '/ai-toolkit/triage/question-2' },
+        { slug: 'question-3', title: 'Question 3', answer: 'Many users', changeHref: '/ai-toolkit/triage/question-3' },
+        { slug: 'question-4', title: 'Question 4', answer: 'Big benefit', changeHref: '/ai-toolkit/triage/question-4' },
+        { slug: 'question-5', title: 'Question 5', answer: 'Tried nothing', changeHref: '/ai-toolkit/triage/question-5' }
+      ],
+      error: null
     })
     mockLoadContent.mockReturnValue({
       meta: { title: 'Check your answers' },
@@ -318,42 +280,39 @@ describe('#getSummaryPage', () => {
     expect(viewData.rows).toHaveLength(5)
   })
 
-  test('handles errors gracefully', async () => {
-    mockLoadContent.mockImplementation(() => {
-      throw new Error('Failed to load')
-    })
+  test('logs and re-throws on error', async () => {
+    const boom = new Error('Failed to load')
+    mockLoadContent.mockImplementation(() => { throw boom })
 
-    const h = buildH()
-    await getSummaryPage(buildRequest(), h)
-
+    await expect(getSummaryPage(buildRequest(), buildH())).rejects.toThrow(boom)
     expect(mockLoggerError).toHaveBeenCalled()
-    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })
 
 describe('#postSummaryPage', () => {
+  const sessionData = {
+    'question-1': { answer: 'test@example.com' },
+    'question-2': { answer: 'A problem' },
+    'question-3': { answer: 'Users' },
+    'question-4': { answer: 'Benefits' },
+    'question-5': { answer: 'Attempts' }
+  }
+
+  const mockSubmission = { email: 'test@example.com' }
+
   beforeEach(() => {
-    mockGetTriageSessionData.mockReturnValue({
-      'question-1': { answer: 'test@example.com' },
-      'question-2': { answer: 'A problem' },
-      'question-3': { answer: 'Users' },
-      'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' }
+    mockGetTriageSessionData.mockReturnValue(sessionData)
+    mockTriageSubmissionFromSessionData.mockReturnValue(mockSubmission)
+    mockTriageSummaryFromSessionData.mockReturnValue({ rows: [], error: null })
+    mockLoadContent.mockReturnValue({ meta: { title: 'Check your answers' }, content: '' })
+    mockSubmit.mockResolvedValue({
+      triageResult: { success: true },
+      confirmationResult: { success: true }
     })
-    mockFromSessionData.mockReturnValue({
-      email: 'test@example.com',
-      problem: 'A problem',
-      users: 'Users',
-      benefits: 'Benefits',
-      solutionAttempts: 'Attempts'
-    })
-    mockSubmissionValidate.mockReturnValue({})
-    mockSubmit.mockResolvedValue({ triageResult: { success: true } })
   })
 
-  test('redirects to thank-you', async () => {
-    const h = buildH()
-    await postSummaryPage(buildRequest(), h)
+  test('redirects to thank-you on success', async () => {
+    await postSummaryPage(buildRequest(), buildH())
     expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
   })
 
@@ -362,24 +321,12 @@ describe('#postSummaryPage', () => {
       triageResult: { success: true },
       confirmationResult: { success: false }
     })
-
-    const h = buildH()
-    await postSummaryPage(buildRequest(), h)
-
-    expect(mockRedirect).toHaveBeenCalledWith(
-      '/ai-toolkit/triage/thank-you?confirmationFailed=true'
-    )
+    await postSummaryPage(buildRequest(), buildH())
+    expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you?confirmationFailed=true')
   })
 
-  test('redirects to thank-you without query param when confirmation email succeeds', async () => {
-    mockSubmit.mockResolvedValue({
-      triageResult: { success: true },
-      confirmationResult: { success: true }
-    })
-
-    const h = buildH()
-    await postSummaryPage(buildRequest(), h)
-
+  test('redirects without query param when confirmation email succeeds', async () => {
+    await postSummaryPage(buildRequest(), buildH())
     expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
   })
 
@@ -388,30 +335,31 @@ describe('#postSummaryPage', () => {
     expect(mockClearTriageSession).toHaveBeenCalledWith(mockYar)
   })
 
-  test('does not clear session when validation fails', async () => {
-    mockLoadContent.mockReturnValue({
-      meta: { title: 'Check your answers' },
-      content: ''
-    })
-    mockTriageSummaryFromSessionData.mockReturnValue({ rows: [] })
-    mockSubmissionValidate.mockReturnValue({
-      error: { details: [{ message: 'required' }] }
-    })
-
+  test('renders summary with errors when validation fails', async () => {
+    const submitResult = {
+      validationError: { details: [{ message: 'Enter an email address' }] }
+    }
+    mockSubmit.mockResolvedValue(submitResult)
     await postSummaryPage(buildRequest(), buildH())
+    expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(sessionData, submitResult)
+    expect(mockView).toHaveBeenCalledWith('common/templates/layouts/check-your-answers', expect.any(Object))
     expect(mockClearTriageSession).not.toHaveBeenCalled()
   })
 
-  test('does not clear session when submit fails', async () => {
-    mockLoadContent.mockReturnValue({
-      meta: { title: 'Check your answers' },
-      content: ''
-    })
-    mockTriageSummaryFromSessionData.mockReturnValue({ rows: [] })
-    mockSubmit.mockResolvedValue({ triageResult: { success: false } })
-
+  test('renders summary with service error flag when submit fails', async () => {
+    const submitResult = { triageResult: { success: false } }
+    mockSubmit.mockResolvedValue(submitResult)
     await postSummaryPage(buildRequest(), buildH())
+    expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(sessionData, submitResult)
+    expect(mockView).toHaveBeenCalledWith('common/templates/layouts/check-your-answers', expect.any(Object))
     expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
+
+  test('logs and re-throws on unexpected error', async () => {
+    const boom = new Error('Unexpected failure')
+    mockSubmit.mockRejectedValue(boom)
+    await expect(postSummaryPage(buildRequest(), buildH())).rejects.toThrow(boom)
+    expect(mockLoggerError).toHaveBeenCalled()
   })
 })
 
@@ -450,18 +398,14 @@ describe('#getThankYouPage', () => {
     )
   })
 
-  test('handles errors gracefully', async () => {
-    mockLoadContent.mockImplementation(() => {
-      throw new Error('Failed to load content')
-    })
+  test('logs and re-throws on error', async () => {
+    const boom = new Error('Failed to load content')
+    mockLoadContent.mockImplementation(() => { throw boom })
 
-    const h = buildH()
-    await getThankYouPage(
-      buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }),
-      h
-    )
-
+    await expect(
+      getThankYouPage(buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }), buildH())
+    ).rejects.toThrow(boom)
     expect(mockLoggerError).toHaveBeenCalled()
-    expect(h.response).toHaveBeenCalledWith('Page not found')
   })
 })
+
