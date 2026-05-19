@@ -10,16 +10,16 @@ sectionNav:
         href: /ai-toolkit/projects
   - title: In progress
     items:
-      - text: Project name placeholder
-        href: /ai-toolkit/projects/placeholder-one
-      - text: Project name placeholder
-        href: /ai-toolkit/projects/placeholder-one
+      - text: RPA guidance
+        href: /ai-toolkit/projects/rpa-guidance
+      - text: Interaction designer plugins
+        href: /ai-toolkit/projects/interaction-designer-plugins
   - title: Up next
     items:
-      - text: Project name placeholder
-        href: /ai-toolkit/projects/placeholder-one
-      - text: Project name placeholder
-        href: /ai-toolkit/projects/placeholder-one
+      - text: Service Insights
+        href: /ai-toolkit/projects/service-insights
+      - text: RPA planning dashboard
+        href: /ai-toolkit/projects/rpa-planning-dashboard
 customNav:
   - text: Home
     href: /
@@ -46,8 +46,6 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Projects%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body">How we're helping Defra teams adopt AI.</p>
-
 <section class="app-radar-section">
 
 ## In progress
@@ -55,13 +53,13 @@ supportBox:
 <ul class="app-radar-grid" style="grid-template-columns: 1fr;">
 
 <li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">In progress placeholder</a></h3>
-  <p class="app-radar-card__description">One-line plain English description of what the team is shipping and who it helps.</p>
+  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h3>
+  <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
 </li>
 
 <li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">In progress placeholder</a></h3>
-  <p class="app-radar-card__description">One-line plain English description of what the team is shipping and who it helps.</p>
+  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h3>
+  <p class="app-radar-card__description">Patterns inside designers' tools.</p>
 </li>
 
 </ul>
@@ -74,13 +72,13 @@ supportBox:
 <ul class="app-radar-grid" style="grid-template-columns: 1fr;">
 
 <li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">Up next placeholder</a></h3>
-  <p class="app-radar-card__description">One-line plain English description of what's coming next and who it helps.</p>
+  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h3>
+  <p class="app-radar-card__description">AI prototype with Service Insights.</p>
 </li>
 
 <li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">Up next placeholder</a></h3>
-  <p class="app-radar-card__description">One-line plain English description of what's coming next and who it helps.</p>
+  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h3>
+  <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
 </li>
 
 </ul>

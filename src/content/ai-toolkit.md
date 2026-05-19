@@ -24,7 +24,7 @@ triageTitle: Check if AI is right for your idea
 triageDescription: From the AI Capability and Enablement team. See how AI could help your work, whatever your role.
 triageButtonText: Start now
 triageButtonHref: /ai-toolkit/triage/question-1
-primaryCardsHeading: Browse by topic
+primaryCardsHeading: Explore the toolkit
 primaryCardsDescription: Get guidance, check the tools radar or find a pattern.
 primaryCards:
   - text: Guidance
@@ -55,21 +55,21 @@ supportBox:
   <h3 class="govuk-heading-m app-kanban__heading">Up next</h3>
 
   <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">In progress placeholder</a></h4>
-    <p class="app-radar-card__description">One-line plain English description of what the team is shipping and who it helps.</p>
+    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h4>
+    <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
   </div>
   <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">Up next placeholder</a></h4>
-    <p class="app-radar-card__description">One-line plain English description of what's coming next and who it helps.</p>
+    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h4>
+    <p class="app-radar-card__description">AI prototype with Service Insights.</p>
   </div>
 
   <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">In progress placeholder</a></h4>
-    <p class="app-radar-card__description">One-line plain English description of what the team is shipping and who it helps.</p>
+    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h4>
+    <p class="app-radar-card__description">Patterns inside designers' tools.</p>
   </div>
   <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/placeholder-one" class="govuk-link app-radar-card__link">Up next placeholder</a></h4>
-    <p class="app-radar-card__description">One-line plain English description of what's coming next and who it helps.</p>
+    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h4>
+    <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
   </div>
 
 </div>
