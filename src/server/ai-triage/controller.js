@@ -1,4 +1,4 @@
-import { stringify } from 'node:querystring'
+import querystring from 'node:querystring'
 
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
@@ -10,7 +10,6 @@ import * as sessionHelper from './session.js'
 import * as aiTriageService from './service.js'
 
 import schemas from './schemas/index.js'
-import submissionSchema from './schemas/submission.js'
 
 const QUESTION_TEMPLATE = 'common/templates/layouts/question'
 const CHECK_YOUR_ANSWERS_TEMPLATE =
@@ -19,18 +18,6 @@ const CHECK_YOUR_ANSWERS_CONTENT = 'ai-toolkit/triage/check-your-answers.md'
 
 function slugFromPath(requestPath) {
   return requestPath.split('/').at(-1)
-}
-
-async function renderSummaryWithErrors(request, h, errorState) {
-  const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
-  const sessionData = sessionHelper.getTriageSessionData(request.yar)
-  const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
-
-  return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
-    ...meta,
-    rows: viewModel.rows,
-    ...errorState
-  })
 }
 
 function validateAnswer(answer, meta) {
@@ -127,11 +114,15 @@ export const getSummaryPage = async (request, h) => {
   try {
     const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
-    const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
+    const viewModel = model.TriageSummaryViewModel.fromSessionData(
+      sessionData,
+      {}
+    )
 
     return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
-      rows: viewModel.rows
+      rows: viewModel.rows,
+      error: viewModel.error
     })
   } catch (error) {
     request.logger.error(
@@ -154,29 +145,27 @@ export const postSummaryPage = async (request, h) => {
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
     const submission = model.TriageSubmission.fromSessionData(sessionData)
 
-    const { error: validationError } = submissionSchema.validate(submission, {
-      abortEarly: false
-    })
+    const submitResult = await aiTriageService.submit(submission)
+    const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
+    const viewModel = model.TriageSummaryViewModel.fromSessionData(
+      sessionData,
+      submitResult
+    )
 
-    if (validationError) {
-      const errors = validationError.details.map((d) => d.message)
-      return renderSummaryWithErrors(request, h, { sendError: false, errors })
-    }
-
-    const { triageResult, confirmationResult } =
-      await aiTriageService.submit(submission)
-
-    if (!triageResult.success) {
-      return renderSummaryWithErrors(request, h, {
-        sendError: true,
-        errors: []
+    if (viewModel.error) {
+      return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
+        ...meta,
+        rows: viewModel.rows,
+        error: viewModel.error
       })
     }
+
     sessionHelper.clearTriageSession(request.yar)
 
-    const confirmationFailed = confirmationResult?.success === false
+    const confirmationFailed =
+      submitResult.confirmationResult?.success === false
     const qs = confirmationFailed
-      ? `?${stringify({ confirmationFailed: true })}`
+      ? `?${querystring.stringify({ confirmationFailed: true })}`
       : ''
     return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
@@ -188,9 +177,7 @@ export const postSummaryPage = async (request, h) => {
       }),
       'Failed to process ai-triage summary form'
     )
-    return h
-      .response(getErrorHeading(statusCodes.notFound))
-      .code(statusCodes.notFound)
+    throw error
   }
 }
 
