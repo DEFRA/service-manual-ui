@@ -85,6 +85,8 @@ export const markdownRoutes = [
   '/ai-toolkit/case-studies/nrf-discovery',
   '/ai-toolkit/case-studies/nrf-alpha',
   '/ai-toolkit/case-studies/plp-cycle-time',
+  '/ai-toolkit/projects',
+  '/ai-toolkit/projects/placeholder-one',
   '/ai-toolkit/lessons-learned/code-quality',
   '/ai-toolkit/lessons-learned/governance',
   '/ai-toolkit/lessons-learned/output-validation',
