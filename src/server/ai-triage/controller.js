@@ -162,11 +162,10 @@ export const postSummaryPage = async (request, h) => {
 
     sessionHelper.clearTriageSession(request.yar)
 
-    const confirmationFailed =
-      submitResult.confirmationResult?.success === false
-    const qs = confirmationFailed
-      ? `?${querystring.stringify({ confirmationFailed: true })}`
-      : ''
+    const qs =
+      submitResult.confirmationResult.success === false
+        ? `?${querystring.stringify({ confirmationFailed: true })}`
+        : ''
     return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
     request.logger.error(

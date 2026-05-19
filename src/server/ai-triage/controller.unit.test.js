@@ -348,43 +348,43 @@ describe('#postSummaryPage', () => {
   })
 
   test('redirects to thank-you', async () => {
-  const submitResult = { 
-    triageResult: { success: true },
-    confirmationResult: { success: true }
-  }
-  mockSubmit.mockResolvedValue(submitResult)
-  mockTriageSummaryFromSessionData.mockReturnValue({ 
-    rows: [], 
-    error: null 
+    const submitResult = {
+      triageResult: { success: true },
+      confirmationResult: { success: true }
+    }
+    mockSubmit.mockResolvedValue(submitResult)
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: null
+    })
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
+
+    const h = buildH()
+    await postSummaryPage(buildRequest(), h)
+
+    expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
+      expect.any(Object),
+      submitResult
+    )
+    expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
   })
-  mockLoadContent.mockReturnValue({ 
-    meta: { title: 'Check your answers' },
-    content: ''
-  })
-  
-  const h = buildH()
-  await postSummaryPage(buildRequest(), h)
-  
-  expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
-    expect.any(Object),
-    submitResult
-  )
-  expect(mockRedirect).toHaveBeenCalledWith('/ai-toolkit/triage/thank-you')
-})
   test('includes confirmationFailed=true in redirect when confirmation email fails', async () => {
     const submitResult = {
       triageResult: { success: true },
       confirmationResult: { success: false }
     }
     mockSubmit.mockResolvedValue(submitResult)
-    mockTriageSummaryFromSessionData.mockReturnValue({ 
-      rows: [], 
-      error: null 
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: null
     })
     mockLoadContent.mockReturnValue({
-        meta: { title: 'Check your answers' },
-        content: ''
-      })
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
     const h = buildH()
     await postSummaryPage(buildRequest(), h)
 
@@ -399,14 +399,14 @@ describe('#postSummaryPage', () => {
       confirmationResult: { success: true }
     }
     mockSubmit.mockResolvedValue(submitResult)
-    mockTriageSummaryFromSessionData.mockReturnValue({ 
-      rows: [], 
-      error: null 
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: null
     })
     mockLoadContent.mockReturnValue({
-    meta: { title: 'Check your answers' },
-    content: ''
-  })
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
 
     const h = buildH()
     await postSummaryPage(buildRequest(), h)
@@ -415,95 +415,106 @@ describe('#postSummaryPage', () => {
   })
 
   test('clears the triage session on successful submit', async () => {
-    mockTriageSummaryFromSessionData.mockReturnValue({ 
-      rows: [], 
-      error: null 
+    const submitResult = {
+      triageResult: { success: true },
+      confirmationResult: { success: true }
+    }
+    mockSubmit.mockResolvedValue(submitResult)
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: null
     })
-    mockLoadContent.mockReturnValue({ 
-    meta: { title: 'Check your answers' },
-    content: ''
-  })
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
+
     await postSummaryPage(buildRequest(), buildH())
     expect(mockClearTriageSession).toHaveBeenCalledWith(mockYar)
   })
 
- test('does not clear session when validation fails', async () => {
-  const sessionData = {
-    'question-1': { answer: 'test@example.com' },
-    'question-2': { answer: 'A problem' },
-    'question-3': { answer: 'Users' },
-    'question-4': { answer: 'Benefits' },
-    'question-5': { answer: 'Attempts' }
-  }
-  const submitResult = {
-    validationError: {
-      details: [{ message: 'Enter a description of the problem' }]
+  test('does not clear session when validation fails', async () => {
+    const sessionData = {
+      'question-1': { answer: 'test@example.com' },
+      'question-2': { answer: 'A problem' },
+      'question-3': { answer: 'Users' },
+      'question-4': { answer: 'Benefits' },
+      'question-5': { answer: 'Attempts' }
     }
-  }
-  
-  mockLoadContent.mockReturnValue({
-    meta: { title: 'Check your answers' },
-    content: ''
-  })
-  mockTriageSummaryFromSessionData.mockReturnValue({ 
-    rows: [], 
-    error: { type: 'validation', messages: ['Enter a description of the problem'] }
-  })
-  mockSubmit.mockResolvedValue(submitResult)
+    const submitResult = {
+      validationError: {
+        details: [{ message: 'Enter a description of the problem' }]
+      }
+    }
 
-  await postSummaryPage(buildRequest(), buildH())
-  
-  expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
-    sessionData,
-    submitResult
-  )
-  expect(mockView).toHaveBeenCalledWith(
-    'common/templates/layouts/check-your-answers',
-    expect.objectContaining({
-      error: { type: 'validation', messages: expect.any(Array) }
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
     })
-  )
-  expect(mockClearTriageSession).not.toHaveBeenCalled()
-})
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: {
+        type: 'validation',
+        messages: ['Enter a description of the problem']
+      }
+    })
+    mockSubmit.mockResolvedValue(submitResult)
 
-test('does not clear session when submit fails', async () => {
-  const sessionData = {
-    'question-1': { answer: 'test@example.com' },
-    'question-2': { answer: 'A problem' },
-    'question-3': { answer: 'Users' },
-    'question-4': { answer: 'Benefits' },
-    'question-5': { answer: 'Attempts' }
-  }
-  const submitResult = { triageResult: { success: false } }
-  
-  mockLoadContent.mockReturnValue({
-    meta: { title: 'Check your answers' },
-    content: ''
-  })
-  mockTriageSummaryFromSessionData.mockReturnValue({ 
-    rows: [], 
-    error: { type: 'send' }
-  })
-  mockSubmit.mockResolvedValue(submitResult)
+    await postSummaryPage(buildRequest(), buildH())
 
-  await postSummaryPage(buildRequest(), buildH())
-  
-  expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
-    sessionData,
-    submitResult
-  )
-  expect(mockView).toHaveBeenCalledWith(
-    'common/templates/layouts/check-your-answers',
-    expect.any(Object)
-  )
-  expect(mockClearTriageSession).not.toHaveBeenCalled()
-})
+    expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
+      sessionData,
+      submitResult
+    )
+    expect(mockView).toHaveBeenCalledWith(
+      'common/templates/layouts/check-your-answers',
+      expect.objectContaining({
+        error: { type: 'validation', messages: expect.any(Array) }
+      })
+    )
+    expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
+
+  test('does not clear session when submit fails', async () => {
+    const sessionData = {
+      'question-1': { answer: 'test@example.com' },
+      'question-2': { answer: 'A problem' },
+      'question-3': { answer: 'Users' },
+      'question-4': { answer: 'Benefits' },
+      'question-5': { answer: 'Attempts' }
+    }
+    const submitResult = { triageResult: { success: false } }
+
+    mockLoadContent.mockReturnValue({
+      meta: { title: 'Check your answers' },
+      content: ''
+    })
+    mockTriageSummaryFromSessionData.mockReturnValue({
+      rows: [],
+      error: { type: 'send' }
+    })
+    mockSubmit.mockResolvedValue(submitResult)
+
+    await postSummaryPage(buildRequest(), buildH())
+
+    expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
+      sessionData,
+      submitResult
+    )
+    expect(mockView).toHaveBeenCalledWith(
+      'common/templates/layouts/check-your-answers',
+      expect.any(Object)
+    )
+    expect(mockClearTriageSession).not.toHaveBeenCalled()
+  })
 
   test('logs and re-throws on unexpected error', async () => {
     const boom = new Error('Unexpected failure')
     mockSubmit.mockRejectedValue(boom)
-    
-    await expect(postSummaryPage(buildRequest(), buildH())).rejects.toThrow(boom)
+
+    await expect(postSummaryPage(buildRequest(), buildH())).rejects.toThrow(
+      boom
+    )
     expect(mockLoggerError).toHaveBeenCalled()
   })
 })
