@@ -10,7 +10,7 @@ You can suggest content that you would like to be added.
 
 ## Send suggestions
 
-Send your suggestions and copies of any existing guidance to [cctsassurance@defra.gov.uk](mailto:cctsassurance@defra.gov.uk).
+Send your suggestions and copies of any existing guidance to [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk).
 
 Do not worry about the format or how content is written.
 
@@ -22,7 +22,7 @@ If your content fits in the Digital Service Manual, we will review it and share 
 
 ## Get content updated
 
-If you spot content that needs updating or removing, send the details to [cctsassurance@defra.gov.uk](mailto:cctsassurance@defra.gov.uk).
+If you spot content that needs updating or removing, send the details to [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk).
 
 You need to include:
 
@@ -47,4 +47,4 @@ We do not include large pieces of content published elsewhere, for example:
 
 When it is useful, we link to content published elsewhere.
 
-If you have questions or suggestions, [send us your feedback](mailto:cctsassurance@defra.gov.uk).
+If you have questions or suggestions, [send us your feedback](mailto:AICapabilityAndEnablement@defra.gov.uk).

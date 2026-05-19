@@ -14,7 +14,7 @@ We anonymise all feedback. You can stop taking part at any time.
 
 ## Send us your details
 
-To sign up to user research, email [cctsassurance@defra.gov.uk](mailto:cctsassurance@defra.gov.uk).
+To sign up to user research, email [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk).
 
 You need to include your:
 
@@ -23,4 +23,4 @@ You need to include your:
 
 You can include a short description of what you are working on.
 
-If you have questions or suggestions, [send us your feedback](mailto:cctsassurance@defra.gov.uk).
+If you have questions or suggestions, [send us your feedback](mailto:AICapabilityAndEnablement@defra.gov.uk).
