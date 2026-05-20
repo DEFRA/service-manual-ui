@@ -5,7 +5,15 @@ import { triageQuestions } from './questions.js'
 function slugFromQuestionPath(questionPath) {
   return questionPath.split('/').at(-1)
 }
-
+/**
+ * @typedef {Object} SubmitResult
+ * @property {import('joi').ValidationError} [validationError] - Validation error if submission failed
+ * @property {Array<{message: string}>} [validationError.details] - Validation error details
+ * @property {Object} [triageResult] - Triage service result
+ * @property {boolean} [triageResult.success] - Whether triage submission succeeded
+ * @property {Object} [confirmationResult] - Email confirmation result
+ * @property {boolean} [confirmationResult.success] - Whether confirmation email sent
+ */
 /**
  * A submission created from triage questionnaire session data.
  */
@@ -61,11 +69,20 @@ export class TriageSubmission {
 }
 
 export class TriageSummaryViewModel {
-  constructor(rows) {
+  /**
+   * @param {Array} rows
+   * @param {{ type: 'validation', messages: string[] } | { type: 'send' } | null} error
+   */
+  constructor(rows, error = null) {
     this.rows = rows
+    this.error = error
   }
 
-  static fromSessionData(sessionData) {
+  /**
+   * @param {Record<string, any>} sessionData
+   * @param {SubmitResult} submitResult
+   */
+  static fromSessionData(sessionData, submitResult = {}) {
     const rows = triageQuestions.map((questionPath) => {
       const slug = slugFromQuestionPath(questionPath)
       const filename = `${questionPath.slice(1)}.md`
@@ -81,6 +98,18 @@ export class TriageSummaryViewModel {
         changeHref: questionPath
       }
     })
+
+    if (submitResult.validationError) {
+      const messages = submitResult.validationError.details.map(
+        (d) => d.message
+      )
+
+      return new TriageSummaryViewModel(rows, { type: 'validation', messages })
+    }
+
+    if (submitResult.triageResult?.success === false) {
+      return new TriageSummaryViewModel(rows, { type: 'send' })
+    }
 
     return new TriageSummaryViewModel(rows)
   }
