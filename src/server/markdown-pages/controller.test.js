@@ -140,7 +140,7 @@ describe('#markdownPagesController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('cctsassurance@defra.gov.uk')
+        expect.stringContaining('AICapabilityAndEnablement@defra.gov.uk')
       )
     })
   })

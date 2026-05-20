@@ -27,7 +27,7 @@ We believe this website is fully accessible. If you find any accessibility issue
 
 ## Feedback and contact information
 
-If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact us at: [cctsassurance@defra.gov.uk](mailto:cctsassurance@defra.gov.uk)
+If you find any problems not listed on this page or think we're not meeting accessibility requirements, contact us at: [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk)
 
 ## Enforcement procedure
 

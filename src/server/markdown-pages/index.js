@@ -82,12 +82,11 @@ export const markdownRoutes = [
   '/security/common-tasks',
   '/ai-toolkit',
   '/ai-toolkit/getting-started',
-  '/ai-toolkit/case-studies/nrf-discovery',
-  '/ai-toolkit/case-studies/nrf-alpha',
-  '/ai-toolkit/case-studies/plp-cycle-time',
-  '/ai-toolkit/lessons-learned/code-quality',
-  '/ai-toolkit/lessons-learned/governance',
-  '/ai-toolkit/lessons-learned/output-validation',
+  '/ai-toolkit/projects',
+  '/ai-toolkit/projects/rpa-guidance',
+  '/ai-toolkit/projects/interaction-designer-plugins',
+  '/ai-toolkit/projects/service-insights',
+  '/ai-toolkit/projects/rpa-planning-dashboard',
   '/ai-toolkit/patterns',
   '/ai-toolkit/patterns/ai-assistant',
   '/ai-toolkit/patterns/green-summarisation',
@@ -124,8 +123,7 @@ export const markdownRoutes = [
   '/ai-toolkit/guidance/sustainability',
   '/ai-toolkit/guidance/information-governance',
   '/ai-toolkit/guidance/pii-and-data-handling',
-  '/ai-toolkit/guidance/cost-and-tokens',
-  '/ai-toolkit/from-the-field'
+  '/ai-toolkit/guidance/cost-and-tokens'
 ]
 
 /**

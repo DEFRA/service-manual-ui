@@ -11,8 +11,8 @@ customNav:
     href: /ai-toolkit/tools
   - text: Patterns
     href: /ai-toolkit/patterns
-  - text: From the field
-    href: /ai-toolkit/from-the-field
+  - text: Projects
+    href: /ai-toolkit/projects
 breadcrumbItems:
   - text: Digital Defra
     href: /

@@ -60,8 +60,8 @@ customNav:
     href: /ai-toolkit/tools
   - text: Patterns
     href: /ai-toolkit/patterns
-  - text: From the field
-    href: /ai-toolkit/from-the-field
+  - text: Projects
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -101,8 +101,6 @@ The guidance is grouped into three sections:
 - **Get started:** mindset, models, project setup and training.
 - **Working with AI:** practical guides for prompts, requirements, feature development, rules for AI in your repo, and cost.
 - **Responsible AI:** ethics, security, sustainability and how to handle data correctly.
-
-For real outcomes and lessons from Defra teams using AI, see [From the field](/ai-toolkit/from-the-field).
 
 ## Where to start
 

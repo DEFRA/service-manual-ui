@@ -59,8 +59,8 @@ customNav:
     href: /ai-toolkit/tools
   - text: Patterns
     href: /ai-toolkit/patterns
-  - text: From the field
-    href: /ai-toolkit/from-the-field
+  - text: Projects
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -112,7 +112,3 @@ How to use AI responsibly at Defra. Covers ethics, security, sustainability, dat
 - [Sustainability](/ai-toolkit/guidance/sustainability): using AI in proportion to the task.
 - [Information governance](/ai-toolkit/guidance/information-governance): OFFICIAL classification rules and data protection.
 - [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling): what to redact before any AI sees it.
-
-## See also
-
-For real outcomes and lessons from Defra teams using AI, see [From the field](/ai-toolkit/from-the-field).
