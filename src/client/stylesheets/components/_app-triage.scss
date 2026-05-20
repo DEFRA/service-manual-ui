@@ -121,7 +121,8 @@
 }
 
 // ── Primary cards ──
-// NHS-inspired clickable cards with right chevron.
+// NHS-inspired clickable cards. The underlined link heading carries the
+// click affordance; no chevron is used.
 
 .app-triage__cards {
   display: flex;
@@ -134,7 +135,7 @@
   display: flex;
   align-items: flex-start;
   position: relative;
-  padding: 20px 50px 20px 0;
+  padding: 20px 0;
   border-bottom: 1px solid $govuk-mid-grey;
   color: $govuk-black;
   transition: background-color 0.15s ease-out;
@@ -203,15 +204,3 @@
   margin-bottom: 4px;
 }
 
-.app-triage__card-chevron {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: $govuk-mid-grey;
-  flex-shrink: 0;
-
-  .app-triage__card:hover & {
-    color: $defra-green;
-  }
-}

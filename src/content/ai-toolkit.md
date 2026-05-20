@@ -51,25 +51,28 @@ supportBox:
 
 <div class="app-kanban">
 
-  <h3 class="govuk-heading-m app-kanban__heading">In progress</h3>
-  <h3 class="govuk-heading-m app-kanban__heading">Up next</h3>
+  <div class="app-kanban__col">
+    <h3 class="govuk-heading-m app-kanban__heading">In progress</h3>
+    <div class="app-radar-card">
+      <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h4>
+      <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
+    </div>
+    <div class="app-radar-card">
+      <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h4>
+      <p class="app-radar-card__description">Patterns inside designers' tools.</p>
+    </div>
+  </div>
 
-  <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h4>
-    <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
-  </div>
-  <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h4>
-    <p class="app-radar-card__description">AI prototype with Service Insights.</p>
-  </div>
-
-  <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h4>
-    <p class="app-radar-card__description">Patterns inside designers' tools.</p>
-  </div>
-  <div class="app-radar-card">
-    <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h4>
-    <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
+  <div class="app-kanban__col">
+    <h3 class="govuk-heading-m app-kanban__heading">Up next</h3>
+    <div class="app-radar-card">
+      <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h4>
+      <p class="app-radar-card__description">AI prototype with Service Insights.</p>
+    </div>
+    <div class="app-radar-card">
+      <h4 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h4>
+      <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
+    </div>
   </div>
 
 </div>

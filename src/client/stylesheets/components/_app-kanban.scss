@@ -1,22 +1,30 @@
 // ===== Kanban grid =====
 // Two-column status grid used on the AI toolkit landing to show the
-// portfolio at a glance (In progress / Up next). Collapses to a single
-// column on narrow viewports so cards stay readable on phones.
+// portfolio at a glance (In progress / Up next). Each status sits in its
+// own semantic column so the heading-then-cards order is preserved for
+// screen readers and for mobile stacking.
 //
-// Uses CSS grid so cards in the same row equalise heights across columns.
-// Status meaning is carried by the column heading text, not by colour,
-// so the layout works for users who cannot perceive colour differences.
+// Collapses to a single column on narrow viewports so cards stay readable
+// on phones. Status meaning is carried by the column heading text, not by
+// colour, so the layout works for users who cannot perceive colour
+// differences.
 
 .app-kanban {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 30px;
-  row-gap: 16px;
-  align-items: stretch;
+  row-gap: 24px;
+  align-items: start;
 
   @media (max-width: 40em) {
     grid-template-columns: 1fr;
   }
+}
+
+.app-kanban__col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .app-kanban__heading {

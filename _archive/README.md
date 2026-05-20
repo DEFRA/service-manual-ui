@@ -11,7 +11,9 @@ routes in `src/server/markdown-pages/index.js`. Moving a file back into
 
 Case studies and lessons-learned content that originally lived under
 `/ai-toolkit/from-the-field` and its child routes. Removed when the toolkit
-landing was reshaped around the in-flight projects kanban. The work,
-metrics and write-ups are preserved verbatim so they can be re-surfaced
-later, for example on a future outcomes page or as supporting evidence
-for new project pitches.
+landing was reshaped around the in-flight projects kanban.
+
+The body content (work, metrics and write-ups) is unchanged. The page
+frontmatter has been updated alongside other live pages, for example
+the `customNav` now lists Projects rather than From the field, so that
+restoring a file does not also reintroduce stale navigation.
