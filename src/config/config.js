@@ -182,9 +182,16 @@ export const config = convict({
         format: String,
         default: null,
         env: 'AICE_SHARED_MAILBOX_EMAIL'
+      },
+      showTriageReference: {
+        doc: 'Show triage reference number on confirmation page',
+        format: Boolean,
+        default: false,
+        env: 'AI_TOOLKIT_SHOW_TRIAGE_REFERENCE'
       }
     }
   },
+
   session: {
     cache: {
       engine: {

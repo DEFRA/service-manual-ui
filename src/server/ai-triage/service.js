@@ -5,11 +5,12 @@ import { randomBytes } from 'node:crypto'
 import {
   buildSendTriageEmailErrorLog,
   buildSendTriageEmailSuccessLog
-} from './logging/send-triage-email-log-utils.js'
+} from '../common/helpers/logging/send-triage-email-log-utils.js'
 import {
   buildSendConfirmationEmailErrorLog,
   buildSendConfirmationEmailSuccessLog
-} from './logging/send-confirmation-email-log-utils.js'
+} from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+import submissionSchema from './schemas/submission.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
@@ -38,9 +39,10 @@ async function trySendEmail(templateId, email, params = {}) {
     return [{ data: response.data, status: response.status }, null]
   } catch (error) {
     if (!error.response) {
-      throw new Error(
-        `Unknown error while attempting to send email via Notify: ${error.message || error.code}`
-      )
+      return [
+        null,
+        { data: null, status: null, message: error.message || error.code }
+      ]
     }
 
     const data = error.response.data
@@ -163,6 +165,13 @@ function generateReference() {
  * }>}
  */
 export async function submit(submission) {
+  const { error: validationError } = submissionSchema.validate(submission, {
+    abortEarly: false
+  })
+
+  if (validationError) {
+    return { validationError }
+  }
   const reference = generateReference()
   const triageResult = await sendTriageEmail(submission, reference)
   if (!triageResult.success) {

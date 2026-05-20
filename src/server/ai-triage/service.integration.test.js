@@ -163,6 +163,22 @@ describe('aiTriageService', () => {
         error: { details: record.response, status: record.status }
       })
     })
+
+    test('when an unexpected error is thrown, returns failed confirmation result', async () => {
+      await loadSendEmailFixture('submit-success.json')
+
+      nock('https://api.notifications.service.gov.uk')
+        .post('/v2/notifications/email')
+        .replyWithError('Network failure')
+
+      const result = await submit(submission)
+
+      expect(result.triageResult.success).toBe(true)
+      expect(result.confirmationResult).toEqual({
+        success: false,
+        error: { details: null, status: null }
+      })
+    })
   })
   describe('reference format', () => {
     test('generates a reference in the correct AICE-YY-XXXXXX format', async () => {

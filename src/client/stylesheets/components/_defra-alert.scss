@@ -1,0 +1,74 @@
+@use 'govuk-frontend' as *;
+
+// ===== Defra Alert Component =====
+// Based on MOJ Alert design pattern
+
+.defra-alert {
+  display: grid;
+  margin-bottom: govuk-spacing(6);
+  padding: govuk-spacing(2);
+  border: 5px solid transparent;
+  background: govuk-colour("white");
+  grid-template-columns: min-content 1fr;
+  gap: govuk-spacing(2);
+  @include govuk-font($size: false);
+
+  &:focus {
+    outline: $govuk-focus-width solid $govuk-focus-colour;
+  }
+}
+
+.defra-alert__icon {
+  display: block;
+  width: govuk-px-to-rem(30px);
+  height: govuk-px-to-rem(30px);
+  fill: currentcolor;
+}
+
+.defra-alert__content {
+  display: block;
+  padding-top: govuk-px-to-rem(5px);
+  overflow: hidden;
+  color: govuk-colour("black");
+  @include govuk-font-size($size: 19);
+
+  @include govuk-media-query($from: tablet) {
+    padding-top: govuk-px-to-rem(2px);
+  }
+}
+
+.defra-alert__heading {
+  display: block;
+  margin-top: 0;
+  margin-bottom: govuk-px-to-rem(5px);
+  @include govuk-text-colour;
+  @include govuk-font-size($size: 24);
+  @include govuk-typography-weight-bold;
+
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-px-to-rem(3px);
+  }
+}
+
+.defra-alert__content p:last-child,
+.defra-alert__content a:last-child,
+.defra-alert__content ul:last-child {
+  margin-bottom: 0;
+}
+
+// ── Warning variant ──
+.defra-alert--warning {
+  border-color: #ff8c00;
+  color: #ff8c00;
+
+  .defra-alert__content a,
+  .defra-alert__content .govuk-link {
+    @include govuk-link-common;
+    @include govuk-link-style-default;
+    
+    &:link,
+    &:visited {
+      color: #ff8c00;
+    }
+  }
+}

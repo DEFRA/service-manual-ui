@@ -1,28 +1,24 @@
+import { config } from '../../config/config.js'
+import querystring from 'node:querystring'
+
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { getErrorHeading } from '../common/helpers/errors.js'
+import { buildErrorLog } from '../common/helpers/logging/build-error-log.js'
 
 import * as model from './model.js'
 import * as sessionHelper from './session.js'
 import * as aiTriageService from './service.js'
 
 import schemas from './schemas/index.js'
-import submissionSchema from './schemas/submission.js'
+
+const QUESTION_TEMPLATE = 'common/templates/layouts/question'
+const CHECK_YOUR_ANSWERS_TEMPLATE =
+  'common/templates/layouts/check-your-answers'
+const CHECK_YOUR_ANSWERS_CONTENT = 'ai-toolkit/triage/check-your-answers.md'
 
 function slugFromPath(requestPath) {
   return requestPath.split('/').at(-1)
-}
-
-async function renderSummaryWithErrors(request, h, errorState) {
-  const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
-  const sessionData = sessionHelper.getTriageSessionData(request.yar)
-  const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
-
-  return h.view('common/templates/layouts/check-your-answers', {
-    ...meta,
-    rows: viewModel.rows,
-    ...errorState
-  })
 }
 
 function validateAnswer(answer, meta) {
@@ -52,14 +48,22 @@ export const getTriagePage = (filename) => {
       const stored = sessionHelper.getAnswer(request.yar, slug)
       const questionValue = stored?.answer ?? null
 
-      return h.view('common/templates/layouts/question', {
+      return h.view(QUESTION_TEMPLATE, {
         ...meta,
         content,
         currentUrl: request.path,
         questionValue
       })
     } catch (error) {
-      request.logger.error({ err: error }, 'Failed to load ai-triage page')
+      request.logger.error(
+        buildErrorLog(error, {
+          type: 'page_load',
+          action: 'render',
+          category: 'ai_triage',
+          reference: filename
+        }),
+        'Failed to load ai-triage page'
+      )
       return h
         .response(getErrorHeading(statusCodes.notFound))
         .code(statusCodes.notFound)
@@ -76,7 +80,7 @@ export const postTriagePage = (filename) => {
       const error = validateAnswer(answer, meta)
 
       if (error) {
-        return h.view('common/templates/layouts/question', {
+        return h.view(QUESTION_TEMPLATE, {
           ...meta,
           content,
           currentUrl: request.path,
@@ -91,7 +95,15 @@ export const postTriagePage = (filename) => {
 
       return h.redirect(meta.questionContinueHref)
     } catch (error) {
-      request.logger.error({ err: error }, 'Failed to process ai-triage form')
+      request.logger.error(
+        buildErrorLog(error, {
+          type: 'form_submit',
+          action: 'process_answer',
+          category: 'ai_triage',
+          reference: filename
+        }),
+        'Failed to process ai-triage form'
+      )
       return h
         .response(getErrorHeading(statusCodes.notFound))
         .code(statusCodes.notFound)
@@ -101,17 +113,26 @@ export const postTriagePage = (filename) => {
 
 export const getSummaryPage = async (request, h) => {
   try {
-    const { meta } = loadContent('ai-toolkit/triage/check-your-answers.md')
+    const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
-    const viewModel = model.TriageSummaryViewModel.fromSessionData(sessionData)
+    const viewModel = model.TriageSummaryViewModel.fromSessionData(
+      sessionData,
+      {}
+    )
 
-    return h.view('common/templates/layouts/check-your-answers', {
+    return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
-      rows: viewModel.rows
+      rows: viewModel.rows,
+      error: viewModel.error
     })
   } catch (error) {
     request.logger.error(
-      { err: error },
+      buildErrorLog(error, {
+        type: 'page_load',
+        action: 'render',
+        category: 'ai_triage',
+        reference: 'check-your-answers'
+      }),
       'Failed to load ai-triage summary page'
     )
     return h
@@ -125,47 +146,55 @@ export const postSummaryPage = async (request, h) => {
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
     const submission = model.TriageSubmission.fromSessionData(sessionData)
 
-    const { error: validationError } = submissionSchema.validate(submission, {
-      abortEarly: false
-    })
+    const submitResult = await aiTriageService.submit(submission)
+    const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
+    const viewModel = model.TriageSummaryViewModel.fromSessionData(
+      sessionData,
+      submitResult
+    )
 
-    if (validationError) {
-      const errors = validationError.details.map((d) => d.message)
-      return renderSummaryWithErrors(request, h, { sendError: false, errors })
-    }
-
-    const { triageResult, reference } = await aiTriageService.submit(submission)
-
-    if (!triageResult.success) {
-      return renderSummaryWithErrors(request, h, {
-        sendError: true,
-        errors: []
+    if (viewModel.error) {
+      return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
+        ...meta,
+        rows: viewModel.rows,
+        error: viewModel.error
       })
     }
 
-    sessionHelper.setReference(request.yar, reference)
+    sessionHelper.setReference(request.yar, submitResult.reference)
     sessionHelper.clearTriageSession(request.yar)
 
-    return h.redirect('/ai-toolkit/triage/thank-you')
+    const qs =
+      submitResult.confirmationResult.success === false
+        ? `?${querystring.stringify({ confirmationFailed: true })}`
+        : ''
+    return h.redirect(`/ai-toolkit/triage/thank-you${qs}`)
   } catch (error) {
     request.logger.error(
-      { err: error },
+      buildErrorLog(error, {
+        type: 'form_submit',
+        action: 'submit_triage',
+        category: 'ai_triage'
+      }),
       'Failed to process ai-triage summary form'
     )
-    return h
-      .response(getErrorHeading(statusCodes.notFound))
-      .code(statusCodes.notFound)
+    throw error
   }
 }
 
 export const getThankYouPage = async (request, h) => {
   try {
+    const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
     const reference = sessionHelper.getReference(request.yar)
     sessionHelper.clearReference(request.yar)
 
     return h.view('common/templates/layouts/confirmation', {
-      title: 'Submission received',
-      reference
+      ...meta,
+      content,
+      currentUrl: request.path,
+      reference,
+      confirmationEmailFailed: request.query.confirmationFailed === 'true',
+      showReference: config.get('aiToolkit.showTriageReference')
     })
   } catch (error) {
     request.logger.error(

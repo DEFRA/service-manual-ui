@@ -1,5 +1,6 @@
 import { loadContent } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
+import { buildErrorLog } from '../common/helpers/logging/build-error-log.js'
 
 export const getMarkdownPage = (filename) => {
   return (request, h) => {
@@ -14,7 +15,15 @@ export const getMarkdownPage = (filename) => {
         currentUrl: request.path
       })
     } catch (error) {
-      request.logger.error({ err: error }, 'Failed to load markdown page')
+      request.logger.error(
+        buildErrorLog(error, {
+          type: 'page_load',
+          action: 'render',
+          category: 'markdown_pages',
+          reference: filename
+        }),
+        'Failed to load markdown page'
+      )
       return h.response('Page not found').code(statusCodes.notFound)
     }
   }

@@ -88,11 +88,20 @@ describe('#metrics', () => {
       await metricsCounter(mockMetricsName, mockValue)
     })
 
-    test('Should log expected error', () => {
-      expect(mockLoggerError).toHaveBeenCalledWith(
-        { err: Error(mockError) },
-        'Failed to send metrics'
-      )
+    test('Should log expected error in ECS shape', () => {
+      const [payload, message] = mockLoggerError.mock.calls[0]
+      expect(message).toBe('Failed to send metrics')
+      expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+      expect(payload.event).toEqual({
+        type: 'metrics_send',
+        action: 'put_metric',
+        reference: mockMetricsName,
+        outcome: 'failure'
+      })
+      expect(payload.error).toMatchObject({
+        message: mockError,
+        type: 'Error'
+      })
     })
   })
 })

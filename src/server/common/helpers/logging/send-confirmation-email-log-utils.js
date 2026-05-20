@@ -6,7 +6,8 @@ export const buildSendConfirmationEmailErrorLog = (error) => ({
   },
   error: {
     code: error.status,
-    message: error.data.errors.map((e) => e.message).join(', '),
+    message:
+      error.data?.errors?.map((e) => e.message).join(', ') ?? error.message,
     type: 'NotifyError'
   }
 })

@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { fileURLToPath } from 'node:url'
 
 import { createLogger } from './logging/logger.js'
+import { buildErrorLog } from './logging/build-error-log.js'
 import { getEnabledMarkdownRoutes } from '../../markdown-pages/index.js'
 
 const logger = createLogger()
@@ -39,7 +40,14 @@ function findMarkdownFiles(dir, basePath = '') {
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true })
   } catch (error) {
-    logger.error({ err: error, dir }, 'Failed to read content directory')
+    logger.error(
+      buildErrorLog(error, {
+        type: 'search_index_build',
+        action: 'read_dir',
+        reference: dir
+      }),
+      'Failed to read content directory'
+    )
     return []
   }
 
@@ -134,7 +142,11 @@ export function buildSearchIndex() {
       index.push(entry)
     } catch (error) {
       logger.error(
-        { err: error, filePath },
+        buildErrorLog(error, {
+          type: 'search_index_build',
+          action: 'index_file',
+          reference: filePath
+        }),
         'Failed to index markdown file, skipping'
       )
     }

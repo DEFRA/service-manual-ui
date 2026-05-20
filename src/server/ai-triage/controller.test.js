@@ -140,6 +140,25 @@ describe('#aiTriageController', () => {
       })
       expect(result).toEqual(expect.stringContaining('Submission received'))
     })
+
+    test('renders the notification banner when confirmationFailed=true', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you?confirmationFailed=true'
+      })
+      expect(result).toEqual(expect.stringContaining('defra-alert'))
+      expect(result).toEqual(
+        expect.stringContaining('Your submission has been received')
+      )
+    })
+
+    test('does not render the notification banner without query param', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/triage/thank-you'
+      })
+      expect(result).not.toEqual(expect.stringContaining('defra-alert'))
+    })
   })
 
   describe('GET /ai-toolkit/triage/check-your-answers', () => {

@@ -1,4 +1,5 @@
 import { statusCodes } from '../constants/status-codes.js'
+import { buildErrorLog } from './logging/build-error-log.js'
 
 /**
  * Get user-friendly heading for error status codes
@@ -39,7 +40,15 @@ export function catchAll(request, h) {
   const heading = getErrorHeading(statusCode)
 
   if (statusCode >= statusCodes.internalServerError) {
-    request.logger.error({ err: response }, 'Internal server error')
+    request.logger.error(
+      buildErrorLog(response, {
+        type: 'http_error',
+        action: request.method,
+        category: request.path,
+        kind: String(statusCode)
+      }),
+      'Internal server error'
+    )
   }
 
   return h
