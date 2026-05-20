@@ -106,7 +106,6 @@ export const markdownRoutes = [
   '/ai-toolkit/tools/aws-bedrock-agentcore',
   '/ai-toolkit/tools/claude-code-marketplace',
   '/ai-toolkit/tools/git-ai',
-  '/ai-toolkit/triage/thank-you',
   '/ai-toolkit/guidance',
   '/ai-toolkit/guidance/welcome',
   '/ai-toolkit/guidance/choosing-models',
