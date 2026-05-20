@@ -1,4 +1,3 @@
-process.env.ENABLE_AI_CONTENT = 'true'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { createServer } from '../server.js'
 
