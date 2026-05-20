@@ -112,4 +112,3 @@ How to use AI responsibly at Defra. Covers ethics, security, sustainability, dat
 - [Sustainability](/ai-toolkit/guidance/sustainability): using AI in proportion to the task.
 - [Information governance](/ai-toolkit/guidance/information-governance): OFFICIAL classification rules and data protection.
 - [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling): what to redact before any AI sees it.
-
