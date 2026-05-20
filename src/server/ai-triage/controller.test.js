@@ -1,4 +1,5 @@
 import { statusCodes } from '../common/constants/status-codes.js'
+process.env.ENABLE_AI_CONTENT = 'true'
 import { createServer } from '../server.js'
 
 vi.mock('../../notify/notify-client.js', () => ({

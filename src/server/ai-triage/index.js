@@ -77,16 +77,6 @@ export const aiTriage = {
           }
         },
         {
-          method: 'GET',
-          path: '/ai-toolkit/triage/thank-you',
-          handler: controller.getThankYouPage,
-          options: {
-            ext: {
-              onPreResponse: { method: handleFileNotFound }
-            }
-          }
-        },
-        {
           method: 'POST',
           path: checkYourAnswersPath,
           handler: controller.postSummaryPage,

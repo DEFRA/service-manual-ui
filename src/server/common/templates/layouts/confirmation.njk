@@ -1,22 +1,26 @@
 {% extends "layouts/page.njk" %}
 {% from "govuk/components/panel/macro.njk" import govukPanel %}
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% block content %}
 <div class="govuk-grid-row govuk-!-padding-top-6">
   <div class="govuk-grid-column-two-thirds">
 
+    {% if confirmationEmailFailed %}
+      <div class="defra-alert defra-alert--warning" role="region" aria-labelledby="alert-heading">
+        <svg class="defra-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" aria-hidden="true" focusable="false">
+          <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M13.7,13.7h-2.4V7.2h2.4V13.7z M12.5,0L0,25h25L12.5,0z"/>
+        </svg>
+        <div class="defra-alert__content">
+          <p class="govuk-body">Your submission has been received.</p>
+          <p class="govuk-body">We were unable to send you a confirmation email. Please do not resubmit this form.</p>
+        </div>
+      </div>
+    {% endif %}
+
     {{ govukPanel({
       titleText: title,
       html: "Your reference number<br><strong>" + reference + "</strong>" if (reference and showReference) else ""
     }) }}
-
-    {% if confirmationEmailFailed %}
-      {{ govukWarningText({
-        text: "We could not send a confirmation email to your email address. Your submission was successful, but you will not receive an email confirmation.",
-        iconFallbackText: "Warning"
-      }) }}
-    {% endif %}
 
     {{ content | safe }}
 

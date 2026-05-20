@@ -19,7 +19,7 @@ vi.mock('./session.js', () => ({
   getTriageSessionData: (...args) => mockGetTriageSessionData(...args),
   clearTriageSession: (...args) => mockClearTriageSession(...args),
   setReference: (...args) => mockSetReference(...args),
-  getReference: (...args) => mockGetReference(...args), // ← add
+  getReference: (...args) => mockGetReference(...args),
   clearReference: (...args) => mockClearReference(...args)
 }))
 
@@ -37,6 +37,13 @@ vi.mock('./model.js', () => ({
 const mockSubmit = vi.fn()
 vi.mock('./service.js', () => ({
   submit: (...args) => mockSubmit(...args)
+}))
+
+const mockConfigGet = vi.fn()
+vi.mock('../../config/config.js', () => ({
+  config: {
+    get: (...args) => mockConfigGet(...args)
+  }
 }))
 
 const {
@@ -533,19 +540,27 @@ describe('#getThankYouPage', () => {
   beforeEach(() => {
     mockLoadContent.mockReturnValue({
       meta: { title: 'Thank you', isResult: true },
-      content: ''
+      content: '<p>What happens next...</p>'
     })
+    mockGetReference.mockReturnValue('AICE-26-TEST01')
+    mockConfigGet.mockReturnValue(false) // ← Add this line
   })
 
-  test('renders with confirmationEmailFailed false when no query param', async () => {
+  test('renders confirmation template with reference and content', async () => {
     await getThankYouPage(
       buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }),
       buildH()
     )
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question',
-      expect.objectContaining({ confirmationEmailFailed: false })
+      'common/templates/layouts/confirmation',
+      expect.objectContaining({
+        title: 'Thank you',
+        reference: 'AICE-26-TEST01',
+        content: '<p>What happens next...</p>',
+        confirmationEmailFailed: false,
+        showReference: expect.any(Boolean)
+      })
     )
   })
 
@@ -559,9 +574,17 @@ describe('#getThankYouPage', () => {
     )
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question',
-      expect.objectContaining({ confirmationEmailFailed: true })
+      'common/templates/layouts/confirmation',
+      expect.objectContaining({
+        confirmationEmailFailed: true,
+        reference: 'AICE-26-TEST01'
+      })
     )
+  })
+
+  test('clears the reference after reading it', async () => {
+    await getThankYouPage(buildRequest(), buildH())
+    expect(mockClearReference).toHaveBeenCalledWith(mockYar)
   })
 
   test('handles errors gracefully', async () => {
@@ -575,38 +598,6 @@ describe('#getThankYouPage', () => {
       h
     )
 
-    expect(mockLoggerError).toHaveBeenCalled()
-    expect(h.response).toHaveBeenCalledWith('Page not found')
-  })
-})
-
-describe('#getThankYouPage', () => {
-  it('renders the confirmation template with the reference from session', async () => {
-    mockGetReference.mockReturnValue('AICE-26-TEST01')
-
-    await getThankYouPage(buildRequest(), buildH())
-
-    expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/confirmation',
-      expect.objectContaining({
-        title: 'Submission received',
-        reference: 'AICE-26-TEST01'
-      })
-    )
-  })
-
-  it('clears the reference after reading it', async () => {
-    mockGetReference.mockReturnValue('AICE-26-TEST01')
-    await getThankYouPage(buildRequest(), buildH())
-    expect(mockClearReference).toHaveBeenCalledWith(mockYar)
-  })
-
-  it('handles errors gracefully', async () => {
-    mockGetReference.mockImplementation(() => {
-      throw new Error('session error')
-    })
-    const h = buildH()
-    await getThankYouPage(buildRequest(), h)
     expect(mockLoggerError).toHaveBeenCalled()
     expect(h.response).toHaveBeenCalledWith('Page not found')
   })

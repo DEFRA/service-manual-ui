@@ -194,7 +194,7 @@ export const getThankYouPage = async (request, h) => {
       currentUrl: request.path,
       reference,
       confirmationEmailFailed: request.query.confirmationFailed === 'true',
-      showReference: config.get('aiToolkit.showTriageReference')
+      showReference: config.get('notify.aiToolkit.showTriageReference')
     })
   } catch (error) {
     request.logger.error(
