@@ -17,12 +17,17 @@
       </div>
     {% endif %}
 
-    {{ govukPanel({
-      titleText: title,
-      html: "Your reference number<br><strong>" + reference + "</strong>" if (reference and showReference) else ""
-    }) }}
-
-    {{ content | safe }}
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Triage complete
+      </h1>
+      <div class="govuk-panel__body">
+        your submission has been recieved and will be reviewed by our team. We will contact you if we need further information.
+        {% if showReference and reference %}
+          Your reference number is <strong>{{ reference }}</strong>.
+        {% endif %}
+      </div>
+    </div>
 
   </div>
 </div>

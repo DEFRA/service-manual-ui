@@ -3,6 +3,11 @@ import { createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
 import { randomBytes } from 'node:crypto'
 import {
+  REFERENCE_CHARSET,
+  REFERENCE_SUFFIX_LENGTH,
+  REFERENCE_YEAR_SLICE
+} from './constants.js'
+import {
   buildSendTriageEmailErrorLog,
   buildSendTriageEmailSuccessLog
 } from '../common/helpers/logging/send-triage-email-log-utils.js'
@@ -140,15 +145,13 @@ async function sendConfirmationEmail(submission, reference) {
 }
 
 function generateReference() {
-  // No O, 0, I, 1 — to avoid transcription errors
-  const CHARSET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
-  const SUFFIX_LENGTH = 6
-  const YEAR_SLICE = -2
-  const year = new Date().getFullYear().toString().slice(YEAR_SLICE)
-  const bytes = randomBytes(SUFFIX_LENGTH)
+  const year = new Date().getFullYear().toString().slice(REFERENCE_YEAR_SLICE)
+  const bytes = randomBytes(REFERENCE_SUFFIX_LENGTH)
+
   let suffix = ''
-  for (let i = 0; i < SUFFIX_LENGTH; i++) {
-    suffix += CHARSET[bytes[i] % CHARSET.length]
+
+  for (let i = 0; i < REFERENCE_SUFFIX_LENGTH; i++) {
+    suffix += REFERENCE_CHARSET[bytes[i] % REFERENCE_CHARSET.length]
   }
   return `AICE-${year}-${suffix}`
 }
