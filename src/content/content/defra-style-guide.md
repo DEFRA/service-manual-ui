@@ -43,15 +43,11 @@ sectionNav:
         href: /content/accessible-spreadsheets
       - text: Accessibility design and testing tools
         href: /content/accessibility-tools
-supportBox:
-  title: Get support
-  description: 'Suggest a term or flag a change by messaging on the <a href="https://defra-digital.slack.com/archives/C0ESWJQSK" class="govuk-link">#content slack channel</a>'
-  items: []
 ---
 
 Defra-specific terms and how to use them in content. Use this alongside the [GDS style guide A to Z](https://www.gov.uk/guidance/style-guide/a-to-z), which covers everything else.
 
-If a term is not listed here or in the GDS guide, prefer plain English and the words your users actually use. If you're unsure, ask in the [#content Slack channel](https://defra-digital.slack.com/archives/C0ESWJQSK).
+If a term is not listed here, or you think a term is listed incorrectly, you can [submit a change request](https://forms.office.com/Pages/ResponsePage.aspx?id=UCQKdycCYkyQx044U38RAn1EzVVxqb9OlseXSC0vuX9UNUpMTEFMOU45OUFXOE5GVjBNOUtQTFhKQi4u).
 
 [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [K](#k) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [U](#u) · [W](#w) · [X](#x)
 
