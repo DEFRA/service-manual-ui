@@ -177,4 +177,4 @@ After improving the service, you need an assessment to move to **public beta** (
 
 The live phase is for supporting and improving the service.
 
-You will have a live assessment at the end of **public beta**. Spend public beta preparing for it.
+You will have a live assessment at the end of public beta. Spend public beta preparing for it.
