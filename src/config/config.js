@@ -185,6 +185,14 @@ export const config = convict({
       }
     }
   },
+  featureFlags: {
+    showTriageReference: {
+      doc: 'Show triage reference number on confirmation page',
+      format: Boolean,
+      default: false,
+      env: 'AI_TOOLKIT_SHOW_TRIAGE_REFERENCE'
+    }
+  },
   session: {
     cache: {
       engine: {

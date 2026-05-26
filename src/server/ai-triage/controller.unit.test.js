@@ -9,12 +9,18 @@ const mockGetAnswer = vi.fn()
 const mockSetAnswer = vi.fn()
 const mockGetTriageSessionData = vi.fn()
 const mockClearTriageSession = vi.fn()
+const mockSetReference = vi.fn()
+const mockGetReference = vi.fn()
+const mockClearReference = vi.fn()
 
 vi.mock('./session.js', () => ({
   getAnswer: (...args) => mockGetAnswer(...args),
   setAnswer: (...args) => mockSetAnswer(...args),
   getTriageSessionData: (...args) => mockGetTriageSessionData(...args),
-  clearTriageSession: (...args) => mockClearTriageSession(...args)
+  clearTriageSession: (...args) => mockClearTriageSession(...args),
+  setReference: (...args) => mockSetReference(...args),
+  getReference: (...args) => mockGetReference(...args),
+  clearReference: (...args) => mockClearReference(...args)
 }))
 
 const mockTriageSubmissionFromSessionData = vi.fn()
@@ -31,6 +37,13 @@ vi.mock('./model.js', () => ({
 const mockSubmit = vi.fn()
 vi.mock('./service.js', () => ({
   submit: (...args) => mockSubmit(...args)
+}))
+
+const mockConfigGet = vi.fn()
+vi.mock('../../config/config.js', () => ({
+  config: {
+    get: (...args) => mockConfigGet(...args)
+  }
 }))
 
 const {
@@ -344,7 +357,11 @@ describe('#postSummaryPage', () => {
       benefits: 'Benefits',
       solutionAttempts: 'Attempts'
     })
-    mockSubmit.mockResolvedValue({ triageResult: { success: true } })
+    mockSubmit.mockResolvedValue({
+      triageResult: { success: true },
+      reference: 'AICE-26-TEST01',
+      confirmationResult: { success: true }
+    })
   })
 
   test('redirects to thank-you', async () => {
@@ -523,19 +540,27 @@ describe('#getThankYouPage', () => {
   beforeEach(() => {
     mockLoadContent.mockReturnValue({
       meta: { title: 'Thank you', isResult: true },
-      content: ''
+      content: '<p>What happens next...</p>'
     })
+    mockGetReference.mockReturnValue('AICE-26-TEST01')
+    mockConfigGet.mockReturnValue(false) // ← Add this line
   })
 
-  test('renders with confirmationEmailFailed false when no query param', async () => {
+  test('renders confirmation template with reference and content', async () => {
     await getThankYouPage(
       buildRequest({ path: '/ai-toolkit/triage/thank-you', query: {} }),
       buildH()
     )
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question',
-      expect.objectContaining({ confirmationEmailFailed: false })
+      'common/templates/layouts/confirmation',
+      expect.objectContaining({
+        title: 'Thank you',
+        reference: 'AICE-26-TEST01',
+        content: '<p>What happens next...</p>',
+        confirmationEmailFailed: false,
+        showReference: expect.any(Boolean)
+      })
     )
   })
 
@@ -549,9 +574,17 @@ describe('#getThankYouPage', () => {
     )
 
     expect(mockView).toHaveBeenCalledWith(
-      'common/templates/layouts/question',
-      expect.objectContaining({ confirmationEmailFailed: true })
+      'common/templates/layouts/confirmation',
+      expect.objectContaining({
+        confirmationEmailFailed: true,
+        reference: 'AICE-26-TEST01'
+      })
     )
+  })
+
+  test('clears the reference after reading it', async () => {
+    await getThankYouPage(buildRequest(), buildH())
+    expect(mockClearReference).toHaveBeenCalledWith(mockYar)
   })
 
   test('handles errors gracefully', async () => {

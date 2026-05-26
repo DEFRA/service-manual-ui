@@ -138,7 +138,7 @@ describe('#aiTriageController', () => {
         method: 'GET',
         url: '/ai-toolkit/triage/thank-you'
       })
-      expect(result).toEqual(expect.stringContaining('Thank you'))
+      expect(result).toEqual(expect.stringContaining('Submission received'))
     })
 
     test('renders the notification banner when confirmationFailed=true', async () => {

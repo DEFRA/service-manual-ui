@@ -1,0 +1,34 @@
+{% extends "layouts/page.njk" %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-padding-top-6">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if confirmationEmailFailed %}
+      <div class="defra-alert defra-alert--warning" role="region" aria-labelledby="alert-heading">
+        <svg class="defra-alert__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" aria-hidden="true" focusable="false">
+          <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M13.7,13.7h-2.4V7.2h2.4V13.7z M12.5,0L0,25h25L12.5,0z"/>
+        </svg>
+        <div class="defra-alert__content">
+          <p class="govuk-body">Your submission has been received.</p>
+          <p class="govuk-body">We were unable to send you a confirmation email. Please do not resubmit this form.</p>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Triage complete
+      </h1>
+      <div class="govuk-panel__body">
+        your submission has been recieved and will be reviewed by our team. We will contact you if we need further information.
+        {% if showReference and reference %}
+          Your reference number is <strong>{{ reference }}</strong>.
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

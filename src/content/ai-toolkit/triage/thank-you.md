@@ -1,5 +1,5 @@
 ---
-title: Thank you
+title: Submission received
 layout: question
 isResult: true
 headerServiceName: AI digital toolkit
@@ -22,6 +22,8 @@ breadcrumbItems:
     href: /ai-toolkit
 questionBackHref: /ai-toolkit
 ---
+
+Your submission has been received.
 
 We have your details and will get back to you within 5 working days.
 

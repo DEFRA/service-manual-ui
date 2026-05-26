@@ -4,6 +4,14 @@ import nock from 'nock'
 
 import { submit } from './service.js'
 
+vi.mock('crypto', async (importOriginal) => {
+  const actual = await importOriginal()
+  return {
+    ...actual,
+    randomBytes: vi.fn(() => Buffer.alloc(6, 0))
+  }
+})
+
 async function loadSendEmailFixture(filename, onRequest) {
   const url = new URL(`./__fixtures__/${filename}`, import.meta.url)
   const [record] = JSON.parse(await fs.readFile(url, 'utf-8'))
@@ -28,11 +36,13 @@ async function loadSendEmailFixture(filename, onRequest) {
 
 describe('aiTriageService', () => {
   beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01'))
     nock.disableNetConnect()
-    vi.spyOn(Date, 'now').mockReturnValue(1700000000000)
   })
 
   afterEach(() => {
+    vi.useRealTimers()
     nock.cleanAll()
     nock.enableNetConnect()
     vi.restoreAllMocks()
@@ -78,7 +88,7 @@ describe('aiTriageService', () => {
           benefits: submission.benefits,
           solutionAttempts: submission.solutionAttempts
         },
-        reference: 'triage-1700000000000'
+        reference: 'AICE-26-AAAAAA'
       })
     })
 
@@ -123,7 +133,7 @@ describe('aiTriageService', () => {
       expect(requestBody).toEqual({
         template_id: record.body.template_id,
         email_address: submission.email,
-        reference: 'triage-1700000000000'
+        reference: 'AICE-26-AAAAAA'
       })
     })
 
@@ -168,6 +178,26 @@ describe('aiTriageService', () => {
         success: false,
         error: { details: null, status: null }
       })
+    })
+  })
+  describe('reference format', () => {
+    test('generates a reference in the correct AICE-YY-XXXXXX format', async () => {
+      await loadSendEmailFixture('submit-success.json')
+      await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      expect(result.reference).toMatch(/^AICE-\d{2}-[A-Z2-9]{6}$/)
+    })
+
+    test('reference does not contain ambiguous characters O, 0, I, 1', async () => {
+      await loadSendEmailFixture('submit-success.json')
+      await loadSendEmailFixture('confirm-success.json')
+
+      const result = await submit(submission)
+
+      const suffix = result.reference.split('-')[2]
+      expect(suffix).not.toMatch(/[O0I1]/)
     })
   })
 })

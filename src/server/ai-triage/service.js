@@ -1,14 +1,18 @@
+import { randomBytes } from 'node:crypto'
+
 import { config } from '../../config/config.js'
+
 import { createNotifyClient } from '../../notify/notify-client.js'
+
 import { createLogger } from '../common/helpers/logging/logger.js'
+import * as SendTriageEmailLog from '../common/helpers/logging/send-triage-email-log-utils.js'
+import * as SendConfirmationEmailLog from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+
 import {
-  buildSendTriageEmailErrorLog,
-  buildSendTriageEmailSuccessLog
-} from '../common/helpers/logging/send-triage-email-log-utils.js'
-import {
-  buildSendConfirmationEmailErrorLog,
-  buildSendConfirmationEmailSuccessLog
-} from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+  REFERENCE_CHARSET,
+  REFERENCE_SUFFIX_LENGTH,
+  REFERENCE_YEAR_SLICE
+} from './constants.js'
 import submissionSchema from './schemas/submission.js'
 
 const logger = createLogger()
@@ -75,7 +79,7 @@ async function sendTriageEmail(submission, reference) {
 
   if (error) {
     logger.error(
-      buildSendTriageEmailErrorLog(error),
+      SendTriageEmailLog.buildSendTriageEmailErrorLog(error),
       'Failed to send triage email via Gov.UK Notify'
     )
 
@@ -89,7 +93,7 @@ async function sendTriageEmail(submission, reference) {
   }
 
   logger.info(
-    buildSendTriageEmailSuccessLog(response.data.reference),
+    SendTriageEmailLog.buildSendTriageEmailSuccessLog(response.data.reference),
     'Triage email sent successfully via Notify'
   )
 
@@ -114,7 +118,7 @@ async function sendConfirmationEmail(submission, reference) {
 
   if (error) {
     logger.error(
-      buildSendConfirmationEmailErrorLog(error),
+      SendConfirmationEmailLog.buildSendConfirmationEmailErrorLog(error),
       'Failed to send confirmation email via Gov.UK Notify'
     )
 
@@ -128,7 +132,9 @@ async function sendConfirmationEmail(submission, reference) {
   }
 
   logger.info(
-    buildSendConfirmationEmailSuccessLog(response.data?.reference),
+    SendConfirmationEmailLog.buildSendConfirmationEmailSuccessLog(
+      response.data?.reference
+    ),
     'Confirmation email sent successfully via Notify'
   )
 
@@ -138,15 +144,28 @@ async function sendConfirmationEmail(submission, reference) {
   }
 }
 
+function generateReference() {
+  const year = new Date().getFullYear().toString().slice(REFERENCE_YEAR_SLICE)
+  const bytes = randomBytes(REFERENCE_SUFFIX_LENGTH)
+
+  let suffix = ''
+
+  for (let i = 0; i < REFERENCE_SUFFIX_LENGTH; i++) {
+    suffix += REFERENCE_CHARSET[bytes[i] % REFERENCE_CHARSET.length]
+  }
+  return `AICE-${year}-${suffix}`
+}
+
 /**
  * Submits a triage request - returns an result object representing email sending
  * outcome.
  *
  * @param {import('./model.js').TriageSubmission} submission
- * @returns {Promise<
- *   { triageResult: { success: boolean, data?: object, error?: object }, confirmationResult: { success: boolean, data?: object, error?: object } } |
- *   { validationError: import('joi').ValidationError }
- * >}
+ * @returns {Promise<{
+ *    triageResult: { success: boolean, data?: object, error?: object },
+ *    confirmationResult?: { success: boolean, data?: object, error?: object },
+ *    reference?: string
+ * }>}
  */
 export async function submit(submission) {
   const { error: validationError } = submissionSchema.validate(submission, {
@@ -156,8 +175,7 @@ export async function submit(submission) {
   if (validationError) {
     return { validationError }
   }
-
-  const reference = `triage-${Date.now()}`
+  const reference = generateReference()
   const triageResult = await sendTriageEmail(submission, reference)
   if (!triageResult.success) {
     return {
@@ -168,6 +186,7 @@ export async function submit(submission) {
 
   return {
     triageResult,
-    confirmationResult
+    confirmationResult,
+    reference
   }
 }

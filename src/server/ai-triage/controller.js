@@ -1,3 +1,4 @@
+import { config } from '../../config/config.js'
 import querystring from 'node:querystring'
 
 import { loadContent } from '../common/helpers/content-loader.js'
@@ -160,6 +161,7 @@ export const postSummaryPage = async (request, h) => {
       })
     }
 
+    sessionHelper.setReference(request.yar, submitResult.reference)
     sessionHelper.clearTriageSession(request.yar)
 
     const qs =
@@ -183,11 +185,15 @@ export const postSummaryPage = async (request, h) => {
 export const getThankYouPage = async (request, h) => {
   try {
     const { meta, content } = loadContent('ai-toolkit/triage/thank-you.md')
+    const reference = sessionHelper.getReference(request.yar)
+    sessionHelper.clearReference(request.yar)
 
-    return h.view(QUESTION_TEMPLATE, {
+    return h.view('common/templates/layouts/confirmation', {
       ...meta,
       content,
       currentUrl: request.path,
+      reference,
+      showReference: config.get('featureFlags.showTriageReference'),
       confirmationEmailFailed: request.query.confirmationFailed === 'true'
     })
   } catch (error) {
