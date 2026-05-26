@@ -5,10 +5,13 @@ import { config } from '../../config/config.js'
 import { createNotifyClient } from '../../notify/notify-client.js'
 
 import { createLogger } from '../common/helpers/logging/logger.js'
-import * as SendTriageEmailErrorLog from '../common/helpers/logging/send-triage-email-log-utils.js'
-import * as SendConfirmationEmailSuccessLog from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+import * as SendTriageEmailLog from '../common/helpers/logging/send-triage-email-log-utils.js'
+import * as SendConfirmationEmailLog from '../common/helpers/logging/send-confirmation-email-log-utils.js'
 
-import { REFERENCE_CHARSET, REFERENCE_SUFFIX_LENGTH, REFERENCE_YEAR_SLICE
+import {
+  REFERENCE_CHARSET,
+  REFERENCE_SUFFIX_LENGTH,
+  REFERENCE_YEAR_SLICE
 } from './constants.js'
 import submissionSchema from './schemas/submission.js'
 
@@ -76,7 +79,7 @@ async function sendTriageEmail(submission, reference) {
 
   if (error) {
     logger.error(
-      buildSendTriageEmailErrorLog(error),
+      SendTriageEmailLog.buildSendTriageEmailErrorLog(error),
       'Failed to send triage email via Gov.UK Notify'
     )
 
@@ -90,7 +93,7 @@ async function sendTriageEmail(submission, reference) {
   }
 
   logger.info(
-    buildSendTriageEmailSuccessLog(response.data.reference),
+    SendTriageEmailLog.buildSendTriageEmailSuccessLog(response.data.reference),
     'Triage email sent successfully via Notify'
   )
 
@@ -115,7 +118,7 @@ async function sendConfirmationEmail(submission, reference) {
 
   if (error) {
     logger.error(
-      buildSendConfirmationEmailErrorLog(error),
+      SendConfirmationEmailLog.buildSendConfirmationEmailErrorLog(error),
       'Failed to send confirmation email via Gov.UK Notify'
     )
 
@@ -129,7 +132,9 @@ async function sendConfirmationEmail(submission, reference) {
   }
 
   logger.info(
-    buildSendConfirmationEmailSuccessLog(response.data?.reference),
+    SendConfirmationEmailLog.buildSendConfirmationEmailSuccessLog(
+      response.data?.reference
+    ),
     'Confirmation email sent successfully via Notify'
   )
 
