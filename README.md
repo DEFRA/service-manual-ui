@@ -78,6 +78,13 @@ Install application dependencies:
 ```bash
 npm install
 ```
+Set up Git hooks with Husky:
+
+```bash
+npm run setup:husky
+```
+
+> This enables pre-commit checks for formatting, linting, and tests.
 
 ### Development
 
