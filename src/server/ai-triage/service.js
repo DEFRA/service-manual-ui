@@ -1,20 +1,15 @@
-import { config } from '../../config/config.js'
-import { createNotifyClient } from '../../notify/notify-client.js'
-import { createLogger } from '../common/helpers/logging/logger.js'
 import { randomBytes } from 'node:crypto'
-import {
-  REFERENCE_CHARSET,
-  REFERENCE_SUFFIX_LENGTH,
-  REFERENCE_YEAR_SLICE
+
+import { config } from '../../config/config.js'
+
+import { createNotifyClient } from '../../notify/notify-client.js'
+
+import { createLogger } from '../common/helpers/logging/logger.js'
+import * as SendTriageEmailErrorLog from '../common/helpers/logging/send-triage-email-log-utils.js'
+import * as SendConfirmationEmailSuccessLog from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+
+import { REFERENCE_CHARSET, REFERENCE_SUFFIX_LENGTH, REFERENCE_YEAR_SLICE
 } from './constants.js'
-import {
-  buildSendTriageEmailErrorLog,
-  buildSendTriageEmailSuccessLog
-} from '../common/helpers/logging/send-triage-email-log-utils.js'
-import {
-  buildSendConfirmationEmailErrorLog,
-  buildSendConfirmationEmailSuccessLog
-} from '../common/helpers/logging/send-confirmation-email-log-utils.js'
 import submissionSchema from './schemas/submission.js'
 
 const logger = createLogger()
