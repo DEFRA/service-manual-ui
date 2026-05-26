@@ -192,7 +192,7 @@ export const getThankYouPage = async (request, h) => {
       ...meta,
       content,
       currentUrl: request.path,
-      reference: reference,
+      reference,
       showReference: config.get('featureFlags.showTriageReference'),
       confirmationEmailFailed: request.query.confirmationFailed === 'true'
     })
