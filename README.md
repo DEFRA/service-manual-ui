@@ -78,6 +78,7 @@ Install application dependencies:
 ```bash
 npm install
 ```
+
 Set up Git hooks with Husky:
 
 ```bash
