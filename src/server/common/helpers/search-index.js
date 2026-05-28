@@ -33,7 +33,7 @@ const DEFAULT_SUGGESTION_LIMIT = 5
  * @param {string} basePath - Base path for URL generation
  * @returns {string[]} Array of file paths
  */
-function findMarkdownFiles(dir, basePath = '') {
+function findMarkdownFiles (dir, basePath = '') {
   const files = []
   let entries
 
@@ -73,7 +73,7 @@ function findMarkdownFiles(dir, basePath = '') {
  * @param {string} markdown - Raw markdown content
  * @returns {string} Plain text content
  */
-function extractText(markdown) {
+function extractText (markdown) {
   return markdown
     .replaceAll(/```[\s\S]*?```/g, '') // Remove code blocks
     .replaceAll(/`[^`]+`/g, '') // Remove inline code
@@ -92,7 +92,7 @@ function extractText(markdown) {
  * @param {string} markdown - Raw markdown content
  * @returns {string[]} Array of heading texts
  */
-function extractHeadings(markdown) {
+function extractHeadings (markdown) {
   const headingRegex = /^#{1,6}\s+(.+)$/gm
   const headings = []
   let match
@@ -108,7 +108,7 @@ function extractHeadings(markdown) {
  * Build the search index from all markdown files
  * @returns {Object[]} Array of search index entries
  */
-export function buildSearchIndex() {
+export function buildSearchIndex () {
   const markdownFiles = findMarkdownFiles(CONTENT_DIR)
   const enabledRoutes = new Set(getEnabledMarkdownRoutes())
   const index = []
@@ -160,7 +160,7 @@ export function buildSearchIndex() {
  */
 let cachedIndex = null
 
-export function getSearchIndex() {
+export function getSearchIndex () {
   if (!cachedIndex) {
     cachedIndex = buildSearchIndex()
   }
@@ -174,7 +174,7 @@ export function getSearchIndex() {
  * @param {string} queryLower - Full query in lowercase
  * @returns {{score: number, matched: boolean}} Score and match status
  */
-function calculateEntryScore(entry, queryTerms, queryLower) {
+function calculateEntryScore (entry, queryTerms, queryLower) {
   const titleLower = entry.title.toLowerCase()
   const descriptionLower = entry.description.toLowerCase()
   const sectionLower = entry.sectionTitle.toLowerCase()
@@ -224,7 +224,7 @@ function calculateEntryScore(entry, queryTerms, queryLower) {
  * @param {number} limit - Maximum results to return
  * @returns {Object[]} Matching search results
  */
-export function searchContent(query, limit = DEFAULT_RESULT_LIMIT) {
+export function searchContent (query, limit = DEFAULT_RESULT_LIMIT) {
   if (!query || typeof query !== 'string') {
     return []
   }
@@ -269,6 +269,6 @@ export function searchContent(query, limit = DEFAULT_RESULT_LIMIT) {
  * @param {number} limit - Maximum suggestions to return
  * @returns {Object[]} Suggested results for autocomplete
  */
-export function getSuggestions(query, limit = DEFAULT_SUGGESTION_LIMIT) {
+export function getSuggestions (query, limit = DEFAULT_SUGGESTION_LIMIT) {
   return searchContent(query, limit)
 }

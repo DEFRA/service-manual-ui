@@ -10,7 +10,7 @@ import {
 export const search = {
   plugin: {
     name: 'search',
-    register(server) {
+    register (server) {
       server.route([
         {
           method: 'GET',

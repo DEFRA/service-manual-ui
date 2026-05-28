@@ -15,7 +15,7 @@ import { NotifyClient } from 'notifications-node-client'
  * @property {import('notifications-node-client/types/client/notification').TemplateRef} template
  */
 
-function createNotifyClient(apiKey) {
+function createNotifyClient (apiKey) {
   return new NotifyClient(apiKey)
 }
 

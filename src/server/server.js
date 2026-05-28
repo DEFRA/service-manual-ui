@@ -14,7 +14,7 @@ import { contentSecurityPolicy } from './common/helpers/content-security-policy.
 import { sessionCache } from './common/helpers/session-cache/session-cache.js'
 import { getCacheEngine } from './common/helpers/session-cache/cache-engine.js'
 
-export async function createServer() {
+export async function createServer () {
   setupProxy()
   const server = hapi.server({
     host: config.get('host'),

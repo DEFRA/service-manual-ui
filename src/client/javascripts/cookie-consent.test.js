@@ -13,14 +13,14 @@ import {
   initCookiesPage
 } from './cookie-consent.js'
 
-function clearCookies() {
+function clearCookies () {
   document.cookie.split(';').forEach((cookie) => {
     const name = cookie.split('=')[0].trim()
     document.cookie = `${name}=; max-age=0; path=/`
   })
 }
 
-function createBannerHtml(containerId) {
+function createBannerHtml (containerId) {
   return `
     <div class="govuk-cookie-banner" data-gtm-container-id="${containerId}">
       <div class="govuk-cookie-banner__message">

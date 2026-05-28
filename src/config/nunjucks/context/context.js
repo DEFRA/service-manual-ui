@@ -17,7 +17,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 let webpackManifest
 let manifestMtime = 0
 
-function loadManifest() {
+function loadManifest () {
   try {
     const stats = statSync(manifestPath)
     // Only reload if file has changed (or is new)
@@ -48,7 +48,7 @@ function loadManifest() {
   }
 }
 
-function parseAnalyticsConsent(cookieValue) {
+function parseAnalyticsConsent (cookieValue) {
   try {
     return JSON.parse(decodeURIComponent(cookieValue || '')).analytics === true
   } catch {
@@ -56,7 +56,7 @@ function parseAnalyticsConsent(cookieValue) {
   }
 }
 
-export function context(request) {
+export function context (request) {
   // In development, always check for updated manifest
   // In production, only load once for performance
   if (isDevelopment || !webpackManifest) {
@@ -87,7 +87,7 @@ export function context(request) {
       request?.server?.info?.protocol && request?.info?.host
         ? `${request.server.info.protocol}://${request.info.host}`
         : '',
-    getAssetPath(asset) {
+    getAssetPath (asset) {
       const webpackAssetPath = webpackManifest?.[asset]
       return `${assetPath}/${webpackAssetPath ?? asset}`
     }

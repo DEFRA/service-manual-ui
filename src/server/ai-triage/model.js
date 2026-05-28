@@ -2,7 +2,7 @@ import { loadContent } from '../common/helpers/content-loader.js'
 
 import { triageQuestions } from './questions.js'
 
-function slugFromQuestionPath(questionPath) {
+function slugFromQuestionPath (questionPath) {
   return questionPath.split('/').at(-1)
 }
 /**
@@ -25,7 +25,7 @@ export class TriageSubmission {
    * @param {string|null} benefits
    * @param {string|null} solutionAttempts
    */
-  constructor(email, problem, users, benefits, solutionAttempts) {
+  constructor (email, problem, users, benefits, solutionAttempts) {
     this.email = email
     this.problem = problem
     this.users = users
@@ -38,7 +38,7 @@ export class TriageSubmission {
    * @param {Record<string, any>} sessionData
    * @returns {TriageSubmission}
    */
-  static fromSessionData(sessionData) {
+  static fromSessionData (sessionData) {
     const payload = {}
 
     for (const questionPath of triageQuestions) {
@@ -73,7 +73,7 @@ export class TriageSummaryViewModel {
    * @param {Array} rows
    * @param {{ type: 'validation', messages: string[] } | { type: 'send' } | null} error
    */
-  constructor(rows, error = null) {
+  constructor (rows, error = null) {
     this.rows = rows
     this.error = error
   }
@@ -82,7 +82,7 @@ export class TriageSummaryViewModel {
    * @param {Record<string, any>} sessionData
    * @param {SubmitResult} submitResult
    */
-  static fromSessionData(sessionData, submitResult = {}) {
+  static fromSessionData (sessionData, submitResult = {}) {
     const rows = triageQuestions.map((questionPath) => {
       const slug = slugFromQuestionPath(questionPath)
       const filename = `${questionPath.slice(1)}.md`

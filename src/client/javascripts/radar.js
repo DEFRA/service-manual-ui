@@ -22,7 +22,7 @@ const MAILBOX = 'AICapabilityAndEnablement@defra.gov.uk'
  * Build the SR-live message for a given visible count.
  * Pure: extracted so the singular/plural branch can be unit tested.
  */
-export function buildLiveMessage(visible) {
+export function buildLiveMessage (visible) {
   if (visible === 0) {
     return 'No entries match your filter'
   }
@@ -35,7 +35,7 @@ export function buildLiveMessage(visible) {
  * the current query so the email is useful when it lands.
  * Pure: takes the query string, returns the full mailto URL.
  */
-export function buildNoResultsHref(query, mailbox = MAILBOX) {
+export function buildNoResultsHref (query, mailbox = MAILBOX) {
   const trimmed = query.trim()
   const subject = trimmed
     ? `Tool enquiry: ${trimmed}`
@@ -52,12 +52,12 @@ export function buildNoResultsHref(query, mailbox = MAILBOX) {
   return `mailto:${mailbox}?${params.toString()}`
 }
 
-function setChipPressed(chip, isPressed) {
+function setChipPressed (chip, isPressed) {
   chip.setAttribute(ARIA_PRESSED, isPressed ? 'true' : 'false')
   chip.removeAttribute(ARIA_CURRENT)
 }
 
-function upgradeChipAria(chip) {
+function upgradeChipAria (chip) {
   if (chip.getAttribute(ARIA_CURRENT) === 'true') {
     chip.removeAttribute(ARIA_CURRENT)
     chip.setAttribute(ARIA_PRESSED, 'true')
@@ -66,7 +66,7 @@ function upgradeChipAria(chip) {
   }
 }
 
-function updateNoResultsCta(state) {
+function updateNoResultsCta (state) {
   const { noResults, noResultsTitle, noResultsLink, query } = state
   if (!noResults) {
     return
@@ -87,7 +87,7 @@ function updateNoResultsCta(state) {
   }
 }
 
-function applyCardFilter(state) {
+function applyCardFilter (state) {
   let visible = 0
   state.cards.forEach((card) => {
     const matchesStatus =
@@ -102,7 +102,7 @@ function applyCardFilter(state) {
   return visible
 }
 
-function applySectionFilter(state) {
+function applySectionFilter (state) {
   state.sections.forEach((section) => {
     const visibleInSection = section.querySelectorAll(
       '.app-radar-card:not([hidden])'
@@ -113,7 +113,7 @@ function applySectionFilter(state) {
   })
 }
 
-function applyFilters(state) {
+function applyFilters (state) {
   const visible = applyCardFilter(state)
   applySectionFilter(state)
 
@@ -135,7 +135,7 @@ function applyFilters(state) {
 // Without JS the links jump to section anchors (progressive enhancement).
 // When JS is active we swap aria-current for aria-pressed to match the
 // semantics of a toggle control rather than navigation.
-function setupChips(chips, state, refresh) {
+function setupChips (chips, state, refresh) {
   chips.forEach((chip) => {
     upgradeChipAria(chip)
 
@@ -148,7 +148,7 @@ function setupChips(chips, state, refresh) {
   })
 }
 
-function setupSearch(search, state, refresh) {
+function setupSearch (search, state, refresh) {
   if (!search) {
     return
   }
@@ -158,7 +158,7 @@ function setupSearch(search, state, refresh) {
   })
 }
 
-function setupClearLink(clearLink, search, chips, state, refresh) {
+function setupClearLink (clearLink, search, chips, state, refresh) {
   if (!clearLink || !search) {
     return
   }
@@ -177,7 +177,7 @@ function setupClearLink(clearLink, search, chips, state, refresh) {
   })
 }
 
-export function initRadar() {
+export function initRadar () {
   const root = document.querySelector('[data-radar]')
   if (!root) {
     return
