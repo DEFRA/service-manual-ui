@@ -3,17 +3,7 @@ title: What is the problem?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 breadcrumbItems:
   - text: Digital Defra
     href: /

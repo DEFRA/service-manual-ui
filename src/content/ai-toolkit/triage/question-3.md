@@ -3,17 +3,7 @@ title: Who are the users and how many are affected?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 breadcrumbItems:
   - text: Digital Defra
     href: /
@@ -21,7 +11,9 @@ breadcrumbItems:
     href: /ai-toolkit
 questionCaption: Question 3 of 5
 questionInputType: textarea
-questionHint: For example, caseworkers, the public or internal teams. Add numbers if you can.
+questionHint: >-
+  For example, caseworkers, the public or internal teams. Add numbers if you
+  can.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-2

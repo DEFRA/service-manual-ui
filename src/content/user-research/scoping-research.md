@@ -1,24 +1,11 @@
 ---
 title: Research scoping and planning
-description: Defra user researchers run scoping workshops and create research plans to build a shared understanding of the problem and ensure research meets programme and stakeholder needs before delivery starts.
+description: >-
+  Defra user researchers run scoping workshops and create research plans to
+  build a shared understanding of the problem and ensure research meets
+  programme and stakeholder needs before delivery starts.
 layout: section
-sectionNav:
-  - title: In this section
-    items:
-      - text: User research
-        href: /user-research
-  - title: Standards, guidance and tools
-    items:
-      - text: Standards and guidance
-        href: /user-research/standards-and-guidance
-      - text: Tools
-        href: /user-research/tools
-  - title: Research process
-    items:
-      - text: Research scoping and planning
-        href: /user-research/scoping-research
-      - text: Participant recruitment
-        href: /user-research/recruiting-participants
+sectionNav: nav-user-research
 ---
 
 Research plans are mandatory for all DDTS user researchers.

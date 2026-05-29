@@ -1,37 +1,13 @@
 ---
 title: RPA guidance
 caption: Projects
-description: Helping the Rural Payments Agency consolidate fragmented scheme guidance so frontline staff can find trusted answers.
+description: >-
+  Helping the Rural Payments Agency consolidate fragmented scheme guidance so
+  frontline staff can find trusted answers.
 layout: section
 sectionTitle: RPA guidance
-sectionNav:
-  - title: In this section
-    items:
-      - text: Projects
-        href: /ai-toolkit/projects
-  - title: In progress
-    items:
-      - text: RPA guidance
-        href: /ai-toolkit/projects/rpa-guidance
-      - text: Interaction designer plugins
-        href: /ai-toolkit/projects/interaction-designer-plugins
-  - title: Up next
-    items:
-      - text: Service Insights
-        href: /ai-toolkit/projects/service-insights
-      - text: RPA planning dashboard
-        href: /ai-toolkit/projects/rpa-planning-dashboard
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -46,7 +22,10 @@ supportBox:
   title: Get involved with RPA guidance
   description: Follow the work or share a similar guidance estate you're trying to wrangle.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=RPA%20Guidance%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=RPA%20Guidance%20enquiry"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="govuk-body">

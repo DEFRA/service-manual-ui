@@ -1,29 +1,17 @@
 ---
 title: Defra Forms
 caption: Common tools
-description: Build accessible, GOV.UK-styled forms for your digital service at Defra.
+description: 'Build accessible, GOV.UK-styled forms for your digital service at Defra.'
 layout: section
 sectionTitle: Architecture and software development
-sectionNav:
-  - title: In this section
-    items:
-      - text: Architecture and software development
-        href: /architecture-and-software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+sectionNav: nav-architecture
 supportBox:
   title: Get support
-  description: If you need help with Defra Forms, contact the <strong>Forms team</strong>.
+  description: 'If you need help with Defra Forms, contact the <strong>Forms team</strong>.'
   items:
-    - 'Email: <a href="mailto:defraforms@defra.gov.uk" class="govuk-link">defraforms@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:defraforms@defra.gov.uk"
+      class="govuk-link">defraforms@defra.gov.uk</a>
 ---
 
 ## When to use Defra Forms

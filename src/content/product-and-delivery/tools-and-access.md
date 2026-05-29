@@ -1,20 +1,10 @@
 ---
 title: Tools and access
 caption: Your role at Defra
-description: Tools, security and accessibility standards.
+description: 'Tools, security and accessibility standards.'
 layout: section
 sectionTitle: Product and delivery
-sectionNav:
-  - title: In this section
-    items:
-      - text: Product and delivery
-        href: /product-and-delivery
-  - title: Ways of working
-    items:
-      - text: Governance and assurance
-        href: /product-and-delivery/governance
-      - text: Tools and access
-        href: /product-and-delivery/tools-and-access
+sectionNav: nav-product-delivery
 ---
 
 ## Tools

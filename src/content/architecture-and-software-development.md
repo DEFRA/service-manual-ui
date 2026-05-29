@@ -1,29 +1,19 @@
 ---
 title: Architecture and software development
 caption: Your role at Defra
-description: Read more about how to design, build and deploy a Defra service.
+description: 'Read more about how to design, build and deploy a Defra service.'
 layout: section
 sectionTitle: Architecture and software development
-sectionNav:
-  - title: In this section
-    items:
-      - text: Architecture and software development
-        href: /architecture-and-software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+sectionNav: nav-architecture
 supportBox:
   title: Get support
-  description: If you need help designing or building your service, contact the <strong>Delivery Architecture team</strong>.
+  description: >-
+    If you need help designing or building your service, contact the
+    <strong>Delivery Architecture team</strong>.
   items:
-    - 'Email: <a href="mailto:delivery.architecture@defra.gov.uk" class="govuk-link">delivery.architecture@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:delivery.architecture@defra.gov.uk"
+      class="govuk-link">delivery.architecture@defra.gov.uk</a>
 ---
 
 This guidance builds upon the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology). You should also familiarise yourself with the [Defra outcome delivery group model (opens in a new tab)](https://defra.sharepoint.com/:u:/r/teams/Team177/SitePages/DDTS-Delivery-Groups.aspx?csf=1&web=1&e=ajLnoX).

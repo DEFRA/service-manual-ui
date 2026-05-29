@@ -4,54 +4,8 @@ caption: Tools
 description: Managed service for foundation models on AWS. Currently in pilot at Defra.
 layout: section
 sectionTitle: AWS Bedrock
-sectionNav:
-  - title: In this section
-    items:
-      - text: Tools radar
-        href: /ai-toolkit/tools
-  - title: Endorse
-    items:
-      - text: GitHub Copilot
-        href: /ai-toolkit/tools/github-copilot
-  - title: Pilot
-    items:
-      - text: AWS Bedrock
-        href: /ai-toolkit/tools/aws-bedrock
-      - text: Azure AI Foundry
-        href: /ai-toolkit/tools/azure-ai-foundry
-  - title: Assess
-    items:
-      - text: Model Context Protocol
-        href: /ai-toolkit/tools/model-context-protocol
-      - text: Agent-to-Agent
-        href: /ai-toolkit/tools/agent-to-agent
-      - text: LangGraph
-        href: /ai-toolkit/tools/langgraph
-      - text: Retrieval-augmented generation
-        href: /ai-toolkit/tools/retrieval-augmented-generation
-      - text: Langfuse
-        href: /ai-toolkit/tools/langfuse
-      - text: AWS Bedrock AgentCore
-        href: /ai-toolkit/tools/aws-bedrock-agentcore
-      - text: Claude Code plugin marketplace
-        href: /ai-toolkit/tools/claude-code-marketplace
-      - text: Git AI
-        href: /ai-toolkit/tools/git-ai
-  - title: All tools
-    items:
-      - text: Back to tools radar
-        href: /ai-toolkit/tools
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-tools
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -64,9 +18,14 @@ breadcrumbItems:
   - text: AWS Bedrock
 supportBox:
   title: Get help with AWS Bedrock
-  description: Talk to the AI Capability and Enablement team before using Bedrock in delivery.
+  description: >-
+    Talk to the AI Capability and Enablement team before using Bedrock in
+    delivery.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AWS%20Bedrock" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AWS%20Bedrock"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="app-tool-meta">

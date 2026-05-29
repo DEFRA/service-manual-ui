@@ -1,31 +1,21 @@
 ---
 title: User research
 caption: Your role at Defra
-description: This manual helps user researchers plan, run and deliver effective user research for Defra services.
+description: >-
+  This manual helps user researchers plan, run and deliver effective user
+  research for Defra services.
 layout: section
 sectionTitle: User research
-sectionNav:
-  - title: In this section
-    items:
-      - text: User research
-        href: /user-research
-  - title: Standards, guidance and tools
-    items:
-      - text: Standards and guidance
-        href: /user-research/standards-and-guidance
-      - text: Tools
-        href: /user-research/tools
-  - title: Research process
-    items:
-      - text: Research scoping and planning
-        href: /user-research/scoping-research
-      - text: Participant recruitment
-        href: /user-research/recruiting-participants
+sectionNav: nav-user-research
 supportBox:
   title: Get support
-  description: Contact the user research operations team with questions about user research standards.
+  description: >-
+    Contact the user research operations team with questions about user research
+    standards.
   items:
-    - 'Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk"
+      class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>
 ---
 
 ## Standards, guidance and tools

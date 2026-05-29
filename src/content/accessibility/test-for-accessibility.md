@@ -1,20 +1,10 @@
 ---
 title: Test for accessibility
 caption: How to meet the standard
-description:
+description: null
 layout: section
 sectionTitle: Accessibility
-sectionNav:
-  - title: In this section
-    items:
-      - text: Make sure everyone can use the service
-        href: /accessibility
-  - title: How to do this
-    items:
-      - text: Manage accessibility in your project
-        href: /accessibility/manage-accessibility
-      - text: Test for accessibility
-        href: /accessibility/test-for-accessibility
+sectionNav: nav-accessibility
 ---
 
 You must use a combination of automated tools, manual checks, and professional audits. Each method finds different types of issues, so you need all three.

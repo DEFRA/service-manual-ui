@@ -1,24 +1,10 @@
 ---
 title: Participant recruitment
-description: Defra user researchers make sure services work for all users by involving a diverse range of people in research and design.
+description: >-
+  Defra user researchers make sure services work for all users by involving a
+  diverse range of people in research and design.
 layout: section
-sectionNav:
-  - title: In this section
-    items:
-      - text: User research
-        href: /user-research
-  - title: Standards, guidance and tools
-    items:
-      - text: Standards and guidance
-        href: /user-research/standards-and-guidance
-      - text: Tools
-        href: /user-research/tools
-  - title: Research process
-    items:
-      - text: Research scoping and planning
-        href: /user-research/scoping-research
-      - text: Participant recruitment
-        href: /user-research/recruiting-participants
+sectionNav: nav-user-research
 ---
 
 The recruitment process, guidance and templates are listed below:

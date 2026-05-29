@@ -3,17 +3,7 @@ title: Getting started with AI
 caption: Get started
 description: ''
 layout: article
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -24,9 +14,13 @@ breadcrumbItems:
   - text: Getting started with AI
 supportBox:
   title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  description: >-
+    The <strong>AI Capability and Enablement team</strong> welcomes
+    contributions and feedback.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 The most important thing when using AI at Defra is doing so safely and securely. Before exploring tools or learning resources, make sure you understand what is expected of you.

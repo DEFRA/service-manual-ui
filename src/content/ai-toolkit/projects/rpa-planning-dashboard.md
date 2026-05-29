@@ -1,37 +1,13 @@
 ---
 title: RPA planning dashboard
 caption: Projects
-description: Helping the Rural Payments Agency modernise its planning dashboard, with AI as a targeted build accelerator.
+description: >-
+  Helping the Rural Payments Agency modernise its planning dashboard, with AI as
+  a targeted build accelerator.
 layout: section
 sectionTitle: RPA planning dashboard
-sectionNav:
-  - title: In this section
-    items:
-      - text: Projects
-        href: /ai-toolkit/projects
-  - title: In progress
-    items:
-      - text: RPA guidance
-        href: /ai-toolkit/projects/rpa-guidance
-      - text: Interaction designer plugins
-        href: /ai-toolkit/projects/interaction-designer-plugins
-  - title: Up next
-    items:
-      - text: Service Insights
-        href: /ai-toolkit/projects/service-insights
-      - text: RPA planning dashboard
-        href: /ai-toolkit/projects/rpa-planning-dashboard
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -46,7 +22,10 @@ supportBox:
   title: Get involved with the RPA planning dashboard
   description: Compare notes if you're planning a similar legacy build.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=RPA%20Planning%20dashboard%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=RPA%20Planning%20dashboard%20enquiry"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="govuk-body">

@@ -1,28 +1,10 @@
 ---
 title: Branding
 caption: Design
-description: Standards for headers, footers, colours, and logos on Defra services.
+description: 'Standards for headers, footers, colours, and logos on Defra services.'
 layout: section
 sectionTitle: Design
-sectionNav:
-  - title: In this section
-    items:
-      - text: Design
-        href: /design
-  - title: Specific guidance
-    items:
-      - text: Branding
-        href: /design/branding
-      - text: Cookies
-        href: /design/cookies
-      - text: Data visualisation
-        href: /design/data-visualisation
-      - text: Prototyping
-        href: /design/prototyping
-      - text: Tools
-        href: /design/tools
-      - text: Components and patterns
-        href: /design/components-and-patterns
+sectionNav: nav-design
 ---
 
 Services must look and feel like government services, so users trust them, but Defra services have specific branding requirements.

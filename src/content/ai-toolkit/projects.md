@@ -3,34 +3,8 @@ title: Projects
 description: How the AI Capability and Enablement team is helping Defra teams adopt AI.
 layout: section
 sectionTitle: Projects
-sectionNav:
-  - title: In this section
-    items:
-      - text: Projects
-        href: /ai-toolkit/projects
-  - title: In progress
-    items:
-      - text: RPA guidance
-        href: /ai-toolkit/projects/rpa-guidance
-      - text: Interaction designer plugins
-        href: /ai-toolkit/projects/interaction-designer-plugins
-  - title: Up next
-    items:
-      - text: Service Insights
-        href: /ai-toolkit/projects/service-insights
-      - text: RPA planning dashboard
-        href: /ai-toolkit/projects/rpa-planning-dashboard
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -41,9 +15,14 @@ breadcrumbItems:
   - text: Projects
 supportBox:
   title: Get involved
-  description: Want to follow along or have a project you'd like help on? Ask the AI Capability and Enablement team.
+  description: >-
+    Want to follow along or have a project you'd like help on? Ask the AI
+    Capability and Enablement team.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Projects%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Projects%20enquiry"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <section class="app-radar-section">

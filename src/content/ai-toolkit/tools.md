@@ -1,18 +1,10 @@
 ---
 title: Tools
-description: AI tools, platforms and frameworks the AI Capability and Enablement team has evaluated for use across Defra.
+description: >-
+  AI tools, platforms and frameworks the AI Capability and Enablement team has
+  evaluated for use across Defra.
 layout: article
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -23,9 +15,11 @@ breadcrumbItems:
   - text: Tools
 supportBox:
   title: Get involved
-  description: Suggest a tool, platform or framework for the radar.
+  description: 'Suggest a tool, platform or framework for the radar.'
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <dl class="app-radar-key">

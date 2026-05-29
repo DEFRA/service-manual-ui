@@ -1,18 +1,10 @@
 ---
 title: Ways of working
 caption: Your role at Defra
-description: Tools, standards and managing artifacts for business analysts.
+description: 'Tools, standards and managing artifacts for business analysts.'
 layout: section
 sectionTitle: Ways of working
-sectionNav:
-  - title: In this section
-    items:
-      - text: Business analysis
-        href: /business-analysis
-  - title: Ways of working
-    items:
-      - text: Tools and standards
-        href: /business-analysis/ways-of-working
+sectionNav: nav-business-analysis
 ---
 
 ## Tools and standards

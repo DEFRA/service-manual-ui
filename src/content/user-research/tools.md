@@ -1,24 +1,10 @@
 ---
 title: Tools
-description: Defra user researchers use a range of tools. The list of tools and guidance on how to access and use them are listed below.
+description: >-
+  Defra user researchers use a range of tools. The list of tools and guidance on
+  how to access and use them are listed below.
 layout: section
-sectionNav:
-  - title: In this section
-    items:
-      - text: User research
-        href: /user-research
-  - title: Standards, guidance and tools
-    items:
-      - text: Standards and guidance
-        href: /user-research/standards-and-guidance
-      - text: Tools
-        href: /user-research/tools
-  - title: Research process
-    items:
-      - text: Research scoping and planning
-        href: /user-research/scoping-research
-      - text: Participant recruitment
-        href: /user-research/recruiting-participants
+sectionNav: nav-user-research
 ---
 
 ### Use Defra-approved tools for your research

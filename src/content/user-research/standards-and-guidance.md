@@ -1,24 +1,10 @@
 ---
 title: Standards and guidance
-description: Defra user researchers follow recognised user research standards and work with their teams to make sure services meet the GDS Service Standard.
+description: >-
+  Defra user researchers follow recognised user research standards and work with
+  their teams to make sure services meet the GDS Service Standard.
 layout: section
-sectionNav:
-  - title: In this section
-    items:
-      - text: User research
-        href: /user-research
-  - title: Standards, guidance and tools
-    items:
-      - text: Standards and guidance
-        href: /user-research/standards-and-guidance
-      - text: Tools
-        href: /user-research/tools
-  - title: Research process
-    items:
-      - text: Research scoping and planning
-        href: /user-research/scoping-research
-      - text: Participant recruitment
-        href: /user-research/recruiting-participants
+sectionNav: nav-user-research
 ---
 
 Research must meet the standards and guidance listed below:

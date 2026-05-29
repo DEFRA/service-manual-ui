@@ -3,17 +3,7 @@ title: How would solving this benefit Defra and users of the services?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 breadcrumbItems:
   - text: Digital Defra
     href: /
@@ -21,7 +11,7 @@ breadcrumbItems:
     href: /ai-toolkit
 questionCaption: Question 4 of 5
 questionInputType: textarea
-questionHint: For example, faster decisions, smoother work or better service for citizens.
+questionHint: 'For example, faster decisions, smoother work or better service for citizens.'
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-3

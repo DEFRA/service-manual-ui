@@ -4,20 +4,16 @@ caption: Your role at Defra
 description: Guidance on assuring quality and testing your digital services at Defra.
 layout: section
 sectionTitle: Quality Assurance and Test
-sectionNav:
-  - title: In this section
-    items:
-      - text: Quality Assurance and Test
-        href: /testing-and-assurance
-  - title: How to do this
-    items:
-      - text: Recommended approach
-        href: /testing-and-assurance/recommended-approach
+sectionNav: nav-testing
 supportBox:
   title: Get support
-  description: If you need help to understand what QA and Test activity should look like for your service, contact the QA and Test team.
+  description: >-
+    If you need help to understand what QA and Test activity should look like
+    for your service, contact the QA and Test team.
   items:
-    - '<a href="mailto:QATestResourcing@defra.gov.uk" class="govuk-link">QATestResourcing@defra.gov.uk</a>'
+    - >-
+      <a href="mailto:QATestResourcing@defra.gov.uk"
+      class="govuk-link">QATestResourcing@defra.gov.uk</a>
 ---
 
 This section builds on the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology).

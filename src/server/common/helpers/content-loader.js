@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import yaml from 'js-yaml'
 import { fileURLToPath } from 'node:url'
 
 import { createLogger } from './logging/logger.js'
@@ -8,6 +9,64 @@ import { buildErrorLog } from './logging/build-error-log.js'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
+const NAV_CONFIG_PATH = path.resolve(
+  dirname,
+  '../../../../src/config/navigation.yaml'
+)
+
+// Cache for navigation config (loaded once at startup)
+let navigationConfig = null
+
+/**
+ * Load navigation configuration from YAML file
+ * @returns {Object} Navigation configuration object
+ */
+function loadNavigationConfig() {
+  if (navigationConfig) {
+    return navigationConfig
+  }
+
+  try {
+    const configContent = fs.readFileSync(NAV_CONFIG_PATH, 'utf8')
+    navigationConfig = yaml.load(configContent)
+    return navigationConfig
+  } catch (error) {
+    const logger = createLogger()
+    logger.warn(
+      `Navigation config not found at ${NAV_CONFIG_PATH}. Nav resolution disabled.`
+    )
+    return {}
+  }
+}
+
+/**
+ * Resolve navigation reference to full navigation structure
+ * @param {string|Array|undefined} navValue - Navigation value from frontmatter
+ * @param {string} navType - Type of nav ('customNav' or 'sectionNav') for error messages
+ * @returns {Array|undefined} Resolved navigation array or original value
+ */
+function resolveNavReference(navValue, navType = 'navigation') {
+  // If it's already an array, return as-is (backward compatible)
+  if (Array.isArray(navValue)) {
+    return navValue
+  }
+
+  // If it's a string, resolve it from the config
+  if (typeof navValue === 'string') {
+    const navConfig = loadNavigationConfig()
+
+    if (!navConfig[navValue]) {
+      throw new Error(
+        `Navigation reference "${navValue}" not found in navigation.yaml (${navType})`
+      )
+    }
+
+    return navConfig[navValue]
+  }
+
+  // If it's undefined, null, or any other type, return as-is
+  return navValue
+}
 
 export function loadContent(filename) {
   const logger = createLogger()
@@ -20,6 +79,16 @@ export function loadContent(filename) {
   try {
     const fileContent = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContent)
+
+    // Resolve customNav if it's a reference
+    if (data.customNav) {
+      data.customNav = resolveNavReference(data.customNav, 'customNav')
+    }
+
+    // Resolve sectionNav if it's a reference
+    if (data.sectionNav) {
+      data.sectionNav = resolveNavReference(data.sectionNav, 'sectionNav')
+    }
 
     return {
       meta: data,

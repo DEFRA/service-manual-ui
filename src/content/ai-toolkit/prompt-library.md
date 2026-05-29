@@ -3,17 +3,7 @@ title: Prompt library
 caption: digital resources
 description: ''
 layout: article
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -24,9 +14,13 @@ breadcrumbItems:
   - text: Prompt library
 supportBox:
   title: Get involved
-  description: The <strong>AI Capability and Enablement team</strong> welcomes contributions and feedback.
+  description: >-
+    The <strong>AI Capability and Enablement team</strong> welcomes
+    contributions and feedback.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 Tried and tested prompts shared by delivery teams to help you get the most out of AI tools.

@@ -4,25 +4,7 @@ caption: Design
 description: ''
 layout: section
 sectionTitle: Design
-sectionNav:
-  - title: In this section
-    items:
-      - text: Design
-        href: /design
-  - title: Specific guidance
-    items:
-      - text: Branding
-        href: /design/branding
-      - text: Cookies
-        href: /design/cookies
-      - text: Data visualisation
-        href: /design/data-visualisation
-      - text: Prototyping
-        href: /design/prototyping
-      - text: Tools
-        href: /design/tools
-      - text: Components and patterns
-        href: /design/components-and-patterns
+sectionNav: nav-design
 ---
 
 Design patterns solve common problems so teams can focus on the things unique to their service and its users.

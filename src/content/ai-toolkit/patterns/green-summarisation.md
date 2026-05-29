@@ -4,32 +4,8 @@ caption: Proof of concept
 description: A proof of concept from the AI Capability and Enablement team.
 layout: section
 sectionTitle: Patterns
-sectionNav:
-  - title: In this section
-    items:
-      - text: Patterns
-        href: /ai-toolkit/patterns
-  - title: Proofs of concept
-    items:
-      - text: Agent swarms
-        href: /ai-toolkit/patterns/agent-swarms
-      - text: AI assistant
-        href: /ai-toolkit/patterns/ai-assistant
-      - text: Green summarisation
-        href: /ai-toolkit/patterns/green-summarisation
-      - text: Token optimisation
-        href: /ai-toolkit/patterns/token-optimisation
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-patterns
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -42,9 +18,14 @@ breadcrumbItems:
   - text: Green summarisation
 supportBox:
   title: Contribute a pattern
-  description: If your team has a reusable approach you want to share, the AI Capability and Enablement team can help you write it up.
+  description: >-
+    If your team has a reusable approach you want to share, the AI Capability
+    and Enablement team can help you write it up.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 ## The problem

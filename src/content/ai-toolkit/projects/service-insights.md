@@ -1,37 +1,13 @@
 ---
 title: Service Insights
 caption: Projects
-description: Building a focused AI prototype with the Service Insights team to prove value and pull data foundations through.
+description: >-
+  Building a focused AI prototype with the Service Insights team to prove value
+  and pull data foundations through.
 layout: section
 sectionTitle: Service Insights
-sectionNav:
-  - title: In this section
-    items:
-      - text: Projects
-        href: /ai-toolkit/projects
-  - title: In progress
-    items:
-      - text: RPA guidance
-        href: /ai-toolkit/projects/rpa-guidance
-      - text: Interaction designer plugins
-        href: /ai-toolkit/projects/interaction-designer-plugins
-  - title: Up next
-    items:
-      - text: Service Insights
-        href: /ai-toolkit/projects/service-insights
-      - text: RPA planning dashboard
-        href: /ai-toolkit/projects/rpa-planning-dashboard
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -44,9 +20,14 @@ breadcrumbItems:
   - text: Service Insights
 supportBox:
   title: Get involved with Service Insights
-  description: Follow the prototype as it builds, or get in touch if you have a similar use case.
+  description: >-
+    Follow the prototype as it builds, or get in touch if you have a similar use
+    case.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Service%20Insights%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Service%20Insights%20enquiry"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="govuk-body">

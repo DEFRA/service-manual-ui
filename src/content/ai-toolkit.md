@@ -1,46 +1,48 @@
 ---
 title: AI digital toolkit
-caption:
-description: From the AI Capability and Enablement team. We make it easier and safer for Defra teams to adopt AI responsibly.
+caption: null
+description: >-
+  From the AI Capability and Enablement team. We make it easier and safer for
+  Defra teams to adopt AI responsibly.
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+customNav: nav-ai-toolkit
 layout: triage
 breadcrumbItems:
   - text: Digital Defra
     href: /
   - text: AI digital toolkit
 triageTitle: Check if AI is right for your idea
-triageDescription: From the AI Capability and Enablement team. See how AI could help your work, whatever your role.
+triageDescription: >-
+  From the AI Capability and Enablement team. See how AI could help your work,
+  whatever your role.
 triageButtonText: Start now
 triageButtonHref: /ai-toolkit/triage/question-1
 primaryCardsHeading: Explore the toolkit
-primaryCardsDescription: Get guidance, check the tools radar or find a pattern.
+primaryCardsDescription: 'Get guidance, check the tools radar or find a pattern.'
 primaryCards:
   - text: Guidance
-    description: Practical advice for digital practitioners working with AI on Defra services.
+    description: >-
+      Practical advice for digital practitioners working with AI on Defra
+      services.
     href: /ai-toolkit/guidance
   - text: Tools
-    description: Which AI tools are endorsed, under pilot or should be avoided across Defra.
+    description: >-
+      Which AI tools are endorsed, under pilot or should be avoided across
+      Defra.
     href: /ai-toolkit/tools
   - text: Patterns
-    description: Reusable approaches Defra teams have tested, including agent swarms and AI assistant.
+    description: >-
+      Reusable approaches Defra teams have tested, including agent swarms and AI
+      assistant.
     href: /ai-toolkit/patterns
 supportBox:
   title: Contact the AI Capability and Enablement team
-  description: Get hands-on help, request a pattern review or suggest new content.
+  description: 'Get hands-on help, request a pattern review or suggest new content.'
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <section class="app-radar-section">

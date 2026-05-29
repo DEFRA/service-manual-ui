@@ -1,57 +1,13 @@
 ---
 title: Retrieval-augmented generation (RAG)
 caption: Tools
-description: Combining a model with retrieved documents to ground its answers. Under assessment by the AI Capability and Enablement team.
+description: >-
+  Combining a model with retrieved documents to ground its answers. Under
+  assessment by the AI Capability and Enablement team.
 layout: section
 sectionTitle: Retrieval-augmented generation (RAG)
-sectionNav:
-  - title: In this section
-    items:
-      - text: Tools radar
-        href: /ai-toolkit/tools
-  - title: Endorse
-    items:
-      - text: GitHub Copilot
-        href: /ai-toolkit/tools/github-copilot
-  - title: Pilot
-    items:
-      - text: AWS Bedrock
-        href: /ai-toolkit/tools/aws-bedrock
-      - text: Azure AI Foundry
-        href: /ai-toolkit/tools/azure-ai-foundry
-  - title: Assess
-    items:
-      - text: Model Context Protocol
-        href: /ai-toolkit/tools/model-context-protocol
-      - text: Agent-to-Agent
-        href: /ai-toolkit/tools/agent-to-agent
-      - text: LangGraph
-        href: /ai-toolkit/tools/langgraph
-      - text: Retrieval-augmented generation
-        href: /ai-toolkit/tools/retrieval-augmented-generation
-      - text: Langfuse
-        href: /ai-toolkit/tools/langfuse
-      - text: AWS Bedrock AgentCore
-        href: /ai-toolkit/tools/aws-bedrock-agentcore
-      - text: Claude Code plugin marketplace
-        href: /ai-toolkit/tools/claude-code-marketplace
-      - text: Git AI
-        href: /ai-toolkit/tools/git-ai
-  - title: All tools
-    items:
-      - text: Back to tools radar
-        href: /ai-toolkit/tools
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-tools
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -64,9 +20,14 @@ breadcrumbItems:
   - text: Retrieval-augmented generation
 supportBox:
   title: Get help with RAG
-  description: The AI Capability and Enablement team is evaluating RAG patterns. Talk to us before using them in delivery.
+  description: >-
+    The AI Capability and Enablement team is evaluating RAG patterns. Talk to us
+    before using them in delivery.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20RAG" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20RAG"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="app-tool-meta">

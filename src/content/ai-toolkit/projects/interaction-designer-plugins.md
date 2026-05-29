@@ -1,37 +1,13 @@
 ---
 title: Interaction designer plugins
 caption: Projects
-description: Plugins that bring AICE patterns into the tools interaction designers already use day to day.
+description: >-
+  Plugins that bring AICE patterns into the tools interaction designers already
+  use day to day.
 layout: section
 sectionTitle: Interaction designer plugins
-sectionNav:
-  - title: In this section
-    items:
-      - text: Projects
-        href: /ai-toolkit/projects
-  - title: In progress
-    items:
-      - text: RPA guidance
-        href: /ai-toolkit/projects/rpa-guidance
-      - text: Interaction designer plugins
-        href: /ai-toolkit/projects/interaction-designer-plugins
-  - title: Up next
-    items:
-      - text: Service Insights
-        href: /ai-toolkit/projects/service-insights
-      - text: RPA planning dashboard
-        href: /ai-toolkit/projects/rpa-planning-dashboard
-customNav:
-  - text: Home
-    href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
-    href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
-    href: /ai-toolkit/projects
+sectionNav: nav-ai-projects
+customNav: nav-ai-toolkit
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -44,9 +20,14 @@ breadcrumbItems:
   - text: Interaction designer plugins
 supportBox:
   title: Get involved with interaction designer plugins
-  description: Join the next Defra Design community session to be part of the next round of feedback.
+  description: >-
+    Join the next Defra Design community session to be part of the next round of
+    feedback.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Interaction%20designer%20plugins%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - >-
+      Email: <a
+      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Interaction%20designer%20plugins%20enquiry"
+      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
 ---
 
 <p class="govuk-body">
