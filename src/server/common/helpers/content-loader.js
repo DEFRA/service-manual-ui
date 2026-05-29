@@ -95,6 +95,7 @@ export function loadContent(filename) {
       content
     }
   } catch (error) {
+    const logger = createLogger()
     logger.error(
       buildErrorLog(error, {
         type: 'content_load',
@@ -104,6 +105,11 @@ export function loadContent(filename) {
       }),
       'Failed to read or parse content file'
     )
-    throw error
+
+    const newError = new Error(
+      `Failed to read or parse content file "${filename}": ${error.message}`,
+      { cause: error }
+    )
+    throw newError
   }
 }
