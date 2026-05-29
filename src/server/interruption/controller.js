@@ -1,7 +1,7 @@
 import { statusCodes } from '../common/constants/status-codes.js'
 
 export const interruptionController = {
-  async handler(request, h) {
+  async handler (request, h) {
     const { targetUrl } = request.query || {}
 
     return h

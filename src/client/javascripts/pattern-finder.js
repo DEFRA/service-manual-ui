@@ -15,7 +15,7 @@
  * - <template> contents are not in the accessibility tree until cloned.
  * - Form submission is prevented (no backend handler exists).
  */
-export function initPatternFinder() {
+export function initPatternFinder () {
   const root = document.querySelector('[data-pattern-finder]')
   if (!root) {
     return

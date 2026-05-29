@@ -46,7 +46,7 @@ const internalDomains = [
   'app.mural.co'
 ]
 
-function isInternalLink(href) {
+function isInternalLink (href) {
   try {
     const url = new URL(href)
     return internalDomains.some(
@@ -86,7 +86,7 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
   return defaultLinkRender(tokens, idx, options, _env, self)
 }
 
-export function markdown(content) {
+export function markdown (content) {
   if (!content) {
     return ''
   }

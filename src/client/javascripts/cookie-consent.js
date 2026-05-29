@@ -2,7 +2,7 @@ const COOKIE_NAME = 'defra_cookies_policy'
 const COOKIE_SET_NAME = 'defra_cookies_policy_set'
 const MAX_AGE_SECONDS = 31536000
 
-export function getCookieConsent() {
+export function getCookieConsent () {
   const match = document.cookie
     .split('; ')
     .find((row) => row.startsWith(`${COOKIE_NAME}=`))
@@ -18,19 +18,19 @@ export function getCookieConsent() {
   }
 }
 
-export function setCookieConsent(consent) {
+export function setCookieConsent (consent) {
   const value = encodeURIComponent(JSON.stringify(consent))
   document.cookie = `${COOKIE_NAME}=${value}; path=/; max-age=${MAX_AGE_SECONDS}; SameSite=Lax`
   document.cookie = `${COOKIE_SET_NAME}=true; path=/; max-age=${MAX_AGE_SECONDS}; SameSite=Lax`
 }
 
-export function hasConsentBeenSet() {
+export function hasConsentBeenSet () {
   return document.cookie
     .split('; ')
     .some((row) => row.startsWith(`${COOKIE_SET_NAME}=`))
 }
 
-export function loadGoogleTagManager(containerId) {
+export function loadGoogleTagManager (containerId) {
   if (document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) {
     return
   }
@@ -47,7 +47,7 @@ export function loadGoogleTagManager(containerId) {
   document.head.appendChild(script)
 }
 
-export function removeAnalyticsCookies() {
+export function removeAnalyticsCookies () {
   const cookies = document.cookie.split('; ')
   const parts = globalThis.location.hostname.split('.')
   const cookieDomain =
@@ -62,7 +62,7 @@ export function removeAnalyticsCookies() {
   }
 }
 
-function handleBannerConsent(
+function handleBannerConsent (
   banner,
   mainMessage,
   acceptedMessage,
@@ -105,7 +105,7 @@ function handleBannerConsent(
   }
 }
 
-export function initCookieBanner() {
+export function initCookieBanner () {
   const banner = document.querySelector('.govuk-cookie-banner')
 
   if (!banner) {
@@ -143,7 +143,7 @@ export function initCookieBanner() {
   )
 }
 
-export function initCookiesPage() {
+export function initCookiesPage () {
   const form = document.getElementById('cookies-form')
 
   if (!form) {

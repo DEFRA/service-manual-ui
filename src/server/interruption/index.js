@@ -4,7 +4,7 @@ import Joi from 'joi'
 export const interruption = {
   plugin: {
     name: 'interruption',
-    register(server) {
+    register (server) {
       server.route([
         {
           method: 'GET',

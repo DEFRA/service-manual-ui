@@ -1,4 +1,4 @@
-export function buildNavigation(request) {
+export function buildNavigation (request) {
   return [
     {
       text: 'Home',

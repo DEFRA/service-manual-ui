@@ -12,7 +12,7 @@ vi.mock('crypto', async (importOriginal) => {
   }
 })
 
-async function loadSendEmailFixture(filename, onRequest) {
+async function loadSendEmailFixture (filename, onRequest) {
   const url = new URL(`./__fixtures__/${filename}`, import.meta.url)
   const [record] = JSON.parse(await fs.readFile(url, 'utf-8'))
 

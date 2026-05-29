@@ -17,11 +17,11 @@ const CHECK_YOUR_ANSWERS_TEMPLATE =
   'common/templates/layouts/check-your-answers'
 const CHECK_YOUR_ANSWERS_CONTENT = 'ai-toolkit/triage/check-your-answers.md'
 
-function slugFromPath(requestPath) {
+function slugFromPath (requestPath) {
   return requestPath.split('/').at(-1)
 }
 
-function validateAnswer(answer, meta) {
+function validateAnswer (answer, meta) {
   const schemaName = meta.questionSchema
 
   if (!schemaName) {
