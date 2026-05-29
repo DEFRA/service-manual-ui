@@ -25,8 +25,8 @@ describe('#serveStaticFiles', () => {
     })
 
     test('Should serve assets as expected', async () => {
-      // Note npm run build is ran in the postinstall hook in package.json to make sure there is always a file
-      // available for this test. Remove as you see fit
+    // Note: the frontend build artifact is produced by the test/CI pipeline.
+    // If running these tests locally run npm run build:frontend first
       const { statusCode } = await server.inject({
         method: 'GET',
         url: '/public/assets/images/govuk-crest.svg'
