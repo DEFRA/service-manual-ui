@@ -23,7 +23,7 @@ let searchIndex = null
  * Fetch the search index from the API
  * @returns {Promise<Array>} Search index array
  */
-async function fetchSearchIndex() {
+async function fetchSearchIndex () {
   if (searchIndex) {
     return searchIndex
   }
@@ -48,7 +48,7 @@ async function fetchSearchIndex() {
  * @param {string} queryLower - Full query in lowercase
  * @returns {{score: number, matched: boolean}} Score and match status
  */
-function calculateEntryScore(entry, queryTerms, queryLower) {
+function calculateEntryScore (entry, queryTerms, queryLower) {
   const titleLower = entry.title.toLowerCase()
   const descriptionLower = (entry.description || '').toLowerCase()
   const sectionLower = (entry.sectionTitle || '').toLowerCase()
@@ -85,7 +85,7 @@ function calculateEntryScore(entry, queryTerms, queryLower) {
  * @param {Array} searchData - Search index
  * @returns {Array} Matching results
  */
-function searchInIndex(query, searchData) {
+function searchInIndex (query, searchData) {
   if (!query || query.length < MIN_QUERY_LENGTH) {
     return []
   }
@@ -122,7 +122,7 @@ function searchInIndex(query, searchData) {
  * @param {HTMLElement} container - The container element
  * @returns {HTMLElement|null} The preserved label element
  */
-function prepareContainer(container) {
+function prepareContainer (container) {
   const existingLabel = container.querySelector('label')
   container.innerHTML = ''
   if (existingLabel) {
@@ -138,7 +138,7 @@ function prepareContainer(container) {
  * @param {Array} indexData - Search index data
  * @returns {Object} Autocomplete configuration
  */
-function buildAutocompleteConfig(container, defaultValue, indexData) {
+function buildAutocompleteConfig (container, defaultValue, indexData) {
   return {
     element: container,
     id: 'defra-search',
@@ -189,7 +189,7 @@ function buildAutocompleteConfig(container, defaultValue, indexData) {
  * Configure the autocomplete input element with custom styling and label handling
  * @param {HTMLElement} container - The container element
  */
-function configureAutocompleteInput(container) {
+function configureAutocompleteInput (container) {
   const autocompleteInput = container.querySelector('input')
   if (!autocompleteInput) {
     return
@@ -215,7 +215,7 @@ function configureAutocompleteInput(container) {
 /**
  * Initialise search autocomplete
  */
-export async function initSearch() {
+export async function initSearch () {
   const container = document.getElementById('search-autocomplete-container')
   const existingInput = document.getElementById('defra-search')
 

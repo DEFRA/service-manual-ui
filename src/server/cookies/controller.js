@@ -2,7 +2,7 @@ import { config } from '../../config/config.js'
 
 const gtmContainerId = config.get('googleTagManager.containerId')
 
-function parseConsentCookie(cookieValue) {
+function parseConsentCookie (cookieValue) {
   try {
     const consent = JSON.parse(decodeURIComponent(cookieValue || ''))
     return consent.analytics === true
@@ -12,7 +12,7 @@ function parseConsentCookie(cookieValue) {
 }
 
 const cookiesGetController = {
-  handler(request, h) {
+  handler (request, h) {
     const saved = request.query.saved === 'true'
     const currentAnalytics = parseConsentCookie(
       request.state?.defra_cookies_policy
@@ -30,7 +30,7 @@ const cookiesGetController = {
 }
 
 const cookiesPostController = {
-  handler(request, h) {
+  handler (request, h) {
     const analytics = request.payload?.analytics === 'yes'
     const consent = encodeURIComponent(JSON.stringify({ analytics }))
 
@@ -42,7 +42,7 @@ const cookiesPostController = {
 }
 
 const bannerAcceptController = {
-  handler(request, h) {
+  handler (request, h) {
     const returnUrl = request.payload?.returnUrl || '/'
     const consent = encodeURIComponent(JSON.stringify({ analytics: true }))
 
@@ -54,7 +54,7 @@ const bannerAcceptController = {
 }
 
 const bannerRejectController = {
-  handler(request, h) {
+  handler (request, h) {
     const returnUrl = request.payload?.returnUrl || '/'
     const consent = encodeURIComponent(JSON.stringify({ analytics: false }))
 

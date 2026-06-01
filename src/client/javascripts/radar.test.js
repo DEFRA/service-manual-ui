@@ -10,7 +10,7 @@ import { initRadar, buildLiveMessage, buildNoResultsHref } from './radar.js'
  * fresh tree so click/input handlers from previous initRadar() calls can't
  * leak across tests.
  */
-function renderFixture({
+function renderFixture ({
   withSearch = true,
   withLive = true,
   withNoResults = true,
@@ -80,7 +80,7 @@ function renderFixture({
   }
 }
 
-function fireInput(input, value) {
+function fireInput (input, value) {
   input.value = value
   input.dispatchEvent(new Event('input', { bubbles: true }))
 }

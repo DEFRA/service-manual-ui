@@ -10,7 +10,7 @@ import { initPatternFinder } from './pattern-finder.js'
  * (mirrors the markdown), and recommendation templates are pre-rendered
  * inline so JS only has to clone the right one into the result panel.
  */
-function renderFixture({ withForm = true, withResult = true } = {}) {
+function renderFixture ({ withForm = true, withResult = true } = {}) {
   document.body.innerHTML = `
     <div data-pattern-finder hidden>
       <h2>Find a pattern that fits</h2>
@@ -59,7 +59,7 @@ function renderFixture({ withForm = true, withResult = true } = {}) {
   }
 }
 
-function fireChange(input) {
+function fireChange (input) {
   input.checked = true
   input.dispatchEvent(new Event('change', { bubbles: true }))
 }

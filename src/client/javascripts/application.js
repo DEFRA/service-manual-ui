@@ -26,7 +26,7 @@ createAll(SkipLink)
  * Service navigation mobile toggle
  * Shows/hides the navigation menu on mobile devices
  */
-export function initServiceNavigation() {
+export function initServiceNavigation () {
   const toggleButton = document.querySelector('.js-service-navigation-toggle')
   const navList = document.getElementById('service-navigation-list')
 

@@ -7,7 +7,7 @@ import { serviceManualController } from './controller.js'
 export const serviceManual = {
   plugin: {
     name: 'service-manual',
-    register(server) {
+    register (server) {
       server.route([
         {
           method: 'GET',

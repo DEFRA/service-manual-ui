@@ -32,7 +32,7 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
  * @param {{ personalisation?: Record<string, unknown>, reference?: string }} [params]
  * @returns {Promise<[{ data: NotifySendEmailResponse, status: number }, null] | [null, NotifyError]>}
  */
-async function trySendEmail(templateId, email, params = {}) {
+async function trySendEmail (templateId, email, params = {}) {
   try {
     const response = await notifyClient.sendEmail(templateId, email, {
       personalisation: params.personalisation,
@@ -62,7 +62,7 @@ async function trySendEmail(templateId, email, params = {}) {
  * @param {string} reference
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
-async function sendTriageEmail(submission, reference) {
+async function sendTriageEmail (submission, reference) {
   const templateId = config.get('notify.aiToolkit.triageTemplateId')
   const sharedMailbox = config.get('notify.aiToolkit.mailbox')
 
@@ -109,7 +109,7 @@ async function sendTriageEmail(submission, reference) {
  * @param {import('./model.js').TriageSubmission} submission
  * @returns {Promise<{ success: boolean, data?: object, error?: object }>}
  */
-async function sendConfirmationEmail(submission, reference) {
+async function sendConfirmationEmail (submission, reference) {
   const templateId = config.get('notify.aiToolkit.confirmationTemplateId')
 
   const [response, error] = await trySendEmail(templateId, submission.email, {
@@ -144,7 +144,7 @@ async function sendConfirmationEmail(submission, reference) {
   }
 }
 
-function generateReference() {
+function generateReference () {
   const year = new Date().getFullYear().toString().slice(REFERENCE_YEAR_SLICE)
   const bytes = randomBytes(REFERENCE_SUFFIX_LENGTH)
 
@@ -167,7 +167,7 @@ function generateReference() {
  *    reference?: string
  * }>}
  */
-export async function submit(submission) {
+export async function submit (submission) {
   const { error: validationError } = submissionSchema.validate(submission, {
     abortEarly: false
   })

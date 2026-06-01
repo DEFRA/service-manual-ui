@@ -31,7 +31,7 @@ export const nunjucksConfig = {
   options: {
     engines: {
       njk: {
-        compile(src, options) {
+        compile (src, options) {
           const template = nunjucks.compile(src, options.environment)
           return (ctx) => template.render(ctx)
         }

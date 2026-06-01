@@ -21,7 +21,7 @@ const postForm = (server, url, answer, cookie) =>
     payload: `answer=${encodeURIComponent(answer)}`
   })
 
-async function buildSession(server) {
+async function buildSession (server) {
   let cookie = ''
 
   const questions = [

@@ -2,7 +2,7 @@
 import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
 
-export function isAiToolkitRoute(routePath) {
+export function isAiToolkitRoute (routePath) {
   return routePath === '/ai-toolkit' || routePath.startsWith('/ai-toolkit/')
 }
 
@@ -124,7 +124,7 @@ export const markdownRoutes = [
  * the same flag-driven filtering that the plugin uses to register routes.
  * Shared with the search index so gated content stays out of search results.
  */
-export function getEnabledMarkdownRoutes() {
+export function getEnabledMarkdownRoutes () {
   const aiContentEnabled = config.get('aiContent.enabled')
   return aiContentEnabled
     ? markdownRoutes

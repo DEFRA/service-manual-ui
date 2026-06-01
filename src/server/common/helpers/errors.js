@@ -7,7 +7,7 @@ import { buildErrorLog } from './logging/build-error-log.js'
  * @param {number} statusCode - HTTP status code
  * @returns {string} User-friendly error heading
  */
-export function getErrorHeading(statusCode) {
+export function getErrorHeading (statusCode) {
   switch (statusCode) {
     case statusCodes.notFound:
       return 'Page not found'
@@ -29,7 +29,7 @@ export function getErrorHeading(statusCode) {
  * @param {object} h - Hapi response toolkit
  * @returns {object} Rendered error view or continue
  */
-export function catchAll(request, h) {
+export function catchAll (request, h) {
   const { response } = request
 
   if (!('isBoom' in response)) {

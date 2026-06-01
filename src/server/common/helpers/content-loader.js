@@ -9,7 +9,7 @@ import { buildErrorLog } from './logging/build-error-log.js'
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const CONTENT_DIR = path.resolve(dirname, '../../../../src/content')
 
-export function loadContent(filename) {
+export function loadContent (filename) {
   const logger = createLogger()
   const fullPath = path.join(CONTENT_DIR, filename)
 

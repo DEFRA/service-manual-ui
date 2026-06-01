@@ -1,0 +1,6 @@
+@use '../variables/colours';
+
+// Override GOV.UK panel confirmation blue with Defra green
+.govuk-panel--confirmation {
+  background-color: colours.$defra-green;
+}
