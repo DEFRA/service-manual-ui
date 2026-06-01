@@ -1,7 +1,7 @@
 ---
 title: Report an AI incident
 caption: Deliver with AI
-description: How to report a suspected AI data incident at Defra, what counts as one, and what to do first.
+description: If you think Defra data may have been shared with an AI tool inappropriately, treat it as an incident and report it straight away.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -56,8 +56,6 @@ supportBox:
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20incident%20query" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-<p class="govuk-body-l">If you think Defra data may have been shared with an AI tool inappropriately, treat it as an incident and report it straight away.</p>
 
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>

@@ -1,7 +1,7 @@
 ---
 title: Working with AI agents
 caption: Deliver with AI
-description: What Defra teams have learned about building AI agents. Identity and data, connecting to tools, evaluation and observability.
+description: An AI agent uses tools and data to carry out a task with limited human steering. Building one is new ground at Defra, so this page shares what teams have learned so far.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -57,8 +57,6 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Working%20with%20AI%20agents" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">An AI agent uses tools and data to carry out a task with limited human steering. Building one is new ground at Defra, so this page shares what teams have learned so far.</p>
-
 ## How agents handle identity and data
 
 An agent never holds credentials or secrets. Identity is managed outside the agent, and only data is passed to it during a task, never keys.
@@ -88,7 +86,7 @@ An agent that can act on its own output raises the stakes, so keep a human appro
 
 ## Check your agent against expected answers
 
-Test an agent with evaluations: structured tests that compare its output to answers your subject matter experts agree are correct. An LLM can act as the judge, and you run the tests across many cases to set a baseline.
+Test an agent with evaluations: structured tests that compare its output to answers your subject matter experts agree are correct. A large language model (LLM) can act as the judge, and you run the tests across many cases to set a baseline.
 
 Two kinds are worth running:
 
@@ -107,6 +105,6 @@ Use them to find where it went wrong, then improve the prompt, the tools or the 
 
 ## Before you pick a platform
 
-AICE is evaluating agent platforms, including AWS AgentCore and Microsoft Foundry, alongside extensions to the Core Delivery Platform. No platform is settled yet, and what is available changes often.
+The AI Capability and Enablement team (AICE) is evaluating agent platforms, including AWS AgentCore and Microsoft Foundry, alongside extensions to the Core Delivery Platform. No platform is settled yet, and what is available changes often.
 
 Talk to AICE before you commit to one, and we will tell you what is working today and what is not yet ready.

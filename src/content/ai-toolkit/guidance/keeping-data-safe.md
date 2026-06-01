@@ -1,7 +1,7 @@
 ---
 title: Keeping data safe
 caption: Deliver with AI
-description: How to handle Defra data safely with AI. Classification, where your data goes, and removing personal data. Covers information governance and data protection.
+description: "Two things decide whether you can use Defra data with AI: how it is classified, and whether it contains personal data. The rules on personal data are mandatory."
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -57,11 +57,9 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Keeping%20data%20safe%20with%20AI" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">Two things decide whether you can use Defra data with AI: how it is classified, and whether it contains personal data. The rules on personal data are mandatory.</p>
-
 ## Use AI tools on OFFICIAL data only by default
 
-The default position is that you only use AI tools on source material classified as **OFFICIAL**.
+The default position is that you only use AI tools on source material classified as OFFICIAL.
 
 OFFICIAL-SENSITIVE and personal data are permitted only in specific tools, and only with the approvals on this page. The [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) matrix shows exactly what you can put where.
 
@@ -86,11 +84,9 @@ Some tools can be configured to use approved cloud platforms, for example [AWS B
 
 Always check the [tools radar](/ai-toolkit/tools) entry for your tool to see how its data is routed.
 
-## Remove personal data before any AI processing
+## Remove personal data from anything you put in
 
-You must remove all personal data, sometimes called personally identifiable information or PII, from any input before it enters an AI tool. This is non-negotiable.
-
-Where AI will process personal data as part of a service, a DPIA is required before processing begins.
+You must remove all personal data from anything you put into an AI tool to help you work. This is non-negotiable. Personal data is sometimes called personally identifiable information (PII).
 
 That includes:
 
@@ -102,6 +98,10 @@ That includes:
 <li>test data taken from production</li>
 <li>configuration files and connection strings</li>
 </ul>
+
+The one exception is a service you are building to process personal data as a designed feature. That needs a Data Protection Impact Assessment (DPIA), completed and signed off before any processing begins.
+
+It is not a shortcut to pasting personal data into an everyday tool.
 
 ## What counts as personal data
 
@@ -120,7 +120,7 @@ Some types are sensitive personal data, for example health, biometric or financi
 
 ## Removing personal data is your team's responsibility
 
-Whichever tool or process you use to remove personal data, **someone on the team must verify the output before it enters the pipeline or gets committed to version control**.
+Whichever tool or process you use to remove personal data, someone on the team must verify the output before it enters the pipeline or gets committed to version control.
 
 If you process screenshots, replace real names and identifiers with fake equivalents before the screenshot is shared with the model.
 
@@ -152,12 +152,8 @@ Review source code before committing it to a repository the AI will read.
 
 Remove it immediately and do not commit the affected file. Then follow [Report an AI incident](/ai-toolkit/guidance/report-an-ai-incident), which sets out the steps and the deadline for reporting a personal data breach.
 
-## Information governance training
-
-All team members must complete the relevant information governance training before using AI tools on Defra data. Your line manager or your information asset owner can point you to the current training.
-
 ## When in doubt, stop
 
-This guidance works alongside Defra's wider information governance and data protection policies. Where they appear to conflict, the wider Defra policy takes precedence, and you should ask AICE for clarification.
+If you are not sure about a classification or how to handle data, do not proceed. Ask the AI Capability and Enablement team (AICE).
 
-If you are not certain about classification or data handling, do not proceed. Ask. The cost of a 10-minute pause is much smaller than the cost of mishandled data.
+Where this guidance and wider Defra policy seem to conflict, Defra policy takes precedence.

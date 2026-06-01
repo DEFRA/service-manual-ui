@@ -1,7 +1,7 @@
 ---
 title: Security
 caption: Deliver with AI
-description: How to keep AI-generated code, secrets, and your development environment secure.
+description: AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -57,8 +57,6 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20security" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.</p>
-
 AI-authored code is held to the same standard as anything else you ship. It must clear the same Defra security gates as hand-written code, and an AI feature still faces a service assessment.
 
 ## Review for known vulnerabilities
@@ -75,14 +73,13 @@ AI coding assistants index your whole project directory, which means they can re
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li>GitHub Copilot: <code>.github/copilot-ignore</code></li>
-<li>Cursor: <code>.cursorignore</code></li>
 </ul>
 
 The same applies to any tool that can read your files or terminal, not just chat windows where you paste text.
 
 ## Use static analysis
 
-Run SonarQube, Defra's static analysis gate, on all AI-generated code. It catches security issues that manual review might miss. AI-authored code must pass it before merge, exactly like hand-written code.
+Run SonarQube, Defra's static analysis gate, on all AI-generated code. It catches security issues that manual review might miss. AI-authored code must pass it before merge.
 
 ## Scan dependencies
 
@@ -90,7 +87,7 @@ AI may suggest packages that are outdated or have known vulnerabilities. Use Sof
 
 ## Protect your development environment
 
-Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Be cautious with AI tools that require broad access to your codebase or environment.
+Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Limit AI tools that require broad access to your codebase or environment.
 
 ## Treat AI output as untrusted input
 
@@ -100,4 +97,4 @@ Never let raw AI output trigger a privileged action on its own. Keep a human app
 
 ## Human review remains essential
 
-Automated tools catch a lot but not everything. A human review of AI-generated code remains essential, especially for security-critical paths. For security-critical paths, a second reviewer is required.
+Automated tools catch a lot but not everything. A human review of AI-generated code remains essential. For security-critical paths, a second reviewer is required.

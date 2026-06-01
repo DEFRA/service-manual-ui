@@ -1,7 +1,7 @@
 ---
 title: Using data with AI
 caption: Deliver with AI
-description: The data classification matrix for AI tools at Defra, with tool-type definitions and the conditions that apply.
+description: What data you can put into an AI tool depends on its classification and the type of tool.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -57,10 +57,6 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Using%20data%20with%20AI" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">What data you can put into an AI tool depends on its classification and the type of tool.</p>
-
-A simple test before you put anything in: if you would not hand it to a third party outside Defra, do not hand it to AI. You stay accountable for what comes out, too. See [Ethics](/ai-toolkit/guidance/ethics).
-
 ## How to read this table
 
 This table shows the default position for each combination of data and tool type. It is a starting point, not a substitute for judgement.
@@ -68,17 +64,8 @@ This table shows the default position for each combination of data and tool type
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li>A <strong>Yes</strong> means allowed, sometimes only when a condition is met. Read the condition.</li>
 <li>A <strong>No</strong> means do not do it.</li>
-<li>If your situation does not fit a row, or you are unsure, stop and ask your information asset owner or AICE.</li>
-</ul>
-
-## What the tool types mean
-
-The columns are not interchangeable. Check which one your tool actually is before you read across.
-
-<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><strong>Public consumer tool.</strong> A tool you reach over the public internet on a standard or personal account, for example the free tier of ChatGPT. Your data may be processed outside the UK and used to improve the model unless you turn that off.</li>
-<li><strong>Enterprise tool in the Defra tenant.</strong> A tool you reach through a Defra-managed account inside Defra's own Microsoft 365 environment, for example M365 Copilot. It is governed by Defra's data boundary and security controls.</li>
-<li><strong>Defra-hosted.</strong> A model running in infrastructure Defra controls, for example Azure OpenAI or Bedrock configured in a Defra tenancy, where data stays in approved regions and tenancies. It is not a self-serve option for OFFICIAL-SENSITIVE or personal data, so talk to AICE first.</li>
+<li>Some cells carry a condition, like privacy settings or a Data Protection Impact Assessment (DPIA). The conditions are explained below the table.</li>
+<li>If your situation does not fit a row, or you are unsure, stop and check before you proceed.</li>
 </ul>
 
 ## What you can put where
@@ -131,15 +118,36 @@ The columns are not interchangeable. Check which one your tool actually is befor
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><strong>With privacy settings on.</strong> Model training and chat history are turned off. See <a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>.</li>
-<li><strong>DPIA required.</strong> A Data Protection Impact Assessment must be completed and signed off before any processing begins.</li>
-<li><strong>The defaults can move.</strong> A specific data set or use case may need more or fewer controls. Your information asset owner or AICE can confirm.</li>
+<li><strong>DPIA required.</strong> The assessment must be completed and signed off before any processing begins.</li>
+<li><strong>The defaults can move.</strong> A specific data set or use case may need more or fewer controls.</li>
 </ul>
 
-## The hard rule
+For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.
 
-Do not put OFFICIAL-SENSITIVE content, personal data or anything above OFFICIAL into a public consumer tool. Use an enterprise tool in the Defra tenant.
+## What the tool types mean
 
-OFFICIAL-SENSITIVE and personal data are only allowed with the approvals set out in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe), including a DPIA where personal data is involved.
+The type of tool decides what data you can use with it. Check which type you are using.
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><strong>Public consumer tool.</strong> A tool anyone can use over the internet on a free or personal account, like the free tier of ChatGPT. Your data may leave the UK and train the model unless you turn that off.</li>
+<li><strong>Enterprise tool in the Defra tenant.</strong> A tool you use through your Defra account in Microsoft 365, like M365 Copilot. Defra's data boundary and security controls apply.</li>
+<li><strong>Defra-hosted.</strong> A model running on infrastructure Defra controls, like Azure OpenAI or Bedrock in a Defra tenancy. It is not self-serve for OFFICIAL-SENSITIVE or personal data, so talk to the AI Capability and Enablement team (AICE) first.</li>
+</ul>
+
+## Which device you can use
+
+Your device matters as much as the tool. The rules here assume a Defra-managed device, such as a Defra laptop or virtual desktop.
+
+On a personal or business device that Defra does not manage, sometimes called bring your own device or BYOD:
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>you can use approved AI tooling with public or OFFICIAL information</li>
+<li>you must never put OFFICIAL-SENSITIVE content or personal data into an AI tool</li>
+</ul>
+
+OFFICIAL-SENSITIVE content and personal data are only allowed on a Defra laptop or virtual desktop, through Microsoft 365 Copilot in the Defra environment.
+
+If you are unsure what your device allows, stop and ask AICE.
 
 ## If you do not know how your data is classified
 

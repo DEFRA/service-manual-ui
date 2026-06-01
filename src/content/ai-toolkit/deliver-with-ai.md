@@ -1,7 +1,7 @@
 ---
 title: Deliver with AI
 caption: AI digital toolkit
-description: Tools, data rules, patterns and responsible-use guidance for Defra delivery teams using AI.
+description: This guidance is for digital delivery teams building with AI on Defra services. It is run by the AI Capability and Enablement team (AICE).
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -55,9 +55,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Deliver%20with%20AI%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">This guidance is for digital delivery teams building with AI on Defra services. It is run by the AI Capability and Enablement team (AICE).</p>
-
-<p class="govuk-body">It applies the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" class="govuk-link">AI Playbook for the UK Government</a> to the way Defra delivers, so the rules here line up with the ten principles all government teams follow.</p>
+<p class="govuk-body">It applies the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" class="govuk-link">AI Playbook for the UK Government</a> to the way Defra delivers, so the rules here line up with the 10 principles all government teams follow.</p>
 
 <details class="govuk-details" data-module="govuk-details">
   <summary class="govuk-details__summary">
@@ -68,7 +66,7 @@ supportBox:
     <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
     <li><strong>AI training for all staff.</strong> Civil Service Learning courses and safe-use guidance. Complete this before using AI on Defra work. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-and-Guidance.aspx" class="govuk-link">AI training and guidance page on SharePoint</a>.</li>
     <li><strong>AI policy and governance.</strong> Defra-wide policy on what is allowed and what needs sign-off. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx" class="govuk-link">AI governance page on SharePoint</a>.</li>
-    <li><strong>CDP and Amazon Bedrock.</strong> Approved models, guardrails and cost controls for the Defra Bedrock integration. See the <a href="https://portal.cdp-int.defra.cloud/documentation" class="govuk-link">CDP documentation</a>.</li>
+    <li><strong>Core Delivery Platform (CDP) and Amazon Bedrock.</strong> Approved models, guardrails and cost controls for the Defra Bedrock integration. See the <a href="https://portal.cdp-int.defra.cloud/documentation" class="govuk-link">CDP documentation</a>.</li>
     <li><strong>AI in arm's length bodies.</strong> Environment Agency, Natural England, APHA, RPA, MMO and others run their own AI work. Check your organisation's own guidance first.</li>
     </ul>
     <p class="govuk-body">Still not sure? Email AICE at <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Where%20does%20my%20AI%20work%20fit" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a> and we will point you to the right place.</p>

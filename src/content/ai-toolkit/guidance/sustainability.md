@@ -1,7 +1,7 @@
 ---
 title: Sustainability
 caption: Deliver with AI
-description: AI has environmental cost. How to use it in proportion to the task.
+description: How to reduce the energy AI uses. Smaller models, fewer calls and shared infrastructure.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -57,15 +57,13 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">AI has environmental costs. Every model call uses energy. Defra owns the government's environmental agenda, so proportionate use of AI is part of meeting the Greening Government Commitments, not an optional extra.</p>
-
 ## Use the smallest model that meets your needs
 
-Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the approved Bedrock model tiers and default to the smallest that meets the need.
+Larger models use more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the approved Bedrock model tiers and default to the smallest that meets the need.
 
-## Deploy AI only when it is genuinely the best option
+## Use AI only when it is the best option
 
-Not every problem needs an AI solution. If a rule-based approach, a search or a simple script works, use that instead. Reserve AI for tasks where it adds clear value over simpler alternatives.
+Not every problem needs AI. If a rule, a search or a simple script does the job, use that instead. Use AI only where a simpler tool cannot.
 
 ## Cache results
 
