@@ -78,7 +78,7 @@ The columns are not interchangeable. Check which one your tool actually is befor
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><strong>Public consumer tool.</strong> A tool you reach over the public internet on a standard or personal account, for example the free tier of ChatGPT. Your data may be processed outside the UK and used to improve the model unless you turn that off.</li>
 <li><strong>Enterprise tool in the Defra tenant.</strong> A tool you reach through a Defra-managed account inside Defra's own Microsoft 365 environment, for example M365 Copilot. It is governed by Defra's data boundary and security controls.</li>
-<li><strong>Defra-hosted.</strong> A model running in infrastructure Defra controls, for example Azure OpenAI or Bedrock configured in a Defra tenancy, where data stays in approved regions and tenancies.</li>
+<li><strong>Defra-hosted.</strong> A model running in infrastructure Defra controls, for example Azure OpenAI or Bedrock configured in a Defra tenancy, where data stays in approved regions and tenancies. It is not a self-serve option for OFFICIAL-SENSITIVE or personal data, so talk to AICE first.</li>
 </ul>
 
 ## What you can put where
@@ -110,13 +110,13 @@ The columns are not interchangeable. Check which one your tool actually is befor
       <th scope="row" class="govuk-table__header">OFFICIAL-SENSITIVE</th>
       <td class="govuk-table__cell"><strong>No</strong></td>
       <td class="govuk-table__cell"><strong>Yes</strong></td>
-      <td class="govuk-table__cell"><strong>Yes</strong>, with a DPIA</td>
+      <td class="govuk-table__cell"><strong>No</strong></td>
     </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">Personal data</th>
       <td class="govuk-table__cell"><strong>No</strong></td>
       <td class="govuk-table__cell"><strong>DPIA required</strong> before use</td>
-      <td class="govuk-table__cell"><strong>DPIA required</strong> before use</td>
+      <td class="govuk-table__cell"><strong>No</strong></td>
     </tr>
     <tr class="govuk-table__row">
       <th scope="row" class="govuk-table__header">SECRET (SEC2 or SEC3)</th>
@@ -131,7 +131,7 @@ The columns are not interchangeable. Check which one your tool actually is befor
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><strong>With privacy settings on.</strong> Model training and chat history are turned off. See [Choosing a tool](/ai-toolkit/guidance/choosing-a-tool).</li>
-<li><strong>With a DPIA.</strong> A Data Protection Impact Assessment has been completed and signed off before any processing begins.</li>
+<li><strong>DPIA required.</strong> A Data Protection Impact Assessment must be completed and signed off before any processing begins.</li>
 <li><strong>The defaults can move.</strong> A specific data set or use case may need more or fewer controls. Your information asset owner or AICE can confirm.</li>
 </ul>
 
