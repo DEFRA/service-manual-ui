@@ -130,7 +130,7 @@ The columns are not interchangeable. Check which one your tool actually is befor
 ## What the conditions mean
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><strong>With privacy settings on.</strong> Model training and chat history are turned off. See [Choosing a tool](/ai-toolkit/guidance/choosing-a-tool).</li>
+<li><strong>With privacy settings on.</strong> Model training and chat history are turned off. See <a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>.</li>
 <li><strong>DPIA required.</strong> A Data Protection Impact Assessment must be completed and signed off before any processing begins.</li>
 <li><strong>The defaults can move.</strong> A specific data set or use case may need more or fewer controls. Your information asset owner or AICE can confirm.</li>
 </ul>
