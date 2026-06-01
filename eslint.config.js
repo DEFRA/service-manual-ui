@@ -5,7 +5,7 @@ export default [
     env: ['node', 'vitest'],
     ignores: [...neostandard.resolveIgnoresFromGitignore()],
     noJsx: true,
-    noStyle: true
+    noStyle: false
   }),
   // Additional rules to align with SonarQube quality standards
   // Focus on critical issues that cause SonarQube quality gate failures

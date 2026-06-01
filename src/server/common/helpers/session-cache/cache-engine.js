@@ -6,7 +6,7 @@ import { buildEventLog } from '../logging/build-error-log.js'
 import { buildRedisClient } from '../redis-client.js'
 import { config } from '../../../../config/config.js'
 
-export function getCacheEngine(engine) {
+export function getCacheEngine (engine) {
   const logger = createLogger()
 
   if (engine === 'redis') {

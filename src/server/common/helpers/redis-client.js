@@ -3,7 +3,7 @@ import { Cluster, Redis } from 'ioredis'
 import { createLogger } from './logging/logger.js'
 import { buildErrorLog, buildEventLog } from './logging/build-error-log.js'
 
-function createRetryStrategy(
+function createRetryStrategy (
   maxRetries,
   retryDelayMs,
   logger,
@@ -33,14 +33,14 @@ function createRetryStrategy(
   }
 }
 
-function buildCredentials(redisConfig) {
+function buildCredentials (redisConfig) {
   if (redisConfig.username === '') {
     return {}
   }
   return { username: redisConfig.username, password: redisConfig.password }
 }
 
-function buildSingleInstanceRedis(redisConfig, logger) {
+function buildSingleInstanceRedis (redisConfig, logger) {
   return new Redis({
     port: redisConfig.port,
     host: redisConfig.host,
@@ -62,7 +62,7 @@ function buildSingleInstanceRedis(redisConfig, logger) {
   })
 }
 
-function buildClusterRedis(redisConfig, logger) {
+function buildClusterRedis (redisConfig, logger) {
   return new Cluster([{ host: redisConfig.host, port: redisConfig.port }], {
     keyPrefix: redisConfig.keyPrefix,
     slotsRefreshTimeout: redisConfig.slotsRefreshTimeout,
@@ -86,7 +86,7 @@ function buildClusterRedis(redisConfig, logger) {
   })
 }
 
-function attachConnectionLogging(redisClient, logger) {
+function attachConnectionLogging (redisClient, logger) {
   redisClient.on('connect', () => {
     logger.info(
       buildEventLog({ type: 'redis_connection', action: 'connect' }),
@@ -109,7 +109,7 @@ function attachConnectionLogging(redisClient, logger) {
  * Setup Redis and provide a redis client.
  * Local development uses a single Redis instance; environments use Elasticache / Redis Cluster.
  */
-export function buildRedisClient(redisConfig) {
+export function buildRedisClient (redisConfig) {
   const logger = createLogger()
   const redisClient = redisConfig.useSingleInstanceCache
     ? buildSingleInstanceRedis(redisConfig, logger)

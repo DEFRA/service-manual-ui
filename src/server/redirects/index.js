@@ -16,7 +16,7 @@ import { statusCodes } from '../common/constants/status-codes.js'
 export const redirects = {
   plugin: {
     name: 'redirects',
-    register(server) {
+    register (server) {
       if (!config.get('aiContent.enabled')) {
         return
       }
@@ -25,14 +25,14 @@ export const redirects = {
         {
           method: 'GET',
           path: '/ai-playbook',
-          handler(_request, h) {
+          handler (_request, h) {
             return h.redirect('/ai-toolkit').code(statusCodes.movedPermanently)
           }
         },
         {
           method: 'GET',
           path: '/ai-playbook/{rest*}',
-          handler(request, h) {
+          handler (request, h) {
             return h
               .redirect(`/ai-toolkit/${request.params.rest}`)
               .code(statusCodes.movedPermanently)

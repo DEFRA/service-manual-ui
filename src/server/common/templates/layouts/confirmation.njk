@@ -19,16 +19,14 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Triage complete
+        Submission complete
       </h1>
       <div class="govuk-panel__body">
-        your submission has been recieved and will be reviewed by our team. We will contact you if we need further information.
-        {% if showReference and reference %}
-          Your reference number is <strong>{{ reference }}</strong>.
-        {% endif %}
+        Reference number<br><strong>{{ reference if reference else 'AICE-XX-XXXXXX' }}</strong>
       </div>
     </div>
 
+    {{ content | markdown | safe }}
   </div>
 </div>
 {% endblock %}

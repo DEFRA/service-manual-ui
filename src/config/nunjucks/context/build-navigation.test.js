@@ -1,6 +1,6 @@
 import { buildNavigation } from './build-navigation.js'
 
-function mockRequest(options) {
+function mockRequest (options) {
   return { ...options }
 }
 

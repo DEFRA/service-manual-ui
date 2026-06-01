@@ -3,7 +3,7 @@ import { deliveryGroupsController } from './controller.js'
 export const deliveryGroups = {
   plugin: {
     name: 'delivery-groups',
-    register(server) {
+    register (server) {
       server.route([
         {
           method: 'GET',

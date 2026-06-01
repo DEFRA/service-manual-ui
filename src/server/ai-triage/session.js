@@ -6,7 +6,7 @@ const REFERENCE_KEY = 'ai-triage-reference'
  * @param {string} slug
  * @returns {unknown}
  */
-export function getAnswer(yar, slug) {
+export function getAnswer (yar, slug) {
   const data = yar.get(SESSION_KEY)
   return data?.[slug] ?? null
 }
@@ -17,7 +17,7 @@ export function getAnswer(yar, slug) {
  * @param {unknown} fields
  * @returns {void}
  */
-export function setAnswer(yar, slug, fields) {
+export function setAnswer (yar, slug, fields) {
   const data = yar.get(SESSION_KEY) ?? {}
   yar.set(SESSION_KEY, { ...data, [slug]: fields })
 }
@@ -27,7 +27,7 @@ export function setAnswer(yar, slug, fields) {
  * @param {import('@hapi/yar').Yar} yar
  * @returns {Record<string, unknown>}
  */
-export function getTriageSessionData(yar) {
+export function getTriageSessionData (yar) {
   return yar.get(SESSION_KEY) ?? {}
 }
 
@@ -36,7 +36,7 @@ export function getTriageSessionData(yar) {
  * @param {import('@hapi/yar').Yar} yar
  * @returns {void}
  */
-export function clearTriageSession(yar) {
+export function clearTriageSession (yar) {
   yar.clear(SESSION_KEY)
 }
 
@@ -46,7 +46,7 @@ export function clearTriageSession(yar) {
  * @param {string} reference
  * @returns {void}
  */
-export function setReference(yar, reference) {
+export function setReference (yar, reference) {
   yar.set(REFERENCE_KEY, reference)
 }
 
@@ -55,7 +55,7 @@ export function setReference(yar, reference) {
  * @param {import('@hapi/yar').Yar} yar
  * @returns {string | null}
  */
-export function getReference(yar) {
+export function getReference (yar) {
   return yar.get(REFERENCE_KEY) ?? null
 }
 
@@ -64,6 +64,6 @@ export function getReference(yar) {
  * @param {import('@hapi/yar').Yar} yar
  * @returns {void}
  */
-export function clearReference(yar) {
+export function clearReference (yar) {
   yar.clear(REFERENCE_KEY)
 }

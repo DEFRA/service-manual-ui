@@ -11,7 +11,7 @@ const ONE_YEAR_MS = 31536000000
 export const cookies = {
   plugin: {
     name: 'cookies',
-    register(server) {
+    register (server) {
       const cookieOptions = {
         isSecure: config.get('isProduction'),
         isHttpOnly: false,

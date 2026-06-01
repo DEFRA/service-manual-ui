@@ -13,13 +13,9 @@ breadcrumbItems:
 questionBackHref: /ai-toolkit
 ---
 
-Your submission has been received.
-
-We have your details and will get back to you within 5 working days.
-
 ## What happens next
 
-A member of the AI Capability and Enablement team will read your answers and decide the best next step. That might be:
+A member of the AI Capability and Enablement team will read your answers and decide the best next step within five working days. That might be:
 
 - a recommended pattern you can use today
 - a hands-on session with one of our practitioners
@@ -31,4 +27,4 @@ You can [browse patterns, guidance and tools](/ai-toolkit) without needing to wa
 
 ## Contact us
 
-If you need a quicker response, email <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>.
+If you need a quicker response, email [AICapabilityAndEnablement@defra.gov.uk](mailto:AICapabilityAndEnablement@defra.gov.uk).
