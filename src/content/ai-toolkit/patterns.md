@@ -47,7 +47,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">These are early proofs of concept, not finished products. Use the finder to match one to your problem, or browse them all below.</p>
+<p class="govuk-body-l">A pattern is a reusable approach other Defra teams have tested, shared as an early proof of concept. Use the finder below to find one that fits your problem.</p>
 
 ## Find a pattern that fits
 
@@ -143,63 +143,13 @@ supportBox:
 </div>
 
 <noscript>
-<p class="govuk-body">The interactive finder needs JavaScript. Browse all patterns below instead.</p>
+<p class="govuk-body">The interactive finder needs JavaScript. Browse the patterns:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li><a href="/ai-toolkit/patterns/ai-assistant" class="govuk-link">AI assistant</a></li>
+<li><a href="/ai-toolkit/patterns/green-summarisation" class="govuk-link">Green summarisation</a></li>
+<li><a href="/ai-toolkit/patterns/agent-swarms" class="govuk-link">Agent swarms</a></li>
+<li><a href="/ai-toolkit/patterns/token-optimisation" class="govuk-link">Token optimisation</a></li>
+<li><a href="/ai-toolkit/patterns/interaction-designer-plugin" class="govuk-link">Interaction designer plugin</a></li>
+</ul>
 </noscript>
 
-## All patterns
-
-<ul class="defra-tile-grid">
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/ai-assistant" class="defra-tile__link">AI assistant</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">A single Defra interface to multiple AI providers, with consistent guardrails.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/green-summarisation" class="defra-tile__link">Green summarisation</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Reducing the energy use of AI workloads with smaller, local models.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/agent-swarms" class="defra-tile__link">Agent swarms</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Higher-quality analysis through multiple specialist agents working together.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/token-optimisation" class="defra-tile__link">Token optimisation</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Cutting token cost on repeat AI calls through prompt compression.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/interaction-designer-plugin" class="defra-tile__link">Interaction designer plugin</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">A Claude Code plugin that takes a Defra designer from verbal brief to GOV.UK-styled HTML preview.</p>
-    </div>
-  </li>
-</ul>
-
-## Where else to look
-
-<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><a href="/ai-toolkit/deliver-with-ai" class="govuk-link">Deliver with AI</a>. Permissions, set-up and responsibility rules for Defra delivery teams.</li>
-<li><a href="/ai-toolkit/tools" class="govuk-link">Find a tool</a>. The tools radar.</li>
-<li><a href="/ai-toolkit/projects" class="govuk-link">Learn from others</a>. What AICE is building with Defra teams.</li>
-</ul>

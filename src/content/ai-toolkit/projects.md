@@ -52,11 +52,11 @@ supportBox:
 <div class="app-kanban__row">
   <div class="app-radar-card">
     <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h3>
-    <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
+    <p class="app-radar-card__description">Consolidating scheme guidance into trusted answers.</p>
   </div>
   <div class="app-radar-card">
     <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h3>
-    <p class="app-radar-card__description">Patterns inside designers' tools.</p>
+    <p class="app-radar-card__description">Bringing AICE patterns into designers' daily tools.</p>
   </div>
 </div>
 
@@ -65,10 +65,10 @@ supportBox:
 <div class="app-kanban__row">
   <div class="app-radar-card">
     <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h3>
-    <p class="app-radar-card__description">AI prototype with Service Insights.</p>
+    <p class="app-radar-card__description">Answering recurring service questions over real data.</p>
   </div>
   <div class="app-radar-card">
     <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h3>
-    <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
+    <p class="app-radar-card__description">Helping modernise a legacy planning system with AI.</p>
   </div>
 </div>

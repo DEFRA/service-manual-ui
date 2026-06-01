@@ -63,8 +63,6 @@ The wider Defra community gets an early flagship for the AI accelerator approach
 
 ## What we're doing
 
-- Agreeing the two or three priority service questions the prototype will answer
-- Identifying five to ten priority users to test with
-- Curating a seed data slice the prototype can be grounded on inside two weeks
-- Building together over four to six weeks, with twice-weekly joint sessions and a mid-point demo
-- Bringing the wider Defra AI and Microsoft Copilot direction in early, so the prototype fits
+- Agreeing the priority questions the prototype will answer
+- Building a grounded prototype with the team
+- Fitting it to Defra's wider AI and Copilot direction

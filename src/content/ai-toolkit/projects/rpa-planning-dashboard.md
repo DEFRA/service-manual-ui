@@ -63,8 +63,6 @@ The wider Defra community gets a worked example of when to use AI for build acce
 
 ## What we're doing
 
-- Bounded consultation on AI-assisted development for the rebuild team
-- Pointers to Microsoft Copilot patterns for interpreting VBScript and Access logic
-- Light review of any in-product AI ideas that surface during the build
-- Helping the team route into Defra's Power Platform community of practice
-- Capturing reusable patterns for similar legacy modernisation work elsewhere in Defra
+- Advising the rebuild team on where AI helps and where it does not
+- Pointing them to the right Defra tools and communities
+- Capturing reusable patterns for similar legacy work

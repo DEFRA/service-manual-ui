@@ -21,22 +21,22 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
 triageTitle: Check if AI is right for your idea
-triageDescription: From the AI Capability and Enablement team. See how AI could help your work, whatever your role.
+triageDescription: See how AI could help your work, whatever your role.
 triageButtonText: Start now
 triageButtonHref: /ai-toolkit/triage/question-1
 primaryCardsHeading: What do you want to do?
 primaryCards:
   - text: Deliver with AI
-    description: Which AI tools and data you can use on Defra services, and how to use them responsibly.
+    description: How to use AI safely and responsibly at Defra.
     href: /ai-toolkit/deliver-with-ai
   - text: Find a tool
-    description: Tools, platforms and frameworks Defra teams have evaluated for AI work.
+    description: AI tools and platforms Defra has reviewed.
     href: /ai-toolkit/tools
   - text: Use AI patterns
-    description: Reusable approaches Defra teams have tested with AI.
+    description: Reusable approaches teams have built and tested.
     href: /ai-toolkit/patterns
   - text: Learn from others
-    description: Real AI projects Defra teams are running with the AI Capability and Enablement team.
+    description: Live AI projects from across Defra teams.
     href: /ai-toolkit/projects
 supportBox:
   title: Contact the AI Capability and Enablement team

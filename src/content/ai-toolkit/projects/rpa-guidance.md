@@ -63,8 +63,6 @@ The wider Defra community gets a reusable pattern for measuring, consolidating a
 
 ## What we're doing
 
-- Pulling evidence from customer relationship management cases and call transcripts to quantify the cost of out-of-date guidance
-- Using AI to map what already exists across multiple SharePoint sites, by scheme and content type
-- Defining ownership, authority levels and an escalation route for guidance
-- Tightening publishing, maintenance and tagging so content is ready for any future tool
-- Sharing retrieval and content generation patterns once the foundations are in place
+- Measuring the cost of fragmented guidance
+- Consolidating and tagging the content so it is ready for AI
+- Sharing what we learn as a reusable pattern

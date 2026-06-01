@@ -63,7 +63,5 @@ The wider Defra community gets a shared distribution channel for patterns, plus 
 
 ## What we're doing
 
-- Drafting a demo script and walkthrough grounded in a real Defra example
-- Demoing the plugin to the Defra Design community and capturing feedback in the room
-- Logging feature requests and pattern asks on the AICE backlog
-- Shaping the plugin roadmap from what designers actually want next, not internal assumptions
+- Building and demoing the plugin with the Defra Design community
+- Shaping the roadmap from what designers ask for
