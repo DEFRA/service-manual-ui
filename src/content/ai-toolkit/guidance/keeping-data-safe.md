@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -63,7 +63,9 @@ supportBox:
 
 The default position is that you only use AI tools on source material classified as **OFFICIAL**.
 
-OFFICIAL-SENSITIVE and personal data are permitted only in specific tools, and only with the approvals on this page. The [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) matrix shows exactly what you can put where. Do not use AI tools with SECRET or TOP SECRET material.
+OFFICIAL-SENSITIVE and personal data are permitted only in specific tools, and only with the approvals on this page. The [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) matrix shows exactly what you can put where.
+
+Do not use AI tools with SECRET or TOP SECRET material.
 
 If you are unsure about the classification of your source material, stop and ask your information asset owner before proceeding.
 
@@ -80,11 +82,15 @@ Generative AI tools send your prompts and content to models hosted by external p
 <li>another provider</li>
 </ul>
 
-Some tools can be configured to use approved cloud platforms, for example [AWS Bedrock](/ai-toolkit/tools/aws-bedrock) or [Azure AI Foundry](/ai-toolkit/tools/azure-ai-foundry). These keep data in regions and tenancies that meet UK government requirements. Always check the [tools radar](/ai-toolkit/tools) entry for your tool to see how its data is routed.
+Some tools can be configured to use approved cloud platforms, for example [AWS Bedrock](/ai-toolkit/tools/aws-bedrock) or [Azure AI Foundry](/ai-toolkit/tools/azure-ai-foundry). These keep data in regions and tenancies that meet UK government requirements.
+
+Always check the [tools radar](/ai-toolkit/tools) entry for your tool to see how its data is routed.
 
 ## Remove personal data before any AI processing
 
-You must remove all personal data, sometimes called personally identifiable information or PII, from any input before it enters an AI tool. This is non-negotiable. Where AI will process personal data as part of a service, a DPIA is required before processing begins.
+You must remove all personal data, sometimes called personally identifiable information or PII, from any input before it enters an AI tool. This is non-negotiable.
+
+Where AI will process personal data as part of a service, a DPIA is required before processing begins.
 
 That includes:
 
@@ -116,7 +122,9 @@ Some types are sensitive personal data, for example health, biometric or financi
 
 Whichever tool or process you use to remove personal data, **someone on the team must verify the output before it enters the pipeline or gets committed to version control**.
 
-If you process screenshots, replace real names and identifiers with fake equivalents before the screenshot is shared with the model. Some assistants offer plugins that do this automatically. Treat them as a best effort. The team is still responsible for checking that no real personal data remains.
+If you process screenshots, replace real names and identifiers with fake equivalents before the screenshot is shared with the model.
+
+Some assistants offer plugins that do this automatically. Treat them as a best effort. The team is still responsible for checking that no real personal data remains.
 
 Verify that no personal data remains in:
 
@@ -150,4 +158,6 @@ All team members must complete the relevant information governance training befo
 
 ## When in doubt, stop
 
-This guidance works alongside Defra's wider information governance and data protection policies. Where they appear to conflict, the wider Defra policy takes precedence, and you should ask AICE for clarification. If you are not certain about classification or data handling, do not proceed. Ask. The cost of a 10-minute pause is much smaller than the cost of mishandled data.
+This guidance works alongside Defra's wider information governance and data protection policies. Where they appear to conflict, the wider Defra policy takes precedence, and you should ask AICE for clarification.
+
+If you are not certain about classification or data handling, do not proceed. Ask. The cost of a 10-minute pause is much smaller than the cost of mishandled data.

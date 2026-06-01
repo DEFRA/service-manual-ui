@@ -111,7 +111,7 @@ export const markdownRoutes = [
   '/ai-toolkit/tools/git-ai',
   '/ai-toolkit/guidance/choosing-a-tool',
   '/ai-toolkit/guidance/using-data-with-ai',
-  '/ai-toolkit/guidance/team-knowledge-bases',
+  '/ai-toolkit/guidance/working-with-agents',
   '/ai-toolkit/guidance/ethics',
   '/ai-toolkit/guidance/security',
   '/ai-toolkit/guidance/sustainability',

@@ -51,7 +51,11 @@ supportBox:
 
 ## The problem
 
-Earlier proofs of concept showed that large language models (LLMs) produce high-quality text summaries. But LLMs run on cloud infrastructure and consume significant energy per call. Defra owns the government's environmental agenda, so the energy cost of AI is a real consideration here, not a footnote. See [Sustainability](/ai-toolkit/guidance/sustainability) for how that ties to the Greening Government Commitments. We wanted to find out whether smaller models, running locally, could do the same job at a fraction of the cost.
+Earlier proofs of concept showed that large language models (LLMs) produce high-quality text summaries. But LLMs run on cloud infrastructure and consume significant energy per call.
+
+Defra owns the government's environmental agenda, so the energy cost of AI is a real consideration here, not a footnote. See [Sustainability](/ai-toolkit/guidance/sustainability) for how that ties to the Greening Government Commitments.
+
+We wanted to find out whether smaller models, running locally, could do the same job at a fraction of the cost.
 
 ## The hypothesis
 
@@ -71,13 +75,19 @@ For concise summaries, the tested models produced shorter output that was semant
 
 For longer, more detailed summaries, the transformer models could not match LLMs. Their output length limits made detailed summaries impractical.
 
-Running models locally also keeps the source text on Defra infrastructure. That suits sensitive material such as meeting transcripts, which a public consumer tool should not see. Check the defaults in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) before pointing any tool at real content.
+Running models locally also keeps the source text on Defra infrastructure. That suits sensitive material such as meeting transcripts, which a public consumer tool should not see.
+
+Check the defaults in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) before pointing any tool at real content.
 
 Before this approach goes further, it needs a clear way to measure whether a summary is good enough to trust.
 
 ## Limitations
 
-This was a short spike, so the findings are early. We tested only 2 models, and ran inference on CPU only, so the speed numbers would improve a lot on GPU. The metrics we used, ROUGE and BERTScore, measure textual overlap but may not capture what makes a summary genuinely useful to a reader.
+This was a short spike, so the findings are early.
+
+We tested only 2 models, and ran inference on CPU only, so the speed numbers would improve a lot on GPU.
+
+The metrics we used, ROUGE and BERTScore, measure textual overlap but may not capture what makes a summary genuinely useful to a reader.
 
 ## Project details
 

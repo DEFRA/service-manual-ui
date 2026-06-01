@@ -27,7 +27,7 @@ triageButtonHref: /ai-toolkit/triage/question-1
 primaryCardsHeading: What do you want to do?
 primaryCards:
   - text: Deliver with AI
-    description: Patterns, delivery guidance and conventions for using AI in digital work at Defra.
+    description: Which AI tools and data you can use on Defra services, and how to use them responsibly.
     href: /ai-toolkit/deliver-with-ai
   - text: Find a tool
     description: Tools, platforms and frameworks Defra teams have evaluated for AI work.
@@ -36,7 +36,7 @@ primaryCards:
     description: Reusable approaches Defra teams have tested with AI.
     href: /ai-toolkit/patterns
   - text: Learn from others
-    description: Live work between the AI Capability and Enablement team and Defra teams.
+    description: Real AI projects Defra teams are running with the AI Capability and Enablement team.
     href: /ai-toolkit/projects
 supportBox:
   title: Contact the AI Capability and Enablement team

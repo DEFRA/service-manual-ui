@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security

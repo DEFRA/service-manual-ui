@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -81,7 +81,7 @@ supportBox:
 <li><a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>. Check a tool is approved, turn on privacy settings, spot the AI hidden in everyday tools.</li>
 <li><a href="/ai-toolkit/guidance/using-data-with-ai" class="govuk-link">Using data with AI</a>. What you can put where, by data classification.</li>
 <li><a href="/ai-toolkit/guidance/keeping-data-safe" class="govuk-link">Keeping data safe</a>. Classification, where your data goes, and removing personal data.</li>
-<li><a href="/ai-toolkit/guidance/team-knowledge-bases" class="govuk-link">Shared team knowledge bases</a>. Approved patterns for AI-queryable team content.</li>
+<li><a href="/ai-toolkit/guidance/working-with-agents" class="govuk-link">Working with AI agents</a>. What teams have learned about agent identity, tools, evaluation and observability.</li>
 </ul>
 
 ## Use AI responsibly

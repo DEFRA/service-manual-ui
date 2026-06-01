@@ -51,11 +51,15 @@ supportBox:
 
 ## The problem
 
-Complex tasks such as policy analysis need different types of expertise: researching, drafting, fact-checking and review. A single AI agent handles these sequentially, with no way to cross-check its own work or build on separate lines of analysis. The result is often shallow and one-dimensional.
+Complex tasks such as policy analysis need different types of expertise: researching, drafting, fact-checking and review.
+
+A single AI agent handles these sequentially, with no way to cross-check its own work or build on separate lines of analysis. The result is often shallow and one-dimensional.
 
 ## The hypothesis
 
-A swarm of specialist AI agents, coordinated by a central orchestrator, can produce better analysis than a single agent working alone. By giving each agent a distinct role and letting them build on each other's findings, the swarm creates richer, more thorough output. A human approval step keeps quality under control.
+A swarm of specialist AI agents, coordinated by a central orchestrator, can produce better analysis than a single agent working alone. By giving each agent a distinct role and letting them build on each other's findings, the swarm creates richer, more thorough output.
+
+A human approval step keeps quality under control.
 
 ## What we found
 
@@ -67,11 +71,19 @@ We built a managed swarm using Pydantic AI and Amazon Bedrock, the route Defra u
 
 The orchestrator chose which agent to engage based on the discussion, not a fixed sequence. All agents shared the full conversation history, so each could reference and build on what others found.
 
-Adding a 'human-in-the-loop' step let reviewers approve the analysis or send it back for further work. Tool call limits prevented runaway execution. Both matter when several agents act with some autonomy: keep a person accountable for the output, and constrain what the agents can reach. [Security](/ai-toolkit/guidance/security) covers the controls to think through before agents touch anything beyond a document. If the documents hold anything sensitive, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) first.
+Adding a 'human-in-the-loop' step let reviewers approve the analysis or send it back for further work. Tool call limits prevented runaway execution.
+
+Both matter when several agents act with some autonomy: keep a person accountable for the output, and constrain what the agents can reach.
+
+[Security](/ai-toolkit/guidance/security) covers the controls to think through before agents touch anything beyond a document. If the documents hold anything sensitive, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) first.
 
 ## Limitations
 
-This is a proof of concept, not a service. We tested only 2 Claude model variants, and we have not yet defined how to benchmark the quality of the analysis the swarm produces. The UX patterns for human-supervised agent workflows also need more work. Talk to AICE before taking anything like this into production.
+This is a proof of concept, not a service.
+
+We tested only 2 Claude model variants, and we have not yet defined how to benchmark the quality of the analysis the swarm produces. The UX patterns for human-supervised agent workflows also need more work.
+
+Talk to AICE before taking anything like this into production.
 
 ## Project details
 

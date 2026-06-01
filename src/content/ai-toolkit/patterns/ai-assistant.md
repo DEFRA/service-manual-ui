@@ -51,19 +51,33 @@ supportBox:
 
 ## The problem
 
-Getting AI tools into people's hands at Defra is slow and expensive. Procurement takes time, subscription costs add up, and teams risk being locked into a single vendor. Each tool has different strengths, weaknesses and security controls, and the [tools radar](/ai-toolkit/tools) shows how few are cleared for sensitive work. It is not always clear whether staff can safely upload OFFICIAL files to a given service. The defaults are set out in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
+Getting AI tools into people's hands at Defra is slow and expensive.
+
+Procurement takes time, subscription costs add up, and teams risk being locked into a single vendor. Each tool has different strengths, weaknesses and security controls, and the [tools radar](/ai-toolkit/tools) shows how few are cleared for sensitive work.
+
+It is not always clear whether staff can safely upload OFFICIAL files to a given service. The defaults are set out in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
 
 Many people across Defra want to use AI but cannot reach the most capable tools when they need them.
 
 ## The hypothesis
 
-A Defra-hosted AI stack could give teams one platform that swaps between leading providers such as Anthropic, OpenAI and Microsoft, alongside locally hosted models. Hosting it ourselves keeps data in approved tenancies and regions, which matters for OFFICIAL information that public consumer tools cannot take. It would also give us one place to monitor usage, apply guardrails and enforce safe practice as Defra's use of AI grows.
+A Defra-hosted AI stack could give teams one platform that swaps between leading providers such as Anthropic, OpenAI and Microsoft, alongside locally hosted models.
+
+Hosting it ourselves keeps data in approved tenancies and regions, which matters for OFFICIAL information that public consumer tools cannot take.
+
+It would also give us one place to monitor usage, apply guardrails and enforce safe practice as Defra's use of AI grows.
 
 This is a hypothesis we are testing, not a platform you can use yet.
 
 ## What we found
 
-Getting this type of tool through governance is new for Defra, and that is the hard part, not the engineering. The service must assume sensitive information could be submitted at any time, because we cannot fully control what users type in. There is no fast route to the data access permissions and assurance an open-ended assistant needs, including a DPIA. See [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) and [Security](/ai-toolkit/guidance/security), and talk to AICE early.
+Getting this type of tool through governance is new for Defra, and that is the hard part, not the engineering.
+
+The service must assume sensitive information could be submitted at any time, because we cannot fully control what users type in.
+
+There is no fast route to the data access permissions and assurance an open-ended assistant needs, including a DPIA.
+
+See [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) and [Security](/ai-toolkit/guidance/security), and talk to AICE early.
 
 We are still working out how to support this safely. We are also evaluating off-the-shelf options such as Open WebUI, to see whether an existing tool gets Defra there faster than a bespoke build.
 

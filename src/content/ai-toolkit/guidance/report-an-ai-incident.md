@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -98,8 +98,14 @@ Your line manager and information asset owner will assess how serious it is and 
 
 ## If the incident involved personal data
 
-Personal data needs extra care. As well as the steps above, follow the guidance in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) to remove the data and check nothing else is affected. A personal data breach may need to be reported to the Information Commissioner's Office within 72 hours, so do not delay.
+Personal data needs extra care. As well as the steps above, follow the guidance in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) to remove the data and check nothing else is affected.
+
+A personal data breach may need to be reported to the Information Commissioner's Office within 72 hours, so do not delay.
 
 ## Prevent the next one
 
-Most AI incidents come from a tool seeing data it should not. [Choosing a tool](/ai-toolkit/guidance/choosing-a-tool) covers privacy settings and the everyday tools that have AI built in. [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) sets out what you can put where. Check both before you start.
+Most AI incidents come from a tool seeing data it should not.
+
+[Choosing a tool](/ai-toolkit/guidance/choosing-a-tool) covers privacy settings and the everyday tools that have AI built in. [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) sets out what you can put where.
+
+Check both before you start.

@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -61,17 +61,27 @@ supportBox:
 
 ## Stay accountable
 
-You are responsible for everything AI produces on your behalf. If the output is wrong, biased, or harmful, the responsibility sits with you and your team. Do not treat AI as an authority. Treat it as a tool you must supervise.
+You are responsible for everything AI produces on your behalf. If the output is wrong, biased, or harmful, the responsibility sits with you and your team.
+
+Do not treat AI as an authority. Treat it as a tool you must supervise.
 
 ## Prevent bias
 
-AI models reflect the data they were trained on, which can include biases. Test your AI outputs with diverse scenarios and edge cases. For a Defra service that means testing Welsh-language and assisted-digital users, not just the mainstream path. Look for patterns that disadvantage particular groups. Challenge assumptions in the training data and in your prompts.
+AI models reflect the data they were trained on, which can include biases.
+
+Test your AI outputs with diverse scenarios and edge cases. For a Defra service that means testing Welsh-language and assisted-digital users, not just the mainstream path.
+
+Look for patterns that disadvantage particular groups. Challenge assumptions in the training data and in your prompts.
 
 If an AI feature produces public-facing Welsh content, the Welsh Language Standards still apply. AI does not relieve the duty to treat Welsh no less favourably than English, so machine-translated Welsh needs human quality assurance before it is published.
 
 ## Protect data
 
-Follow UK GDPR and the Data Protection Act 2018. A DPIA is needed before AI processes personal data, and you must use only approved tools that meet Defra's security standards. Do not enter sensitive, personal or classified data into public AI tools. The mechanics live in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).
+Follow UK GDPR and the Data Protection Act 2018.
+
+A DPIA is needed before AI processes personal data, and you must use only approved tools that meet Defra's security standards. Do not enter sensitive, personal or classified data into public AI tools.
+
+The mechanics live in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).
 
 ## Decision framework
 
@@ -89,4 +99,6 @@ If you cannot answer "yes" to all five, change your approach.
 
 Government services depend on public trust. AI introduces new ways for that trust to be lost, through unexplainable decisions, biased outputs or mishandled data. Be transparent about where AI is used in services that affect citizens.
 
-If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). This is mandatory across central government. Talk to AICE if you are not sure whether your tool is in scope.
+If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). This is mandatory across central government.
+
+Talk to AICE if you are not sure whether your tool is in scope.

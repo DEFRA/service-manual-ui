@@ -51,11 +51,15 @@ supportBox:
 
 ## The problem
 
-LLM API providers charge per token, including the models Defra reaches through Amazon Bedrock. As an AI application scales across the department, input token costs scale with it. Large prompts also add latency and use up the available context window. Cutting token usage without losing output quality would lower running costs and energy use, which is one of the levers in [Sustainability](/ai-toolkit/guidance/sustainability).
+LLM API providers charge per token, including the models Defra reaches through Amazon Bedrock. As an AI application scales across the department, input token costs scale with it.
+
+Large prompts also add latency and use up the available context window. Cutting token usage without losing output quality would lower running costs and energy use, which is one of the levers in [Sustainability](/ai-toolkit/guidance/sustainability).
 
 ## The hypothesis
 
-Prompt compression can reduce input tokens by 20 to 60% while preserving output quality. We tested 2 approaches: caveman compression (removing stopwords such as articles and prepositions) and LLMLingua-2 (a transformer model that identifies and removes non-essential tokens). We also tested an "Oreo" structure that protects system instructions and queries while compressing only the middle content.
+Prompt compression can reduce input tokens by 20 to 60% while preserving output quality.
+
+We tested 2 approaches: caveman compression (removing stopwords such as articles and prepositions) and LLMLingua-2 (a transformer model that identifies and removes non-essential tokens). We also tested an "Oreo" structure that protects system instructions and queries while compressing only the middle content.
 
 ## What we found
 
@@ -63,11 +67,17 @@ Caveman compression retained higher output quality than LLMLingua-2, scoring 0.5
 
 The Oreo structure consistently improved results for both methods. Protecting instructions and queries while compressing content gave the best balance of token savings and quality.
 
-One finding cut against the goal. The models produced longer responses when given compressed prompts, which partially offset the input savings. They appear to compensate for less clear input with more verbose output. So measure total tokens, input and output together, not just the input you saved.
+One finding cut against the goal. The models produced longer responses when given compressed prompts, which partially offset the input savings.
+
+They appear to compensate for less clear input with more verbose output. So measure total tokens, input and output together, not just the input you saved.
 
 ## Limitations
 
-This was a small test: 10 prompts on a single model, GPT-4. The quality metrics measured textual similarity, not factual accuracy or whether the task was actually completed, so the savings could come at a cost we did not measure. We did not run a cost-benefit analysis weighing token savings against quality loss. Before relying on compression in a real service, treat output quality as the thing to prove.
+This was a small test: 10 prompts on a single model, GPT-4.
+
+The quality metrics measured textual similarity, not factual accuracy or whether the task was actually completed, so the savings could come at a cost we did not measure.
+
+We did not run a cost-benefit analysis weighing token savings against quality loss. Before relying on compression in a real service, treat output quality as the thing to prove.
 
 ## Project details
 

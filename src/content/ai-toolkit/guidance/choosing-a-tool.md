@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -76,7 +76,9 @@ Anything not on the radar needs an AICE review before you use it on Defra work.
 
 You must turn on privacy settings before using any AI assistant on Defra work.
 
-Privacy settings stop your code and data from being stored on AI providers' servers. They also prevent your data being used to train AI models. In practice this means turning off model training and chat history.
+Privacy settings stop your code and data from being stored on AI providers' servers. They also prevent your data being used to train AI models.
+
+In practice this means turning off model training and chat history.
 
 For tool-specific settings, see the page for your assistant in the [tools radar](/ai-toolkit/tools).
 

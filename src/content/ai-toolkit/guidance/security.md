@@ -17,8 +17,8 @@ sectionNav:
         href: /ai-toolkit/guidance/using-data-with-ai
       - text: Keeping data safe
         href: /ai-toolkit/guidance/keeping-data-safe
-      - text: Shared team knowledge bases
-        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
   - title: Use AI responsibly
     items:
       - text: Security
@@ -94,7 +94,9 @@ Prevent credential leakage by using environment variables and secret management 
 
 ## Treat AI output as untrusted input
 
-Prompt injection, where hidden instructions are buried in the content an AI reads, cannot be fully fixed. The National Cyber Security Centre advises reducing its impact rather than relying on a mitigation that solves it. Never let raw AI output trigger a privileged action on its own. Keep a human approval step between the model and anything that writes to a database, runs a command, or merges code.
+Prompt injection, where hidden instructions are buried in the content an AI reads, cannot be fully fixed. The National Cyber Security Centre advises reducing its impact rather than relying on a mitigation that solves it.
+
+Never let raw AI output trigger a privileged action on its own. Keep a human approval step between the model and anything that writes to a database, runs a command, or merges code.
 
 ## Human review remains essential
 
