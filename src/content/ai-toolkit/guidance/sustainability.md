@@ -1,50 +1,28 @@
 ---
 title: Sustainability
-caption: Responsible AI
+caption: Deliver with AI
 description: AI has environmental cost. How to use it in proportion to the task.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
-  - title: Get started
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: What you can do with AI at Defra
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
-      - text: Choosing models
-        href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
-      - text: Setting up your project
-        href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
+      - text: Tools and data
+        href: /ai-toolkit/guidance/tools-and-data
+      - text: Shared team knowledge bases
+        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: AI in your CI/CD pipeline
+        href: /ai-toolkit/guidance/ai-in-pipelines
+  - title: Using AI responsibly
     items:
-      - text: The AI development workflow
-        href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-toolkit/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-toolkit/guidance/feature-development
-      - text: Rules for AI in your repo
-        href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
-      - text: Cost and tokens
-        href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
-    items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
       - text: Security
         href: /ai-toolkit/guidance/security
+      - text: Ethics
+        href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
       - text: Information governance
@@ -54,13 +32,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +47,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: Sustainability
 supportBox:
   title: Get help with this
@@ -79,11 +57,11 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-AI has environmental costs. Every model call uses energy. Balance the benefits of AI with the need to reduce carbon emissions.
+<p class="govuk-body-l">AI has environmental costs. Every model call uses energy. Balance the benefits of AI with the need to reduce carbon emissions.</p>
 
 ## Use the smallest model that meets your needs
 
-Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. See [Choosing models](/ai-toolkit/guidance/choosing-models) for guidance on matching tasks to the right tier.
+Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the model tiers currently approved at Defra.
 
 ## Deploy AI only when it is genuinely the best option
 

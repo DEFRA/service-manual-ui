@@ -1,3 +1,4 @@
+// Routes for markdown-backed pages. Use AI patterns and Use AI responsibly restructure.
 import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
 
@@ -81,6 +82,8 @@ export const markdownRoutes = [
   '/security',
   '/security/common-tasks',
   '/ai-toolkit',
+  '/ai-toolkit/deliver-with-ai',
+  '/ai-toolkit/run-your-service',
   '/ai-toolkit/getting-started',
   '/ai-toolkit/projects',
   '/ai-toolkit/projects/rpa-guidance',
@@ -92,6 +95,7 @@ export const markdownRoutes = [
   '/ai-toolkit/patterns/green-summarisation',
   '/ai-toolkit/patterns/agent-swarms',
   '/ai-toolkit/patterns/token-optimisation',
+  '/ai-toolkit/patterns/interaction-designer-plugin',
   '/ai-toolkit/prompt-library',
   '/ai-toolkit/tools',
   '/ai-toolkit/tools/github-copilot',
@@ -105,25 +109,14 @@ export const markdownRoutes = [
   '/ai-toolkit/tools/aws-bedrock-agentcore',
   '/ai-toolkit/tools/claude-code-marketplace',
   '/ai-toolkit/tools/git-ai',
-  '/ai-toolkit/guidance',
-  '/ai-toolkit/guidance/welcome',
-  '/ai-toolkit/guidance/choosing-models',
-  '/ai-toolkit/guidance/working-mindset',
-  '/ai-toolkit/guidance/four-pillars',
-  '/ai-toolkit/guidance/setting-up-your-project',
-  '/ai-toolkit/guidance/training-and-resources',
-  '/ai-toolkit/guidance/workflow',
-  '/ai-toolkit/guidance/writing-good-prompts',
-  '/ai-toolkit/guidance/generating-requirements',
-  '/ai-toolkit/guidance/feature-development',
-  '/ai-toolkit/guidance/rules-for-ai',
-  '/ai-toolkit/guidance/mcp-servers',
+  '/ai-toolkit/guidance/tools-and-data',
+  '/ai-toolkit/guidance/team-knowledge-bases',
+  '/ai-toolkit/guidance/ai-in-pipelines',
   '/ai-toolkit/guidance/ethics',
   '/ai-toolkit/guidance/security',
   '/ai-toolkit/guidance/sustainability',
   '/ai-toolkit/guidance/information-governance',
-  '/ai-toolkit/guidance/pii-and-data-handling',
-  '/ai-toolkit/guidance/cost-and-tokens'
+  '/ai-toolkit/guidance/pii-and-data-handling'
 ]
 
 /**
@@ -152,3 +145,4 @@ export const markdownPages = {
     }
   }
 }
+ 

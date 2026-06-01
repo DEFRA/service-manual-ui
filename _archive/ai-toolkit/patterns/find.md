@@ -1,16 +1,26 @@
 ---
-title: Use AI patterns
-caption: AI digital toolkit
-description: Reusable approaches Defra teams have tested with AI. Proofs of concept you can adapt for your own delivery.
+title: Find a pattern
+caption: Deliver with AI
+description: Pick the priority that matches your work and we will point you at the right Defra proof of concept.
 layout: section
-sectionTitle: Use AI patterns
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Use AI patterns
-        href: /ai-toolkit/patterns
-  - title: Proofs of concept
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: What you can do with AI at Defra
     items:
+      - text: Tools and data
+        href: /ai-toolkit/guidance/tools-and-data
+      - text: Shared team knowledge bases
+        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: AI in your CI/CD pipeline
+        href: /ai-toolkit/guidance/ai-in-pipelines
+  - title: Using AI patterns
+    items:
+      - text: Find a pattern
+        href: /ai-toolkit/patterns/find
       - text: AI assistant
         href: /ai-toolkit/patterns/ai-assistant
       - text: Green summarisation
@@ -28,8 +38,8 @@ customNav:
     href: /ai-toolkit/deliver-with-ai
   - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Use AI patterns
-    href: /ai-toolkit/patterns
+  - text: Use AI responsibly
+    href: /ai-toolkit/build-responsibly
   - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
@@ -39,7 +49,9 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Use AI patterns
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a pattern
 supportBox:
   title: Contribute a pattern
   description: If your team has a reusable approach you want to share, AICE can help you write it up.
@@ -47,9 +59,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">Reusable approaches Defra teams have tested with AI. Each one is a proof of concept you can adapt for your own delivery.</p>
-
-## Find a pattern that fits
+<p class="govuk-body-l">Pick the priority that matches your work and we will point you at the right Defra proof of concept.</p>
 
 <div class="app-pattern-finder" data-pattern-finder hidden>
   <form data-pattern-finder-form>
@@ -75,12 +85,8 @@ supportBox:
           <label class="govuk-label govuk-radios__label" for="finder-4">Cutting token cost on AI calls</label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="finder-5" name="finder" type="radio" value="interaction-designer-plugin">
-          <label class="govuk-label govuk-radios__label" for="finder-5">Building an AI tool tailored to a Defra role</label>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="finder-6" name="finder" type="radio" value="none">
-          <label class="govuk-label govuk-radios__label" for="finder-6">None of these, or not sure</label>
+          <input class="govuk-radios__input" id="finder-5" name="finder" type="radio" value="none">
+          <label class="govuk-label govuk-radios__label" for="finder-5">None of these, or not sure</label>
         </div>
       </div>
     </fieldset>
@@ -124,18 +130,9 @@ supportBox:
     <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20token%20optimisation" class="govuk-link">email the team</a> to discuss this for your project.</p>
   </template>
 
-  <template data-pattern-finder-rec="interaction-designer-plugin">
-    <p class="govuk-body-l govuk-!-margin-bottom-2">Try the <strong>Interaction designer plugin</strong></p>
-    <p class="govuk-body">A Claude Code plugin that wraps a guided arc and six leaf skills around a Defra designer's workflow. The architecture transfers to other roles too.</p>
-    <a href="/ai-toolkit/patterns/interaction-designer-plugin" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-      Read the interaction designer plugin pattern
-    </a>
-    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20interaction%20designer%20plugin" class="govuk-link">email the team</a> to discuss this for your project.</p>
-  </template>
-
   <template data-pattern-finder-rec="none">
     <p class="govuk-body-l govuk-!-margin-bottom-2"><strong>Talk to the team</strong></p>
-    <p class="govuk-body">If none of these fits, your work might be a candidate for a new pattern. Email AICE to discuss.</p>
+    <p class="govuk-body">If none of the four fits, your work might be a candidate for a new pattern. Email AICE to discuss.</p>
     <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
       Email the team
     </a>
@@ -143,63 +140,5 @@ supportBox:
 </div>
 
 <noscript>
-<p class="govuk-body">The interactive finder needs JavaScript. Browse all patterns below instead.</p>
+<p class="govuk-body">The interactive finder needs JavaScript. <a href="/ai-toolkit/deliver-with-ai#using-ai-patterns" class="govuk-link">Browse all four patterns</a> instead.</p>
 </noscript>
-
-## All patterns
-
-<ul class="defra-tile-grid">
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/ai-assistant" class="defra-tile__link">AI assistant</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">A single Defra interface to multiple AI providers, with consistent guardrails.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/green-summarisation" class="defra-tile__link">Green summarisation</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Reducing the energy use of AI workloads with smaller, local models.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/agent-swarms" class="defra-tile__link">Agent swarms</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Higher-quality analysis through multiple specialist agents working together.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/token-optimisation" class="defra-tile__link">Token optimisation</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">Cutting token cost on repeat AI calls through prompt compression.</p>
-    </div>
-  </li>
-  <li>
-    <div class="defra-tile">
-      <span class="govuk-caption-m">Proof of concept</span>
-      <h3 class="govuk-heading-m defra-tile__title">
-        <a href="/ai-toolkit/patterns/interaction-designer-plugin" class="defra-tile__link">Interaction designer plugin</a>
-      </h3>
-      <p class="govuk-body defra-tile__body">A Claude Code plugin that takes a Defra designer from verbal brief to GOV.UK-styled HTML preview.</p>
-    </div>
-  </li>
-</ul>
-
-## Where else to look
-
-<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><a href="/ai-toolkit/deliver-with-ai" class="govuk-link">Deliver with AI</a>. Permissions, set-up and responsibility rules for Defra delivery teams.</li>
-<li><a href="/ai-toolkit/tools" class="govuk-link">Find a tool</a>. The tools radar.</li>
-<li><a href="/ai-toolkit/projects" class="govuk-link">Learn from others</a>. What AICE is building with Defra teams.</li>
-</ul>

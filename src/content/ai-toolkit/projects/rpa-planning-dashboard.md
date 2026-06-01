@@ -7,7 +7,7 @@ sectionTitle: RPA planning dashboard
 sectionNav:
   - title: In this section
     items:
-      - text: Projects
+      - text: Learn from others
         href: /ai-toolkit/projects
   - title: In progress
     items:
@@ -24,13 +24,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -39,7 +39,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
   - text: RPA planning dashboard
 supportBox:

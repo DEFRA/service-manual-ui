@@ -1,50 +1,28 @@
 ---
 title: PII and data handling
-caption: Responsible AI
+caption: Deliver with AI
 description: Personal data must be removed before any AI sees it. Mandatory pre-processing rules and how to verify the output.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
-  - title: Get started
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: What you can do with AI at Defra
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
-      - text: Choosing models
-        href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
-      - text: Setting up your project
-        href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
+      - text: Tools and data
+        href: /ai-toolkit/guidance/tools-and-data
+      - text: Shared team knowledge bases
+        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: AI in your CI/CD pipeline
+        href: /ai-toolkit/guidance/ai-in-pipelines
+  - title: Using AI responsibly
     items:
-      - text: The AI development workflow
-        href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-toolkit/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-toolkit/guidance/feature-development
-      - text: Rules for AI in your repo
-        href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
-      - text: Cost and tokens
-        href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
-    items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
       - text: Security
         href: /ai-toolkit/guidance/security
+      - text: Ethics
+        href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
       - text: Information governance
@@ -54,13 +32,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +47,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: PII and data handling
 supportBox:
   title: Get help with this
@@ -79,7 +57,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=PII%20and%20data%20handling" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-Personally identifiable information (PII) needs special care when working with AI. The rules on this page are mandatory.
+<p class="govuk-body-l">Personally identifiable information (PII) needs special care when working with AI. The rules on this page are mandatory.</p>
 
 ## Remove PII before any AI processing
 
@@ -87,23 +65,27 @@ You must remove all personally identifiable information from any input before it
 
 That includes:
 
-- transcripts of interviews or user research sessions
-- screenshots and screen recordings
-- log files and diagnostic data
-- emails, tickets and free-text fields
-- test data taken from production
-- configuration files and connection strings
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>transcripts of interviews or user research sessions</li>
+<li>screenshots and screen recordings</li>
+<li>log files and diagnostic data</li>
+<li>emails, tickets and free-text fields</li>
+<li>test data taken from production</li>
+<li>configuration files and connection strings</li>
+</ul>
 
 ## What counts as PII
 
 PII is any data that could identify a specific individual, alone or in combination with other data. That includes:
 
-- names
-- email addresses, phone numbers and physical addresses
-- usernames and customer IDs that link to a person
-- IP addresses and device identifiers
-- date of birth and other identifiers
-- photographs of identifiable people
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>names</li>
+<li>email addresses, phone numbers and physical addresses</li>
+<li>usernames and customer IDs that link to a person</li>
+<li>IP addresses and device identifiers</li>
+<li>date of birth and other identifiers</li>
+<li>photographs of identifiable people</li>
+</ul>
 
 Some types of data are sensitive PII (for example, health data, biometric data, financial data) and need extra protection on top of the general rules.
 
@@ -119,19 +101,23 @@ Whichever tool or process you use to remove PII, **someone on the team must veri
 
 Verify that no PII remains in:
 
-- curated transcripts
-- HTML mockups generated from screenshots
-- test data and fixtures
-- any file you commit to a public or shared repository
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>curated transcripts</li>
+<li>HTML mockups generated from screenshots</li>
+<li>test data and fixtures</li>
+<li>any file you commit to a public or shared repository</li>
+</ul>
 
 ## Source code can also contain PII
 
 It is not just transcripts and screenshots. Source code itself can contain PII through:
 
-- configuration files with real email addresses or names
-- connection strings with usernames
-- test data hard-coded into tests
-- sample payloads in API documentation
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>configuration files with real email addresses or names</li>
+<li>connection strings with usernames</li>
+<li>test data hard-coded into tests</li>
+<li>sample payloads in API documentation</li>
+</ul>
 
 Review source code before committing it to a repository the AI will read.
 

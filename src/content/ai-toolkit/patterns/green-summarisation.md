@@ -3,32 +3,34 @@ title: Green summarisation
 caption: Proof of concept
 description: A proof of concept from the AI Capability and Enablement team.
 layout: section
-sectionTitle: Patterns
+sectionTitle: Use AI patterns
 sectionNav:
   - title: In this section
     items:
-      - text: Patterns
+      - text: Use AI patterns
         href: /ai-toolkit/patterns
   - title: Proofs of concept
     items:
-      - text: Agent swarms
-        href: /ai-toolkit/patterns/agent-swarms
       - text: AI assistant
         href: /ai-toolkit/patterns/ai-assistant
       - text: Green summarisation
         href: /ai-toolkit/patterns/green-summarisation
+      - text: Agent swarms
+        href: /ai-toolkit/patterns/agent-swarms
       - text: Token optimisation
         href: /ai-toolkit/patterns/token-optimisation
+      - text: Interaction designer plugin
+        href: /ai-toolkit/patterns/interaction-designer-plugin
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -37,7 +39,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
   - text: Green summarisation
 supportBox:

@@ -3,64 +3,48 @@ title: MCP servers and integrations
 caption: Working with AI
 description: How to use Model Context Protocol safely. What is approved at Defra, what is not, and how to integrate it with your work.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
   - title: Get started
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
       - text: Choosing models
         href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
       - text: Setting up your project
         href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
+  - title: Day-to-day delivery
     items:
       - text: The AI development workflow
         href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
       - text: Generating requirements
         href: /ai-toolkit/guidance/generating-requirements
       - text: Feature development with AI
         href: /ai-toolkit/guidance/feature-development
       - text: Rules for AI in your repo
         href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
       - text: Cost and tokens
         href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
+  - title: Patterns
     items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
-      - text: Security
-        href: /ai-toolkit/guidance/security
-      - text: Sustainability
-        href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Browse all patterns
+        href: /ai-toolkit/patterns
+  - title: Agents and integrations
+    items:
+      - text: MCP servers and integrations
+        href: /ai-toolkit/guidance/mcp-servers
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Use AI responsibly
+    href: /ai-toolkit/build-responsibly
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +53,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: MCP servers and integrations
 supportBox:
   title: Get help with this
@@ -233,7 +217,7 @@ These MCP servers are approved for use in Defra. Do not use other MCP servers un
 <li>Enable MCP at enterprise level for secure access to approved systems</li>
 <li>Configure your IDE or assistant to use only trusted vendor MCP servers</li>
 <li>Keep humans in control of tool calls and merging changes</li>
-<li>Combine MCP with the <a href="/ai-toolkit/guidance/four-pillars" class="govuk-link">four pillars</a>: clear requirements, good prompts, rules and instructions, capable model</li>
+<li>Combine MCP with clear requirements, good prompts, rules and instructions, and a capable model</li>
 </ul>
 
 </div>
