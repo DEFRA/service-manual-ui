@@ -23,7 +23,7 @@ Generated: 2026-05-29T10:19:47.560Z
 - `src/content/ai-toolkit/guidance/information-governance.md`
 - `src/content/ai-toolkit/guidance/mcp-servers.md`
 - `src/content/ai-toolkit/guidance/pii-and-data-handling.md`
-- ... and 41 more
+- _... and 41 more (list intentionally truncated; use repository search for the complete set)_
 
 ## SectionNav Patterns
 

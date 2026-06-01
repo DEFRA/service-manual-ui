@@ -32,10 +32,16 @@ function loadNavigationConfig() {
     return navigationConfig
   } catch (error) {
     const logger = createLogger()
+    navigationConfig = {} // cache "disabled" state so we don't keep re-reading
     logger.warn(
+      buildErrorLog(error, {
+        type: 'navigation_load',
+        action: 'read',
+        reference: NAV_CONFIG_PATH
+      }),
       `Navigation config not found at ${NAV_CONFIG_PATH}. Nav resolution disabled.`
     )
-    return {}
+    return navigationConfig
   }
 }
 
@@ -46,16 +52,20 @@ function loadNavigationConfig() {
  * @returns {Array|undefined} Resolved navigation array or original value
  */
 function resolveNavReference(navValue, navType = 'navigation') {
-  // If it's already an array, return as-is (backward compatible)
   if (Array.isArray(navValue)) {
     return navValue
   }
 
-  // If it's a string, resolve it from the config
   if (typeof navValue === 'string') {
     const navConfig = loadNavigationConfig()
 
-    if (!navConfig[navValue]) {
+    // If navConfig is empty (loading disabled), skip resolution to avoid breaking rendering
+    if (!navConfig || Object.keys(navConfig).length === 0) {
+      return navValue
+    }
+
+    // Use own-property check to distinguish missing keys from falsy values
+    if (!Object.prototype.hasOwnProperty.call(navConfig, navValue)) {
       throw new Error(
         `Navigation reference "${navValue}" not found in navigation.yaml (${navType})`
       )
@@ -64,7 +74,6 @@ function resolveNavReference(navValue, navType = 'navigation') {
     return navConfig[navValue]
   }
 
-  // If it's undefined, null, or any other type, return as-is
   return navValue
 }
 
@@ -95,7 +104,6 @@ export function loadContent(filename) {
       content
     }
   } catch (error) {
-    const logger = createLogger()
     logger.error(
       buildErrorLog(error, {
         type: 'content_load',

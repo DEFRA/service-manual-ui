@@ -8,7 +8,7 @@ Navigation components are centrally managed in `src/config/navigation.yaml` to e
 
 1. **Single source of truth**: All navigation patterns are defined in `src/config/navigation.yaml`
 2. **Reference by key**: Markdown files reference navigation using a string key (e.g., `nav-ai-toolkit`)
-3. **Build-time resolution**: `content-loader.js` resolves references at build time and injects the full structure
+3. **Request-time resolution**: `content-loader.js` resolves references when pages are requested and injects the full structure
 4. **Backward compatible**: Still accepts inline arrays if needed
 
 ---
@@ -28,9 +28,7 @@ sectionNav: nav-ai-guidance # References the guidance sidebar
 ---
 ```
 
-2. Update `nav-usage-map.md` to register the new file under the nav patterns it uses.
-
-That's it — no changes to `navigation.yaml` are needed when adding a page to an existing section.
+2. (Optional) Regenerate or update `docs/nav-usage-map.md` if you want the usage map to stay current.
 
 ---
 
