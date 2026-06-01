@@ -21,7 +21,7 @@ let navigationConfig = null
  * Load navigation configuration from YAML file
  * @returns {Object} Navigation configuration object
  */
-function loadNavigationConfig() {
+function loadNavigationConfig () {
   if (navigationConfig) {
     return navigationConfig
   }
@@ -51,7 +51,7 @@ function loadNavigationConfig() {
  * @param {string} navType - Type of nav ('customNav' or 'sectionNav') for error messages
  * @returns {Array|undefined} Resolved navigation array or original value
  */
-function resolveNavReference(navValue, navType = 'navigation') {
+function resolveNavReference (navValue, navType = 'navigation') {
   if (Array.isArray(navValue)) {
     return navValue
   }
@@ -77,7 +77,7 @@ function resolveNavReference(navValue, navType = 'navigation') {
   return navValue
 }
 
-export function loadContent(filename) {
+export function loadContent (filename) {
   const logger = createLogger()
   const fullPath = path.join(CONTENT_DIR, filename)
 
