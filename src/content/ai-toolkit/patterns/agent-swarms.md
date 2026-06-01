@@ -59,7 +59,7 @@ A swarm of specialist AI agents, coordinated by a central orchestrator, can prod
 
 ## What we found
 
-We built a managed swarm using Pydantic AI and Amazon Bedrock. An orchestrator directed 3 specialist agents to analyse farming policy documents:
+We built a managed swarm using Pydantic AI and Amazon Bedrock, the route Defra uses to reach approved models. An orchestrator directed 3 specialist agents to analyse farming policy documents:
 
 - a **critique agent** evaluated writing clarity, structure and tone
 - a **gap analysis agent** identified missing information
@@ -67,11 +67,11 @@ We built a managed swarm using Pydantic AI and Amazon Bedrock. An orchestrator d
 
 The orchestrator chose which agent to engage based on the discussion, not a fixed sequence. All agents shared the full conversation history, so each could reference and build on what others found.
 
-Adding a 'human-in-the-loop' step let reviewers approve the analysis or send it back for further work. Tool call limits prevented runaway execution.
+Adding a 'human-in-the-loop' step let reviewers approve the analysis or send it back for further work. Tool call limits prevented runaway execution. Both matter when several agents act with some autonomy: keep a person accountable for the output, and constrain what the agents can reach. [Security](/ai-toolkit/guidance/security) covers the controls to think through before agents touch anything beyond a document. If the documents hold anything sensitive, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) first.
 
 ## Limitations
 
-We only tested 2 Claude model variants. Quality benchmarking metrics are not yet defined. UX patterns for human-supervised agent workflows need further development.
+This is a proof of concept, not a service. We tested only 2 Claude model variants, and we have not yet defined how to benchmark the quality of the analysis the swarm produces. The UX patterns for human-supervised agent workflows also need more work. Talk to AICE before taking anything like this into production.
 
 ## Project details
 

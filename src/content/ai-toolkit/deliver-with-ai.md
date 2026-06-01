@@ -15,16 +15,10 @@ sectionNav:
         href: /ai-toolkit/guidance/choosing-a-tool
       - text: Using data with AI
         href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
-  - title: Build an AI service
-    items:
-      - text: Get approval before you build
-        href: /ai-toolkit/guidance/get-approval
-      - text: AI in your CI/CD pipeline
-        href: /ai-toolkit/guidance/ai-in-pipelines
-      - text: Test and assure your AI service
-        href: /ai-toolkit/guidance/test-and-assure
   - title: Use AI responsibly
     items:
       - text: Security
@@ -33,10 +27,6 @@ sectionNav:
         href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
       - text: Report an AI incident
         href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
@@ -67,45 +57,41 @@ supportBox:
 
 <p class="govuk-body-l">This guidance is for digital delivery teams building with AI on Defra services. It is run by the AI Capability and Enablement team (AICE).</p>
 
-## This is one part of a wider Defra AI landscape
+<p class="govuk-body">It applies the <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government" class="govuk-link">AI Playbook for the UK Government</a> to the way Defra delivers, so the rules here line up with the ten principles all government teams follow.</p>
 
-<p class="govuk-body">Several teams across Defra work on AI. If your work is closer to one of these areas, start there instead.</p>
-
-<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><strong>AI training for all staff.</strong> Civil Service Learning courses and safe-use guidance. Complete this before using AI on Defra work. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-and-Guidance.aspx" class="govuk-link">AI training and guidance page on SharePoint</a>.</li>
-<li><strong>AI policy and governance.</strong> Defra-wide policy on what is allowed and what needs sign-off. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx" class="govuk-link">AI governance page on SharePoint</a>.</li>
-<li><strong>CDP and Amazon Bedrock.</strong> Approved models, guardrails and cost controls for the Defra Bedrock integration. See the <a href="https://portal.cdp-int.defra.cloud/documentation" class="govuk-link">CDP documentation</a>.</li>
-<li><strong>AI in arm's length bodies.</strong> Environment Agency, Natural England, APHA, RPA, MMO and others run their own AI work. Check your organisation's own guidance first.</li>
-</ul>
-
-<p class="govuk-body">Not sure where your work fits? Email AICE at <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Where%20does%20my%20AI%20work%20fit" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a> and we will point you to the right place.</p>
+<details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">Not a digital delivery team? Find where your work fits</span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body">Several teams across Defra work on AI. If your work is closer to one of these areas, start there instead.</p>
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <li><strong>AI training for all staff.</strong> Civil Service Learning courses and safe-use guidance. Complete this before using AI on Defra work. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-and-Guidance.aspx" class="govuk-link">AI training and guidance page on SharePoint</a>.</li>
+    <li><strong>AI policy and governance.</strong> Defra-wide policy on what is allowed and what needs sign-off. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx" class="govuk-link">AI governance page on SharePoint</a>.</li>
+    <li><strong>CDP and Amazon Bedrock.</strong> Approved models, guardrails and cost controls for the Defra Bedrock integration. See the <a href="https://portal.cdp-int.defra.cloud/documentation" class="govuk-link">CDP documentation</a>.</li>
+    <li><strong>AI in arm's length bodies.</strong> Environment Agency, Natural England, APHA, RPA, MMO and others run their own AI work. Check your organisation's own guidance first.</li>
+    </ul>
+    <p class="govuk-body">Still not sure? Email AICE at <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Where%20does%20my%20AI%20work%20fit" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a> and we will point you to the right place.</p>
+  </div>
+</details>
 
 ## Choose tools and use data
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>. Check a tool is approved, turn on privacy settings, spot the AI hidden in everyday tools.</li>
 <li><a href="/ai-toolkit/guidance/using-data-with-ai" class="govuk-link">Using data with AI</a>. What you can put where, by data classification.</li>
+<li><a href="/ai-toolkit/guidance/keeping-data-safe" class="govuk-link">Keeping data safe</a>. Classification, where your data goes, and removing personal data.</li>
 <li><a href="/ai-toolkit/guidance/team-knowledge-bases" class="govuk-link">Shared team knowledge bases</a>. Approved patterns for AI-queryable team content.</li>
-</ul>
-
-## Build an AI service
-
-<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><a href="/ai-toolkit/guidance/get-approval" class="govuk-link">Get approval before you build</a>. Spend controls, DPIA, ATRS and service assessment.</li>
-<li><a href="/ai-toolkit/guidance/ai-in-pipelines" class="govuk-link">AI in your CI/CD pipeline</a>. What is and isn't allowed for agents in build, test and deploy.</li>
-<li><a href="/ai-toolkit/guidance/test-and-assure" class="govuk-link">Test and assure your AI service</a>. How to evaluate, guardrail and monitor an AI service before and after launch.</li>
 </ul>
 
 ## Use AI responsibly
 
-<p class="govuk-body">The responsibility side of building AI services at Defra. Use these alongside the rules above, not after.</p>
+<p class="govuk-body">The responsibility side of using AI at Defra. Use these alongside the rules above, not after.</p>
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><a href="/ai-toolkit/guidance/security" class="govuk-link">Security</a>. Keeping AI-generated code, secrets and your environment secure.</li>
-<li><a href="/ai-toolkit/guidance/ethics" class="govuk-link">Ethics</a>. Accountability, bias and public trust.</li>
+<li><a href="/ai-toolkit/guidance/ethics" class="govuk-link">Ethics</a>. Accountability, bias, transparency and public trust.</li>
 <li><a href="/ai-toolkit/guidance/sustainability" class="govuk-link">Sustainability</a>. Using AI in proportion to the task.</li>
-<li><a href="/ai-toolkit/guidance/information-governance" class="govuk-link">Information governance</a>. OFFICIAL classification and data protection.</li>
-<li><a href="/ai-toolkit/guidance/pii-and-data-handling" class="govuk-link">PII and data handling</a>. What to redact before any AI sees it.</li>
 <li><a href="/ai-toolkit/guidance/report-an-ai-incident" class="govuk-link">Report an AI incident</a>. What to do if data has been shared with AI inappropriately.</li>
 </ul>
 

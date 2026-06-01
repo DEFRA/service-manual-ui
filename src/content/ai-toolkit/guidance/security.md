@@ -15,16 +15,10 @@ sectionNav:
         href: /ai-toolkit/guidance/choosing-a-tool
       - text: Using data with AI
         href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
-  - title: Build an AI service
-    items:
-      - text: Get approval before you build
-        href: /ai-toolkit/guidance/get-approval
-      - text: AI in your CI/CD pipeline
-        href: /ai-toolkit/guidance/ai-in-pipelines
-      - text: Test and assure your AI service
-        href: /ai-toolkit/guidance/test-and-assure
   - title: Use AI responsibly
     items:
       - text: Security
@@ -33,10 +27,6 @@ sectionNav:
         href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
       - text: Report an AI incident
         href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:

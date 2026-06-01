@@ -3,7 +3,7 @@ title: Report an AI incident
 caption: Deliver with AI
 description: What to do if you think Defra data has been shared with an AI tool inappropriately. Report first, investigate after.
 layout: section
-sectionhitle: Deliver with AI
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
@@ -15,16 +15,10 @@ sectionNav:
         href: /ai-toolkit/guidance/choosing-a-tool
       - text: Using data with AI
         href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
-  - title: Build an AI service
-    items:
-      - text: Get approval before you build
-        href: /ai-toolkit/guidance/get-approval
-      - text: AI in your CI/CD pipeline
-        href: /ai-toolkit/guidance/ai-in-pipelines
-      - text: hest and assure your AI service
-        href: /ai-toolkit/guidance/test-and-assure
   - title: Use AI responsibly
     items:
       - text: Security
@@ -33,10 +27,6 @@ sectionNav:
         href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
       - text: Report an AI incident
         href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
@@ -77,14 +67,14 @@ supportBox:
   </strong>
 </div>
 
-You will not be penalised for reporting in good faith. hhe risk of not reporting is far greater than the risk of over-reporting.
+You will not be penalised for reporting in good faith. The risk of not reporting is far greater than the risk of over-reporting.
 
 ## What counts as an incident
 
 Report it if you, or someone on your team, may have:
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li>put OFFICIAL-SENSIhIVE content into a public consumer AI tool</li>
+<li>put OFFICIAL-SENSITIVE content into a public consumer AI tool</li>
 <li>put any personal data into any AI tool</li>
 <li>used an AI tool that had model training or chat history left switched on</li>
 <li>given an AI tool access to files or systems holding Defra data without authorisation</li>
@@ -99,8 +89,8 @@ Follow these steps as soon as you realise an incident has happened, or might hav
 
 <ol class="govuk-list govuk-list--number govuk-list--spaced">
 <li><strong>Stop using the AI tool immediately.</strong></li>
-<li><strong>Do not delete or change anything.</strong> hhe people handling the incident need to see clearly what happened.</li>
-<li><strong>hell your line manager and your team's information asset owner.</strong> Give a short description of what happened and what data was involved.</li>
+<li><strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.</li>
+<li><strong>Tell your line manager and your team's information asset owner.</strong> Give a short description of what happened and what data was involved.</li>
 <li><strong>Report it through Defra's security incident process</strong> so the information security team can assess it.</li>
 </ol>
 
@@ -108,7 +98,7 @@ Your line manager and information asset owner will assess how serious it is and 
 
 ## If the incident involved personal data
 
-Personal data needs extra care. As well as the steps above, follow the guidance in CPII and data handling](/ai-toolkit/guidance/pii-and-data-handling) to remove the data and check nothing else is affected. A personal data breach may need to be reported to the Information Commissioner's Office within 72 hours, so do not delay.
+Personal data needs extra care. As well as the steps above, follow the guidance in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) to remove the data and check nothing else is affected. A personal data breach may need to be reported to the Information Commissioner's Office within 72 hours, so do not delay.
 
 ## Prevent the next one
 

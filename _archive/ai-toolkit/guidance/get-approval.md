@@ -29,14 +29,12 @@ sectionNav:
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
       - text: Ethics
         href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
       - text: Report an AI incident
         href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
@@ -79,7 +77,7 @@ HM Treasury approval is needed for spend that is **novel**, and using AI where y
 
 ## Do a DPIA if you touch personal data
 
-If your service will process personal data, a Data Protection Impact Assessment (DPIA) is required before any processing begins. Treat it as a near-certainty for AI, because AI usually meets the criteria that make a DPIA mandatory. See [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling).
+If your service will process personal data, a Data Protection Impact Assessment (DPIA) is required before any processing begins. Treat it as a near-certainty for AI, because AI usually meets the criteria that make a DPIA mandatory. See [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).
 
 ## Check if you need an ATRS record
 

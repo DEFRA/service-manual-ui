@@ -15,16 +15,10 @@ sectionNav:
         href: /ai-toolkit/guidance/choosing-a-tool
       - text: Using data with AI
         href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
-  - title: Build an AI service
-    items:
-      - text: Get approval before you build
-        href: /ai-toolkit/guidance/get-approval
-      - text: AI in your CI/CD pipeline
-        href: /ai-toolkit/guidance/ai-in-pipelines
-      - text: Test and assure your AI service
-        href: /ai-toolkit/guidance/test-and-assure
   - title: Use AI responsibly
     items:
       - text: Security
@@ -33,10 +27,6 @@ sectionNav:
         href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
       - text: Report an AI incident
         href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
@@ -149,7 +139,7 @@ The columns are not interchangeable. Check which one your tool actually is befor
 
 Do not put OFFICIAL-SENSITIVE content, personal data or anything above OFFICIAL into a public consumer tool. Use an enterprise tool in the Defra tenant.
 
-OFFICIAL-SENSITIVE and personal data are only allowed with the approvals set out in [Information governance](/ai-toolkit/guidance/information-governance), including a DPIA where personal data is involved.
+OFFICIAL-SENSITIVE and personal data are only allowed with the approvals set out in [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe), including a DPIA where personal data is involved.
 
 ## If you do not know how your data is classified
 
@@ -157,6 +147,4 @@ Ask your project's information asset owner, or talk to AICE. If you do not know 
 
 ## What to do next
 
-For data handling rules in detail, see [Information governance](/ai-toolkit/guidance/information-governance) and [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling).
-
-If you are working with agents in a build pipeline, see [AI in your CI/CD pipeline](/ai-toolkit/guidance/ai-in-pipelines).
+For data handling rules in detail, see [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

@@ -112,14 +112,10 @@ export const markdownRoutes = [
   '/ai-toolkit/guidance/choosing-a-tool',
   '/ai-toolkit/guidance/using-data-with-ai',
   '/ai-toolkit/guidance/team-knowledge-bases',
-  '/ai-toolkit/guidance/get-approval',
-  '/ai-toolkit/guidance/ai-in-pipelines',
-  '/ai-toolkit/guidance/test-and-assure',
   '/ai-toolkit/guidance/ethics',
   '/ai-toolkit/guidance/security',
   '/ai-toolkit/guidance/sustainability',
-  '/ai-toolkit/guidance/information-governance',
-  '/ai-toolkit/guidance/pii-and-data-handling',
+  '/ai-toolkit/guidance/keeping-data-safe',
   '/ai-toolkit/guidance/report-an-ai-incident'
 ]
 

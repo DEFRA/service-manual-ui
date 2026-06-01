@@ -51,7 +51,7 @@ supportBox:
 
 ## The problem
 
-LLM API providers charge per token. As AI applications scale, input token costs grow with them. Large prompts also increase latency and consume more of the available context window. Reducing token usage without losing output quality would cut costs, speed up responses and lower energy consumption.
+LLM API providers charge per token, including the models Defra reaches through Amazon Bedrock. As an AI application scales across the department, input token costs scale with it. Large prompts also add latency and use up the available context window. Cutting token usage without losing output quality would lower running costs and energy use, which is one of the levers in [Sustainability](/ai-toolkit/guidance/sustainability).
 
 ## The hypothesis
 
@@ -63,11 +63,11 @@ Caveman compression retained higher output quality than LLMLingua-2, scoring 0.5
 
 The Oreo structure consistently improved results for both methods. Protecting instructions and queries while compressing content gave the best balance of token savings and quality.
 
-An unexpected finding: LLMs produced longer responses when given compressed prompts. This partially offset the input savings. The models appear to compensate for less clear input with more verbose output.
+One finding cut against the goal. The models produced longer responses when given compressed prompts, which partially offset the input savings. They appear to compensate for less clear input with more verbose output. So measure total tokens, input and output together, not just the input you saved.
 
 ## Limitations
 
-We tested only 10 prompts on a single model (GPT-4). Quality metrics measured textual similarity but not factual accuracy or task completion. A cost-benefit analysis comparing token savings against quality loss was not performed.
+This was a small test: 10 prompts on a single model, GPT-4. The quality metrics measured textual similarity, not factual accuracy or whether the task was actually completed, so the savings could come at a cost we did not measure. We did not run a cost-benefit analysis weighing token savings against quality loss. Before relying on compression in a real service, treat output quality as the thing to prove.
 
 ## Project details
 
