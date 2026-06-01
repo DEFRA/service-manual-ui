@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -65,11 +75,13 @@ You are responsible for everything AI produces on your behalf. If the output is 
 
 ## Prevent bias
 
-AI models reflect the data they were trained on, which can include biases. Test your AI outputs with diverse scenarios and edge cases. Look for patterns that disadvantage particular groups. Challenge assumptions in the training data and in your prompts.
+AI models reflect the data they were trained on, which can include biases. Test your AI outputs with diverse scenarios and edge cases. For a Defra service that means testing Welsh-language and assisted-digital users, not just the mainstream path. Look for patterns that disadvantage particular groups. Challenge assumptions in the training data and in your prompts.
+
+If an AI feature produces public-facing Welsh content, the Welsh Language Standards still apply. AI does not relieve the duty to treat Welsh no less favourably than English, so machine-translated Welsh needs human quality assurance before it is published.
 
 ## Protect data
 
-Follow GDPR and government data handling rules at all times. Do not enter sensitive, personal, or classified data into public AI tools. Use only approved tools that meet Defra's security standards. See [Information governance](/ai-toolkit/guidance/information-governance) and [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling).
+Follow UK GDPR and the Data Protection Act 2018. A DPIA is needed before AI processes personal data, and you must use only approved tools that meet Defra's security standards. Do not enter sensitive, personal or classified data into public AI tools. The mechanics live in [Information governance](/ai-toolkit/guidance/information-governance) and [PII and data handling](/ai-toolkit/guidance/pii-and-data-handling).
 
 ## Decision framework
 
@@ -83,6 +95,8 @@ Before using AI on a task, ask yourself these five questions:
 
 If you cannot answer "yes" to all five, change your approach.
 
-## Public trust
+## Public trust and transparency
 
-Government services depend on public trust. AI introduces new ways for that trust to be lost. Through unexplainable decisions, biased outputs or mishandled data. Be transparent about where AI is used in services that affect citizens.
+Government services depend on public trust. AI introduces new ways for that trust to be lost, through unexplainable decisions, biased outputs or mishandled data. Be transparent about where AI is used in services that affect citizens.
+
+If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). This is mandatory across central government. Talk to AICE if you are not sure whether your tool is in scope.

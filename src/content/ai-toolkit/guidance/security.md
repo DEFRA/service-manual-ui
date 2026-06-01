@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -59,17 +69,30 @@ supportBox:
 
 <p class="govuk-body-l">AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.</p>
 
+AI-authored code is held to the same standard as anything else you ship. It must clear the same Defra security gates as hand-written code, and an AI feature still faces a service assessment.
+
 ## Review for known vulnerabilities
 
 AI models may produce code with common security flaws such as injection attacks, insecure deserialisation, or broken access controls. Review generated code against the OWASP Top 10 and other relevant security benchmarks.
 
 ## Check for embedded credentials
 
-AI sometimes hardcodes API keys, passwords, or tokens into generated code. Always scan output for secrets before committing. Use secret detection tools as part of your CI pipeline.
+AI sometimes hardcodes API keys, passwords, or tokens into generated code. Always scan output for secrets before committing. Keep the secret scanning in your Core Delivery Platform (CDP) pipeline switched on so this is caught automatically.
+
+## Stop AI coding tools reading secrets
+
+AI coding assistants index your whole project directory, which means they can read `.env` files, credentials and config. Add an ignore file so the assistant skips anything sensitive:
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>GitHub Copilot: <code>.github/copilot-ignore</code></li>
+<li>Cursor: <code>.cursorignore</code></li>
+</ul>
+
+The same applies to any tool that can read your files or terminal, not just chat windows where you paste text.
 
 ## Use static analysis
 
-Run Static Application Security Testing (SAST) tools on all generated code. These catch security issues that manual review might miss. Integrate SAST into your build process so every change is checked automatically.
+Run SonarQube, Defra's static analysis gate, on all AI-generated code. It catches security issues that manual review might miss. AI-authored code must pass it before merge, exactly like hand-written code.
 
 ## Scan dependencies
 
@@ -79,6 +102,10 @@ AI may suggest packages that are outdated or have known vulnerabilities. Use Sof
 
 Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Be cautious with AI tools that require broad access to your codebase or environment.
 
+## Treat AI output as untrusted input
+
+Prompt injection, where hidden instructions are buried in the content an AI reads, cannot be fully fixed. The National Cyber Security Centre advises reducing its impact rather than relying on a mitigation that solves it. Never let raw AI output trigger a privileged action on its own. Keep a human approval step between the model and anything that writes to a database, runs a command, or merges code.
+
 ## Human review remains essential
 
-Automated tools catch a lot but not everything. A human review of AI-generated code remains essential, especially for security-critical paths. Pair on the review when you can.
+Automated tools catch a lot but not everything. A human review of AI-generated code remains essential, especially for security-critical paths. For security-critical paths, a second reviewer is required.

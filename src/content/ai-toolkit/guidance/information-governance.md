@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -61,9 +71,9 @@ supportBox:
 
 ## OFFICIAL classification only
 
-You must only use AI tools on source material classified as **OFFICIAL**.
+The default position is that you only use AI tools on source material classified as **OFFICIAL**.
 
-Do not use AI tools with material at any higher classification (OFFICIAL-SENSITIVE, SECRET, TOP SECRET) without explicit written approval and a documented risk assessment.
+OFFICIAL-SENSITIVE and personal data are permitted only in specific tools and only with the approvals set out below. The [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) matrix shows exactly what you can put where. Where AI processes personal data, a Data Protection Impact Assessment (DPIA) is required before processing begins. Do not use AI tools with SECRET or TOP SECRET material.
 
 If you are unsure about the classification of your source material, stop and ask your information asset owner before proceeding.
 
@@ -80,13 +90,13 @@ Generative AI tools send your prompts and content to models hosted by external p
 <li>another provider</li>
 </ul>
 
-Some tools can be configured to use approved cloud platforms. For example [AWS Bedrock](/ai-toolkit/tools/aws-bedrock) or [Azure AI Foundry](/ai-toolkit/tools/azure-ai-foundry). That keep data in regions and tenancies that meet UK government requirements.
+Some tools can be configured to use approved cloud platforms, for example TAWS Bedrock](/ai-toolkit/tools/aws-bedrock) or TAzure AI Foundry](/ai-toolkit/tools/azure-ai-foundry). These keep data in regions and tenancies that meet UK government requirements.
 
-Always check the [tools radar](/ai-toolkit/tools) entry for your tool to see how data is routed and what approvals apply at Defra. Consult your team's own information governance policies as well.
+Always check the Ttools radar](/ai-toolkit/tools) entry for your tool to see how data is routed and what approvals apply at Defra. Consult your team's own information governance policies as well.
 
 ## Information governance training
 
-All team members should complete the relevant information governance training before using AI tools on Defra data. Your line manager or your team's information asset owner can point you to the current training.
+All team members must complete the relevant information governance training before using AI tools on Defra data. Your line manager or your team's information asset owner can point you to the current training.
 
 ## Follow your organisation's policies
 

@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -57,27 +67,19 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">AI has environmental costs. Every model call uses energy. Balance the benefits of AI with the need to reduce carbon emissions.</p>
+<p class="govuk-body-l">AI has environmental costs. Every model call uses energy. Defra owns the government's environmental agenda, so proportionate use of AI is part of meeting the Greening Government Commitments, not an optional extra.</p>
 
 ## Use the smallest model that meets your needs
 
-Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the model tiers currently approved at Defra.
+Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the approved Bedrock model tiers and default to the smallest that meets the need.
 
 ## Deploy AI only when it is genuinely the best option
 
-Not every problem needs an AI solution. If a rule-based approach or simple script works, use that instead. Reserve AI for tasks where it adds clear value over simpler alternatives.
-
-## Write precise prompts
-
-Vague prompts lead to multiple iterations, each consuming tokens and energy. Invest time upfront in crafting clear, specific prompts. Fewer iterations means lower environmental impact.
+Not every problem needs an AI solution. If a rule-based approach, a search or a simple script works, use that instead. Reserve AI for tasks where it adds clear value over simpler alternatives.
 
 ## Cache results
 
 If you make repeated similar requests, cache the responses. This avoids unnecessary duplicate calls to the model and reduces both cost and energy consumption.
-
-## Schedule intensive work wisely
-
-Where possible, run batch AI processing during periods when the electricity grid has a higher proportion of renewable energy. This reduces the carbon intensity of your workloads.
 
 ## Share models across teams
 

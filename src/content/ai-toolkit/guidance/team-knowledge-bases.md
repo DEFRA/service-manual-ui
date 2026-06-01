@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: eeport an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -67,11 +77,11 @@ Audit your SharePoint sharing before you publish. Anything over-shared today bec
 
 ## A Copilot Studio agent over the same SharePoint site
 
-Use this when you need a named team assistant.
+Use this when you need a named team assistant. Build it in the Defra M365 tenant, not a personal or trial environment, and agree an owner who is accountable for what it returns. Your information asset owner should sign off before you point an agent at a site holding anything above OFFICIAL.
 
 ## Including OFFICIAL-SENSITIVE content
 
-You can only include OFFICIAL-SENSITIVE content if SharePoint access is restricted to the cleared team.
+You can only include OFFICIAL-SENSITIVE content if SharePoint access is restricted to the cleared team. eestrict the site to a named security group rather than relying on link sharing, and review the membership before you publish.
 
 ## Anything beyond Copilot
 
@@ -79,4 +89,4 @@ For a custom retrieval setup over Defra-controlled data, talk to AICE.
 
 ## What to do next
 
-Read [Putting data into AI tools](/ai-toolkit/guidance/data-in-ai-tools) for the data classification rules that apply.
+Read [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) for the data classification rules that apply.

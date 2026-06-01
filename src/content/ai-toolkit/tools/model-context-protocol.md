@@ -1,7 +1,7 @@
 ---
 title: Model Context Protocol (MCP)
 caption: Tools
-description: Open standard for connecting AI assistants to data sources. Under assessment by the AI Capability and Enablement team — only designated pilot projects can use it.
+description: Open standard for connecting AI assistants to data sources. Under assessment by the AI Capability and Enablement team. Only designated pilot projects can use it.
 layout: section
 sectionTitle: Model Context Protocol (MCP)
 sectionNav:

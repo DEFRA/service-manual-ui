@@ -9,15 +9,23 @@ sectionNav:
     items:
       - text: Deliver with AI
         href: /ai-toolkit/deliver-with-ai
-  - title: What you can do with AI at Defra
+  - title: Choose tools and use data
     items:
-      - text: Tools and data
-        href: /ai-toolkit/guidance/tools-and-data
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
       - text: Shared team knowledge bases
         href: /ai-toolkit/guidance/team-knowledge-bases
+  - title: Build an AI service
+    items:
+      - text: Get approval before you build
+        href: /ai-toolkit/guidance/get-approval
       - text: AI in your CI/CD pipeline
         href: /ai-toolkit/guidance/ai-in-pipelines
-  - title: Using AI responsibly
+      - text: Test and assure your AI service
+        href: /ai-toolkit/guidance/test-and-assure
+  - title: Use AI responsibly
     items:
       - text: Security
         href: /ai-toolkit/guidance/security
@@ -29,6 +37,8 @@ sectionNav:
         href: /ai-toolkit/guidance/information-governance
       - text: PII and data handling
         href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
@@ -70,15 +80,23 @@ supportBox:
 
 <p class="govuk-body">Not sure where your work fits? Email AICE at <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Where%20does%20my%20AI%20work%20fit" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a> and we will point you to the right place.</p>
 
-## What you can do with AI at Defra
+## Choose tools and use data
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><a href="/ai-toolkit/guidance/tools-and-data" class="govuk-link">Tools and data</a>. Which AI tools you can use, and what data you can put into them.</li>
+<li><a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>. Check a tool is approved, turn on privacy settings, spot the AI hidden in everyday tools.</li>
+<li><a href="/ai-toolkit/guidance/using-data-with-ai" class="govuk-link">Using data with AI</a>. What you can put where, by data classification.</li>
 <li><a href="/ai-toolkit/guidance/team-knowledge-bases" class="govuk-link">Shared team knowledge bases</a>. Approved patterns for AI-queryable team content.</li>
-<li><a href="/ai-toolkit/guidance/ai-in-pipelines" class="govuk-link">AI in your CI/CD pipeline</a>. What is and isn't allowed for agents in build, test and deploy.</li>
 </ul>
 
-## Using AI responsibly
+## Build an AI service
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><a href="/ai-toolkit/guidance/get-approval" class="govuk-link">Get approval before you build</a>. Spend controls, DPIA, ATRS and service assessment.</li>
+<li><a href="/ai-toolkit/guidance/ai-in-pipelines" class="govuk-link">AI in your CI/CD pipeline</a>. What is and isn't allowed for agents in build, test and deploy.</li>
+<li><a href="/ai-toolkit/guidance/test-and-assure" class="govuk-link">Test and assure your AI service</a>. How to evaluate, guardrail and monitor an AI service before and after launch.</li>
+</ul>
+
+## Use AI responsibly
 
 <p class="govuk-body">The responsibility side of building AI services at Defra. Use these alongside the rules above, not after.</p>
 
@@ -88,6 +106,7 @@ supportBox:
 <li><a href="/ai-toolkit/guidance/sustainability" class="govuk-link">Sustainability</a>. Using AI in proportion to the task.</li>
 <li><a href="/ai-toolkit/guidance/information-governance" class="govuk-link">Information governance</a>. OFFICIAL classification and data protection.</li>
 <li><a href="/ai-toolkit/guidance/pii-and-data-handling" class="govuk-link">PII and data handling</a>. What to redact before any AI sees it.</li>
+<li><a href="/ai-toolkit/guidance/report-an-ai-incident" class="govuk-link">Report an AI incident</a>. What to do if data has been shared with AI inappropriately.</li>
 </ul>
 
 ## Where else to look
