@@ -1,7 +1,7 @@
 ---
 title: Deliver with AI
 caption: AI digital toolkit
-description: Practical guidance for digital delivery teams using AI on Defra services, from the AI Capability and Enablement team.
+description: Tools, data rules, patterns and responsible-use guidance for Defra delivery teams using AI.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:

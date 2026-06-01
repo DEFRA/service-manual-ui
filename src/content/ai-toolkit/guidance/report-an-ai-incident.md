@@ -1,7 +1,7 @@
 ---
 title: Report an AI incident
 caption: Deliver with AI
-description: What to do if you think Defra data has been shared with an AI tool inappropriately. Report first, investigate after.
+description: How to report a suspected AI data incident at Defra, what counts as one, and what to do first.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:

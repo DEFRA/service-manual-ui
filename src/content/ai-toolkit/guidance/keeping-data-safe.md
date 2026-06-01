@@ -57,7 +57,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Keeping%20data%20safe%20with%20AI" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">How to handle Defra data safely when you use AI. This covers what you can use AI on, where your data goes, and how to deal with personal data. The rules on personal data are mandatory.</p>
+<p class="govuk-body-l">Two things decide whether you can use Defra data with AI: how it is classified, and whether it contains personal data. The rules on personal data are mandatory.</p>
 
 ## Use AI tools on OFFICIAL data only by default
 

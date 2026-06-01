@@ -57,7 +57,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Team%20knowledge%20base" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">Your team can have a shared knowledge base that AI can query, using one of these approved patterns.</p>
+<p class="govuk-body-l">Your team can have a shared knowledge base that AI can search. Two patterns are approved, and both depend on getting your SharePoint permissions right first.</p>
 
 ## M365 Copilot grounded on a SharePoint site
 

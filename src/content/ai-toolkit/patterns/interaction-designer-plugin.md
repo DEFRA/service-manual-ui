@@ -1,7 +1,7 @@
 ---
 title: Interaction designer plugin
 caption: Proof of concept
-description: A Claude Code plugin for Defra interaction designers. Takes a verbal brief through to a journey doc, page specs and a GOV.UK-styled HTML preview in a single session.
+description: An AICE proof of concept. A Claude Code plugin that brings reusable AICE patterns into an interaction designer's workflow.
 layout: section
 sectionTitle: Use AI patterns
 sectionNav:
@@ -49,7 +49,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20Interaction%20designer%20plugin" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">A Claude Code plugin that takes a Defra interaction designer from a verbal brief through to a journey doc, page specs and a GOV.UK-styled HTML preview in a single session.</p>
+<p class="govuk-body-l">Give it a verbal brief and it produces a journey doc, page specs and a GOV.UK-styled HTML preview, all in one Claude Code session.</p>
 
 ## How it works
 

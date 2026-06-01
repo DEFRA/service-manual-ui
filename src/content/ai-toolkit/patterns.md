@@ -47,7 +47,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">Reusable approaches Defra teams have tested with AI. Each one is a proof of concept you can adapt for your own delivery.</p>
+<p class="govuk-body-l">These are early proofs of concept, not finished products. Use the finder to match one to your problem, or browse them all below.</p>
 
 ## Find a pattern that fits
 

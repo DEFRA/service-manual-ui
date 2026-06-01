@@ -57,7 +57,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Choosing%20an%20AI%20tool" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">Check a tool is approved before you use it on Defra work. Then make sure its privacy settings are on, and watch for the AI built into tools you already use.</p>
+<p class="govuk-body-l">Always check a tool is approved before you use it for Defra work. If it is not on the tools radar, it has not been reviewed.</p>
 
 ## Check the tool's status on the radar
 

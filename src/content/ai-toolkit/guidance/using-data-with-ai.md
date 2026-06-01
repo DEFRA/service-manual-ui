@@ -1,7 +1,7 @@
 ---
 title: Using data with AI
 caption: Deliver with AI
-description: What data you can put into different types of AI tool, by data classification. How to read the table and what the conditions mean.
+description: The data classification matrix for AI tools at Defra, with tool-type definitions and the conditions that apply.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
