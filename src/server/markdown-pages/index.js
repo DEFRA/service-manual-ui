@@ -65,6 +65,7 @@ export const markdownRoutes = [
   '/take-part-in-research',
   '/business-analysis',
   '/business-analysis/ways-of-working',
+  '/business-analysis/non-functional-requirements',
   '/product-and-delivery',
   '/product-and-delivery/governance',
   '/product-and-delivery/tools-and-access',
