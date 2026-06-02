@@ -63,7 +63,7 @@ The service tiers listed below provide an outline definition of the non-function
 
 Once a Service Tier for the solution has been defined, all non-functional requirements relating to that service tier must be adhered to as a minimum or an exception waiver sought.
 
-The non tier specific category identifies NFRs that relate to all solutions regardless of service tier.
+The non-tier-specific category identifies NFRs that relate to all solutions regardless of service tier.
 
 Access the full list of service tiers here: [DDTS Service Tiers](https://defra.sharepoint.com/teams/Team3221/Lists/Service%20Tier/Service%20Tiers%20Gallery%20View%20with%20Description.aspx?viewid=9b4c1431%2Dceb6%2D4be4%2Db4e4%2D2f8c31589d46)
 
