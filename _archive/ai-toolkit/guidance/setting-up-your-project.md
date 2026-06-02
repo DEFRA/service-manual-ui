@@ -3,64 +3,38 @@ title: Setting up your project
 caption: Get started
 description: Install your AI assistant, turn on privacy settings, and add the rules and instructions your repo needs.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
-  - title: Get started
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: Common questions
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
-      - text: Choosing models
-        href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
+      - text: Using AI tools
+        href: /ai-toolkit/guidance/using-ai-tools
+      - text: Putting data into AI tools
+        href: /ai-toolkit/guidance/data-in-ai-tools
+      - text: Shared team knowledge bases
+        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: AI in your CI/CD pipeline
+        href: /ai-toolkit/guidance/ai-in-pipelines
+  - title: Set yourself up
+    items:
       - text: Setting up your project
         href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
-    items:
-      - text: The AI development workflow
-        href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-toolkit/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-toolkit/guidance/feature-development
       - text: Rules for AI in your repo
         href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
-      - text: Cost and tokens
-        href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
-    items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
-      - text: Security
-        href: /ai-toolkit/guidance/security
-      - text: Sustainability
-        href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Use AI responsibly
+    href: /ai-toolkit/build-responsibly
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +43,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: Setting up your project
 supportBox:
   title: Get help with this
@@ -79,7 +53,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20setting%20up%20my%20project" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-Set up your development environment to use AI tools safely and effectively. Doing this once at the start of a project pays back many times over.
+<p class="govuk-body-l">Set up your development environment to use AI tools safely and effectively. Doing this once at the start of a project pays back many times over.</p>
 
 ## Install an AI coding assistant
 
@@ -99,10 +73,12 @@ Add a rules and instructions file to your repository so the AI follows your code
 
 Each tool has its own format and location:
 
-- **[GitHub Copilot](/ai-toolkit/tools/github-copilot).** `.github/copilot-instructions.md` and `.github/instructions/*.instructions.md`
-- **Cursor.** `.cursor/rules/*.mdc`
-- **Claude Code.** `CLAUDE.md` and `.claude/rules/*.md`
-- **Windsurf.** `.windsurf/rules/*.md`
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><strong><a href="/ai-toolkit/tools/github-copilot" class="govuk-link">GitHub Copilot</a>.</strong> <code>.github/copilot-instructions.md</code> and <code>.github/instructions/*.instructions.md</code></li>
+<li><strong>Cursor.</strong> <code>.cursor/rules/*.mdc</code></li>
+<li><strong>Claude Code.</strong> <code>CLAUDE.md</code> and <code>.claude/rules/*.md</code></li>
+<li><strong>Windsurf.</strong> <code>.windsurf/rules/*.md</code></li>
+</ul>
 
 Commit these files to version control. Every team member and every AI interaction will then follow the same standards. See [Rules for AI in your repo](/ai-toolkit/guidance/rules-for-ai) for what to put in them.
 
@@ -110,7 +86,7 @@ Commit these files to version control. Every team member and every AI interactio
 
 MCP ([Model Context Protocol](/ai-toolkit/tools/model-context-protocol)) lets your AI assistant talk to Jira, GitHub, Azure DevOps and similar systems. It is currently under review at Defra and limited to designated pilot projects.
 
-If your project is approved to use MCP, follow the rules in [MCP servers and integrations](/ai-toolkit/guidance/mcp-servers).
+If your project is approved to use MCP, follow the rules on the [Model Context Protocol page](/ai-toolkit/tools/model-context-protocol).
 
 ## Make your project artefacts accessible to your assistant
 

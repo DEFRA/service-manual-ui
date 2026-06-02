@@ -7,7 +7,7 @@ sectionTitle: RPA planning dashboard
 sectionNav:
   - title: In this section
     items:
-      - text: Projects
+      - text: Learn from others
         href: /ai-toolkit/projects
   - title: In progress
     items:
@@ -24,13 +24,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -39,7 +39,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
   - text: RPA planning dashboard
 supportBox:
@@ -63,8 +63,6 @@ The wider Defra community gets a worked example of when to use AI for build acce
 
 ## What we're doing
 
-- Bounded consultation on AI-assisted development for the rebuild team
-- Pointers to Microsoft Copilot patterns for interpreting VBScript and Access logic
-- Light review of any in-product AI ideas that surface during the build
-- Helping the team route into Defra's Power Platform community of practice
-- Capturing reusable patterns for similar legacy modernisation work elsewhere in Defra
+- Advising the rebuild team on where AI helps and where it does not
+- Pointing them to the right Defra tools and communities
+- Capturing reusable patterns for similar legacy work

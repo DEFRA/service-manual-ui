@@ -3,64 +3,38 @@ title: Rules for AI in your repo
 caption: Working with AI
 description: How to give your AI assistant the project context it needs. Conventions for Copilot, Cursor, Claude Code and Windsurf.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
-  - title: Get started
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: Common questions
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
-      - text: Choosing models
-        href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
+      - text: Using AI tools
+        href: /ai-toolkit/guidance/using-ai-tools
+      - text: Putting data into AI tools
+        href: /ai-toolkit/guidance/data-in-ai-tools
+      - text: Shared team knowledge bases
+        href: /ai-toolkit/guidance/team-knowledge-bases
+      - text: AI in your CI/CD pipeline
+        href: /ai-toolkit/guidance/ai-in-pipelines
+  - title: Set yourself up
+    items:
       - text: Setting up your project
         href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
-    items:
-      - text: The AI development workflow
-        href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-toolkit/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-toolkit/guidance/feature-development
       - text: Rules for AI in your repo
         href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
-      - text: Cost and tokens
-        href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
-    items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
-      - text: Security
-        href: /ai-toolkit/guidance/security
-      - text: Sustainability
-        href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
-    href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Use AI responsibly
+    href: /ai-toolkit/build-responsibly
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +43,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: Rules for AI in your repo
 supportBox:
   title: Get help with this
@@ -79,7 +53,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20rules%20for%20AI" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-Most AI coding assistants let you define rules and instructions that shape how they generate code in your project. These give the assistant your standards, patterns and architecture so it produces code that fits your codebase.
+<p class="govuk-body-l">Most AI coding assistants let you define rules and instructions that shape how they generate code in your project. These give the assistant your standards, patterns and architecture so it produces code that fits your codebase.</p>
 
 Commit your rules to version control alongside the code itself. Every developer and every AI session then follows the same standards.
 
@@ -121,13 +95,15 @@ Commit your rules to version control alongside the code itself. Every developer 
 
 Good rules cover seven things:
 
-- **Project overview.** Service name, tech stack, top-level directory structure
-- **Coding standards.** Naming conventions, language rules, linting
-- **Architecture patterns.** How the code is organised, for example route handler then service then view
-- **Security rules.** Input validation, CSRF, secret management, PII logging
-- **Testing standards.** Framework, coverage targets, naming conventions
-- **Accessibility.** WCAG 2.2 AA, GOV.UK Design System
-- **Branching and commits.** Trunk-based development, conventional commits
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><strong>Project overview.</strong> Service name, tech stack, top-level directory structure</li>
+<li><strong>Coding standards.</strong> Naming conventions, language rules, linting</li>
+<li><strong>Architecture patterns.</strong> How the code is organised, for example route handler then service then view</li>
+<li><strong>Security rules.</strong> Input validation, CSRF, secret management, PII logging</li>
+<li><strong>Testing standards.</strong> Framework, coverage targets, naming conventions</li>
+<li><strong>Accessibility.</strong> WCAG 2.2 AA, GOV.UK Design System</li>
+<li><strong>Branching and commits.</strong> Trunk-based development, conventional commits</li>
+</ul>
 
 ## GitHub Copilot setup
 
@@ -135,19 +111,30 @@ Good rules cover seven things:
 
 The recommended layout splits rules by audience:
 
-- `.github/copilot-instructions.md`. Root instructions, always active
-- `.github/agents/`. Agent definitions for specific tasks
-  - `defra-app-developer.agent.md` for Defra-compliant development
-  - `code-reviewer.agent.md` for systematic code review
-  - `tester.agent.md` for BDD-focused testing
-- `.github/instructions/`. Scoped rules that activate based on file paths
-  - `node-backend.instructions.md` for Node.js and Hapi backend code
-  - `csharp-backend.instructions.md` for C# and ASP.NET Core code
-  - `frontend.instructions.md` for accessibility and GDS patterns
-- `.github/prompts/`. Reusable prompts your team runs often
-  - `write-adr.prompt.md` to generate architecture decision records
-  - `write-tests.prompt.md` to generate test suites
-  - `security-review.prompt.md` to review code for vulnerabilities
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><code>.github/copilot-instructions.md</code>. Root instructions, always active</li>
+<li><code>.github/agents/</code>. Agent definitions for specific tasks
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><code>defra-app-developer.agent.md</code> for Defra-compliant development</li>
+<li><code>code-reviewer.agent.md</code> for systematic code review</li>
+<li><code>tester.agent.md</code> for BDD-focused testing</li>
+</ul>
+</li>
+<li><code>.github/instructions/</code>. Scoped rules that activate based on file paths
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><code>node-backend.instructions.md</code> for Node.js and Hapi backend code</li>
+<li><code>csharp-backend.instructions.md</code> for C# and ASP.NET Core code</li>
+<li><code>frontend.instructions.md</code> for accessibility and GDS patterns</li>
+</ul>
+</li>
+<li><code>.github/prompts/</code>. Reusable prompts your team runs often
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li><code>write-adr.prompt.md</code> to generate architecture decision records</li>
+<li><code>write-tests.prompt.md</code> to generate test suites</li>
+<li><code>security-review.prompt.md</code> to review code for vulnerabilities</li>
+</ul>
+</li>
+</ul>
 
 A scoped instruction file activates only when Copilot is working on matching files. For example, this file would only apply to JavaScript files:
 

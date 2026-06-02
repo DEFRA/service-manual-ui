@@ -1,66 +1,44 @@
 ---
 title: Security
-caption: Responsible AI
-description: How to keep AI-generated code, secrets, and your development environment secure.
+caption: Deliver with AI
+description: AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.
 layout: section
-sectionTitle: Guidance
+sectionTitle: Deliver with AI
 sectionNav:
   - title: In this section
     items:
-      - text: Guidance
-        href: /ai-toolkit/guidance
-  - title: Get started
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: Choose tools and use data
     items:
-      - text: Welcome to AI at Defra
-        href: /ai-toolkit/guidance/welcome
-      - text: Choosing models
-        href: /ai-toolkit/guidance/choosing-models
-      - text: Working mindset
-        href: /ai-toolkit/guidance/working-mindset
-      - text: The four pillars
-        href: /ai-toolkit/guidance/four-pillars
-      - text: Setting up your project
-        href: /ai-toolkit/guidance/setting-up-your-project
-      - text: Training and resources
-        href: /ai-toolkit/guidance/training-and-resources
-  - title: Working with AI
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
+  - title: Use AI responsibly
     items:
-      - text: The AI development workflow
-        href: /ai-toolkit/guidance/workflow
-      - text: Writing good prompts
-        href: /ai-toolkit/guidance/writing-good-prompts
-      - text: Generating requirements
-        href: /ai-toolkit/guidance/generating-requirements
-      - text: Feature development with AI
-        href: /ai-toolkit/guidance/feature-development
-      - text: Rules for AI in your repo
-        href: /ai-toolkit/guidance/rules-for-ai
-      - text: MCP servers and integrations
-        href: /ai-toolkit/guidance/mcp-servers
-      - text: Cost and tokens
-        href: /ai-toolkit/guidance/cost-and-tokens
-  - title: Responsible AI
-    items:
-      - text: Ethics
-        href: /ai-toolkit/guidance/ethics
       - text: Security
         href: /ai-toolkit/guidance/security
+      - text: Ethics
+        href: /ai-toolkit/guidance/ethics
       - text: Sustainability
         href: /ai-toolkit/guidance/sustainability
-      - text: Information governance
-        href: /ai-toolkit/guidance/information-governance
-      - text: PII and data handling
-        href: /ai-toolkit/guidance/pii-and-data-handling
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -69,8 +47,8 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: Security
 supportBox:
   title: Get help with this
@@ -79,7 +57,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20security" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-AI-generated code can contain security vulnerabilities. Treat all AI output with the same scrutiny you would apply to any third-party contribution.
+AI-authored code is held to the same standard as anything else you ship. It must clear the same Defra security gates as hand-written code, and an AI feature still faces a service assessment.
 
 ## Review for known vulnerabilities
 
@@ -87,11 +65,21 @@ AI models may produce code with common security flaws such as injection attacks,
 
 ## Check for embedded credentials
 
-AI sometimes hardcodes API keys, passwords, or tokens into generated code. Always scan output for secrets before committing. Use secret detection tools as part of your CI pipeline.
+AI sometimes hardcodes API keys, passwords, or tokens into generated code. Always scan output for secrets before committing. Keep the secret scanning in your Core Delivery Platform (CDP) pipeline switched on so this is caught automatically.
+
+## Stop AI coding tools reading secrets
+
+AI coding assistants index your whole project directory, which means they can read `.env` files, credentials and config. Add an ignore file so the assistant skips anything sensitive:
+
+<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+<li>GitHub Copilot: <code>.github/copilot-ignore</code></li>
+</ul>
+
+The same applies to any tool that can read your files or terminal, not just chat windows where you paste text.
 
 ## Use static analysis
 
-Run Static Application Security Testing (SAST) tools on all generated code. These catch security issues that manual review might miss. Integrate SAST into your build process so every change is checked automatically.
+Run SonarQube, Defra's static analysis gate, on all AI-generated code. It catches security issues that manual review might miss. AI-authored code must pass it before merge.
 
 ## Scan dependencies
 
@@ -99,8 +87,14 @@ AI may suggest packages that are outdated or have known vulnerabilities. Use Sof
 
 ## Protect your development environment
 
-Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Be cautious with AI tools that require broad access to your codebase or environment.
+Prevent credential leakage by using environment variables and secret management tools. Limit IDE plugins and extensions to trusted vendors. Limit AI tools that require broad access to your codebase or environment.
+
+## Treat AI output as untrusted input
+
+Prompt injection, where hidden instructions are buried in the content an AI reads, cannot be fully fixed. The National Cyber Security Centre advises reducing its impact rather than relying on a mitigation that solves it.
+
+Never let raw AI output trigger a privileged action on its own. Keep a human approval step between the model and anything that writes to a database, runs a command, or merges code.
 
 ## Human review remains essential
 
-Automated tools catch a lot but not everything. A human review of AI-generated code remains essential, especially for security-critical paths. Pair on the review when you can.
+Automated tools catch a lot but not everything. A human review of AI-generated code remains essential. For security-critical paths, a second reviewer is required.

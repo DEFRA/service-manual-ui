@@ -7,7 +7,7 @@ sectionTitle: Interaction designer plugins
 sectionNav:
   - title: In this section
     items:
-      - text: Projects
+      - text: Learn from others
         href: /ai-toolkit/projects
   - title: In progress
     items:
@@ -24,13 +24,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -39,7 +39,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
   - text: Interaction designer plugins
 supportBox:
@@ -63,7 +63,5 @@ The wider Defra community gets a shared distribution channel for patterns, plus 
 
 ## What we're doing
 
-- Drafting a demo script and walkthrough grounded in a real Defra example
-- Demoing the plugin to the Defra Design community and capturing feedback in the room
-- Logging feature requests and pattern asks on the AICE backlog
-- Shaping the plugin roadmap from what designers actually want next, not internal assumptions
+- Building and demoing the plugin with the Defra Design community
+- Shaping the roadmap from what designers ask for

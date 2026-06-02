@@ -1,12 +1,13 @@
 ---
-title: Projects
-description: How the AI Capability and Enablement team is helping Defra teams adopt AI.
+title: Learn from others
+caption: AI digital toolkit
+description: Live work between the AI Capability and Enablement team and Defra teams.
 layout: section
-sectionTitle: Projects
+sectionTitle: Learn from others
 sectionNav:
   - title: In this section
     items:
-      - text: Projects
+      - text: Learn from others
         href: /ai-toolkit/projects
   - title: In progress
     items:
@@ -23,13 +24,13 @@ sectionNav:
 customNav:
   - text: Home
     href: /
-  - text: Guidance
-    href: /ai-toolkit/guidance
-  - text: Tools
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
     href: /ai-toolkit/tools
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Projects
+  - text: Learn from others
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -38,48 +39,36 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Projects
+  - text: Learn from others
 supportBox:
-  title: Get involved
-  description: Want to follow along or have a project you'd like help on? Ask the AI Capability and Enablement team.
+  title: Share what your team is doing
+  description: Tell the AI Capability and Enablement team about an AI project you're running, and we'll see how we can help or share what we've learned.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Projects%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Project%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<section class="app-radar-section">
+<h2 class="govuk-heading-l">In progress</h2>
 
-## In progress
+<div class="app-kanban__row">
+  <div class="app-radar-card">
+    <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h3>
+    <p class="app-radar-card__description">Consolidating scheme guidance into trusted answers.</p>
+  </div>
+  <div class="app-radar-card">
+    <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h3>
+    <p class="app-radar-card__description">Bringing AICE patterns into designers' daily tools.</p>
+  </div>
+</div>
 
-<ul class="app-radar-grid" style="grid-template-columns: 1fr;">
+<h2 class="govuk-heading-l">Up next</h2>
 
-<li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-guidance" class="govuk-link app-radar-card__link">RPA guidance</a></h3>
-  <p class="app-radar-card__description">Scheme guidance work with the RPA.</p>
-</li>
-
-<li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link app-radar-card__link">Interaction designer plugins</a></h3>
-  <p class="app-radar-card__description">Patterns inside designers' tools.</p>
-</li>
-
-</ul>
-</section>
-
-<section class="app-radar-section">
-
-## Up next
-
-<ul class="app-radar-grid" style="grid-template-columns: 1fr;">
-
-<li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h3>
-  <p class="app-radar-card__description">AI prototype with Service Insights.</p>
-</li>
-
-<li class="app-radar-card">
-  <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h3>
-  <p class="app-radar-card__description">Modernising RPA planning with AI.</p>
-</li>
-
-</ul>
-</section>
+<div class="app-kanban__row">
+  <div class="app-radar-card">
+    <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/service-insights" class="govuk-link app-radar-card__link">Service Insights</a></h3>
+    <p class="app-radar-card__description">Answering recurring service questions over real data.</p>
+  </div>
+  <div class="app-radar-card">
+    <h3 class="app-radar-card__title"><a href="/ai-toolkit/projects/rpa-planning-dashboard" class="govuk-link app-radar-card__link">RPA planning dashboard</a></h3>
+    <p class="app-radar-card__description">Helping modernise a legacy planning system with AI.</p>
+  </div>
+</div>
