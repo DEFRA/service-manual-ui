@@ -1,6 +1,6 @@
 ---
 title: Standards and guidance
-description: Defra user researchers follow recognised user research standards and work with their teams to make sure services meet the GDS Service Standard.
+description: You must meet the standards and follow the guidance listed below when conducting user research at Defra.
 layout: section
 sectionNav:
   - title: In this section
@@ -19,34 +19,55 @@ sectionNav:
         href: /user-research/scoping-research
       - text: Participant recruitment
         href: /user-research/recruiting-participants
+      - text: Plan and prepare research sessions
+        href: /user-research/research-sessions
+      - text: Research methods
+        href: /user-research/research-methods
+      - text: Analysis and synthesis
+        href: /user-research/analysis-and-synthesis
+supportBox:
+  title: Get support
+  description: Contact the user research operations team or the Defra data protection team for further support.
+  items:
+    - 'User research operations: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'Data protection: <a href="mailto:Data.protection@defra.gov.uk" class="govuk-link">Data.protection@defra.gov.uk</a>'
 ---
 
-Research must meet the standards and guidance listed below:
+## External user research standards
 
-## Recognised user research profession standards and guidance
+The baseline standards for user research at Defra.
 
-- [Market research society (MRS) code of conduct](https://www.mrs.org.uk/standards/code-of-conduct)
+- [Market Research Society (MRS) code of conduct](https://www.mrs.org.uk/standards/code-of-conduct)
 - [User research - Service Manual - GOV.UK](https://www.gov.uk/service-manual/user-research)
 
-## Defra user research standards and guidance
+## Ethical and safe research
 
-- [Ethics, safeguarding and bias management](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/301.%20Standard%20-%20Ethics,%20safeguarding%20and%20bias%20management.docx?d=w51e266a1d4a441929d90766ffcab29f1&csf=1&web=1&e=GTK3Hc)
-- [Inclusive and accessible research](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/302.%20Standard%20-%20Inclusive%20and%20accessible%20research.docx?d=w6f24caa7673740e487c59ec8b9db182b&csf=1&web=1&e=ZrLm3N)
-- [Using AI safely and responsibly](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/303.%20Standard%20-%20Using%20AI%20safely%20and%20responsibly.docx?d=wdf045f3483384181b52e01bda08c9b36&csf=1&web=1&e=EEI0L4)
-- [User research during election periods](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B949DCABA-D98B-4E54-8262-628628BD4EBA%7D&file=308.%20Standard%20-%20User%20research%20during%20election%20periods.docx&action=default&mobileredirect=true)
+How to plan and run research that protects participants and researchers.
 
-## Data handling
+- [Ethics and safeguarding in user research](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQD1mxzdR3a2Q6QbzA4gqt_iAe8H9lV85G5Xu-gXuxU6pV4?e=uhwITE)
+- [Safety risk assessments for user research](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQC1hk0liUSFR4dIJpNz84wCAQdg0m8andWpjmnqgSO5jP8?e=TinPps)
 
-- [Handling participant data](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/304.%20Standard%20-%20Handling%20participant%20data.docx?d=w4e6418e7bf404b2c890b8cf01834eada&csf=1&web=1&e=lkgOs0)
-- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/305.%20Standard%20-%20Informed%20consent%20and%20privacy%20notices.docx?d=w768a041dcd1d4b0a8073c765999e5790&csf=1&web=1&e=3ep3CQ)
-- [Anonymising participant data](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/306.%20Standard%20-%20Anonymising%20participant%20data.docx?d=w3c48a59fb04b4175a86bdecf0c852bd8&csf=1&web=1&e=qztBvS)
-- [Data storage and retention](https://defra.sharepoint.com/:w:/r/teams/Team3195/URSpace5712/01.%20Research%20Operations/02.%20Service%20Manual/01.%20Final%20content/300.%20Standards%20and%20guidance/307.%20Standard%20-%20Participant%20data%20storage%20and%20retention.docx?d=w3337de2481e3479abb70ae26d87bbaf8&csf=1&web=1&e=pxqsC6)
+## Consent and participant data protection
 
-## GDS service standard and assessments
+How you must inform participants and manage their data.
 
-All Defra services must meet the GDS service standard and pass service assessments before moving to the next design phase.
+- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQCcjs9xRTRVSYqSmagQ_WPYAYrrMV8J8_J-GIJBwUXC5uI?e=JDJoQo)
+- [Informed consent template (Word)](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBZJHJukGMqQrI791sVMHaeAdQJkmysfxOoRLOt0gf50UE?e=eT10az)
+- [Informed consent template (Qualtrics)](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQDDuu8BWy1uTJSH9Mwc4YWbAchKAFM42X8P5_H2iljnmOg?e=FA8k8Y)
+- [Using contact details for research recruitment](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQD4D6uzuoXYTKzTNov56VRQAc7U1svRvuUJ30dkadnGE58?e=I7q42Z)
+- [Participant data handling](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQAB92ESNto2SZQ4oqWDmJC8AU-bqDvte4sqE_sIK4YIoJs?e=jjCt2S)
+- [Participant data storage and retention](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQAyYtQNJhZQRqBNn688PXPVASeWgf4wh55QB3fWNQFTMxI?e=rQP4rc)
 
-The role of user research is to provide evidence demonstrating how the service meets user needs (especially points 1-5).
+## GDS Service Standard and assessments
+
+All Defra services must meet the GDS Service Standard. User researchers provide the evidence that shows how services meet user needs.
 
 - [Service Standard - Service Manual - GOV.UK](https://www.gov.uk/service-manual/service-standard)
-- [Service Standard and Assessments](/service-assessments) at Defra
+- [Service Standard and assessments at Defra](https://defra.sharepoint.com/sites/def-ddts-portfoliohub/SitePages/GDS-Service-Assessment-and-Assurance.aspx)
+
+## Pre-election restrictions and approvals
+
+Additional controls that apply during pre-election periods.
+
+- [User research during pre-election periods](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQB7Rvxd1A7BT5ep8yBsEuPlAdnL8RD0z-4hwQGYlNxawa0?e=KDwas3)
+- [User research pre-election approval form](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBg_9FkgqLrSYbRDZud6FztAQn0iaqNXxsK5uoRTRJca6M?e=nfPVCB)

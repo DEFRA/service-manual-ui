@@ -1,6 +1,6 @@
 ---
 title: Tools
-description: Defra user researchers use a range of tools. The list of tools and guidance on how to access and use them are listed below.
+description: You must only use Defra-approved tools for your research and follow Defra standards for appropriate use.
 layout: section
 sectionNav:
   - title: In this section
@@ -19,20 +19,31 @@ sectionNav:
         href: /user-research/scoping-research
       - text: Participant recruitment
         href: /user-research/recruiting-participants
+      - text: Plan and prepare research sessions
+        href: /user-research/research-sessions
+      - text: Research methods
+        href: /user-research/research-methods
+      - text: Analysis and synthesis
+        href: /user-research/analysis-and-synthesis
+supportBox:
+  title: Get support
+  description: Contact the user research operations team for further support.
+  items:
+    - 'Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
 ---
 
-### Use Defra-approved tools for your research
+Check that a tool is suitable for the data you plan to collect before you start your research. Not all approved tools can collect or store identifiable data.
 
-Approved tools meet Defra's security standards, protect participant data, and support consistent ways of working. Using unapproved tools risks data breaches, may breach Defra policy, and can delay delivery while the tool is reviewed.
+## Approved tools
 
-When using an approved tool, check that the tool is suitable for the data you plan to collect before you start your research. Not all approved tools can collect or store identifiable data – this is outlined in the documents below.
+- [Microsoft Office guidance](https://defra.sharepoint.com/sites/Defraintranet/SitePages/Microsoft-365.aspx)
+- [Mural guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQDGZ_8_zVWgTKJPVe2KTeC8AYPfGJu7SePzUfrxa0tfYJ8?e=fvl8Ze)
+- [Qualtrics guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQB7VbAh6RfwQZSc6JeOiWIYAcrU6NeE4EH2Ll_WCjQQj60?e=9dtm9o)
+- [Optimal Workshop guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBfCpgBpz0ZQLx0nyD-ALBwAcyJXlB8qB1kAqPJYVTuejY?e=e2RgDV)
+- [Optimal Workshop licence request form](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBddue3Yq-tQo0xwJmy2WhOAVQqBvSnerBMd7ihMKMemXE?e=Y8xDCJ)
+- [Notify guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQAFVZ8eRyCkR4I_NTpoHVehAUNfdrbyDnyMtVk9Xr4-a2Y?e=gYpbIc)
 
-If you need a tool that is not currently approved, or you are unsure whether a tool is suitable for identifiable data, contact Research Operations.
+## Artificial intelligence tools and standards
 
-**Defra tools:**
-
-- [Microsoft Office](https://defra.sharepoint.com/sites/Defraintranet/SitePages/Microsoft-365.aspx)
 - [Microsoft Copilot 365](https://defra.sharepoint.com/teams/Team177/SitePages/Full-Copilot-for-DDTS.aspx)
-- [Mural](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B3E813939-176D-44E2-A26A-786BFE7D44FD%7D&file=401.%20Mural.docx&action=default&mobileredirect=true)
-- [Qualtrics](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BAAD461C8-E577-410B-93E0-A219AEDFB5F7%7D&file=402.%20Qualtrics.docx&action=default&mobileredirect=true)
-- [Optimal workshop](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B552EDEBF-4029-4FF2-9AE5-DF5FED9A5428%7D&file=403.%20Optimal%20Workshop.docx&action=default&mobileredirect=true)
+- [Using AI safely and responsibly in user research](https://defra.sharepoint.com/:w:/r/sites/def-ddts-portfoliohub/_layouts/15/Doc.aspx?sourcedoc=%7B7488B465-E4AC-4381-89A0-BB0C1204115B%7D&file=6.%20Using%20AI%20safely%20and%20responsibly%20in%20user%20research.docx&action=default&mobileredirect=true)
