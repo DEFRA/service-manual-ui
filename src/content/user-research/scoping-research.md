@@ -47,7 +47,6 @@ When scoping and planning research, you should follow these steps:
 2. Capture the agreed scope in the research plan template and make sure the approach represents all users.
 3. Submit the research plan to your lead user researcher (if your delivery group has one) for review or approval.
 4. Share the approved plan with your team so everyone is aligned.
-5. Send the final research plan to Research Operations for archiving.
 
 ## Defra guidance and templates
 
