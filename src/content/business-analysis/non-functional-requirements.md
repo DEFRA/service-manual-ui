@@ -17,7 +17,7 @@ sectionNav:
         href: /business-analysis/non-functional-requirements
 supportBox:
   title: Get support
-  description: The <strong>Business Analysis Community</strong> can help you apply non-functional requirements and request changes to the NFR list.
+  description: To request additions or amendments to the NFR list, or for help applying non-functional requirements, contact the <strong>Business Analysis Community</strong>.
   items:
     - '<a href="https://teams.microsoft.com/l/team/19%3Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%40thread.tacv2/conversations?groupId=ce956adc-8c10-4fd7-91d5-2d1a148530d8&tenantId=770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the BA Teams channel</a>'
 ---
