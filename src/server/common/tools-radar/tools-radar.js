@@ -1,14 +1,23 @@
 /**
  * Single source of truth for the AI tools radar.
  *
- * One list of tools drives both the table (sorted by status, then alphabetically)
- * and the diagram (blip geometry computed here, so positions are meaningful and
- * deterministic). Add or change a tool in TOOLS and both views update, and the
- * status stays in one place so labels can never drift.
+ * The list of tools lives in tools.yaml so it can be managed without editing
+ * code. This module reads and validates that list at startup, then derives
+ * everything the views need. One list drives both the table (sorted by status,
+ * then alphabetically) and the diagram (blip geometry computed here, so positions
+ * are meaningful and deterministic), and the status lives in one place so labels
+ * can never drift.
  *
- * To add a tool: add an entry to TOOLS with a slug (matching its detail page),
- * a title, a category and a status.
+ * To add a tool: edit tools.yaml (and create its detail page). The status and
+ * category taxonomy and the diagram geometry are developer config and stay here.
  */
+
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+
+import yaml from 'js-yaml'
+import Joi from 'joi'
 
 const STATUS_ORDER = ['using', 'trialling', 'exploring']
 
@@ -67,19 +76,35 @@ const GEOMETRY = {
   ringMid: { using: RING.using.mid, trialling: RING.trialling.mid, exploring: RING.exploring.mid }
 }
 
-const TOOLS = [
-  { slug: 'github-copilot', title: 'GitHub Copilot', category: 'assistant', status: 'using' },
-  { slug: 'aws-bedrock', title: 'AWS Bedrock', category: 'platform', status: 'trialling' },
-  { slug: 'azure-ai-foundry', title: 'Azure AI Foundry', category: 'platform', status: 'trialling' },
-  { slug: 'agent-to-agent', title: 'Agent-to-Agent (A2A)', category: 'framework', status: 'exploring' },
-  { slug: 'aws-bedrock-agentcore', title: 'AWS Bedrock AgentCore', category: 'platform', status: 'exploring' },
-  { slug: 'claude-code-marketplace', title: 'Claude Code plugin marketplace', category: 'extension', status: 'exploring' },
-  { slug: 'git-ai', title: 'Git AI', category: 'extension', status: 'exploring' },
-  { slug: 'langfuse', title: 'Langfuse', category: 'platform', status: 'exploring' },
-  { slug: 'langgraph', title: 'LangGraph', category: 'framework', status: 'exploring' },
-  { slug: 'model-context-protocol', title: 'Model Context Protocol (MCP)', category: 'framework', status: 'exploring' },
-  { slug: 'retrieval-augmented-generation', title: 'Retrieval-augmented generation (RAG)', category: 'framework', status: 'exploring' }
-]
+// The tool list is data, not code, so it lives in tools.yaml. Validate it at
+// startup against the known statuses and categories: a bad edit (unknown status,
+// duplicate slug, missing field) fails fast with a message naming the problem.
+const toolsFile = join(dirname(fileURLToPath(import.meta.url)), 'tools.yaml')
+
+const toolSchema = Joi.object({
+  slug: Joi.string().trim().pattern(/^[a-z0-9-]+$/).required(),
+  title: Joi.string().trim().required(),
+  category: Joi.string().valid(...Object.keys(CATEGORIES)).required(),
+  status: Joi.string().valid(...Object.keys(STATUSES)).required()
+}).label('tool')
+
+const toolsFileSchema = Joi.object({
+  tools: Joi.array().items(toolSchema).min(1).unique('slug').required()
+}).required()
+
+function loadTools () {
+  const parsed = yaml.load(readFileSync(toolsFile, 'utf8'))
+  const { error, value } = toolsFileSchema.validate(parsed, {
+    abortEarly: false,
+    allowUnknown: false
+  })
+  if (error) {
+    throw new Error(`Invalid tools.yaml: ${error.message}`)
+  }
+  return value.tools
+}
+
+const TOOLS = loadTools()
 
 function byStatusThenTitle (a, b) {
   const byStatus = STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status)

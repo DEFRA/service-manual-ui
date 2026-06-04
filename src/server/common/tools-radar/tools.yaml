@@ -1,0 +1,72 @@
+# AI tools radar: the list of tools shown at /ai-toolkit/tools.
+#
+# Anyone can add or update a tool by editing this list. Each tool has four fields:
+#   slug      lower-case, hyphen-separated id. Must match the tool's detail page
+#             at /ai-toolkit/tools/<slug> (and its markdown file name).
+#   title     the name shown on the radar.
+#   category  one of: assistant, platform, framework, extension
+#   status    one of: using, trialling, exploring
+#
+# The table and diagram update automatically from this list. To add a brand new
+# tool you also need to create its detail page (a markdown file with the same
+# slug) and register it in src/server/markdown-pages/index.js.
+#
+# If a value is wrong (for example a status that does not exist, or two tools
+# share a slug) the site fails to start with a message naming the problem, so
+# mistakes are caught early rather than shipped.
+
+tools:
+  - slug: github-copilot
+    title: GitHub Copilot
+    category: assistant
+    status: using
+
+  - slug: aws-bedrock
+    title: AWS Bedrock
+    category: platform
+    status: trialling
+
+  - slug: azure-ai-foundry
+    title: Azure AI Foundry
+    category: platform
+    status: trialling
+
+  - slug: agent-to-agent
+    title: Agent-to-Agent (A2A)
+    category: framework
+    status: exploring
+
+  - slug: aws-bedrock-agentcore
+    title: AWS Bedrock AgentCore
+    category: platform
+    status: exploring
+
+  - slug: claude-code-marketplace
+    title: Claude Code plugin marketplace
+    category: extension
+    status: exploring
+
+  - slug: git-ai
+    title: Git AI
+    category: extension
+    status: exploring
+
+  - slug: langfuse
+    title: Langfuse
+    category: platform
+    status: exploring
+
+  - slug: langgraph
+    title: LangGraph
+    category: framework
+    status: exploring
+
+  - slug: model-context-protocol
+    title: Model Context Protocol (MCP)
+    category: framework
+    status: exploring
+
+  - slug: retrieval-augmented-generation
+    title: Retrieval-augmented generation (RAG)
+    category: framework
+    status: exploring
