@@ -150,9 +150,9 @@ export const config = convict({
   },
   aiContent: {
     enabled: {
-      doc: 'Whether AI content (the AI digital toolkit at /ai-toolkit) is visible. Defaults to false. Set ENABLE_AI_CONTENT=true on each environment that should show the content.',
+      doc: 'Whether AI content (the AI digital toolkit at /ai-toolkit) is visible. Defaults to true (visible in all environments). Set ENABLE_AI_CONTENT=false to hide it in a specific environment.',
       format: Boolean,
-      default: false,
+      default: true,
       env: 'ENABLE_AI_CONTENT'
     }
   },
