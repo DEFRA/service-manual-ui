@@ -1,0 +1,74 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: breadcrumbItems or [
+    { text: "Digital Defra", href: "/" },
+    { text: title }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if caption %}<span class="govuk-caption-xl">{{ caption }}</span>{% endif %}
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    {% if description %}<p class="govuk-body-l">{{ description }}</p>{% endif %}
+
+    {{ content | markdown | safe }}
+
+    <h2 class="govuk-heading-m">What the statuses mean</h2>
+    <dl class="app-radar-key">
+      {% for status in toolsRadar.statuses %}
+      <div class="app-radar-key__row">
+        <dt class="app-radar-key__term"><strong class="govuk-tag govuk-tag--{{ status.tagColour }}">{{ status.label }}</strong></dt>
+        <dd class="app-radar-key__desc">{{ status.description }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+
+    <p class="govuk-body"><a class="govuk-link" href="/ai-toolkit/tools/diagram">View as a radar diagram</a></p>
+
+    <div class="app-radar" data-radar>
+      <div class="app-radar-controls" data-radar-search-wrapper hidden>
+        <div class="govuk-form-group app-radar-controls__search">
+          <label class="govuk-label" for="radar-search">Search for a tool by name</label>
+          <input class="govuk-input" id="radar-search" name="radar-search" type="search" data-radar-search autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="govuk-visually-hidden" aria-live="polite" data-radar-live></div>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">AI tools, platforms and frameworks at Defra, grouped by status and listed alphabetically within each status</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Tool</th>
+            <th scope="col" class="govuk-table__header">Category</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for row in toolsRadar.rows %}
+          <tr class="govuk-table__row" data-radar-item data-status="{{ row.status }}" data-name="{{ row.name }}">
+            <th scope="row" class="govuk-table__header"><a class="govuk-link" href="{{ row.href }}">{{ row.title }}</a></th>
+            <td class="govuk-table__cell">{{ row.categoryLabel }}</td>
+            <td class="govuk-table__cell app-radar-status"><strong class="govuk-tag govuk-tag--{{ row.tagColour }}">{{ row.statusLabel }}</strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <div class="app-radar-noresults" hidden data-radar-noresults>
+        <h3 class="app-radar-noresults__title" data-radar-noresults-title>No tools match your search</h3>
+        <p class="app-radar-noresults__body">The radar may not include this yet. The team can advise on tools that are not on the list.</p>
+        <a class="govuk-button" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Tool%20enquiry%20for%20the%20radar" data-radar-noresults-link>Ask the team about this</a>
+        <p class="govuk-body govuk-!-margin-top-3 govuk-!-margin-bottom-0"><button type="button" class="govuk-link app-radar-link-button" data-radar-clear>Clear your search</button></p>
+      </div>
+    </div>
+
+    {% include "partials/support-box.njk" %}
+  </div>
+</div>
+{% endblock %}

@@ -1,46 +1,8 @@
 ---
 title: Langfuse
-caption: Tools
-description: Monitoring and evaluation for AI applications. Under assessment by the AI Capability and Enablement team.
-layout: section
-sectionTitle: Langfuse
-sectionNav:
-  - title: In this section
-    items:
-      - text: Tools radar
-        href: /ai-toolkit/tools
-  - title: Endorse
-    items:
-      - text: GitHub Copilot
-        href: /ai-toolkit/tools/github-copilot
-  - title: Pilot
-    items:
-      - text: AWS Bedrock
-        href: /ai-toolkit/tools/aws-bedrock
-      - text: Azure AI Foundry
-        href: /ai-toolkit/tools/azure-ai-foundry
-  - title: Assess
-    items:
-      - text: Model Context Protocol
-        href: /ai-toolkit/tools/model-context-protocol
-      - text: Agent-to-Agent
-        href: /ai-toolkit/tools/agent-to-agent
-      - text: LangGraph
-        href: /ai-toolkit/tools/langgraph
-      - text: Retrieval-augmented generation
-        href: /ai-toolkit/tools/retrieval-augmented-generation
-      - text: Langfuse
-        href: /ai-toolkit/tools/langfuse
-      - text: AWS Bedrock AgentCore
-        href: /ai-toolkit/tools/aws-bedrock-agentcore
-      - text: Claude Code plugin marketplace
-        href: /ai-toolkit/tools/claude-code-marketplace
-      - text: Git AI
-        href: /ai-toolkit/tools/git-ai
-  - title: All tools
-    items:
-      - text: Back to tools radar
-        href: /ai-toolkit/tools
+description: Monitoring and evaluation for AI applications.
+layout: tool
+toolSlug: langfuse
 customNav:
   - text: Home
     href: /
@@ -69,21 +31,22 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20Langfuse" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="app-tool-meta">
-  <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
-  <span class="app-tool-meta__category">Platform</span>
-</p>
-
 Langfuse is an open-source platform for monitoring, tracing and evaluating LLM-based applications. It captures prompts, outputs, costs and latencies so teams can debug and improve over time.
 
-## What assess means here
+## What data you can use with it
 
-The AI Capability and Enablement team is evaluating Langfuse. It is not yet ready for use in Defra delivery without prior consultation.
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">What you can put into Langfuse depends on your data's classification and how the tool is set up. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> before you use it.</p>
+</div>
 
-## Why we are watching it
+## Why we are exploring it
 
-Observability is one of the team's five workstreams. Langfuse is being assessed alongside other tools to understand which best supports running AI services in Defra.
+The AI Capability and Enablement team is evaluating Langfuse. It is not yet a recommendation either way.
 
-## Before you start
+Observability is one of the team's workstreams, and Langfuse is being assessed alongside other tools to understand which best supports running AI services in Defra.
 
-Do not use Langfuse in delivery without talking to the AI Capability and Enablement team.
+Talk to the team before using it in delivery.
+
+## More information
+
+For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

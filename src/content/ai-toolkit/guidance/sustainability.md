@@ -59,7 +59,7 @@ supportBox:
 
 ## Use the smallest model that meets your needs
 
-Larger models use more energy per request. If a lightweight model can do the job, use it. Check the [tools radar](/ai-toolkit/tools) for the approved Bedrock model tiers and default to the smallest that meets the need.
+Larger models use more energy per request. If a lightweight model can do the job, use it, and default to the smallest model that meets the need.
 
 ## Use AI only when it is the best option
 

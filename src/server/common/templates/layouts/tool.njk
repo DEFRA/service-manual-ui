@@ -1,0 +1,49 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: breadcrumbItems or [
+    { text: "Digital Defra", href: "/" },
+    { text: "AI digital toolkit", href: "/ai-toolkit" },
+    { text: "Tools", href: "/ai-toolkit/tools" },
+    { text: title }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+{% set tool = toolsRadar.bySlug[toolSlug] %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <nav class="app-sub-navigation" aria-label="Pages in this section">
+      <p class="app-subnav__header">Tools radar</p>
+      <ul class="app-subnav__list">
+        <li class="app-subnav__item"><a class="app-subnav__link" href="/ai-toolkit/tools">All tools</a></li>
+      </ul>
+      {% for group in toolsRadar.rowsByStatus %}
+      <p class="app-subnav__header">{{ group.label }}</p>
+      <ul class="app-subnav__list">
+        {% for row in group.rows %}
+        <li class="app-subnav__item"><a class="app-subnav__link{% if currentUrl == row.href %} app-subnav__link--current{% endif %}" href="{{ row.href }}"{% if currentUrl == row.href %} aria-current="page"{% endif %}>{{ row.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </nav>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    {% if caption %}<span class="govuk-caption-xl">{{ caption }}</span>{% endif %}
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{ title }}</h1>
+    {% if tool %}
+    <p class="app-tool-meta">
+      <strong class="govuk-tag govuk-tag--{{ tool.tagColour }}">{{ tool.statusLabel }}</strong>
+      <span class="app-tool-meta__category">{{ tool.categoryLabel }}</span>
+    </p>
+    {% endif %}
+
+    {{ content | markdown | safe }}
+
+    {% include "partials/support-box.njk" %}
+  </div>
+</div>
+{% endblock %}

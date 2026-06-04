@@ -98,5 +98,4 @@ supportBox:
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><a href="/ai-toolkit/tools" class="govuk-link">Find a tool</a>. The tools radar.</li>
 <li><a href="/ai-toolkit/patterns" class="govuk-link">Use AI patterns</a>. Reusable proofs of concept from Defra teams.</li>
-<li><a href="/ai-toolkit/projects" class="govuk-link">Learn from others</a>. What AICE is building with Defra teams.</li>
 </ul>

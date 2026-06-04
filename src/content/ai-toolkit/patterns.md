@@ -1,7 +1,7 @@
 ---
 title: Use AI patterns
 caption: AI digital toolkit
-description: Reusable approaches Defra teams have tested with AI. Proofs of concept you can adapt for your own delivery.
+description: See what other Defra teams have built with AI.
 layout: section
 sectionTitle: Use AI patterns
 sectionNav:
@@ -47,7 +47,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body-l">A pattern is a reusable approach other Defra teams have tested, shared as an early proof of concept. Use the finder below to find one that fits your problem.</p>
+<p class="govuk-body">Each pattern is an early proof of concept built and shared by a Defra team. Treat it as a starting point to adapt for your own delivery, not a finished product.</p>
 
 ## Find a pattern that fits
 

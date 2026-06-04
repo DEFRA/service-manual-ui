@@ -82,7 +82,7 @@ Generative AI tools send your prompts and content to models hosted by external p
 
 Some tools can be configured to use approved cloud platforms, for example [AWS Bedrock](/ai-toolkit/tools/aws-bedrock) or [Azure AI Foundry](/ai-toolkit/tools/azure-ai-foundry). These keep data in regions and tenancies that meet UK government requirements.
 
-Always check the [tools radar](/ai-toolkit/tools) entry for your tool to see how its data is routed.
+For what you can put into a specific tool, see [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
 
 ## Remove personal data from anything you put in
 
