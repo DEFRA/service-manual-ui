@@ -33,21 +33,38 @@ const STATUSES = {
   }
 }
 
-// Each category is a quadrant. Angles in degrees: 0 is right, increasing
-// clockwise (screen y increases downwards).
+// Diagram geometry. Angles in degrees: 0 is right, increasing clockwise
+// (SVG y increases downwards). Each category fills one 90-degree quadrant, so
+// sectors are derived from the quadrant order rather than hard-coded angles.
+const DEGREES = { quadrant: 90, halfCircle: 180 }
+const QUADRANT_ORDER = ['platform', 'framework', 'extension', 'assistant']
+
+function quadrantSector (categoryKey) {
+  const quadrant = QUADRANT_ORDER.indexOf(categoryKey)
+  return [quadrant * DEGREES.quadrant, (quadrant + 1) * DEGREES.quadrant]
+}
+
 const CATEGORIES = {
-  assistant: { label: 'Assistant', sector: [270, 360] },
-  platform: { label: 'Platform', sector: [0, 90] },
-  framework: { label: 'Framework', sector: [90, 180] },
-  extension: { label: 'Extension', sector: [180, 270] }
+  assistant: { label: 'Assistant', sector: quadrantSector('assistant') },
+  platform: { label: 'Platform', sector: quadrantSector('platform') },
+  framework: { label: 'Framework', sector: quadrantSector('framework') },
+  extension: { label: 'Extension', sector: quadrantSector('extension') }
+}
+
+// Status ring radii in SVG units: the outer boundary of each ring (used to draw
+// the circle) and the mid radius where that ring's blips sit.
+const RING = {
+  using: { boundary: 110, mid: 70 },
+  trialling: { boundary: 200, mid: 155 },
+  exploring: { boundary: 285, mid: 242 }
 }
 
 // SVG coordinate system. The SVG scales to its container via CSS.
 const GEOMETRY = {
   size: 600,
   centre: 300,
-  ringBoundaries: [110, 200, 285],
-  ringMid: { using: 70, trialling: 155, exploring: 242 }
+  ringBoundaries: [RING.using.boundary, RING.trialling.boundary, RING.exploring.boundary],
+  ringMid: { using: RING.using.mid, trialling: RING.trialling.mid, exploring: RING.exploring.mid }
 }
 
 const TOOLS = [
@@ -66,7 +83,7 @@ const TOOLS = [
 
 function byStatusThenTitle (a, b) {
   const byStatus = STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status)
-  return byStatus !== 0 ? byStatus : a.title.localeCompare(b.title)
+  return byStatus === 0 ? a.title.localeCompare(b.title) : byStatus
 }
 
 function buildRows () {
@@ -81,9 +98,9 @@ function buildRows () {
   }))
 }
 
-function buildBlips (rows) {
+function buildBlips (sortedRows) {
   const cells = {}
-  rows.forEach((row) => {
+  sortedRows.forEach((row) => {
     const key = `${row.status}|${row.category}`
     if (!cells[key]) {
       cells[key] = []
@@ -97,7 +114,7 @@ function buildBlips (rows) {
     const radius = GEOMETRY.ringMid[cell[0].status]
     cell.forEach((row, index) => {
       const fraction = (index + 1) / (cell.length + 1)
-      const radians = ((startAngle + fraction * (endAngle - startAngle)) * Math.PI) / 180
+      const radians = ((startAngle + fraction * (endAngle - startAngle)) * Math.PI) / DEGREES.halfCircle
       blips.push({
         number: row.number,
         title: row.title,
