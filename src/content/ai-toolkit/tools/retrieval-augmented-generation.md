@@ -1,46 +1,8 @@
 ---
 title: Retrieval-augmented generation (RAG)
-caption: Tools
-description: Combining a model with retrieved documents to ground its answers. Under assessment by the AI Capability and Enablement team.
-layout: section
-sectionTitle: Retrieval-augmented generation (RAG)
-sectionNav:
-  - title: In this section
-    items:
-      - text: Tools radar
-        href: /ai-toolkit/tools
-  - title: Endorse
-    items:
-      - text: GitHub Copilot
-        href: /ai-toolkit/tools/github-copilot
-  - title: Pilot
-    items:
-      - text: AWS Bedrock
-        href: /ai-toolkit/tools/aws-bedrock
-      - text: Azure AI Foundry
-        href: /ai-toolkit/tools/azure-ai-foundry
-  - title: Assess
-    items:
-      - text: Model Context Protocol
-        href: /ai-toolkit/tools/model-context-protocol
-      - text: Agent-to-Agent
-        href: /ai-toolkit/tools/agent-to-agent
-      - text: LangGraph
-        href: /ai-toolkit/tools/langgraph
-      - text: Retrieval-augmented generation
-        href: /ai-toolkit/tools/retrieval-augmented-generation
-      - text: Langfuse
-        href: /ai-toolkit/tools/langfuse
-      - text: AWS Bedrock AgentCore
-        href: /ai-toolkit/tools/aws-bedrock-agentcore
-      - text: Claude Code plugin marketplace
-        href: /ai-toolkit/tools/claude-code-marketplace
-      - text: Git AI
-        href: /ai-toolkit/tools/git-ai
-  - title: All tools
-    items:
-      - text: Back to tools radar
-        href: /ai-toolkit/tools
+description: Combining a model with retrieved documents to ground its answers.
+layout: tool
+toolSlug: retrieval-augmented-generation
 customNav:
   - text: Home
     href: /
@@ -69,21 +31,22 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20RAG" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="app-tool-meta">
-  <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
-  <span class="app-tool-meta__category">Framework</span>
-</p>
-
 Retrieval-augmented generation (RAG) is a pattern that combines a language model with a search step. The model retrieves relevant documents first, then uses them to ground its answer.
 
-## What assess means here
+## What data you can use with it
 
-The AI Capability and Enablement team is evaluating RAG patterns. They are not yet ready for general use in Defra delivery without prior consultation.
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">RAG works with your own documents, so what you can use depends on the data's classification and where it is stored. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> before you use it.</p>
+</div>
 
-## Why it matters
+## Why we are exploring it
+
+The AI Capability and Enablement team is evaluating RAG patterns. They are not yet ready for general use.
 
 RAG can reduce hallucination and let teams use models on internal Defra knowledge that is not in the model's training data. The trade-offs sit in retrieval quality, document permissions and evaluation.
 
-## Before you start
+Talk to the team before using RAG in delivery. They can advise on retrieval strategy, evaluation and access controls.
 
-Do not use RAG in delivery without talking to the AI Capability and Enablement team. They can advise on retrieval strategy, evaluation and access controls.
+## More information
+
+For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

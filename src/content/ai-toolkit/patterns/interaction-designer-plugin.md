@@ -94,6 +94,5 @@ No skill runs git. Each one ends by suggesting the <code>git add ... &amp;&amp; 
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li>Repo: <a href="https://github.com/DEFRA/interaction-designer-layered" class="govuk-link">DEFRA/interaction-designer-layered</a> on GitHub</li>
-<li>Project context: <a href="/ai-toolkit/projects/interaction-designer-plugins" class="govuk-link">Interaction designer plugins project</a>, for what AICE is working on next</li>
 <li>Before you point <code>read-corpus</code> at real design material, check what you can feed an AI tool in <a href="/ai-toolkit/guidance/using-data-with-ai" class="govuk-link">Using data with AI</a></li>
 </ul>

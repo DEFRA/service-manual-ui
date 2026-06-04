@@ -1,7 +1,7 @@
 ---
-title: Tools
-description: See which AI tools teams across Defra are using, trialling and exploring.
-layout: radar-table
+title: AI tools radar
+description: A visual summary of the tools, by status and category.
+layout: radar-diagram
 customNav:
   - text: Home
     href: /
@@ -21,6 +21,8 @@ breadcrumbItems:
   - text: AI digital toolkit
     href: /ai-toolkit
   - text: Tools
+    href: /ai-toolkit/tools
+  - text: Radar diagram
 supportBox:
   title: Get involved
   description: Suggest a tool, platform or framework for the radar.
@@ -28,6 +30,4 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<div class="govuk-inset-text">
-  <p class="govuk-body govuk-!-margin-bottom-0">You can use any AI tool, as long as you follow the rules on what data you can put into it. See <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a>.</p>
-</div>
+<p class="govuk-body"><a class="govuk-link" href="/ai-toolkit/tools">Back to the table</a></p>

@@ -30,14 +30,11 @@ primaryCards:
     description: How to use AI safely and responsibly at Defra.
     href: /ai-toolkit/deliver-with-ai
   - text: Find a tool
-    description: AI tools and platforms Defra has reviewed.
+    description: AI tools teams across Defra are using.
     href: /ai-toolkit/tools
   - text: Use AI patterns
     description: Reusable approaches teams have built and tested.
     href: /ai-toolkit/patterns
-  - text: Learn from others
-    description: Live AI projects from across Defra teams.
-    href: /ai-toolkit/projects
 supportBox:
   title: Contact the AI Capability and Enablement team
   description: Get hands-on help, request a pattern review or suggest new content.

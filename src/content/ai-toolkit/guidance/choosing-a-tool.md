@@ -1,7 +1,7 @@
 ---
 title: Choosing a tool
 caption: Deliver with AI
-description: Always check a tool is approved before you use it for Defra work. If it is not on the tools radar, it has not been reviewed.
+description: How to choose an AI tool at Defra. Check the radar, follow the data rules and turn on privacy settings.
 layout: section
 sectionTitle: Deliver with AI
 sectionNav:
@@ -52,7 +52,7 @@ breadcrumbItems:
   - text: Choosing a tool
 supportBox:
   title: Ask AICE about a tool
-  description: Get advice on a tool that is not yet on the radar, or check before you use one in production.
+  description: Get advice on a tool that is not on the radar, or check before you use one in production.
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Choosing%20an%20AI%20tool" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
@@ -61,28 +61,33 @@ supportBox:
 
 Before you pick an AI tool, check that a simpler option would not do the job better. A search, a formula or a script is often faster, cheaper and more reliable.
 
-## Check the tool's status on the radar
+## Check the radar
 
-Check the [tools radar](/ai-toolkit/tools) before you use any AI tool on Defra work. Each tool has a status that tells you what you can do.
+The [tools radar](/ai-toolkit/tools) shows the AI tools teams across Defra are using, trialling and exploring. Use it to see what colleagues are working with and how established each one is.
+
+You can use any AI tool, as long as you follow the rules on what data you put into it. The status tells you how established a tool is at Defra, not whether you are allowed to use it:
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-<li><strong>Endorse.</strong> You can use it for Defra work, within the data rules.</li>
-<li><strong>Pilot.</strong> Only allowed in approved pilot work.</li>
-<li><strong>Assess.</strong> Experimentation only. Talk to the AI Capability and Enablement team (AICE) before any production use.</li>
-<li><strong>Avoid.</strong> Do not use it on Defra work.</li>
+<li><strong>Using.</strong> Used by teams across Defra today.</li>
+<li><strong>Trialling.</strong> Being trialled with some teams before wider use.</li>
+<li><strong>Exploring.</strong> Being looked at by the AI Capability and Enablement team (AICE). Not yet a recommendation either way.</li>
 </ul>
 
-Anything not on the radar needs an AICE review before you use it on Defra work.
+A tool that is not on the radar is not banned. It just has not been looked at yet. Talk to AICE if you would like advice on one.
+
+## Check what data you can use
+
+What matters is the data you put in, not the tool itself.
+
+Before you use any tool, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) for what you can put into each type of tool.
 
 ## Turn on privacy settings
 
-You must turn on privacy settings before using any AI assistant on Defra work.
+Turn on privacy settings before using any AI assistant on Defra work.
 
-Privacy settings stop your code and data from being stored on AI providers' servers. They also prevent your data being used to train AI models.
+Privacy settings stop your code and data being stored on AI providers' servers, and stop your data being used to train AI models. In practice this means turning off model training and chat history.
 
-In practice this means turning off model training and chat history.
-
-For tool-specific settings, see the page for your assistant in the [tools radar](/ai-toolkit/tools).
+Check the tool's own settings for how to do this, and ask AICE if you are not sure.
 
 ## AI is hidden in tools you already use
 
@@ -94,7 +99,3 @@ AI is built into many everyday tools, and it is not always obvious. The same rul
 <li>AI features in Slack, Miro and Mural</li>
 <li>browser extensions and desktop assistants that can read your screen or files</li>
 </ul>
-
-## What to do next
-
-Once your tool is approved and its privacy settings are on, check what data you are allowed to put into it. See [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).

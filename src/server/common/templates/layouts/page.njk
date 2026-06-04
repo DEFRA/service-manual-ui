@@ -82,11 +82,14 @@
     </button>
     <ul class="defra-service-navigation__list" id="service-navigation-list">
       {% for item in customNav %}
+      {# Temporary: 'Learn from others' (/ai-toolkit/projects) is hidden from the launch nav. Remove this condition to restore it. #}
+      {% if item.href != '/ai-toolkit/projects' %}
       {% set isCurrent = currentUrl and item.href != '/' and currentUrl.startsWith(item.href) %}
       {% set isHomeCurrent = item.href == '/' and currentUrl == '/' %}
       <li class="defra-service-navigation__item">
         <a class="defra-service-navigation__link" href="{{ item.href }}"{% if isCurrent or isHomeCurrent %} aria-current="page"{% endif %}>{{ item.text }}</a>
       </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>
