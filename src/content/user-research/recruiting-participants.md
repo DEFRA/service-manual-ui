@@ -1,34 +1,56 @@
 ---
 title: Participant recruitment
-description: >-
-  Defra user researchers make sure services work for all users by involving a
-  diverse range of people in research and design.
+description: Defra user researchers recruit a diverse and representative range of users to help make sure services work for all users.
 layout: section
-sectionNav: nav-user-research
+sectionNav:
+  - title: In this section
+    items:
+      - text: User research
+        href: /user-research
+  - title: Standards, guidance and tools
+    items:
+      - text: Standards and guidance
+        href: /user-research/standards-and-guidance
+      - text: Tools
+        href: /user-research/tools
+  - title: Research process
+    items:
+      - text: Research scoping and planning
+        href: /user-research/scoping-research
+      - text: Participant recruitment
+        href: /user-research/recruiting-participants
+      - text: Plan and prepare research sessions
+        href: /user-research/research-sessions
+      - text: Research methods
+        href: /user-research/research-methods
+      - text: Analysis and synthesis
+        href: /user-research/analysis-and-synthesis
+supportBox:
+  title: Get support
+  description: Contact the user research operations team for further support.
+  items:
+    - 'Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
 ---
 
-The recruitment process, guidance and templates are listed below:
+## Participant recruitment process
 
-## Recruitment process
+When recruiting participants for user research, you should follow these steps:
 
-1. Define the users and identify participants for research
-2. Choose the recruitment channels and incentives (if needed)
-3. Screen participants to check they represent your target users
-4. Get informed consent before the session
-5. Plan your research sessions with participants
-6. Prepare observers for research sessions and note-taking
-7. Consider accessibility throughout
+1. Define your users and the participants you need.
+2. Set screening criteria that represent your target users.
+3. Choose recruitment channels and incentives, if needed.
+4. Screen participants to confirm they meet your criteria.
+5. Get informed consent before the session.
+6. Schedule your sessions with your participants.
+7. Consider accessibility at every stage.
 
 ## Defra guidance and templates
 
-- [Identify your users](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B282B7036-EF72-4B43-9A69-8FBF1205691D%7D&file=601.%20Identify%20your%20users.docx&action=default&mobileredirect=true)
-- [Recruitment channels](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B8E0D044D-10DB-4DBB-B536-702F0FA225E3%7D&file=602.%20Recruitment%20channels.docx&action=default&mobileredirect=true)
-- [Incentives](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B85DC7133-DB74-40A0-A311-E8AFCE42C47A%7D&file=603.%20Incentives.docx&action=default&mobileredirect=true)
-- [Screen participants](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BEBEE1627-0734-439B-8A7C-451E8749491C%7D&file=604.%20Screen%20participants.docx&action=default&mobileredirect=true)
-- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7B768A041D-CD1D-4B0A-8073-C765999E5790%7D&file=305.%20Informed%20consent%20and%20privacy%20notices.docx&action=default&mobileredirect=true&DefaultItemOpen=1)
-- [Planning research sessions with participants](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BF10CABC8-98C0-45C2-AA43-DD9E84F8DC56%7D&file=605.%20Planning%20research%20sessions%20with%20participants.docx&action=default&mobileredirect=true)
-- [Research observation and note-taking](https://defra.sharepoint.com/:w:/r/teams/Team3195/_layouts/15/Doc.aspx?sourcedoc=%7BD86B7783-4CA0-4C61-B75C-65F8E7A690DD%7D&file=606.%20Research%20observation%20and%20note-taking.docx&action=default&mobileredirect=true)
-
-## Standards
-
-All participant recruitment must comply with [Defra’s user research standards and guidance](/user-research/standards-and-guidance).
+- [Define and profile your users](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQATz6WmmhQAQ5ayQ3xUjBLSAS5O1O4dbbj02QXCkLJbgeY?e=pFkt13)
+- [Recruitment channels](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQCty74LgefiSIDDuqFLFUTsAQHAje_oDIOHuY90QtPNCm0?e=zntXSv)
+- [Incentives](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBOy3b5g0KUSoQMe9m5UmXSAZ4BdDqBa4kQDI3xHpqZWlw?e=vM2MVr)
+- [Recruitment screener design and guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQAMoaVilJ18SYoM2bgcO4uiAWQQcXTW8fERXZhhDSI0ljY?e=iv6LKi)
+- [Research invitation design and guidance](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQAacn3W4a4OTKnj1J3FLUjSAfUJkPgVeOu4IfBpZyYFLew?e=CCTY0t)
+- [Informed consent and privacy notices](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQCcjs9xRTRVSYqSmagQ_WPYAYrrMV8J8_J-GIJBwUXC5uI?e=JDJoQo)
+- [Informed consent template (Word)](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQBZJHJukGMqQrI791sVMHaeAdQJkmysfxOoRLOt0gf50UE?e=eT10az)
+- [Informed consent template (Qualtrics)](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQDDuu8BWy1uTJSH9Mwc4YWbAchKAFM42X8P5_H2iljnmOg?e=FA8k8Y)

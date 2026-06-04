@@ -1,13 +1,19 @@
 ---
 title: Agent-to-Agent (A2A)
-caption: Tools
-description: >-
-  Communication framework for AI agent collaboration. Under assessment by the AI
-  Capability and Enablement team.
-layout: section
-sectionTitle: Agent-to-Agent
-sectionNav: nav-ai-tools
-customNav: nav-ai-toolkit
+description: Communication framework for AI agent collaboration.
+layout: tool
+toolSlug: agent-to-agent
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -20,31 +26,27 @@ breadcrumbItems:
   - text: Agent-to-Agent
 supportBox:
   title: Get help with Agent-to-Agent
-  description: >-
-    The AI Capability and Enablement team is evaluating A2A. Talk to us before
-    using it in delivery.
+  description: The AI Capability and Enablement team is evaluating A2A. Talk to us before using it in delivery.
   items:
-    - >-
-      Email: <a
-      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20Agent-to-Agent"
-      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20Agent-to-Agent" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-<p class="app-tool-meta">
-  <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
-  <span class="app-tool-meta__category">Framework</span>
-</p>
 
 Agent-to-Agent (A2A) is a framework for letting multiple AI agents communicate and collaborate to complete tasks they could not do on their own.
 
-## What assess means here
+## What data you can use with it
 
-The AI Capability and Enablement team is evaluating A2A. It is not yet ready for use in Defra delivery without prior consultation.
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">Whatever you build with A2A must follow Defra's data rules. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> for what you can put into each type of tool.</p>
+</div>
 
-## Why we are watching it
+## Why we are exploring it
 
-Multi-agent patterns are emerging fast. A2A could become a useful way to compose specialist agents (for example, one that retrieves data and another that summarises it) rather than building one big agent.
+The AI Capability and Enablement team is evaluating A2A. It is not yet a recommendation either way.
 
-## Before you start
+Multi-agent patterns are emerging fast. A2A could become a useful way to compose specialist agents, for example one that retrieves data and another that summarises it, rather than building one large agent.
 
-Do not use A2A in delivery without talking to the AI Capability and Enablement team. The patterns and trade-offs here are still moving quickly.
+The patterns and trade-offs are still moving quickly, so talk to the team before using it in delivery.
+
+## More information
+
+For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

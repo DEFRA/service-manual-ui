@@ -352,3 +352,70 @@
     margin-bottom: 4px;
   }
 }
+
+// Status cell in the table radar: keep the status tag on one line.
+.app-radar-status {
+  white-space: nowrap;
+}
+
+// ===== Tools radar diagram (progressive enhancement) =====
+.app-tools-radar {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #f8f8f8;
+  border: 1px solid $govuk-mid-grey;
+}
+
+// Blip links are graphical (a numbered circle), so suppress the default link
+// underline that browsers paint under the SVG anchor's number.
+.app-radar-blip-link {
+  text-decoration: none;
+}
+
+// Visible focus for blip links (focusable anchors inside the inline SVG).
+.app-radar-blip-link:focus {
+  outline: none;
+}
+
+.app-radar-blip-link:focus circle {
+  stroke: $govuk-focus-colour;
+  stroke-width: 4px;
+}
+
+.app-radar-diagram__key {
+  margin: 24px 0 0;
+}
+
+.app-radar-diagram__dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.app-radar-diagram__dot--using {
+  background: #00703c;
+}
+
+.app-radar-diagram__dot--trialling {
+  background: #1d70b8;
+}
+
+.app-radar-diagram__dot--exploring {
+  background: #505a5f;
+}
+
+.app-radar-diagram__legend-item {
+  display: inline-block;
+  margin-right: 24px;
+}
+
+// Numbered legend beside the diagram. govuk-list--number gives a hanging
+// indent so wrapped entries align under the text, not the number.
+.app-radar-legend {
+  font-size: 1rem;
+}

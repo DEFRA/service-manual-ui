@@ -1,0 +1,73 @@
+{% extends "layouts/page.njk" %}
+
+{% block beforeContent %}
+{{ govukBreadcrumbs({
+  items: breadcrumbItems or [
+    { text: "Digital Defra", href: "/" },
+    { text: title }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if caption %}<span class="govuk-caption-xl">{{ caption }}</span>{% endif %}
+    <h1 class="govuk-heading-xl">{{ title }}</h1>
+    {% if description %}<p class="govuk-body-l">{{ description }}</p>{% endif %}
+    {{ content | markdown | safe }}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <svg class="app-tools-radar" viewBox="0 0 {{ toolsRadar.geometry.size }} {{ toolsRadar.geometry.size }}" role="group" aria-labelledby="radar-svg-title radar-svg-desc">
+      <title id="radar-svg-title">AI tools radar diagram</title>
+      <desc id="radar-svg-desc">Tools plotted by category in four quadrants (Assistant top right, Platform bottom right, Framework bottom left, Extension top left) and by status in three rings (Using in the centre, Trialling in the middle ring, Exploring on the outer ring). Each numbered point is a tool. The same tools are listed under All tools.</desc>
+      <circle cx="{{ toolsRadar.geometry.centre }}" cy="{{ toolsRadar.geometry.centre }}" r="{{ toolsRadar.geometry.ringBoundaries[2] }}" fill="#ffffff" stroke="#b1b4b6" stroke-width="1"></circle>
+      <circle cx="{{ toolsRadar.geometry.centre }}" cy="{{ toolsRadar.geometry.centre }}" r="{{ toolsRadar.geometry.ringBoundaries[1] }}" fill="#f3f2f1" stroke="#b1b4b6" stroke-width="1"></circle>
+      <circle cx="{{ toolsRadar.geometry.centre }}" cy="{{ toolsRadar.geometry.centre }}" r="{{ toolsRadar.geometry.ringBoundaries[0] }}" fill="#ffffff" stroke="#b1b4b6" stroke-width="1"></circle>
+      <line x1="{{ toolsRadar.geometry.centre }}" y1="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringBoundaries[2] }}" x2="{{ toolsRadar.geometry.centre }}" y2="{{ toolsRadar.geometry.centre + toolsRadar.geometry.ringBoundaries[2] }}" stroke="#b1b4b6" stroke-width="1"></line>
+      <line x1="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringBoundaries[2] }}" y1="{{ toolsRadar.geometry.centre }}" x2="{{ toolsRadar.geometry.centre + toolsRadar.geometry.ringBoundaries[2] }}" y2="{{ toolsRadar.geometry.centre }}" stroke="#b1b4b6" stroke-width="1"></line>
+      {% for status in toolsRadar.statuses %}
+      <text x="{{ toolsRadar.geometry.centre + 6 }}" y="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringMid[status.key] + 2 }}" font-size="11" fill="#505a5f">{{ status.label }}</text>
+      {% endfor %}
+      <text x="{{ toolsRadar.geometry.size - 10 }}" y="24" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Assistant</text>
+      <text x="{{ toolsRadar.geometry.size - 10 }}" y="{{ toolsRadar.geometry.size - 8 }}" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Platform</text>
+      <text x="12" y="{{ toolsRadar.geometry.size - 8 }}" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="start">Framework</text>
+      <text x="12" y="24" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="start">Extension</text>
+      <g id="radar-blips">
+        {% for blip in toolsRadar.blips %}
+        <a href="{{ blip.href }}" class="app-radar-blip-link" aria-label="{{ blip.number }}. {{ blip.title }}. {{ blip.categoryLabel }}, {{ blip.statusLabel }}.">
+          <title>{{ blip.title }} ({{ blip.statusLabel }})</title>
+          <circle cx="{{ blip.x }}" cy="{{ blip.y }}" r="16" fill="{{ blip.colour }}" stroke="#ffffff" stroke-width="2"></circle>
+          <text x="{{ blip.x }}" y="{{ blip.y }}" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="700" fill="#ffffff">{{ blip.number }}</text>
+        </a>
+        {% endfor %}
+      </g>
+    </svg>
+
+    <p class="app-radar-diagram__key govuk-body-s">
+      {% for status in toolsRadar.statuses %}<span class="app-radar-diagram__legend-item"><span class="app-radar-diagram__dot app-radar-diagram__dot--{{ status.key }}"></span>{{ status.label }}</span>{% endfor %}
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">All tools</h2>
+    {% for group in toolsRadar.rowsByStatus %}
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ group.label }}</h3>
+    <ol class="govuk-list govuk-list--number app-radar-legend govuk-!-margin-bottom-4" start="{{ (group.rows[0] and group.rows[0].number) or 1 }}">
+      {% for row in group.rows %}
+      <li><a class="govuk-link" href="{{ row.href }}">{{ row.title }}</a></li>
+      {% endfor %}
+    </ol>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include "partials/support-box.njk" %}
+  </div>
+</div>
+{% endblock %}

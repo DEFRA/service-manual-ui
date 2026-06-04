@@ -3,9 +3,35 @@ title: Green summarisation
 caption: Proof of concept
 description: A proof of concept from the AI Capability and Enablement team.
 layout: section
-sectionTitle: Patterns
-sectionNav: nav-ai-patterns
-customNav: nav-ai-toolkit
+sectionTitle: Use AI patterns
+sectionNav:
+  - title: In this section
+    items:
+      - text: Use AI patterns
+        href: /ai-toolkit/patterns
+  - title: Proofs of concept
+    items:
+      - text: AI assistant
+        href: /ai-toolkit/patterns/ai-assistant
+      - text: Green summarisation
+        href: /ai-toolkit/patterns/green-summarisation
+      - text: Agent swarms
+        href: /ai-toolkit/patterns/agent-swarms
+      - text: Token optimisation
+        href: /ai-toolkit/patterns/token-optimisation
+      - text: Interaction designer plugin
+        href: /ai-toolkit/patterns/interaction-designer-plugin
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -13,24 +39,23 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Patterns
+  - text: Use AI patterns
     href: /ai-toolkit/patterns
   - text: Green summarisation
 supportBox:
   title: Contribute a pattern
-  description: >-
-    If your team has a reusable approach you want to share, the AI Capability
-    and Enablement team can help you write it up.
+  description: If your team has a reusable approach you want to share, the AI Capability and Enablement team can help you write it up.
   items:
-    - >-
-      Email: <a
-      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution"
-      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 ## The problem
 
-Previous proofs of concept showed that large language models (LLMs) produce high-quality text summaries. However, LLMs run on cloud infrastructure and consume significant energy. We wanted to find out whether smaller, local models could do the same job more sustainably.
+Earlier proofs of concept showed that large language models (LLMs) produce high-quality text summaries. But LLMs run on cloud infrastructure and consume significant energy per call.
+
+Defra owns the government's environmental agenda, so the energy cost of AI is a real consideration here, not a footnote. See [Sustainability](/ai-toolkit/guidance/sustainability) for how that ties to the Greening Government Commitments.
+
+We wanted to find out whether smaller models, running locally, could do the same job at a fraction of the cost.
 
 ## The hypothesis
 
@@ -50,11 +75,19 @@ For concise summaries, the tested models produced shorter output that was semant
 
 For longer, more detailed summaries, the transformer models could not match LLMs. Their output length limits made detailed summaries impractical.
 
-Before this approach can progress further, we need a clear validation and evaluation strategy for summary quality.
+Running models locally also keeps the source text on Defra infrastructure. That suits sensitive material such as meeting transcripts, which a public consumer tool should not see.
+
+Check the defaults in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) before pointing any tool at real content.
+
+Before this approach goes further, it needs a clear way to measure whether a summary is good enough to trust.
 
 ## Limitations
 
-We only tested 2 models due to time constraints. Local inference ran on CPU only. GPU processing would improve performance significantly. The evaluation metrics we used (ROUGE, BERTScore) may not fully capture what makes a summary useful in practice.
+This was a short spike, so the findings are early.
+
+We tested only 2 models, and ran inference on CPU only, so the speed numbers would improve a lot on GPU.
+
+The metrics we used, ROUGE and BERTScore, measure textual overlap but may not capture what makes a summary genuinely useful to a reader.
 
 ## Project details
 

@@ -1,13 +1,19 @@
 ---
 title: LangGraph
-caption: Tools
-description: >-
-  Building stateful, multi-actor LLM applications as graphs. Under assessment by
-  the AI Capability and Enablement team.
-layout: section
-sectionTitle: LangGraph
-sectionNav: nav-ai-tools
-customNav: nav-ai-toolkit
+description: Building stateful, multi-actor LLM applications as graphs.
+layout: tool
+toolSlug: langgraph
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -20,31 +26,27 @@ breadcrumbItems:
   - text: LangGraph
 supportBox:
   title: Get help with LangGraph
-  description: >-
-    The AI Capability and Enablement team is evaluating LangGraph. Talk to us
-    before using it in delivery.
+  description: The AI Capability and Enablement team is evaluating LangGraph. Talk to us before using it in delivery.
   items:
-    - >-
-      Email: <a
-      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20LangGraph"
-      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20LangGraph" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-<p class="app-tool-meta">
-  <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
-  <span class="app-tool-meta__category">Framework</span>
-</p>
 
 LangGraph is a Python framework for building stateful, multi-actor applications with LLMs. It models work as a graph of nodes with explicit state passed between them.
 
-## What assess means here
+## What data you can use with it
 
-The AI Capability and Enablement team is evaluating LangGraph. It is not yet ready for use in Defra delivery without prior consultation.
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">Whatever you build with LangGraph must follow Defra's data rules. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> for what you can put into each type of tool.</p>
+</div>
 
-## Why we are watching it
+## Why we are exploring it
 
-LangGraph offers more control than simple chains for complex workflows. It is being considered for proofs of concept where you need to model branching and human-in-the-loop steps explicitly.
+The AI Capability and Enablement team is evaluating LangGraph. It is not yet a recommendation either way.
 
-## Before you start
+It offers more control than simple chains for complex workflows, and is being considered for proofs of concept where you need to model branching and human-in-the-loop steps explicitly.
 
-Do not use LangGraph in delivery without talking to the AI Capability and Enablement team.
+Talk to the team before using it in delivery.
+
+## More information
+
+For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

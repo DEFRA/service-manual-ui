@@ -1,9 +1,9 @@
 /**
  * Search index tests with AI content gated off.
  *
- * vitest.setup.js sets ENABLE_AI_CONTENT=true so the default suite indexes
- * everything. This file unsets it, resets the module cache (to drop both the
- * cached index and the cached config) and dynamically imports the helper,
+ * aiContent.enabled defaults to true, so the default suite indexes everything.
+ * This file sets ENABLE_AI_CONTENT=false, resets the module cache (to drop both
+ * the cached index and the cached config) and dynamically imports the helper,
  * mirroring the pattern used by src/server/home/controller-gated.test.js.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
@@ -16,7 +16,7 @@ describe('Search index with AI content gated off', () => {
 
   beforeAll(async () => {
     previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    delete process.env.ENABLE_AI_CONTENT
+    process.env.ENABLE_AI_CONTENT = 'false'
     vi.resetModules()
     const mod = await import('./search-index.js')
     buildSearchIndex = mod.buildSearchIndex

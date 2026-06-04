@@ -1,10 +1,37 @@
 ---
-title: Patterns
-description: Reusable approaches Defra teams are exploring with AI.
+title: Use AI patterns
+caption: AI digital toolkit
+description: See what other Defra teams have built with AI.
 layout: section
-sectionTitle: Patterns
-sectionNav: nav-ai-patterns
-customNav: nav-ai-toolkit
+sectionTitle: Use AI patterns
+sectionNav:
+  - title: In this section
+    items:
+      - text: Use AI patterns
+        href: /ai-toolkit/patterns
+  - title: Proofs of concept
+    items:
+      - text: AI assistant
+        href: /ai-toolkit/patterns/ai-assistant
+      - text: Green summarisation
+        href: /ai-toolkit/patterns/green-summarisation
+      - text: Agent swarms
+        href: /ai-toolkit/patterns/agent-swarms
+      - text: Token optimisation
+        href: /ai-toolkit/patterns/token-optimisation
+      - text: Interaction designer plugin
+        href: /ai-toolkit/patterns/interaction-designer-plugin
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -12,18 +39,22 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Patterns
+  - text: Use AI patterns
+supportBox:
+  title: Contribute a pattern
+  description: If your team has a reusable approach you want to share, AICE can help you write it up.
+  items:
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20contribution" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-A pattern is a reusable approach to a recurring problem, written up so the next team does not have to start from scratch.
+<p class="govuk-body">Each pattern is an early proof of concept built and shared by a Defra team. Treat it as a starting point to adapt for your own delivery, not a finished product.</p>
 
-These are early proofs of concept, aimed at engineers and technical architects. More are coming for other digital roles. [Email the team](mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry) if one fits your work, whatever your role.
+## Find a pattern that fits
 
 <div class="app-pattern-finder" data-pattern-finder hidden>
-  <h2 class="govuk-heading-m">Find a pattern that fits</h2>
   <form data-pattern-finder-form>
     <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         Which of these is your team's priority right now?
       </legend>
       <div class="govuk-radios" data-module="govuk-radios">
@@ -44,8 +75,12 @@ These are early proofs of concept, aimed at engineers and technical architects. 
           <label class="govuk-label govuk-radios__label" for="finder-4">Cutting token cost on AI calls</label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="finder-5" name="finder" type="radio" value="none">
-          <label class="govuk-label govuk-radios__label" for="finder-5">None of these, or not sure</label>
+          <input class="govuk-radios__input" id="finder-5" name="finder" type="radio" value="interaction-designer-plugin">
+          <label class="govuk-label govuk-radios__label" for="finder-5">Building an AI tool tailored to a Defra role</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="finder-6" name="finder" type="radio" value="none">
+          <label class="govuk-label govuk-radios__label" for="finder-6">None of these, or not sure</label>
         </div>
       </div>
     </fieldset>
@@ -89,17 +124,32 @@ These are early proofs of concept, aimed at engineers and technical architects. 
     <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20token%20optimisation" class="govuk-link">email the team</a> to discuss this for your project.</p>
   </template>
 
+  <template data-pattern-finder-rec="interaction-designer-plugin">
+    <p class="govuk-body-l govuk-!-margin-bottom-2">Try the <strong>Interaction designer plugin</strong></p>
+    <p class="govuk-body">A Claude Code plugin that wraps a guided arc and six leaf skills around a Defra designer's workflow. The architecture transfers to other roles too.</p>
+    <a href="/ai-toolkit/patterns/interaction-designer-plugin" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+      Read the interaction designer plugin pattern
+    </a>
+    <p class="govuk-body govuk-!-margin-top-2 govuk-!-margin-bottom-0">Or <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry%3A%20interaction%20designer%20plugin" class="govuk-link">email the team</a> to discuss this for your project.</p>
+  </template>
+
   <template data-pattern-finder-rec="none">
     <p class="govuk-body-l govuk-!-margin-bottom-2"><strong>Talk to the team</strong></p>
-    <p class="govuk-body">If none of the four fits, your work might be a candidate for a new pattern. The team is also currently exploring:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Hallucination detection at scale</li>
-      <li>LLM-as-a-judge for output validation</li>
-      <li>Async inference patterns</li>
-      <li>AI frameworks evaluation (LangChain, LangGraph, AWS Bedrock Agents)</li>
-    </ul>
+    <p class="govuk-body">If none of these fits, your work might be a candidate for a new pattern. Email AICE to discuss.</p>
     <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Pattern%20enquiry" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
       Email the team
     </a>
   </template>
 </div>
+
+<noscript>
+<p class="govuk-body">The interactive finder needs JavaScript. Browse the patterns:</p>
+<ul class="govuk-list govuk-list--bullet">
+<li><a href="/ai-toolkit/patterns/ai-assistant" class="govuk-link">AI assistant</a></li>
+<li><a href="/ai-toolkit/patterns/green-summarisation" class="govuk-link">Green summarisation</a></li>
+<li><a href="/ai-toolkit/patterns/agent-swarms" class="govuk-link">Agent swarms</a></li>
+<li><a href="/ai-toolkit/patterns/token-optimisation" class="govuk-link">Token optimisation</a></li>
+<li><a href="/ai-toolkit/patterns/interaction-designer-plugin" class="govuk-link">Interaction designer plugin</a></li>
+</ul>
+</noscript>
+

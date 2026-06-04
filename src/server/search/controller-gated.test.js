@@ -1,7 +1,7 @@
 /**
  * Search controller tests with AI content gated off.
  *
- * Mirrors src/server/home/controller-gated.test.js: unset ENABLE_AI_CONTENT,
+ * Mirrors src/server/home/controller-gated.test.js: set ENABLE_AI_CONTENT=false,
  * reset modules, then dynamically import the server so route registration and
  * the search index both pick up the gated state.
  */
@@ -14,7 +14,7 @@ describe('Search with AI content gated off', () => {
 
   beforeAll(async () => {
     previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    delete process.env.ENABLE_AI_CONTENT
+    process.env.ENABLE_AI_CONTENT = 'false'
     vi.resetModules()
     const { createServer } = await import('../server.js')
     server = await createServer()

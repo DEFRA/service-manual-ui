@@ -1,12 +1,11 @@
 /**
  * Home page and route registration tests with AI content gated off.
  *
- * The gate is config-driven: aiContent.enabled defaults to false unless
- * ENABLE_AI_CONTENT=true is set. The wider test suite has it set to true via
- * vitest.setup.js so the default-on tests pass. This file unsets the env var,
- * resets the module cache, then dynamically imports the server. That keeps the
- * gated state isolated to this file and leaves the rest of the suite running
- * with content visible.
+ * The gate is config-driven: aiContent.enabled defaults to true, and content is
+ * hidden only when ENABLE_AI_CONTENT=false. This file sets it to false, resets
+ * the module cache, then dynamically imports the server. That keeps the gated
+ * state isolated to this file and leaves the rest of the suite running with
+ * content visible.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { statusCodes } from '../common/constants/status-codes.js'
@@ -17,7 +16,7 @@ describe('AI content gated off', () => {
 
   beforeAll(async () => {
     previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    delete process.env.ENABLE_AI_CONTENT
+    process.env.ENABLE_AI_CONTENT = 'false'
     vi.resetModules()
     const { createServer } = await import('../server.js')
     server = await createServer()

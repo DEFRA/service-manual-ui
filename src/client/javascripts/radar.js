@@ -184,7 +184,9 @@ export function initRadar () {
   }
 
   const state = {
-    cards: Array.from(root.querySelectorAll('.app-radar-card')),
+    cards: Array.from(
+      root.querySelectorAll('.app-radar-card, [data-radar-item]')
+    ),
     sections: Array.from(root.querySelectorAll('.app-radar-section')),
     noResults: root.querySelector('[data-radar-noresults]'),
     noResultsTitle: root.querySelector('[data-radar-noresults-title]'),

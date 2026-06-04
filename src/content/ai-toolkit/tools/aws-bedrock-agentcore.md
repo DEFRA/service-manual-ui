@@ -1,13 +1,19 @@
 ---
 title: AWS Bedrock AgentCore
-caption: Tools
-description: >-
-  Managed cloud platform for production AI agents. Under assessment by the AI
-  Capability and Enablement team.
-layout: section
-sectionTitle: AWS Bedrock AgentCore
-sectionNav: nav-ai-tools
-customNav: nav-ai-toolkit
+description: Managed cloud platform for production AI agents.
+layout: tool
+toolSlug: aws-bedrock-agentcore
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -20,31 +26,27 @@ breadcrumbItems:
   - text: AWS Bedrock AgentCore
 supportBox:
   title: Get help with AWS Bedrock AgentCore
-  description: >-
-    The AI Capability and Enablement team is evaluating AgentCore. Talk to us
-    before using it in delivery.
+  description: The AI Capability and Enablement team is evaluating AgentCore. Talk to us before using it in delivery.
   items:
-    - >-
-      Email: <a
-      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AWS%20Bedrock%20AgentCore"
-      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AWS%20Bedrock%20AgentCore" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-<p class="app-tool-meta">
-  <strong class="govuk-tag govuk-tag--yellow">Assess</strong>
-  <span class="app-tool-meta__category">Platform</span>
-</p>
 
 [AWS Bedrock](/ai-toolkit/tools/aws-bedrock) AgentCore is a managed cloud platform for running AI agents in production. It provides hosting, memory, identity and observability for agent-based services.
 
-## What assess means here
+## What data you can use with it
 
-The AI Capability and Enablement team is evaluating AgentCore. It is not yet ready for use in Defra delivery without prior consultation.
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">What you can put into AgentCore depends on your data's classification and how the tool is set up. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> before you use it.</p>
+</div>
 
-## Why we are watching it
+## Why we are exploring it
+
+The AI Capability and Enablement team is evaluating AgentCore. It is not yet a recommendation either way.
 
 Running agents reliably in production is a hard problem. AgentCore is one of the platforms being assessed as a possible managed answer for teams that already run on AWS.
 
-## Before you start
+Talk to the team before using it in delivery.
 
-Do not use AgentCore in delivery without talking to the AI Capability and Enablement team.
+## More information
+
+For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).

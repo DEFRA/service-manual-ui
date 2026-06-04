@@ -4,17 +4,22 @@ caption: Your role at Defra
 description: Analyse business problems and recommend solutions.
 layout: section
 sectionTitle: Business analysis
-sectionNav: nav-business-analysis
+sectionNav:
+  - title: In this section
+    items:
+      - text: Business analysis
+        href: /business-analysis
+  - title: Ways of working
+    items:
+      - text: Tools and standards
+        href: /business-analysis/ways-of-working
+      - text: Non-functional requirements
+        href: /business-analysis/non-functional-requirements
 supportBox:
   title: Get support
-  description: >-
-    The <strong>Business Analysis Community</strong> can help you understand
-    these standards and meet the requirements.
+  description: The <strong>Business Analysis Community</strong> can help you understand these standards and meet the requirements.
   items:
-    - >-
-      <a
-      href="https://teams.microsoft.com/l/team/19%3Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%40thread.tacv2/conversations?groupId=ce956adc-8c10-4fd7-91d5-2d1a148530d8&tenantId=770a2450-0227-4c62-90c7-4e38537f1102"
-      class="govuk-link">Join the BA Teams channel</a>
+    - '<a href="https://teams.microsoft.com/l/team/19%3Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%40thread.tacv2/conversations?groupId=ce956adc-8c10-4fd7-91d5-2d1a148530d8&tenantId=770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the BA Teams channel</a>'
 ---
 
 Defra uses business analysts (BAs) in all phases of delivery, from Discovery to Live. They align with the [Government Digital and Data role description](https://ddat-capability-framework.service.gov.uk/role/business-analyst).

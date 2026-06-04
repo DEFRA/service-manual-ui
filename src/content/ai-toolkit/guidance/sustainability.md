@@ -1,11 +1,45 @@
 ---
 title: Sustainability
-caption: Responsible AI
-description: AI has environmental cost. How to use it in proportion to the task.
+caption: Deliver with AI
+description: How to reduce the energy AI uses. Smaller models, fewer calls and shared infrastructure.
 layout: section
-sectionTitle: Guidance
-sectionNav: nav-ai-guidance
-customNav: nav-ai-toolkit
+sectionTitle: Deliver with AI
+sectionNav:
+  - title: In this section
+    items:
+      - text: Deliver with AI
+        href: /ai-toolkit/deliver-with-ai
+  - title: Choose tools and use data
+    items:
+      - text: Choosing a tool
+        href: /ai-toolkit/guidance/choosing-a-tool
+      - text: Using data with AI
+        href: /ai-toolkit/guidance/using-data-with-ai
+      - text: Keeping data safe
+        href: /ai-toolkit/guidance/keeping-data-safe
+      - text: Working with AI agents
+        href: /ai-toolkit/guidance/working-with-agents
+  - title: Use AI responsibly
+    items:
+      - text: Security
+        href: /ai-toolkit/guidance/security
+      - text: Ethics
+        href: /ai-toolkit/guidance/ethics
+      - text: Sustainability
+        href: /ai-toolkit/guidance/sustainability
+      - text: Report an AI incident
+        href: /ai-toolkit/guidance/report-an-ai-incident
+customNav:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: Learn from others
+    href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
 breadcrumbItems:
@@ -13,40 +47,27 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-  - text: Guidance
-    href: /ai-toolkit/guidance
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
   - text: Sustainability
 supportBox:
   title: Get help with this
   description: Ask the AI Capability and Enablement team for advice or hands-on support.
   items:
-    - >-
-      Email: <a
-      href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability"
-      class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
-
-AI has environmental costs. Every model call uses energy. Balance the benefits of AI with the need to reduce carbon emissions.
 
 ## Use the smallest model that meets your needs
 
-Larger models consume significantly more energy per request. If a lightweight model can do the job, use it. See [Choosing models](/ai-toolkit/guidance/choosing-models) for guidance on matching tasks to the right tier.
+Larger models use more energy per request. If a lightweight model can do the job, use it, and default to the smallest model that meets the need.
 
-## Deploy AI only when it is genuinely the best option
+## Use AI only when it is the best option
 
-Not every problem needs an AI solution. If a rule-based approach or simple script works, use that instead. Reserve AI for tasks where it adds clear value over simpler alternatives.
-
-## Write precise prompts
-
-Vague prompts lead to multiple iterations, each consuming tokens and energy. Invest time upfront in crafting clear, specific prompts. Fewer iterations means lower environmental impact.
+Not every problem needs AI. If a rule, a search or a simple script does the job, use that instead. Use AI only where a simpler tool cannot.
 
 ## Cache results
 
 If you make repeated similar requests, cache the responses. This avoids unnecessary duplicate calls to the model and reduces both cost and energy consumption.
-
-## Schedule intensive work wisely
-
-Where possible, run batch AI processing during periods when the electricity grid has a higher proportion of renewable energy. This reduces the carbon intensity of your workloads.
 
 ## Share models across teams
 
