@@ -29,12 +29,12 @@
       <circle cx="{{ toolsRadar.geometry.centre }}" cy="{{ toolsRadar.geometry.centre }}" r="{{ toolsRadar.geometry.ringBoundaries[0] }}" fill="#ffffff" stroke="#b1b4b6" stroke-width="1"></circle>
       <line x1="{{ toolsRadar.geometry.centre }}" y1="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringBoundaries[2] }}" x2="{{ toolsRadar.geometry.centre }}" y2="{{ toolsRadar.geometry.centre + toolsRadar.geometry.ringBoundaries[2] }}" stroke="#b1b4b6" stroke-width="1"></line>
       <line x1="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringBoundaries[2] }}" y1="{{ toolsRadar.geometry.centre }}" x2="{{ toolsRadar.geometry.centre + toolsRadar.geometry.ringBoundaries[2] }}" y2="{{ toolsRadar.geometry.centre }}" stroke="#b1b4b6" stroke-width="1"></line>
-      <text x="306" y="232" font-size="11" fill="#505a5f">Using</text>
-      <text x="306" y="147" font-size="11" fill="#505a5f">Trialling</text>
-      <text x="306" y="60" font-size="11" fill="#505a5f">Exploring</text>
-      <text x="590" y="24" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Assistant</text>
-      <text x="590" y="592" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Platform</text>
-      <text x="12" y="592" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="start">Framework</text>
+      {% for status in toolsRadar.statuses %}
+      <text x="{{ toolsRadar.geometry.centre + 6 }}" y="{{ toolsRadar.geometry.centre - toolsRadar.geometry.ringMid[status.key] + 2 }}" font-size="11" fill="#505a5f">{{ status.label }}</text>
+      {% endfor %}
+      <text x="{{ toolsRadar.geometry.size - 10 }}" y="24" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Assistant</text>
+      <text x="{{ toolsRadar.geometry.size - 10 }}" y="{{ toolsRadar.geometry.size - 8 }}" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="end">Platform</text>
+      <text x="12" y="{{ toolsRadar.geometry.size - 8 }}" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="start">Framework</text>
       <text x="12" y="24" font-size="14" font-weight="700" fill="#0b0c0c" text-anchor="start">Extension</text>
       <g id="radar-blips">
         {% for blip in toolsRadar.blips %}
