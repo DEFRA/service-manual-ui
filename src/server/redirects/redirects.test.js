@@ -1,10 +1,10 @@
 /**
  * Tests for the 301 redirects from old /ai-playbook URLs to /ai-toolkit.
  *
- * The default suite runs with ENABLE_AI_CONTENT=true (vitest.setup.js), so
- * the redirect routes are registered and we can hit them. A second describe
- * block unsets the env var, resets the module cache, and re-imports the
- * server to verify the redirects also disappear when AI content is gated.
+ * AI content is enabled by default, so the redirect routes are registered and
+ * we can hit them. A second describe block sets ENABLE_AI_CONTENT=false, resets
+ * the module cache, and re-imports the server to verify the redirects also
+ * disappear when AI content is gated off.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { createServer } from '../server.js'
@@ -88,7 +88,7 @@ describe('301 redirects (AI content gated off)', () => {
 
   beforeAll(async () => {
     previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    delete process.env.ENABLE_AI_CONTENT
+    process.env.ENABLE_AI_CONTENT = 'false'
     vi.resetModules()
     const { createServer: createServerGated } = await import('../server.js')
     server = await createServerGated()
