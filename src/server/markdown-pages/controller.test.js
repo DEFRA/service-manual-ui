@@ -257,16 +257,18 @@ describe('#markdownPagesController', () => {
       expect(statusCode).toBe(statusCodes.ok)
     })
 
-    test('should render governance overview page with title', async () => {
+    test('should render the guidance page with title', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups/follow-delivery-governance'
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Delivery group governance')
+        expect.stringContaining('Follow delivery guidance')
       )
-      expect(result).toEqual(expect.stringContaining('Governance'))
+      expect(result).toEqual(
+        expect.stringContaining('What a delivery group is')
+      )
       expect(result).toEqual(expect.stringContaining('Assurance'))
     })
 
