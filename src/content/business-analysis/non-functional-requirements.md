@@ -1,6 +1,6 @@
 ---
 title: Non-functional requirements
-caption: Your role at Defra
+caption: Ways of working
 description: Non-functional requirements describe how well a system should work rather than what it should do.
 layout: section
 sectionTitle: Non-functional requirements
@@ -15,6 +15,8 @@ sectionNav:
         href: /business-analysis/ways-of-working
       - text: Non-functional requirements
         href: /business-analysis/non-functional-requirements
+      - text: Guardrails
+        href: /business-analysis/guardrails
 supportBox:
   title: Get support
   description: To request additions or amendments to the NFR list, or for help applying non-functional requirements, contact the <strong>Business Analysis Community</strong>.

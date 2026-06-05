@@ -1,9 +1,9 @@
 ---
-title: Ways of working
-caption: Your role at Defra
+title: Tools and standards
+caption: Ways of working
 description: Tools, standards and managing artifacts for business analysts.
 layout: section
-sectionTitle: Ways of working
+sectionTitle: Tools and standards
 sectionNav:
   - title: In this section
     items:
@@ -15,14 +15,14 @@ sectionNav:
         href: /business-analysis/ways-of-working
       - text: Non-functional requirements
         href: /business-analysis/non-functional-requirements
+      - text: Guardrails
+        href: /business-analysis/guardrails
 supportBox:
   title: Get support
   description: The <strong>Business Analysis Community</strong> can help you choose the right tools and follow these standards.
   items:
     - '<a href="https://teams.microsoft.com/l/team/19%3Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%40thread.tacv2/conversations?groupId=ce956adc-8c10-4fd7-91d5-2d1a148530d8&tenantId=770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the BA Teams channel</a>'
 ---
-
-## Tools and standards
 
 Defra BAs use BPMN 2.0 for process mapping. Create diagrams in MS Visio or Mural, depending on delivery requirements. Check with your Principal BA.
 
