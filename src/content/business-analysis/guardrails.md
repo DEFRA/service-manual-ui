@@ -9,14 +9,14 @@ sectionNav:
     items:
       - text: Business analysis
         href: /business-analysis
-      - text: Guardrails
-        href: /business-analysis/guardrails
   - title: Ways of working
     items:
       - text: Tools and standards
         href: /business-analysis/ways-of-working
       - text: Non-functional requirements
         href: /business-analysis/non-functional-requirements
+      - text: Guardrails
+        href: /business-analysis/guardrails
 supportBox:
   title: Get support
   description: The <strong>Business Analysis Community</strong> can help you understand and apply these guardrails.
@@ -36,11 +36,17 @@ Guardrails are a framework that:
 
 Use the following ratings to assess guardrail compliance:
 
-**Compliant (green)** The guardrail is fully in place, with no breaches or deviations. There is low or no risk, and expectations are met.
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1"><strong class="govuk-tag govuk-tag--green">Compliant</strong></h3>
 
-**Partially compliant (amber)** The guardrail is partly in place, but there are gaps or inconsistencies. This creates a moderate risk and requires follow-up action.
+The guardrail is fully in place, with no breaches or deviations. There is low or no risk, and expectations are met.
 
-**Non-compliant (red)** The guardrail has been breached or standards are not being met. This creates a high risk and requires immediate action.
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1"><strong class="govuk-tag govuk-tag--yellow">Partially compliant</strong></h3>
+
+The guardrail is partly in place, but there are gaps or inconsistencies. This creates a moderate risk and requires follow-up action.
+
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1"><strong class="govuk-tag govuk-tag--red">Non-compliant</strong></h3>
+
+The guardrail has been breached or standards are not being met. This creates a high risk and requires immediate action.
 
 ## Problem and opportunity statements
 
