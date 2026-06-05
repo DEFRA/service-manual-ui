@@ -31,7 +31,7 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20GitHub%20Copilot" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-GitHub Copilot has moved to usagebased billing, replacing request limits with AI credits consumed based on token usage.
+GitHub Copilot has moved to usage-based billing, replacing request limits with AI credits consumed based on token usage.
 
 Credits are now allocated at the organisation level, meaning each user's monthly entitlement is contributed into a single shared pool of AI credits rather than being locked to individuals. This allows unused credits from one user to be used by others with higher demand, helping balance usage across teams and reduce wasted capacity. Additional charges apply once the shared AI credit pool is exhausted.
 
@@ -39,35 +39,37 @@ We remain firmly committed to the use of GitHub Copilot as part of our developme
 
 While we build a clearer understanding through usage data insights, a temporary per-user budget has been introduced.
 
-To view individual usage information in Visual Studio Code, click the Copilot icon in the status bar. Alternately, you can also view in the GitHub User Interface [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features)
+To view individual usage information in Visual Studio Code, click the Copilot icon in the status bar. Alternatively, you can also view it in the [GitHub user interface](https://github.com/settings/copilot/features).
 
-The following guidance has been prepared for information to help with the responsible and efficient use of GitHub Copilot, maximise value to delivery while controlling organisational cost promote consistent and sustainable usage practices.
+The following guidance has been prepared for information to help with the responsible and efficient use of GitHub Copilot, maximise value to delivery while controlling organisational cost, and promote consistent and sustainable usage practices.
 
 We are all still learning how to use this technology effectively, and no one is expected to get it right every time. We should continue to maximise the efficiency gains these tools can offer, so keep usage high but be more deliberate in choosing the right settings for each task.
 
 Please share your experiences and learnings across your teams and across the Software Developer community. Use the common Teams and Slack channels, reach out to a Principal Developer or offer a demo at the Community of Practice.
 
-## GitHub Copilot Usage Guidance
+## GitHub Copilot usage guidance
 
-### Key Principle
+### Key principle
 
-Copilot should be used deliberately to support delivery, not as an unlimited exploratory tool
+Copilot should be used deliberately to support delivery, not as an unlimited exploratory tool.
 
-### Expected Usage Behaviours
+### Expected usage behaviours
 
 - Be purposeful in usage, only use where it adds clear value
-- Keep prompts focused and efficient and avoid broad or overly large prompts unless the added context is genuinely necessary.
+- Keep prompts focused and efficient and avoid broad or overly large prompts unless the added context is genuinely necessary
 - Manage chat and session length, avoid long continuous threads
 - Prefer lightweight usage, use completions where possible
 - Avoid inefficient iteration, refine prompts before retrying
 - Minimise unnecessary context, only include relevant files
-- Use responsibly as a shared resource Choose an appropriate model for the task. Use Opus only when dealing with tasks of significant complexity.
+- Use responsibly as a shared resource
+- Choose an appropriate model for the task
+- Use Opus only when dealing with tasks of significant complexity
 - If unsure which model to use, use "Auto"
 - Adjust the "Thinking Effort" setting to align with the task complexity
 - Reduce the "Context Size" setting for simpler tasks
-- Use instruction files and skills to aide prompts to reduce likelihood of subsequent corrective prompting
+- Use instruction files and skills to aid prompts to reduce likelihood of subsequent corrective prompting
 
-### Not Recommended
+### Not recommended
 
 - Large, open-ended prompts
 - Long-running autonomous agent sessions without need
@@ -79,7 +81,7 @@ Copilot should be used deliberately to support delivery, not as an unlimited exp
 - Developers are responsible for efficient usage
 - Admins will monitor team-level consumption
 
-### Final Reminder
+### Final reminder
 
 - Copilot is a valuable accelerator
 - Responsible usage ensures sustainable access and scalable adoption
