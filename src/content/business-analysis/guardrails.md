@@ -21,7 +21,7 @@ supportBox:
   title: Get support
   description: The <strong>Business Analysis Community</strong> can help you understand and apply these guardrails.
   items:
-    - '<a href="https://teams.microsoft.com/l/team/19%3Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%40thread.tacv2/conversations?groupId=ce956adc-8c10-4fd7-91d5-2d1a148530d8&tenantId=770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the BA Teams channel</a>'
+    - '<a href="/interruption-card?targetUrl=https%3A%2F%2Fteams.microsoft.com%2Fl%2Fteam%2F19%253Ak2K_FxFXfvjz7V4rv3eBMjIt8V0K0Q70imaDAqo2zxc1%2540thread.tacv2%2Fconversations%3FgroupId%3Dce956adc-8c10-4fd7-91d5-2d1a148530d8%26tenantId%3D770a2450-0227-4c62-90c7-4e38537f1102" class="govuk-link">Join the BA Teams channel</a>'
 ---
 
 ## Definition of guardrails
