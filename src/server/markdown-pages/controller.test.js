@@ -360,4 +360,42 @@ describe('#markdownPagesController', () => {
       expect(statusCode).toBe(statusCodes.ok)
     })
   })
+
+  describe('Business analysis guardrails', () => {
+    test('GET /business-analysis/guardrails should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis/guardrails'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the guardrails page with its sections', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis/guardrails'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Guardrails'))
+      expect(result).toEqual(
+        expect.stringContaining('Quality assurance criteria')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('Problem and opportunity statements')
+      )
+      expect(result).toEqual(expect.stringContaining('User stories'))
+    })
+
+    test('should link to guardrails from the business analysis section nav', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('href="/business-analysis/guardrails"')
+      )
+    })
+  })
 })

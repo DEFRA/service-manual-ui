@@ -9,6 +9,8 @@ sectionNav:
     items:
       - text: Business analysis
         href: /business-analysis
+      - text: Guardrails
+        href: /business-analysis/guardrails
   - title: Ways of working
     items:
       - text: Tools and standards
