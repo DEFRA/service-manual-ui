@@ -1,6 +1,6 @@
 ---
 title: Non-functional requirements
-caption: Your role at Defra
+caption: Ways of working
 description: Non-functional requirements describe how well a system should work rather than what it should do.
 layout: section
 sectionTitle: Non-functional requirements

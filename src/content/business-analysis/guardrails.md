@@ -1,6 +1,6 @@
 ---
 title: Guardrails
-caption: Your role at Defra
+caption: Ways of working
 description: A framework that sets clear expectations and keeps business analysis work on track to deliver outcomes in line with standards and best practice.
 layout: section
 sectionTitle: Guardrails
