@@ -31,41 +31,55 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20GitHub%20Copilot" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-<p class="govuk-body">GitHub Copilot for Business is an AI coding assistant that suggests code from natural-language prompts and the surrounding context. It works in VS Code, Visual Studio, JetBrains IDEs, Neovim and the GitHub CLI.</p>
+GitHub Copilot has moved to usagebased billing, replacing request limits with AI credits consumed based on token usage.
 
-<p class="govuk-body"><a class="govuk-link" href="https://github.com/features/copilot" rel="noreferrer noopener" target="_blank">Visit the GitHub Copilot site (opens in new tab)</a></p>
+Credits are now allocated at the organisation level, meaning each user's monthly entitlement is contributed into a single shared pool of AI credits rather than being locked to individuals. This allows unused credits from one user to be used by others with higher demand, helping balance usage across teams and reduce wasted capacity. Additional charges apply once the shared AI credit pool is exhausted.
 
-## What data you can use with it
+We remain firmly committed to the use of GitHub Copilot as part of our development strategy, and while high levels of adoption are expected and encouraged, usage must also be efficient, deliberate and focused on delivering value. This approach aligns with the wider direction across government, Defra and DDTS, where AI is encouraged as a means of improving efficiency and accelerating delivery.
 
-<div class="govuk-inset-text">
-  <p class="govuk-body govuk-!-margin-bottom-0">What you can put into Copilot depends on your data's classification and how the tool is set up. Check <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> before you use it.</p>
-</div>
+While we build a clearer understanding through usage data insights, a temporary per-user budget has been introduced.
 
-## Why it is in use
+To view individual usage information in Visual Studio Code, click the Copilot icon in the status bar. Alternately, you can also view in the GitHub User Interface [https://github.com/settings/copilot/features](https://github.com/settings/copilot/features)
 
-GitHub Copilot is used by delivery teams across Defra.
+The following guidance has been prepared for information to help with the responsible and efficient use of GitHub Copilot, maximise value to delivery while controlling organisational cost promote consistent and sustainable usage practices.
 
-The Business tier adds the admin controls and privacy safeguards that make this possible. Customer code, prompts and completions are not used to train models.
+We are all still learning how to use this technology effectively, and no one is expected to get it right every time. We should continue to maximise the efficiency gains these tools can offer, so keep usage high but be more deliberate in choosing the right settings for each task.
 
-An admin sets the privacy controls once for the whole organisation, so individuals cannot override them.
+Please share your experiences and learnings across your teams and across the Software Developer community. Use the common Teams and Slack channels, reach out to a Principal Developer or offer a demo at the Community of Practice.
 
-## When to use it
+## GitHub Copilot Usage Guidance
 
-Copilot suits day-to-day development where you want to move faster:
+### Key Principle
 
-- writing boilerplate, helper functions or unit tests
-- exploring an unfamiliar API or library
-- translating code between languages
-- generating documentation or commit messages
+Copilot should be used deliberately to support delivery, not as an unlimited exploratory tool
 
-## When not to use it
+### Expected Usage Behaviours
 
-Treat Copilot as a junior pair programmer, not an expert:
+- Be purposeful in usage, only use where it adds clear value
+- Keep prompts focused and efficient and avoid broad or overly large prompts unless the added context is genuinely necessary.
+- Manage chat and session length, avoid long continuous threads
+- Prefer lightweight usage, use completions where possible
+- Avoid inefficient iteration, refine prompts before retrying
+- Minimise unnecessary context, only include relevant files
+- Use responsibly as a shared resource Choose an appropriate model for the task. Use Opus only when dealing with tasks of significant complexity.
+- If unsure which model to use, use "Auto"
+- Adjust the "Thinking Effort" setting to align with the task complexity
+- Reduce the "Context Size" setting for simpler tasks
+- Use instruction files and skills to aide prompts to reduce likelihood of subsequent corrective prompting
 
-- always review suggestions before accepting them
-- check security-critical logic by hand and through automated testing
-- do not commit suggestions you do not understand
+### Not Recommended
 
-## More information
+- Large, open-ended prompts
+- Long-running autonomous agent sessions without need
+- Repeated trial-and-error prompting
+- Using high-cost features for simple tasks
 
-For how Defra handles AI security and data, see [Security](/ai-toolkit/guidance/security) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe).
+### Accountability
+
+- Developers are responsible for efficient usage
+- Admins will monitor team-level consumption
+
+### Final Reminder
+
+- Copilot is a valuable accelerator
+- Responsible usage ensures sustainable access and scalable adoption
