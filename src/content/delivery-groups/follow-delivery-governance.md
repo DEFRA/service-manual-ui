@@ -14,7 +14,8 @@ breadcrumbs:
 ---
 
 <div class="defra-version-banner">
-  <span class="defra-version-banner__text"><span class="defra-version-banner__label" style="vertical-align: middle">Draft</span> This guide will be updated as we improve our ways of working.</span>
+  <span class="defra-version-banner__label">Draft</span>
+  <span class="defra-version-banner__text">This guide will be updated as we improve our ways of working.</span>
 </div>
 
 It sets out the minimum expectations and shared principles that delivery groups should be built on.
