@@ -64,7 +64,7 @@ supportBox:
   <div class="govuk-details__text">
     <p class="govuk-body">Several teams across Defra work on AI. If your work is closer to one of these areas, start there instead.</p>
     <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-    <li><strong>AI training for all staff.</strong> Civil Service Learning courses and safe-use guidance. Complete this before using AI on Defra work. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-and-Guidance.aspx" class="govuk-link">AI training and guidance page on SharePoint</a>.</li>
+    <li><strong>AI training for all staff.</strong> Civil Service Learning courses and safe-use guidance. Complete this before using AI on Defra work. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Training-%26-Guidance.aspx?web=1" class="govuk-link">AI training and guidance page on SharePoint</a>.</li>
     <li><strong>AI policy and governance.</strong> Defra-wide policy on what is allowed and what needs sign-off. See the <a href="https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx" class="govuk-link">AI governance page on SharePoint</a>.</li>
     <li><strong>Core Delivery Platform (CDP) and Amazon Bedrock.</strong> Approved models, guardrails and cost controls for the Defra Bedrock integration. See the <a href="https://portal.cdp-int.defra.cloud/documentation" class="govuk-link">CDP documentation</a>.</li>
     <li><strong>AI in arm's length bodies.</strong> Environment Agency, Natural England, APHA, RPA, MMO and others run their own AI work. Check your organisation's own guidance first.</li>
