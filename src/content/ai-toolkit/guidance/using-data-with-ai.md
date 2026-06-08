@@ -118,7 +118,7 @@ This table shows the default position for each combination of data and tool type
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><strong>With privacy settings on.</strong> Model training and chat history are turned off. See <a href="/ai-toolkit/guidance/choosing-a-tool" class="govuk-link">Choosing a tool</a>.</li>
-<li><strong>DPIA required.</strong> The assessment must be completed and signed off before any processing begins.</li>
+<li><strong>DPIA required.</strong> The assessment must be completed and signed off before any processing begins. <a href="https://forms.office.com/pages/responsepage.aspx?id=UCQKdycCYkyQx044U38RAjG4bU8jIdlOvpH2L94GfqZUQUFDOTMwWk00WEtWU1RUNlNPRjRMVk01OSQlQCN0PWcu&amp;route=shorturl" class="govuk-link">Start the AI DPIA screening</a>.</li>
 <li><strong>The defaults can move.</strong> A specific data set or use case may need more or fewer controls.</li>
 </ul>
 
