@@ -21,7 +21,8 @@
   <div class="govuk-grid-column-two-thirds">  
     <span class="govuk-caption-xl">{{ caption }}</span>
     <h1 class="govuk-heading-xl">{{ title }}</h1>
-    <p class="govuk-body-l">{{ description }}</p>
+    {# descriptionInBody: page renders its own lede in the body (e.g. below a banner), so skip it here while keeping description available for meta tags and search #}
+    {% if description and not descriptionInBody %}<p class="govuk-body-l">{{ description }}</p>{% endif %}
     {{ content | markdown | safe }}
     {% include "partials/support-box.njk" %}
   </div>
