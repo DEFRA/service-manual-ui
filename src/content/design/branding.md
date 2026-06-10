@@ -48,8 +48,6 @@ Services hosted on domains that are not [GOV.UK](https://www.gov.uk) **must not*
 - **Logo:** The Defra logo (or agency logo)
 - **Footer:** The Defra footer (or agency equivalent)
 
-For internal services or external sites not on [GOV.UK](https://www.gov.uk), use the Defra page templates.
-
 ### Logos
 
 For external facing sites not on [GOV.UK](https://www.gov.uk), you must use a Defra or supporting agency logo.
