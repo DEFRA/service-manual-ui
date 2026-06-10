@@ -15,7 +15,7 @@ breadcrumbs:
 
 <div class="defra-version-banner">
   <span class="defra-version-banner__label">Draft</span>
-  <span class="defra-version-banner__text">This guide will be regularly updated as we learn and improve our ways of working.</span>
+  <span class="defra-version-banner__text">This guide will be updated as we learn and improve our ways of working.</span>
 </div>
 
 <p class="govuk-body-l">This guide explains what digital delivery groups are, why they exist, and how they work in practice with the rest of Defra group.</p>
