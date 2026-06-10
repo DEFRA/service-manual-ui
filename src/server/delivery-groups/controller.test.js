@@ -75,14 +75,14 @@ describe('#deliveryGroupsController', () => {
   })
 
   describe('Tiles', () => {
-    test('should display Follow delivery guidance tile with correct link', async () => {
+    test('should display Delivery group guidance tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Follow delivery guidance')
+        expect.stringContaining('Delivery group guidance')
       )
       expect(result).toEqual(
         expect.stringContaining(
@@ -96,13 +96,15 @@ describe('#deliveryGroupsController', () => {
       )
     })
 
-    test('should display Meet delivery standards tile with correct link', async () => {
+    test('should display Delivery group standards tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('Meet delivery standards'))
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group standards')
+      )
       expect(result).toEqual(
         expect.stringContaining(
           'href="/delivery-groups/meet-delivery-standards"'

@@ -264,7 +264,7 @@ describe('#markdownPagesController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Follow delivery guidance')
+        expect.stringContaining('Delivery group guidance')
       )
       expect(result).toEqual(
         expect.stringContaining('What a delivery group is')
