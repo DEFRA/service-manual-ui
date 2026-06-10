@@ -1,7 +1,7 @@
 ---
 title: Delivery group guidance
 caption: Delivery groups
-description: This guide explains what digital delivery groups are, why they exist, and how they work in practice with the rest of Defra group.
+description: Use this guide to understand what digital delivery groups are, why they exist, and how they work with the rest of Defra group.
 descriptionInBody: true
 layout: two-thirds
 headerServiceName: Digital Defra
@@ -19,11 +19,11 @@ breadcrumbs:
   <span class="defra-version-banner__text">This guide will be updated as we learn and improve our ways of working.</span>
 </div>
 
-<p class="govuk-body-l">This guide explains what digital delivery groups are, why they exist, and how they work in practice with the rest of Defra group.</p>
-
-It sets out the minimum expectations and shared principles that delivery groups should be built on.
+<p class="govuk-body-l">Use this guide to understand what digital delivery groups are, why they exist, and how they work with the rest of Defra group.</p>
 
 Delivery groups should use this guide as a starting point and tailor how they work based on their context, resources and users.
+
+It sets out the minimum expectations and shared principles that delivery groups should be built on.
 
 ## Contents
 
@@ -131,7 +131,7 @@ Delivery groups are expected to take responsibility for the full digital lifecyc
 - continuously improving and sustaining live services
 - managing legacy systems and technical debt
 - owning static and dynamic content, including tackling content debt
-- ensuring delivery is user-centred and accessible
+- ensuring delivery is user centred and accessible
 
 <span id="how-decisions-are-made"></span>
 
@@ -188,7 +188,7 @@ Transactional services are measured against [the service standard](https://www.g
 
 [Service assessments](https://www.gov.uk/service-manual/service-assessments) make sure this is reviewed and maintained at key points in delivery, for example, when moving between agile phases such as alpha and beta, or when there is a change in direction or team delivering the work.
 
-This keeps us on track to deliver services in a user-centred, secure and sustainable way.
+This keeps us on track to deliver services in a user centred, secure and sustainable way.
 
 <span id="financial-management"></span>
 
@@ -238,7 +238,7 @@ Delivery groups must maintain:
 
 ## Next steps
 
-This guide details how delivery groups should be run: aligned to outcomes, user-centred, and grounded in data and evidence.
+This guide details how delivery groups should be run: aligned to outcomes, user centred, and grounded in data and evidence.
 
 This guide only works if everyone plays their part, from strategy to delivery. When context is shared early, decisions are made at the right level and work is done transparently, it builds trust and delivers better services.
 
