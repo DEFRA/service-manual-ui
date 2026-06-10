@@ -1,7 +1,8 @@
 ---
 title: Delivery group guidance
 caption: Delivery groups
-description: ''
+description: This guide explains what digital delivery groups are, why they exist, and how they work in practice with the rest of Defra group.
+descriptionInBody: true
 layout: two-thirds
 headerServiceName: Digital Defra
 showMainNavigation: true
