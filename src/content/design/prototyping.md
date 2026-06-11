@@ -4,25 +4,7 @@ caption: Design
 description: ''
 layout: section
 sectionTitle: Design
-sectionNav:
-  - title: In this section
-    items:
-      - text: Design
-        href: /design
-  - title: Specific guidance
-    items:
-      - text: Branding
-        href: /design/branding
-      - text: Cookies
-        href: /design/cookies
-      - text: Data visualisation
-        href: /design/data-visualisation
-      - text: Prototyping
-        href: /design/prototyping
-      - text: Tools
-        href: /design/tools
-      - text: Components and patterns
-        href: /design/components-and-patterns
+sectionNav: nav-design
 ---
 
 A prototype allows the team to test and explore ideas before developing them. You can share ideas with users early and often, so that you can find issues with the design and make improvements based on user research.

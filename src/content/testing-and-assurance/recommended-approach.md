@@ -1,18 +1,10 @@
 ---
 title: Recommended approach
 caption: Quality Assurance and Test
-description: Understand the approach, standards, and strategies for QA at Defra.
+description: 'Understand the approach, standards, and strategies for QA at Defra.'
 layout: section
 sectionTitle: Quality Assurance and Test
-sectionNav:
-  - title: In this section
-    items:
-      - text: Quality Assurance and Test
-        href: /testing-and-assurance
-  - title: How to do this
-    items:
-      - text: Recommended approach
-        href: /testing-and-assurance/recommended-approach
+sectionNav: nav-testing
 ---
 
 DDTS have a [Software Development and QA policy](https://apps.powerapps.com/play/e/fabc6d0e-2ac8-e4e4-8987-c8f21f3aaea9/a/14595940-f09d-4fb2-b851-4f2c5d63cfb0?tenantId=770a2450-0227-4c62-90c7-4e38537f1102&action=viewdetails&source=ViewControlledContentURL&p=true&lit=59091). We adopt a [risk based approach test strategy](https://defra.sharepoint.com/sites/def-contentcloud/_layouts/15/DocIdRedir.aspx?ID=CONTENTCLOUD-190616497-19963), accepting that testers and time are a finite resource.

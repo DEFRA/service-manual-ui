@@ -4,21 +4,7 @@ caption: Service assessments
 description: Roles required for assessment and how to become an assessor.
 layout: section
 sectionTitle: Service assessments
-sectionNav:
-  - title: In this section
-    items:
-      - text: Service assessments
-        href: /service-assessments
-  - title: How to do this
-    items:
-      - text: Assessment questions
-        href: /service-assessments/assessment-questions
-      - text: Book an assessment
-        href: /service-assessments/book-an-assessment
-      - text: Become an assessor
-        href: /service-assessments/become-an-assessor
-      - text: GOV.UK exemptions
-        href: /service-assessments/gov-uk-exemptions
+sectionNav: nav-service-assessments
 ---
 
 Assessors typically work in product or delivery roles, but can come from any profession.

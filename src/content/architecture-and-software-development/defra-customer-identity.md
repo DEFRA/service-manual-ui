@@ -1,29 +1,21 @@
 ---
 title: Defra Customer Identity
 caption: Common tools
-description: Use Defra Customer Identity to allow users to sign in once and access multiple Defra services.
+description: >-
+  Use Defra Customer Identity to allow users to sign in once and access multiple
+  Defra services.
 layout: section
 sectionTitle: Architecture and software development
-sectionNav:
-  - title: In this section
-    items:
-      - text: Architecture and software development
-        href: /architecture-and-software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+sectionNav: nav-architecture
 supportBox:
   title: Get support
-  description: If you need help with authentication, contact the <strong>Customer Identity team</strong>.
+  description: >-
+    If you need help with authentication, contact the <strong>Customer Identity
+    team</strong>.
   items:
-    - 'Email: <a href="mailto:giocustomeridentity@defra.gov.uk" class="govuk-link">giocustomeridentity@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:giocustomeridentity@defra.gov.uk"
+      class="govuk-link">giocustomeridentity@defra.gov.uk</a>
 ---
 
 Defra Customer Identity (also known as IDMv2 or Defra ID) lets users sign in once to access multiple Defra services.

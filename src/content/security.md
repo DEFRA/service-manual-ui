@@ -1,23 +1,21 @@
 ---
 title: 9. Create a secure service which protects users’ privacy
 caption: Service Standard
-description: Establish the security risks, threats and legal responsibilities associated with the service.
+description: >-
+  Establish the security risks, threats and legal responsibilities associated
+  with the service.
 layout: section
 sectionTitle: Security
-sectionNav:
-  - title: In this section
-    items:
-      - text: Create a secure service
-        href: /security
-  - title: How to do this
-    items:
-      - text: Get access and travel securely
-        href: /security/common-tasks
+sectionNav: nav-security
 supportBox:
   title: Get support
-  description: Contact the <strong>Security team</strong> for advice on risk assessments, policies, and incident reporting.
+  description: >-
+    Contact the <strong>Security team</strong> for advice on risk assessments,
+    policies, and incident reporting.
   items:
-    - 'Email: <a href="mailto:security@defra.gov.uk" class="govuk-link">security@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:security@defra.gov.uk"
+      class="govuk-link">security@defra.gov.uk</a>
 ---
 
 ## Why it’s important

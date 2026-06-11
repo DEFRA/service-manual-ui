@@ -2,47 +2,7 @@
 title: Defra style guide
 caption: Content design best practice
 layout: section
-sectionNav:
-  - title: In this section
-    items:
-      - text: Content design
-        href: /content
-  - title: Content design best practice
-    items:
-      - text: Inclusive, clear language
-        href: /content/inclusive-clear-language
-      - text: Designing for different content types
-        href: /content/designing-different-content-types
-      - text: Sharing designs and recording decisions
-        href: /content/sharing-designs-recording-decisions
-      - text: Tools used by Defra content designers
-        href: /content/tools
-      - text: Defra style guide
-        href: /content/defra-style-guide
-  - title: Delivery phases
-    items:
-      - text: Working in the discovery phase
-        href: /content/working-in-discovery
-      - text: Working in the alpha phase
-        href: /content/working-in-alpha
-      - text: Working in the beta phase
-        href: /content/working-in-beta
-      - text: Working in the live phase
-        href: /content/working-in-live
-  - title: Legal content and translation
-    items:
-      - text: Legal content
-        href: /content/legal-content
-      - text: Welsh language translation
-        href: /content/welsh-language-translation
-  - title: Designing for everyone
-    items:
-      - text: Colour contrast and colour blindness
-        href: /content/colour-contrast
-      - text: Accessible spreadsheets
-        href: /content/accessible-spreadsheets
-      - text: Accessibility design and testing tools
-        href: /content/accessibility-tools
+sectionNav: nav-content
 ---
 
 Defra-specific terms and how to use them in content. Use this alongside the [GDS style guide A to Z](https://www.gov.uk/guidance/style-guide/a-to-z), which covers everything else.

@@ -1,25 +1,19 @@
 ---
 title: 5. Make sure everyone can use the service
 caption: Service Standard
-description:
+description: null
 layout: section
 sectionTitle: Accessibility
-sectionNav:
-  - title: In this section
-    items:
-      - text: Make sure everyone can use the service
-        href: /accessibility
-  - title: How to do this
-    items:
-      - text: Manage accessibility in your project
-        href: /accessibility/manage-accessibility
-      - text: Test for accessibility
-        href: /accessibility/test-for-accessibility
+sectionNav: nav-accessibility
 supportBox:
   title: Get support
-  description: The <strong>Defra Accessibility Team</strong> can help you understand these standards and meet the requirements.
+  description: >-
+    The <strong>Defra Accessibility Team</strong> can help you understand these
+    standards and meet the requirements.
   items:
-    - 'Email: <a href="mailto:accessibility@defra.gov.uk" class="govuk-link">accessibility@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:accessibility@defra.gov.uk"
+      class="govuk-link">accessibility@defra.gov.uk</a>
 ---
 
 ## What this standard is about
