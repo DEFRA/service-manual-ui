@@ -3,14 +3,13 @@
 # =============================================================================
 # Centralized navigation patterns for the Defra Service Manual
 # 
-# This file contains all customNav and sectionNav patterns used across 104 markdown files.
+# This file contains all customNav and sectionNav patterns used across markdown files.
 # Reference these by key in markdown frontmatter instead of duplicating the full structure.
 #
 # Usage examples:
 #   customNav: nav-ai-toolkit
 #   sectionNav: nav-content
 #
-# Total patterns: 1 customNav + 15 sectionNav = 16 total
 # =============================================================================
 
 # -----------------------------------------------------------------------------
@@ -18,7 +17,6 @@
 # -----------------------------------------------------------------------------
 
 # AI Digital Toolkit - Main navigation
-# Used by: 51 files in ai-toolkit/**
 nav-ai-toolkit:
   - text: Home
     href: /
@@ -36,7 +34,6 @@ nav-ai-toolkit:
 # -----------------------------------------------------------------------------
 
 # Accessibility section navigation
-# Used by: 3 files in accessibility/**
 nav-accessibility:
   - title: In this section
     items:
@@ -50,7 +47,6 @@ nav-accessibility:
         href: /accessibility/test-for-accessibility
 
 # AI Toolkit - Guidance section navigation
-# Used by: 19 files in ai-toolkit/guidance/**
 nav-ai-guidance:
   - title: In this section
     items:
@@ -100,7 +96,6 @@ nav-ai-guidance:
         href: /ai-toolkit/guidance/pii-and-data-handling
 
 # AI Toolkit - Patterns section navigation
-# Used by: 5 files in ai-toolkit/patterns/**
 nav-ai-patterns:
   - title: In this section
     items:
@@ -118,7 +113,6 @@ nav-ai-patterns:
         href: /ai-toolkit/patterns/token-optimisation
 
 # AI Toolkit - Projects section navigation
-# Used by: 5 files in ai-toolkit/projects/**
 nav-ai-projects:
   - title: In this section
     items:
@@ -138,7 +132,6 @@ nav-ai-projects:
         href: /ai-toolkit/projects/rpa-planning-dashboard
 
 # AI Toolkit - Tools radar section navigation
-# Used by: 11 files in ai-toolkit/tools/**
 nav-ai-tools:
   - title: In this section
     items:
@@ -178,7 +171,6 @@ nav-ai-tools:
         href: /ai-toolkit/tools
 
 # Architecture and software development section navigation
-# Used by: 5 files in architecture-and-software-development/**
 nav-architecture:
   - title: In this section
     items:
@@ -196,7 +188,6 @@ nav-architecture:
         href: /architecture-and-software-development/defra-accessible-maps
 
 # Business analysis section navigation
-# Used by: 2 files in business-analysis/**
 nav-business-analysis:
   - title: In this section
     items:
@@ -208,7 +199,6 @@ nav-business-analysis:
         href: /business-analysis/ways-of-working
 
 # Content design section navigation
-# Used by: 15 files in content/**
 nav-content:
   - title: In this section
     items:
@@ -252,7 +242,6 @@ nav-content:
         href: /content/accessibility-tools
 
 # Design section navigation
-# Used by: 7 files in design/**
 nav-design:
   - title: In this section
     items:
@@ -274,7 +263,6 @@ nav-design:
         href: /design/components-and-patterns
 
 # Product and delivery section navigation
-# Used by: 3 files in product-and-delivery/**
 nav-product-delivery:
   - title: In this section
     items:
@@ -288,7 +276,6 @@ nav-product-delivery:
         href: /product-and-delivery/tools-and-access
 
 # Security section navigation
-# Used by: 2 files in security/**
 nav-security:
   - title: In this section
     items:
@@ -300,7 +287,6 @@ nav-security:
         href: /security/common-tasks
 
 # Service assessments section navigation
-# Used by: 5 files in service-assessments/**
 nav-service-assessments:
   - title: In this section
     items:
@@ -318,7 +304,6 @@ nav-service-assessments:
         href: /service-assessments/gov-uk-exemptions
 
 # Sustainability section navigation
-# Used by: 4 files in sustainability/**
 nav-sustainability:
   - title: In this section
     items:
@@ -334,7 +319,6 @@ nav-sustainability:
         href: /sustainability/metrics
 
 # Testing and assurance section navigation
-# Used by: 2 files in testing-and-assurance/**
 nav-testing:
   - title: In this section
     items:
@@ -346,7 +330,6 @@ nav-testing:
         href: /testing-and-assurance/recommended-approach
 
 # User research section navigation
-# Used by: 5 files in user-research/**
 nav-user-research:
   - title: In this section
     items:

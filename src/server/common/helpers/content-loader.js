@@ -65,7 +65,7 @@ function resolveNavReference (navValue, navType = 'navigation') {
     }
 
     // Use own-property check to distinguish missing keys from falsy values
-    if (!Object.prototype.hasOwnProperty.call(navConfig, navValue)) {
+    if (!Object.hasOwn(navConfig, navValue)) {
       throw new Error(
         `Navigation reference "${navValue}" not found in navigation.yaml (${navType})`
       )
