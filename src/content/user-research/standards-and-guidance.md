@@ -29,7 +29,7 @@ supportBox:
   title: Get support
   description: Contact the user research operations team or the Defra data protection team for further support.
   items:
-    - 'User research operations: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'User research operations: <a href="mailto:DDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DDTSUserResearchOperations@defra.gov.uk</a>'
     - 'Data protection: <a href="mailto:Data.protection@defra.gov.uk" class="govuk-link">Data.protection@defra.gov.uk</a>'
 ---
 

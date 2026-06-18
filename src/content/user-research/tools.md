@@ -29,7 +29,7 @@ supportBox:
   title: Get support
   description: Contact the user research operations team for further support.
   items:
-    - 'Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:DDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DDTSUserResearchOperations@defra.gov.uk</a>'
 ---
 
 Check that a tool is suitable for the data you plan to collect before you start your research. Not all approved tools can collect or store identifiable data.
