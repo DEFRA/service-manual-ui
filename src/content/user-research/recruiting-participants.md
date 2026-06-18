@@ -29,7 +29,7 @@ supportBox:
   title: Get support
   description: Contact the user research operations team for further support.
   items:
-    - 'Email: <a href="mailto:DefraDDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DefraDDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:DDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DDTSUserResearchOperations@defra.gov.uk</a>'
 ---
 
 ## Participant recruitment process
