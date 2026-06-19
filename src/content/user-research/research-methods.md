@@ -40,7 +40,7 @@ supportBox:
 
 ## Choosing and using research methods
 
-- [Choosing suitable user research methods](https://defra.sharepoint.com/sites/def-ddts-portfoliohub/UserResearchTemplates/Forms/AllItems.aspx?id=%2Fsites%2Fdef%2Dddts%2Dportfoliohub%2FUserResearchTemplates%2F8%2E%20Research%20methods&viewid=1d2df482%2De379%2D4734%2D8b98%2D5252f9e31ccd)
+- [Choosing suitable user research methods](https://defra.sharepoint.com/:w:/r/sites/def-ddts-portfoliohub/_layouts/15/Doc.aspx?sourcedoc=%7BBF1D389B-FA3B-49DF-B1CB-B0F62DDDD308%7D&file=01.%20Choosing%20suitable%20user%20research%20methods.docx&action=default&mobileredirect=true)
 - [Adapting research methods for accessibility and inclusion](https://defra.sharepoint.com/:w:/s/def-ddts-portfoliohub/IQA22hQoZJjXT6cwfeERyXCMATiPHJJTIJlbYzepfVD8Tcw?e=R9Q7KG)
 
 ## Research methods and techniques
