@@ -99,7 +99,7 @@ That includes:
 <li>configuration files and connection strings</li>
 </ul>
 
-The one exception is a service you are building to process personal data as a designed feature. That needs a Data Protection Impact Assessment (DPIA), completed and signed off before any processing begins.
+The one exception is a service you are building to process personal data as a designed feature. That needs a Data Protection Impact Assessment (DPIA), completed and signed off before any processing begins. [Start the AI DPIA screening](https://forms.office.com/pages/responsepage.aspx?id=UCQKdycCYkyQx044U38RAjG4bU8jIdlOvpH2L94GfqZUQUFDOTMwWk00WEtWU1RUNlNPRjRMVk01OSQlQCN0PWcu&route=shorturl).
 
 It is not a shortcut to pasting personal data into an everyday tool.
 

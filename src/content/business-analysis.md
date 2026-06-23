@@ -15,6 +15,8 @@ sectionNav:
         href: /business-analysis/ways-of-working
       - text: Non-functional requirements
         href: /business-analysis/non-functional-requirements
+      - text: Guardrails
+        href: /business-analysis/guardrails
 supportBox:
   title: Get support
   description: The <strong>Business Analysis Community</strong> can help you understand these standards and meet the requirements.

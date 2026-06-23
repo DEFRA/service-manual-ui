@@ -75,34 +75,36 @@ describe('#deliveryGroupsController', () => {
   })
 
   describe('Tiles', () => {
-    test('should display Follow delivery governance tile with correct link', async () => {
+    test('should display Delivery group guidance tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Follow delivery governance')
+        expect.stringContaining('Delivery group guidance')
       )
       expect(result).toEqual(
         expect.stringContaining(
-          'href="https://defra.github.io/delivery-group-governance/"'
+          'href="/delivery-groups/follow-delivery-governance"'
         )
       )
       expect(result).toEqual(
         expect.stringContaining(
-          'Understand the boards, approvals and reporting required'
+          'What delivery groups are, how they work, and the shared expectations'
         )
       )
     })
 
-    test('should display Meet delivery standards tile with correct link', async () => {
+    test('should display Delivery group standards tile with correct link', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/delivery-groups'
       })
 
-      expect(result).toEqual(expect.stringContaining('Meet delivery standards'))
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group standards')
+      )
       expect(result).toEqual(
         expect.stringContaining(
           'href="/delivery-groups/meet-delivery-standards"'
