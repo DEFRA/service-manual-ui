@@ -1,20 +1,10 @@
 ---
 title: Manage accessibility in your project
 caption: How to meet the standard
-description:
+description: null
 layout: section
 sectionTitle: Accessibility
-sectionNav:
-  - title: In this section
-    items:
-      - text: Make sure everyone can use the service
-        href: /accessibility
-  - title: How to do this
-    items:
-      - text: Manage accessibility in your project
-        href: /accessibility/manage-accessibility
-      - text: Test for accessibility
-        href: /accessibility/test-for-accessibility
+sectionNav: nav-accessibility
 ---
 
 You must consider accessibility at every stage of your project to pass the necessary Stage Gates.

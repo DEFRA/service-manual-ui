@@ -4,30 +4,14 @@ caption: Your role at Defra
 description: ''
 layout: section
 sectionTitle: Design
-sectionNav:
-  - title: In this section
-    items:
-      - text: Design
-        href: /design
-  - title: Specific guidance
-    items:
-      - text: Branding
-        href: /design/branding
-      - text: Cookies
-        href: /design/cookies
-      - text: Data visualisation
-        href: /design/data-visualisation
-      - text: Prototyping
-        href: /design/prototyping
-      - text: Tools
-        href: /design/tools
-      - text: Components and patterns
-        href: /design/components-and-patterns
+sectionNav: nav-design
 supportBox:
   title: Get support
   description: Contact the Design Team with your questions
   items:
-    - 'Email: <a href="mailto:DesignOps@defra.gov.uk" class="govuk-link">DesignOps@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:DesignOps@defra.gov.uk"
+      class="govuk-link">DesignOps@defra.gov.uk</a>
 ---
 
 Defra uses Service Designers and Interaction Designers to deliver services. These roles align with the Government Digital and Data Profession Capability Framework (DDaT):

@@ -3,24 +3,16 @@ title: 15. Deliver a sustainable service
 caption: Service standard
 layout: section
 sectionTitle: Sustainability
-sectionNav:
-  - title: In this section
-    items:
-      - text: Deliver a sustainable service
-        href: /sustainability
-      - text: Defra's six objectives
-        href: /sustainability/objectives
-  - title: How to do this
-    items:
-      - text: Assess risks and record sustainability actions
-        href: /sustainability/process
-      - text: Taking action and tracking sustainability performance
-        href: /sustainability/metrics
+sectionNav: nav-sustainability
 supportBox:
   title: Get support
-  description: The <strong>Sustainable IT Team</strong> can help you understand these risks and draft your statement.
+  description: >-
+    The <strong>Sustainable IT Team</strong> can help you understand these risks
+    and draft your statement.
   items:
-    - 'Email: <a href="mailto:sustainableICT@defra.gov.uk" class="govuk-link">sustainableICT@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:sustainableICT@defra.gov.uk"
+      class="govuk-link">sustainableICT@defra.gov.uk</a>
 ---
 
 All services must meet the 14 points of the cross-government [GOV.UK service standard](https://www.gov.uk/service-manual/service-standard). Due to Defra's role in protecting the environment, services must also meet an additional 15th point about sustainability.

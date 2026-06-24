@@ -1,6 +1,7 @@
 // stylelint-disable declaration-no-important
 @use '../variables/colours' as *;
 @use 'sass:map';
+@use 'sass:color';
 @use '../../../node_modules/govuk-frontend/dist/govuk/base' as govuk;
 
 // Align home page body text flush with the tile grid and version banner.
@@ -28,7 +29,7 @@
     margin-top: govuk.govuk-spacing(2); // Closer to text
 
     &:hover {
-      background-color: govuk.govuk-shade($defra-green, 20%);
+      background-color: color.adjust($defra-green, $lightness: -20%);
     }
   }
 }

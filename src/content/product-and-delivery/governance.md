@@ -1,20 +1,10 @@
 ---
 title: Governance and assurance
 caption: Your role at Defra
-description: Governance, assessments and project phases.
+description: 'Governance, assessments and project phases.'
 layout: section
 sectionTitle: Product and delivery
-sectionNav:
-  - title: In this section
-    items:
-      - text: Product and delivery
-        href: /product-and-delivery
-  - title: Ways of working
-    items:
-      - text: Governance and assurance
-        href: /product-and-delivery/governance
-      - text: Tools and access
-        href: /product-and-delivery/tools-and-access
+sectionNav: nav-product-delivery
 ---
 
 Learn about [delivery group governance](https://defra.github.io/delivery-group-governance/). This includes essential information about:

@@ -1,29 +1,21 @@
 ---
 title: Service assessments
 caption: Standards
-description: Plan, book and prepare for service assessments at Defra and understand what to expect.
+description: >-
+  Plan, book and prepare for service assessments at Defra and understand what to
+  expect.
 layout: section
 sectionTitle: Service assessments
-sectionNav:
-  - title: In this section
-    items:
-      - text: Service assessments
-        href: /service-assessments
-  - title: How to do this
-    items:
-      - text: Assessment questions
-        href: /service-assessments/assessment-questions
-      - text: Book an assessment
-        href: /service-assessments/book-an-assessment
-      - text: Become an assessor
-        href: /service-assessments/become-an-assessor
-      - text: GOV.UK exemptions
-        href: /service-assessments/gov-uk-exemptions
+sectionNav: nav-service-assessments
 supportBox:
   title: Get support
-  description: If you need help preparing for a service assessment, contact the <strong>Service Assessment team</strong>.
+  description: >-
+    If you need help preparing for a service assessment, contact the
+    <strong>Service Assessment team</strong>.
   items:
-    - 'Email: <a href="mailto:service.assessment@defra.gov.uk" class="govuk-link">service.assessment@defra.gov.uk</a>'
+    - >-
+      Email: <a href="mailto:service.assessment@defra.gov.uk"
+      class="govuk-link">service.assessment@defra.gov.uk</a>
 ---
 
 All transactional government digital services need an independent assessment. This ensures they are secure, robust, and meet user needs.

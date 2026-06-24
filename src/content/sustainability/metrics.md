@@ -1,21 +1,11 @@
 ---
-title: Taking action and tracking sustainability performance through the Agile lifecycle
+title: >-
+  Taking action and tracking sustainability performance through the Agile
+  lifecycle
 caption: How to meet the standard
 layout: section
 sectionTitle: Sustainability
-sectionNav:
-  - title: In this section
-    items:
-      - text: Deliver a sustainable service
-        href: /sustainability
-      - text: Defra's six objectives
-        href: /sustainability/objectives
-  - title: How to do this
-    items:
-      - text: Assess risks and record sustainability actions
-        href: /sustainability/process
-      - text: Taking action and tracking sustainability performance
-        href: /sustainability/metrics
+sectionNav: nav-sustainability
 ---
 
 [Defra's Digital Sustainability Strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) lays out 6 key sustainability objectives, and the 15th Service Standard point requires that services take action and track performance against these.

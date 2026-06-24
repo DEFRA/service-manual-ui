@@ -1,0 +1,181 @@
+# =============================================================================
+# NAVIGATION CONFIGURATION
+# =============================================================================
+# Centralized navigation patterns for the Defra Service Manual
+# 
+# This file contains all customNav and sectionNav patterns used across markdown files.
+# Reference these by key in markdown frontmatter instead of duplicating the full structure.
+#
+# Usage examples:
+#   customNav: nav-ai-toolkit
+#   sectionNav: nav-content
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# SECTIONNAV PATTERNS (Sidebar/section navigation)
+# -----------------------------------------------------------------------------
+
+# Accessibility section navigation
+nav-accessibility:
+  - title: In this section
+    items:
+      - text: Make sure everyone can use the service
+        href: /accessibility
+  - title: How to do this
+    items:
+      - text: Manage accessibility in your project
+        href: /accessibility/manage-accessibility
+      - text: Test for accessibility
+        href: /accessibility/test-for-accessibility
+
+# Architecture and software development section navigation
+nav-architecture:
+  - title: In this section
+    items:
+      - text: Architecture and software development
+        href: /architecture-and-software-development
+  - title: Common tools
+    items:
+      - text: Core Delivery Platform
+        href: /architecture-and-software-development/core-delivery-platform
+      - text: Defra Customer Identity
+        href: /architecture-and-software-development/defra-customer-identity
+      - text: Defra Forms
+        href: /architecture-and-software-development/defra-forms
+      - text: Defra Interactive Map
+        href: /architecture-and-software-development/defra-accessible-maps
+
+# Content design section navigation
+nav-content:
+  - title: In this section
+    items:
+      - text: Content design
+        href: /content
+  - title: Content design best practice
+    items:
+      - text: Inclusive, clear language
+        href: /content/inclusive-clear-language
+      - text: Designing for different content types
+        href: /content/designing-different-content-types
+      - text: Sharing designs and recording decisions
+        href: /content/sharing-designs-recording-decisions
+      - text: Tools used by Defra content designers
+        href: /content/tools
+      - text: Defra style guide
+        href: /content/defra-style-guide
+  - title: Delivery phases
+    items:
+      - text: Working in the discovery phase
+        href: /content/working-in-discovery
+      - text: Working in the alpha phase
+        href: /content/working-in-alpha
+      - text: Working in the beta phase
+        href: /content/working-in-beta
+      - text: Working in the live phase
+        href: /content/working-in-live
+  - title: Legal content and translation
+    items:
+      - text: Legal content
+        href: /content/legal-content
+      - text: Welsh language translation
+        href: /content/welsh-language-translation
+  - title: Designing for everyone
+    items:
+      - text: Colour contrast and colour blindness
+        href: /content/colour-contrast
+      - text: Accessible spreadsheets
+        href: /content/accessible-spreadsheets
+      - text: Accessibility design and testing tools
+        href: /content/accessibility-tools
+
+# Design section navigation
+nav-design:
+  - title: In this section
+    items:
+      - text: Design
+        href: /design
+  - title: Specific guidance
+    items:
+      - text: Branding
+        href: /design/branding
+      - text: Cookies
+        href: /design/cookies
+      - text: Data visualisation
+        href: /design/data-visualisation
+      - text: Prototyping
+        href: /design/prototyping
+      - text: Tools
+        href: /design/tools
+      - text: Components and patterns
+        href: /design/components-and-patterns
+
+# Product and delivery section navigation
+nav-product-delivery:
+  - title: In this section
+    items:
+      - text: Product and delivery
+        href: /product-and-delivery
+  - title: Ways of working
+    items:
+      - text: Governance and assurance
+        href: /product-and-delivery/governance
+      - text: Tools and access
+        href: /product-and-delivery/tools-and-access
+
+# Security section navigation
+nav-security:
+  - title: In this section
+    items:
+      - text: Create a secure service
+        href: /security
+  - title: How to do this
+    items:
+      - text: Get access and travel securely
+        href: /security/common-tasks
+
+# Service assessments section navigation
+nav-service-assessments:
+  - title: In this section
+    items:
+      - text: Service assessments
+        href: /service-assessments
+  - title: How to do this
+    items:
+      - text: Assessment questions
+        href: /service-assessments/assessment-questions
+      - text: Book an assessment
+        href: /service-assessments/book-an-assessment
+      - text: Become an assessor
+        href: /service-assessments/become-an-assessor
+      - text: GOV.UK exemptions
+        href: /service-assessments/gov-uk-exemptions
+
+# Sustainability section navigation
+nav-sustainability:
+  - title: In this section
+    items:
+      - text: Deliver a sustainable service
+        href: /sustainability
+      - text: Defra's six objectives
+        href: /sustainability/objectives
+  - title: How to do this
+    items:
+      - text: Assess risks and record sustainability actions
+        href: /sustainability/process
+      - text: Taking action and tracking sustainability performance
+        href: /sustainability/metrics
+
+# Testing and assurance section navigation
+nav-testing:
+  - title: In this section
+    items:
+      - text: Quality Assurance and Test
+        href: /testing-and-assurance
+  - title: How to do this
+    items:
+      - text: Recommended approach
+        href: /testing-and-assurance/recommended-approach

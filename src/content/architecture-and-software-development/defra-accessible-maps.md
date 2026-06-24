@@ -1,29 +1,21 @@
 ---
 title: Defra Interactive Map
 caption: Common tools
-description: A lightweight, accessible map component for frontend applications in government services.
+description: >-
+  A lightweight, accessible map component for frontend applications in
+  government services.
 layout: section
 sectionTitle: Architecture and software development
-sectionNav:
-  - title: In this section
-    items:
-      - text: Architecture and software development
-        href: /architecture-and-software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+sectionNav: nav-architecture
 supportBox:
   title: Get support
-  description: If you need help with the Defra Interactive Map, join the <strong>interactive-map</strong> channel in the Defra Digital Team slack.
+  description: >-
+    If you need help with the Defra Interactive Map, join the
+    <strong>interactive-map</strong> channel in the Defra Digital Team slack.
   items:
-    - 'Slack: <a href="https://defra-digital-team.slack.com/archives/C080WP62PJP" class="govuk-link">interactive-map</a>'
+    - >-
+      Slack: <a href="https://defra-digital-team.slack.com/archives/C080WP62PJP"
+      class="govuk-link">interactive-map</a>
 ---
 
 [Defra Interactive Map](https://defra.github.io/interactive-map/) is an open-source mapping component designed for government services, with accessibility at its core.

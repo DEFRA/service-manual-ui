@@ -4,15 +4,7 @@ caption: Security
 description: Request cloud accounts and follow travel security procedures.
 layout: section
 sectionTitle: Security
-sectionNav:
-  - title: In this section
-    items:
-      - text: Create a secure service
-        href: /security
-  - title: How to do this
-    items:
-      - text: Get access and travel securely
-        href: /security/common-tasks
+sectionNav: nav-security
 ---
 
 ## Get a cloud account

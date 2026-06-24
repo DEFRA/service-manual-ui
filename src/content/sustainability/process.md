@@ -1,22 +1,12 @@
 ---
 title: Assess risks and record sustainability actions
 caption: How to meet the standard
-description: There are 3 broad steps services need to go through to meet the new 15th Service Standard point on sustainability.
+description: >-
+  There are 3 broad steps services need to go through to meet the new 15th
+  Service Standard point on sustainability.
 layout: section
 sectionTitle: Sustainability
-sectionNav:
-  - title: In this section
-    items:
-      - text: Deliver a sustainable service
-        href: /sustainability
-      - text: Defra's six objectives
-        href: /sustainability/objectives
-  - title: How to do this
-    items:
-      - text: Assess risks and record sustainability actions
-        href: /sustainability/process
-      - text: Taking action and tracking sustainability performance
-        href: /sustainability/metrics
+sectionNav: nav-sustainability
 ---
 
 ## 1. Complete a digital sustainability risk assessment

@@ -88,7 +88,7 @@
     padding-top: 0;
   }
 
-  &--current .app-subnav__link {
+  .app-subnav__section-item--current .app-subnav__link {
     font-weight: bold;
     text-decoration: none;
   }
