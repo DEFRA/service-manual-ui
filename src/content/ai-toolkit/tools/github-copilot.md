@@ -47,6 +47,18 @@ We are all still learning how to use this technology effectively, and no one is 
 
 Please share your experiences and learnings across your teams and across the Software Developer community. Use the common Teams and Slack channels, reach out to a Principal Developer or offer a demo at the Community of Practice.
 
+## Requesting GitHub Copilot licences
+
+A project, programme or delivery team that needs GitHub Copilot licences should follow the existing Cloud Centre of Excellence (CCoE) process.
+
+1. Request an Azure subscription service code through [New Cloud Business Service/Application Registration](https://defra.sharepoint.com/:l:/s/def-ddts-cloud/FBGK86cyBo5PqWkyhE6U6J0B7Uw9ZoSO7feq3S9sCoypRg?nav=MTZhNDM5MjgtNmNkZC00ZDk3LTgzNmQtYjc0ZGNhOWE1OWUy).
+2. Raise a [CCoE Azure/AWS Non-Production Service Request](https://defragroup.service-now.com/esc?id=sc_cat_item&sys_id=cedac95b1b224510adf0eb53b24bcb63&table=sc_cat_item) in MyPortal so a new GitHub cost centre can be created and linked to the service code, allowing costs to be recovered.
+
+In the description field of the service request, include:
+
+- the Azure subscription service code
+- the GitHub handle of each person who needs a GitHub Copilot licence
+
 ## GitHub Copilot usage guidance
 
 ### Key principle
