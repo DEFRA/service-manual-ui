@@ -7,11 +7,6 @@
 // ── Start banner ──
 // White text on Defra green, full bleed, GOV.UK start button.
 
-.app-triage__start-banner {
-  background-color: $defra-green;
-  padding: 45px 0 40px;
-}
-
 .app-triage__start-inner {
   max-width: 960px;
   margin: 0 auto;
@@ -23,7 +18,7 @@
 }
 
 .app-triage__start-caption {
-  color: rgb(255, 255, 255, 0.8);
+  color: #ffffffcc;
 }
 
 .app-triage__start-title {
