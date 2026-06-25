@@ -2,8 +2,8 @@
 
 .defra-service-navigation {
   background-color: $defra-green;
-  border-top: 1px solid rgb(255, 255, 255, 0.3);
-  border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .defra-service-navigation__inner {
@@ -44,7 +44,7 @@
 
   &:hover {
     color: $govuk-white;
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     text-decoration: none;
     box-shadow: inset 0 -4px 0 0 $defra-light-green;
   }
@@ -66,7 +66,7 @@
 
 // Active state using aria-current for accessibility
 .defra-service-navigation__link[aria-current='page'] {
-  background-color: rgb(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -4px 0 0 $govuk-white;
   font-weight: 700;
 
@@ -96,7 +96,7 @@
   z-index: 100;
   min-width: 300px;
   background-color: $govuk-white;
-  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   border-top: 4px solid $defra-green;
 }
 
@@ -186,7 +186,7 @@
   }
 
   &:hover {
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   &:focus-visible {
@@ -225,7 +225,7 @@
   }
 
   .defra-service-navigation__item {
-    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
     &:first-child {
       display: none; // Hide 'Home' on mobile as the logo acts as Home
@@ -258,7 +258,7 @@
     position: static;
     box-shadow: none;
     border-top: none;
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     min-width: auto;
   }
 
@@ -274,7 +274,7 @@
     background-color: transparent;
 
     &:hover {
-      background-color: rgb(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 
@@ -283,6 +283,6 @@
   }
 
   .defra-service-navigation__dropdown-description {
-    color: rgb(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
   }
 }
