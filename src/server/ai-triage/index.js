@@ -2,6 +2,7 @@ import { config } from '../../config/config.js'
 
 import * as controller from './controller.js'
 import { triageQuestions } from './questions.js'
+import { MAX_PAYLOAD_BYTES } from './constants.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
 const checkYourAnswersPath = '/ai-toolkit/triage/check-your-answers'
@@ -53,7 +54,8 @@ export const aiTriage = {
             options: {
               payload: {
                 parse: true,
-                allow: 'application/x-www-form-urlencoded'
+                allow: 'application/x-www-form-urlencoded',
+                maxBytes: MAX_PAYLOAD_BYTES
               },
               ext: {
                 onPreResponse: { method: handleFileNotFound }
@@ -83,7 +85,8 @@ export const aiTriage = {
           options: {
             payload: {
               parse: true,
-              allow: 'application/x-www-form-urlencoded'
+              allow: 'application/x-www-form-urlencoded',
+              maxBytes: MAX_PAYLOAD_BYTES
             },
             ext: {
               onPreResponse: { method: handleFileNotFound }
