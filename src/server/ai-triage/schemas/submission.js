@@ -1,11 +1,9 @@
 import Joi from 'joi'
 
+import emailRequired from './email-required.js'
+
 export default Joi.object({
-  email: Joi.string().trim().email().required().messages({
-    'string.email': 'Enter a valid email address',
-    'string.empty': 'Enter an email address',
-    'any.required': 'Enter an email address'
-  }),
+  email: emailRequired,
   problem: Joi.string().trim().min(1).required().messages({
     'string.empty': 'Enter a description of the problem',
     'any.required': 'Enter a description of the problem'

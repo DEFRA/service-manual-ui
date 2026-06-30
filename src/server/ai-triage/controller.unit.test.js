@@ -46,6 +46,10 @@ vi.mock('../../config/config.js', () => ({
   }
 }))
 
+vi.mock('./email-allow-list.js', () => ({
+  isEmailDomainAllowed: () => true
+}))
+
 const {
   getTriagePage,
   postTriagePage,

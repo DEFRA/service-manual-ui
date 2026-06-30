@@ -16,6 +16,19 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 convict.addFormats(convictFormatWithValidator)
 
+convict.addFormat({
+  name: 'email-domain-array',
+  coerce: (val) =>
+    typeof val === 'string' ? val.split(',').map((s) => s.trim()).filter(Boolean) : val,
+  validate: (val) => {
+    if (!Array.isArray(val)) { throw new Error('must be an array') }
+    const dotted = val.filter((d) => d.startsWith('.'))
+    if (dotted.length) {
+      throw new Error(`email domains must not start with a dot: ${dotted.join(', ')}`)
+    }
+  }
+})
+
 export const config = convict({
   serviceVersion: {
     doc: 'The service version, this variable is injected into your docker container in CDP environments',
@@ -183,6 +196,14 @@ export const config = convict({
         default: null,
         env: 'AICE_SHARED_MAILBOX_EMAIL'
       }
+    }
+  },
+  aiTriage: {
+    allowedEmailDomains: {
+      doc: 'CSV of email domains allowed to submit the AI triage form, e.g. "defra.gov.uk,supplier-co.com". Matching is exact (case-insensitive) on the full email domain. Empty = deny all.',
+      format: 'email-domain-array',
+      default: [],
+      env: 'AI_TOOLKIT_ALLOWED_EMAIL_DOMAINS'
     }
   },
   featureFlags: {
