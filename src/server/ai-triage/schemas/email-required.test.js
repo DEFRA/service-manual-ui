@@ -1,20 +1,14 @@
-import { config } from '../../../config/config.js'
+import { vi } from 'vitest'
+import { isEmailDomainAllowed } from '../email-allow-list.js'
 import schema from './email-required.js'
 
+vi.mock('../email-allow-list.js', () => ({
+  isEmailDomainAllowed: vi.fn().mockReturnValue(true)
+}))
+
 describe('email-required schema', () => {
-  let originalDomains
-
-  beforeEach(() => {
-    originalDomains = config.get('aiTriage.allowedEmailDomains')
-  })
-
-  afterEach(() => {
-    config.set('aiTriage.allowedEmailDomains', originalDomains)
-  })
-
   describe('valid input', () => {
     it('should pass a valid email from an allowed domain', () => {
-      // vitest.setup.js seeds .example.com as allowed
       const { value, error } = schema.validate('test@example.com')
       expect(error).toBeUndefined()
       expect(value).toBe('test@example.com')
@@ -54,8 +48,8 @@ describe('email-required schema', () => {
   })
 
   describe('allow-list', () => {
-    it('should fail with notAllowed message when domain is not in the allow list', () => {
-      config.set('aiTriage.allowedEmailDomains', ['.defra.gov.uk'])
+    it('should fail with notAllowed message when domain is not allowed', () => {
+      vi.mocked(isEmailDomainAllowed).mockReturnValueOnce(false)
       const { error } = schema.validate('user@gmail.com')
       expect(error).toBeDefined()
       expect(error.message).toBe(
@@ -63,13 +57,10 @@ describe('email-required schema', () => {
       )
     })
 
-    it('should fail when allow list is empty (deny all)', () => {
-      config.set('aiTriage.allowedEmailDomains', [])
+    it('should pass when domain is allowed', () => {
+      vi.mocked(isEmailDomainAllowed).mockReturnValueOnce(true)
       const { error } = schema.validate('user@defra.gov.uk')
-      expect(error).toBeDefined()
-      expect(error.message).toBe(
-        'Enter an email address from an approved organisation'
-      )
+      expect(error).toBeUndefined()
     })
   })
 })
