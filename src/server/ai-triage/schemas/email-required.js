@@ -7,12 +7,11 @@ export default Joi.string()
   .email()
   .required()
   .custom((value, helpers) =>
-    isEmailDomainAllowed(value) ? value : helpers.error('email.notAllowed')
+    isEmailDomainAllowed(value) ? value : helpers.error('any.invalid')
   )
   .messages({
     'string.email': 'Enter a valid email address',
     'string.empty': 'Enter an email address',
     'any.required': 'Enter an email address',
-    'email.notAllowed':
-      'Enter an email address from an approved organisation'
+    'any.invalid': 'Enter an email address from an approved organisation'
   })

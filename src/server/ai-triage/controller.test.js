@@ -112,7 +112,7 @@ describe('#aiTriageController', () => {
     })
 
     test('returns 200 with error when email domain is not in the allow list', async () => {
-      // gmail.com is not in the seeded test default (.example.com, .defra.gov.uk)
+      // gmail.com is not in the seeded test default (example.com, defra.gov.uk)
       const { statusCode, result } = await postQuestion1('user@gmail.com')
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('govuk-error-summary'))

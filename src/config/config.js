@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url'
 
 import convictFormatWithValidator from 'convict-format-with-validator'
 
+import emailDomainArray from './formats/email-domain-array.js'
+
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const minSessionCookiePasswordLength = 32
@@ -16,18 +18,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 convict.addFormats(convictFormatWithValidator)
 
-convict.addFormat({
-  name: 'email-domain-array',
-  coerce: (val) =>
-    typeof val === 'string' ? val.split(',').map((s) => s.trim()).filter(Boolean) : val,
-  validate: (val) => {
-    if (!Array.isArray(val)) { throw new Error('must be an array') }
-    const dotted = val.filter((d) => d.startsWith('.'))
-    if (dotted.length) {
-      throw new Error(`email domains must not start with a dot: ${dotted.join(', ')}`)
-    }
-  }
-})
+convict.addFormat(emailDomainArray)
 
 export const config = convict({
   serviceVersion: {
