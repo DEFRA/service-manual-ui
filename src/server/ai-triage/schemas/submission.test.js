@@ -1,6 +1,8 @@
 import { config } from '../../../config/config.js'
 import schema from './submission.js'
 
+import { MAX_TEXT_LENGTH } from '../constants.js'
+
 describe('submission schema', () => {
   let originalDomains
 
@@ -153,6 +155,54 @@ describe('submission schema', () => {
       const { error } = schema.validate({ ...valid, solutionAttempts: '   ' })
       expect(error).toBeDefined()
       expect(error.message).toBe('Enter a description of the solution attempts')
+    })
+  })
+
+  describe('maximum length', () => {
+    const tooLong = 'x'.repeat(MAX_TEXT_LENGTH + 1)
+    const textFields = ['problem', 'users', 'benefits', 'solutionAttempts']
+
+    test.each(textFields)(
+      'should fail when %s exceeds the maximum length',
+      (field) => {
+        const { error } = schema.validate({ ...valid, [field]: tooLong })
+        expect(error).toBeDefined()
+        expect(error.message).toBe(
+          `Answer must be ${MAX_TEXT_LENGTH} characters or fewer`
+        )
+      }
+    )
+
+    test('should pass when text fields are at the maximum length', () => {
+      const atMax = 'x'.repeat(MAX_TEXT_LENGTH)
+      const { error } = schema.validate({
+        ...valid,
+        problem: atMax,
+        users: atMax,
+        benefits: atMax,
+        solutionAttempts: atMax
+      })
+      expect(error).toBeUndefined()
+    })
+
+    test('should collect every over-length field with abortEarly:false', () => {
+      const { error } = schema.validate(
+        {
+          email: valid.email,
+          problem: tooLong,
+          users: tooLong,
+          benefits: tooLong,
+          solutionAttempts: tooLong
+        },
+        { abortEarly: false }
+      )
+      expect(error).toBeDefined()
+      expect(error.details).toHaveLength(textFields.length)
+      for (const detail of error.details) {
+        expect(detail.message).toBe(
+          `Answer must be ${MAX_TEXT_LENGTH} characters or fewer`
+        )
+      }
     })
   })
 })

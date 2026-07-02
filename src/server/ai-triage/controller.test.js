@@ -1,5 +1,6 @@
 import { statusCodes } from '../common/constants/status-codes.js'
 import { createServer } from '../server.js'
+import { MAX_PAYLOAD_BYTES, MAX_TEXT_LENGTH } from './constants.js'
 
 vi.mock('../../notify/notify-client.js', () => ({
   createNotifyClient: () => ({
@@ -124,6 +125,39 @@ describe('#aiTriageController', () => {
       const { statusCode, headers } = await postQuestion1('user@gmail.com')
       expect(statusCode).toBe(statusCodes.ok)
       expect(headers.location).toBeUndefined()
+    })
+  })
+
+  describe('POST /ai-toolkit/triage/question-2', () => {
+    const postQuestion2 = (answer) =>
+      server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/question-2',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: `answer=${encodeURIComponent(answer)}`
+      })
+
+    test('returns 200 with error when answer exceeds the maximum length', async () => {
+      const { statusCode, result } = await postQuestion2(
+        'x'.repeat(MAX_TEXT_LENGTH + 1)
+      )
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('govuk-error-summary'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          `Answer must be ${MAX_TEXT_LENGTH} characters or fewer`
+        )
+      )
+    })
+
+    test('rejects an oversized payload with 413', async () => {
+      const { statusCode } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/question-2',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: `answer=${'x'.repeat(MAX_PAYLOAD_BYTES + 1)}`
+      })
+      expect(statusCode).toBe(statusCodes.payloadTooLarge)
     })
   })
 
