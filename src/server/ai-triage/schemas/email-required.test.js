@@ -1,8 +1,14 @@
+import { vi } from 'vitest'
+import { isEmailDomainAllowed } from '../email-allow-list.js'
 import schema from './email-required.js'
+
+vi.mock('../email-allow-list.js', () => ({
+  isEmailDomainAllowed: vi.fn().mockReturnValue(true)
+}))
 
 describe('email-required schema', () => {
   describe('valid input', () => {
-    it('should pass a valid email', () => {
+    it('should pass a valid email from an allowed domain', () => {
       const { value, error } = schema.validate('test@example.com')
       expect(error).toBeUndefined()
       expect(value).toBe('test@example.com')
@@ -38,6 +44,23 @@ describe('email-required schema', () => {
       const { error } = schema.validate('testexample.com')
       expect(error).toBeDefined()
       expect(error.message).toBe('Enter a valid email address')
+    })
+  })
+
+  describe('allow-list', () => {
+    it('should fail with notAllowed message when domain is not allowed', () => {
+      vi.mocked(isEmailDomainAllowed).mockReturnValueOnce(false)
+      const { error } = schema.validate('user@gmail.com')
+      expect(error).toBeDefined()
+      expect(error.message).toBe(
+        'Enter an email address from an approved organisation'
+      )
+    })
+
+    it('should pass when domain is allowed', () => {
+      vi.mocked(isEmailDomainAllowed).mockReturnValueOnce(true)
+      const { error } = schema.validate('user@defra.gov.uk')
+      expect(error).toBeUndefined()
     })
   })
 })

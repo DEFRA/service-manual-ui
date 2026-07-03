@@ -110,6 +110,22 @@ describe('#aiTriageController', () => {
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('govuk-error-summary'))
     })
+
+    test('returns 200 with error when email domain is not in the allow list', async () => {
+      // gmail.com is not in the seeded test default (example.com, defra.gov.uk)
+      const { statusCode, result } = await postQuestion1('user@gmail.com')
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('govuk-error-summary'))
+      expect(result).toEqual(
+        expect.stringContaining('Enter an email address from an approved organisation')
+      )
+    })
+
+    test('does not advance to question-2 when email domain is disallowed', async () => {
+      const { statusCode, headers } = await postQuestion1('user@gmail.com')
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(headers.location).toBeUndefined()
+    })
   })
 
   describe('POST /ai-toolkit/triage/question-2', () => {

@@ -1,8 +1,19 @@
+import { config } from '../../../config/config.js'
 import schema from './submission.js'
 
 import { MAX_TEXT_LENGTH } from '../constants.js'
 
 describe('submission schema', () => {
+  let originalDomains
+
+  beforeEach(() => {
+    originalDomains = config.get('aiTriage.allowedEmailDomains')
+  })
+
+  afterEach(() => {
+    config.set('aiTriage.allowedEmailDomains', originalDomains)
+  })
+
   const valid = {
     email: 'test@example.com',
     problem: 'A problem description',
@@ -52,6 +63,15 @@ describe('submission schema', () => {
       const { error } = schema.validate({ ...valid, email: 'not-an-email' })
       expect(error).toBeDefined()
       expect(error.message).toBe('Enter a valid email address')
+    })
+
+    test('should fail when email domain is not in the allow list', () => {
+      config.set('aiTriage.allowedEmailDomains', ['.defra.gov.uk'])
+      const { error } = schema.validate({ ...valid, email: 'user@gmail.com' })
+      expect(error).toBeDefined()
+      expect(error.message).toBe(
+        'Enter an email address from an approved organisation'
+      )
     })
   })
 

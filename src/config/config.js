@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url'
 
 import convictFormatWithValidator from 'convict-format-with-validator'
 
+import emailDomainArray from './formats/email-domain-array.js'
+
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const minSessionCookiePasswordLength = 32
@@ -15,6 +17,8 @@ const isTest = process.env.NODE_ENV === 'test'
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 convict.addFormats(convictFormatWithValidator)
+
+convict.addFormat(emailDomainArray)
 
 export const config = convict({
   serviceVersion: {
@@ -183,6 +187,14 @@ export const config = convict({
         default: null,
         env: 'AICE_SHARED_MAILBOX_EMAIL'
       }
+    }
+  },
+  aiTriage: {
+    allowedEmailDomains: {
+      doc: 'CSV of email domains allowed to submit the AI triage form, e.g. "defra.gov.uk,supplier-co.com". Matching is exact (case-insensitive) on the full email domain. Empty = deny all.',
+      format: 'email-domain-array',
+      default: [],
+      env: 'AI_TOOLKIT_ALLOWED_EMAIL_DOMAINS'
     }
   },
   featureFlags: {
