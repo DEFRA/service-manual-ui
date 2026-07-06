@@ -36,6 +36,10 @@ describe('#serviceManualController', () => {
       expect(result).toEqual(expect.stringContaining('Service assessments'))
       expect(result).toEqual(expect.stringContaining('Sustainability'))
       expect(result).toEqual(expect.stringContaining('Accessibility'))
+      expect(result).toEqual(expect.stringContaining('Performance analysis'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/performance-analysis"')
+      )
     })
 
     test('should not display breadcrumbs (has hero instead)', async () => {

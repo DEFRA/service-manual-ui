@@ -67,6 +67,7 @@ export const markdownRoutes = [
   '/business-analysis/guardrails',
   '/business-analysis/ways-of-working',
   '/business-analysis/non-functional-requirements',
+  '/performance-analysis',
   '/product-and-delivery',
   '/product-and-delivery/governance',
   '/product-and-delivery/tools-and-access',

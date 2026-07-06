@@ -398,4 +398,30 @@ describe('#markdownPagesController', () => {
       )
     })
   })
+
+  describe('Performance analysis', () => {
+    test('GET /performance-analysis should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/performance-analysis'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the page with the role and DDaT link', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/performance-analysis'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Performance analysis'))
+      expect(result).toEqual(expect.stringContaining('Your role at Defra'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'ddat-capability-framework.service.gov.uk/role/performance-analyst'
+        )
+      )
+    })
+  })
 })
