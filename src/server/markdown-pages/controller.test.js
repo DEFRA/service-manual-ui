@@ -161,11 +161,14 @@ describe('#markdownPagesController', () => {
   })
 
   describe('Delivery group standards', () => {
-    test('GET /delivery-groups/meet-delivery-standards should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards'
-      })
+    test.each([
+      '/delivery-groups/meet-delivery-standards',
+      '/delivery-groups/meet-delivery-standards/define-outcomes',
+      '/delivery-groups/meet-delivery-standards/products-and-services',
+      '/delivery-groups/meet-delivery-standards/roadmap-for-change',
+      '/delivery-groups/meet-delivery-standards/success-measures'
+    ])('GET %s should return 200', async (url) => {
+      const { statusCode } = await server.inject({ method: 'GET', url })
 
       expect(statusCode).toBe(statusCodes.ok)
     })
@@ -195,15 +198,6 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
     })
 
-    test('GET /delivery-groups/meet-delivery-standards/define-outcomes should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards/define-outcomes'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
     test('should render standard 1 with RAG ratings', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -218,41 +212,19 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('govuk-tag--yellow'))
       expect(result).toEqual(expect.stringContaining('govuk-tag--red'))
     })
-
-    test('GET /delivery-groups/meet-delivery-standards/products-and-services should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards/products-and-services'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
-    test('GET /delivery-groups/meet-delivery-standards/roadmap-for-change should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards/roadmap-for-change'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
-    test('GET /delivery-groups/meet-delivery-standards/success-measures should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/meet-delivery-standards/success-measures'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
   })
 
   describe('Delivery group governance', () => {
-    test('GET /delivery-groups/follow-delivery-governance should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance'
-      })
+    test.each([
+      '/delivery-groups/follow-delivery-governance',
+      '/delivery-groups/follow-delivery-governance/governance-model',
+      '/delivery-groups/follow-delivery-governance/assurance',
+      '/delivery-groups/follow-delivery-governance/assurance/spend-control',
+      '/delivery-groups/follow-delivery-governance/assurance/service-assessments',
+      '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness',
+      '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types'
+    ])('GET %s should return 200', async (url) => {
+      const { statusCode } = await server.inject({ method: 'GET', url })
 
       expect(statusCode).toBe(statusCodes.ok)
     })
@@ -283,15 +255,6 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
     })
 
-    test('GET /delivery-groups/follow-delivery-governance/governance-model should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/governance-model'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
     test('should render governance model with all levels', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -304,15 +267,6 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('Implementation level'))
     })
 
-    test('GET /delivery-groups/follow-delivery-governance/assurance should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/assurance'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
     test('should render assurance page with links', async () => {
       const { result } = await server.inject({
         method: 'GET',
@@ -322,42 +276,6 @@ describe('#markdownPagesController', () => {
       expect(result).toEqual(expect.stringContaining('Assurance'))
       expect(result).toEqual(expect.stringContaining('Spend control'))
       expect(result).toEqual(expect.stringContaining('Service assessments'))
-    })
-
-    test('GET /delivery-groups/follow-delivery-governance/assurance/spend-control should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/assurance/spend-control'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
-    test('GET /delivery-groups/follow-delivery-governance/assurance/service-assessments should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/assurance/service-assessments'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
-    test('GET /delivery-groups/follow-delivery-governance/assurance/operational-service-readiness should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-    })
-
-    test('GET /delivery-groups/follow-delivery-governance/assurance/other-assurance-types should return 200', async () => {
-      const { statusCode } = await server.inject({
-        method: 'GET',
-        url: '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
     })
   })
 
