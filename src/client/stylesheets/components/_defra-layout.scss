@@ -192,10 +192,39 @@ body {
     }
   }
 }
+// stylelint-enable declaration-no-important
 
 .defra-support-box {
   margin-top: 40px;
   padding: 20px;
   background-color: $govuk-light-grey;
   border-left: 5px solid $defra-green;
+}
+
+// ===== Call to action callout =====
+
+.defra-callout {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 25px 30px;
+  border: 2px solid $govuk-mid-grey;
+}
+
+.defra-callout > :first-child {
+  margin-top: 0;
+}
+
+.defra-callout > :last-child {
+  margin-bottom: 0;
+}
+
+// ===== Callout button (Defra green, scoped to the callout) =====
+
+.defra-callout__button {
+  background-color: $defra-green;
+  box-shadow: 0 2px 0 #003514;
+}
+
+.defra-callout__button:hover {
+  background-color: #006a27;
 }
