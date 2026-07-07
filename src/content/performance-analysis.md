@@ -24,7 +24,7 @@ They align with the [Government Digital and Data role description](https://ddat-
   <h2 class="govuk-heading-m">Register your interest in Google Analytics</h2>
   <p class="govuk-body">We are refining our Google Analytics offering for Defra services.</p>
   <p class="govuk-body">If you would like to use it, register your interest and we will keep you updated as it develops.</p>
-  <a href="mailto:performance-analytics@defra.gov.uk?subject=Register%20interest%20in%20Google%20Analytics" role="button" draggable="false" class="govuk-button defra-button govuk-!-margin-bottom-0" data-module="govuk-button">Register your interest</a>
+  <a href="mailto:performance-analytics@defra.gov.uk?subject=Register%20interest%20in%20Google%20Analytics" role="button" draggable="false" class="govuk-button defra-callout__button govuk-!-margin-bottom-0" data-module="govuk-button">Register your interest</a>
 </div>
 
 ## Guidance is being developed

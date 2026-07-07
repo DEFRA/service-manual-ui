@@ -217,13 +217,13 @@ body {
   margin-bottom: 0;
 }
 
-// ===== Defra-green button variant (see components.md) =====
+// ===== Callout button (Defra green, scoped to the callout) =====
 
-.defra-button {
+.defra-callout__button {
   background-color: $defra-green;
   box-shadow: 0 2px 0 #003514;
 }
 
-.defra-button:hover {
+.defra-callout__button:hover {
   background-color: #006a27;
 }
