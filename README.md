@@ -54,12 +54,6 @@ application setting up a global `undici` `ProxyAgent` dispatcher itself. When en
 (and anything built on `undici`) will automatically pick up the standard `HTTP_PROXY`/`HTTPS_PROXY`/`NO_PROXY`
 environment variables.
 
-If you are using a client that doesn't respect Node's environment-based proxy configuration (e.g. `axios`, or
-libraries built on it such as [`notifications-node-client`](https://github.com/alphagov/notifications-node-client)),
-you will need to handle proxying explicitly for that client, or disable it if it isn't required. For example, the
-Notify client disables its own proxy handling in [`src/notify/notify-client.js`](./src/notify/notify-client.js)
-via `client.setProxy(false)`, since it does not respect `NODE_USE_ENV_PROXY`.
-
 ## Local Development
 
 ### Setup
