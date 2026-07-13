@@ -26,14 +26,24 @@ breadcrumbItems:
   - text: Model Context Protocol
 supportBox:
   title: Get help with Model Context Protocol
-  description: The AI Capability and Enablement team is evaluating MCP. Talk to us before using it in delivery.
+  description: The AI Capability and Enablement team is trialling MCP. Talk to us before you use it.
   items:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20Model%20Context%20Protocol" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
-Model Context Protocol (MCP) is an open standard from Anthropic that lets AI assistants access approved systems such as Jira, GitHub, Confluence, Azure DevOps and SonarQube in a controlled way.
+Model Context Protocol (MCP) is an open standard from Anthropic that lets AI assistants access systems such as Jira, GitHub, Confluence, Azure DevOps and SonarQube in a controlled way.
 
-An MCP server exposes those systems to the model. For Defra, remote vendor-hosted servers are preferred, because they give consistent governance, stronger security controls and built-in audit logging.
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Talk to the AI Capability and Enablement team before you use MCP. We are trialling it, so it is not approved for general use.
+  </strong>
+</div>
+
+Only designated projects use MCP at the moment, and only with the team's agreement. If you think it could help your project, [email the AI Capability and Enablement team](mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Using%20MCP) before you start.
+
+An MCP server exposes those systems to the model. For projects trialling MCP, remote vendor-hosted servers are preferred, because they give consistent governance, stronger security controls and built-in audit logging.
 
 ## What data you can use with it
 
@@ -42,26 +52,26 @@ An MCP server exposes those systems to the model. For Defra, remote vendor-hoste
   <p class="govuk-body govuk-!-margin-bottom-0">Exclude sensitive, personal or confidential data from prompts and MCP context, and redact secrets and credentials.</p>
 </div>
 
-## Why we are exploring it
+## Why we are trialling it
 
-The AI Capability and Enablement team is evaluating MCP. It is not yet a recommendation for general use.
+The AI Capability and Enablement team is trialling MCP to learn where it adds value and how to run it safely. It is not approved for general use.
 
-Only designated projects use it at the moment, and only after talking to the team.
-
-Talk to the team before using it in delivery. Any exception needs written approval from the relevant Project Architect and the team.
+Any use needs written approval from the relevant Project Architect and the AI Capability and Enablement team.
 
 ## Using MCP safely
 
-If you use MCP, follow these rules:
+If your project is trialling MCP, follow these rules:
 
-- connect only to vendor-provided MCP servers that Defra has approved, not community or self-built servers
+- connect only to the vendor-provided MCP servers the team is trialling, not community or self-built servers
 - use OAuth-based authentication with least-privilege scopes, not Personal Access Tokens
 - never auto-approve actions: keep a human in the loop and review tool calls before they run
 - restrict access to only the repositories, projects and workspaces you need
 
-## Approved MCP servers
+## MCP servers we are trialling
 
-These MCP servers are approved for use in Defra. Do not use others unless the AI Capability and Enablement team has approved them.
+These are the servers the AI Capability and Enablement team is currently trialling. They are not approved for general use.
+
+Talk to the team before you connect to any of them. Do not use community or self-built servers.
 
 - Cloud providers: [Azure MCP](https://github.com/microsoft/mcp/tree/main/servers/Azure.Mcp.Server) and [AWS MCP](https://github.com/awslabs/mcp)
 - Static analysis: [SonarQube MCP server](https://docs.sonarsource.com/sonarqube-mcp-server)

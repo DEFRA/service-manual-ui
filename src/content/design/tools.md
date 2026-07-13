@@ -72,7 +72,7 @@ Defra Forms has tools to help you:
 - collect information from users through simple online forms
 - change forms to meet your needs, or quickly add new forms to your service
 
-[Read more about Defra forms](https://service-manual-ui.dev.cdp-int.defra.cloud/architecture-and-software-development/defra-forms) or [email the Defra forms team](mailto:defraforms@defra.gov.uk).
+[Read more about Defra forms](https://forms.defra.gov.uk/) or [email the Defra forms team](mailto:defraforms@defra.gov.uk).
 
 ## Project management and collaboration
 
