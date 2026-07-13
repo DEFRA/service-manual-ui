@@ -16,7 +16,14 @@ import { NotifyClient } from 'notifications-node-client'
  */
 
 function createNotifyClient (apiKey) {
-  return new NotifyClient(apiKey)
+  const client = new NotifyClient(apiKey)
+
+  // The GOV.UK Notify client uses axios internally and does not respect
+  // NODE_USE_ENV_PROXY. Explicitly disable its proxy handling so requests
+  // are not routed through the (now removed) global HTTP(S) proxy agent.
+  client.setProxy(false)
+
+  return client
 }
 
 export { createNotifyClient }
