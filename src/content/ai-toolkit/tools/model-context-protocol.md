@@ -54,9 +54,9 @@ An MCP server exposes those systems to the model. For projects trialling MCP, re
 
 ## Why we are trialling it
 
-The AI Capability and Enablement team is trialling MCP to learn where it adds value and how to run it safely. It is not yet a recommendation for general use.
+The AI Capability and Enablement team is trialling MCP to learn where it adds value and how to run it safely. It is not approved for general use.
 
-Any use needs written approval from the relevant Project Architect and the team.
+Any use needs written approval from the relevant Project Architect and the AI Capability and Enablement team.
 
 ## Using MCP safely
 
