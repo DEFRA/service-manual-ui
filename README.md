@@ -49,25 +49,16 @@ Technical documentation is in the [docs](./docs) folder:
 
 ## Proxy
 
-We are using forward-proxy which is set up by default. To make use of this: `import { fetch } from 'undici'` then
-because of the `setGlobalDispatcher(new ProxyAgent(proxyUrl))` calls will use the ProxyAgent Dispatcher
+Proxying is handled at the infrastructure level via the `NODE_USE_ENV_PROXY` environment variable, rather than the
+application setting up a global `undici` `ProxyAgent` dispatcher itself. When enabled, Node's built-in `fetch`
+(and anything built on `undici`) will automatically pick up the standard `HTTP_PROXY`/`HTTPS_PROXY`/`NO_PROXY`
+environment variables.
 
-If you are not using Wreck, Axios or Undici or a similar http that uses `Request`. Then you may have to provide the
-proxy dispatcher:
-
-To add the dispatcher to your own client:
-
-```javascript
-import { ProxyAgent } from 'undici'
-
-return await fetch(url, {
-  dispatcher: new ProxyAgent({
-    uri: proxyUrl,
-    keepAliveTimeout: 10,
-    keepAliveMaxTimeout: 10
-  })
-})
-```
+If you are using a client that doesn't respect Node's environment-based proxy configuration (e.g. `axios`, or
+libraries built on it such as [`notifications-node-client`](https://github.com/alphagov/notifications-node-client)),
+you will need to handle proxying explicitly for that client, or disable it if it isn't required. For example, the
+Notify client disables its own proxy handling in [`src/notify/notify-client.js`](./src/notify/notify-client.js)
+via `client.setProxy(false)`, since it does not respect `NODE_USE_ENV_PROXY`.
 
 ## Local Development
 
