@@ -1,4 +1,3 @@
-import axiosClient from 'axios'
 import { NotifyClient } from 'notifications-node-client'
 
 /**
@@ -17,11 +16,7 @@ import { NotifyClient } from 'notifications-node-client'
  */
 
 function createNotifyClient (apiKey) {
-  const client = new NotifyClient(apiKey)
-
-  axiosClient.defaults.proxy = false
-
-  return client
+  return new NotifyClient(apiKey)
 }
 
 export { createNotifyClient }
