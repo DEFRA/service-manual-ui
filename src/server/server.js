@@ -6,7 +6,6 @@ import { config } from '../config/config.js'
 import { pulse } from './common/helpers/pulse.js'
 import { catchAll } from './common/helpers/errors.js'
 import { nunjucksConfig } from '../config/nunjucks/nunjucks.js'
-import { setupProxy } from './common/helpers/proxy/setup-proxy.js'
 import { requestTracing } from './common/helpers/request-tracing.js'
 import { requestLogger } from './common/helpers/logging/request-logger.js'
 import { secureContext } from '@defra/hapi-secure-context'
@@ -15,7 +14,6 @@ import { sessionCache } from './common/helpers/session-cache/session-cache.js'
 import { getCacheEngine } from './common/helpers/session-cache/cache-engine.js'
 
 export async function createServer () {
-  setupProxy()
   const server = hapi.server({
     host: config.get('host'),
     port: config.get('port'),
