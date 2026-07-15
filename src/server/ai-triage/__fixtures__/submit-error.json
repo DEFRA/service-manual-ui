@@ -11,7 +11,8 @@
         "problem": "Test problem description",
         "users": "Test users description",
         "benefits": "Test benefits description",
-        "solutionAttempts": "Test solution attempts description"
+        "solutionAttempts": "Test solution attempts description",
+        "dataReadiness": "Test data readiness description"
       },
       "reference": "AICE-26-AAAAAA"
     },

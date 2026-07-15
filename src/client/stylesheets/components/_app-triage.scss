@@ -1,4 +1,5 @@
 @use '../variables/colours' as *;
+@use 'sass:color';
 
 // ===== Triage layout =====
 // GOV.UK start-page style banner + NHS-inspired primary cards.
@@ -195,6 +196,17 @@
   font-weight: 400;
   color: #505a5f;
   margin-bottom: 4px;
+}
+
+// ── Question page continue button ──
+// Primary button uses Defra green rather than the GOV.UK green, to match the
+// Defra-branded primary buttons used elsewhere in the toolkit.
+.app-triage__continue.govuk-button {
+  background-color: $defra-green;
+
+  &:hover {
+    background-color: color.adjust($defra-green, $lightness: -20%);
+  }
 }
 
 // ── Confirmation email failure banner ──

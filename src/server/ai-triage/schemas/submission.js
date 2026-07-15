@@ -20,5 +20,9 @@ export default Joi.object({
   solutionAttempts: textRequired.messages({
     'string.empty': 'Enter a description of the solution attempts',
     'any.required': 'Enter a description of the solution attempts'
+  }),
+  dataReadiness: textRequired.messages({
+    'string.empty': 'Enter a description of the data',
+    'any.required': 'Enter a description of the data'
   })
 })

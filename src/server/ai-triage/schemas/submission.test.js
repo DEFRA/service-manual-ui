@@ -19,7 +19,8 @@ describe('submission schema', () => {
     problem: 'A problem description',
     users: 'Some users',
     benefits: 'Some benefits',
-    solutionAttempts: 'Some solution attempts'
+    solutionAttempts: 'Some solution attempts',
+    dataReadiness: 'Some data readiness'
   }
 
   describe('valid input', () => {
@@ -34,7 +35,8 @@ describe('submission schema', () => {
         problem: '  A problem  ',
         users: '  Some users  ',
         benefits: '  Some benefits  ',
-        solutionAttempts: '  Some solution attempts  '
+        solutionAttempts: '  Some solution attempts  ',
+        dataReadiness: '  Some data readiness  '
       })
 
       expect(error).toBeUndefined()
@@ -43,6 +45,7 @@ describe('submission schema', () => {
       expect(value.users).toBe('Some users')
       expect(value.benefits).toBe('Some benefits')
       expect(value.solutionAttempts).toBe('Some solution attempts')
+      expect(value.dataReadiness).toBe('Some data readiness')
     })
   })
 
@@ -158,9 +161,35 @@ describe('submission schema', () => {
     })
   })
 
+  describe('dataReadiness field', () => {
+    test('should fail on missing dataReadiness', () => {
+      const { error } = schema.validate({ ...valid, dataReadiness: undefined })
+      expect(error).toBeDefined()
+      expect(error.message).toBe('Enter a description of the data')
+    })
+
+    test('should fail on empty dataReadiness', () => {
+      const { error } = schema.validate({ ...valid, dataReadiness: '' })
+      expect(error).toBeDefined()
+      expect(error.message).toBe('Enter a description of the data')
+    })
+
+    test('should fail on whitespace-only dataReadiness', () => {
+      const { error } = schema.validate({ ...valid, dataReadiness: '   ' })
+      expect(error).toBeDefined()
+      expect(error.message).toBe('Enter a description of the data')
+    })
+  })
+
   describe('maximum length', () => {
     const tooLong = 'x'.repeat(MAX_TEXT_LENGTH + 1)
-    const textFields = ['problem', 'users', 'benefits', 'solutionAttempts']
+    const textFields = [
+      'problem',
+      'users',
+      'benefits',
+      'solutionAttempts',
+      'dataReadiness'
+    ]
 
     test.each(textFields)(
       'should fail when %s exceeds the maximum length',
@@ -180,7 +209,8 @@ describe('submission schema', () => {
         problem: atMax,
         users: atMax,
         benefits: atMax,
-        solutionAttempts: atMax
+        solutionAttempts: atMax,
+        dataReadiness: atMax
       })
       expect(error).toBeUndefined()
     })
@@ -192,7 +222,8 @@ describe('submission schema', () => {
           problem: tooLong,
           users: tooLong,
           benefits: tooLong,
-          solutionAttempts: tooLong
+          solutionAttempts: tooLong,
+          dataReadiness: tooLong
         },
         { abortEarly: false }
       )

@@ -19,7 +19,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 3 of 5
+questionCaption: Question 3 of 6
 questionInputType: textarea
 questionHint: For example, caseworkers, the public or internal teams. Add numbers if you can.
 questionRows: 6

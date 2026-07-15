@@ -19,7 +19,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 4 of 5
+questionCaption: Question 4 of 6
 questionInputType: textarea
 questionHint: For example, faster decisions, smoother work or better service for citizens.
 questionRows: 6

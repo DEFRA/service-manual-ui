@@ -19,9 +19,9 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 2 of 5
+questionCaption: Question 2 of 6
 questionInputType: textarea
-questionHint: Describe the problem in plain English. Use the words your team uses.
+questionHint: Describe the problem, who or what it affects, and the impact it is having.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-1

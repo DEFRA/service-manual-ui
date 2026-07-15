@@ -257,7 +257,8 @@ describe('#getSummaryPage', () => {
       'question-2': { answer: 'Some problem description' },
       'question-3': { answer: 'Many users' },
       'question-4': { answer: 'Big benefit' },
-      'question-5': { answer: 'Tried nothing' }
+      'question-5': { answer: 'Tried nothing' },
+      'question-6': { answer: 'Data from the CRM' }
     })
     mockTriageSummaryFromSessionData.mockReturnValue({
       rows: [
@@ -290,6 +291,12 @@ describe('#getSummaryPage', () => {
           title: 'Question 5',
           answer: 'Tried nothing',
           changeHref: '/ai-toolkit/triage/question-5'
+        },
+        {
+          slug: 'question-6',
+          title: 'Question 6',
+          answer: 'Data from the CRM',
+          changeHref: '/ai-toolkit/triage/question-6'
         }
       ],
       error: null
@@ -328,7 +335,7 @@ describe('#getSummaryPage', () => {
     await getSummaryPage(request, buildH())
 
     const viewData = mockView.mock.calls[0][1]
-    expect(viewData.rows).toHaveLength(5)
+    expect(viewData.rows).toHaveLength(6)
     expect(viewData.error).toBeNull()
   })
 
@@ -352,14 +359,16 @@ describe('#postSummaryPage', () => {
       'question-2': { answer: 'A problem' },
       'question-3': { answer: 'Users' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' }
+      'question-5': { answer: 'Attempts' },
+      'question-6': { answer: 'Data' }
     })
     mockTriageSubmissionFromSessionData.mockReturnValue({
       email: 'test@example.com',
       problem: 'A problem',
       users: 'Users',
       benefits: 'Benefits',
-      solutionAttempts: 'Attempts'
+      solutionAttempts: 'Attempts',
+      dataReadiness: 'Data'
     })
     mockSubmit.mockResolvedValue({
       triageResult: { success: true },
@@ -460,7 +469,8 @@ describe('#postSummaryPage', () => {
       'question-2': { answer: 'A problem' },
       'question-3': { answer: 'Users' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' }
+      'question-5': { answer: 'Attempts' },
+      'question-6': { answer: 'Data' }
     }
     const submitResult = {
       validationError: {
@@ -502,7 +512,8 @@ describe('#postSummaryPage', () => {
       'question-2': { answer: 'A problem' },
       'question-3': { answer: 'Users' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' }
+      'question-5': { answer: 'Attempts' },
+      'question-6': { answer: 'Data' }
     }
     const submitResult = { triageResult: { success: false } }
 

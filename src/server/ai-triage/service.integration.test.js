@@ -53,7 +53,8 @@ describe('aiTriageService', () => {
     problem: 'Test problem description',
     users: 'Test users description',
     benefits: 'Test benefits description',
-    solutionAttempts: 'Test solution attempts description'
+    solutionAttempts: 'Test solution attempts description',
+    dataReadiness: 'Test data readiness description'
   }
 
   describe('triage email', () => {
@@ -86,7 +87,8 @@ describe('aiTriageService', () => {
           problem: submission.problem,
           users: submission.users,
           benefits: submission.benefits,
-          solutionAttempts: submission.solutionAttempts
+          solutionAttempts: submission.solutionAttempts,
+          dataReadiness: submission.dataReadiness
         },
         reference: 'AICE-26-AAAAAA'
       })

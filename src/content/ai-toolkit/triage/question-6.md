@@ -1,5 +1,5 @@
 ---
-title: What is your email address?
+title: What data would this use?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -19,13 +19,15 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 1 of 6
-questionInputType: email
-questionHint: We will use this to get back to you with patterns, advice or a follow-up call.
-questionSchema: email-required
-questionBackHref: /ai-toolkit
-questionSubmitHref: /ai-toolkit/triage/question-1
-questionContinueHref: /ai-toolkit/triage/question-2
+questionCaption: Question 6 of 6
+questionInputType: textarea
+questionHint: Tell us the data sources, who owns them, and whether the data is complete or has known quality issues.
+questionRows: 6
+questionSchema: text-required
+questionBackHref: /ai-toolkit/triage/question-5
+questionSubmitHref: /ai-toolkit/triage/question-6
+questionContinueHref: /ai-toolkit/triage/check-your-answers
+questionContinueText: Continue
 fields:
-  answer: email
+  answer: dataReadiness
 ---
