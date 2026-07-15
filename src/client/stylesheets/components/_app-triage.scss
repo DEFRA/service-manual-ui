@@ -198,10 +198,11 @@
   margin-bottom: 4px;
 }
 
-// ── Question page continue button ──
-// Primary button uses Defra green rather than the GOV.UK green, to match the
-// Defra-branded primary buttons used elsewhere in the toolkit.
-.app-triage__continue.govuk-button {
+// ── Triage journey submit buttons ──
+// The primary buttons (Continue on each question, Send to the team on the
+// check-your-answers page) use Defra green rather than the GOV.UK green, to
+// match the Defra-branded primary buttons used elsewhere in the toolkit.
+.app-triage__submit.govuk-button {
   background-color: $defra-green;
 
   &:hover {
