@@ -1,5 +1,5 @@
 ---
-title: How would solving this benefit Defra and users of the services?
+title: What data would this use?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -19,14 +19,14 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 4 of 5
+questionCaption: Question 4 of 6
 questionInputType: textarea
-questionHint: For example, faster decisions, smoother work or better service for citizens.
+questionHint: Tell us the data sources, who owns them, and whether the data is complete or has known quality issues.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-3
 questionSubmitHref: /ai-toolkit/triage/question-4
 questionContinueHref: /ai-toolkit/triage/question-5
 fields:
-  answer: benefits
+  answer: dataReadiness
 ---

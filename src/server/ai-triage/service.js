@@ -72,7 +72,8 @@ async function sendTriageEmail (submission, reference) {
       problem: submission.problem,
       users: submission.users,
       benefits: submission.benefits,
-      solutionAttempts: submission.solutionAttempts
+      solutionAttempts: submission.solutionAttempts,
+      dataReadiness: submission.dataReadiness
     },
     reference
   })

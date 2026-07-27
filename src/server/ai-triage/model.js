@@ -24,13 +24,15 @@ export class TriageSubmission {
    * @param {string|null} users
    * @param {string|null} benefits
    * @param {string|null} solutionAttempts
+   * @param {string|null} dataReadiness
    */
-  constructor (email, problem, users, benefits, solutionAttempts) {
+  constructor (email, problem, users, benefits, solutionAttempts, dataReadiness) {
     this.email = email
     this.problem = problem
     this.users = users
     this.benefits = benefits
     this.solutionAttempts = solutionAttempts
+    this.dataReadiness = dataReadiness
   }
 
   /**
@@ -63,7 +65,8 @@ export class TriageSubmission {
       payload.problem,
       payload.users,
       payload.benefits,
-      payload.solutionAttempts
+      payload.solutionAttempts,
+      payload.dataReadiness
     )
   }
 }

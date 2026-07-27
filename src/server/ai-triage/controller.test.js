@@ -29,8 +29,9 @@ async function buildSession (server) {
     { url: '/ai-toolkit/triage/question-1', answer: 'test@example.com' },
     { url: '/ai-toolkit/triage/question-2', answer: 'A problem description' },
     { url: '/ai-toolkit/triage/question-3', answer: 'Some users' },
-    { url: '/ai-toolkit/triage/question-4', answer: 'Some benefits' },
-    { url: '/ai-toolkit/triage/question-5', answer: 'Previous attempts' }
+    { url: '/ai-toolkit/triage/question-4', answer: 'Data sources and owners' },
+    { url: '/ai-toolkit/triage/question-5', answer: 'Some benefits' },
+    { url: '/ai-toolkit/triage/question-6', answer: 'Previous attempts' }
   ]
 
   for (const { url, answer } of questions) {
@@ -162,12 +163,25 @@ describe('#aiTriageController', () => {
   })
 
   describe('POST /ai-toolkit/triage/question-5', () => {
-    test('redirects to check-your-answers on valid submission', async () => {
+    test('redirects to question-6 on valid submission', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'POST',
         url: '/ai-toolkit/triage/question-5',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        payload: `answer=${encodeURIComponent('Some attempt to solve the problem')}`
+        payload: `answer=${encodeURIComponent('Faster decisions for caseworkers')}`
+      })
+      expect(statusCode).toBe(statusCodes.found)
+      expect(headers.location).toBe('/ai-toolkit/triage/question-6')
+    })
+  })
+
+  describe('POST /ai-toolkit/triage/question-6', () => {
+    test('redirects to check-your-answers on valid submission', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/triage/question-6',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        payload: `answer=${encodeURIComponent('We tried a manual workaround first')}`
       })
       expect(statusCode).toBe(statusCodes.found)
       expect(headers.location).toBe('/ai-toolkit/triage/check-your-answers')

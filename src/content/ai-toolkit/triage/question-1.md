@@ -19,7 +19,7 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 1 of 5
+questionCaption: Question 1 of 6
 questionInputType: email
 questionHint: We will use this to get back to you with patterns, advice or a follow-up call.
 questionSchema: email-required
