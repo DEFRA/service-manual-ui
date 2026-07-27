@@ -29,9 +29,9 @@ async function buildSession (server) {
     { url: '/ai-toolkit/triage/question-1', answer: 'test@example.com' },
     { url: '/ai-toolkit/triage/question-2', answer: 'A problem description' },
     { url: '/ai-toolkit/triage/question-3', answer: 'Some users' },
-    { url: '/ai-toolkit/triage/question-4', answer: 'Some benefits' },
-    { url: '/ai-toolkit/triage/question-5', answer: 'Previous attempts' },
-    { url: '/ai-toolkit/triage/question-6', answer: 'Data sources and owners' }
+    { url: '/ai-toolkit/triage/question-4', answer: 'Data sources and owners' },
+    { url: '/ai-toolkit/triage/question-5', answer: 'Some benefits' },
+    { url: '/ai-toolkit/triage/question-6', answer: 'Previous attempts' }
   ]
 
   for (const { url, answer } of questions) {
@@ -168,7 +168,7 @@ describe('#aiTriageController', () => {
         method: 'POST',
         url: '/ai-toolkit/triage/question-5',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        payload: `answer=${encodeURIComponent('Some attempt to solve the problem')}`
+        payload: `answer=${encodeURIComponent('Faster decisions for caseworkers')}`
       })
       expect(statusCode).toBe(statusCodes.found)
       expect(headers.location).toBe('/ai-toolkit/triage/question-6')
@@ -181,7 +181,7 @@ describe('#aiTriageController', () => {
         method: 'POST',
         url: '/ai-toolkit/triage/question-6',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
-        payload: `answer=${encodeURIComponent('Data comes from the CRM, owned by ops')}`
+        payload: `answer=${encodeURIComponent('We tried a manual workaround first')}`
       })
       expect(statusCode).toBe(statusCodes.found)
       expect(headers.location).toBe('/ai-toolkit/triage/check-your-answers')

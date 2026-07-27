@@ -1,5 +1,5 @@
 ---
-title: What data would this use?
+title: How have you tried to solve the problem so far?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -21,7 +21,7 @@ breadcrumbItems:
     href: /ai-toolkit
 questionCaption: Question 6 of 6
 questionInputType: textarea
-questionHint: Tell us the data sources, who owns them, and whether the data is complete or has known quality issues.
+questionHint: Tell us what you have tried so far, including any AI or automation. Beginners welcome.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-5
@@ -29,5 +29,5 @@ questionSubmitHref: /ai-toolkit/triage/question-6
 questionContinueHref: /ai-toolkit/triage/check-your-answers
 questionContinueText: Continue
 fields:
-  answer: dataReadiness
+  answer: solutionAttempts
 ---

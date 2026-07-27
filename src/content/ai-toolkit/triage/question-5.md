@@ -1,5 +1,5 @@
 ---
-title: How have you tried to solve the problem so far?
+title: How would solving this benefit Defra and users of the services?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -21,12 +21,12 @@ breadcrumbItems:
     href: /ai-toolkit
 questionCaption: Question 5 of 6
 questionInputType: textarea
-questionHint: Tell us what you have tried so far, including any AI or automation. Beginners welcome.
+questionHint: For example, faster decisions, smoother work or better service for citizens.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-4
 questionSubmitHref: /ai-toolkit/triage/question-5
 questionContinueHref: /ai-toolkit/triage/question-6
 fields:
-  answer: solutionAttempts
+  answer: benefits
 ---
