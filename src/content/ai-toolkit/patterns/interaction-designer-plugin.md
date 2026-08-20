@@ -30,7 +30,7 @@ customNav:
     href: /ai-toolkit/tools
   - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Learn from others
+  - text: See our projects
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit

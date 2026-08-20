@@ -1,0 +1,54 @@
+@use '../variables/colours' as *;
+
+// ===== Our projects =====
+// Layout for the AI incubator pages at /ai-toolkit/projects.
+//
+//   figure cards  headline numbers showing where triaged requests get to
+//   project list  the projects in delivery, each linking to its own page
+//
+// Both reuse components the toolkit already has: the stat card from the hub
+// layout and the radar card from the tools pages. This file supplies the two
+// grids and one hover override, nothing else.
+
+// ── Figure cards ──
+// Three headline numbers across. The card is the hub layout's stat card, so
+// the Defra green top rule, the numeral colour and the type scale all come
+// from there rather than being redefined here.
+
+.app-figure-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 40em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Project list ──
+// The projects stacked full width, using the radar card from the tools pages
+// so both sections of the toolkit share one card. No brand colour and no
+// grid: the tools pages are a single column of restrained components, and
+// this follows them.
+
+.app-project-list {
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.app-project-list .app-radar-card {
+  margin-bottom: 16px;
+}
+
+// The stat card is a link on the hub layout, so it darkens on hover. Here the
+// figures are static list items, so that hover would promise a click with
+// nowhere to go. Hold the resting treatment instead. Project cards keep their
+// hover, because each one is a real link to its project page.
+.app-figure-cards .app-stat-card:hover {
+  background-color: $govuk-light-grey;
+  border-top-color: $defra-green;
+}
