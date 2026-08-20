@@ -115,7 +115,12 @@ export const markdownRoutes = [
   '/ai-toolkit/guidance/security',
   '/ai-toolkit/guidance/sustainability',
   '/ai-toolkit/guidance/keeping-data-safe',
-  '/ai-toolkit/guidance/report-an-ai-incident'
+  '/ai-toolkit/guidance/report-an-ai-incident',
+  '/ai-toolkit/projects',
+  '/ai-toolkit/projects/how-we-score',
+  '/ai-toolkit/projects/guidance-easier-to-find',
+  '/ai-toolkit/projects/checking-spending-against-policy',
+  '/ai-toolkit/projects/content-that-needs-fixing'
 ]
 
 /**

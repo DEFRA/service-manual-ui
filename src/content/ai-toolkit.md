@@ -13,7 +13,7 @@ customNav:
     href: /ai-toolkit/tools
   - text: Use AI patterns
     href: /ai-toolkit/patterns
-  - text: Learn from others
+  - text: See our projects
     href: /ai-toolkit/projects
 layout: triage
 breadcrumbItems:
@@ -35,6 +35,9 @@ primaryCards:
   - text: Use AI patterns
     description: Reusable approaches teams have built and tested.
     href: /ai-toolkit/patterns
+  - text: See our projects
+    description: What we are building with teams across Defra.
+    href: /ai-toolkit/projects
 supportBox:
   title: Contact the AI Capability and Enablement team
   description: Get hands-on help, request a pattern review or suggest new content.

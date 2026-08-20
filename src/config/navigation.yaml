@@ -19,6 +19,25 @@
 # SECTIONNAV PATTERNS (Sidebar/section navigation)
 # -----------------------------------------------------------------------------
 
+# AI incubator projects section navigation
+nav-ai-projects:
+  - title: In this section
+    items:
+      - text: Our projects
+        href: /ai-toolkit/projects
+  - title: How we choose
+    items:
+      - text: How we score a request
+        href: /ai-toolkit/projects/how-we-score
+  - title: Projects in delivery
+    items:
+      - text: Making guidance easier to find and trust
+        href: /ai-toolkit/projects/guidance-easier-to-find
+      - text: Checking spending against policy
+        href: /ai-toolkit/projects/checking-spending-against-policy
+      - text: Finding content that needs fixing
+        href: /ai-toolkit/projects/content-that-needs-fixing
+
 # Accessibility section navigation
 nav-accessibility:
   - title: In this section
