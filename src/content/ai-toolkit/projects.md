@@ -31,6 +31,10 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20incubator%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">These are experiments. We are testing whether AI can help.</p>
+</div>
+
 <ul class="app-figure-cards govuk-list">
   <li class="app-stat-card">
     <span class="app-stat-card__number">34</span>
