@@ -33,6 +33,10 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=RPA%20guidance" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">This is an experiment. We are testing whether AI can help.</p>
+</div>
+
 <h2 class="govuk-heading-m">The problem</h2>
 
 <p class="govuk-body">We started by building a check that reviews a document before it is published. It works.</p>

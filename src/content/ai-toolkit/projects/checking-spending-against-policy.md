@@ -33,6 +33,10 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Finance%20compliance%20checks" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">This is an experiment. We are testing whether AI can help.</p>
+</div>
+
 <h2 class="govuk-heading-m">The problem</h2>
 
 <p class="govuk-body">Every expenses claim and every Government Procurement Card transaction has to follow policy. Someone has to check that it does.</p>

@@ -33,6 +33,10 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Content%20quality%20checks" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">This is an experiment. We are testing whether AI can help.</p>
+</div>
+
 <h2 class="govuk-heading-m">The problem</h2>
 
 <p class="govuk-body">Defra publishes a lot of content, and it keeps growing. Nobody has a clear view of what is out of date, duplicated, or no longer read.</p>
