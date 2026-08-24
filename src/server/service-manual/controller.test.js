@@ -40,6 +40,10 @@ describe('#serviceManualController', () => {
       expect(result).toEqual(
         expect.stringContaining('href="/performance-analysis"')
       )
+      expect(result).toEqual(expect.stringContaining('Technical writers'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/technical-writers"')
+      )
     })
 
     test('should not display breadcrumbs (has hero instead)', async () => {

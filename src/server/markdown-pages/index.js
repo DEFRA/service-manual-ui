@@ -84,6 +84,7 @@ export const markdownRoutes = [
   '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness',
   '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types',
   '/testing-and-assurance',
+  '/technical-writers',
   '/testing-and-assurance/recommended-approach',
   '/security',
   '/security/common-tasks',

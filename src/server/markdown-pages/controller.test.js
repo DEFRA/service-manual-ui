@@ -342,4 +342,28 @@ describe('#markdownPagesController', () => {
       )
     })
   })
+
+  describe('Technical writers', () => {
+    test('GET /technical-writers should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/technical-writers'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the page with the role content', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/technical-writers'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Technical writers'))
+      expect(result).toEqual(expect.stringContaining('Your role at Defra'))
+      expect(result).toEqual(
+        expect.stringContaining('Guidance is being developed')
+      )
+    })
+  })
 })
