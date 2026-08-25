@@ -147,6 +147,8 @@ Use to talk about disease zones more generally, if not referring to a specific z
 
 Never abbreviate control zone terms. For example, you should always spell out DCZ, RZ, PZ, SZ, TCZ as:
 
+DCZ - disease control zone
+
 RZ - restricted zone
 
 PZ - protection zone
