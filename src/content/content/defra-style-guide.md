@@ -43,6 +43,10 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 Also see 'tags' for related terms.
 
+### Areas of Outstanding Natural Beauty (AONBs)
+
+See National Landscapes.
+
 <span id="b"></span>
 
 ## B
@@ -78,6 +82,10 @@ In the context of farms, default to business instead of organisation. Farmers se
 <span id="c"></span>
 
 ## C
+
+### carcasses
+
+Use instead of 'carcases'.
 
 ### Cattle Tracing System Online (CTS Online)
 
@@ -127,17 +135,21 @@ Lower case. Use 'crime reference number,' not 'Crime Reference Number'.
 
 Use sentence case. Do not capitalise.
 
+### Defra group
+
+For external audiences, use 'Defra and its agencies and public bodies', or list the organisations you mean – for example, 'Defra, Rural Payments Agency and Natural England'.
+
+Use 'group' (lower case) when writing for internal staff.
+
 ### disease control zone
 
 Use to talk about disease zones more generally, if not referring to a specific zone. For example, 'If you're in a disease control zone, you cannot…'.
 
-### disease control zone abbreviations
-
-Never abbreviate control zone terms. For example, DCZ, RZ, PZ, SZ, TCZ should always be spelt out in full:
+Never abbreviate control zone terms. For example, you should always spell out DCZ, RZ, PZ, SZ, TCZ as:
 
 RZ – restricted zone
 
-PZ - protected zone
+PZ - protection zone
 
 SZ - surveillance zone
 
@@ -327,6 +339,14 @@ Refers to the [mapping tool](https://magic.defra.gov.uk/) that Defra uses in con
 
 A keeper may put this on an animal in addition to an official ear tag. Use only to distinguish from official ear tag.
 
+### Marine Conservation Zone (MCZ)
+
+Use title case. Spell out in full the first time, then use the acronym.
+
+### Marine Management Organisation (MMO)
+
+Capitalise the Marine Management Organisation. After first use, you can shorten to MMO.
+
 ### mathematical symbols
 
 Avoid using mathematical symbols within sentences. For example, use:
@@ -336,6 +356,12 @@ Avoid using mathematical symbols within sentences. For example, use:
 'more than' rather than '&gt;'
 
 Follow other [maths content guidance in the GOV.UK style guide](https://www.gov.uk/guidance/style-guide/a-to-z#maths-content).
+
+### metres squared
+
+Write this out in full – do not use 'm²'.
+
+See square metres.
 
 ### micropig
 
@@ -367,9 +393,25 @@ Do not confuse with Ordnance Survey (OS) grid reference, which locates a point o
 
 Always check with the subject matter expert which type of number is relevant to the specific content, and be consistent in using it.
 
+### National Landscapes
+
+Used instead of Areas of Outstanding Natural Beauty (AONB) since November 2023. Title case.
+
+### National Nature Reserve
+
+Title case.
+
+### national network sites
+
+Lower case.
+
 ### national park
 
 Lower case, unless you're using the name of the park. For example, Dartmoor National Park.
+
+### National Trails
+
+Title case.
 
 ### Natural England
 
@@ -377,7 +419,7 @@ Always write out in full. Never shorten to NE.
 
 ### net zero
 
-Lower case, for example, 'reaching net zero', except in the full name of government strategies, 'the Net Zero Strategy'
+Lower case, for example, 'reaching net zero', except in the full name of government strategies, 'the Net Zero Strategy'.
 
 <span id="o"></span>
 
@@ -423,9 +465,19 @@ Use 'people' wherever possible. Avoid 'users'.
 
 Do not use 'yellow flag tag' except in brackets.
 
+### protection zone
+
+See disease control zone.
+
 <span id="r"></span>
 
 ## R
+
+### Ramsar sites
+
+Capitalise 'Ramsar', use lower case for 'sites'. Explain term in plain English on first use.
+
+A Ramsar site is a wetland site that's been given a status of international importance.
 
 ### record a movement
 
@@ -454,6 +506,8 @@ Do not use 'report movements electronically'.
 Use restricted zone. Do not use 'restriction zone'.
 
 In the context of animal disease.
+
+See disease control zone.
 
 ### Rural Payments Agency (RPA)
 
@@ -487,6 +541,10 @@ A main single business identifier (SBI) is a unique 9-digit number given to a fa
 
 Do not use 'inspections'.
 
+### Sites of Special Scientific Interest (SSSI)
+
+Title case, spell out in full the first time, then use the acronym.
+
 ### slap mark
 
 Use only for pig shoulder tattoos.
@@ -499,9 +557,27 @@ Do not use 'abattoir'.
 
 Do not use 'abattoir operator'.
 
+### Special Areas of Conservation (SACs)
+
+Title case, spell out in full the first time, then use the acronym.
+
+### Special Protection Areas (SPAs)
+
+Title case, spell out in full the first time, then use the acronym.
+
+### square meters
+
+As stated in [the Guardian style guide](https://www.theguardian.com/guardian-style-guide-s), this is not the same as metres squared. 300m squared is 90,000 square metres, for example.
+
+Write this out in full – do not use 'm²'.
+
 ### surface water
 
 Lower case.
+
+### surveillance zone
+
+See disease control zone abbreviations.
 
 <span id="t"></span>
 
@@ -514,6 +590,10 @@ Use only for cattle, sheep and goats. For pigs, only use 'tag' for ear tags.
 ### tags (sheep and goats)
 
 Do not use 'identifier'.
+
+### temporary control zone
+
+See disease control zone abbreviations.
 
 ### temporary county parish holding (tCPH) number
 
