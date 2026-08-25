@@ -10,6 +10,8 @@ const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const minSessionCookiePasswordLength = 32
 const fourHoursMs = 14400000
+const threeSecondsMs = 3000
+const fiveMinutesSeconds = 300
 const oneWeekMs = 604800000
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -195,6 +197,42 @@ export const config = convict({
       format: 'email-domain-array',
       default: [],
       env: 'AI_TOOLKIT_ALLOWED_EMAIL_DOMAINS'
+    },
+    backendEnabled: {
+      doc: 'Whether triage submissions are also posted to the aice-triage-automation backend, as well as emailed. The per-environment switch for that integration: on in an environment whose backend is deployed and whose queue should fill from real traffic, off everywhere else. Independent of authEnabled, which decides only whether the post carries a token.',
+      format: Boolean,
+      default: false,
+      env: 'AI_TRIAGE_BACKEND_ENABLED'
+    },
+    backendUrl: {
+      doc: 'Base URL of the aice-triage-automation backend. Defaults to where the backend runs on a laptop.',
+      format: String,
+      default: 'http://localhost:3001',
+      env: 'AI_TRIAGE_BACKEND_URL'
+    },
+    backendTimeoutMs: {
+      doc: 'Timeout in milliseconds for the post to the backend. fetch has no default timeout, so a backend that accepts the connection and never answers would hang the submit button.',
+      format: Number,
+      default: threeSecondsMs,
+      env: 'AI_TRIAGE_BACKEND_TIMEOUT_MS'
+    },
+    authEnabled: {
+      doc: 'Whether the post to the backend carries an AWS WebIdentity token. Off locally, where the token service is unavailable.',
+      format: Boolean,
+      default: false,
+      env: 'AI_TRIAGE_AUTH_ENABLED'
+    },
+    backendAudience: {
+      doc: 'Audience claim requested for the WebIdentity token. Must match the backend\'s auth.audience.',
+      format: String,
+      default: 'aice-triage-automation',
+      env: 'AI_TRIAGE_BACKEND_AUDIENCE'
+    },
+    tokenDurationSeconds: {
+      doc: 'Lifetime in seconds of the WebIdentity token. The platform caps this at 15 minutes.',
+      format: Number,
+      default: fiveMinutesSeconds,
+      env: 'AI_TRIAGE_TOKEN_DURATION_SECONDS'
     }
   },
   featureFlags: {
