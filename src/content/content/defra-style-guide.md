@@ -147,13 +147,13 @@ Use to talk about disease zones more generally, if not referring to a specific z
 
 Never abbreviate control zone terms. For example, you should always spell out DCZ, RZ, PZ, SZ, TCZ as:
 
-RZ – restricted zone
+RZ - restricted zone
 
 PZ - protection zone
 
 SZ - surveillance zone
 
-TCZ – temporary control zone
+TCZ - temporary control zone
 
 <span id="e"></span>
 
@@ -565,7 +565,7 @@ Title case, spell out in full the first time, then use the acronym.
 
 Title case, spell out in full the first time, then use the acronym.
 
-### square meters
+### square metres
 
 As stated in [the Guardian style guide](https://www.theguardian.com/guardian-style-guide-s), this is not the same as metres squared. 300m squared is 90,000 square metres, for example.
 
