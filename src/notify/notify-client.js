@@ -15,7 +15,6 @@ import { NotifyClient } from 'notifications-node-client'
  * @property {import('notifications-node-client/types/client/notification').TemplateRef} template
  */
 
-
 export function createNotifyClient (apiKey) {
   return new NotifyClient(apiKey)
 }
@@ -34,7 +33,7 @@ export function createNotifyClient (apiKey) {
  * @param {{ personalisation?: Record<string, unknown>, reference?: string }} [params]
  * @returns {Promise<[{ data: NotifySendEmailResponse, status: number }, null] | [null, NotifyError]>}
  */
-export async function trySendEmail(notifyClient, templateId, email, params = {}) {
+export async function trySendEmail (notifyClient, templateId, email, params = {}) {
   try {
     const response = await notifyClient.sendEmail(templateId, email, {
       personalisation: params.personalisation,

@@ -10,6 +10,6 @@ export const codeSchema = Joi.string()
   .required()
   .messages({
     'string.empty': 'Enter the code from your email',
-    'string.pattern.base': `Enter the 6-digit code from your email`,
+    'string.pattern.base': 'Enter the 6-digit code from your email',
     'any.required': 'Enter the code from your email'
   })

@@ -17,7 +17,7 @@ export const PENDING_VERIFY_SESSION_KEY = 'pending-verify'
 export const VERIFY_ERROR_FLASH_KEY = 'verify-error'
 
 // Default redirect destination once a user has successfully verified
-// their email and code. 
+// their email and code.
 export const DEFAULT_RETURN_URL = '/'
 
 // Default routes for the code-entry step - callers that skip straight to
