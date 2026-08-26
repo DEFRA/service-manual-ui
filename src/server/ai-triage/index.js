@@ -42,6 +42,7 @@ export const aiTriage = {
             path,
             handler: controller.getTriagePage(filename),
             options: {
+              auth: { strategy: 'session' },
               ext: {
                 onPreResponse: { method: handleFileNotFound }
               }
@@ -52,6 +53,7 @@ export const aiTriage = {
             path,
             handler: controller.postTriagePage(filename),
             options: {
+              auth: { strategy: 'session' },
               payload: {
                 parse: true,
                 allow: 'application/x-www-form-urlencoded',
@@ -73,6 +75,7 @@ export const aiTriage = {
           path: checkYourAnswersPath,
           handler: controller.getSummaryPage,
           options: {
+            auth: { strategy: 'session' },
             ext: {
               onPreResponse: { method: handleFileNotFound }
             }
@@ -83,6 +86,7 @@ export const aiTriage = {
           path: checkYourAnswersPath,
           handler: controller.postSummaryPage,
           options: {
+            auth: { strategy: 'session' },
             payload: {
               parse: true,
               allow: 'application/x-www-form-urlencoded',
@@ -98,6 +102,7 @@ export const aiTriage = {
           path: '/ai-toolkit/triage/thank-you',
           handler: controller.getThankYouPage,
           options: {
+            auth: { strategy: 'session' },
             ext: {
               onPreResponse: { method: handleFileNotFound }
             }

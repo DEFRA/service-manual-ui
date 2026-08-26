@@ -1,5 +1,5 @@
 ---
-title: Who are the users and how many are affected?
+title: What data would this use?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -19,14 +19,14 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 3 of 6
+questionCaption: Question 3 of 5
 questionInputType: textarea
-questionHint: For example, caseworkers, the public or internal teams. Add numbers if you can.
+questionHint: Tell us the data sources, who owns them, and whether the data is complete or has known quality issues.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-2
 questionSubmitHref: /ai-toolkit/triage/question-3
 questionContinueHref: /ai-toolkit/triage/question-4
 fields:
-  answer: users
+  answer: dataReadiness
 ---

@@ -1,5 +1,5 @@
 ---
-title: What is your email address?
+title: What is the problem?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -19,13 +19,14 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 1 of 6
-questionInputType: email
-questionHint: We will use this to get back to you with patterns, advice or a follow-up call.
-questionSchema: email-required
+questionCaption: Question 1 of 5
+questionInputType: textarea
+questionHint: Describe the problem, who or what it affects, and the impact it is having.
+questionRows: 6
+questionSchema: text-required
 questionBackHref: /ai-toolkit
 questionSubmitHref: /ai-toolkit/triage/question-1
 questionContinueHref: /ai-toolkit/triage/question-2
 fields:
-  answer: email
+  answer: problem
 ---

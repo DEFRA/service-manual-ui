@@ -9,6 +9,8 @@ import emailDomainArray from './formats/email-domain-array.js'
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const minSessionCookiePasswordLength = 32
+
+const fifteenMinutesMs = 900000
 const fourHoursMs = 14400000
 const oneWeekMs = 604800000
 
@@ -181,6 +183,12 @@ export const config = convict({
         default: null,
         env: 'AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID'
       },
+      verificationCodeTemplateId: {
+        doc: 'Gov.UK Notify template ID for verification code email',
+        format: String,
+        default: null,
+        env: 'VERIFICATION_CODE_EMAIL_TEMPLATE_ID'
+      },
       mailbox: {
         doc: 'Shared mailbox email address to receive triage submissions',
         format: String,
@@ -255,6 +263,20 @@ export const config = convict({
         default: isProduction,
         env: 'SESSION_COOKIE_SECURE'
       }
+    }
+  },
+  verificationCode: {
+    codeTtl: {
+      doc: 'Verification code lifetime in milliseconds',
+      format: Number,
+      default: fifteenMinutesMs,
+      env: 'MAGIC_LINK_CODE_TTL'
+    },
+    loginTtl: {
+      doc: 'Successful verification verify session lifetime in milliseconds',
+      format: Number,
+      default: oneWeekMs,
+      env: 'MAGIC_LINK_LOGIN_TTL'
     }
   },
   redis: {

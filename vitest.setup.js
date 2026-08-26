@@ -9,6 +9,9 @@ process.env.AI_TOOLKIT_TRIAGE_TEMPLATE_ID =
 process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID =
   process.env.AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID ||
   'b91e6fbc-565f-48ab-955f-b3ef040f6125'
+process.env.VERIFICATION_CODE_EMAIL_TEMPLATE_ID =
+  process.env.VERIFICATION_CODE_EMAIL_TEMPLATE_ID ||
+  '4f5f6a8c-6f5a-4a3b-9c1a-2e6f0f5f3a1b'
 process.env.AICE_SHARED_MAILBOX_EMAIL =
   process.env.AICE_SHARED_MAILBOX_EMAIL ||
   'dummy-mailbox-email-for-tests@example.com'

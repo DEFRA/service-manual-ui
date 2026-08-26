@@ -1,8 +1,8 @@
 import { vi } from 'vitest'
-import { isEmailDomainAllowed } from '../email-allow-list.js'
+import { isEmailDomainAllowed } from '../../common/schemas/email-allow-list.js'
 import schema from './email-required.js'
 
-vi.mock('../email-allow-list.js', () => ({
+vi.mock('../../common/schemas/email-allow-list.js', () => ({
   isEmailDomainAllowed: vi.fn().mockReturnValue(true)
 }))
 
