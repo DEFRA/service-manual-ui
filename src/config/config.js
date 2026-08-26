@@ -270,13 +270,13 @@ export const config = convict({
       doc: 'Verification code lifetime in milliseconds',
       format: Number,
       default: fifteenMinutesMs,
-      env: 'MAGIC_LINK_CODE_TTL'
+      env: 'VERIFICATION_CODE_TTL'
     },
     loginTtl: {
       doc: 'Successful verification verify session lifetime in milliseconds',
       format: Number,
       default: oneWeekMs,
-      env: 'MAGIC_LINK_LOGIN_TTL'
+      env: 'VERIFICATION_CODE_LOGIN_TTL'
     }
   },
   redis: {

@@ -28,6 +28,7 @@ export function createNotifyClient (apiKey) {
  * Sends an email via GOV.UK Notify, returning a result tuple to avoid leaking
  * PII from the raw error response and allow the caller to decide how to handle errors.
  *
+ * @param {NotifyClient} notifyClient
  * @param {string} templateId
  * @param {string} email
  * @param {{ personalisation?: Record<string, unknown>, reference?: string }} [params]

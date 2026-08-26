@@ -39,7 +39,7 @@ export const verify = {
               failAction: async (request, h, err) => {
                 return h.view(ENTER_EMAIL_TEMPLATE, {
                   pageTitle: 'Sign in',
-                  returnUrl: request.query?.returnUrl,
+                  returnUrl: request.payload?.returnUrl ?? request.query?.returnUrl,
                   email: request.payload?.email,
                   error: err.message
                 }).takeover(http2Constants.HTTP_STATUS_BAD_REQUEST)
@@ -72,7 +72,7 @@ export const verify = {
                   codeSubmitHref: pendingLogin?.codeSubmitHref ?? DEFAULT_CODE_SUBMIT_PATH,
                   changeEmailHref: pendingLogin?.changeEmailHref ?? DEFAULT_CHANGE_EMAIL_PATH,
                   error: err.message
-                }).takeover(http2Constants.HTTP_STATUS_BAD_REQUEST)
+                }).code(http2Constants.HTTP_STATUS_BAD_REQUEST).takeover()
               }
             }
           }

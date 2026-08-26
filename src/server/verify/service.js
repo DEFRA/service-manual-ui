@@ -79,10 +79,10 @@ export async function sendVerificationCode (email, verificationCode) {
  * @param {{ verificationCode: string, attempts: number } | null} cached
  * @param {string} submittedCode
  * @returns {
- *   | { status: 'verified' }
- *   | { status: 'expired' }
- *   | { status: 'incorrect' }
- *   | { status: 'locked-out' }
+ *   | { status: codeResults.VERIFIED }
+ *   | { status: codeResults.EXPIRED }
+ *   | { status: codeResults.INCORRECT }
+ *   | { status: codeResults.LOCKED_OUT }
  * }
  */
 export function checkVerificationCode (cached, submittedCode) {
@@ -100,5 +100,5 @@ export function checkVerificationCode (cached, submittedCode) {
     return { status: codeResults.LOCKED_OUT }
   }
 
-  return { status: 'incorrect' }
+  return { status: codeResults.INCORRECT }
 }
