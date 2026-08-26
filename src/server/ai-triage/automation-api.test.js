@@ -1,12 +1,12 @@
 import { config } from '../../config/config.js'
 
-import { composeSubmissionText, postSubmission } from './backend-service.js'
+import { composeSubmissionText, postSubmission } from './automation-api.js'
 
-vi.mock('./backend-token.js', () => ({
+vi.mock('./automation-token.js', () => ({
   getToken: vi.fn()
 }))
 
-const { getToken } = await import('./backend-token.js')
+const { getToken } = await import('./automation-token.js')
 
 const submission = {
   email: 'someone@defra.gov.uk',
@@ -17,14 +17,14 @@ const submission = {
   dataReadiness: 'Data sources and owners'
 }
 
-describe('#backendService', () => {
+describe('#automationApi', () => {
   let originalConfig
 
   beforeEach(() => {
     originalConfig = {
-      backendEnabled: config.get('aiTriage.backendEnabled'),
-      backendUrl: config.get('aiTriage.backendUrl'),
-      backendTimeoutMs: config.get('aiTriage.backendTimeoutMs')
+      automationEnabled: config.get('aiTriage.automationEnabled'),
+      automationUrl: config.get('aiTriage.automationUrl'),
+      automationTimeoutMs: config.get('aiTriage.automationTimeoutMs')
     }
     getToken.mockResolvedValue(null)
     vi.stubGlobal(
@@ -34,9 +34,9 @@ describe('#backendService', () => {
   })
 
   afterEach(() => {
-    config.set('aiTriage.backendEnabled', originalConfig.backendEnabled)
-    config.set('aiTriage.backendUrl', originalConfig.backendUrl)
-    config.set('aiTriage.backendTimeoutMs', originalConfig.backendTimeoutMs)
+    config.set('aiTriage.automationEnabled', originalConfig.automationEnabled)
+    config.set('aiTriage.automationUrl', originalConfig.automationUrl)
+    config.set('aiTriage.automationTimeoutMs', originalConfig.automationTimeoutMs)
     vi.unstubAllGlobals()
   })
 
@@ -62,9 +62,9 @@ describe('#backendService', () => {
   })
 
   describe('postSubmission', () => {
-    test('posts the submission to the backend intake endpoint', async () => {
-      config.set('aiTriage.backendEnabled', true)
-      config.set('aiTriage.backendUrl', 'https://backend.example')
+    test('posts the submission to the aice-triage-automation intake endpoint', async () => {
+      config.set('aiTriage.automationEnabled', true)
+      config.set('aiTriage.automationUrl', 'https://automation.example')
 
       const result = await postSubmission({
         submissionId: 'AICE-26-A7K2',
@@ -77,7 +77,7 @@ describe('#backendService', () => {
 
       const [url, options] = fetch.mock.calls[0]
 
-      expect(url).toBe('https://backend.example/submissions')
+      expect(url).toBe('https://automation.example/submissions')
       expect(options.method).toBe('POST')
       expect(options.headers['content-type']).toBe('application/json')
       expect(JSON.parse(options.body)).toEqual({
@@ -89,21 +89,21 @@ describe('#backendService', () => {
     })
 
     test('does not double up the slash when the base URL has a trailing one', async () => {
-      config.set('aiTriage.backendEnabled', true)
-      config.set('aiTriage.backendUrl', 'https://backend.example/')
+      config.set('aiTriage.automationEnabled', true)
+      config.set('aiTriage.automationUrl', 'https://automation.example/')
 
       await postSubmission({ submissionId: 'AICE-26-A7K2', submission })
 
-      expect(fetch.mock.calls[0][0]).toBe('https://backend.example/submissions')
+      expect(fetch.mock.calls[0][0]).toBe('https://automation.example/submissions')
     })
 
     test('is disabled by default, so nothing is posted unless it is turned on', () => {
-      expect(config.default('aiTriage.backendEnabled')).toBe(false)
+      expect(config.default('aiTriage.automationEnabled')).toBe(false)
       expect(config.default('aiTriage.authEnabled')).toBe(false)
     })
 
-    test('makes no request at all when the backend is disabled', async () => {
-      config.set('aiTriage.backendEnabled', false)
+    test('makes no request at all when the integration is disabled', async () => {
+      config.set('aiTriage.automationEnabled', false)
 
       const result = await postSubmission({
         submissionId: 'AICE-26-A7K2',
@@ -116,7 +116,7 @@ describe('#backendService', () => {
     })
 
     test('sends the bearer token when the token helper returns one', async () => {
-      config.set('aiTriage.backendEnabled', true)
+      config.set('aiTriage.automationEnabled', true)
       getToken.mockResolvedValue('a-web-identity-token')
 
       await postSubmission({ submissionId: 'AICE-26-A7K2', submission })
@@ -127,7 +127,7 @@ describe('#backendService', () => {
     })
 
     test('sends no authorization header when there is no token', async () => {
-      config.set('aiTriage.backendEnabled', true)
+      config.set('aiTriage.automationEnabled', true)
       getToken.mockResolvedValue(null)
 
       await postSubmission({ submissionId: 'AICE-26-A7K2', submission })
@@ -136,7 +136,7 @@ describe('#backendService', () => {
     })
 
     test('passes the STS client to the token helper', async () => {
-      config.set('aiTriage.backendEnabled', true)
+      config.set('aiTriage.automationEnabled', true)
       const stsClient = { send: vi.fn() }
 
       await postSubmission({
@@ -148,8 +148,8 @@ describe('#backendService', () => {
       expect(getToken).toHaveBeenCalledWith(stsClient)
     })
 
-    test('throws with the status when the backend responds with an error', async () => {
-      config.set('aiTriage.backendEnabled', true)
+    test('throws with the status when aice-triage-automation responds with an error', async () => {
+      config.set('aiTriage.automationEnabled', true)
       fetch.mockResolvedValue({ ok: false, status: 503 })
 
       await expect(
@@ -161,7 +161,7 @@ describe('#backendService', () => {
     })
 
     test('throws when the request times out', async () => {
-      config.set('aiTriage.backendEnabled', true)
+      config.set('aiTriage.automationEnabled', true)
       fetch.mockRejectedValue(
         Object.assign(new Error('The operation was aborted'), {
           name: 'TimeoutError'
@@ -174,8 +174,8 @@ describe('#backendService', () => {
     })
 
     test('uses the configured timeout for the abort signal', async () => {
-      config.set('aiTriage.backendEnabled', true)
-      config.set('aiTriage.backendTimeoutMs', 25)
+      config.set('aiTriage.automationEnabled', true)
+      config.set('aiTriage.automationTimeoutMs', 25)
 
       await postSubmission({ submissionId: 'AICE-26-A7K2', submission })
 

@@ -2,12 +2,12 @@ import { GetWebIdentityTokenCommand } from '@aws-sdk/client-sts'
 
 import { config } from '../../config/config.js'
 
-// The platform's guide supports RS256 and ES384; the backend verifies RS256.
+// The platform's guide supports RS256 and ES384; aice-triage-automation verifies RS256.
 const SIGNING_ALGORITHM = 'RS256'
 
 /**
  * Asks the AWS Security Token Service for a short-lived WebIdentity token to
- * present to the backend as `Authorization: Bearer …`.
+ * present to aice-triage-automation as `Authorization: Bearer …`.
  *
  * Returns null when authentication is disabled, which is the default and what
  * runs locally, where the token service is unavailable. The token is not cached:
@@ -25,12 +25,12 @@ export async function getToken (stsClient) {
   }
 
   if (!stsClient) {
-    throw new Error('No STS client available to get a backend auth token')
+    throw new Error('No STS client available to get an aice-triage-automation auth token')
   }
 
   const response = await stsClient.send(
     new GetWebIdentityTokenCommand({
-      Audience: [config.get('aiTriage.backendAudience')],
+      Audience: [config.get('aiTriage.automationAudience')],
       DurationSeconds: config.get('aiTriage.tokenDurationSeconds'),
       SigningAlgorithm: SIGNING_ALGORITHM
     })

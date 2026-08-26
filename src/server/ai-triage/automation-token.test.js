@@ -2,7 +2,7 @@ import { GetWebIdentityTokenCommand } from '@aws-sdk/client-sts'
 
 import { config } from '../../config/config.js'
 
-import { getToken } from './backend-token.js'
+import { getToken } from './automation-token.js'
 
 describe('#getToken', () => {
   let originalAuthEnabled
@@ -37,7 +37,7 @@ describe('#getToken', () => {
 
     expect(command).toBeInstanceOf(GetWebIdentityTokenCommand)
     expect(command.input).toEqual({
-      Audience: [config.get('aiTriage.backendAudience')],
+      Audience: [config.get('aiTriage.automationAudience')],
       DurationSeconds: config.get('aiTriage.tokenDurationSeconds'),
       SigningAlgorithm: 'RS256'
     })
@@ -55,7 +55,7 @@ describe('#getToken', () => {
     config.set('aiTriage.authEnabled', true)
 
     await expect(getToken(undefined)).rejects.toThrow(
-      'No STS client available to get a backend auth token'
+      'No STS client available to get an aice-triage-automation auth token'
     )
   })
 

@@ -1,11 +1,11 @@
 import { config } from '../../config/config.js'
 
-import { getToken } from './backend-token.js'
+import { getToken } from './automation-token.js'
 
 const SUBMISSIONS_PATH = '/submissions'
 
 // The labels and their order are the order the questions are asked in. The
-// email address is deliberately absent: the backend has no field for it, and
+// email address is deliberately absent: aice-triage-automation has no field for it, and
 // the text is what gets sent to a hosted AI model. The shared-mailbox email
 // carries the address, and both records name the same reference.
 const TEXT_SECTIONS = [
@@ -17,7 +17,7 @@ const TEXT_SECTIONS = [
 ]
 
 /**
- * Composes the five substantive answers into the single text field the backend
+ * Composes the five substantive answers into the single text field aice-triage-automation
  * stores, as labelled sections in the order the questions are asked.
  *
  * @param {import('./model.js').TriageSubmission} submission
@@ -33,11 +33,11 @@ export function composeSubmissionText (submission) {
 // a trailing slash gives the same answer. Trimming it with a regex invited a
 // backtracking warning for no gain.
 function submissionsUrl () {
-  return new URL(SUBMISSIONS_PATH, config.get('aiTriage.backendUrl')).toString()
+  return new URL(SUBMISSIONS_PATH, config.get('aiTriage.automationUrl')).toString()
 }
 
 /**
- * Posts a submission to the backend's intake endpoint.
+ * Posts a submission to the aice-triage-automation intake endpoint.
  *
  * The endpoint is idempotent on `submissionId`, and there is nothing in its
  * response to depend on, so this returns only whether a post was made. Any
@@ -57,7 +57,7 @@ export async function postSubmission ({
   submittedAt,
   stsClient
 }) {
-  if (!config.get('aiTriage.backendEnabled')) {
+  if (!config.get('aiTriage.automationEnabled')) {
     return { posted: false }
   }
 
@@ -77,12 +77,12 @@ export async function postSubmission ({
       text: composeSubmissionText(submission),
       submittedAt
     }),
-    signal: AbortSignal.timeout(config.get('aiTriage.backendTimeoutMs'))
+    signal: AbortSignal.timeout(config.get('aiTriage.automationTimeoutMs'))
   })
 
   if (!response.ok) {
     const error = new Error(
-      `Backend rejected the submission with status ${response.status}`
+      `aice-triage-automation rejected the submission with status ${response.status}`
     )
     error.status = response.status
     throw error

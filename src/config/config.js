@@ -198,35 +198,35 @@ export const config = convict({
       default: [],
       env: 'AI_TOOLKIT_ALLOWED_EMAIL_DOMAINS'
     },
-    backendEnabled: {
-      doc: 'Whether triage submissions are also posted to the aice-triage-automation backend, as well as emailed. The per-environment switch for that integration: on in an environment whose backend is deployed and whose queue should fill from real traffic, off everywhere else. Independent of authEnabled, which decides only whether the post carries a token.',
+    automationEnabled: {
+      doc: 'Whether triage submissions are also posted to the aice-triage-automation service, as well as emailed. The per-environment switch for that integration: on in an environment where aice-triage-automation is deployed and its queue should fill from real traffic, off everywhere else. Independent of authEnabled, which decides only whether the post carries a token.',
       format: Boolean,
       default: false,
-      env: 'AI_TRIAGE_BACKEND_ENABLED'
+      env: 'AI_TRIAGE_AUTOMATION_ENABLED'
     },
-    backendUrl: {
-      doc: 'Base URL of the aice-triage-automation backend. Defaults to where the backend runs on a laptop.',
+    automationUrl: {
+      doc: 'Base URL of the aice-triage-automation service. Defaults to where it runs on a laptop.',
       format: String,
       default: 'http://localhost:3001',
-      env: 'AI_TRIAGE_BACKEND_URL'
+      env: 'AI_TRIAGE_AUTOMATION_URL'
     },
-    backendTimeoutMs: {
-      doc: 'Timeout in milliseconds for the post to the backend. fetch has no default timeout, so a backend that accepts the connection and never answers would hang the submit button.',
+    automationTimeoutMs: {
+      doc: 'Timeout in milliseconds for the post to aice-triage-automation. fetch has no default timeout, so a service that accepts the connection and never answers would hang the submit button.',
       format: Number,
       default: threeSecondsMs,
-      env: 'AI_TRIAGE_BACKEND_TIMEOUT_MS'
+      env: 'AI_TRIAGE_AUTOMATION_TIMEOUT_MS'
     },
     authEnabled: {
-      doc: 'Whether the post to the backend carries an AWS WebIdentity token. Off locally, where the token service is unavailable.',
+      doc: 'Whether the post to aice-triage-automation carries an AWS WebIdentity token. Off locally, where the token service is unavailable.',
       format: Boolean,
       default: false,
       env: 'AI_TRIAGE_AUTH_ENABLED'
     },
-    backendAudience: {
-      doc: 'Audience claim requested for the WebIdentity token. Must match the backend\'s auth.audience.',
+    automationAudience: {
+      doc: 'Audience claim requested for the WebIdentity token. Must match aice-triage-automation\'s auth.audience.',
       format: String,
       default: 'aice-triage-automation',
-      env: 'AI_TRIAGE_BACKEND_AUDIENCE'
+      env: 'AI_TRIAGE_AUTOMATION_AUDIENCE'
     },
     tokenDurationSeconds: {
       doc: 'Lifetime in seconds of the WebIdentity token. The platform caps this at 15 minutes.',

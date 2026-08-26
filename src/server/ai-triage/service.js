@@ -15,7 +15,7 @@ import {
   REFERENCE_YEAR_SLICE
 } from './constants.js'
 import submissionSchema from './schemas/submission.js'
-import { postSubmission } from './backend-service.js'
+import { postSubmission } from './automation-api.js'
 
 const logger = createLogger()
 const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
@@ -160,7 +160,7 @@ function generateReference () {
 }
 
 /**
- * Posts the submission to the aice-triage-automation backend, alongside the
+ * Posts the submission to aice-triage-automation, alongside the
  * Notify emails rather than instead of them.
  *
  * A failure of any kind must not cost someone their submission, so it is logged
@@ -173,7 +173,7 @@ function generateReference () {
  * @param {import('@aws-sdk/client-sts').STSClient} [stsClient]
  * @returns {Promise<void>}
  */
-async function postSubmissionToBackend (
+async function postSubmissionToAutomation (
   submission,
   reference,
   submittedAt,
@@ -190,13 +190,13 @@ async function postSubmissionToBackend (
     if (posted) {
       logger.info(
         PostSubmissionLog.buildPostSubmissionSuccessLog(reference),
-        'Triage submission posted to the backend'
+        'Triage submission posted to aice-triage-automation'
       )
     }
   } catch (error) {
     logger.error(
       PostSubmissionLog.buildPostSubmissionErrorLog(error, reference),
-      'Failed to post triage submission to the backend'
+      'Failed to post triage submission to aice-triage-automation'
     )
   }
 }
@@ -233,7 +233,7 @@ export async function submit (submission, options = {}) {
 
   // After both emails: the shared-mailbox email is the only record carrying the
   // submitter's address, so it must never be the post that got there first.
-  await postSubmissionToBackend(
+  await postSubmissionToAutomation(
     submission,
     reference,
     submittedAt,

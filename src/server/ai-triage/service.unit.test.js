@@ -15,11 +15,11 @@ vi.mock('../../notify/notify-client.js', () => ({
   createNotifyClient: () => ({ sendEmail })
 }))
 
-vi.mock('./backend-service.js', () => ({
+vi.mock('./automation-api.js', () => ({
   postSubmission: vi.fn()
 }))
 
-const { postSubmission } = await import('./backend-service.js')
+const { postSubmission } = await import('./automation-api.js')
 const { submit } = await import('./service.js')
 
 const submission = {
@@ -31,7 +31,7 @@ const submission = {
   dataReadiness: 'Data sources and owners'
 }
 
-describe('#submit posting to the backend', () => {
+describe('#submit posting to aice-triage-automation', () => {
   beforeEach(() => {
     sendEmail.mockResolvedValue({
       data: { reference: 'notify-reference' },
@@ -94,7 +94,7 @@ describe('#submit posting to the backend', () => {
 
   test('leaves the result unchanged and logs when the post fails', async () => {
     postSubmission.mockRejectedValue(
-      Object.assign(new Error('Backend rejected the submission with status 503'), {
+      Object.assign(new Error('aice-triage-automation rejected the submission with status 503'), {
         status: 503
       })
     )
@@ -114,11 +114,11 @@ describe('#submit posting to the backend', () => {
         }),
         error: expect.objectContaining({ code: 503 })
       }),
-      'Failed to post triage submission to the backend'
+      'Failed to post triage submission to aice-triage-automation'
     )
   })
 
-  test('logs nothing about the backend when the post was skipped', async () => {
+  test('logs nothing about aice-triage-automation when the post was skipped', async () => {
     postSubmission.mockResolvedValue({ posted: false })
 
     const result = await submit(submission)
