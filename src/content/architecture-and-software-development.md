@@ -45,17 +45,17 @@ To get started, you should:
    - CDP is Defra's internal development platform and the expected choice for building and deploying services
    - if it is not right for the service, this is managed as an exception through the Delivery Architecture team's governance process
 
-## Expected approach
+## Recommended approach
 
-These are the standards you are expected to follow:
+To deliver a service that meets users needs faster and at a lower cost, follow these guidelines:
 
 - build on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)
-- use Defra's [common tools](#common-tools) as part of the service
+- use Defra's [common tools](/architecture-and-software-development#common-tools) as part of your service
 - use Defra's [approved technologies and languages](#approved-technologies-and-languages)
 - code in the open from the start, storing code in the [Defra GitHub organisation](https://github.com/DEFRA)
+- analyse code in the [Defra SonarQube Cloud organisation](https://sonarcloud.io/organizations/defra)
+- follow Defra's [README standards](https://defra.github.io/software-development-standards/standards/readme_standards/)
 - maintain solution overview documentation, architecture decision records and architecture diagrams
-- work with delivery teams on the design of their services, and on decisions that affect other services
-- meet the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice)
 
 <h2 class="govuk-heading-m" id="approved-technologies-and-languages">Approved technologies and languages</h2>
 
