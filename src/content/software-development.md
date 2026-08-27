@@ -20,7 +20,7 @@ This section covers how to build a service at Defra: the standards you follow, t
 
 It builds on the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [technology section of the GOV.UK Service Manual](https://www.gov.uk/service-manual/technology). The [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) sets out the criteria government uses to design, build and buy technology.
 
-If you work in an architecture role, see [architecture](/architecture-and-software-development).
+If you work in an architecture role, see [architecture](/architecture).
 
 Follow this guidance when you are:
 

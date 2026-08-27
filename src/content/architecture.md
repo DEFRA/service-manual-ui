@@ -50,7 +50,7 @@ To get started, you should:
 To deliver a service that meets users needs faster and at a lower cost, follow these guidelines:
 
 - build on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)
-- use Defra's [common tools](/architecture-and-software-development#common-tools) as part of your service
+- use Defra's [common tools](/architecture#common-tools) as part of your service
 - use Defra's [approved technologies and languages](#approved-technologies-and-languages)
 - code in the open from the start, storing code in the [Defra GitHub organisation](https://github.com/DEFRA)
 - analyse code in the [Defra SonarQube Cloud organisation](https://sonarcloud.io/organizations/defra)

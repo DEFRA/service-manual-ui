@@ -56,7 +56,7 @@ nav-architecture:
   - title: In this section
     items:
       - text: Architecture
-        href: /architecture-and-software-development
+        href: /architecture
   - title: Common tools
     items:
       - text: Core Delivery Platform
@@ -73,7 +73,7 @@ nav-common-tools:
   - title: In this section
     items:
       - text: Architecture
-        href: /architecture-and-software-development
+        href: /architecture
       - text: Software development
         href: /software-development
   - title: Common tools

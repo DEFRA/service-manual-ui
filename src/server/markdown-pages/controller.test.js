@@ -13,11 +13,11 @@ describe('#markdownPagesController', () => {
     await server.stop({ timeout: 0 })
   })
 
-  describe('GET /architecture-and-software-development', () => {
+  describe('GET /architecture', () => {
     test('Should return 200 status code', async () => {
       const { statusCode } = await server.inject({
         method: 'GET',
-        url: '/architecture-and-software-development'
+        url: '/architecture'
       })
 
       expect(statusCode).toBe(statusCodes.ok)
@@ -26,7 +26,7 @@ describe('#markdownPagesController', () => {
     test('Should render page with title', async () => {
       const { result } = await server.inject({
         method: 'GET',
-        url: '/architecture-and-software-development'
+        url: '/architecture'
       })
 
       expect(result).toEqual(
@@ -37,7 +37,7 @@ describe('#markdownPagesController', () => {
     test('Should render markdown content as HTML', async () => {
       const { result } = await server.inject({
         method: 'GET',
-        url: '/architecture-and-software-development'
+        url: '/architecture'
       })
 
       // Check that markdown headings are converted to HTML

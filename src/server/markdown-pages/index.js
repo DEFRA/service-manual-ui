@@ -15,7 +15,7 @@ export const markdownRoutes = [
   '/service-assessments/book-an-assessment',
   '/service-assessments/become-an-assessor',
   '/service-assessments/gov-uk-exemptions',
-  '/architecture-and-software-development',
+  '/architecture',
   '/architecture-and-software-development/core-delivery-platform',
   '/architecture-and-software-development/defra-customer-identity',
   '/architecture-and-software-development/defra-accessible-maps',
