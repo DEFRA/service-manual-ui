@@ -146,7 +146,9 @@ export const postSummaryPage = async (request, h) => {
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
     const submission = model.TriageSubmission.fromSessionData(sessionData)
 
-    const submitResult = await aiTriageService.submit(submission)
+    const submitResult = await aiTriageService.submit(submission, {
+      stsClient: request.stsClient
+    })
     const { meta } = loadContent(CHECK_YOUR_ANSWERS_CONTENT)
     const viewModel = model.TriageSummaryViewModel.fromSessionData(
       sessionData,
