@@ -30,7 +30,7 @@ describe('#markdownPagesController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Architecture and software development')
+        expect.stringContaining('Architecture')
       )
     })
 

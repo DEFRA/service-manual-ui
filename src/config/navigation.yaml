@@ -55,8 +55,27 @@ nav-accessibility:
 nav-architecture:
   - title: In this section
     items:
-      - text: Architecture and software development
+      - text: Architecture
         href: /architecture-and-software-development
+  - title: Common tools
+    items:
+      - text: Core Delivery Platform
+        href: /architecture-and-software-development/core-delivery-platform
+      - text: Defra Customer Identity
+        href: /architecture-and-software-development/defra-customer-identity
+      - text: Defra Forms
+        href: /architecture-and-software-development/defra-forms
+      - text: Defra Interactive Map
+        href: /architecture-and-software-development/defra-accessible-maps
+
+# Common tools section navigation (shared by architecture and software development)
+nav-common-tools:
+  - title: In this section
+    items:
+      - text: Architecture
+        href: /architecture-and-software-development
+      - text: Software development
+        href: /software-development
   - title: Common tools
     items:
       - text: Core Delivery Platform
@@ -172,6 +191,23 @@ nav-service-assessments:
         href: /service-assessments/become-an-assessor
       - text: GOV.UK exemptions
         href: /service-assessments/gov-uk-exemptions
+
+# Software development section navigation
+nav-software-development:
+  - title: In this section
+    items:
+      - text: Software development
+        href: /software-development
+  - title: Common tools
+    items:
+      - text: Core Delivery Platform
+        href: /architecture-and-software-development/core-delivery-platform
+      - text: Defra Customer Identity
+        href: /architecture-and-software-development/defra-customer-identity
+      - text: Defra Forms
+        href: /architecture-and-software-development/defra-forms
+      - text: Defra Interactive Map
+        href: /architecture-and-software-development/defra-accessible-maps
 
 # Sustainability section navigation
 nav-sustainability:

@@ -3,8 +3,8 @@ title: Defra Forms
 caption: Common tools
 description: 'Build accessible, GOV.UK-styled forms for your digital service at Defra.'
 layout: section
-sectionTitle: Architecture and software development
-sectionNav: nav-architecture
+sectionTitle: Common tools
+sectionNav: nav-common-tools
 supportBox:
   title: Get support
   description: 'If you need help with Defra Forms, contact the <strong>Forms team</strong>.'

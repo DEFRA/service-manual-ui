@@ -159,7 +159,7 @@ describe('#loadContent', () => {
       const { meta } = loadContent('architecture-and-software-development.md')
       expect(meta).toHaveProperty('title')
       expect(meta).toHaveProperty('layout')
-      expect(meta.title).toBe('Architecture and software development')
+      expect(meta.title).toBe('Architecture')
     })
 
     test('Should return markdown content as string', async () => {
