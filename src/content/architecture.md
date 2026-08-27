@@ -37,13 +37,19 @@ This guidance may not apply if you are:
 To get started, you should:
 
 1. Contact the [Delivery Architecture team](https://defra.sharepoint.com/teams/Team3221/SitePages/Nav-Delivery-Architecture.aspx)
-   - they'll help you design your service's architecture and explain governance requirements
-   - they'll tell you who the principal architect is for your delivery group
+   - they'll help you architect your service and explain governance requirements
+   - they'll let you know the principal architect for your delivery group
 2. Review the [Defra software development standards](https://defra.github.io/software-development-standards/)
-   - these are mandatory, and the Delivery Architecture team handles any exceptions through their governance process
-3. Confirm with the delivery team whether the [Core Delivery Platform (CDP)](/architecture-and-software-development/core-delivery-platform) is right for the service
-   - CDP is Defra's internal development platform and the expected choice for building and deploying services
-   - if it is not right for the service, this is managed as an exception through the Delivery Architecture team's governance process
+   - these are mandatory and the Delivery Architecture team handles any exceptions through their governance process
+3. Work with the Delivery Architecture team to decide if the Core Delivery Platform (CDP) is right for your service. This is Defra's strategic platform for building and deploying services.
+
+You will need to read the following documentation if your service adopts the Core Delivery Platform:
+
+- [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md) to understand what the platform offers
+- [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) to learn how the platform is built
+- [how-to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md)
+
+To access the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/), you will need to be on a Defra device or VPN.
 
 ## Recommended approach
 
