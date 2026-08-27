@@ -51,22 +51,26 @@ nav-accessibility:
       - text: Test for accessibility
         href: /accessibility/test-for-accessibility
 
+# Shared Common tools items (anchor used by nav-architecture, nav-common-tools, nav-software-development)
+_common-tools-section: &common-tools-section
+  title: Common tools
+  items:
+    - text: Core Delivery Platform
+      href: /architecture-and-software-development/core-delivery-platform
+    - text: Defra Customer Identity
+      href: /architecture-and-software-development/defra-customer-identity
+    - text: Defra Forms
+      href: /architecture-and-software-development/defra-forms
+    - text: Defra Interactive Map
+      href: /architecture-and-software-development/defra-accessible-maps
+
 # Architecture and software development section navigation
 nav-architecture:
   - title: In this section
     items:
       - text: Architecture
         href: /architecture
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+  - *common-tools-section
 
 # Common tools section navigation (shared by architecture and software development)
 nav-common-tools:
@@ -76,16 +80,7 @@ nav-common-tools:
         href: /architecture
       - text: Software development
         href: /software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+  - *common-tools-section
 
 # Content design section navigation
 nav-content:
@@ -198,16 +193,7 @@ nav-software-development:
     items:
       - text: Software development
         href: /software-development
-  - title: Common tools
-    items:
-      - text: Core Delivery Platform
-        href: /architecture-and-software-development/core-delivery-platform
-      - text: Defra Customer Identity
-        href: /architecture-and-software-development/defra-customer-identity
-      - text: Defra Forms
-        href: /architecture-and-software-development/defra-forms
-      - text: Defra Interactive Map
-        href: /architecture-and-software-development/defra-accessible-maps
+  - *common-tools-section
 
 # Sustainability section navigation
 nav-sustainability:
