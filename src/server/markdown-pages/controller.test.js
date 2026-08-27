@@ -317,6 +317,26 @@ describe('#markdownPagesController', () => {
     })
   })
 
+  describe('GET /software-development', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/software-development'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/software-development'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Software development'))
+    })
+  })
+
   describe('Performance analysis', () => {
     test('GET /performance-analysis should return 200', async () => {
       const { statusCode } = await server.inject({
