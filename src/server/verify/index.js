@@ -42,7 +42,7 @@ export const verify = {
                   returnUrl: request.payload?.returnUrl ?? request.query?.returnUrl,
                   email: request.payload?.email,
                   error: err.message
-                }).code(http2Constants.HTTP_STATUS_BAD_REQUEST).takeover()
+                }).code(http2Constants.HTTP_STATUS_OK).takeover()
               }
             }
           }
@@ -72,7 +72,7 @@ export const verify = {
                   codeSubmitHref: pendingLogin?.codeSubmitHref ?? DEFAULT_CODE_SUBMIT_PATH,
                   changeEmailHref: pendingLogin?.changeEmailHref ?? DEFAULT_CHANGE_EMAIL_PATH,
                   error: err.message
-                }).code(http2Constants.HTTP_STATUS_BAD_REQUEST).takeover()
+                }).code(http2Constants.HTTP_STATUS_OK).takeover()
               }
             }
           }

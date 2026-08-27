@@ -1,5 +1,6 @@
 import { statusCodes } from '../common/constants/status-codes.js'
 import { createServer } from '../server.js'
+import { MAX_CODE_ATTEMPTS } from './constants.js'
 import nock from 'nock'
 
 async function postEmail (server, email, returnUrl) {
@@ -118,5 +119,82 @@ describe('verify routes', () => {
 
     expect(verify.statusCode).toBe(statusCodes.found)
     expect(verify.headers.location).toBe('/')
+  })
+
+  test('re-renders the code form with a retry error when the code is wrong but not yet locked out', async () => {
+    const start = await postEmail(server, 'test@example.com', '/')
+    const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
+
+    const retry = await submitCode(server, '000000', cookie)
+
+    expect(retry.statusCode).toBe(statusCodes.ok)
+    expect(retry.result).toContain('Enter the correct code. Check your email and try again.')
+    expect(retry.result).not.toContain('Too many incorrect attempts')
+
+    // the pending verify survives a wrong attempt - the correct code still works after
+    const verify = await submitCode(server, lastVerificationCode, cookie)
+
+    expect(verify.statusCode).toBe(statusCodes.found)
+    expect(verify.headers.location).toBe('/')
+  })
+
+  test('locks out after too many incorrect codes, shows the flash error once with its own returnUrl, then clears it', async () => {
+    const start = await postEmail(server, 'test@example.com', '/ai-toolkit/triage/question-1')
+    const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
+
+    let lastAttempt
+    for (let attempt = 0; attempt < MAX_CODE_ATTEMPTS; attempt++) {
+      lastAttempt = await submitCode(server, '000000', cookie)
+    }
+
+    expect(lastAttempt.statusCode).toBe(statusCodes.found)
+    expect(lastAttempt.headers.location).toBe('/verify')
+
+    // a returnUrl on the query string must not override the one captured on the flash error
+    const withError = await server.inject({
+      method: 'GET',
+      url: '/verify?returnUrl=/other-page',
+      headers: { cookie }
+    })
+    expect(withError.result).toContain('Too many incorrect attempts')
+    expect(withError.result).toContain('value="/ai-toolkit/triage/question-1"')
+    expect(withError.result).not.toContain('value="/other-page"')
+
+    const withoutError = await server.inject({
+      method: 'GET',
+      url: '/verify',
+      headers: { cookie }
+    })
+    expect(withoutError.result).not.toContain('Too many incorrect attempts')
+  })
+
+  test('redirects POST /verify/code to /verify when there is no pending session', async () => {
+    const { statusCode, headers } = await submitCode(server, '123456')
+
+    expect(statusCode).toBe(statusCodes.found)
+    expect(headers.location).toBe('/verify')
+  })
+
+  test('re-renders the email page and starts no pending session when sending the code fails', async () => {
+    nock.cleanAll()
+    nock('https://api.notifications.service.gov.uk')
+      .post('/v2/notifications/email')
+      .reply(400, { errors: [{ error: 'BadRequestError', message: 'blocked' }] })
+
+    const start = await postEmail(server, 'test@example.com', '/ai-toolkit/triage/question-1')
+    const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
+
+    expect(start.statusCode).toBe(statusCodes.ok)
+    expect(start.result).toContain('There was a problem sending your code')
+    expect(start.result).not.toContain('Enter your code')
+
+    const codePage = await server.inject({
+      method: 'GET',
+      url: '/verify/code',
+      headers: cookie ? { cookie } : {}
+    })
+
+    expect(codePage.statusCode).toBe(statusCodes.found)
+    expect(codePage.headers.location).toBe('/verify')
   })
 })
