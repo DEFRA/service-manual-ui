@@ -47,11 +47,11 @@ To get started, you should:
 
 ## Expected approach
 
-You are expected to:
+These are the standards you are expected to follow:
 
 - build on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)
-- use Defra's [approved technologies and languages](#approved-technologies-and-languages)
 - use Defra's [common tools](#common-tools) as part of the service
+- use Defra's [approved technologies and languages](#approved-technologies-and-languages)
 - code in the open from the start, storing code in the [Defra GitHub organisation](https://github.com/DEFRA)
 - maintain solution overview documentation, architecture decision records and architecture diagrams
 - work with delivery teams on the design of their services, and on decisions that affect other services
