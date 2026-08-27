@@ -1,5 +1,4 @@
 // Routes for markdown-backed pages. Use AI patterns and Use AI responsibly restructure.
-import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
 
 export function isAiToolkitRoute (routePath) {

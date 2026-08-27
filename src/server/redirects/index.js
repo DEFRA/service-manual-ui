@@ -1,4 +1,3 @@
-import { config } from '../../config/config.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
 /**

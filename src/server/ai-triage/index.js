@@ -1,5 +1,3 @@
-import { config } from '../../config/config.js'
-
 import * as controller from './controller.js'
 import { triageQuestions } from './questions.js'
 import { MAX_PAYLOAD_BYTES } from './constants.js'

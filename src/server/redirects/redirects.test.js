@@ -6,7 +6,7 @@
  * the module cache, and re-imports the server to verify the redirects also
  * disappear when AI content is gated off.
  */
-import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
+import { describe, test, expect, beforeAll, afterAll } from 'vitest'
 import { createServer } from '../server.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
