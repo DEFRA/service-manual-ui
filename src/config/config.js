@@ -154,14 +154,6 @@ export const config = convict({
       env: 'TRACING_HEADER'
     }
   },
-  aiContent: {
-    enabled: {
-      doc: 'Whether AI content (the AI digital toolkit at /ai-toolkit) is visible. Defaults to true (visible in all environments). Set ENABLE_AI_CONTENT=false to hide it in a specific environment.',
-      format: Boolean,
-      default: true,
-      env: 'ENABLE_AI_CONTENT'
-    }
-  },
   notify: {
     aiToolkit: {
       apiKey: {

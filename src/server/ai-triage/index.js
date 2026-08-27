@@ -30,10 +30,6 @@ export const aiTriage = {
   plugin: {
     name: 'ai-triage',
     register: async (server) => {
-      if (!config.get('aiContent.enabled')) {
-        return
-      }
-
       const triageRoutes = triageQuestions.flatMap((path) => {
         const filename = `${path.slice(1)}.md`
         return [

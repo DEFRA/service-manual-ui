@@ -17,10 +17,6 @@ export const redirects = {
   plugin: {
     name: 'redirects',
     register (server) {
-      if (!config.get('aiContent.enabled')) {
-        return
-      }
-
       server.route([
         {
           method: 'GET',

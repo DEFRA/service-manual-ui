@@ -129,10 +129,7 @@ export const markdownRoutes = [
  * Shared with the search index so gated content stays out of search results.
  */
 export function getEnabledMarkdownRoutes () {
-  const aiContentEnabled = config.get('aiContent.enabled')
-  return aiContentEnabled
-    ? markdownRoutes
-    : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
+  return markdownRoutes
 }
 
 export const markdownPages = {

@@ -82,44 +82,4 @@ describe('301 redirects (AI content enabled)', () => {
   })
 })
 
-describe('301 redirects (AI content gated off)', () => {
-  let server
-  let previousEnableAiContent
-
-  beforeAll(async () => {
-    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    process.env.ENABLE_AI_CONTENT = 'false'
-    vi.resetModules()
-    const { createServer: createServerGated } = await import('../server.js')
-    server = await createServerGated()
-    await server.initialize()
-  })
-
-  afterAll(async () => {
-    await server.stop({ timeout: 0 })
-    if (previousEnableAiContent === undefined) {
-      delete process.env.ENABLE_AI_CONTENT
-    } else {
-      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
-    }
-    vi.resetModules()
-  })
-
-  test('GET /ai-playbook returns 404 (no redirect leak)', async () => {
-    const { statusCode } = await server.inject({
-      method: 'GET',
-      url: '/ai-playbook'
-    })
-
-    expect(statusCode).toBe(statusCodes.notFound)
-  })
-
-  test('GET /ai-playbook/tools returns 404', async () => {
-    const { statusCode } = await server.inject({
-      method: 'GET',
-      url: '/ai-playbook/tools'
-    })
-
-    expect(statusCode).toBe(statusCodes.notFound)
-  })
-})
+// AI gating removed: no gated-off describe block remains
