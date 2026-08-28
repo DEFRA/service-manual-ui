@@ -149,23 +149,23 @@ describe('#loadContent', () => {
   describe('when loading a valid markdown file', () => {
     test('Should return meta and content', async () => {
       const { loadContent } = await import('./content-loader.js')
-      const result = loadContent('architecture-and-software-development.md')
+      const result = loadContent('architecture.md')
       expect(result).toHaveProperty('meta')
       expect(result).toHaveProperty('content')
     })
 
     test('Should parse frontmatter into meta object', async () => {
       const { loadContent } = await import('./content-loader.js')
-      const { meta } = loadContent('architecture-and-software-development.md')
+      const { meta } = loadContent('architecture.md')
       expect(meta).toHaveProperty('title')
       expect(meta).toHaveProperty('layout')
-      expect(meta.title).toBe('Architecture and software development')
+      expect(meta.title).toBe('Architecture')
     })
 
     test('Should return markdown content as string', async () => {
       const { loadContent } = await import('./content-loader.js')
       const { content } = loadContent(
-        'architecture-and-software-development.md'
+        'architecture.md'
       )
       expect(typeof content).toBe('string')
       expect(content.length).toBeGreaterThan(0)

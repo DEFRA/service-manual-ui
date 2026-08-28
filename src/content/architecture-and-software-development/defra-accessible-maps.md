@@ -5,13 +5,13 @@ description: >-
   A lightweight, accessible map component for frontend applications in
   government services.
 layout: section
-sectionTitle: Architecture and software development
-sectionNav: nav-architecture
+sectionTitle: Common tools
+sectionNav: nav-common-tools
 supportBox:
   title: Get support
   description: >-
     If you need help with the Defra Interactive Map, join the
-    <strong>interactive-map</strong> channel in the Defra Digital Team slack.
+    <strong>interactive-map</strong> channel in the Defra Digital Team Slack.
   items:
     - >-
       Slack: <a href="https://defra-digital-team.slack.com/archives/C080WP62PJP"
