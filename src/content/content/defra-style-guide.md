@@ -145,15 +145,7 @@ Use 'group' (lower case) when writing for internal staff.
 
 Use to talk about disease zones more generally, if not referring to a specific zone. For example, 'If you're in a disease control zone, you cannot…'.
 
-Never abbreviate control zone terms. For example, you should always spell out DCZ, RZ, PZ, SZ, TCZ as:
-
-RZ - restricted zone
-
-PZ - protection zone
-
-SZ - surveillance zone
-
-TCZ - temporary control zone
+Never abbreviate control zone terms. Always spell disease control zone terms out in full – for example, 'protection zone'.
 
 <span id="e"></span>
 
@@ -509,11 +501,7 @@ Do not use 'report movements electronically'.
 
 ### restricted zone
 
-Use restricted zone. Do not use 'restriction zone'.
-
-In the context of animal disease.
-
-See [disease control zone](#disease-control-zone).
+Use instead of 'restriction zone' in the context of animal disease. See [disease control zone](#disease-control-zone).
 
 ### Rural Payments Agency (RPA)
 
