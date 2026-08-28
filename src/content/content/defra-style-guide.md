@@ -41,11 +41,9 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 'Approved' is the preferred term, as RPA approves ear tag suppliers to issue tags and other identifiers to keepers. Do not use 'official ear tag suppliers'.
 
-Also see 'tags' for related terms.
-
 ### Areas of Outstanding Natural Beauty (AONBs)
 
-See National Landscapes.
+See [National Landscapes](#national-landscapes).
 
 <span id="b"></span>
 
@@ -141,6 +139,8 @@ For external audiences, use 'Defra and its agencies and public bodies', or list 
 
 Use 'group' (lower case) when writing for internal staff.
 
+<span id="disease-control-zone"></span>
+
 ### disease control zone
 
 Use to talk about disease zones more generally, if not referring to a specific zone. For example, 'If you're in a disease control zone, you cannot…'.
@@ -195,9 +195,11 @@ Use first tag only for sheep and goats.
 
 Lower case.
 
+<span id="flock-mark"></span>
+
 ### flock mark
 
-Use only for sheep. Do not use for other animals. (See 'herd mark' for the equivalent for cattle)
+Use only for sheep. Do not use for other animals. (See '[herd mark](#herd-mark)' for the equivalent for cattle)
 
 They're used on tags (and other identifiers, such as tattoos) to identify where animals were born or last tagged. This is so the animals can be traced to help prevent and contain the spread of disease.
 
@@ -269,9 +271,11 @@ Lower case, one word.
 
 ## H
 
+<span id="herd-mark"></span>
+
 ### herd mark
 
-Use for cattle. Do not use for other animals. (See 'flock mark' for the equivalent for sheep)
+Use for cattle. Do not use for other animals. (See '[flock mark](#flock-mark)' for the equivalent for sheep)
 
 ### holding
 
@@ -361,7 +365,7 @@ Follow other [maths content guidance in the GOV.UK style guide](https://www.gov.
 
 Write this out in full – do not use 'm²'.
 
-See square metres.
+See [square metres](#square-metres).
 
 ### micropig
 
@@ -392,6 +396,8 @@ A 4-digit code used to identify a specific, small field parcel.
 Do not confuse with Ordnance Survey (OS) grid reference, which locates a point on a map using 2 letters and between 4 and 12 digits.
 
 Always check with the subject matter expert which type of number is relevant to the specific content, and be consistent in using it.
+
+<span id="national-landscapes"></span>
 
 ### National Landscapes
 
@@ -467,7 +473,7 @@ Do not use 'yellow flag tag' except in brackets.
 
 ### protection zone
 
-See disease control zone.
+See [disease control zone](#disease-control-zone).
 
 <span id="r"></span>
 
@@ -507,7 +513,7 @@ Use restricted zone. Do not use 'restriction zone'.
 
 In the context of animal disease.
 
-See disease control zone.
+See [disease control zone](#disease-control-zone).
 
 ### Rural Payments Agency (RPA)
 
@@ -565,6 +571,8 @@ Title case, spell out in full the first time, then use the acronym.
 
 Title case, spell out in full the first time, then use the acronym.
 
+<span id="square-metres"></span>
+
 ### square metres
 
 As stated in [the Guardian style guide](https://www.theguardian.com/guardian-style-guide-s), this is not the same as metres squared. 300m squared is 90,000 square metres, for example.
@@ -577,7 +585,7 @@ Lower case.
 
 ### surveillance zone
 
-See disease control zone abbreviations.
+See [disease control zone](#disease-control-zone).
 
 <span id="t"></span>
 
@@ -593,7 +601,7 @@ Do not use 'identifier'.
 
 ### temporary control zone
 
-See disease control zone abbreviations.
+See [disease control zone](#disease-control-zone).
 
 ### temporary county parish holding (tCPH) number
 
