@@ -145,7 +145,7 @@ Use 'group' (lower case) when writing for internal staff.
 
 Use to talk about disease zones more generally, if not referring to a specific zone. For example, 'If you're in a disease control zone, you cannot…'.
 
-Never abbreviate control zone terms. Always spell disease control zone terms out in full - for example, 'protection zone'.
+Never abbreviate control zone terms. Always spell disease control zone terms out in full – for example, 'protection zone'.
 
 <span id="e"></span>
 
