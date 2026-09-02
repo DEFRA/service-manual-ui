@@ -16,9 +16,11 @@ supportBox:
   description: Get in touch with the <strong>Performance Analytics team</strong> to find out more or help shape this guidance.
   items:
     - 'Email: <a href="mailto:performance-analytics@defra.gov.uk?subject=Performance%20analysis%20guidance" class="govuk-link">performance-analytics@defra.gov.uk</a>'
----
+    - |
+       Join the **#ask-performance-analytics** Slack channel.
 
-# Performance analysis
+       The Performance Analytics community welcomes feedback to help improve this guidance.
+---
 
 Performance analysis helps teams understand how well services are meeting user needs and organisational outcomes. Performance analysts work across Discovery, Alpha, Beta and Live to measure performance, generate insight and support evidence-based decision making.
 
@@ -26,7 +28,7 @@ Their work helps teams continuously improve services and meet the requirements o
 
 Performance analysts align with the [Government Digital and Data Profession Capability Framework](https://ddat-capability-framework.service.gov.uk/role/performance-analyst).
 
-## What performance analysts do
+# What performance analysts do
 
 Performance analysts work as part of multidisciplinary teams to help services make evidence-based decisions.
 
@@ -42,9 +44,9 @@ They:
 
 Performance analysis should be embedded throughout delivery rather than treated as a reporting activity at the end of development.
 
-## Working across the service lifecycle
+# Working across the service lifecycle
 
-### Discovery
+## Discovery
 
 During Discovery, performance analysts should:
 
@@ -53,7 +55,7 @@ During Discovery, performance analysts should:
 - establish baseline measures
 - define how success will be measured
 
-### Alpha
+## Alpha
 
 During Alpha, performance analysts should:
 
@@ -62,7 +64,7 @@ During Alpha, performance analysts should:
 - test analytics implementation
 - ensure data collection is fit for purpose
 
-### Beta
+## Beta
 
 During Beta, performance analysts should:
 
@@ -71,7 +73,7 @@ During Beta, performance analysts should:
 - refine KPIs using evidence
 - support service assessments
 
-### Live
+## Live
 
 During Live, performance analysts should:
 
@@ -80,7 +82,7 @@ During Live, performance analysts should:
 - publish mandatory service performance measures where appropriate
 - support ongoing service optimisation
 
-## Mandatory service performance measures
+# Mandatory service performance measures
 
 Transactional services should measure and publish the mandatory service performance measures described in the GOV.UK Service Manual:
 
@@ -91,7 +93,7 @@ Transactional services should measure and publish the mandatory service performa
 
 Read the guidance on [Data you must publish](https://www.gov.uk/service-manual/measuring-success/data-you-must-publish).
 
-## Publishing performance data
+# Publishing performance data
 
 Publishing performance information helps teams:
 
@@ -102,18 +104,18 @@ Publishing performance information helps teams:
 
 Where appropriate, services should publish performance information in line with the Government Service Standard.
 
-## Onboarding
+# Onboarding
 
 When joining a Defra delivery team, you should:
 
-1. Read the Government Service Standards.
-2. Read the GOV.UK guidance on Measuring success.
+1. Read the [Government Service Standard 10](https://www.gov.uk/service-manual/service-standard)
+2. Read the GOV.UK guidance on [Measuring success](https://www.gov.uk/service-manual/measuring-success)
 3. Meet your Product Manager, Delivery Manager and Performance Analysis Lead.
 4. Obtain access to analytics, reporting and dashboard tools.
-5. Understand your service's objectives and KPIs.
+5. Understand your service's objectives and [KPIs](https://eaflood.atlassian.net/wiki/spaces/PER/pages/6571922691/Recommended+Performance+Metrics)
 6. Review existing dashboards, reports and published metrics.
 7. Familiarise yourself with governance, accessibility and data protection requirements.
-8. Join the Performance Analytics community and Slack channel.
+8. Join the Performance Analytics community and [Slack channel](https://defra-digital-team.slack.com/archives/C0BF2HQ1C8H) 
 
 <div class="defra-callout">
   <h2 class="govuk-heading-m">Register your interest in Google Analytics </h2>
@@ -122,11 +124,3 @@ When joining a Defra delivery team, you should:
   <a href="mailto:performance-analytics@defra.gov.uk?subject=Register%20interest%20in%20Google%20Analytics%204" role="button" draggable="false" class="govuk-button defra-callout__button govuk-!-margin-bottom-0" data-module="govuk-button">Register your interest</a>
 </div>
 
-## Get support
-
-For advice, guidance or to contribute to this page:
-
-- Email: <a href="mailto:performance-analytics@defra.gov.uk">performance-analytics@defra.gov.uk</a>
-- Join the **#ask-performance-analytics** Slack channel.
-
-The Performance Analytics community welcomes feedback to help improve this guidance.
