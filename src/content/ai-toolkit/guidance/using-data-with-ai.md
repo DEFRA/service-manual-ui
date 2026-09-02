@@ -130,7 +130,7 @@ The type of tool decides what data you can use with it. Check which type you are
 
 <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 <li><strong>Public consumer tool.</strong> A tool anyone can use over the internet on a free or personal account, like the free tier of ChatGPT. Your data may leave the UK and train the model unless you turn that off.</li>
-<li><strong>Enterprise tool in the Defra tenant.</strong> A tool you use through your Defra account in Microsoft 365, like M365 Copilot. Defra's data boundary and security controls apply.</li>
+<li><strong>Enterprise tool in the Defra tenant.</strong> A tool you use through your Defra account in Microsoft 365, like <a class="govuk-link" href="/ai-toolkit/tools/microsoft-365-copilot">Microsoft 365 Copilot</a>. Defra's data boundary and security controls apply.</li>
 <li><strong>Defra-hosted.</strong> A model running on infrastructure Defra controls, like Azure OpenAI or Bedrock in a Defra tenancy. It is not self-serve for OFFICIAL-SENSITIVE or personal data, so talk to the AI Capability and Enablement team (AICE) first.</li>
 </ul>
 

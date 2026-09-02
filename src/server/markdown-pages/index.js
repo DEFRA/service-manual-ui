@@ -99,6 +99,7 @@ export const markdownRoutes = [
   '/ai-toolkit/tools',
   '/ai-toolkit/tools/diagram',
   '/ai-toolkit/tools/github-copilot',
+  '/ai-toolkit/tools/microsoft-365-copilot',
   '/ai-toolkit/tools/aws-bedrock',
   '/ai-toolkit/tools/azure-ai-foundry',
   '/ai-toolkit/tools/model-context-protocol',

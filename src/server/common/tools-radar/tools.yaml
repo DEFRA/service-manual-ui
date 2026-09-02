@@ -21,6 +21,11 @@ tools:
     category: assistant
     status: using
 
+  - slug: microsoft-365-copilot
+    title: Microsoft 365 Copilot
+    category: assistant
+    status: using
+
   - slug: aws-bedrock
     title: AWS Bedrock
     category: platform
