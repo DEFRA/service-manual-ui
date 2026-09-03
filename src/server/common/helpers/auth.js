@@ -21,10 +21,12 @@ const auth = {
     register: async (server) => {
       await server.register(hapiCookie)
 
+      const sessionCacheName = config.get('session.cache.name')
+
       // Short-lived cache holding pending verification codes,
       // keyed by pendingId (see verify/session.js and verify/controller.js).
       server.app.codeCache = server.cache({
-        cache: config.get('session.cache.name'),
+        cache: sessionCacheName,
         segment: 'verification-code',
         expiresIn: config.get('verificationCode.codeTtl')
       })
@@ -33,7 +35,7 @@ const auth = {
       // preventing unlimited code requests. Keyed by email, stores count of
       // codes requested within the code TTL window.
       server.app.codeRequestsCache = server.cache({
-        cache: config.get('session.cache.name'),
+        cache: sessionCacheName,
         segment: 'verification-code-requests',
         expiresIn: config.get('verificationCode.codeTtl')
       })
@@ -41,7 +43,7 @@ const auth = {
       // Long-lived cache holding authenticated sessions, keyed by sessionId
       // stored in the 'session' auth cookie via request.cookieAuth.set().
       server.app.cache = server.cache({
-        cache: config.get('session.cache.name'),
+        cache: sessionCacheName,
         segment: 'verification',
         expiresIn: config.get('session.cookie.ttl')
       })
