@@ -76,8 +76,16 @@ export async function sendVerificationCode (email, verificationCode) {
  * returned status (e.g. completing the verify, dropping the cache entry,
  * or recording the failed attempt).
  *
- * @param {{ verificationCode: string, attempts: number } | null} cached
+ * Enforces a hard expiration window based on createdAt timestamp to ensure
+ * users can't extend their attempt window by repeatedly guessing (which would
+ * reset the cache TTL).
+ *
+ * Note: Future hardening improvement - make recordFailedCodeAttempt atomic
+ * (Redis INCR) to truly avoid resetting TTL.
+ *
+ * @param {{ verificationCode: string, attempts: number, createdAt: number } | null} cached
  * @param {string} submittedCode
+ * @param {number} [codeTtlMs=15*60*1000] The code TTL in milliseconds (15 minutes default)
  * @returns {
  *   | { status: codeResults.VERIFIED }
  *   | { status: codeResults.EXPIRED }
@@ -85,8 +93,14 @@ export async function sendVerificationCode (email, verificationCode) {
  *   | { status: codeResults.LOCKED_OUT }
  * }
  */
-export function checkVerificationCode (cached, submittedCode) {
+export function checkVerificationCode (cached, submittedCode, codeTtlMs = 15 * 60 * 1000) {
   if (!cached) {
+    return { status: codeResults.EXPIRED }
+  }
+
+  // Check hard expiration based on createdAt timestamp
+  const elapsedMs = Date.now() - cached.createdAt
+  if (elapsedMs >= codeTtlMs) {
     return { status: codeResults.EXPIRED }
   }
 

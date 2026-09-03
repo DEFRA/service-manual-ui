@@ -6,6 +6,10 @@
 // invalidated and the user must request a new code
 export const MAX_CODE_ATTEMPTS = 5
 
+// Maximum number of verification codes that can be requested per email
+// within the code TTL window (15 minutes by default)
+export const MAX_CODE_REQUESTS_PER_EMAIL = 5
+
 // Number of digits in a generated verification code, e.g. "048213"
 export const VERIFICATION_CODE_LENGTH = 6
 

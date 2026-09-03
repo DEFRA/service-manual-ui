@@ -13,7 +13,6 @@ import { config } from '../../config/config.js'
  * /ai-toolkit to match the user-facing brand ("AI digital toolkit"). Anyone
  * who bookmarked or linked the old paths during dev is redirected to the
  * new equivalents permanently.
- *
  */
 export const redirects = {
   plugin: {

@@ -13,6 +13,10 @@ import {
 /**
  * Sets up the routes used in the verification code verify flow.
  * These routes are registered in src/server/router.js.
+ *
+ * The auth: false options on these routes are redundant since no default
+ * authentication strategy is set globally. They are kept for clarity and to
+ * make the routes more resilient if a default strategy is added in future.
  */
 export const verify = {
   plugin: {
@@ -37,9 +41,12 @@ export const verify = {
                 returnUrl: schemas.returnUrlSchema
               },
               failAction: async (request, h, err) => {
+                const returnUrl = sessionHelper.resolveReturnUrl(
+                  request.payload?.returnUrl ?? request.query?.returnUrl
+                )
                 return h.view(ENTER_EMAIL_TEMPLATE, {
                   pageTitle: 'Sign in',
-                  returnUrl: request.payload?.returnUrl ?? request.query?.returnUrl,
+                  returnUrl,
                   email: request.payload?.email,
                   error: err.message
                 }).code(http2Constants.HTTP_STATUS_OK).takeover()
@@ -75,6 +82,16 @@ export const verify = {
                 }).code(http2Constants.HTTP_STATUS_OK).takeover()
               }
             }
+          }
+        },
+        {
+          method: 'POST',
+          path: '/verify/sign-out',
+          handler: controller.postSignOut,
+          options: {
+            // Users can only post to sign-out if they have a valid session,
+            // but we allow unauthenticated requests too (safe idempotent operation).
+            auth: false
           }
         }
       ])

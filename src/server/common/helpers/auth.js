@@ -1,7 +1,19 @@
 import hapiCookie from '@hapi/cookie'
 
 import { config } from '../../../config/config.js'
-import { sessionCacheKey } from '../../verify/session.js'
+
+/**
+ * The cache key an authenticated session is stored under, keyed by the
+ * sessionId issued in the auth cookie. Used by completeLogin, the 'session'
+ * auth strategy's validate function, and clearAuthSession - all three
+ * need to agree on the same key format.
+ *
+ * @param {string} sessionId
+ * @returns {string}
+ */
+function sessionCacheKey (sessionId) {
+  return `verification:${sessionId}`
+}
 
 const auth = {
   plugin: {
@@ -14,6 +26,15 @@ const auth = {
       server.app.codeCache = server.cache({
         cache: config.get('session.cache.name'),
         segment: 'verification-code',
+        expiresIn: config.get('verificationCode.codeTtl')
+      })
+
+      // Track code requests per email to enforce a per-email rate limit,
+      // preventing unlimited code requests. Keyed by email, stores count of
+      // codes requested within the code TTL window.
+      server.app.codeRequestsCache = server.cache({
+        cache: config.get('session.cache.name'),
+        segment: 'verification-code-requests',
         expiresIn: config.get('verificationCode.codeTtl')
       })
 
@@ -73,4 +94,4 @@ async function _validateSessionToken (request, session) {
   return { isValid: true, credentials: { ...userSession, sessionId: session.sessionId } }
 }
 
-export { auth }
+export { auth, sessionCacheKey }

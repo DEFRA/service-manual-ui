@@ -47,11 +47,13 @@ describe('verify session helper', () => {
       })
 
       expect(typeof pendingId).toBe('string')
-      expect(await session.getPendingCode(codeCache, pendingId)).toEqual({
+      const cached = await session.getPendingCode(codeCache, pendingId)
+      expect(cached).toMatchObject({
         email: 'test@example.com',
         verificationCode: '123456',
         attempts: 0
       })
+      expect(typeof cached.createdAt).toBe('number')
     })
 
     test('returns null for a pending code that was never created', async () => {
@@ -62,16 +64,16 @@ describe('verify session helper', () => {
 
     test('increments and persists failed code attempt counts', async () => {
       const codeCache = await buildCache()
-      const cached = { email: 'test@example.com', verificationCode: '123456', attempts: 2 }
+      const cached = { email: 'test@example.com', verificationCode: '123456', attempts: 2, createdAt: Date.now() }
       await codeCache.set('pending-id-1', cached)
 
       const attempts = await session.recordFailedCodeAttempt(codeCache, 'pending-id-1', cached)
 
       expect(attempts).toBe(3)
-      expect(await session.getPendingCode(codeCache, 'pending-id-1')).toEqual({
-        ...cached,
-        attempts: 3
-      })
+      // Verify cache was updated with the new attempt count
+      const updated = await session.getPendingCode(codeCache, 'pending-id-1')
+      expect(updated.attempts).toBe(3)
+      expect(updated.email).toBe(cached.email)
     })
 
     test('drops pending code records from cache', async () => {

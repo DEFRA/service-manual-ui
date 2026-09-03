@@ -4,7 +4,8 @@ import {
   DEFAULT_CODE_SUBMIT_PATH,
   DEFAULT_CHANGE_EMAIL_PATH,
   ENTER_EMAIL_TEMPLATE,
-  ENTER_CODE_TEMPLATE
+  ENTER_CODE_TEMPLATE,
+  MAX_CODE_REQUESTS_PER_EMAIL
 } from './constants.js'
 
 import * as loginService from './service.js'
@@ -29,21 +30,27 @@ export async function getEmailPage (request, h) {
 /**
  * Generates and sends a verification code for the given email, stores the
  * pending verify state, and redirects to the challenge code page. Falls
- * back to re-rendering the email page with an error if the send fails.
- *
- * Shared by the email-entry form (postEmailPage) and any other flow that
- * already knows and trusts the user's email and wants to skip straight to
- * the code step.
+ * back to re-rendering the email page with an error if the send fails or
+ * the per-email rate limit is exceeded.
  *
  * @param {import('@hapi/hapi').Request} request
  * @param {import('@hapi/hapi').ResponseToolkit} h
  * @param {string} email
  * @param {string} returnUrl
- * @param {{ codeSubmitHref?: string, changeEmailHref?: string }} [options]
  */
-export async function startVerification (request, h, email, returnUrl, options = {}) {
-  const codeSubmitHref = options.codeSubmitHref ?? DEFAULT_CODE_SUBMIT_PATH
-  const changeEmailHref = options.changeEmailHref ?? DEFAULT_CHANGE_EMAIL_PATH
+export async function startVerification (request, h, email, returnUrl) {
+  const codeRequestsCache = request.server.app.codeRequestsCache
+
+  // Check per-email rate limit to prevent unlimited code requests
+  const requestCount = await sessionHelper.getCodeRequestCount(codeRequestsCache, email)
+  if (requestCount >= MAX_CODE_REQUESTS_PER_EMAIL) {
+    return h.view(ENTER_EMAIL_TEMPLATE, {
+      pageTitle: 'Sign in',
+      returnUrl,
+      email,
+      error: 'You\'ve requested too many codes. Try again in 15 minutes.'
+    })
+  }
 
   const codeCache = request.server.app.codeCache
   const verificationCode = loginService.generateVerificationCode()
@@ -65,12 +72,13 @@ export async function startVerification (request, h, email, returnUrl, options =
     })
   }
 
+  // Track this code request for the email
+  await sessionHelper.trackCodeRequest(codeRequestsCache, email)
+
   sessionHelper.setPendingLogin(request.yar, {
     pendingId,
     email,
-    returnUrl,
-    codeSubmitHref,
-    changeEmailHref
+    returnUrl
   })
 
   return h.redirect('/verify/code')
@@ -104,8 +112,8 @@ export async function getCodePage (request, h) {
   return h.view(ENTER_CODE_TEMPLATE, {
     pageTitle: 'Enter your code',
     email: pendingLogin.email,
-    codeSubmitHref: pendingLogin.codeSubmitHref ?? DEFAULT_CODE_SUBMIT_PATH,
-    changeEmailHref: pendingLogin.changeEmailHref ?? DEFAULT_CHANGE_EMAIL_PATH
+    codeSubmitHref: DEFAULT_CODE_SUBMIT_PATH,
+    changeEmailHref: DEFAULT_CHANGE_EMAIL_PATH
   })
 }
 
@@ -146,6 +154,14 @@ export async function processCodeSubmission (request) {
   const result = loginService.checkVerificationCode(cached, submittedCode)
 
   if (result.status === codeResults.VERIFIED) {
+    // Clear any previous authenticated session before creating a new one,
+    // so re-verification doesn't leave old sessions alive.
+    await sessionHelper.clearAuthSession(
+      request.server.app.cache,
+      request.cookieAuth,
+      request.auth.credentials?.sessionId
+    )
+
     await sessionHelper.completeLogin(
       request.server.app.cache,
       request.cookieAuth,
@@ -167,6 +183,9 @@ export async function processCodeSubmission (request) {
   }
 
   if (result.status === codeResults.INCORRECT) {
+    // Record the failed attempt. We update the cache with the new attempt count,
+    // but rely on createdAt timestamp to enforce a hard 15-minute window
+    // independent of TTL resets.
     await sessionHelper.recordFailedCodeAttempt(codeCache, pendingLogin.pendingId, cached)
   }
 
@@ -184,8 +203,8 @@ export async function processCodeSubmission (request) {
   return {
     outcome: 'retry',
     email: pendingLogin.email,
-    codeSubmitHref: pendingLogin.codeSubmitHref ?? DEFAULT_CODE_SUBMIT_PATH,
-    changeEmailHref: pendingLogin.changeEmailHref ?? DEFAULT_CHANGE_EMAIL_PATH,
+    codeSubmitHref: DEFAULT_CODE_SUBMIT_PATH,
+    changeEmailHref: DEFAULT_CHANGE_EMAIL_PATH,
     error: 'Enter the correct code. Check your email and try again.'
   }
 }
@@ -216,4 +235,17 @@ export async function postCodePage (request, h) {
 
   // 'no-pending' or 'restart'
   return h.redirect('/verify')
+}
+
+/**
+ * POST /verify/sign-out - invalidates the current session and redirects home.
+ * Safe to call with or without an existing session (idempotent).
+ */
+export async function postSignOut (request, h) {
+  await sessionHelper.clearAuthSession(
+    request.server.app.cache,
+    request.cookieAuth,
+    request.auth.credentials?.sessionId
+  )
+  return h.redirect('/')
 }

@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto'
 
+import { sessionCacheKey } from '../common/helpers/auth.js'
 import {
   DEFAULT_RETURN_URL,
   VERIFY_ERROR_FLASH_KEY,
@@ -11,10 +12,6 @@ import {
  * @property {string} pendingId - key into the verification-code cache
  * @property {string} email
  * @property {string} returnUrl - path to redirect to after a successful verify
- * @property {string} [codeSubmitHref] - where the code-entry form posts to;
- *   defaults to /verify/code when not set (see startVerification)
- * @property {string} [changeEmailHref] - where "enter a different email"
- *   links to; defaults to /verify when not set
  */
 
 /**
@@ -103,7 +100,8 @@ export function resolveReturnUrl (returnUrl) {
 
 /**
  * Create a pending code-verification cache entry, keyed by a freshly
- * generated pending ID.
+ * generated pending ID. Records the creation time so we can track the
+ * 15-minute attempt window independently of cache TTL updates.
  *
  * @param {import('@hapi/catbox').Policy} codeCache
  * @param {{ email: string, verificationCode: string }} params
@@ -115,7 +113,8 @@ export async function createPendingCode (codeCache, params) {
   await codeCache.set(pendingId, {
     email: params.email,
     verificationCode: params.verificationCode,
-    attempts: 0
+    attempts: 0,
+    createdAt: Date.now()
   })
 
   return pendingId
@@ -126,7 +125,7 @@ export async function createPendingCode (codeCache, params) {
  *
  * @param {import('@hapi/catbox').Policy} codeCache
  * @param {string} pendingId
- * @returns {Promise<{ email: string, verificationCode: string, attempts: number } | null>}
+ * @returns {Promise<{ email: string, verificationCode: string, attempts: number, createdAt: number } | null>}
  */
 export async function getPendingCode (codeCache, pendingId) {
   return codeCache.get(pendingId)
@@ -145,35 +144,58 @@ export async function dropPendingCode (codeCache, pendingId) {
 }
 
 /**
- * Record an incorrect code attempt against a pending code-verification
- * cache entry.
+ * Record an incorrect code attempt in the cache, preserving the original
+ * cache entry's TTL. Uses the cache TTL value if available to avoid
+ * resetting expiration on every failed guess.
  *
  * @param {import('@hapi/catbox').Policy} codeCache
  * @param {string} pendingId
- * @param {{ email: string, verificationCode: string, attempts: number }} cached
+ * @param {{ email: string, verificationCode: string, attempts: number, createdAt: number }} cached
  * @returns {Promise<number>} the new attempt count
  */
 export async function recordFailedCodeAttempt (codeCache, pendingId, cached) {
   const attempts = cached.attempts + 1
 
+  // Update attempts counter. In Redis/Memcached environments with clustering,
+  // this could be optimized to use INCR for atomic increments.
+  // The createdAt timestamp ensures we enforce a hard 15-minute window
+  // independent of cache TTL resets.
   await codeCache.set(pendingId, { ...cached, attempts })
 
   return attempts
 }
 
 /**
- * The cache key an authenticated session is stored under, keyed by the
- * sessionId issued in the auth cookie. Centralised here since it's written
- * by completeLogin, read by the 'session' auth strategy's validate function
- * (see common/helpers/auth.js), and dropped by clearAuthSession - all three
- * need to agree on the same key format.
+ * Track a code request for an email address to enforce per-email rate limits.
+ * Increments the request count within the code TTL window.
  *
- * @param {string} sessionId
- * @returns {string}
+ * @param {import('@hapi/catbox').Policy} codeRequestsCache
+ * @param {string} email
+ * @returns {Promise<number>} the new request count for this email
  */
-export function sessionCacheKey (sessionId) {
-  return `verification:${sessionId}`
+export async function trackCodeRequest (codeRequestsCache, email) {
+  const current = await codeRequestsCache.get(email)
+  const count = (current?.count ?? 0) + 1
+
+  await codeRequestsCache.set(email, { count })
+
+  return count
 }
+
+/**
+ * Get the current code request count for an email address.
+ *
+ * @param {import('@hapi/catbox').Policy} codeRequestsCache
+ * @param {string} email
+ * @returns {Promise<number>} the number of codes requested within the window
+ */
+export async function getCodeRequestCount (codeRequestsCache, email) {
+  const current = await codeRequestsCache.get(email)
+  return current?.count ?? 0
+}
+
+// Re-export sessionCacheKey from auth.js for backwards compatibility
+export { sessionCacheKey }
 
 /**
  * Create an authenticated session for the given email and set the

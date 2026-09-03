@@ -98,7 +98,7 @@ describe('verify routes', () => {
   })
 
   test('redirects to the safe returnUrl after successful verification', async () => {
-    const start = await postEmail(server, 'test@example.com', '/ai-toolkit/triage/question-1')
+    const start = await postEmail(server, 'test1@example.com', '/ai-toolkit/triage/question-1')
     const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
 
     expect(start.statusCode).toBe(statusCodes.found)
@@ -112,7 +112,7 @@ describe('verify routes', () => {
   })
 
   test('falls back to root when returnUrl is unsafe', async () => {
-    const start = await postEmail(server, 'test@example.com', 'https://evil.example')
+    const start = await postEmail(server, 'test2@example.com', 'https://evil.example')
     const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
 
     const verify = await submitCode(server, lastVerificationCode, cookie)
@@ -122,7 +122,7 @@ describe('verify routes', () => {
   })
 
   test('re-renders the code form with a retry error when the code is wrong but not yet locked out', async () => {
-    const start = await postEmail(server, 'test@example.com', '/')
+    const start = await postEmail(server, 'test3@example.com', '/')
     const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
 
     const retry = await submitCode(server, '000000', cookie)
@@ -139,7 +139,7 @@ describe('verify routes', () => {
   })
 
   test('locks out after too many incorrect codes, shows the flash error once with its own returnUrl, then clears it', async () => {
-    const start = await postEmail(server, 'test@example.com', '/ai-toolkit/triage/question-1')
+    const start = await postEmail(server, 'test4@example.com', '/ai-toolkit/triage/question-1')
     const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
 
     let lastAttempt
@@ -181,7 +181,7 @@ describe('verify routes', () => {
       .post('/v2/notifications/email')
       .reply(400, { errors: [{ error: 'BadRequestError', message: 'blocked' }] })
 
-    const start = await postEmail(server, 'test@example.com', '/ai-toolkit/triage/question-1')
+    const start = await postEmail(server, 'test5@example.com', '/ai-toolkit/triage/question-1')
     const cookie = start.headers['set-cookie']?.[0]?.split(';')[0]
 
     expect(start.statusCode).toBe(statusCodes.ok)

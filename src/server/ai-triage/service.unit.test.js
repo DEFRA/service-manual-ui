@@ -6,13 +6,15 @@ const logger = {
 }
 
 const sendEmail = vi.fn()
+const trySendEmail = vi.fn()
 
 vi.mock('../common/helpers/logging/logger.js', () => ({
   createLogger: () => logger
 }))
 
 vi.mock('../../notify/notify-client.js', () => ({
-  createNotifyClient: () => ({ sendEmail })
+  createNotifyClient: () => ({ sendEmail }),
+  trySendEmail
 }))
 
 vi.mock('./automation-api.js', () => ({
@@ -37,6 +39,10 @@ describe('#submit posting to aice-triage-automation', () => {
       data: { reference: 'notify-reference' },
       status: 201
     })
+    trySendEmail.mockResolvedValue([
+      { data: { reference: 'notify-reference' }, status: 201 },
+      null
+    ])
     postSubmission.mockResolvedValue({ posted: true })
   })
 
@@ -65,12 +71,12 @@ describe('#submit posting to aice-triage-automation', () => {
   test('posts after both Notify emails have been sent', async () => {
     const order = []
 
-    sendEmail.mockImplementation(() => {
+    trySendEmail.mockImplementation(() => {
       order.push('email')
-      return Promise.resolve({
-        data: { reference: 'notify-reference' },
-        status: 201
-      })
+      return Promise.resolve([
+        { data: { reference: 'notify-reference' }, status: 201 },
+        null
+      ])
     })
     postSubmission.mockImplementation(() => {
       order.push('post')
@@ -83,9 +89,14 @@ describe('#submit posting to aice-triage-automation', () => {
   })
 
   test('does not post when the triage email failed', async () => {
-    sendEmail.mockRejectedValue({
+    const error = {
       response: { data: { errors: [{ message: 'Notify is down' }] }, status: 500 }
-    })
+    }
+    sendEmail.mockRejectedValue(error)
+    trySendEmail.mockResolvedValue([
+      null,
+      { data: error.response.data, status: error.response.status }
+    ])
 
     await submit(submission)
 
