@@ -1,6 +1,6 @@
 import { vi } from 'vitest'
 
-vi.mock('../../config/config.js', () => ({
+vi.mock('../../../config/config.js', () => ({
   config: { get: vi.fn() }
 }))
 
@@ -9,7 +9,7 @@ describe('isEmailDomainAllowed', () => {
 
   async function setup (domains) {
     vi.resetModules()
-    const { config } = await import('../../config/config.js')
+    const { config } = await import('../../../config/config.js')
     config.get.mockReturnValue(domains)
     ;({ isEmailDomainAllowed } = await import('./email-allow-list.js'))
   }

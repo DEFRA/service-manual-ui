@@ -123,8 +123,7 @@ export function buildSearchIndex () {
       // e.g., 'accessibility/manage-accessibility.md' -> '/accessibility/manage-accessibility'
       const url = '/' + filePath.replace(/\.md$/, '')
 
-      // Skip files whose route is not registered (e.g. AI toolkit pages when
-      // aiContent.enabled is false) so search can't surface 404 links.
+      // Skip files whose route is not registered so search can't surface 404 links.
       if (!enabledRoutes.has(url)) {
         continue
       }

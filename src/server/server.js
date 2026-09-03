@@ -1,5 +1,6 @@
 import path from 'node:path'
 import hapi from '@hapi/hapi'
+import Joi from 'joi'
 import Scooter from '@hapi/scooter'
 import { router } from './router.js'
 import { config } from '../config/config.js'
@@ -13,6 +14,7 @@ import { secureContext } from '@defra/hapi-secure-context'
 import { contentSecurityPolicy } from './common/helpers/content-security-policy.js'
 import { sessionCache } from './common/helpers/session-cache/session-cache.js'
 import { getCacheEngine } from './common/helpers/session-cache/cache-engine.js'
+import { auth } from './common/helpers/auth.js'
 
 export async function createServer () {
   const server = hapi.server({
@@ -51,6 +53,9 @@ export async function createServer () {
       strictHeader: false
     }
   })
+
+  server.validator(Joi)
+
   await server.register([
     requestLogger,
     requestTracing,
@@ -58,6 +63,7 @@ export async function createServer () {
     awsClients,
     pulse,
     sessionCache,
+    auth,
     nunjucksConfig,
     Scooter,
     contentSecurityPolicy,

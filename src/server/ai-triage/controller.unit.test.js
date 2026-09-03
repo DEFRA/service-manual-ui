@@ -46,7 +46,7 @@ vi.mock('../../config/config.js', () => ({
   }
 }))
 
-vi.mock('./email-allow-list.js', () => ({
+vi.mock('../common/schemas/email-allow-list.js', () => ({
   isEmailDomainAllowed: () => true
 }))
 
@@ -78,11 +78,13 @@ const mockYar = {
 const buildRequest = ({
   path = '/ai-toolkit/triage/question-1',
   payload = {},
-  query = {}
+  query = {},
+  auth = { credentials: { email: 'test@example.com' } }
 } = {}) => ({
   path,
   payload,
   query,
+  auth,
   yar: mockYar,
   logger: { error: mockLoggerError }
 })
@@ -253,31 +255,30 @@ describe('#postTriagePage', () => {
 describe('#getSummaryPage', () => {
   beforeEach(() => {
     mockGetTriageSessionData.mockReturnValue({
-      'question-1': { answer: 'test@example.com' },
-      'question-2': { answer: 'Some problem description' },
-      'question-3': { answer: 'Many users' },
+      'question-1': { answer: 'Some problem description' },
+      'question-2': { answer: 'Many users' },
+      'question-3': { answer: 'Data from the CRM' },
       'question-4': { answer: 'Big benefit' },
-      'question-5': { answer: 'Tried nothing' },
-      'question-6': { answer: 'Data from the CRM' }
+      'question-5': { answer: 'Tried nothing' }
     })
     mockTriageSummaryFromSessionData.mockReturnValue({
       rows: [
         {
           slug: 'question-1',
           title: 'Question 1',
-          answer: 'test@example.com',
+          answer: 'Some problem description',
           changeHref: '/ai-toolkit/triage/question-1'
         },
         {
           slug: 'question-2',
           title: 'Question 2',
-          answer: 'Some problem description',
+          answer: 'Many users',
           changeHref: '/ai-toolkit/triage/question-2'
         },
         {
           slug: 'question-3',
           title: 'Question 3',
-          answer: 'Many users',
+          answer: 'Data from the CRM',
           changeHref: '/ai-toolkit/triage/question-3'
         },
         {
@@ -291,12 +292,6 @@ describe('#getSummaryPage', () => {
           title: 'Question 5',
           answer: 'Tried nothing',
           changeHref: '/ai-toolkit/triage/question-5'
-        },
-        {
-          slug: 'question-6',
-          title: 'Question 6',
-          answer: 'Data from the CRM',
-          changeHref: '/ai-toolkit/triage/question-6'
         }
       ],
       error: null
@@ -320,7 +315,7 @@ describe('#getSummaryPage', () => {
         rows: expect.arrayContaining([
           expect.objectContaining({
             slug: 'question-1',
-            answer: 'test@example.com',
+            answer: 'Some problem description',
             changeHref: '/ai-toolkit/triage/question-1'
           })
         ])
@@ -335,7 +330,7 @@ describe('#getSummaryPage', () => {
     await getSummaryPage(request, buildH())
 
     const viewData = mockView.mock.calls[0][1]
-    expect(viewData.rows).toHaveLength(6)
+    expect(viewData.rows).toHaveLength(5)
     expect(viewData.error).toBeNull()
   })
 
@@ -355,12 +350,11 @@ describe('#getSummaryPage', () => {
 describe('#postSummaryPage', () => {
   beforeEach(() => {
     mockGetTriageSessionData.mockReturnValue({
-      'question-1': { answer: 'test@example.com' },
-      'question-2': { answer: 'A problem' },
-      'question-3': { answer: 'Users' },
+      'question-1': { answer: 'A problem' },
+      'question-2': { answer: 'Users' },
+      'question-3': { answer: 'Data' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' },
-      'question-6': { answer: 'Data' }
+      'question-5': { answer: 'Attempts' }
     })
     mockTriageSubmissionFromSessionData.mockReturnValue({
       email: 'test@example.com',
@@ -395,6 +389,10 @@ describe('#postSummaryPage', () => {
     const h = buildH()
     await postSummaryPage(buildRequest(), h)
 
+    expect(mockTriageSubmissionFromSessionData).toHaveBeenCalledWith(
+      expect.any(Object),
+      'test@example.com'
+    )
     expect(mockTriageSummaryFromSessionData).toHaveBeenCalledWith(
       expect.any(Object),
       submitResult
@@ -465,12 +463,11 @@ describe('#postSummaryPage', () => {
 
   test('does not clear session when validation fails', async () => {
     const sessionData = {
-      'question-1': { answer: 'test@example.com' },
-      'question-2': { answer: 'A problem' },
-      'question-3': { answer: 'Users' },
+      'question-1': { answer: 'A problem' },
+      'question-2': { answer: 'Users' },
+      'question-3': { answer: 'Data' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' },
-      'question-6': { answer: 'Data' }
+      'question-5': { answer: 'Attempts' }
     }
     const submitResult = {
       validationError: {
@@ -508,12 +505,11 @@ describe('#postSummaryPage', () => {
 
   test('does not clear session when submit fails', async () => {
     const sessionData = {
-      'question-1': { answer: 'test@example.com' },
-      'question-2': { answer: 'A problem' },
-      'question-3': { answer: 'Users' },
+      'question-1': { answer: 'A problem' },
+      'question-2': { answer: 'Users' },
+      'question-3': { answer: 'Data' },
       'question-4': { answer: 'Benefits' },
-      'question-5': { answer: 'Attempts' },
-      'question-6': { answer: 'Data' }
+      'question-5': { answer: 'Attempts' }
     }
     const submitResult = { triageResult: { success: false } }
 

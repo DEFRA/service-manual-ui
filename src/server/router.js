@@ -11,6 +11,7 @@ import { deliveryGroups } from './delivery-groups/index.js'
 import { serveStaticFiles } from './common/helpers/serve-static-files.js'
 import { interruption } from './interruption/index.js'
 import { aiTriage } from './ai-triage/index.js'
+import { verify } from './verify/index.js'
 
 export const router = {
   plugin: {
@@ -25,6 +26,7 @@ export const router = {
       // Application specific routes, add your own routes here
       await server.register([
         home,
+        verify,
         cookies,
         serviceManual,
         markdownPages,
