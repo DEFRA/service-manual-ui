@@ -43,7 +43,7 @@ const auth = {
       server.app.cache = server.cache({
         cache: config.get('session.cache.name'),
         segment: 'verification',
-        expiresIn: config.get('verificationCode.loginTtl')
+        expiresIn: config.get('session.cookie.ttl')
       })
 
       server.auth.strategy('session', 'cookie', _getCookieOptions())

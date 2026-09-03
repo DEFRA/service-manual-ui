@@ -301,12 +301,6 @@ export const config = convict({
       format: Number,
       default: fifteenMinutesMs,
       env: 'VERIFICATION_CODE_TTL'
-    },
-    loginTtl: {
-      doc: 'Successful verification verify session lifetime in milliseconds',
-      format: Number,
-      default: oneWeekMs,
-      env: 'VERIFICATION_CODE_LOGIN_TTL'
     }
   },
   redis: {

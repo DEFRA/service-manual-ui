@@ -1,5 +1,4 @@
 import { statusCodes } from '../common/constants/status-codes.js'
-import { config } from '../../config/config.js'
 
 /**
  * 301 redirects for renamed URLs.

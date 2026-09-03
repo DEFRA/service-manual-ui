@@ -93,13 +93,15 @@ export async function sendVerificationCode (email, verificationCode) {
  *   | { status: codeResults.LOCKED_OUT }
  * }
  */
-export function checkVerificationCode (cached, submittedCode, codeTtlMs = 15 * 60 * 1000) {
+export function checkVerificationCode (cached, submittedCode) {
   if (!cached) {
     return { status: codeResults.EXPIRED }
   }
 
-  // Check hard expiration based on createdAt timestamp
+  const codeTtlMs = config.get('verificationCode.codeTtl')
+
   const elapsedMs = Date.now() - cached.createdAt
+
   if (elapsedMs >= codeTtlMs) {
     return { status: codeResults.EXPIRED }
   }
