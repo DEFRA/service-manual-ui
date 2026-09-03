@@ -6,6 +6,7 @@ import { router } from './router.js'
 import { config } from '../config/config.js'
 import { pulse } from './common/helpers/pulse.js'
 import { catchAll } from './common/helpers/errors.js'
+import { awsClients } from './common/helpers/aws-clients.js'
 import { nunjucksConfig } from '../config/nunjucks/nunjucks.js'
 import { requestTracing } from './common/helpers/request-tracing.js'
 import { requestLogger } from './common/helpers/logging/request-logger.js'
@@ -59,6 +60,7 @@ export async function createServer () {
     requestLogger,
     requestTracing,
     secureContext,
+    awsClients,
     pulse,
     sessionCache,
     auth,

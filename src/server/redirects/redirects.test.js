@@ -22,6 +22,25 @@ describe('301 redirects (AI content enabled)', () => {
     await server.stop({ timeout: 0 })
   })
 
+  test('GET /architecture-and-software-development redirects to /architecture with 301', async () => {
+    const { statusCode, headers } = await server.inject({
+      method: 'GET',
+      url: '/architecture-and-software-development'
+    })
+
+    expect(statusCode).toBe(statusCodes.movedPermanently)
+    expect(headers.location).toBe('/architecture')
+  })
+
+  test('GET /architecture-and-software-development/core-delivery-platform still serves the tool page', async () => {
+    const { statusCode } = await server.inject({
+      method: 'GET',
+      url: '/architecture-and-software-development/core-delivery-platform'
+    })
+
+    expect(statusCode).toBe(statusCodes.ok)
+  })
+
   test('GET /ai-playbook redirects to /ai-toolkit with 301', async () => {
     const { statusCode, headers } = await server.inject({
       method: 'GET',

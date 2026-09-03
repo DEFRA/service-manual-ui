@@ -1,31 +1,35 @@
 ---
-title: Architecture and software development
+title: Architecture
 caption: Your role at Defra
-description: 'Read more about how to design, build and deploy a Defra service.'
+description: 'How to design a Defra service and the systems it depends on.'
 layout: section
-sectionTitle: Architecture and software development
+sectionTitle: Architecture
 sectionNav: nav-architecture
 supportBox:
   title: Get support
   description: >-
-    If you need help designing or building your service, contact the
-    <strong>Delivery Architecture team</strong>.
+    If you need help designing your service, contact the <strong>Delivery
+    Architecture team</strong>.
   items:
     - >-
       Email: <a href="mailto:delivery.architecture@defra.gov.uk"
       class="govuk-link">delivery.architecture@defra.gov.uk</a>
 ---
 
-This guidance builds upon the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual/technology). You should also familiarise yourself with the [Defra outcome delivery group model (opens in a new tab)](https://defra.sharepoint.com/:u:/r/teams/Team177/SitePages/DDTS-Delivery-Groups.aspx?csf=1&web=1&e=ajLnoX).
+This guidance builds on the [GOV.UK Service Standard](https://www.gov.uk/service-manual/service-standard) and the [technology section of the GOV.UK Service Manual](https://www.gov.uk/service-manual/technology). The [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) sets out the criteria government uses to design, build and buy technology.
 
-This guidance should be followed when you are:
+You should also read the [Defra outcome delivery group model](https://defra.sharepoint.com/:u:/r/teams/Team177/SitePages/DDTS-Delivery-Groups.aspx?csf=1&web=1&e=ajLnoX).
+
+If you work in a software development role, see [software development](/software-development).
+
+Follow this guidance when you are:
 
 - building a GOV.UK digital service
 - building an internal digital service at Defra
 
 This guidance may not apply if you are:
 
-- deploying a commercial off the shelf software
+- deploying commercial off-the-shelf software
 - building a data or reporting platform
 
 ## Getting started
@@ -52,7 +56,7 @@ To access the [Core Delivery Platform](https://portal.cdp-int.defra.cloud/), you
 To deliver a service that meets users needs faster and at a lower cost, follow these guidelines:
 
 - build on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)
-- use Defra's [common tools](/architecture-and-software-development#common-tools) as part of your service
+- use Defra's [common tools](/architecture#common-tools) as part of your service
 - use Defra's [approved technologies and languages](#approved-technologies-and-languages)
 - code in the open from the start, storing code in the [Defra GitHub organisation](https://github.com/DEFRA)
 - analyse code in the [Defra SonarQube Cloud organisation](https://sonarcloud.io/organizations/defra)
@@ -61,20 +65,13 @@ To deliver a service that meets users needs faster and at a lower cost, follow t
 
 <h2 class="govuk-heading-m" id="approved-technologies-and-languages">Approved technologies and languages</h2>
 
-Defra restricts the languages and frameworks you can use. You should:
-
-- use Node.js with the Hapi framework for frontend and backend services
-- only consider .NET or Python for workloads where Node.js is not suitable
-- use the [GOV.UK Frontend Nunjucks templates](https://frontend.design-system.service.gov.uk/use-nunjucks/) to build your pages, don't use other frontend frameworks like Vue or React
-- use vanilla JavaScript
-
-More details can be found in the [Defra software development standards](https://defra.github.io/software-development-standards/). If you need additional technology, check the [Defra Tools Radar on Jira (opens in a new tab)](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630). You can review approved technologies and request new ones there.
+Defra restricts the languages and frameworks teams can use. The current list, the reasons behind each choice and how to request a new technology are in [approved technologies and languages](/software-development#approved-technologies-and-languages).
 
 <h2 class="govuk-heading-m" id="common-tools">Common tools</h2>
 
-| Tool                                                                                      | Description                                                                      |
-| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)   | Defra's internal developer platform for building, deploying and running services |
-| [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | External authentication and authorisation                                        |
-| [Defra Forms](/architecture-and-software-development/defra-forms)                         | Create accessible forms that follow GOV.UK standards                             |
-| [Defra Interactive Map](/architecture-and-software-development/defra-accessible-maps)     | Accessible frontend mapping component                                            |
+| Tool                                                                                      | Description                                                                        |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform)   | Defra's internal development platform for building, deploying and running services |
+| [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) | External authentication and authorisation                                          |
+| [Defra Forms](/architecture-and-software-development/defra-forms)                         | Accessible forms that follow GOV.UK standards                                      |
+| [Defra Interactive Map](/architecture-and-software-development/defra-accessible-maps)     | Accessible frontend mapping component                                              |

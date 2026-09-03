@@ -7,6 +7,7 @@ import { trySendEmail, createNotifyClient } from '../../notify/notify-client.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
 import * as SendTriageEmailLog from '../common/helpers/logging/send-triage-email-log-utils.js'
 import * as SendConfirmationEmailLog from '../common/helpers/logging/send-confirmation-email-log-utils.js'
+import * as PostSubmissionLog from '../common/helpers/logging/post-submission-log-utils.js'
 
 import {
   REFERENCE_CHARSET,
@@ -14,6 +15,7 @@ import {
   REFERENCE_YEAR_SLICE
 } from './constants.js'
 import submissionSchema from './schemas/submission.js'
+import { postSubmission } from './automation-api.js'
 
 const logger = createLogger()
 
@@ -122,17 +124,60 @@ function generateReference () {
 }
 
 /**
+ * Posts the submission to aice-triage-automation, alongside the
+ * Notify emails rather than instead of them.
+ *
+ * A failure of any kind must not cost someone their submission, so it is logged
+ * with the reference and swallowed. Nothing about the caller's result, or the
+ * person's journey, depends on the outcome.
+ *
+ * @param {import('./model.js').TriageSubmission} submission
+ * @param {string} reference
+ * @param {string} submittedAt
+ * @param {import('@aws-sdk/client-sts').STSClient} [stsClient]
+ * @returns {Promise<void>}
+ */
+async function postSubmissionToAutomation (
+  submission,
+  reference,
+  submittedAt,
+  stsClient
+) {
+  try {
+    const { posted } = await postSubmission({
+      submissionId: reference,
+      submission,
+      submittedAt,
+      stsClient
+    })
+
+    if (posted) {
+      logger.info(
+        PostSubmissionLog.buildPostSubmissionSuccessLog(reference),
+        'Triage submission posted to aice-triage-automation'
+      )
+    }
+  } catch (error) {
+    logger.error(
+      PostSubmissionLog.buildPostSubmissionErrorLog(error, reference),
+      'Failed to post triage submission to aice-triage-automation'
+    )
+  }
+}
+
+/**
  * Submits a triage request - returns an result object representing email sending
  * outcome.
  *
  * @param {import('./model.js').TriageSubmission} submission
+ * @param {{ stsClient?: import('@aws-sdk/client-sts').STSClient }} [options]
  * @returns {Promise<{
  *    triageResult: { success: boolean, data?: object, error?: object },
  *    confirmationResult?: { success: boolean, data?: object, error?: object },
  *    reference?: string
  * }>}
  */
-export async function submit (submission) {
+export async function submit (submission, options = {}) {
   const { error: validationError } = submissionSchema.validate(submission, {
     abortEarly: false
   })
@@ -141,6 +186,7 @@ export async function submit (submission) {
     return { validationError }
   }
 
+  const submittedAt = new Date().toISOString()
   const reference = generateReference()
 
   const triageResult = await sendTriageEmail(submission, reference)
@@ -152,6 +198,15 @@ export async function submit (submission) {
   }
 
   const confirmationResult = await sendConfirmationEmail(submission, reference)
+
+  // After both emails: the shared-mailbox email is the only record carrying the
+  // submitter's address, so it must never be the post that got there first.
+  await postSubmissionToAutomation(
+    submission,
+    reference,
+    submittedAt,
+    options.stsClient
+  )
 
   return {
     triageResult,

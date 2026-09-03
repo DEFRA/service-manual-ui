@@ -5,8 +5,8 @@ description: >-
   Use Defra Customer Identity to allow users to sign in once and access multiple
   Defra services.
 layout: section
-sectionTitle: Architecture and software development
-sectionNav: nav-architecture
+sectionTitle: Common tools
+sectionNav: nav-common-tools
 supportBox:
   title: Get support
   description: >-
