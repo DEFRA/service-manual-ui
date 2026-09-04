@@ -1,7 +1,7 @@
 import { getNavigation } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
-import { MAX_QUESTION_LENGTH, QUESTION_ROWS, SUPPORT_BOX } from './constants.js'
+import { QUESTION_ROWS, SUPPORT_BOX } from './constants.js'
 import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
 import { fixtureAnswerFor } from './__fixtures__/answers.js'
@@ -23,7 +23,6 @@ function baseView () {
     headerServiceUrl: '/ai-toolkit',
     customNav: getNavigation('nav-ai-toolkit'),
     questionRows: QUESTION_ROWS,
-    maxQuestionLength: MAX_QUESTION_LENGTH,
     supportBox: SUPPORT_BOX
   }
 }

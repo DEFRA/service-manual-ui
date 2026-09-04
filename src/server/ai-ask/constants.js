@@ -10,10 +10,11 @@ export const MAX_QUESTION_LENGTH = 500
 // 500 chars URL-encoded (~3 bytes/char worst case) plus field overhead.
 export const MAX_PAYLOAD_BYTES = 8192
 
-// Rows on the question field. Two suggests a sentence rather than an essay,
-// while still showing the whole of most questions as they are typed, and it
-// keeps the field close enough in height to the button beside it.
-export const QUESTION_ROWS = 2
+// Rows on the question field. Deliberately roomy: a field the size of a search
+// box invites a few keywords, and research on retrieval systems across GOV.UK
+// found that vague questions are what produce vague, dead-end answers. A field
+// that looks like somewhere to write a sentence asks for one.
+export const QUESTION_ROWS = 4
 
 /**
  * The route to a person, shown in the standard support box.
@@ -24,9 +25,8 @@ export const QUESTION_ROWS = 2
 export const SUPPORT_BOX = {
   title: 'Get help from a person',
   description:
-    'Ask the toolkit answers from published guidance. It cannot see your project and it cannot approve anything.',
+    'Ask the toolkit cannot approve anything or look at your project.',
   items: [
-    'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>',
-    'Want someone to look at your idea? <a href="/ai-toolkit/triage/question-1" class="govuk-link">Tell the AI Capability and Enablement team about it</a>'
+    'Email the <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit" class="govuk-link">AI Capability and Enablement team</a>'
   ]
 }

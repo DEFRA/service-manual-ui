@@ -1,6 +1,12 @@
 {# The question field and its button. Shared by the front door and the
    conversation, so the two never drift apart. The only difference is the
-   label, which changes once a conversation has started. #}
+   label, which changes once a conversation has started.
+
+   There is deliberately no maxlength on the field. The server rejects anything
+   over the limit with a specific error, whereas maxlength silently truncates
+   pasted text, which is worse: someone would send a question with the end cut
+   off and never know. If research shows people hit the limit, add the GOV.UK
+   character count component rather than the attribute. #}
 <form method="post" action="/ai-toolkit/ask" class="app-ask__panel">
   <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
     <label class="govuk-label govuk-label--m" for="question">
@@ -21,7 +27,6 @@
           id="question"
           name="question"
           rows="{{ questionRows }}"
-          maxlength="{{ maxQuestionLength }}"
           aria-describedby="question-hint{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
       </div>
       <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">

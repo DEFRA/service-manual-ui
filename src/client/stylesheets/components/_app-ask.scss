@@ -4,16 +4,24 @@
 // ===== Ask the toolkit =====
 
 // ── The ask panel ──
-// The question is the whole point of the page, so it gets a panel of its own
-// rather than sitting in the flow as one more form field. Defra green on the
-// palest green, which reads as the primary thing to do without borrowing the
-// hero treatment used on section landing pages.
+// The question gets a panel of its own so it reads as the point of the page
+// rather than one more form field in a flow.
+//
+// This is not a named Design System component: there is no component that puts
+// a box around an input. It is defensible rather than standard. GOV.UK does
+// the same on its own homepage and on the Design System site, where the search
+// input sits in a coloured panel. Two rules from that evidence are followed
+// here. The box is justified as grouping, not emphasis, because inset styles
+// are documented as poor at drawing attention and the input already pulls the
+// eye on its own. And the tint stays neutral, so the input keeps its ordinary
+// 2px near-black border at roughly 18:1 contrast and needs no special casing
+// for WCAG 1.4.11. Emphasis comes from the green button, not the container.
 
 .app-ask__panel {
   margin-bottom: 30px;
   padding: 25px 30px;
-  border: 2px solid $defra-green;
-  background-color: $defra-light-green;
+  border: 1px solid $govuk-mid-grey;
+  background-color: #f3f3f3;
 }
 
 .app-ask__panel > :last-child {
@@ -31,11 +39,12 @@
 // placed inside or over the field: an overlaid control collides with the
 // person's own text at 400% zoom, which fails WCAG 1.4.10 reflow.
 
-// The button stretches to the height of the field so the pair reads as one
-// control rather than a box with a smaller box next to it.
+// The button sits at the foot of the field, so the two line up along the
+// bottom edge. Stretching it to the full height of a field this tall would
+// give a slab of green bigger than the thing it submits.
 .app-ask__row {
   display: flex;
-  align-items: stretch;
+  align-items: flex-end;
 }
 
 .app-ask__field {
