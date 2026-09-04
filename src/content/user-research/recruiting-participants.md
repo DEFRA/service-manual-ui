@@ -27,9 +27,9 @@ sectionNav:
         href: /user-research/analysis-and-synthesis
 supportBox:
   title: Get support
-  description: Check the <strong>UR community at Defra DDTS (includes suppliers)</strong> Teams channel.
+  description: Check the UR community at Defra DDTS (includes suppliers) Teams channel.
   items:
-    - 'If you need access, email: <a href="mailto:User-ResearchResourceManagers@defra.gov.uk" class="govuk-link">User-ResearchResourceManagers@defra.gov.uk</a>'
+    - 'If you need access, email:<br><a href="mailto:User-ResearchResourceManagers@defra.gov.uk" class="govuk-link">User-ResearchResourceManagers@defra.gov.uk</a>'
 ---
 
 ## Participant recruitment process
