@@ -73,16 +73,62 @@ const matchers = [
   { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer }
 ]
 
+// Openings that mean "carry on from what I just asked" rather than "here is a
+// new subject". A short question does the same job: "what about agents?" only
+// makes sense against the question before it.
+const FOLLOW_UP_OPENINGS = [
+  'what about',
+  'and ',
+  'but ',
+  'so ',
+  'why',
+  'how about',
+  'what if',
+  'does that',
+  'is that',
+  'can i still'
+]
+const FOLLOW_UP_WORD_COUNT = 6
+
+/**
+ * @param {string} asked - Lower-cased question
+ * @returns {boolean}
+ */
+function readsAsFollowUp (asked) {
+  return (
+    FOLLOW_UP_OPENINGS.some((opening) => asked.startsWith(opening)) ||
+    asked.split(/\s+/).length <= FOLLOW_UP_WORD_COUNT
+  )
+}
+
 /**
  * Picks the stub answer for a question.
+ *
+ * The real service is meant to hold a conversation: the API contract carries a
+ * conversation_id and a reply_to, and the GOV.UK analysis of real question and
+ * answer pairs found that following up is the normal case, not the exception.
+ * A stub that answered every question from scratch made the page feel like a
+ * row of separate searches, and there was no way to tell whether that was the
+ * design or the stub. So a question that reads as a follow-up is answered as
+ * one, naming what it is following on from.
  * @param {string} question
+ * @param {object} [context]
+ * @param {string} [context.previousQuestion] The question asked before this one
  * @returns {object} An answer in the API wire shape
  */
-export function fixtureAnswerFor (question) {
+export function fixtureAnswerFor (question, { previousQuestion } = {}) {
   const asked = question.toLowerCase()
   const match = matchers.find(({ keywords }) =>
     keywords.some((keyword) => asked.includes(keyword))
   )
+  const answer = match ? match.answer : generalAnswer
 
-  return match ? match.answer : generalAnswer
+  if (!previousQuestion || !readsAsFollowUp(asked)) {
+    return answer
+  }
+
+  return {
+    ...answer,
+    message: `Still on "${previousQuestion}": ${answer.message}`
+  }
 }

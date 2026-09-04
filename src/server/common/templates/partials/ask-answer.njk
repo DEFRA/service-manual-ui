@@ -42,10 +42,12 @@
   <h2 class="govuk-heading-s">Check this answer</h2>
   {% endif %}
   <ul class="govuk-list app-ask__sources">
+    {# The section is part of the link text rather than a line under it. Only
+       some sources have one, so a separate subtitle left most entries with a
+       dangling gap. This is how GOV.UK Chat writes the same thing. #}
     {% for source in answer.sources %}
     <li>
-      <a class="govuk-link" href="{{ source.url }}">{{ source.title }}</a>
-      {% if source.section %}<span class="app-ask__source-section">{{ source.section }}</span>{% endif %}
+      <a class="govuk-link" href="{{ source.url }}">{{ source.title }}{% if source.section %}: {{ source.section }}{% endif %}</a>
     </li>
     {% endfor %}
   </ul>

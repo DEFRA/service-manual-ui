@@ -96,6 +96,12 @@
   margin-bottom: 0;
 }
 
+.app-ask__start-again {
+  margin-top: -10px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
 .app-ask__support {
   margin-bottom: 40px;
 }
@@ -124,10 +130,12 @@
   margin-bottom: 30px;
 }
 
+// No left bar. The bar was a holdover from the transcript, where it told the
+// two speakers apart. On a page headed "Your answer" it says nothing, and it
+// put a second green bar 25px outside the quoted rule's own one. Green now
+// belongs to the rule alone, which is the part that matters most.
 .app-ask__answer {
   margin-bottom: 40px;
-  border-left: 5px solid $defra-green;
-  padding-left: 20px;
 }
 
 // Sits at the end of the answer, before the guidance it used. Not the GOV.UK

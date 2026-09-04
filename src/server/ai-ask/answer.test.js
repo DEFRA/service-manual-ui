@@ -124,3 +124,35 @@ describe('the stub answers', () => {
     }
   })
 })
+
+describe('the stub answering a follow-up', () => {
+  test.each([
+    ['what about personal data?'],
+    ['and agents?'],
+    ['why is that?'],
+    ['is that still true?']
+  ])('names what "%s" follows on from', (question) => {
+    const answer = fixtureAnswerFor(question, {
+      previousQuestion: 'Can I use GitHub Copilot?'
+    })
+
+    expect(answer.message).toEqual(
+      expect.stringContaining('Still on "Can I use GitHub Copilot?"')
+    )
+  })
+
+  test('answers a fresh subject on its own terms', () => {
+    const answer = fixtureAnswerFor(
+      'Which AI tools are approved for OFFICIAL data across Defra?',
+      { previousQuestion: 'Can I use GitHub Copilot?' }
+    )
+
+    expect(answer.message).not.toEqual(expect.stringContaining('Still on'))
+  })
+
+  test('has nothing to follow on from at the start of a conversation', () => {
+    const answer = fixtureAnswerFor('what about agents?')
+
+    expect(answer.message).not.toEqual(expect.stringContaining('Still on'))
+  })
+})

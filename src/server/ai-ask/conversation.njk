@@ -47,6 +47,12 @@
        not at the foot of a page that grows with every question asked. #}
     {% include "partials/ask-question-form.njk" %}
 
+    {# Follow-ups carry the conversation with them, so the way out of it has to
+       sit beside the way on. At the foot of the page it was lost. #}
+    <p class="govuk-body app-ask__start-again">
+      Asking about something else? <a class="govuk-link" href="/ai-toolkit/ask/restart">Start a new conversation</a>
+    </p>
+
     <details class="govuk-details app-ask__support">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">Do you need to speak to someone?</span>
@@ -75,11 +81,13 @@
     {# One row per question, not one disclosure holding everything. At twenty
        questions a single disclosure opens onto a wall with nothing to scan;
        a list of questions stays a list of questions however long it gets. #}
-    <h2 class="govuk-heading-m app-ask__earlier-heading">Earlier questions</h2>
+    <h2 class="govuk-heading-m app-ask__earlier-heading">Earlier in this conversation</h2>
     <ul class="govuk-list app-ask__earlier-list">
       {% for exchange in previous %}
       <li>
-        <details class="govuk-details app-ask__earlier">
+        {# The one just before this answer is open, so the thread you are
+           continuing is visible rather than filed away. Older ones stay shut. #}
+        <details class="govuk-details app-ask__earlier"{% if loop.first %} open{% endif %}>
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">{{ exchange.question }}</span>
           </summary>
@@ -93,10 +101,6 @@
       {% endfor %}
     </ul>
     {% endif %}
-
-    <p class="govuk-body">
-      <a class="govuk-link" href="/ai-toolkit/ask/restart">Start a new conversation</a>
-    </p>
 
   </div>
 </div>

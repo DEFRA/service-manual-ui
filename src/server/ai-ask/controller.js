@@ -72,7 +72,9 @@ function renderConversation (
   return h.view('ai-ask/conversation', {
     ...baseView(),
     pageTitle: latest.question,
-    questionLabel: 'Ask another question',
+    questionLabel: 'Ask a follow-up question',
+    questionHint:
+      'It remembers this conversation, so you can build on the answer above. Do not include personal or sensitive information.',
     questionFormClass: 'app-ask__followup',
     latest,
     previous,
@@ -108,7 +110,11 @@ export const askPostController = {
 
     session.addExchange(request.yar, {
       question,
-      answer: toViewModel(fixtureAnswerFor(question))
+      answer: toViewModel(
+        fixtureAnswerFor(question, {
+          previousQuestion: exchanges.at(-1)?.question
+        })
+      )
     })
 
     // Redirect after a successful post, so a refresh does not ask again. The
