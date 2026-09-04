@@ -80,14 +80,18 @@
 // The question is set at body size rather than as a heading, so a long one
 // wraps without turning the top of the page into a wall of type.
 //
-// It is the only thing on the page in a card. The answer stays unboxed, which
-// is the rule in the brief and what GOV.UK Chat does: boxing the machine's
-// words makes them look like the more official half of the exchange, and
-// answers are long enough that a box round them reads as a slab.
+// The question and the answer are a matched pair of outlined boxes, green for
+// the question and grey for the answer, so an exchange reads as two turns of
+// one conversation.
+//
+// This departs from the brief, which says assistant answers are unboxed and
+// only the person's message gets a card. The design lead asked for it after seeing the
+// unboxed version. Outlines rather than fills keep the weight down, which was
+// the objection to boxing a block of answer text.
 .app-ask__asked {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   padding: 15px 20px;
-  background-color: #f3f3f3;
+  border: 2px solid $defra-green;
 }
 
 .app-ask__asked-label {
@@ -135,12 +139,14 @@
   margin-bottom: 30px;
 }
 
-// No left bar. The bar was a holdover from the transcript, where it told the
-// two speakers apart. On a page headed "Your answer" it says nothing, and it
-// put a second green bar 25px outside the quoted rule's own one. Green now
-// belongs to the rule alone, which is the part that matters most.
 .app-ask__answer {
   margin-bottom: 40px;
+  padding: 15px 20px;
+  border: 2px solid $govuk-mid-grey;
+}
+
+.app-ask__answer > :last-child {
+  margin-bottom: 0;
 }
 
 // Sits at the end of the answer, before the guidance it used. Not the GOV.UK
