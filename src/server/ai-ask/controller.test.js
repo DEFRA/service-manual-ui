@@ -126,12 +126,20 @@ describe('#askController', () => {
       expect(headers.location).toBe('/ai-toolkit/ask/conversation')
     })
 
-    test('leads the page with the question just asked', async () => {
+    test('leads with the answer, not a heading made of the question', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+      )
+    })
+
+    test('shows the question at body size, where a long one wraps harmlessly', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
         expect.stringContaining(
-          '<h1 class="govuk-heading-l app-ask__question-heading">How do I choose a tool?</h1>'
+          '<p class="govuk-body app-ask__asked-text">How do I choose a tool?</p>'
         )
       )
     })
@@ -154,10 +162,14 @@ describe('#askController', () => {
       )
     })
 
-    test('labels the answer as AI-generated', async () => {
+    test('warns that the answer can be wrong, where it is read', async () => {
       const { result } = await ask('How do I choose a tool?')
 
-      expect(result).toEqual(expect.stringContaining('AI-generated'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Ask the toolkit can make mistakes. Check the guidance before you act on this.'
+        )
+      )
     })
 
     test('offers sources to check the answer against', async () => {
@@ -308,7 +320,9 @@ describe('#askController', () => {
         headers: { cookie }
       })
 
-      expect(result).toEqual(expect.stringContaining('Are you stuck?'))
+      expect(result).toEqual(
+        expect.stringContaining('Do you need to speak to someone?')
+      )
       expect(result).toEqual(expect.stringContaining('name="includeConversation"'))
     })
 

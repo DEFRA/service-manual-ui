@@ -77,61 +77,74 @@
 
 // ── Conversation ──
 
-// The question that produced the answer heads the page. Long questions wrap
-// rather than being cut off, since a question trimmed mid-sentence reads as a
-// different question.
-.app-ask__question-heading {
-  margin-bottom: 25px;
+// The question is set at body size rather than as a heading, so a long one
+// wraps without turning the top of the page into a wall of type.
+.app-ask__asked {
+  margin-bottom: 30px;
+  padding-left: 20px;
+  border-left: 5px solid $govuk-mid-grey;
 }
 
-.app-ask__previous {
+.app-ask__asked-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #505a5f;
+  font-size: 16px;
+}
+
+.app-ask__asked-text {
+  margin-bottom: 0;
+}
+
+.app-ask__support {
+  margin-bottom: 40px;
+}
+
+.app-ask__earlier-heading {
+  margin-bottom: 15px;
+}
+
+.app-ask__earlier-list {
   margin-bottom: 30px;
 }
 
-.app-ask__earlier {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+.app-ask__earlier-list > li {
   border-bottom: 1px solid $govuk-mid-grey;
 }
 
-.app-ask__earlier:last-child {
+.app-ask__earlier .govuk-details__summary {
+  padding: 12px 0 12px 25px;
+}
+
+.app-ask__earlier {
   margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: 0;
 }
 
 .app-ask__messages {
   margin-bottom: 30px;
 }
 
-.app-ask__message {
-  margin-bottom: 30px;
-}
-
-.app-ask__message-from {
-  margin-bottom: 5px;
-  color: $govuk-black;
-  font-weight: bold;
-}
-
-// The person's own message is the only thing on the page in a box. Generated
-// text is left unboxed, following GOV.UK Chat: boxing everything makes the
-// machine's words look like the more official half of the conversation.
-.app-ask__question {
-  padding: 15px 20px;
-  background-color: $govuk-light-grey;
-}
-
 .app-ask__answer {
+  margin-bottom: 40px;
   border-left: 5px solid $defra-green;
   padding-left: 20px;
 }
 
-// The GOV.UK Tag component carries the label. Sentence case, as the rebrand
-// made the default and as the house style requires.
-.app-ask__tag {
-  margin-left: 5px;
-  vertical-align: baseline;
+// Sits at the end of the answer, before the guidance it used. Not the GOV.UK
+// warning text component: that is sized for a once-per-page warning, and this
+// appears under every answer.
+.app-ask__warning {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.app-ask__warning-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  margin-right: 10px;
 }
 
 // ── The quoted rule ──
