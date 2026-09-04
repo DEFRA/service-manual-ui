@@ -138,6 +138,12 @@
   font-size: 16px;
 }
 
+// Keeps the last line from breaking to a single orphaned word. Browsers that
+// do not support it wrap as they always did.
+.app-ask__caveat {
+  text-wrap: pretty;
+}
+
 .app-ask__stuck {
   margin-top: 30px;
 }
