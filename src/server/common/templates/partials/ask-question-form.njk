@@ -2,34 +2,45 @@
    conversation, so the two never drift apart. The only difference is the
    label, which changes once a conversation has started.
 
-   There is deliberately no maxlength on the field. The server rejects anything
-   over the limit with a specific error, whereas maxlength silently truncates
-   pasted text, which is worse: someone would send a question with the end cut
-   off and never know. If research shows people hit the limit, add the GOV.UK
-   character count component rather than the attribute. #}
+   The GOV.UK character count carries the limit rather than a maxlength
+   attribute. maxlength silently truncates pasted text, so someone would send a
+   question with the end cut off and never know. The threshold keeps the count
+   out of the way until the question is nearly too long. Without JavaScript the
+   limit shows as a static line and the server still rejects anything over it
+   with a specific error. #}
 <form method="post" action="/ai-toolkit/ask" class="app-ask__panel">
-  <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
-    <label class="govuk-label govuk-label--m" for="question">
-      {{ questionLabel | default('Your question') }}
-    </label>
-    <div id="question-hint" class="govuk-hint">
-      Do not include personal or sensitive information.
+  <div class="govuk-character-count"
+    data-module="govuk-character-count"
+    data-maxlength="{{ maxQuestionLength }}"
+    data-threshold="{{ questionCountThreshold }}">
+    <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
+      <label class="govuk-label govuk-label--m" for="question">
+        {{ questionLabel | default('Your question') }}
+      </label>
+      <div id="question-hint" class="govuk-hint">
+        Do not include personal or sensitive information.
+      </div>
+      {% if error %}
+      <p id="question-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> {{ error }}
+      </p>
+      {% endif %}
+      <div class="app-ask__field">
+        <textarea
+          class="govuk-textarea govuk-js-character-count app-ask__input{% if error %} govuk-textarea--error{% endif %}"
+          id="question"
+          name="question"
+          rows="{{ questionRows }}"
+          enterkeyhint="send"
+          data-module="app-ask-question"
+          aria-describedby="question-info question-hint{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
+      </div>
+      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+        Ask<span class="govuk-visually-hidden"> the toolkit</span>
+      </button>
     </div>
-    {% if error %}
-    <p id="question-error" class="govuk-error-message">
-      <span class="govuk-visually-hidden">Error:</span> {{ error }}
-    </p>
-    {% endif %}
-    <div class="app-ask__field">
-      <textarea
-        class="govuk-textarea app-ask__input{% if questionWidthClass %} {{ questionWidthClass }}{% endif %}{% if error %} govuk-textarea--error{% endif %}"
-        id="question"
-        name="question"
-        rows="{{ questionRows }}"
-        aria-describedby="question-hint{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
+    <div id="question-info" class="govuk-hint govuk-character-count__message">
+      You can enter up to {{ maxQuestionLength }} characters
     </div>
-    <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
-      Ask<span class="govuk-visually-hidden"> the toolkit</span>
-    </button>
   </div>
 </form>

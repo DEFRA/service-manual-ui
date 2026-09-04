@@ -11,6 +11,11 @@ export const MAX_QUESTION_LENGTH = 500
 // the person pastes into themselves.
 export const MAX_MAILTO_LENGTH = 1900
 
+// How full the field has to be before the character count appears, as a
+// percentage. A count sitting there from the start is noise on a question
+// most people will answer in a line.
+export const QUESTION_COUNT_THRESHOLD = 90
+
 // Route payload cap for the question form (8 KB in bytes).
 // 500 chars URL-encoded (~3 bytes/char worst case) plus field overhead.
 export const MAX_PAYLOAD_BYTES = 8192

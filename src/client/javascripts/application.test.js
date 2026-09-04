@@ -10,6 +10,7 @@ vi.mock('govuk-frontend', () => ({
   createAll: vi.fn(),
   Accordion: vi.fn(),
   Button: vi.fn(),
+  CharacterCount: vi.fn(),
   Checkboxes: vi.fn(),
   ErrorSummary: vi.fn(),
   Header: vi.fn(),

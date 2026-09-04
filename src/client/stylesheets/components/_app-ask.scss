@@ -17,11 +17,13 @@
 // 2px near-black border at roughly 18:1 contrast and needs no special casing
 // for WCAG 1.4.11. Emphasis comes from the green button, not the container.
 
+// No fill. The support box below it is grey, and two grey blocks of nearly
+// the same value read as one repeated shape. The border alone does the
+// grouping, which is all the box was ever justified as doing.
 .app-ask__panel {
   margin-bottom: 30px;
   padding: 25px 30px;
   border: 1px solid $govuk-mid-grey;
-  background-color: #f3f3f3;
 }
 
 .app-ask__panel > :last-child {
