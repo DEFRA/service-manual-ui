@@ -208,11 +208,19 @@
 // look different from the sentences the model wrote around it, and it must not
 // rely on colour alone to say so, hence the border, the label and the marks.
 
+// No fill. The pale green measured 1.05:1 against the white page, so it was
+// barely there: not a contrast failure, since the text on it ran at 18.65:1,
+// but a tint that faint has no definite edge and reads as something fading
+// out. It also disappears entirely in forced-colours mode and in print, so
+// anything resting on it was resting on nothing.
+//
+// The quotation is set apart by four things that survive without colour: the
+// thick left border, the label naming it as a quotation, the quotation marks,
+// and the weight of the text.
 .app-ask__rule {
   margin: 20px 0;
-  padding: 20px 25px;
+  padding: 5px 0 5px 20px;
   border-left: 5px solid $defra-green;
-  background-color: $defra-light-green;
 }
 
 .app-ask__rule-label {
