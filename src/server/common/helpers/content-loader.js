@@ -77,6 +77,18 @@ function resolveNavReference (navValue, navType = 'navigation') {
   return navValue
 }
 
+/**
+ * Look up a navigation structure by its key in navigation.yaml.
+ *
+ * For pages rendered from a controller rather than a markdown file, which have
+ * no frontmatter to carry a nav reference.
+ * @param {string} key - Navigation key, e.g. 'nav-ai-toolkit'
+ * @returns {Array} Resolved navigation array
+ */
+export function getNavigation (key) {
+  return resolveNavReference(key, 'customNav')
+}
+
 export function loadContent (filename) {
   const logger = createLogger()
   const fullPath = path.join(CONTENT_DIR, filename)

@@ -59,5 +59,47 @@ describe('#askController', () => {
 
       expect(result).toEqual(expect.stringContaining(expected))
     })
+
+    test.each([
+      ['Deliver with AI', '/ai-toolkit/deliver-with-ai'],
+      ['Find a tool', '/ai-toolkit/tools'],
+      ['Use AI patterns', '/ai-toolkit/patterns'],
+      ['See our projects', '/ai-toolkit/projects']
+    ])(
+      'carries the toolkit service navigation, including %s',
+      async (_text, href) => {
+        const { result } = await server.inject({
+          method: 'GET',
+          url: askUrl
+        })
+
+        expect(result).toEqual(expect.stringContaining(`href="${href}"`))
+      }
+    )
+
+    test('marks itself as the current navigation item', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: askUrl
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(`href="${askUrl}" aria-current="page"`)
+      )
+    })
+  })
+
+  describe('the navigation link on other toolkit pages', () => {
+    test.each([
+      ['the toolkit landing page', '/ai-toolkit'],
+      ['a tools page', '/ai-toolkit/tools'],
+      ['a guidance page', '/ai-toolkit/guidance/security']
+    ])('%s links to Ask the toolkit', async (_description, url) => {
+      const { result } = await server.inject({ method: 'GET', url })
+
+      expect(result).toEqual(
+        expect.stringContaining(`href="${askUrl}">Ask the toolkit</a>`)
+      )
+    })
   })
 })

@@ -60,13 +60,27 @@ describe('Ask the toolkit flag off (the default)', () => {
     expect(statusCode).toBe(statusCodes.ok)
   })
 
-  test('no page links to it', async () => {
+  test.each([
+    ['the toolkit landing page', '/ai-toolkit'],
+    ['a tools page', '/ai-toolkit/tools'],
+    ['a guidance page', '/ai-toolkit/guidance/security']
+  ])('%s does not link to it', async (_description, url) => {
+    const { result } = await server.inject({ method: 'GET', url })
+
+    expect(result).not.toEqual(expect.stringContaining(askUrl))
+    expect(result).not.toEqual(expect.stringContaining('Ask the toolkit'))
+  })
+
+  test('the rest of the toolkit navigation is unchanged', async () => {
     const { result } = await server.inject({
       method: 'GET',
       url: '/ai-toolkit'
     })
 
-    expect(result).not.toEqual(expect.stringContaining(askUrl))
+    expect(result).toEqual(
+      expect.stringContaining('href="/ai-toolkit/deliver-with-ai"')
+    )
+    expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/tools"'))
   })
 })
 

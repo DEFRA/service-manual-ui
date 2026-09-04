@@ -79,6 +79,9 @@ export function context (request) {
     aiContent: {
       enabled: config.get('aiContent.enabled')
     },
+    featureFlags: {
+      askEnabled: config.get('featureFlags.askEnabled')
+    },
     cookieConsentSet,
     cookieAction,
     hasAnalyticsConsent,
