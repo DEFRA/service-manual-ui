@@ -79,10 +79,15 @@
 
 // The question is set at body size rather than as a heading, so a long one
 // wraps without turning the top of the page into a wall of type.
+//
+// It is the only thing on the page in a card. The answer stays unboxed, which
+// is the rule in the brief and what GOV.UK Chat does: boxing the machine's
+// words makes them look like the more official half of the exchange, and
+// answers are long enough that a box round them reads as a slab.
 .app-ask__asked {
   margin-bottom: 30px;
-  padding-left: 20px;
-  border-left: 5px solid $govuk-mid-grey;
+  padding: 15px 20px;
+  background-color: #f3f3f3;
 }
 
 .app-ask__asked-label {
