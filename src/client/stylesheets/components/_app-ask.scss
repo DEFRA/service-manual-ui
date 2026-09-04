@@ -114,28 +114,49 @@
   font-size: 16px;
 }
 
-.app-ask__support {
-  margin-bottom: 40px;
-}
+// ── The conversation as navigation ──
+// A numbered list of the questions asked, each addressing its own answer page.
+// This replaced a stack of disclosures: a list of links stays scannable at
+// twenty questions, works with the back button, and can be linked to.
 
-.app-ask__earlier-heading {
-  margin-bottom: 15px;
-}
-
-.app-ask__earlier-list {
+.app-ask__thread {
   margin-bottom: 30px;
+  padding-top: 25px;
+  border-top: 1px solid $govuk-mid-grey;
 }
 
-.app-ask__earlier-list > li {
-  border-bottom: 1px solid $govuk-mid-grey;
+.app-ask__thread-heading {
+  margin-bottom: 10px;
 }
 
-.app-ask__earlier .govuk-details__summary {
-  padding: 12px 0 12px 25px;
+.app-ask__thread-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.app-ask__earlier {
-  margin-bottom: 0;
+.app-ask__thread-item {
+  display: flex;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.app-ask__thread-number {
+  flex-shrink: 0;
+  width: 25px;
+  color: #505a5f;
+}
+
+// The answer being read is not a link, and is marked by weight as well as by
+// aria-current, so it does not rely on being the only unlinked line.
+.app-ask__thread-item--current .app-ask__thread-question {
+  font-weight: bold;
+}
+
+.app-ask__next-steps {
+  padding-top: 20px;
+  border-top: 1px solid $govuk-mid-grey;
+  font-size: 16px;
 }
 
 .app-ask__messages {

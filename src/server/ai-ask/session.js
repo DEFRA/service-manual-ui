@@ -28,19 +28,44 @@ export function addExchange (yar, exchange) {
 }
 
 /**
- * Splits the conversation into the exchange to show in full and the rest.
+ * Turns the conversation into the index shown on every answer page: one entry
+ * per question, in the order they were asked, each addressing its own page.
  * @param {Array<object>} exchanges
- * @returns {{latest: object|null, previous: Array<object>}} Previous newest first
+ * @param {number} [currentNumber] The answer being read, 1-based
+ * @returns {Array<{number: number, question: string, href: string, isCurrent: boolean}>}
  */
-export function splitConversation (exchanges) {
-  if (!exchanges.length) {
-    return { latest: null, previous: [] }
+export function toThread (exchanges, currentNumber) {
+  return exchanges.map((exchange, index) => {
+    const number = index + 1
+
+    return {
+      number,
+      question: exchange.question,
+      href: `/ai-toolkit/ask/answers/${number}`,
+      isCurrent: number === currentNumber
+    }
+  })
+}
+
+/**
+ * Reads one answer by its position in the conversation.
+ *
+ * Answers are numbered by where they fall in the conversation, which is enough
+ * while the conversation lives in the session and belongs to one person. A
+ * durable identifier has to come from the backend, along with a decision about
+ * how long an answer stays retrievable.
+ * @param {Array<object>} exchanges
+ * @param {string} number - The 1-based position from the URL
+ * @returns {{exchange: object, number: number}|null}
+ */
+export function findExchange (exchanges, number) {
+  const position = Number(number)
+
+  if (!Number.isInteger(position) || position < 1 || position > exchanges.length) {
+    return null
   }
 
-  return {
-    latest: exchanges.at(-1),
-    previous: exchanges.slice(0, -1).reverse()
-  }
+  return { exchange: exchanges[position - 1], number: position }
 }
 
 /**

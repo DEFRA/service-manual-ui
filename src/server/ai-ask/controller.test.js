@@ -114,7 +114,7 @@ describe('#askController', () => {
       })
     }
 
-    test('redirects to the conversation rather than answering in place', async () => {
+    test('sends each answer to a page of its own', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'POST',
         url: askUrl,
@@ -123,7 +123,7 @@ describe('#askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
     test('leads with the answer, not a heading made of the question', async () => {
@@ -215,15 +215,155 @@ describe('#askController', () => {
     })
   })
 
-  describe('the conversation page', () => {
+  describe('an answer page', () => {
+    /**
+     * Asks several questions in one conversation.
+     * @param {Array<string>} questions
+     * @returns {Promise<string>} The session cookie they were stored against
+     */
+    async function haveConversation (questions) {
+      let cookie
+
+      for (const question of questions) {
+        const posted = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent(question)}`,
+          headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            ...(cookie ? { cookie } : {})
+          }
+        })
+        cookie = posted.headers['set-cookie']?.[0].split(';')[0] ?? cookie
+      }
+
+      return cookie
+    }
+
     test('sends someone with no conversation back to the start', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'GET',
-        url: '/ai-toolkit/ask/conversation'
+        url: '/ai-toolkit/ask/answers/1'
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
       expect(headers.location).toBe(askUrl)
+    })
+
+    test.each([
+      ['past the end of the conversation', '99'],
+      ['not a number', 'abc'],
+      ['zero', '0']
+    ])('sends an answer number that is %s back to the start', async (_d, number) => {
+      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: `/ai-toolkit/ask/answers/${number}`,
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
+    })
+
+    test('an earlier answer is still there at its own address', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const { statusCode, result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(
+        expect.stringContaining('Can I use GitHub Copilot?')
+      )
+    })
+
+    test('lists the conversation as links, one per question', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Questions in this conversation')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/ask/answers/1"')
+      )
+    })
+
+    test('marks the answer being read, and does not link it to itself', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('aria-current="page"'))
+      expect(result).not.toEqual(
+        expect.stringContaining('href="/ai-toolkit/ask/answers/2"')
+      )
+    })
+
+    test('only the newest answer can be followed on from', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const earlier = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+      const latest = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(earlier.result).not.toEqual(
+        expect.stringContaining('Ask a follow-up question')
+      )
+      expect(earlier.result).toEqual(
+        expect.stringContaining('Go to where you got to')
+      )
+      expect(latest.result).toEqual(
+        expect.stringContaining('Ask a follow-up question')
+      )
+    })
+
+    test('holds no disclosures', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('<details'))
     })
   })
 
@@ -249,7 +389,7 @@ describe('#askController', () => {
       expect(statusCode).toBe(statusCodes.ok)
     })
 
-    test('going back to the front door mid-conversation returns to the conversation', async () => {
+    test('going back to the front door mid-conversation returns to the latest answer', async () => {
       const cookie = await startConversation()
 
       const { statusCode, headers } = await server.inject({
@@ -259,7 +399,7 @@ describe('#askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
     test('starting a new conversation drops what went before', async () => {
@@ -274,7 +414,7 @@ describe('#askController', () => {
 
       const after = await server.inject({
         method: 'GET',
-        url: '/ai-toolkit/ask/conversation',
+        url: '/ai-toolkit/ask/answers/1',
         headers: { cookie }
       })
 
@@ -316,14 +456,24 @@ describe('#askController', () => {
 
       const { result } = await server.inject({
         method: 'GET',
-        url: '/ai-toolkit/ask/conversation',
+        url: '/ai-toolkit/ask/answers/1',
         headers: { cookie }
       })
 
       expect(result).toEqual(
-        expect.stringContaining('Do you need to speak to someone?')
+        expect.stringContaining('href="/ai-toolkit/ask/help"')
       )
-      expect(result).toEqual(expect.stringContaining('name="includeConversation"'))
+
+      const help = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/help',
+        headers: { cookie }
+      })
+
+      expect(help.statusCode).toBe(statusCodes.ok)
+      expect(help.result).toEqual(
+        expect.stringContaining('name="includeConversation"')
+      )
     })
 
     test('shares nothing from the conversation unless asked', async () => {

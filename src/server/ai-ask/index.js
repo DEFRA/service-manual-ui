@@ -3,8 +3,9 @@ import { config } from '../../config/config.js'
 import {
   askController,
   askPostController,
-  conversationController,
+  answerController,
   restartController,
+  helpController,
   stuckController
 } from './controller.js'
 import { MAX_PAYLOAD_BYTES } from './constants.js'
@@ -53,9 +54,17 @@ export const aiAsk = {
           ...askPostController
         },
         {
+          // Every answer has an address of its own. Anything that is not a
+          // number, or is a number this conversation does not reach, is sent
+          // back to the start rather than shown an error.
           method: 'GET',
-          path: '/ai-toolkit/ask/conversation',
-          ...conversationController
+          path: '/ai-toolkit/ask/answers/{number}',
+          ...answerController
+        },
+        {
+          method: 'GET',
+          path: '/ai-toolkit/ask/help',
+          ...helpController
         },
         {
           method: 'GET',

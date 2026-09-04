@@ -14,7 +14,15 @@ import { fixtureAnswerFor } from './__fixtures__/answers.js'
 import * as session from './session.js'
 
 const askPath = '/ai-toolkit/ask'
-const conversationPath = '/ai-toolkit/ask/conversation'
+const answersPath = '/ai-toolkit/ask/answers'
+
+/**
+ * @param {number} number - Position of the answer in the conversation
+ * @returns {string}
+ */
+function answerPath (number) {
+  return `${answersPath}/${number}`
+}
 
 /**
  * Shared view data. Every page here carries the AI digital toolkit service
@@ -31,7 +39,12 @@ function baseView () {
     questionRows: QUESTION_ROWS,
     maxQuestionLength: MAX_QUESTION_LENGTH,
     questionCountThreshold: QUESTION_COUNT_THRESHOLD,
-    supportBox: SUPPORT_BOX
+    supportBox: SUPPORT_BOX,
+    breadcrumbs: [
+      { text: 'Digital Defra', href: '/' },
+      { text: 'AI digital toolkit', href: '/ai-toolkit' },
+      { text: 'Ask the toolkit' }
+    ]
   }
 }
 
@@ -44,48 +57,43 @@ function renderAsk (h, { question = '', error = null } = {}) {
   return h.view('ai-ask/ask', {
     ...baseView(),
     pageTitle: 'Ask the toolkit',
-    breadcrumbs: [
-      { text: 'Digital Defra', href: '/' },
-      { text: 'AI digital toolkit', href: '/ai-toolkit' },
-      { text: 'Ask the toolkit' }
-    ],
     question,
     error
   })
 }
 
 /**
- * The answer just given leads the page, so the page is titled and headed by
- * the question that produced it. Everything earlier folds away below.
+ * One answer, at its own address.
  * @param {object} h - Hapi response toolkit
- * @param {Array<object>} exchanges
- * @param {object} options
- * @returns {object} The conversation
+ * @param {object} params
+ * @param {Array<object>} params.exchanges
+ * @param {object} params.exchange
+ * @param {number} params.number
+ * @param {object} [options]
+ * @returns {object}
  */
-function renderConversation (
+function renderAnswer (
   h,
-  exchanges,
+  { exchanges, exchange, number },
   { question = '', error = null } = {}
 ) {
-  const { latest, previous } = session.splitConversation(exchanges)
+  const isLatest = number === exchanges.length
 
-  return h.view('ai-ask/conversation', {
+  return h.view('ai-ask/answer', {
     ...baseView(),
-    pageTitle: latest.question,
-    // The last crumb is the current page and carries no link. Linking it to
-    // the front door would send someone straight back here, since the front
-    // door redirects into an open conversation.
-    breadcrumbs: [
-      { text: 'Digital Defra', href: '/' },
-      { text: 'AI digital toolkit', href: '/ai-toolkit' },
-      { text: 'Ask the toolkit' }
-    ],
+    pageTitle: exchange.question,
     questionLabel: 'Ask a follow-up question',
     questionHint:
-      'It remembers this conversation, so you can build on the answer above. Do not include personal or sensitive information.',
+      'It remembers this conversation, so you can build on the answer above.',
     questionFormClass: 'app-ask__followup',
-    latest,
-    previous,
+    exchange,
+    number,
+    isLatest,
+    // Only the newest answer can be followed on from. Asking from partway back
+    // would either branch the conversation or silently jump you to the end,
+    // and neither is worth explaining to someone mid-question.
+    latestHref: answerPath(exchanges.length),
+    thread: session.toThread(exchanges, number),
     question,
     error
   })
@@ -93,12 +101,14 @@ function renderConversation (
 
 export const askController = {
   handler (request, h) {
-    // Someone with a conversation open goes back to it rather than to a blank
-    // front door, because asking from here would silently append to a
+    const exchanges = session.getExchanges(request.yar)
+
+    // Someone with a conversation open goes to their latest answer rather than
+    // a blank front door, because asking from here would silently append to a
     // conversation they cannot see. Starting a new one clears the session
     // first, so this redirect does not fire.
-    if (session.getExchanges(request.yar).length) {
-      return h.redirect(conversationPath).code(statusCodes.seeOther)
+    if (exchanges.length) {
+      return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
     }
 
     return renderAsk(h)
@@ -111,9 +121,17 @@ export const askPostController = {
     const exchanges = session.getExchanges(request.yar)
 
     if (error) {
-      return exchanges.length
-        ? renderConversation(h, exchanges, { question, error })
-        : renderAsk(h, { question, error })
+      if (!exchanges.length) {
+        return renderAsk(h, { question, error })
+      }
+
+      const number = exchanges.length
+
+      return renderAnswer(
+        h,
+        { exchanges, exchange: exchanges[number - 1], number },
+        { question, error }
+      )
     }
 
     session.addExchange(request.yar, {
@@ -125,22 +143,23 @@ export const askPostController = {
       )
     })
 
-    // Redirect after a successful post, so a refresh does not ask again. The
-    // new answer leads the page, so this lands at the top of it and needs no
-    // fragment to skip past what has already been read.
-    return h.redirect(conversationPath).code(statusCodes.seeOther)
+    // Every answer has an address, so asking takes you to a page of its own
+    // rather than back to a growing list. Refreshing does not ask again, the
+    // back button walks the conversation, and an answer can be linked to.
+    return h.redirect(answerPath(exchanges.length + 1)).code(statusCodes.seeOther)
   }
 }
 
-export const conversationController = {
+export const answerController = {
   handler (request, h) {
     const exchanges = session.getExchanges(request.yar)
+    const found = session.findExchange(exchanges, request.params.number)
 
-    if (!exchanges.length) {
+    if (!found) {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    return renderConversation(h, exchanges)
+    return renderAnswer(h, { exchanges, ...found })
   }
 }
 
@@ -149,6 +168,22 @@ export const restartController = {
     session.clearConversation(request.yar)
 
     return h.redirect(askPath).code(statusCodes.seeOther)
+  }
+}
+
+export const helpController = {
+  handler (request, h) {
+    const exchanges = session.getExchanges(request.yar)
+
+    if (!exchanges.length) {
+      return h.redirect(askPath).code(statusCodes.seeOther)
+    }
+
+    return h.view('ai-ask/help', {
+      ...baseView(),
+      pageTitle: 'Speak to someone',
+      backHref: answerPath(exchanges.length)
+    })
   }
 }
 
@@ -173,7 +208,8 @@ export const stuckController = {
       contactHref: href,
       conversationIncluded,
       conversationRequested: includeConversation,
-      transcript: toPlainText(exchanges)
+      transcript: toPlainText(exchanges),
+      backHref: answerPath(exchanges.length)
     })
   }
 }

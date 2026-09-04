@@ -1,0 +1,84 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{# The tab carries the question, cut short, so history and open tabs stay
+   distinguishable. The heading on the page does not, because a question can
+   run to 500 characters and a heading that can become a paragraph is not a
+   heading. #}
+{% block pageTitle %}
+  {%- if error %}Error: {% endif -%}
+  {{ pageTitle | truncate(60) }} | {{ headerServiceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Beta" },
+    html: 'Ask the toolkit is experimental. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20feedback">Give feedback</a> to help us improve it.'
+  }) }}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+    {% if error %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [{ text: error, href: "#question" }]
+      }) }}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Your answer</h1>
+
+    <div class="app-ask__asked">
+      <span class="app-ask__eyebrow">You asked</span>
+      <p class="govuk-body app-ask__asked-text">{{ exchange.question }}</p>
+    </div>
+
+    {% set answer = exchange.answer %}
+    {% set sourcesHeadingLevel = 2 %}
+    {% include "partials/ask-answer.njk" %}
+
+    {% if isLatest %}
+    {# Only the newest answer can be followed on from. Asking from partway back
+       would either branch the conversation or silently jump to the end. #}
+    {% include "partials/ask-question-form.njk" %}
+    {% else %}
+    <p class="govuk-body">
+      <a class="govuk-link" href="{{ latestHref }}">Go to where you got to</a> to carry on asking.
+    </p>
+    {% endif %}
+
+    {% if thread | length > 1 %}
+    {# The conversation as navigation rather than as accordions. Each question
+       is a page, so this is a list of links: it stays scannable at twenty
+       questions, the back button walks it, and an answer can be linked to. #}
+    <nav class="app-ask__thread" aria-label="Questions in this conversation">
+      <h2 class="govuk-heading-s app-ask__thread-heading">Questions in this conversation</h2>
+      <ol class="app-ask__thread-list">
+        {% for item in thread %}
+        <li class="app-ask__thread-item{% if item.isCurrent %} app-ask__thread-item--current{% endif %}">
+          <span class="app-ask__thread-number" aria-hidden="true">{{ item.number }}</span>
+          {% if item.isCurrent %}
+          <span class="app-ask__thread-question" aria-current="page">{{ item.question }}<span class="govuk-visually-hidden"> (the answer you are reading)</span></span>
+          {% else %}
+          <a class="govuk-link app-ask__thread-question" href="{{ item.href }}">{{ item.question }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </nav>
+    {% endif %}
+
+    <p class="govuk-body app-ask__next-steps">
+      <a class="govuk-link" href="/ai-toolkit/ask/help">Speak to someone</a>
+      or
+      <a class="govuk-link" href="/ai-toolkit/ask/restart">start a new conversation</a>
+    </p>
+
+  </div>
+</div>
+{% endblock %}

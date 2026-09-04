@@ -3,7 +3,8 @@ import { describe, test, expect, vi } from 'vitest'
 import {
   getExchanges,
   addExchange,
-  splitConversation,
+  toThread,
+  findExchange,
   clearConversation
 } from './session.js'
 
@@ -46,26 +47,60 @@ describe('#addExchange', () => {
   })
 })
 
-describe('#splitConversation', () => {
-  test('has nothing to show for an empty conversation', () => {
-    expect(splitConversation([])).toEqual({ latest: null, previous: [] })
+describe('#toThread', () => {
+  test('has nothing to list for an empty conversation', () => {
+    expect(toThread([], 1)).toEqual([])
   })
 
-  test('a single exchange is the latest, with nothing earlier', () => {
-    const only = exchange('Only')
+  test('numbers the questions in the order they were asked, each with an address', () => {
+    const thread = toThread([exchange('First'), exchange('Second')], 2)
 
-    expect(splitConversation([only])).toEqual({ latest: only, previous: [] })
+    expect(thread).toEqual([
+      {
+        number: 1,
+        question: 'First',
+        href: '/ai-toolkit/ask/answers/1',
+        isCurrent: false
+      },
+      {
+        number: 2,
+        question: 'Second',
+        href: '/ai-toolkit/ask/answers/2',
+        isCurrent: true
+      }
+    ])
   })
 
-  test('the newest leads and the rest follow, newest first', () => {
-    const first = exchange('First')
-    const second = exchange('Second')
-    const third = exchange('Third')
+  test('marks nothing current when reading none of them', () => {
+    const thread = toThread([exchange('First')])
 
-    expect(splitConversation([first, second, third])).toEqual({
-      latest: third,
-      previous: [second, first]
+    expect(thread[0].isCurrent).toBe(false)
+  })
+})
+
+describe('#findExchange', () => {
+  const conversation = [exchange('First'), exchange('Second')]
+
+  test('finds an answer by its place in the conversation', () => {
+    expect(findExchange(conversation, '2')).toEqual({
+      exchange: conversation[1],
+      number: 2
     })
+  })
+
+  test.each([
+    ['past the end', '3'],
+    ['before the start', '0'],
+    ['negative', '-1'],
+    ['not a whole number', '1.5'],
+    ['not a number at all', 'abc'],
+    ['empty', '']
+  ])('refuses an answer number that is %s', (_description, number) => {
+    expect(findExchange(conversation, number)).toBeNull()
+  })
+
+  test('finds nothing in an empty conversation', () => {
+    expect(findExchange([], '1')).toBeNull()
   })
 })
 
