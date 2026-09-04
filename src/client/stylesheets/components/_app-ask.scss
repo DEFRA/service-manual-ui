@@ -80,9 +80,10 @@
 // The question is set at body size rather than as a heading, so a long one
 // wraps without turning the top of the page into a wall of type.
 //
-// The question and the answer are a matched pair of outlined boxes, green for
-// the question and grey for the answer, so an exchange reads as two turns of
-// one conversation.
+// The question and the answer are a matched pair of outlined boxes, grey for
+// the question and green for the answer, so an exchange reads as two turns of
+// one conversation. Grey matches the question box on the front door, and green
+// marks the half of the exchange the toolkit wrote.
 //
 // This departs from the brief, which says assistant answers are unboxed and
 // only the person's message gets a card. The design lead asked for it after seeing the
@@ -91,10 +92,12 @@
 .app-ask__asked {
   margin-bottom: 20px;
   padding: 15px 20px;
-  border: 2px solid $defra-green;
+  border: 2px solid $govuk-mid-grey;
 }
 
-.app-ask__asked-label {
+// The small label above each half, so the pair reads as question then
+// response rather than two boxes that happen to be stacked.
+.app-ask__eyebrow {
   display: block;
   margin-bottom: 5px;
   color: #505a5f;
@@ -142,11 +145,24 @@
 .app-ask__answer {
   margin-bottom: 40px;
   padding: 15px 20px;
-  border: 2px solid $govuk-mid-grey;
+  border: 2px solid $defra-green;
 }
 
 .app-ask__answer > :last-child {
   margin-bottom: 0;
+}
+
+// The sources were a heading and two bare links floating at the end of the
+// answer. The rule above them ties them to it, and the bullets make them read
+// as a list of places to go rather than loose text.
+.app-ask__check {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px solid $defra-green;
+}
+
+.app-ask__check-heading {
+  margin-bottom: 10px;
 }
 
 // Sits at the end of the answer, before the guidance it used. Not the GOV.UK
@@ -156,7 +172,7 @@
   display: flex;
   align-items: flex-start;
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   font-size: 16px;
 }
 
@@ -225,12 +241,10 @@
   overflow-wrap: break-word;
 }
 
-.app-ask__sources li {
-  margin-bottom: 10px;
+.app-ask__sources {
+  margin-bottom: 0;
 }
 
-.app-ask__source-section {
-  display: block;
-  color: #505a5f;
-  font-size: 16px;
+.app-ask__sources li {
+  margin-bottom: 5px;
 }
