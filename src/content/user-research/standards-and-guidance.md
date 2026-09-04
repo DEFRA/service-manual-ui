@@ -27,10 +27,9 @@ sectionNav:
         href: /user-research/analysis-and-synthesis
 supportBox:
   title: Get support
-  description: Check the UR community at Defra DDTS (includes suppliers) Teams channel, or contact the Defra data protection team.
+  description: Check the UR community at Defra DDTS (includes suppliers) Teams channel.
   items:
     - 'If you need access, email:<br><a href="mailto:User-ResearchResourceManagers@defra.gov.uk" class="govuk-link">User-ResearchResourceManagers@defra.gov.uk</a>'
-    - 'Data protection: <a href="mailto:Data.protection@defra.gov.uk" class="govuk-link">Data.protection@defra.gov.uk</a>'
 ---
 
 ## External user research standards
