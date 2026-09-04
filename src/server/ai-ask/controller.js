@@ -72,6 +72,14 @@ function renderConversation (
   return h.view('ai-ask/conversation', {
     ...baseView(),
     pageTitle: latest.question,
+    // The last crumb is the current page and carries no link. Linking it to
+    // the front door would send someone straight back here, since the front
+    // door redirects into an open conversation.
+    breadcrumbs: [
+      { text: 'Digital Defra', href: '/' },
+      { text: 'AI digital toolkit', href: '/ai-toolkit' },
+      { text: 'Ask the toolkit' }
+    ],
     questionLabel: 'Ask a follow-up question',
     questionHint:
       'It remembers this conversation, so you can build on the answer above. Do not include personal or sensitive information.',
