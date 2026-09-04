@@ -29,28 +29,21 @@
 }
 
 // ── The question row ──
-// Field and button sit on one row. This is a deliberate departure from the
-// Design System, which puts the primary button below the form. The precedent
-// is GOV.UK Chat, which does the same for the same reason: asking a question
-// is one small act, not the end of a form, and a button on the next line reads
-// as "submit this page" rather than "ask this".
+// The button sits below the field, left aligned, as the Design System says a
+// primary action should.
 //
-// The button is a sibling of the field, positioned with flexbox. It is never
-// placed inside or over the field: an overlaid control collides with the
-// person's own text at 400% zoom, which fails WCAG 1.4.10 reflow.
-
-// The button sits at the foot of the field, so the two line up along the
-// bottom edge. Stretching it to the full height of a field this tall would
-// give a slab of green bigger than the thing it submits.
-.app-ask__row {
-  display: flex;
-  align-items: flex-end;
-}
+// It was beside the field while the field was two rows, following GOV.UK Chat.
+// That stopped working once the field grew to invite a proper question: a
+// short button next to a tall field either floats against the field's bottom
+// corner or stretches into a slab of green bigger than the thing it submits.
+// The two choices are linked. A roomy field wants its button underneath.
+//
+// The button is never placed inside or over the field, which is what every
+// commercial assistant does. An overlaid control collides with the person's
+// own text at 400% zoom, failing WCAG 1.4.10 reflow.
 
 .app-ask__field {
-  flex-grow: 1;
-  margin-right: 10px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .app-ask__input.govuk-textarea {
@@ -62,7 +55,6 @@
 // Defra green, matching the primary buttons used elsewhere in the toolkit.
 // The shadow is the darker green the Design System expects underneath.
 .app-ask__send.govuk-button {
-  flex-shrink: 0;
   min-width: 100px;
   margin-bottom: 0;
   background-color: $defra-green;
@@ -70,23 +62,6 @@
 
   &:hover {
     background-color: color.adjust($defra-green, $lightness: -8%);
-  }
-}
-
-// Below the tablet breakpoint the row squeezes the field too narrow to read
-// what you have typed, so it stacks and the button goes full width.
-@media (max-width: 40.0625em) {
-  .app-ask__row {
-    display: block;
-  }
-
-  .app-ask__field {
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-
-  .app-ask__send.govuk-button {
-    width: 100%;
   }
 }
 
@@ -119,16 +94,11 @@
   padding-left: 20px;
 }
 
+// The GOV.UK Tag component carries the label. Sentence case, as the rebrand
+// made the default and as the house style requires.
 .app-ask__tag {
   margin-left: 5px;
-  padding: 2px 8px;
-  border: 1px solid $govuk-mid-grey;
-  background-color: $govuk-light-grey;
-  color: $govuk-black;
-  font-size: 16px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  vertical-align: baseline;
 }
 
 // ── The quoted rule ──

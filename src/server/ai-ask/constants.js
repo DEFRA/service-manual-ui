@@ -25,7 +25,7 @@ export const QUESTION_ROWS = 4
 export const SUPPORT_BOX = {
   title: 'Get help from a person',
   description:
-    'Ask the toolkit cannot approve anything or look at your project.',
+    'For advice on your own project, or anything that needs a decision, the team is there to help.',
   items: [
     'Email the <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit" class="govuk-link">AI Capability and Enablement team</a>'
   ]

@@ -20,18 +20,16 @@
       <span class="govuk-visually-hidden">Error:</span> {{ error }}
     </p>
     {% endif %}
-    <div class="app-ask__row">
-      <div class="app-ask__field">
-        <textarea
-          class="govuk-textarea app-ask__input{% if error %} govuk-textarea--error{% endif %}"
-          id="question"
-          name="question"
-          rows="{{ questionRows }}"
-          aria-describedby="question-hint{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
-      </div>
-      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
-        Ask<span class="govuk-visually-hidden"> the toolkit</span>
-      </button>
+    <div class="app-ask__field">
+      <textarea
+        class="govuk-textarea app-ask__input{% if error %} govuk-textarea--error{% endif %}"
+        id="question"
+        name="question"
+        rows="{{ questionRows }}"
+        aria-describedby="question-hint{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
     </div>
+    <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+      Ask<span class="govuk-visually-hidden"> the toolkit</span>
+    </button>
   </div>
 </form>
