@@ -67,7 +67,38 @@
   }
 }
 
+// ── Asking again ──
+// On the front door the box is the hero. Here it is the next step after an
+// answer, so it takes no border: a second bordered box competing with the
+// answer above it would read as the more important of the two.
+.app-ask__followup {
+  margin-bottom: 30px;
+}
+
 // ── Conversation ──
+
+// The question that produced the answer heads the page. Long questions wrap
+// rather than being cut off, since a question trimmed mid-sentence reads as a
+// different question.
+.app-ask__question-heading {
+  margin-bottom: 25px;
+}
+
+.app-ask__previous {
+  margin-bottom: 30px;
+}
+
+.app-ask__earlier {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid $govuk-mid-grey;
+}
+
+.app-ask__earlier:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
 
 .app-ask__messages {
   margin-bottom: 30px;

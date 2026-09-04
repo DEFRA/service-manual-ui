@@ -5,7 +5,7 @@
 
 {% block pageTitle %}
   {%- if error %}Error: {% endif -%}
-  {{ pageTitle }} | {{ headerServiceName }}
+  {{ pageTitle | truncate(60) }} | {{ headerServiceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,64 +27,42 @@
       }) }}
     {% endif %}
 
-    <h1 class="govuk-visually-hidden">Your questions and answers</h1>
+    {# The question just asked heads the page. It is what makes this page
+       different from the last one, and it is what orients someone arriving
+       here, in the same way a search results page leads with the search. #}
+    <span class="govuk-caption-l">You asked</span>
+    <h1 class="govuk-heading-l app-ask__question-heading">{{ latest.question }}</h1>
 
-    <ol class="govuk-list app-ask__messages">
-      {% for message in messages %}
-      {% if message.type == 'question' %}
-      <li class="app-ask__message">
-        <p class="app-ask__message-from">You</p>
-        <div class="app-ask__question">{{ message.text }}</div>
-      </li>
-      {% else %}
-      {# The newest answer is the target of the redirect after a question is
-         sent, and takes focus so a screen reader starts there. Without it the
-         page reloads at the top and the whole conversation is read again
-         before the new answer is reached. #}
-      <li class="app-ask__message"{% if loop.last %} id="latest-answer" tabindex="-1"{% endif %}>
-        <p class="app-ask__message-from">
-          Ask the toolkit
-          <strong class="govuk-tag govuk-tag--grey app-ask__tag">AI-generated</strong>
-        </p>
-        <div class="app-ask__answer">
+    {% set answer = latest.answer %}
+    {% include "partials/ask-answer.njk" %}
 
-          {% if message.answer.message %}
-          <p class="govuk-body">{{ message.answer.message }}</p>
-          {% endif %}
-
-          {% if message.answer.rule %}
-          <blockquote class="app-ask__rule">
-            <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
-            <p class="app-ask__rule-text govuk-body">{{ message.answer.rule.text }}</p>
-            <p class="app-ask__rule-source">
-              <a class="govuk-link" href="{{ message.answer.rule.source.url }}">{{ message.answer.rule.source.title }}</a>{% if message.answer.rule.source.section %}, {{ message.answer.rule.source.section }}{% endif %}
-            </p>
-          </blockquote>
-          {% endif %}
-
-          {% if message.answer.sources | length %}
-          <h2 class="govuk-heading-s">Check this answer</h2>
-          <ul class="govuk-list app-ask__sources">
-            {% for source in message.answer.sources %}
-            <li>
-              <a class="govuk-link" href="{{ source.url }}">{{ source.title }}</a>
-              {% if source.section %}<span class="app-ask__source-section">{{ source.section }}</span>{% endif %}
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-
-        </div>
-      </li>
-      {% endif %}
-      {% endfor %}
-    </ol>
-
+    {# The next question sits directly under the answer it follows on from,
+       not at the foot of a page that grows with every question asked. #}
     {% include "partials/ask-question-form.njk" %}
 
-    <div class="defra-callout app-ask__stuck">
+    {% if previous | length %}
+    <details class="govuk-details app-ask__previous">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          {% if previous | length == 1 %}1 earlier question{% else %}{{ previous | length }} earlier questions{% endif %}
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        {% for exchange in previous %}
+        <div class="app-ask__earlier">
+          <span class="govuk-caption-m">You asked</span>
+          <h2 class="govuk-heading-s">{{ exchange.question }}</h2>
+          {% set answer = exchange.answer %}
+          {% include "partials/ask-answer.njk" %}
+        </div>
+        {% endfor %}
+      </div>
+    </details>
+    {% endif %}
+
+    <div class="defra-support-box">
       <h2 class="govuk-heading-m">Are you stuck?</h2>
-      <p class="govuk-body">If the answers have not got you what you need, contact the AI Capability and Enablement team.</p>
+      <p class="govuk-body">If this has not got you what you need, contact the AI Capability and Enablement team.</p>
       <form method="post" action="/ai-toolkit/ask/stuck">
         <div class="govuk-form-group">
           <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">

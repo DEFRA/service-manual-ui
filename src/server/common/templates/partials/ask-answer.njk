@@ -1,0 +1,34 @@
+{# One answer. Used for the answer leading the page and for each one folded
+   away under previous questions, so the two can never drift apart. #}
+<div class="app-ask__answer">
+  <p class="app-ask__message-from">
+    Ask the toolkit
+    <strong class="govuk-tag govuk-tag--grey app-ask__tag">AI-generated</strong>
+  </p>
+
+  {% if answer.message %}
+  <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
+  {% if answer.rule %}
+  <blockquote class="app-ask__rule">
+    <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
+    <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
+    <p class="app-ask__rule-source">
+      <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>{% if answer.rule.source.section %}, {{ answer.rule.source.section }}{% endif %}
+    </p>
+  </blockquote>
+  {% endif %}
+
+  {% if answer.sources | length %}
+  <h3 class="govuk-heading-s">Check this answer</h3>
+  <ul class="govuk-list app-ask__sources">
+    {% for source in answer.sources %}
+    <li>
+      <a class="govuk-link" href="{{ source.url }}">{{ source.title }}</a>
+      {% if source.section %}<span class="app-ask__source-section">{{ source.section }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

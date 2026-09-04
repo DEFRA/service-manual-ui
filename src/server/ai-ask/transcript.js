@@ -8,18 +8,18 @@ const SUBJECT = 'Ask the toolkit: I need help'
  * @param {Array<object>} messages
  * @returns {string}
  */
-export function toPlainText (messages) {
-  return messages
-    .map((message) => {
-      if (message.type === 'question') {
-        return `You asked:\n${message.text}`
-      }
-
-      const answer = message.answer
-      const parts = [`Ask the toolkit answered:\n${answer.message ?? ''}`]
+export function toPlainText (exchanges) {
+  return exchanges
+    .map(({ question, answer }) => {
+      const parts = [
+        `You asked:\n${question}`,
+        `Ask the toolkit answered:\n${answer.message ?? ''}`
+      ]
 
       if (answer.rule) {
-        parts.push(`It quoted this rule:\n"${answer.rule.text}"\nFrom: ${answer.rule.source.title}`)
+        parts.push(
+          `It quoted this rule:\n"${answer.rule.text}"\nFrom: ${answer.rule.source.title}`
+        )
       }
 
       if (answer.sources.length) {
@@ -42,18 +42,18 @@ export function toPlainText (messages) {
  * the link carries no conversation and the page tells them to paste it in,
  * rather than the mail client silently cutting the end off.
  * @param {object} params
- * @param {Array<object>} params.messages
+ * @param {Array<object>} params.exchanges
  * @param {boolean} params.includeConversation
  * @returns {{ href: string, conversationIncluded: boolean }}
  */
-export function buildContactLink ({ messages, includeConversation }) {
+export function buildContactLink ({ exchanges, includeConversation }) {
   const base = `mailto:${AICE_EMAIL}?subject=${encodeURIComponent(SUBJECT)}`
 
   if (!includeConversation) {
     return { href: base, conversationIncluded: false }
   }
 
-  const body = `I could not find what I needed with Ask the toolkit.\n\nHere is what I asked:\n\n${toPlainText(messages)}`
+  const body = `I could not find what I needed with Ask the toolkit.\n\nHere is what I asked:\n\n${toPlainText(exchanges)}`
   const href = `${base}&body=${encodeURIComponent(body)}`
 
   return href.length > MAX_MAILTO_LENGTH

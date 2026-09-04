@@ -55,17 +55,27 @@ function renderAsk (h, { question = '', error = null } = {}) {
 }
 
 /**
+ * The answer just given leads the page, so the page is titled and headed by
+ * the question that produced it. Everything earlier folds away below.
  * @param {object} h - Hapi response toolkit
- * @param {Array<object>} messages
+ * @param {Array<object>} exchanges
  * @param {object} options
  * @returns {object} The conversation
  */
-function renderConversation (h, messages, { question = '', error = null } = {}) {
+function renderConversation (
+  h,
+  exchanges,
+  { question = '', error = null } = {}
+) {
+  const { latest, previous } = session.splitConversation(exchanges)
+
   return h.view('ai-ask/conversation', {
     ...baseView(),
-    pageTitle: 'Your questions and answers',
+    pageTitle: latest.question,
     questionLabel: 'Ask another question',
-    messages,
+    questionFormClass: 'app-ask__followup',
+    latest,
+    previous,
     question,
     error
   })
@@ -77,7 +87,7 @@ export const askController = {
     // front door, because asking from here would silently append to a
     // conversation they cannot see. Starting a new one clears the session
     // first, so this redirect does not fire.
-    if (session.getMessages(request.yar).length) {
+    if (session.getExchanges(request.yar).length) {
       return h.redirect(conversationPath).code(statusCodes.seeOther)
     }
 
@@ -88,38 +98,35 @@ export const askController = {
 export const askPostController = {
   handler (request, h) {
     const { question, error } = validateQuestion(request.payload?.question)
-    const messages = session.getMessages(request.yar)
+    const exchanges = session.getExchanges(request.yar)
 
     if (error) {
-      return messages.length
-        ? renderConversation(h, messages, { question, error })
+      return exchanges.length
+        ? renderConversation(h, exchanges, { question, error })
         : renderAsk(h, { question, error })
     }
 
-    session.addMessage(request.yar, { type: 'question', text: question })
-    session.addMessage(request.yar, {
-      type: 'answer',
+    session.addExchange(request.yar, {
+      question,
       answer: toViewModel(fixtureAnswerFor(question))
     })
 
     // Redirect after a successful post, so a refresh does not ask again. The
-    // fragment lands on the answer just given rather than the top of a
-    // conversation the person has already read.
-    return h
-      .redirect(`${conversationPath}#latest-answer`)
-      .code(statusCodes.seeOther)
+    // new answer leads the page, so this lands at the top of it and needs no
+    // fragment to skip past what has already been read.
+    return h.redirect(conversationPath).code(statusCodes.seeOther)
   }
 }
 
 export const conversationController = {
   handler (request, h) {
-    const messages = session.getMessages(request.yar)
+    const exchanges = session.getExchanges(request.yar)
 
-    if (!messages.length) {
+    if (!exchanges.length) {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    return renderConversation(h, messages)
+    return renderConversation(h, exchanges)
   }
 }
 
@@ -133,16 +140,16 @@ export const restartController = {
 
 export const stuckController = {
   handler (request, h) {
-    const messages = session.getMessages(request.yar)
+    const exchanges = session.getExchanges(request.yar)
 
-    if (!messages.length) {
+    if (!exchanges.length) {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
     // Nothing from the conversation is shared unless it was asked for.
     const includeConversation = request.payload?.includeConversation === 'yes'
     const { href, conversationIncluded } = buildContactLink({
-      messages,
+      exchanges,
       includeConversation
     })
 
@@ -152,7 +159,7 @@ export const stuckController = {
       contactHref: href,
       conversationIncluded,
       conversationRequested: includeConversation,
-      transcript: toPlainText(messages)
+      transcript: toPlainText(exchanges)
     })
   }
 }

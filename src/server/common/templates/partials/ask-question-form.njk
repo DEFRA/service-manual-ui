@@ -8,7 +8,7 @@
    out of the way until the question is nearly too long. Without JavaScript the
    limit shows as a static line and the server still rejects anything over it
    with a specific error. #}
-<form method="post" action="/ai-toolkit/ask" class="app-ask__panel">
+<form method="post" action="/ai-toolkit/ask" class="{{ questionFormClass | default('app-ask__panel') }}">
   <div class="govuk-character-count"
     data-module="govuk-character-count"
     data-maxlength="{{ maxQuestionLength }}"

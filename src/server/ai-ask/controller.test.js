@@ -123,16 +123,26 @@ describe('#askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe(
-        '/ai-toolkit/ask/conversation#latest-answer'
-      )
+      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
     })
 
-    test('lands on the new answer rather than the top of the page', async () => {
+    test('leads the page with the question just asked', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining('id="latest-answer" tabindex="-1"')
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l app-ask__question-heading">How do I choose a tool?</h1>'
+        )
+      )
+    })
+
+    test('titles the page with the question, so tabs and history differ', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<title>How do I choose a tool? | AI digital toolkit'
+        )
       )
     })
 

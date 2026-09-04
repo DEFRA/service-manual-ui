@@ -4,9 +4,8 @@ import { toPlainText, buildContactLink } from './transcript.js'
 import { MAX_MAILTO_LENGTH } from './constants.js'
 
 const conversation = [
-  { type: 'question', text: 'Can I use Copilot with personal data?' },
   {
-    type: 'answer',
+    question: 'Can I use Copilot with personal data?',
     answer: {
       status: 'answered',
       message: 'Defra data boundary applies.',
@@ -37,7 +36,7 @@ describe('#toPlainText', () => {
 describe('#buildContactLink', () => {
   test('leaves the conversation out unless it was asked for', () => {
     const { href, conversationIncluded } = buildContactLink({
-      messages: conversation,
+      exchanges: conversation,
       includeConversation: false
     })
 
@@ -48,7 +47,7 @@ describe('#buildContactLink', () => {
 
   test('includes the conversation when it was asked for', () => {
     const { href, conversationIncluded } = buildContactLink({
-      messages: conversation,
+      exchanges: conversation,
       includeConversation: true
     })
 
@@ -63,7 +62,7 @@ describe('#buildContactLink', () => {
     const long = Array.from({ length: 40 }, () => conversation).flat()
 
     const { href, conversationIncluded } = buildContactLink({
-      messages: long,
+      exchanges: long,
       includeConversation: true
     })
 
@@ -74,7 +73,7 @@ describe('#buildContactLink', () => {
 
   test('always addresses the team', () => {
     const { href } = buildContactLink({
-      messages: conversation,
+      exchanges: conversation,
       includeConversation: true
     })
 
