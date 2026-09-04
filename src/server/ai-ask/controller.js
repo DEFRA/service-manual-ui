@@ -95,8 +95,12 @@ export const askPostController = {
       answer: toViewModel(fixtureAnswerFor(question))
     })
 
-    // Redirect after a successful post, so a refresh does not ask again.
-    return h.redirect(conversationPath).code(statusCodes.seeOther)
+    // Redirect after a successful post, so a refresh does not ask again. The
+    // fragment lands on the answer just given rather than the top of a
+    // conversation the person has already read.
+    return h
+      .redirect(`${conversationPath}#latest-answer`)
+      .code(statusCodes.seeOther)
   }
 }
 

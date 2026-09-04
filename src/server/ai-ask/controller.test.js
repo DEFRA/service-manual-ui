@@ -109,7 +109,7 @@ describe('#askController', () => {
 
       return server.inject({
         method: 'GET',
-        url: posted.headers.location,
+        url: posted.headers.location.split('#')[0],
         headers: { cookie: posted.headers['set-cookie']?.[0].split(';')[0] }
       })
     }
@@ -123,7 +123,17 @@ describe('#askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
+      expect(headers.location).toBe(
+        '/ai-toolkit/ask/conversation#latest-answer'
+      )
+    })
+
+    test('lands on the new answer rather than the top of the page', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('id="latest-answer" tabindex="-1"')
+      )
     })
 
     test('shows the question back to the person who asked it', async () => {

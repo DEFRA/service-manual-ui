@@ -11,7 +11,7 @@
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: { text: "Beta" },
-    html: 'This is a new service. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit">Give feedback</a> to help us improve it.'
+    html: 'This is a new service. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20feedback">Give feedback</a> to help us improve it.'
   }) }}
   {{ super() }}
 {% endblock %}
@@ -37,7 +37,11 @@
         <div class="app-ask__question">{{ message.text }}</div>
       </li>
       {% else %}
-      <li class="app-ask__message">
+      {# The newest answer is the target of the redirect after a question is
+         sent, and takes focus so a screen reader starts there. Without it the
+         page reloads at the top and the whole conversation is read again
+         before the new answer is reached. #}
+      <li class="app-ask__message"{% if loop.last %} id="latest-answer" tabindex="-1"{% endif %}>
         <p class="app-ask__message-from">
           Ask the toolkit
           <strong class="govuk-tag govuk-tag--grey app-ask__tag">AI-generated</strong>

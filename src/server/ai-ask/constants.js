@@ -32,6 +32,6 @@ export const SUPPORT_BOX = {
   description:
     'For advice on your own project, or anything that needs a decision, the team is there to help.',
   items: [
-    'Email the <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit" class="govuk-link">AI Capability and Enablement team</a>'
+    'Email the <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20help%20with%20my%20project" class="govuk-link">AI Capability and Enablement team</a>'
   ]
 }
