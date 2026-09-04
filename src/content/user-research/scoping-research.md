@@ -27,9 +27,10 @@ sectionNav:
         href: /user-research/analysis-and-synthesis
 supportBox:
   title: Get support
-  description: Contact the user research operations team for further support.
+  description: Ask the user research community for help.
   items:
-    - 'Email: <a href="mailto:DDTSUserResearchOperations@defra.gov.uk" class="govuk-link">DDTSUserResearchOperations@defra.gov.uk</a>'
+    - 'Teams channel: UR community at Defra DDTS (includes suppliers)'
+    - 'To request access, email: <a href="mailto:User-ResearchResourceManagers@defra.gov.uk" class="govuk-link">User-ResearchResourceManagers@defra.gov.uk</a>'
 ---
 
 <p class="govuk-body-l">Defra user researchers:</p>
