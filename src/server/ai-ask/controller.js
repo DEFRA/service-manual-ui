@@ -4,6 +4,7 @@ import { statusCodes } from '../common/constants/status-codes.js'
 import { QUESTION_ROWS, SUPPORT_BOX } from './constants.js'
 import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
+import { buildContactLink, toPlainText } from './transcript.js'
 import { fixtureAnswerFor } from './__fixtures__/answers.js'
 import * as session from './session.js'
 
@@ -65,11 +66,15 @@ function renderConversation (h, messages, { question = '', error = null } = {}) 
 
 export const askController = {
   handler (request, h) {
-    // A question in the query string means someone picked an example. It is
-    // put in the box rather than asked, so they can change it first.
-    const question = request.query.question ?? ''
+    // Someone with a conversation open goes back to it rather than to a blank
+    // front door, because asking from here would silently append to a
+    // conversation they cannot see. Starting a new one clears the session
+    // first, so this redirect does not fire.
+    if (session.getMessages(request.yar).length) {
+      return h.redirect(conversationPath).code(statusCodes.seeOther)
+    }
 
-    return renderAsk(h, { question })
+    return renderAsk(h)
   }
 }
 
@@ -112,5 +117,31 @@ export const restartController = {
     session.clearConversation(request.yar)
 
     return h.redirect(askPath).code(statusCodes.seeOther)
+  }
+}
+
+export const stuckController = {
+  handler (request, h) {
+    const messages = session.getMessages(request.yar)
+
+    if (!messages.length) {
+      return h.redirect(askPath).code(statusCodes.seeOther)
+    }
+
+    // Nothing from the conversation is shared unless it was asked for.
+    const includeConversation = request.payload?.includeConversation === 'yes'
+    const { href, conversationIncluded } = buildContactLink({
+      messages,
+      includeConversation
+    })
+
+    return h.view('ai-ask/contact', {
+      ...baseView(),
+      pageTitle: 'Contact the AI Capability and Enablement team',
+      contactHref: href,
+      conversationIncluded,
+      conversationRequested: includeConversation,
+      transcript: toPlainText(messages)
+    })
   }
 }

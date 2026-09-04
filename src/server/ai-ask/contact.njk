@@ -1,0 +1,50 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+{% block pageTitle %}{{ pageTitle }} | {{ headerServiceName }}{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: { text: "Beta" },
+    html: 'This is a new service. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit">Give feedback</a> to help us improve it.'
+  }) }}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Contact the team</h1>
+
+    <p class="govuk-body-l">Your email opens in your own mail app, so you can read it before it goes.</p>
+
+    <p class="govuk-body">
+      <a class="govuk-button" href="{{ contactHref }}" data-module="govuk-button" role="button" draggable="false">
+        Open your email
+      </a>
+    </p>
+
+    {% if conversationRequested and not conversationIncluded %}
+    <h2 class="govuk-heading-m">Your conversation was too long to add</h2>
+    <p class="govuk-body">Copy it from below and paste it into the email.</p>
+    {% elif conversationIncluded %}
+    <h2 class="govuk-heading-m">What is in the email</h2>
+    <p class="govuk-body">Your questions and answers are included, exactly as below.</p>
+    {% else %}
+    <h2 class="govuk-heading-m">Your conversation</h2>
+    <p class="govuk-body">This is not in the email. Copy it in if you want the team to see it.</p>
+    {% endif %}
+
+    {# Not pre or code. This is prose with line breaks, and code markup makes
+       some screen readers announce it as code. The wrapping is done in CSS. #}
+    <div class="app-ask__transcript govuk-body">{{ transcript }}</div>
+
+    <p class="govuk-body">
+      <a class="govuk-link" href="/ai-toolkit/ask/conversation">Back to your conversation</a>
+    </p>
+
+  </div>
+</div>
+{% endblock %}

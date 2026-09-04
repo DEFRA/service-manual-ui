@@ -195,6 +195,131 @@ describe('#askController', () => {
     })
   })
 
+  describe('keeping conversations apart', () => {
+    /**
+     * Asks a question and returns the session cookie it was stored against.
+     * @returns {Promise<string>}
+     */
+    async function startConversation () {
+      const { headers } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'question=How%20do%20I%20choose%20a%20tool%3F',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      return headers['set-cookie'][0].split(';')[0]
+    }
+
+    test('the front door is the front door when nothing has been asked', async () => {
+      const { statusCode } = await server.inject({ method: 'GET', url: askUrl })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('going back to the front door mid-conversation returns to the conversation', async () => {
+      const cookie = await startConversation()
+
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: askUrl,
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
+    })
+
+    test('starting a new conversation drops what went before', async () => {
+      const cookie = await startConversation()
+
+      const restarted = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/restart',
+        headers: { cookie }
+      })
+      expect(restarted.statusCode).toBe(statusCodes.seeOther)
+
+      const after = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/conversation',
+        headers: { cookie }
+      })
+
+      expect(after.statusCode).toBe(statusCodes.seeOther)
+      expect(after.headers.location).toBe(askUrl)
+    })
+  })
+
+  describe('contacting the team when stuck', () => {
+    /**
+     * @param {boolean} includeConversation
+     * @returns {Promise<object>} The rendered contact page
+     */
+    async function getStuck (includeConversation) {
+      const started = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'question=Can%20I%20use%20Copilot%20with%20personal%20data%3F',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+      const cookie = started.headers['set-cookie'][0].split(';')[0]
+
+      return server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: includeConversation ? 'includeConversation=yes' : '',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+    }
+
+    test('offers a way to reach the team from the conversation', async () => {
+      const started = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'question=How%20do%20I%20choose%20a%20tool%3F',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+      const cookie = started.headers['set-cookie'][0].split(';')[0]
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/conversation',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('Are you stuck?'))
+      expect(result).toEqual(expect.stringContaining('name="includeConversation"'))
+    })
+
+    test('shares nothing from the conversation unless asked', async () => {
+      const { statusCode, result } = await getStuck(false)
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).not.toEqual(expect.stringContaining('amp;body='))
+    })
+
+    test('puts the conversation in the email when asked', async () => {
+      const { statusCode, result } = await getStuck(true)
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('amp;body='))
+      expect(result).toEqual(expect.stringContaining('What is in the email'))
+    })
+
+    test('sends someone with no conversation back to the start', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: '',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
+    })
+  })
+
   describe('the navigation link on other toolkit pages', () => {
     test.each([
       ['the toolkit landing page', '/ai-toolkit'],

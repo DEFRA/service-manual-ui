@@ -78,11 +78,29 @@
 
     {% include "partials/ask-question-form.njk" %}
 
-    <p class="govuk-body">
-      <a class="govuk-link" href="/ai-toolkit/ask/restart">Ask about something else</a>
-    </p>
+    <div class="defra-callout app-ask__stuck">
+      <h2 class="govuk-heading-m">Are you stuck?</h2>
+      <p class="govuk-body">If the answers have not got you what you need, contact the AI Capability and Enablement team.</p>
+      <form method="post" action="/ai-toolkit/ask/stuck">
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="include-conversation" name="includeConversation" type="checkbox" value="yes">
+              <label class="govuk-label govuk-checkboxes__label" for="include-conversation">
+                Send my questions and answers too, so the team can see what I tried
+              </label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Contact the team
+        </button>
+      </form>
+    </div>
 
-    {% include "partials/support-box.njk" %}
+    <p class="govuk-body">
+      <a class="govuk-link" href="/ai-toolkit/ask/restart">Start a new conversation</a>
+    </p>
 
   </div>
 </div>

@@ -138,6 +138,22 @@
   font-size: 16px;
 }
 
+.app-ask__stuck {
+  margin-top: 30px;
+}
+
+// The transcript is shown so it can be read and copied, so it wraps rather
+// than scrolling sideways.
+.app-ask__transcript {
+  padding: 20px;
+  background-color: #f3f3f3;
+  border: 1px solid $govuk-mid-grey;
+  margin-bottom: 30px;
+  font-size: 16px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
 .app-ask__sources li {
   margin-bottom: 10px;
 }

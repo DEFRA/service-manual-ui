@@ -6,6 +6,11 @@
 // short enough to keep what reaches the model bounded.
 export const MAX_QUESTION_LENGTH = 500
 
+// Longest mailto link we will build. Mail clients and browsers start dropping
+// or refusing longer ones, and a silently truncated email is worse than one
+// the person pastes into themselves.
+export const MAX_MAILTO_LENGTH = 1900
+
 // Route payload cap for the question form (8 KB in bytes).
 // 500 chars URL-encoded (~3 bytes/char worst case) plus field overhead.
 export const MAX_PAYLOAD_BYTES = 8192

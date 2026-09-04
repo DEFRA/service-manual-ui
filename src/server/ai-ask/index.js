@@ -4,7 +4,8 @@ import {
   askController,
   askPostController,
   conversationController,
-  restartController
+  restartController,
+  stuckController
 } from './controller.js'
 import { MAX_PAYLOAD_BYTES } from './constants.js'
 
@@ -60,6 +61,12 @@ export const aiAsk = {
           method: 'GET',
           path: '/ai-toolkit/ask/restart',
           ...restartController
+        },
+        {
+          method: 'POST',
+          path: '/ai-toolkit/ask/stuck',
+          options: { payload: formPayload },
+          ...stuckController
         }
       ])
     }
