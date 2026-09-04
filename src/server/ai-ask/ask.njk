@@ -31,7 +31,23 @@
 
     <p class="govuk-body-l">Get an answer, with a link to the guidance it came from.</p>
 
+  </div>
+</div>
+
+{# The question box runs wider than the prose around it, so the primary action
+   is not stranded in two-thirds of an otherwise empty page. Three quarters
+   rather than the full width: at full width the field either runs past the 75
+   characters a line the layout guidance asks for, or is held back and leaves a
+   band of empty grey beside it. At three quarters the field fills its box and
+   still lands inside the reading measure. #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
     {% include "partials/ask-question-form.njk" %}
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
     <p class="govuk-body">AI-generated answers can be wrong, so check the guidance they link to.</p>
 

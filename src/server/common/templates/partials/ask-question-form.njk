@@ -22,7 +22,7 @@
     {% endif %}
     <div class="app-ask__field">
       <textarea
-        class="govuk-textarea app-ask__input{% if error %} govuk-textarea--error{% endif %}"
+        class="govuk-textarea app-ask__input{% if questionWidthClass %} {{ questionWidthClass }}{% endif %}{% if error %} govuk-textarea--error{% endif %}"
         id="question"
         name="question"
         rows="{{ questionRows }}"
