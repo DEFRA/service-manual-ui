@@ -1,0 +1,170 @@
+@use '../variables/colours' as *;
+@use 'sass:color';
+
+// ===== Ask the toolkit =====
+
+// ── The ask panel ──
+// The question is the whole point of the page, so it gets a panel of its own
+// rather than sitting in the flow as one more form field. Defra green on the
+// palest green, which reads as the primary thing to do without borrowing the
+// hero treatment used on section landing pages.
+
+.app-ask__panel {
+  margin-bottom: 30px;
+  padding: 25px 30px;
+  border: 2px solid $defra-green;
+  background-color: $defra-light-green;
+}
+
+.app-ask__panel > :last-child {
+  margin-bottom: 0;
+}
+
+// ── The question row ──
+// Field and button sit on one row. This is a deliberate departure from the
+// Design System, which puts the primary button below the form. The precedent
+// is GOV.UK Chat, which does the same for the same reason: asking a question
+// is one small act, not the end of a form, and a button on the next line reads
+// as "submit this page" rather than "ask this".
+//
+// The button is a sibling of the field, positioned with flexbox. It is never
+// placed inside or over the field: an overlaid control collides with the
+// person's own text at 400% zoom, which fails WCAG 1.4.10 reflow.
+
+// The button stretches to the height of the field so the pair reads as one
+// control rather than a box with a smaller box next to it.
+.app-ask__row {
+  display: flex;
+  align-items: stretch;
+}
+
+.app-ask__field {
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.app-ask__input.govuk-textarea {
+  // The resize handle would pull the row out of alignment horizontally.
+  resize: vertical;
+  margin-bottom: 0;
+}
+
+// Defra green, matching the primary buttons used elsewhere in the toolkit.
+// The shadow is the darker green the Design System expects underneath.
+.app-ask__send.govuk-button {
+  flex-shrink: 0;
+  min-width: 100px;
+  margin-bottom: 0;
+  background-color: $defra-green;
+  box-shadow: 0 2px 0 #003514;
+
+  &:hover {
+    background-color: color.adjust($defra-green, $lightness: -8%);
+  }
+}
+
+// Below the tablet breakpoint the row squeezes the field too narrow to read
+// what you have typed, so it stacks and the button goes full width.
+@media (max-width: 40.0625em) {
+  .app-ask__row {
+    display: block;
+  }
+
+  .app-ask__field {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .app-ask__send.govuk-button {
+    width: 100%;
+  }
+}
+
+// ── Conversation ──
+
+.app-ask__messages {
+  margin-bottom: 30px;
+}
+
+.app-ask__message {
+  margin-bottom: 30px;
+}
+
+.app-ask__message-from {
+  margin-bottom: 5px;
+  color: $govuk-black;
+  font-weight: bold;
+}
+
+// The person's own message is the only thing on the page in a box. Generated
+// text is left unboxed, following GOV.UK Chat: boxing everything makes the
+// machine's words look like the more official half of the conversation.
+.app-ask__question {
+  padding: 15px 20px;
+  background-color: $govuk-light-grey;
+}
+
+.app-ask__answer {
+  border-left: 5px solid $defra-green;
+  padding-left: 20px;
+}
+
+.app-ask__tag {
+  margin-left: 5px;
+  padding: 2px 8px;
+  border: 1px solid $govuk-mid-grey;
+  background-color: $govuk-light-grey;
+  color: $govuk-black;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// ── The quoted rule ──
+// A rule with consequences is shown word for word from its source. It has to
+// look different from the sentences the model wrote around it, and it must not
+// rely on colour alone to say so, hence the border, the label and the marks.
+
+.app-ask__rule {
+  margin: 20px 0;
+  padding: 20px 25px;
+  border-left: 5px solid $defra-green;
+  background-color: $defra-light-green;
+}
+
+.app-ask__rule-label {
+  margin-bottom: 10px;
+  color: $govuk-black;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.app-ask__rule-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.app-ask__rule-text::before {
+  content: '\201C';
+}
+
+.app-ask__rule-text::after {
+  content: '\201D';
+}
+
+.app-ask__rule-source {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.app-ask__sources li {
+  margin-bottom: 10px;
+}
+
+.app-ask__source-section {
+  display: block;
+  color: #505a5f;
+  font-size: 16px;
+}

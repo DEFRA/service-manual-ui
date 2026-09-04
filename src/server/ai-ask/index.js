@@ -1,6 +1,12 @@
 import { config } from '../../config/config.js'
 
-import { askController } from './controller.js'
+import {
+  askController,
+  askPostController,
+  conversationController,
+  restartController
+} from './controller.js'
+import { MAX_PAYLOAD_BYTES } from './constants.js'
 
 /**
  * Ask the toolkit routes.
@@ -14,7 +20,7 @@ import { askController } from './controller.js'
  *   so this is what keeps unfinished work out of production.
  *
  * The gate is proved both ways in controller.test.js and
- * controller-enabled.test.js.
+ * controller-gated.test.js.
  */
 export const aiAsk = {
   plugin: {
@@ -27,11 +33,33 @@ export const aiAsk = {
         return
       }
 
+      const formPayload = {
+        parse: true,
+        allow: 'application/x-www-form-urlencoded',
+        maxBytes: MAX_PAYLOAD_BYTES
+      }
+
       server.route([
         {
           method: 'GET',
           path: '/ai-toolkit/ask',
           ...askController
+        },
+        {
+          method: 'POST',
+          path: '/ai-toolkit/ask',
+          options: { payload: formPayload },
+          ...askPostController
+        },
+        {
+          method: 'GET',
+          path: '/ai-toolkit/ask/conversation',
+          ...conversationController
+        },
+        {
+          method: 'GET',
+          path: '/ai-toolkit/ask/restart',
+          ...restartController
         }
       ])
     }

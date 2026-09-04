@@ -48,7 +48,10 @@ describe('#askController', () => {
 
     test.each([
       ['the page heading', 'Ask the toolkit'],
-      ['what the page is for', 'Ask a question about using AI at Defra'],
+      ['what the page is for', 'Get an answer about using AI at Defra'],
+      ['the question field', 'id="question"'],
+      ['a Defra green ask button', 'app-ask__send'],
+      ['the route to a person', 'Get help from a person'],
       ['breadcrumbs', 'govuk-breadcrumbs'],
       ['a breadcrumb back to the toolkit', 'href="/ai-toolkit"']
     ])('renders %s', async (_description, expected) => {
@@ -86,6 +89,109 @@ describe('#askController', () => {
       expect(result).toEqual(
         expect.stringContaining(`href="${askUrl}" aria-current="page"`)
       )
+    })
+  })
+
+  describe('asking a question', () => {
+    /**
+     * Posts a question and follows the redirect, carrying the session cookie
+     * so the conversation is the one this question was added to.
+     * @param {string} question
+     * @returns {Promise<object>} The rendered conversation response
+     */
+    async function ask (question) {
+      const posted = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${encodeURIComponent(question)}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      return server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie: posted.headers['set-cookie']?.[0].split(';')[0] }
+      })
+    }
+
+    test('redirects to the conversation rather than answering in place', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'question=How%20do%20I%20choose%20a%20tool%3F',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe('/ai-toolkit/ask/conversation')
+    })
+
+    test('shows the question back to the person who asked it', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('How do I choose a tool?')
+      )
+    })
+
+    test('labels the answer as AI-generated', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(expect.stringContaining('AI-generated'))
+    })
+
+    test('offers sources to check the answer against', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(expect.stringContaining('Check this answer'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
+      )
+    })
+
+    test('quotes a rule word for word, marked as a quotation', async () => {
+      const { result } = await ask(
+        'Can I use Microsoft 365 Copilot with personal data?'
+      )
+
+      expect(result).toEqual(
+        expect.stringContaining('Quoted from the guidance, word for word')
+      )
+      expect(result).toEqual(
+        expect.stringContaining(
+          'For personal data, the DPIA route is for a service you are building to process it'
+        )
+      )
+    })
+
+    test.each([
+      ['nothing at all', '', 'Enter your question'],
+      ['only spaces', '%20%20%20', 'Enter your question'],
+      ['more than 500 characters', 'a'.repeat(501), 'Your question must be 500 characters or fewer']
+    ])('rejects %s with a specific error', async (_description, payload, expected) => {
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${payload}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(expected))
+      expect(result).toEqual(expect.stringContaining('There is a problem'))
+      expect(result).toEqual(expect.stringContaining('Error: Ask the toolkit'))
+    })
+  })
+
+  describe('the conversation page', () => {
+    test('sends someone with no conversation back to the start', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/conversation'
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
     })
   })
 
