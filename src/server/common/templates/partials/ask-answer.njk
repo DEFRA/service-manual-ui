@@ -16,7 +16,7 @@
     <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
     <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
     <p class="app-ask__rule-source">
-      <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>{% if answer.rule.source.section %}, {{ answer.rule.source.section }}{% endif %}
+      From <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>
     </p>
   </blockquote>
   {% endif %}
@@ -28,13 +28,15 @@
     {% else %}
     <h2 class="govuk-heading-s app-ask__check-heading">Check this answer</h2>
     {% endif %}
-    {# The section is part of the link text rather than a line under it. Only
-       some sources have one, so a separate subtitle left most entries with a
-       dangling gap. This is how GOV.UK Chat writes the same thing. #}
+    {# Page titles only. The section came through as a subtitle like "What the
+       conditions mean", which reads as a stray fragment next to a page name
+       and told nobody anything. The API still carries it, and the right use
+       for it is a link straight to that part of the page rather than a label.
+       #}
     <ul class="govuk-list govuk-list--bullet app-ask__sources">
       {% for source in answer.sources %}
       <li>
-        <a class="govuk-link" href="{{ source.url }}">{{ source.title }}{% if source.section %}: {{ source.section }}{% endif %}</a>
+        <a class="govuk-link" href="{{ source.url }}">{{ source.title }}</a>
       </li>
       {% endfor %}
     </ul>

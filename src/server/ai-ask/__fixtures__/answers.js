@@ -88,16 +88,33 @@ const FOLLOW_UP_OPENINGS = [
   'is that',
   'can i still'
 ]
-const FOLLOW_UP_WORD_COUNT = 6
+
+// Words that only mean something against the question before them. "Can I use
+// it with research data?" is a follow-up; the same sentence naming the tool is
+// not.
+const REFERRING_WORDS = [
+  'it',
+  'that',
+  'this',
+  'they',
+  'them',
+  'those',
+  'these',
+  'instead'
+]
+const FOLLOW_UP_WORD_COUNT = 8
 
 /**
  * @param {string} asked - Lower-cased question
  * @returns {boolean}
  */
 function readsAsFollowUp (asked) {
+  const words = asked.replace(/[^a-z\s]/g, '').split(/\s+/).filter(Boolean)
+
   return (
     FOLLOW_UP_OPENINGS.some((opening) => asked.startsWith(opening)) ||
-    asked.split(/\s+/).length <= FOLLOW_UP_WORD_COUNT
+    words.length <= FOLLOW_UP_WORD_COUNT ||
+    REFERRING_WORDS.some((word) => words.includes(word))
   )
 }
 

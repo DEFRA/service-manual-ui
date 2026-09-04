@@ -93,10 +93,19 @@ function usableRule (ruleVerbatim) {
  * @returns {object}
  */
 export function toViewModel (apiAnswer) {
+  const rule = usableRule(apiAnswer.rule_verbatim)
+
+  // A page already linked from the quotation is not listed again underneath
+  // it. The quotation names where its wording came from, so repeating the same
+  // page two lines below adds nothing and reads as a mistake.
+  const sources = usableSources(apiAnswer.sources).filter(
+    (source) => source.url !== rule?.source.url
+  )
+
   return {
     status: apiAnswer.status,
     message: apiAnswer.message ?? null,
-    rule: usableRule(apiAnswer.rule_verbatim),
-    sources: usableSources(apiAnswer.sources)
+    rule,
+    sources
   }
 }
