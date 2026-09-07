@@ -49,9 +49,9 @@
        would either branch the conversation or silently jump to the end. #}
     {% include "partials/ask-question-form.njk" %}
     {% else %}
-    <p class="govuk-body">
-      <a class="govuk-link" href="{{ latestHref }}">Go to where you got to</a> to carry on asking.
-    </p>
+    {# The back link at the top already returns to the latest answer, so this
+       says why you cannot ask from here rather than repeating that link. #}
+    <p class="govuk-body">You can only ask from the latest answer in a conversation.</p>
     {% endif %}
 
     {# Everything that leaves this answer sits in one block, so nothing trails

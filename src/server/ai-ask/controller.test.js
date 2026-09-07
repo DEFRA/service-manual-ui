@@ -342,7 +342,9 @@ describe('#askController', () => {
         expect.stringContaining('Ask a follow-up question')
       )
       expect(earlier.result).toEqual(
-        expect.stringContaining('Go to where you got to')
+        expect.stringContaining(
+          'You can only ask from the latest answer in a conversation.'
+        )
       )
       expect(latest.result).toEqual(
         expect.stringContaining('Ask a follow-up question')
@@ -364,7 +366,29 @@ describe('#askController', () => {
       expect(result).not.toEqual(expect.stringContaining('<details'))
     })
 
-    test('goes back to the answer before it, not out of the service', async () => {
+    test('goes back to where you got to when reading an earlier answer', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?',
+        'What patterns exist for summarisation?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      // Not answer 2. Stepping back one at a time through a long conversation
+      // is what the list at the foot of the page exists to avoid.
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<a href="/ai-toolkit/ask/answers/3" class="govuk-back-link">Back to where you got to'
+        )
+      )
+    })
+
+    test('goes out of the service from the latest answer', async () => {
       const cookie = await haveConversation([
         'Can I use GitHub Copilot?',
         'How do I choose a tool for my team?'
@@ -373,22 +397,6 @@ describe('#askController', () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/ai-toolkit/ask/answers/2',
-        headers: { cookie }
-      })
-
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<a href="/ai-toolkit/ask/answers/1" class="govuk-back-link">Back to your previous answer'
-        )
-      )
-    })
-
-    test('goes back to the toolkit from the first answer, where there is nothing before it', async () => {
-      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
-
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/ai-toolkit/ask/answers/1',
         headers: { cookie }
       })
 
