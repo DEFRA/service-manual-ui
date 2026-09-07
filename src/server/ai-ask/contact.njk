@@ -18,17 +18,30 @@
 
     <h1 class="govuk-heading-xl">Contact the team</h1>
 
-    <p class="govuk-body-l">Your email opens in your own mail app, so you can read it before it goes.</p>
+    <p class="govuk-body-l">Your email opens in your own mail app, so you can read it and change it before it goes.</p>
 
     <p class="govuk-body">
-      <a class="govuk-button" href="{{ contactHref }}" data-module="govuk-button" role="button" draggable="false">
+      <a class="govuk-button app-ask__send" href="{{ contactHref }}" data-module="govuk-button" role="button" draggable="false">
         Open your email
       </a>
     </p>
 
+    {# Nothing here can tell whether the email was actually sent, so this says
+       what the team does with one when it arrives rather than claiming
+       anything was received. The five working days matches the triage
+       thank-you page, so the two routes to the team promise the same thing. #}
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">A member of the AI Capability and Enablement team reads your email and replies within five working days. They may:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>answer your question directly</li>
+      <li>point you at guidance the toolkit did not find</li>
+      <li>offer a session with one of their practitioners</li>
+    </ul>
+    <p class="govuk-body">You do not need to wait for a reply to <a class="govuk-link" href="/ai-toolkit">carry on using the toolkit</a>.</p>
+
     {% if conversationRequested and not conversationIncluded %}
-    <h2 class="govuk-heading-m">Your conversation was too long to add</h2>
-    <p class="govuk-body">Copy it from below and paste it into the email.</p>
+    <h2 class="govuk-heading-m">Your conversation is too long to add automatically</h2>
+    <p class="govuk-body">An email link can only carry a limited amount of text, and this conversation is over that limit. Nothing has been lost. Copy the text below and paste it into your email after it opens.</p>
     {% elif conversationIncluded %}
     <h2 class="govuk-heading-m">What is in the email</h2>
     <p class="govuk-body">Your questions and answers are included, exactly as below.</p>
