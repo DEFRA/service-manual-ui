@@ -30,11 +30,13 @@ export const QUESTION_COUNT_THRESHOLD = 90
 // 500 chars URL-encoded (~3 bytes/char worst case) plus field overhead.
 export const MAX_PAYLOAD_BYTES = 8192
 
-// Rows on the question field. Deliberately roomy: a field the size of a search
-// box invites a few keywords, and research on retrieval systems across GOV.UK
-// found that vague questions are what produce vague, dead-end answers. A field
-// that looks like somewhere to write a sentence asks for one.
-export const QUESTION_ROWS = 4
+// Rows on the question field. Roomier than a search box, which invites a few
+// keywords, and research on retrieval systems across GOV.UK found that vague
+// questions produce vague, dead-end answers. Not roomier than that: Enter
+// sends, so a field that looks made for paragraphs would invite the line
+// break that sends half a question, and a four-row field outweighed the
+// answer above it on the page.
+export const QUESTION_ROWS = 3
 
 /**
  * The route to a person, shown in the standard support box.

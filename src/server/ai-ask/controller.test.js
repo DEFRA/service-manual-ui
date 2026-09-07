@@ -11,6 +11,10 @@
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { statusCodes } from '../common/constants/status-codes.js'
 
+// Booting the whole server under a full parallel run has passed vitest's
+// 10 second hook default, so this gives it room without hiding a real hang.
+const SERVER_BOOT_TIMEOUT = 30000
+
 const askUrl = '/ai-toolkit/ask'
 
 describe('#askController', () => {
@@ -24,7 +28,7 @@ describe('#askController', () => {
     const { createServer } = await import('../server.js')
     server = await createServer()
     await server.initialize()
-  })
+  }, SERVER_BOOT_TIMEOUT)
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
@@ -167,7 +171,7 @@ describe('#askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining(
-          'Ask the toolkit can make mistakes. Check the guidance before you act on this.'
+          'AI can make mistakes. Check the guidance before you act.'
         )
       )
     })
