@@ -56,9 +56,9 @@
          when someone realises the next question is not a follow-up. A plain
          sentence rather than hint text, because the Design System says not
          to put links in hint text. #}
-      <p class="govuk-body app-ask__restart">Asking about something else? <a class="govuk-link" href="{{ restartHref }}">Start a new conversation</a></p>
+      <p class="govuk-body app-ask__restart">Asking about something else? <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a></p>
     {% elif isLatest %}
-      <p class="govuk-body">This conversation has reached {{ maxExchanges }} questions, which is as long as one can be. <a class="govuk-link" href="{{ restartHref }}">Start a new conversation</a> to keep asking.</p>
+      <p class="govuk-body">This conversation has reached {{ maxExchanges }} questions, which is as long as one can be. <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a> to keep asking.</p>
     {% else %}
       {# The back link at the top already returns to the latest answer, so this
          says why you cannot ask from here rather than repeating that link. #}

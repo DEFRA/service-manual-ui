@@ -83,10 +83,13 @@ function resolveNavReference (navValue, navType = 'navigation') {
  * For pages rendered from a controller rather than a markdown file, which have
  * no frontmatter to carry a nav reference.
  * @param {string} key - Navigation key, e.g. 'nav-ai-toolkit'
- * @returns {Array} Resolved navigation array
+ * @returns {Array} Resolved navigation array, empty if navigation.yaml could
+ * not be loaded, since the templates iterate it
  */
 export function getNavigation (key) {
-  return resolveNavReference(key, 'customNav')
+  const navigation = resolveNavReference(key, 'customNav')
+
+  return Array.isArray(navigation) ? navigation : []
 }
 
 export function loadContent (filename) {

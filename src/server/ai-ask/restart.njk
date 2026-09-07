@@ -18,7 +18,7 @@
        hours is not the kind of loss that warrants red. #}
     <p class="govuk-body">This deletes the {{ questionCount }} question{% if questionCount != 1 %}s{% endif %} and answers in your current conversation. They are not kept anywhere else.</p>
 
-    <form method="post" action="/ai-toolkit/ask/restart">
+    <form method="post" action="{{ paths.restart }}">
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
           Start a new conversation

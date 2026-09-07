@@ -10,7 +10,14 @@ import {
   SUPPORT_BOX,
   TEAM_EMAIL
 } from './constants.js'
-import { answerPath, askPath, restartPath } from './paths.js'
+import {
+  answerPath,
+  askPath,
+  helpPath,
+  restartPath,
+  stuckPath,
+  toolkitPath
+} from './paths.js'
 import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
 import { buildContactLink, toPlainText } from './transcript.js'
@@ -27,16 +34,18 @@ import * as session from './session.js'
 function baseView () {
   return {
     headerServiceName: 'AI digital toolkit',
-    headerServiceUrl: '/ai-toolkit',
+    headerServiceUrl: toolkitPath,
     customNav: getNavigation('nav-ai-toolkit'),
     teamEmail: TEAM_EMAIL,
+    // Form actions and links in the templates come from here, never typed in.
+    paths: { ask: askPath, help: helpPath, restart: restartPath, stuck: stuckPath },
     questionRows: QUESTION_ROWS,
     maxQuestionLength: MAX_QUESTION_LENGTH,
     questionCountThreshold: QUESTION_COUNT_THRESHOLD,
     supportBox: SUPPORT_BOX,
     breadcrumbs: [
       { text: 'Digital Defra', href: '/' },
-      { text: 'AI digital toolkit', href: '/ai-toolkit' },
+      { text: 'AI digital toolkit', href: toolkitPath },
       { text: 'Ask the toolkit' }
     ]
   }
@@ -88,7 +97,7 @@ function renderAnswer (
     // you are reading an earlier answer, and out of the service if you are
     // already at the end.
     backLink: isLatest
-      ? { href: '/ai-toolkit', text: 'Back to the AI digital toolkit' }
+      ? { href: toolkitPath, text: 'Back to the AI digital toolkit' }
       : { href: answerPath(exchanges.length), text: 'Back to where you got to' },
     // The support box on an answer page goes through the help route, which
     // offers to send the conversation along, rather than straight to email.
@@ -108,7 +117,6 @@ function renderAnswer (
     // and neither is worth explaining to someone mid-question.
     canFollowUp: isLatest && exchanges.length < MAX_EXCHANGES,
     maxExchanges: MAX_EXCHANGES,
-    restartHref: restartPath,
     thread: session.toThread(exchanges, number),
     question,
     error
