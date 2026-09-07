@@ -82,6 +82,17 @@ function renderAnswer (
   return h.view('ai-ask/answer', {
     ...baseView(),
     pageTitle: exchange.question,
+    // A back link rather than breadcrumbs. A conversation is a journey, and
+    // the Design System says a journey gets a back link and never both. The
+    // route out of the service is already in the toolkit navigation above, so
+    // nothing is lost by dropping the crumbs. Back means the previous answer,
+    // which is what someone reading answer four wants, and only falls back to
+    // the toolkit on the first answer, where there is no previous one.
+    breadcrumbs: [],
+    backLink:
+      number > 1
+        ? { href: answerPath(number - 1), text: 'Back to your previous answer' }
+        : { href: '/ai-toolkit', text: 'Back to the AI digital toolkit' },
     questionLabel: 'Ask a follow-up question',
     // Set as a turn label rather than a section heading, so the box reads as
     // the next turn of the conversation instead of a form appended to it.

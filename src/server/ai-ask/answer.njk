@@ -17,7 +17,9 @@
     tag: { text: "Beta" },
     html: 'Ask the toolkit is experimental. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20feedback">Give feedback</a> to help us improve it.'
   }) }}
-  {{ super() }}
+  {# super() is not called: it renders breadcrumbs, and the Design System says
+     never to show a back link and breadcrumbs together. #}
+  <a href="{{ backLink.href }}" class="govuk-back-link">{{ backLink.text }}</a>
 {% endblock %}
 
 {% block content %}

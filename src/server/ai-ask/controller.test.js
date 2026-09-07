@@ -363,6 +363,54 @@ describe('#askController', () => {
 
       expect(result).not.toEqual(expect.stringContaining('<details'))
     })
+
+    test('goes back to the answer before it, not out of the service', async () => {
+      const cookie = await haveConversation([
+        'Can I use GitHub Copilot?',
+        'How do I choose a tool for my team?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<a href="/ai-toolkit/ask/answers/1" class="govuk-back-link">Back to your previous answer'
+        )
+      )
+    })
+
+    test('goes back to the toolkit from the first answer, where there is nothing before it', async () => {
+      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<a href="/ai-toolkit" class="govuk-back-link">Back to the AI digital toolkit'
+        )
+      )
+    })
+
+    test('shows a back link or breadcrumbs, never both', async () => {
+      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-back-link'))
+      expect(result).not.toEqual(expect.stringContaining('govuk-breadcrumbs'))
+    })
   })
 
   describe('keeping conversations apart', () => {
