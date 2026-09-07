@@ -2,27 +2,20 @@ import { getNavigation } from '../common/helpers/content-loader.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
 import {
+  ANSWER_SUPPORT_BOX,
+  MAX_EXCHANGES,
   MAX_QUESTION_LENGTH,
   QUESTION_COUNT_THRESHOLD,
   QUESTION_ROWS,
-  SUPPORT_BOX
+  SUPPORT_BOX,
+  TEAM_EMAIL
 } from './constants.js'
+import { answerPath, askPath, restartPath } from './paths.js'
 import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
 import { buildContactLink, toPlainText } from './transcript.js'
 import { fixtureAnswerFor } from './__fixtures__/answers.js'
 import * as session from './session.js'
-
-const askPath = '/ai-toolkit/ask'
-const answersPath = '/ai-toolkit/ask/answers'
-
-/**
- * @param {number} number - Position of the answer in the conversation
- * @returns {string}
- */
-function answerPath (number) {
-  return `${answersPath}/${number}`
-}
 
 /**
  * Shared view data. Every page here carries the AI digital toolkit service
@@ -36,6 +29,7 @@ function baseView () {
     headerServiceName: 'AI digital toolkit',
     headerServiceUrl: '/ai-toolkit',
     customNav: getNavigation('nav-ai-toolkit'),
+    teamEmail: TEAM_EMAIL,
     questionRows: QUESTION_ROWS,
     maxQuestionLength: MAX_QUESTION_LENGTH,
     questionCountThreshold: QUESTION_COUNT_THRESHOLD,
@@ -89,20 +83,22 @@ function renderAnswer (
     //
     // It never steps back one answer at a time. Someone who jumped to answer
     // two of ten wants to return to where they were, not walk forward through
-    // eight pages, and the list at the foot of the page already reaches any
-    // single answer in one hop. So back means the way out: to where you got
-    // to if you are reading an earlier answer, and out of the service if you
-    // are already at the end.
-    breadcrumbs: [],
+    // eight pages, and the list beside the answer already reaches any single
+    // answer in one hop. So back means the way out: to where you got to if
+    // you are reading an earlier answer, and out of the service if you are
+    // already at the end.
     backLink: isLatest
       ? { href: '/ai-toolkit', text: 'Back to the AI digital toolkit' }
       : { href: answerPath(exchanges.length), text: 'Back to where you got to' },
+    // The support box on an answer page goes through the help route, which
+    // offers to send the conversation along, rather than straight to email.
+    supportBox: ANSWER_SUPPORT_BOX,
     questionLabel: 'Ask a follow-up question',
     // Set as a turn label rather than a section heading, so the box reads as
     // the next turn of the conversation instead of a form appended to it.
     questionLabelClass: 'app-ask__eyebrow-label',
     questionHint:
-      'It remembers this conversation, so you can build on the answer above.',
+      'It remembers this conversation, so you can build on the answer above',
     questionFormClass: 'app-ask__followup',
     exchange,
     number,
@@ -110,7 +106,9 @@ function renderAnswer (
     // Only the newest answer can be followed on from. Asking from partway back
     // would either branch the conversation or silently jump you to the end,
     // and neither is worth explaining to someone mid-question.
-    latestHref: answerPath(exchanges.length),
+    canFollowUp: isLatest && exchanges.length < MAX_EXCHANGES,
+    maxExchanges: MAX_EXCHANGES,
+    restartHref: restartPath,
     thread: session.toThread(exchanges, number),
     question,
     error
@@ -137,6 +135,12 @@ export const askPostController = {
   handler (request, h) {
     const { question, error } = validateQuestion(request.payload?.question)
     const exchanges = session.getExchanges(request.yar)
+
+    // A full conversation takes no more questions. The page stopped offering
+    // the field, so this only catches a stale tab or a hand-made request.
+    if (exchanges.length >= MAX_EXCHANGES) {
+      return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
+    }
 
     if (error) {
       if (!exchanges.length) {
@@ -181,7 +185,30 @@ export const answerController = {
   }
 }
 
+/**
+ * Asks before throwing a conversation away. The conversation is only in the
+ * session, so once it is gone it is gone, and a link that deletes on a click
+ * would also be reachable by anything that prefetches links. So the link
+ * shows this page, and only the button on it clears anything.
+ */
 export const restartController = {
+  handler (request, h) {
+    const exchanges = session.getExchanges(request.yar)
+
+    if (!exchanges.length) {
+      return h.redirect(askPath).code(statusCodes.seeOther)
+    }
+
+    return h.view('ai-ask/restart', {
+      ...baseView(),
+      pageTitle: 'Start a new conversation',
+      questionCount: exchanges.length,
+      backHref: answerPath(exchanges.length)
+    })
+  }
+}
+
+export const restartPostController = {
   handler (request, h) {
     session.clearConversation(request.yar)
 

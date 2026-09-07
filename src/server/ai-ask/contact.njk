@@ -1,14 +1,10 @@
 {% extends "layouts/page.njk" %}
 
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% block pageTitle %}{{ pageTitle }} | {{ headerServiceName }}{% endblock %}
 
 {% block beforeContent %}
-  {{ govukPhaseBanner({
-    tag: { text: "Beta" },
-    html: 'Ask the toolkit is experimental. <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20feedback">Give feedback</a> to help us improve it.'
-  }) }}
+  {% include "partials/ask-phase-banner.njk" %}
   {{ super() }}
 {% endblock %}
 

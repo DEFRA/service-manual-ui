@@ -1,3 +1,5 @@
+import { answerPath } from './paths.js'
+
 const SESSION_KEY = 'ai-ask'
 
 /**
@@ -6,8 +8,8 @@ const SESSION_KEY = 'ai-ask'
  * the retention promise on the front door is kept by doing nothing.
  *
  * It is stored as exchanges, a question with the answer it produced, rather
- * than a flat run of messages. The page shows the newest exchange in full and
- * folds the rest away, so the pairing is what the templates need.
+ * than a flat run of messages. Each exchange is a page of its own, so the
+ * pairing is what the templates need.
  */
 
 /**
@@ -28,7 +30,7 @@ export function addExchange (yar, exchange) {
 }
 
 /**
- * Turns the conversation into the index shown on every answer page: one entry
+ * Turns the conversation into the index shown beside every answer: one entry
  * per question, in the order they were asked, each addressing its own page.
  * @param {Array<object>} exchanges
  * @param {number} [currentNumber] The answer being read, 1-based
@@ -41,7 +43,7 @@ export function toThread (exchanges, currentNumber) {
     return {
       number,
       question: exchange.question,
-      href: `/ai-toolkit/ask/answers/${number}`,
+      href: answerPath(number),
       isCurrent: number === currentNumber
     }
   })

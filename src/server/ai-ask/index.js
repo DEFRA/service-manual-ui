@@ -5,10 +5,18 @@ import {
   askPostController,
   answerController,
   restartController,
+  restartPostController,
   helpController,
   stuckController
 } from './controller.js'
 import { MAX_PAYLOAD_BYTES } from './constants.js'
+import {
+  askPath,
+  answersPath,
+  helpPath,
+  restartPath,
+  stuckPath
+} from './paths.js'
 
 /**
  * Ask the toolkit routes.
@@ -44,12 +52,12 @@ export const aiAsk = {
       server.route([
         {
           method: 'GET',
-          path: '/ai-toolkit/ask',
+          path: askPath,
           ...askController
         },
         {
           method: 'POST',
-          path: '/ai-toolkit/ask',
+          path: askPath,
           options: { payload: formPayload },
           ...askPostController
         },
@@ -58,22 +66,30 @@ export const aiAsk = {
           // number, or is a number this conversation does not reach, is sent
           // back to the start rather than shown an error.
           method: 'GET',
-          path: '/ai-toolkit/ask/answers/{number}',
+          path: `${answersPath}/{number}`,
           ...answerController
         },
         {
           method: 'GET',
-          path: '/ai-toolkit/ask/help',
+          path: helpPath,
           ...helpController
         },
         {
+          // GET asks, POST does it. Clearing a conversation on a GET would let
+          // a prefetched link throw it away.
           method: 'GET',
-          path: '/ai-toolkit/ask/restart',
+          path: restartPath,
           ...restartController
         },
         {
           method: 'POST',
-          path: '/ai-toolkit/ask/stuck',
+          path: restartPath,
+          options: { payload: formPayload },
+          ...restartPostController
+        },
+        {
+          method: 'POST',
+          path: stuckPath,
           options: { payload: formPayload },
           ...stuckController
         }

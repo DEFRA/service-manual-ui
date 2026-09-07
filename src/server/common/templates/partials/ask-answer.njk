@@ -1,8 +1,5 @@
-{# One answer. Used for the answer leading the page and for each one folded
-   away under earlier questions, so the two can never drift apart.
-
-   sourcesHeadingLevel is 2 under the page heading and 3 inside an earlier
-   question, where the question itself is the heading above it. #}
+{# One answer: what the toolkit said, the rule it quoted if it quoted one,
+   the guidance to check it against, and the reminder that it can be wrong. #}
 <div class="app-ask__answer">
 
   <span class="app-ask__eyebrow">Toolkit answer</span>
@@ -23,11 +20,7 @@
 
   {% if answer.sources | length %}
   <div class="app-ask__check">
-    {% if sourcesHeadingLevel == 3 %}
-    <h3 class="govuk-heading-s app-ask__check-heading">Check this answer</h3>
-    {% else %}
     <h2 class="govuk-heading-s app-ask__check-heading">Check this answer</h2>
-    {% endif %}
     {# Page titles only. The section came through as a subtitle like "What the
        conditions mean", which reads as a stray fragment next to a page name
        and told nobody anything. The API still carries it, and the right use

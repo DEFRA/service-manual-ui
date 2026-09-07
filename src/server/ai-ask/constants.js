@@ -2,6 +2,16 @@
  * Ask the toolkit constants.
  */
 
+// The team behind the toolkit. Used by the phase banner, the support box and
+// the email built when someone is stuck.
+export const TEAM_EMAIL = 'AICapabilityAndEnablement@defra.gov.uk'
+
+// Longest conversation we hold. Answers live in the session until it expires,
+// so this bounds what one person can accumulate there, and it bounds the
+// transcript they can send on. Past it, the answer page offers a fresh start
+// instead of the follow-up field.
+export const MAX_EXCHANGES = 20
+
 // Longest question we accept. Long enough for a real question with context,
 // short enough to keep what reaches the model bounded.
 export const MAX_QUESTION_LENGTH = 500
@@ -31,11 +41,20 @@ export const QUESTION_ROWS = 4
  *
  * Every other page in the toolkit ends with one of these, so the answer to
  * "what if this cannot help me" is in the place people already look for it.
+ * The front door links the email directly. An answer page links the help
+ * route instead, which offers to send the conversation along with it.
  */
 export const SUPPORT_BOX = {
   title: 'Get help from a person',
   description: 'For advice on your own project, or a decision, the team can help.',
   items: [
-    'Email the <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%3A%20help%20with%20my%20project" class="govuk-link">AI Capability and Enablement team</a>'
+    `Email the <a href="mailto:${TEAM_EMAIL}?subject=Ask%20the%20toolkit%3A%20help%20with%20my%20project" class="govuk-link">AI Capability and Enablement team</a>`
+  ]
+}
+
+export const ANSWER_SUPPORT_BOX = {
+  ...SUPPORT_BOX,
+  items: [
+    '<a href="/ai-toolkit/ask/help" class="govuk-link">Speak to the AI Capability and Enablement team</a>, and send them this conversation if it helps'
   ]
 }

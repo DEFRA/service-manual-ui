@@ -1,11 +1,9 @@
-import { MAX_MAILTO_LENGTH } from './constants.js'
-
-const AICE_EMAIL = 'AICapabilityAndEnablement@defra.gov.uk'
+import { MAX_MAILTO_LENGTH, TEAM_EMAIL } from './constants.js'
 const SUBJECT = 'Ask the toolkit: I need help'
 
 /**
  * Renders the conversation as plain text, for a person to send on or keep.
- * @param {Array<object>} messages
+ * @param {Array<object>} exchanges
  * @returns {string}
  */
 export function toPlainText (exchanges) {
@@ -47,7 +45,7 @@ export function toPlainText (exchanges) {
  * @returns {{ href: string, conversationIncluded: boolean }}
  */
 export function buildContactLink ({ exchanges, includeConversation }) {
-  const base = `mailto:${AICE_EMAIL}?subject=${encodeURIComponent(SUBJECT)}`
+  const base = `mailto:${TEAM_EMAIL}?subject=${encodeURIComponent(SUBJECT)}`
 
   if (!includeConversation) {
     return { href: base, conversationIncluded: false }

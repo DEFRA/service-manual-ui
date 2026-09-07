@@ -303,6 +303,63 @@ describe('#askController', () => {
       )
     })
 
+    test('shows no conversation list while there is only one question to choose from', async () => {
+      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('This conversation'))
+    })
+
+    test.each([
+      ['the same support box as the rest of the toolkit', 'Get help from a person'],
+      ['a route to a person that can carry the conversation', 'href="/ai-toolkit/ask/help"'],
+      ['a way to start over, at the field', 'Asking about something else?'],
+      ['start over as a link to a confirmation page', 'href="/ai-toolkit/ask/restart"']
+    ])('renders %s', async (_description, expected) => {
+      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining(expected))
+    })
+
+    test('stops offering the field once the conversation is as long as one can be', async () => {
+      const { MAX_EXCHANGES } = await import('./constants.js')
+      const cookie = await haveConversation(
+        Array.from({ length: MAX_EXCHANGES }, (_, i) => `Question ${i + 1}`)
+      )
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: `/ai-toolkit/ask/answers/${MAX_EXCHANGES}`,
+        headers: { cookie }
+      })
+      expect(result).not.toEqual(expect.stringContaining('id="question"'))
+      expect(result).toEqual(
+        expect.stringContaining(`reached ${MAX_EXCHANGES} questions`)
+      )
+
+      const refused = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'question=One%20more',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      expect(refused.statusCode).toBe(statusCodes.seeOther)
+      expect(refused.headers.location).toBe(
+        `/ai-toolkit/ask/answers/${MAX_EXCHANGES}`
+      )
+    })
+
     test('marks the answer being read, and does not link it to itself', async () => {
       const cookie = await haveConversation([
         'Can I use GitHub Copilot?',
@@ -456,13 +513,38 @@ describe('#askController', () => {
       expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
+    test('asks before starting a new conversation, so a prefetched link cannot clear one', async () => {
+      const cookie = await startConversation()
+
+      const { statusCode, result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/restart',
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('This deletes the 1 question and'))
+      expect(result).toEqual(expect.stringContaining('action="/ai-toolkit/ask/restart"'))
+      expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1">Cancel'))
+    })
+
+    test('has nothing to ask about restarting when nothing has been asked', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/restart'
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
+    })
+
     test('starting a new conversation drops what went before', async () => {
       const cookie = await startConversation()
 
       const restarted = await server.inject({
-        method: 'GET',
+        method: 'POST',
         url: '/ai-toolkit/ask/restart',
-        headers: { cookie }
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
       })
       expect(restarted.statusCode).toBe(statusCodes.seeOther)
 

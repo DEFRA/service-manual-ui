@@ -93,7 +93,7 @@ $app-ask-grey: #6f777b;
 // turn this is, which a section heading was not doing.
 .app-ask__eyebrow-label.govuk-label {
   margin-bottom: 5px;
-  color: #505a5f;
+  color: $govuk-secondary-text-colour;
   font-size: 16px;
 }
 
@@ -122,7 +122,7 @@ $app-ask-grey: #6f777b;
 .app-ask__eyebrow {
   display: block;
   margin-bottom: 5px;
-  color: #505a5f;
+  color: $govuk-secondary-text-colour;
   font-size: 16px;
 }
 
@@ -130,21 +130,18 @@ $app-ask-grey: #6f777b;
   margin-bottom: 0;
 }
 
-.app-ask__start-again {
-  margin-top: -10px;
-  margin-bottom: 30px;
-  font-size: 16px;
-}
-
 // ── The conversation as navigation ──
 // A numbered list of the questions asked, each addressing its own answer page.
-// This replaced a stack of disclosures: a list of links stays scannable at
-// twenty questions, works with the back button, and can be linked to.
+// It sits in the right-hand column, where GOV.UK puts related content, so it
+// orients without pushing the answer down and is not lost below the form.
+// This replaced a stack of disclosures and then a list at the foot of the
+// page: a list of links stays scannable at twenty questions, works with the
+// back button, and can be linked to.
 
 .app-ask__thread {
   margin-bottom: 30px;
-  padding-top: 25px;
-  border-top: 1px solid $govuk-mid-grey;
+  padding-top: 10px;
+  border-top: 2px solid $defra-green;
 }
 
 .app-ask__thread-heading {
@@ -166,7 +163,7 @@ $app-ask-grey: #6f777b;
 .app-ask__thread-number {
   flex-shrink: 0;
   width: 25px;
-  color: #505a5f;
+  color: $govuk-secondary-text-colour;
 }
 
 // The answer being read is not a link, and is marked by weight as well as by
@@ -175,14 +172,12 @@ $app-ask-grey: #6f777b;
   font-weight: bold;
 }
 
-.app-ask__next-steps {
-  margin-top: 15px;
-  margin-bottom: 0;
-  font-size: 16px;
-}
-
-.app-ask__messages {
+// Sits under the follow-up field, where someone decides whether the next
+// question is a follow-up at all. Pulled up towards the field it belongs to.
+.app-ask__restart {
+  margin-top: -15px;
   margin-bottom: 30px;
+  font-size: 16px;
 }
 
 .app-ask__answer {
@@ -278,10 +273,6 @@ $app-ask-grey: #6f777b;
 // do not support it wrap as they always did.
 .app-ask__caveat {
   text-wrap: pretty;
-}
-
-.app-ask__stuck {
-  margin-top: 30px;
 }
 
 // The transcript is shown so it can be read and copied, so it wraps rather
