@@ -218,6 +218,12 @@ $app-ask-grey: #6f777b;
   font-size: 16px;
 }
 
+// On the front door, under the question box rather than inside an answer.
+.app-ask__warning--standalone {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
 .app-ask__warning-icon {
   flex-shrink: 0;
   margin-top: 1px;
@@ -267,12 +273,6 @@ $app-ask-grey: #6f777b;
 .app-ask__rule-source {
   margin-bottom: 0;
   font-size: 16px;
-}
-
-// Keeps the last line from breaking to a single orphaned word. Browsers that
-// do not support it wrap as they always did.
-.app-ask__caveat {
-  text-wrap: pretty;
 }
 
 // The transcript is shown so it can be read and copied, so it wraps rather

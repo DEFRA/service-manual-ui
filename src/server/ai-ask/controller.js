@@ -97,8 +97,8 @@ function renderAnswer (
     // Set as a turn label rather than a section heading, so the box reads as
     // the next turn of the conversation instead of a form appended to it.
     questionLabelClass: 'app-ask__eyebrow-label',
-    questionHint:
-      'It remembers this conversation, so you can build on the answer above',
+    // No hint of its own: the label says it is a follow-up, and the privacy
+    // reminder matters on every question, not only the first.
     questionFormClass: 'app-ask__followup',
     exchange,
     number,

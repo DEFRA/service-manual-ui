@@ -19,6 +19,8 @@
 {% endblock %}
 
 {% block content %}
+{# The heading has a row of its own, so the conversation beside the answer
+   starts level with the question box rather than with the heading. #}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -30,6 +32,12 @@
     {% endif %}
 
     <h1 class="govuk-heading-l">Your answer</h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
     <div class="app-ask__asked">
       <span class="app-ask__eyebrow">You asked</span>

@@ -38,13 +38,8 @@
 
   {# Last, under the guidance it used, so the warning is the final word before
      someone acts on the answer. #}
-  <p class="app-ask__warning">
-    <svg class="app-ask__warning-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-      <circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M10 5v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="10" cy="14.5" r="1.25" fill="currentColor"/>
-    </svg>
-    <strong>Ask the toolkit can make mistakes. Check the guidance before you act on this.</strong>
-  </p>
+  {% set warningText = "Ask the toolkit can make mistakes. Check the guidance before you act on this." %}
+  {% set warningClass = "" %}
+  {% include "partials/ask-warning.njk" %}
 
 </div>

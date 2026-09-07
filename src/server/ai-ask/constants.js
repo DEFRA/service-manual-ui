@@ -55,6 +55,6 @@ export const SUPPORT_BOX = {
 export const ANSWER_SUPPORT_BOX = {
   ...SUPPORT_BOX,
   items: [
-    '<a href="/ai-toolkit/ask/help" class="govuk-link">Speak to the AI Capability and Enablement team</a>, and send them this conversation if it helps'
+    '<a href="/ai-toolkit/ask/help" class="govuk-link">Speak to the AI Capability and Enablement team</a>'
   ]
 }
