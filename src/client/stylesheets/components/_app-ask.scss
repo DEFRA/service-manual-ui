@@ -71,8 +71,21 @@
 // On the front door the box is the hero. Here it is the next step after an
 // answer, so it takes no border: a second bordered box competing with the
 // answer above it would read as the more important of the two.
+// The next question is drawn as the next turn: the same grey outline as the
+// question above it, so the page reads as you, then the toolkit, then you
+// again, rather than a conversation with a form bolted underneath.
 .app-ask__followup {
   margin-bottom: 30px;
+  padding: 15px 20px;
+  border: 2px solid $govuk-mid-grey;
+}
+
+// A real label, set at the size of the turn labels above it. It marks whose
+// turn this is, which a section heading was not doing.
+.app-ask__eyebrow-label.govuk-label {
+  margin-bottom: 5px;
+  color: #505a5f;
+  font-size: 16px;
 }
 
 // ── Conversation ──
@@ -154,8 +167,8 @@
 }
 
 .app-ask__next-steps {
-  padding-top: 20px;
-  border-top: 1px solid $govuk-mid-grey;
+  margin-top: 15px;
+  margin-bottom: 0;
   font-size: 16px;
 }
 

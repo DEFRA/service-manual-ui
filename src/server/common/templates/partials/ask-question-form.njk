@@ -14,7 +14,7 @@
     data-maxlength="{{ maxQuestionLength }}"
     data-threshold="{{ questionCountThreshold }}">
     <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
-      <label class="govuk-label govuk-label--m" for="question">
+      <label class="govuk-label {{ questionLabelClass | default('govuk-label--m') }}" for="question">
         {{ questionLabel | default('Your question') }}
       </label>
       <div id="question-hint" class="govuk-hint">

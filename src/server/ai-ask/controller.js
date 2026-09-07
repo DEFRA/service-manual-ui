@@ -83,6 +83,9 @@ function renderAnswer (
     ...baseView(),
     pageTitle: exchange.question,
     questionLabel: 'Ask a follow-up question',
+    // Set as a turn label rather than a section heading, so the box reads as
+    // the next turn of the conversation instead of a form appended to it.
+    questionLabelClass: 'app-ask__eyebrow-label',
     questionHint:
       'It remembers this conversation, so you can build on the answer above.',
     questionFormClass: 'app-ask__followup',

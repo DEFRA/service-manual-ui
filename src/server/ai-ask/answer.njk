@@ -52,12 +52,15 @@
     </p>
     {% endif %}
 
-    {% if thread | length > 1 %}
-    {# The conversation as navigation rather than as accordions. Each question
-       is a page, so this is a list of links: it stays scannable at twenty
-       questions, the back button walks it, and an answer can be linked to. #}
-    <nav class="app-ask__thread" aria-label="Questions in this conversation">
-      <h2 class="govuk-heading-s app-ask__thread-heading">Questions in this conversation</h2>
+    {# Everything that leaves this answer sits in one block, so nothing trails
+       off the foot of the page on its own. The conversation is navigation
+       rather than accordions: each question is a page, so this is a list of
+       links that stays scannable at twenty questions and works with the back
+       button. #}
+    <nav class="app-ask__thread" aria-label="This conversation">
+      <h2 class="govuk-heading-s app-ask__thread-heading">This conversation</h2>
+
+      {% if thread | length > 1 %}
       <ol class="app-ask__thread-list">
         {% for item in thread %}
         <li class="app-ask__thread-item{% if item.isCurrent %} app-ask__thread-item--current{% endif %}">
@@ -70,14 +73,14 @@
         </li>
         {% endfor %}
       </ol>
-    </nav>
-    {% endif %}
+      {% endif %}
 
-    <p class="govuk-body app-ask__next-steps">
-      <a class="govuk-link" href="/ai-toolkit/ask/help">Speak to someone</a>
-      or
-      <a class="govuk-link" href="/ai-toolkit/ask/restart">start a new conversation</a>
-    </p>
+      <p class="govuk-body app-ask__next-steps">
+        <a class="govuk-link" href="/ai-toolkit/ask/help">Speak to someone</a>
+        or
+        <a class="govuk-link" href="/ai-toolkit/ask/restart">start a new conversation</a>
+      </p>
+    </nav>
 
   </div>
 </div>

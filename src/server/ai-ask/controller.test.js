@@ -297,9 +297,7 @@ describe('#askController', () => {
         headers: { cookie }
       })
 
-      expect(result).toEqual(
-        expect.stringContaining('Questions in this conversation')
-      )
+      expect(result).toEqual(expect.stringContaining('This conversation'))
       expect(result).toEqual(
         expect.stringContaining('href="/ai-toolkit/ask/answers/1"')
       )
