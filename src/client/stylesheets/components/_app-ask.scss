@@ -186,7 +186,7 @@ $app-ask-grey: #6f777b;
 }
 
 .app-ask__answer {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   padding: 15px 20px;
   border: 2px solid $defra-green;
 }
@@ -198,14 +198,18 @@ $app-ask-grey: #6f777b;
 // The sources were a heading and two bare links floating at the end of the
 // answer. The rule above them ties them to it, and the bullets make them read
 // as a list of places to go rather than loose text.
+//
+// The divider is a hairline grey, not a second heavy green line. Three green
+// lines in one box, the outline, this, and the bar on the quotation, made the
+// answer read as heavier than the thing it was answering.
 .app-ask__check {
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 2px solid $defra-green;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid $app-ask-grey;
 }
 
 .app-ask__check-heading {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 // Sits at the end of the answer, before the guidance it used. Not the GOV.UK
@@ -214,7 +218,7 @@ $app-ask-grey: #6f777b;
 .app-ask__warning {
   display: flex;
   align-items: flex-start;
-  margin-top: 25px;
+  margin-top: 20px;
   margin-bottom: 0;
   font-size: 16px;
 }
@@ -240,7 +244,7 @@ $app-ask-grey: #6f777b;
 // thick left border, the label naming it as a quotation, the quotation marks,
 // and the weight of the text.
 .app-ask__rule {
-  margin: 20px 0;
+  margin: 15px 0;
   padding: 5px 0 5px 20px;
   border-left: 5px solid $defra-green;
 }
