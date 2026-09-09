@@ -106,8 +106,9 @@ function renderAnswer (
     // Set as a turn label rather than a section heading, so the box reads as
     // the next turn of the conversation instead of a form appended to it.
     questionLabelClass: 'app-ask__eyebrow-label',
-    // No hint of its own: the label says it is a follow-up, and the privacy
-    // reminder matters on every question, not only the first.
+    // No hint. The privacy reminder sits on the front door, where a question
+    // starts. Repeated under every follow-up it read as nagging.
+    questionHint: false,
     questionFormClass: 'app-ask__followup',
     exchange,
     number,

@@ -57,7 +57,8 @@ describe('#askController', () => {
       ['a Defra green ask button', 'app-ask__send'],
       ['the route to a person', 'Get help from a person'],
       ['breadcrumbs', 'govuk-breadcrumbs'],
-      ['a breadcrumb back to the toolkit', 'href="/ai-toolkit"']
+      ['a breadcrumb back to the toolkit', 'href="/ai-toolkit"'],
+      ['the privacy reminder', 'Do not include personal or sensitive information']
     ])('renders %s', async (_description, expected) => {
       const { result } = await server.inject({
         method: 'GET',
@@ -163,6 +164,17 @@ describe('#askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining('How do I choose a tool?')
+      )
+    })
+
+    test('leaves the privacy reminder off the follow-up, and out of the field description', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).not.toEqual(
+        expect.stringContaining('Do not include personal or sensitive information')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('aria-describedby="question-info"')
       )
     })
 
