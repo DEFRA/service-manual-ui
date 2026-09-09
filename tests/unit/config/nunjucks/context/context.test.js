@@ -29,7 +29,7 @@ describe('context and cache', () => {
     vi.resetModules()
   })
 
-  describe('#context', () => {
+  describe('context', () => {
     const mockRequest = { path: '/' }
 
     describe('When webpack manifest file read succeeds', () => {
@@ -127,7 +127,7 @@ describe('context and cache', () => {
     })
   })
 
-  describe('#context cache', () => {
+  describe('context cache', () => {
     const mockRequest = { path: '/' }
     let contextResult
 

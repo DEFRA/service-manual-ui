@@ -29,7 +29,7 @@ const mockMetricsName = 'mock-metrics-name'
 const defaultMetricsValue = 1
 const mockValue = 200
 
-describe('#metrics', () => {
+describe('metrics', () => {
   describe('When metrics is not enabled', () => {
     beforeEach(async () => {
       config.set('isMetricsEnabled', false)

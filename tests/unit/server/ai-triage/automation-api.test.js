@@ -17,7 +17,7 @@ const submission = {
   dataReadiness: 'Data sources and owners'
 }
 
-describe('#automationApi', () => {
+describe('automationApi', () => {
   let originalConfig
 
   beforeEach(() => {

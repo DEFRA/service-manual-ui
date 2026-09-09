@@ -24,7 +24,7 @@ const dataGuidanceUrl = '/ai-toolkit/guidance/using-data-with-ai'
 const realQuote =
   'For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.'
 
-describe('#quoteAppearsOnPage', () => {
+describe('quoteAppearsOnPage', () => {
   test('accepts a quote that is on the page it cites', () => {
     expect(quoteAppearsOnPage(realQuote, dataGuidanceUrl)).toBe(true)
   })
@@ -91,7 +91,7 @@ describe('#quoteAppearsOnPage', () => {
   })
 })
 
-describe('#toViewModel', () => {
+describe('toViewModel', () => {
   test('maps the wire shape to the view model', () => {
     const view = toViewModel({
       status: 'answered',

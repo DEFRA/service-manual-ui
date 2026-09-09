@@ -2,7 +2,7 @@ import { describe, test, expect } from 'vitest'
 
 import { markdown } from '../../../../../src/config/nunjucks/filters/markdown.js'
 
-describe('#markdown', () => {
+describe('markdown', () => {
   describe('basic rendering', () => {
     test('should return empty string for null content', () => {
       expect(markdown(null)).toBe('')

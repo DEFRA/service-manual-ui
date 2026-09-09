@@ -2,7 +2,7 @@ import { vi } from 'vitest'
 
 import { formatDate } from '../../../../../src/config/nunjucks/filters/format-date.js'
 
-describe('#formatDate', () => {
+describe('formatDate', () => {
   beforeAll(() => {
     vi.useFakeTimers({
       now: new Date('2023-02-01')

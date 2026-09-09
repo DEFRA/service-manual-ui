@@ -1,6 +1,6 @@
 import { formatCurrency } from '../../../../../src/config/nunjucks/filters/format-currency.js'
 
-describe('#formatCurrency', () => {
+describe('formatCurrency', () => {
   describe('With defaults', () => {
     test('Currency should be in expected format', () => {
       expect(formatCurrency('20000000')).toBe('£20,000,000.00')

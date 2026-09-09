@@ -23,11 +23,8 @@ const askUrl = '/ai-toolkit/ask'
 
 describe('Ask the toolkit flag off (the default)', () => {
   let server
-  let previousAskEnabled
-
   beforeAll(async () => {
-    previousAskEnabled = process.env.AI_TOOLKIT_ASK_ENABLED
-    delete process.env.AI_TOOLKIT_ASK_ENABLED
+    vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', undefined)
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
     server = await createServer()
@@ -36,9 +33,7 @@ describe('Ask the toolkit flag off (the default)', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    if (previousAskEnabled !== undefined) {
-      process.env.AI_TOOLKIT_ASK_ENABLED = previousAskEnabled
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 
@@ -86,14 +81,9 @@ describe('Ask the toolkit flag off (the default)', () => {
 
 describe('AI content off, Ask the toolkit flag on', () => {
   let server
-  let previousAskEnabled
-  let previousEnableAiContent
-
   beforeAll(async () => {
-    previousAskEnabled = process.env.AI_TOOLKIT_ASK_ENABLED
-    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    process.env.AI_TOOLKIT_ASK_ENABLED = 'true'
-    process.env.ENABLE_AI_CONTENT = 'false'
+    vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', 'true')
+    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
     server = await createServer()
@@ -102,16 +92,7 @@ describe('AI content off, Ask the toolkit flag on', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    if (previousAskEnabled === undefined) {
-      delete process.env.AI_TOOLKIT_ASK_ENABLED
-    } else {
-      process.env.AI_TOOLKIT_ASK_ENABLED = previousAskEnabled
-    }
-    if (previousEnableAiContent === undefined) {
-      delete process.env.ENABLE_AI_CONTENT
-    } else {
-      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 

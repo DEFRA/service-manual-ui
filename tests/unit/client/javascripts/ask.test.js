@@ -8,7 +8,7 @@ import { describe, test, expect, beforeEach, vi } from 'vitest'
 
 import { initAsk } from '../../../../src/client/javascripts/ask.js'
 
-describe('#initAsk', () => {
+describe('initAsk', () => {
   let field
   let form
   let submitted

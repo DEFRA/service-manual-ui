@@ -27,7 +27,7 @@ vi.stubEnv('NODE_ENV', 'development')
 
 const { context } = await import('../../../../../src/config/nunjucks/context/context.js')
 
-describe('#context manifest reload', () => {
+describe('context manifest reload', () => {
   const mockRequest = { path: '/' }
 
   beforeEach(() => {

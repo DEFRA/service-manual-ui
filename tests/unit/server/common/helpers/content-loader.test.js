@@ -169,7 +169,7 @@ afterEach(() => {
   })
 })
 
-describe('#loadContent', () => {
+describe('loadContent', () => {
   describe('when loading a valid markdown file', () => {
     test('Should return meta and content', async () => {
       const { loadContent } = await import('../../../../../src/server/common/helpers/content-loader.js')

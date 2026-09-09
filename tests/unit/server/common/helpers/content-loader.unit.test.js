@@ -25,7 +25,7 @@ vi.mock('node:fs', async () => {
 
 const { loadContent } = await import('../../../../../src/server/common/helpers/content-loader.js')
 
-describe('#loadContent error handling', () => {
+describe('loadContent error handling', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })

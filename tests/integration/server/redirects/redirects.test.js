@@ -102,12 +102,9 @@ describe('301 redirects (AI content enabled)', () => {
 })
 
 describe('301 redirects (AI content gated off)', () => {
-  let server
-  let previousEnableAiContent
-
+  let server
   beforeAll(async () => {
-    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    process.env.ENABLE_AI_CONTENT = 'false'
+    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()
     const { createServer: createServerGated } = await import('../../../../src/server/server.js')
     server = await createServerGated()
@@ -116,11 +113,7 @@ describe('301 redirects (AI content gated off)', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    if (previousEnableAiContent === undefined) {
-      delete process.env.ENABLE_AI_CONTENT
-    } else {
-      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 

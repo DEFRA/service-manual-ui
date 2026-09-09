@@ -4,7 +4,7 @@ import { config } from '../../../../src/config/config.js'
 
 import { getToken } from '../../../../src/server/ai-triage/automation-token.js'
 
-describe('#getToken', () => {
+describe('getToken', () => {
   let originalAuthEnabled
   let stsClient
 

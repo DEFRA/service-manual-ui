@@ -13,13 +13,10 @@ import { statusCodes } from '../../../../src/server/common/constants/status-code
 
 const askUrl = '/ai-toolkit/ask'
 
-describe('#askController', () => {
-  let server
-  let previousAskEnabled
-
+describe('askController', () => {
+  let server
   beforeAll(async () => {
-    previousAskEnabled = process.env.AI_TOOLKIT_ASK_ENABLED
-    process.env.AI_TOOLKIT_ASK_ENABLED = 'true'
+    vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', 'true')
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
     server = await createServer()
@@ -28,11 +25,7 @@ describe('#askController', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    if (previousAskEnabled === undefined) {
-      delete process.env.AI_TOOLKIT_ASK_ENABLED
-    } else {
-      process.env.AI_TOOLKIT_ASK_ENABLED = previousAskEnabled
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 

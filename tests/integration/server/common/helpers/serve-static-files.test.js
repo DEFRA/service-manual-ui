@@ -1,7 +1,7 @@
 import { startServer } from '../../../../../src/server/common/helpers/start-server.js'
 import { statusCodes } from '../../../../../src/server/common/constants/status-codes.js'
 
-describe('#serveStaticFiles', () => {
+describe('serveStaticFiles', () => {
   let server
 
   describe('When secure context is disabled', () => {

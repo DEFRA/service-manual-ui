@@ -3,7 +3,7 @@ import {
   buildPostSubmissionSuccessLog
 } from '../../../../../../src/server/common/helpers/logging/post-submission-log-utils.js'
 
-describe('#postSubmissionLogUtils', () => {
+describe('postSubmissionLogUtils', () => {
   describe('buildPostSubmissionErrorLog', () => {
     test('carries the reference and the backend status', () => {
       const error = Object.assign(new Error('Backend rejected it'), {

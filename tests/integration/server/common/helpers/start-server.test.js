@@ -3,7 +3,7 @@ import { vi } from 'vitest'
 import hapi from '@hapi/hapi'
 import { statusCodes } from '../../../../../src/server/common/constants/status-codes.js'
 
-describe('#startServer', () => {
+describe('startServer', () => {
   let createServerSpy
   let hapiServerSpy
   let startServerImport

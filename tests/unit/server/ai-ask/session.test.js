@@ -22,7 +22,7 @@ function mockYar (stored) {
   }
 }
 
-describe('#getExchanges', () => {
+describe('getExchanges', () => {
   test('starts empty', () => {
     expect(getExchanges(mockYar(undefined))).toEqual([])
   })
@@ -34,7 +34,7 @@ describe('#getExchanges', () => {
   })
 })
 
-describe('#addExchange', () => {
+describe('addExchange', () => {
   test('keeps what came before, oldest first', () => {
     const yar = mockYar([exchange('First')])
 
@@ -47,7 +47,7 @@ describe('#addExchange', () => {
   })
 })
 
-describe('#toThread', () => {
+describe('toThread', () => {
   test('has nothing to list for an empty conversation', () => {
     expect(toThread([], 1)).toEqual([])
   })
@@ -78,7 +78,7 @@ describe('#toThread', () => {
   })
 })
 
-describe('#findExchange', () => {
+describe('findExchange', () => {
   const conversation = [exchange('First'), exchange('Second')]
 
   test('finds an answer by its place in the conversation', () => {
@@ -104,7 +104,7 @@ describe('#findExchange', () => {
   })
 })
 
-describe('#clearConversation', () => {
+describe('clearConversation', () => {
   test('drops the whole conversation', () => {
     const yar = mockYar([exchange('First')])
 

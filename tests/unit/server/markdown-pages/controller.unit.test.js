@@ -10,7 +10,7 @@ vi.mock('../../../../src/server/common/helpers/content-loader.js', () => ({
 
 const { getMarkdownPage } = await import('../../../../src/server/markdown-pages/controller.js')
 
-describe('#getMarkdownPage error handling', () => {
+describe('getMarkdownPage error handling', () => {
   test('Should log error and return 404 when loadContent throws', () => {
     const mockLoggerError = vi.fn()
     const mockCode = vi.fn().mockReturnValue('not found response')

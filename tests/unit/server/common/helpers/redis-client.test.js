@@ -37,7 +37,7 @@ vi.mock('../../../../../src/server/common/helpers/logging/logger.js', () => ({
 
 const { buildRedisClient } = await import('../../../../../src/server/common/helpers/redis-client.js')
 
-describe('#buildRedisClient', () => {
+describe('buildRedisClient', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     capturedHandlers.connect = null

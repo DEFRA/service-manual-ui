@@ -1,6 +1,6 @@
 import { createServer } from '../../../../../src/server/server.js'
 
-describe('#contentSecurityPolicy', () => {
+describe('contentSecurityPolicy', () => {
   let server
 
   beforeAll(async () => {

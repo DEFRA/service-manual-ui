@@ -11,12 +11,9 @@ import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 describe('AI content gated off', () => {
-  let server
-  let previousEnableAiContent
-
+  let server
   beforeAll(async () => {
-    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    process.env.ENABLE_AI_CONTENT = 'false'
+    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
     server = await createServer()
@@ -25,11 +22,7 @@ describe('AI content gated off', () => {
 
   afterAll(async () => {
     await server.stop({ timeout: 0 })
-    if (previousEnableAiContent === undefined) {
-      delete process.env.ENABLE_AI_CONTENT
-    } else {
-      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 

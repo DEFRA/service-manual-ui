@@ -12,7 +12,7 @@ const { registerProcessErrorHandlers } = await import(
   '../../../../../src/server/common/helpers/process-error-handlers.js'
 )
 
-describe('#registerProcessErrorHandlers', () => {
+describe('registerProcessErrorHandlers', () => {
   let mockProcess
   const handlers = {}
 

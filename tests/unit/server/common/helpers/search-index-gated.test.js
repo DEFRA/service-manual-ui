@@ -11,12 +11,9 @@ import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 describe('Search index with AI content gated off', () => {
   let buildSearchIndex
   let searchContent
-  let getSuggestions
-  let previousEnableAiContent
-
+  let getSuggestions
   beforeAll(async () => {
-    previousEnableAiContent = process.env.ENABLE_AI_CONTENT
-    process.env.ENABLE_AI_CONTENT = 'false'
+    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()
     const mod = await import('../../../../../src/server/common/helpers/search-index.js')
     buildSearchIndex = mod.buildSearchIndex
@@ -25,11 +22,7 @@ describe('Search index with AI content gated off', () => {
   })
 
   afterAll(() => {
-    if (previousEnableAiContent === undefined) {
-      delete process.env.ENABLE_AI_CONTENT
-    } else {
-      process.env.ENABLE_AI_CONTENT = previousEnableAiContent
-    }
+    vi.unstubAllEnvs()
     vi.resetModules()
   })
 

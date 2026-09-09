@@ -91,7 +91,7 @@ beforeEach(() => {
   vi.clearAllMocks()
 })
 
-describe('#getTriagePage', () => {
+describe('getTriagePage', () => {
   test('renders the question template with meta and content', async () => {
     mockLoadContent.mockReturnValue({
       meta: {
@@ -157,7 +157,7 @@ describe('#getTriagePage', () => {
   })
 })
 
-describe('#postTriagePage', () => {
+describe('postTriagePage', () => {
   test('stores answer and redirects on valid submission', async () => {
     mockLoadContent.mockReturnValue({
       meta: {
@@ -250,7 +250,7 @@ describe('#postTriagePage', () => {
   })
 })
 
-describe('#getSummaryPage', () => {
+describe('getSummaryPage', () => {
   beforeEach(() => {
     mockGetTriageSessionData.mockReturnValue({
       'question-1': { answer: 'test@example.com' },
@@ -352,7 +352,7 @@ describe('#getSummaryPage', () => {
   })
 })
 
-describe('#postSummaryPage', () => {
+describe('postSummaryPage', () => {
   beforeEach(() => {
     mockGetTriageSessionData.mockReturnValue({
       'question-1': { answer: 'test@example.com' },
@@ -551,7 +551,7 @@ describe('#postSummaryPage', () => {
   })
 })
 
-describe('#getThankYouPage', () => {
+describe('getThankYouPage', () => {
   beforeEach(() => {
     mockLoadContent.mockReturnValue({
       meta: { title: 'Thank you', isResult: true },

@@ -26,7 +26,7 @@ vi.mock('node:fs', async () => {
 
 const { buildSearchIndex } = await import('../../../../../src/server/common/helpers/search-index.js')
 
-describe('#searchIndex error handling', () => {
+describe('searchIndex error handling', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })

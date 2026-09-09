@@ -31,7 +31,7 @@ const submission = {
   dataReadiness: 'Data sources and owners'
 }
 
-describe('#submit posting to aice-triage-automation', () => {
+describe('submit posting to aice-triage-automation', () => {
   beforeEach(() => {
     sendEmail.mockResolvedValue({
       data: { reference: 'notify-reference' },

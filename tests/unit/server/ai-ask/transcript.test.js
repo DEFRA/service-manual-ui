@@ -20,7 +20,7 @@ const conversation = [
   }
 ]
 
-describe('#toPlainText', () => {
+describe('toPlainText', () => {
   test.each([
     ['the question', 'Can I use Copilot with personal data?'],
     ['who asked it', 'You asked:'],
@@ -33,7 +33,7 @@ describe('#toPlainText', () => {
   })
 })
 
-describe('#buildContactLink', () => {
+describe('buildContactLink', () => {
   test('leaves the conversation out unless it was asked for', () => {
     const { href, conversationIncluded } = buildContactLink({
       exchanges: conversation,

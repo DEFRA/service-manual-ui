@@ -4,7 +4,7 @@ function mockRequest (options) {
   return { ...options }
 }
 
-describe('#buildNavigation', () => {
+describe('buildNavigation', () => {
   test('Should provide expected navigation details', () => {
     expect(
       buildNavigation(mockRequest({ path: '/non-existent-path' }))

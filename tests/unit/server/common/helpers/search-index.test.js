@@ -5,7 +5,7 @@ import {
   getSuggestions
 } from '../../../../../src/server/common/helpers/search-index.js'
 
-describe('#searchIndex', () => {
+describe('searchIndex', () => {
   describe('buildSearchIndex', () => {
     test('should return an array of indexed content', () => {
       const index = buildSearchIndex()

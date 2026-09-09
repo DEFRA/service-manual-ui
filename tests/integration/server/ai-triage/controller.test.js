@@ -45,7 +45,7 @@ async function buildSession (server) {
   return cookie
 }
 
-describe('#aiTriageController', () => {
+describe('aiTriageController', () => {
   let server
 
   beforeAll(async () => {

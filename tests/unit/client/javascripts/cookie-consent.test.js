@@ -56,7 +56,7 @@ describe('cookie-consent', () => {
     vi.restoreAllMocks()
   })
 
-  describe('#getCookieConsent', () => {
+  describe('getCookieConsent', () => {
     it('should return null when no cookie is set', () => {
       expect(getCookieConsent()).toBeNull()
     })
@@ -77,7 +77,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#setCookieConsent', () => {
+  describe('setCookieConsent', () => {
     it('should set the consent cookie', () => {
       setCookieConsent({ analytics: true })
 
@@ -92,7 +92,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#hasConsentBeenSet', () => {
+  describe('hasConsentBeenSet', () => {
     it('should return false when consent has not been set', () => {
       expect(hasConsentBeenSet()).toBe(false)
     })
@@ -104,7 +104,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#loadGoogleTagManager', () => {
+  describe('loadGoogleTagManager', () => {
     it('should inject GTM script into head', () => {
       loadGoogleTagManager('GTM-TEST123')
 
@@ -137,7 +137,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#removeAnalyticsCookies', () => {
+  describe('removeAnalyticsCookies', () => {
     it('should remove _ga cookies', () => {
       document.cookie = '_ga=test; path=/'
       document.cookie = '_ga_ABC123=test; path=/'
@@ -160,7 +160,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#initCookieBanner', () => {
+  describe('initCookieBanner', () => {
     it('should do nothing when no banner is present', () => {
       initCookieBanner()
 
@@ -295,7 +295,7 @@ describe('cookie-consent', () => {
     })
   })
 
-  describe('#initCookiesPage', () => {
+  describe('initCookiesPage', () => {
     it('should do nothing when no form is present', () => {
       initCookiesPage()
 

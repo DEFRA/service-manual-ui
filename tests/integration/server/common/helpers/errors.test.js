@@ -4,7 +4,7 @@ import { catchAll } from '../../../../../src/server/common/helpers/errors.js'
 import { createServer } from '../../../../../src/server/server.js'
 import { statusCodes } from '../../../../../src/server/common/constants/status-codes.js'
 
-describe('#errors', () => {
+describe('errors', () => {
   let server
 
   beforeAll(async () => {
@@ -48,7 +48,7 @@ describe('#errors', () => {
   })
 })
 
-describe('#catchAll', () => {
+describe('catchAll', () => {
   const mockErrorLogger = vi.fn()
   const mockStack = 'Mock error stack'
   const errorPage = 'error/index'

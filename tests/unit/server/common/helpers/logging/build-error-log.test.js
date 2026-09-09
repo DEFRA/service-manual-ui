@@ -1,6 +1,6 @@
 import { buildErrorLog, buildEventLog } from '../../../../../../src/server/common/helpers/logging/build-error-log.js'
 
-describe('#buildErrorLog', () => {
+describe('buildErrorLog', () => {
   test('Should nest event fields under event and force outcome to failure', () => {
     const error = new Error('boom')
     const payload = buildErrorLog(error, {
@@ -60,7 +60,7 @@ describe('#buildErrorLog', () => {
   })
 })
 
-describe('#buildEventLog', () => {
+describe('buildEventLog', () => {
   test('Should default outcome to success', () => {
     const payload = buildEventLog({ type: 'demo_event', action: 'do_thing' })
 

@@ -26,7 +26,7 @@ vi.mock('../../../../../../src/server/common/helpers/logging/logger.js', () => (
   })
 }))
 
-describe('#getCacheEngine', () => {
+describe('getCacheEngine', () => {
   describe('When Redis cache engine has been requested', () => {
     beforeEach(() => {
       getCacheEngine('redis')

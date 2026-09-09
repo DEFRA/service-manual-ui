@@ -3,7 +3,7 @@ import { STSClient } from '@aws-sdk/client-sts'
 
 import { awsClients } from '../../../../../src/server/common/helpers/aws-clients.js'
 
-describe('#awsClients', () => {
+describe('awsClients', () => {
   let server
 
   beforeEach(async () => {
