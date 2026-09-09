@@ -12,7 +12,11 @@
 export function initAsk () {
   const field = document.querySelector('[data-module="app-ask-question"]')
 
-  if (!field?.form) {
+  // requestSubmit is the only way to submit from a key press that still runs
+  // validation and submit handlers. A browser without it keeps the default
+  // behaviour, where Enter adds a line break and the button posts the form,
+  // rather than falling back to submit() and skipping both.
+  if (!field?.form || typeof field.form.requestSubmit !== 'function') {
     return
   }
 
@@ -31,12 +35,6 @@ export function initAsk () {
     }
 
     event.preventDefault()
-
-    // requestSubmit runs validation and fires submit handlers, unlike submit().
-    if (typeof field.form.requestSubmit === 'function') {
-      field.form.requestSubmit()
-    } else {
-      field.form.submit()
-    }
+    field.form.requestSubmit()
   })
 }

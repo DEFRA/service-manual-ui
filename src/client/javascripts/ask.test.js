@@ -23,9 +23,8 @@ describe('#initAsk', () => {
     `
     field = document.querySelector('#question')
     form = document.querySelector('form')
-    // jsdom implements neither, so both paths are stubbed and asserted on.
+    // Stubbed so the call can be asserted on without a real submission.
     form.requestSubmit = submitted
-    form.submit = submitted
     initAsk()
   })
 
@@ -92,5 +91,24 @@ describe('#initAsk', () => {
     document.body.innerHTML = '<p>No form here</p>'
 
     expect(() => initAsk()).not.toThrow()
+  })
+
+  test('leaves Enter alone in a browser without requestSubmit, rather than submitting around validation', () => {
+    document.body.innerHTML = `
+      <form>
+        <textarea id="question" data-module="app-ask-question"></textarea>
+        <button type="submit">Ask</button>
+      </form>
+    `
+    form = document.querySelector('form')
+    form.requestSubmit = undefined
+    form.submit = submitted
+    field = document.querySelector('#question')
+    initAsk()
+
+    const event = pressEnter()
+
+    expect(submitted).not.toHaveBeenCalled()
+    expect(event.defaultPrevented).toBe(false)
   })
 })

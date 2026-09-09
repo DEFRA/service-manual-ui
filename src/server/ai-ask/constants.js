@@ -1,3 +1,5 @@
+import { config } from '../../config/config.js'
+
 import { helpPath } from './paths.js'
 
 /**
@@ -5,8 +7,10 @@ import { helpPath } from './paths.js'
  */
 
 // The team behind the toolkit. Used by the phase banner, the support box and
-// the email built when someone is stuck.
-export const TEAM_EMAIL = 'AICapabilityAndEnablement@defra.gov.uk'
+// the email built when someone is stuck. Read from config, as the triage
+// mailbox is, so it is set in one place and can be overridden per
+// environment without a code change.
+export const TEAM_EMAIL = config.get('aiContent.teamEmail')
 
 // Longest conversation we hold. Answers live in the session until it expires,
 // so this bounds what one person can accumulate there, and it bounds the

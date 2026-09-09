@@ -1,7 +1,22 @@
-import { describe, test, expect } from 'vitest'
+import { describe, test, expect, vi } from 'vitest'
 
+import { loadContent } from '../common/helpers/content-loader.js'
 import { toViewModel, quoteAppearsOnPage } from './answer.js'
 import { fixtureAnswerFor } from './__fixtures__/answers.js'
+
+const logger = vi.hoisted(() => ({ warn: vi.fn(), error: vi.fn() }))
+
+// Both are modules this repo owns. The logger is replaced so the log lines can
+// be asserted on; the content loader is wrapped, not replaced, so every other
+// test here still reads the real guidance.
+vi.mock('../common/helpers/logging/logger.js', () => ({
+  createLogger: () => logger
+}))
+
+vi.mock('../common/helpers/content-loader.js', async (importOriginal) => {
+  const actual = await importOriginal()
+  return { ...actual, loadContent: vi.fn(actual.loadContent) }
+})
 
 const dataGuidanceUrl = '/ai-toolkit/guidance/using-data-with-ai'
 
@@ -32,6 +47,47 @@ describe('#quoteAppearsOnPage', () => {
 
   test('rejects a page this service does not serve', () => {
     expect(quoteAppearsOnPage(realQuote, '/ai-toolkit/invented')).toBe(false)
+  })
+
+  test('logs a dropped paraphrase as a content defect, by page and length, never the words', () => {
+    const paraphrase = realQuote.replace('remove personal data first', 'remove personal data')
+
+    quoteAppearsOnPage(paraphrase, dataGuidanceUrl)
+
+    expect(logger.warn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event: expect.objectContaining({
+          outcome: 'not_found',
+          reference: dataGuidanceUrl
+        })
+      }),
+      expect.stringContaining('not found on its source page')
+    )
+    expect(JSON.stringify(logger.warn.mock.calls)).not.toContain('personal data')
+  })
+
+  test('says nothing in the log when the quote checks out', () => {
+    quoteAppearsOnPage(realQuote, dataGuidanceUrl)
+
+    expect(logger.warn).not.toHaveBeenCalled()
+    expect(logger.error).not.toHaveBeenCalled()
+  })
+
+  test('drops the quote and logs an error when the source page cannot be loaded', () => {
+    loadContent.mockImplementationOnce(() => {
+      throw new Error('read failed')
+    })
+
+    expect(quoteAppearsOnPage(realQuote, dataGuidanceUrl)).toBe(false)
+    expect(logger.error).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event: expect.objectContaining({
+          outcome: 'failure',
+          reference: dataGuidanceUrl
+        })
+      }),
+      expect.stringContaining('could not be loaded')
+    )
   })
 })
 

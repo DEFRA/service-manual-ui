@@ -155,6 +155,12 @@ export const config = convict({
     }
   },
   aiContent: {
+    teamEmail: {
+      doc: 'Mailbox of the team behind the AI digital toolkit. Shown as the contact on Ask the toolkit pages and used as the address in the email built when someone is stuck. The same in every environment, so the default is the real address. Override only if the mailbox changes.',
+      format: 'email',
+      default: 'AICapabilityAndEnablement@defra.gov.uk',
+      env: 'AI_TOOLKIT_TEAM_EMAIL'
+    },
     enabled: {
       doc: 'Whether AI content (the AI digital toolkit at /ai-toolkit) is visible. Defaults to true (visible in all environments). Set ENABLE_AI_CONTENT=false to hide it in a specific environment.',
       format: Boolean,

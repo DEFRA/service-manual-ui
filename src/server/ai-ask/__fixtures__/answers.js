@@ -109,7 +109,8 @@ const FOLLOW_UP_WORD_COUNT = 8
  * @returns {boolean}
  */
 function readsAsFollowUp (asked) {
-  const words = asked.replace(/[^a-z\s]/g, '').split(/\s+/).filter(Boolean)
+  // Digits stay: "article 9" is two words, not one.
+  const words = asked.replace(/[^a-z0-9\s]/g, '').split(/\s+/).filter(Boolean)
 
   return (
     FOLLOW_UP_OPENINGS.some((opening) => asked.startsWith(opening)) ||

@@ -1,5 +1,10 @@
-import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
 import { loadContent } from '../common/helpers/content-loader.js'
+import {
+  buildErrorLog,
+  buildEventLog
+} from '../common/helpers/logging/build-error-log.js'
+import { createLogger } from '../common/helpers/logging/logger.js'
+import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
 
 /**
  * Normalises an answer from the API into what the templates render.
@@ -44,12 +49,44 @@ export function quoteAppearsOnPage (quote, url) {
     return false
   }
 
+  const logger = createLogger()
+  let content
+
   try {
-    const { content } = loadContent(`${url.slice(1)}.md`)
-    return normalise(content).includes(normalise(quote))
-  } catch {
+    content = loadContent(`${url.slice(1)}.md`).content
+  } catch (error) {
+    // loadContent logs the read failure itself. This records the
+    // consequence: an answer went out without the rule it meant to quote.
+    logger.error(
+      buildErrorLog(error, {
+        type: 'ask_quoted_rule',
+        action: 'load_source',
+        reference: url
+      }),
+      'Ask the toolkit: dropped a quoted rule because its source page could not be loaded'
+    )
     return false
   }
+
+  const found = normalise(content).includes(normalise(quote))
+
+  if (!found) {
+    // A content defect: the model quoted words that are not on the page it
+    // cites. Logged by page and length only. The quote is model output and
+    // could echo what the person typed, which must never reach the logs.
+    logger.warn(
+      buildEventLog({
+        type: 'ask_quoted_rule',
+        action: 'verify',
+        outcome: 'not_found',
+        reference: url,
+        reason: `quote_length_${quote.length}`
+      }),
+      'Ask the toolkit: dropped a quoted rule not found on its source page'
+    )
+  }
+
+  return found
 }
 
 /**
