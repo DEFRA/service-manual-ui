@@ -120,6 +120,30 @@ Body`
     const out = loadContent('any.md')
     expect(out.meta.customNav).toBe('missingKey')
   })
+
+  it('getNavigation returns an empty list, not the key, when navigation.yaml cannot be read', async () => {
+    vi.doMock('node:fs', () => {
+      const readFileSync = () => {
+        throw new Error('read error')
+      }
+      return {
+        default: { existsSync: () => true, readFileSync },
+        existsSync: () => true,
+        readFileSync
+      }
+    })
+
+    const { getNavigation } = await import('./content-loader.js')
+    expect(getNavigation('nav-ai-toolkit')).toEqual([])
+  })
+
+  it('getNavigation resolves a key from navigation.yaml to its list', async () => {
+    const { getNavigation } = await import('./content-loader.js')
+    const navigation = getNavigation('nav-ai-toolkit')
+
+    expect(Array.isArray(navigation)).toBe(true)
+    expect(navigation.length).toBeGreaterThan(0)
+  })
   afterEach(() => {
     vi.doUnmock('node:fs')
   })

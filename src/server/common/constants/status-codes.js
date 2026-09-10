@@ -3,6 +3,7 @@ export const statusCodes = {
   noContent: 204,
   movedPermanently: 301,
   found: 302,
+  seeOther: 303,
   badRequest: 400,
   unauthorized: 401,
   forbidden: 403,

@@ -1,0 +1,32 @@
+{% extends "layouts/page.njk" %}
+
+{% block pageTitle %}{{ pageTitle }} | {{ headerServiceName }}{% endblock %}
+
+{% block beforeContent %}
+  {% include "partials/ask-phase-banner.njk" %}
+  <a href="{{ backHref }}" class="govuk-back-link">Back to your answer</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Start a new conversation</h1>
+
+    {# Says what is lost, and that nothing else holds it, so the choice is an
+       informed one. Not a warning button: a conversation that lives for four
+       hours is not the kind of loss that warrants red. #}
+    <p class="govuk-body">This deletes the {{ questionCount }} question{% if questionCount != 1 %}s{% endif %} and answers in your current conversation. They are not kept anywhere else.</p>
+
+    <form method="post" action="{{ paths.restart }}">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+          Start a new conversation
+        </button>
+        <a class="govuk-link" href="{{ backHref }}">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,287 @@
+@use '../variables/colours' as *;
+@use 'sass:color';
+
+// ===== Ask the toolkit =====
+
+// ── The ask panel ──
+// The question gets a panel of its own so it reads as the point of the page
+// rather than one more form field in a flow.
+//
+// This is not a named Design System component: there is no component that puts
+// a box around an input. It is defensible rather than standard. GOV.UK does
+// the same on its own homepage and on the Design System site, where the search
+// input sits in a coloured panel. Two rules from that evidence are followed
+// here. The box is justified as grouping, not emphasis, because inset styles
+// are documented as poor at drawing attention and the input already pulls the
+// eye on its own. And the tint stays neutral, so the input keeps its ordinary
+// 2px near-black border at roughly 18:1 contrast and needs no special casing
+// for WCAG 1.4.11. Emphasis comes from the green button, not the container.
+
+// No fill. The support box below it is grey, and two grey blocks of nearly
+// the same value read as one repeated shape. The border alone does the
+// grouping, which is all the box was ever justified as doing.
+.app-ask__panel {
+  margin-bottom: 30px;
+  padding: 25px 30px;
+  border: 1px solid $govuk-mid-grey;
+}
+
+.app-ask__panel > :last-child {
+  margin-bottom: 0;
+}
+
+// ── The question row ──
+// The button sits below the field, left aligned, as the Design System says a
+// primary action should.
+//
+// It was beside the field while the field was two rows, following GOV.UK Chat.
+// That stopped working once the field grew to invite a proper question: a
+// short button next to a tall field either floats against the field's bottom
+// corner or stretches into a slab of green bigger than the thing it submits.
+// The two choices are linked. A roomy field wants its button underneath.
+//
+// The button is never placed inside or over the field, which is what every
+// commercial assistant does. An overlaid control collides with the person's
+// own text at 400% zoom, failing WCAG 1.4.10 reflow.
+
+.app-ask__field {
+  margin-bottom: 20px;
+}
+
+.app-ask__input.govuk-textarea {
+  // The resize handle would pull the row out of alignment horizontally.
+  resize: vertical;
+  margin-bottom: 0;
+}
+
+// Defra green, matching the primary buttons used elsewhere in the toolkit.
+// The shadow is the darker green the Design System expects underneath.
+.app-ask__send.govuk-button {
+  min-width: 100px;
+  margin-bottom: 0;
+  background-color: $defra-green;
+  box-shadow: 0 2px 0 $defra-green-dark;
+
+  &:hover {
+    background-color: color.adjust($defra-green, $lightness: -8%);
+  }
+}
+
+// ── Asking again ──
+// On the front door the box is the hero. Here it is the next step after an
+// answer, so it takes no border: a second bordered box competing with the
+// answer above it would read as the more important of the two.
+// The next question is drawn as the next turn: the same grey outline as the
+// question above it, so the page reads as you, then the toolkit, then you
+// again, rather than a conversation with a form bolted underneath.
+.app-ask__followup {
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  border: 2px solid $app-mid-grey;
+}
+
+// A real label, set at the size of the turn labels above it. It marks whose
+// turn this is, which a section heading was not doing.
+.app-ask__eyebrow-label.govuk-label {
+  margin-bottom: 5px;
+  color: $govuk-secondary-text-colour;
+  font-size: 16px;
+}
+
+// ── Conversation ──
+
+// The question is set at body size rather than as a heading, so a long one
+// wraps without turning the top of the page into a wall of type.
+//
+// The question and the answer are a matched pair of outlined boxes, grey for
+// the question and green for the answer, so an exchange reads as two turns of
+// one conversation. Grey matches the question box on the front door, and green
+// marks the half of the exchange the toolkit wrote.
+//
+// This departs from the brief, which says assistant answers are unboxed and
+// only the person's message gets a card. The design lead asked for it after seeing the
+// unboxed version. Outlines rather than fills keep the weight down, which was
+// the objection to boxing a block of answer text.
+.app-ask__asked {
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: 2px solid $app-mid-grey;
+}
+
+// The small label above each half, so the pair reads as question then
+// response rather than two boxes that happen to be stacked.
+.app-ask__eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: $govuk-secondary-text-colour;
+  font-size: 16px;
+}
+
+.app-ask__asked-text {
+  margin-bottom: 0;
+}
+
+// ── The conversation as navigation ──
+// A numbered list of the questions asked, each addressing its own answer page.
+// It sits in the right-hand column, where GOV.UK puts related content, so it
+// orients without pushing the answer down and is not lost below the form.
+// This replaced a stack of disclosures and then a list at the foot of the
+// page: a list of links stays scannable at twenty questions, works with the
+// back button, and can be linked to.
+
+.app-ask__thread {
+  margin-bottom: 30px;
+  padding-top: 10px;
+  border-top: 2px solid $defra-green;
+}
+
+.app-ask__thread-heading {
+  margin-bottom: 10px;
+}
+
+.app-ask__thread-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-ask__thread-item {
+  display: flex;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.app-ask__thread-number {
+  flex-shrink: 0;
+  width: 25px;
+  color: $govuk-secondary-text-colour;
+}
+
+// The answer being read is not a link, and is marked by weight as well as by
+// aria-current, so it does not rely on being the only unlinked line.
+.app-ask__thread-item--current .app-ask__thread-question {
+  font-weight: bold;
+}
+
+// Sits under the follow-up field, where someone decides whether the next
+// question is a follow-up at all. Pulled up towards the field it belongs to.
+.app-ask__restart {
+  margin-top: -15px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.app-ask__answer {
+  margin-bottom: 30px;
+  padding: 15px 20px;
+  border: 2px solid $defra-green;
+}
+
+.app-ask__answer > :last-child {
+  margin-bottom: 0;
+}
+
+// The sources were a heading and two bare links floating at the end of the
+// answer. The rule above them ties them to it, and the bullets make them read
+// as a list of places to go rather than loose text.
+//
+// The divider is a hairline grey, not a second heavy green line. Three green
+// lines in one box, the outline, this, and the bar on the quotation, made the
+// answer read as heavier than the thing it was answering.
+.app-ask__check {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid $app-mid-grey;
+}
+
+.app-ask__check-heading {
+  margin-bottom: 5px;
+}
+
+// Sits at the end of the answer, before the guidance it used. Not the GOV.UK
+// warning text component: that is sized for a once-per-page warning, and this
+// appears under every answer.
+.app-ask__warning {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+// On the front door, under the question box rather than inside an answer.
+.app-ask__warning--standalone {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.app-ask__warning-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  margin-right: 10px;
+}
+
+// ── The quoted rule ──
+// A rule with consequences is shown word for word from its source. It has to
+// look different from the sentences the model wrote around it, and it must not
+// rely on colour alone to say so, hence the border, the label and the marks.
+
+// No fill. The pale green measured 1.05:1 against the white page, so it was
+// barely there: not a contrast failure, since the text on it ran at 18.65:1,
+// but a tint that faint has no definite edge and reads as something fading
+// out. It also disappears entirely in forced-colours mode and in print, so
+// anything resting on it was resting on nothing.
+//
+// The quotation is set apart by four things that survive without colour: the
+// thick left border, the label naming it as a quotation, the quotation marks,
+// and the weight of the text.
+.app-ask__rule {
+  margin: 15px 0;
+  padding: 5px 0 5px 20px;
+  border-left: 5px solid $defra-green;
+}
+
+.app-ask__rule-label {
+  margin-bottom: 10px;
+  color: $govuk-black;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.app-ask__rule-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.app-ask__rule-text::before {
+  content: '\201C';
+}
+
+.app-ask__rule-text::after {
+  content: '\201D';
+}
+
+.app-ask__rule-source {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+// The transcript is shown so it can be read and copied, so it wraps rather
+// than scrolling sideways.
+.app-ask__transcript {
+  padding: 20px;
+  background-color: $govuk-light-grey;
+  border: 1px solid $govuk-mid-grey;
+  margin-bottom: 30px;
+  font-size: 16px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.app-ask__sources {
+  margin-bottom: 0;
+}
+
+.app-ask__sources li {
+  margin-bottom: 5px;
+}

@@ -1,0 +1,53 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block pageTitle %}
+  {%- if error %}Error: {% endif -%}
+  {{ pageTitle }} | {{ headerServiceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "partials/ask-phase-banner.njk" %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if error %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [{ text: error, href: "#question" }]
+      }) }}
+    {% endif %}
+
+    <h1 class="govuk-heading-xl">Ask the toolkit</h1>
+
+    <p class="govuk-body-l">Get an answer, with a link to the guidance it came from.</p>
+
+  </div>
+</div>
+
+{# The question box runs wider than the prose around it, so the primary action
+   is not stranded in two-thirds of an otherwise empty page. Three quarters
+   rather than the full width: at full width the field either runs past the 75
+   characters a line the layout guidance asks for, or is held back and leaves a
+   band of empty grey beside it. At three quarters the field fills its box and
+   still lands inside the reading measure. #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    {% include "partials/ask-question-form.njk" %}
+
+    {# The same one-line warning that sits under every answer, in the same
+       column as the box so both edges line up with it. What the answers draw
+       on is already said in the line under the heading. #}
+    {% set warningText = "AI can make mistakes. Check the guidance before you act." %}
+    {% set warningClass = "app-ask__warning--standalone" %}
+    {% include "partials/ask-warning.njk" %}
+
+    {% include "partials/support-box.njk" %}
+  </div>
+</div>
+{% endblock %}

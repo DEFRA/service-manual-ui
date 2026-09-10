@@ -2,6 +2,7 @@ import {
   createAll,
   Accordion,
   Button,
+  CharacterCount,
   Checkboxes,
   ErrorSummary,
   Radios,
@@ -12,9 +13,11 @@ import { initCookieBanner, initCookiesPage } from './cookie-consent.js'
 import { initSearch } from './search.js'
 import { initRadar } from './radar.js'
 import { initPatternFinder } from './pattern-finder.js'
+import { initAsk } from './ask.js'
 
 createAll(Accordion)
 createAll(Button)
+createAll(CharacterCount)
 createAll(Checkboxes)
 createAll(ErrorSummary)
 createAll(Radios)
@@ -47,3 +50,4 @@ initServiceNavigation()
 initSearch()
 initRadar()
 initPatternFinder()
+initAsk()

@@ -88,6 +88,14 @@
         <a class="defra-service-navigation__link" href="{{ item.href }}"{% if isCurrent or isHomeCurrent %} aria-current="page"{% endif %}>{{ item.text }}</a>
       </li>
       {% endfor %}
+      {# Ask the toolkit is appended here, not listed in navigation.yaml or in
+         page frontmatter, because both are static data and this link must
+         disappear with its feature flag. #}
+      {% if aiContent.enabled and featureFlags.askEnabled %}
+      <li class="defra-service-navigation__item">
+        <a class="defra-service-navigation__link" href="/ai-toolkit/ask"{% if currentUrl and currentUrl.startsWith('/ai-toolkit/ask') %} aria-current="page"{% endif %}>Ask the toolkit</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

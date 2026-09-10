@@ -72,6 +72,9 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           aiContent: { enabled: config.get('aiContent.enabled') },
+          featureFlags: {
+            askEnabled: config.get('featureFlags.askEnabled')
+          },
           hasAnalyticsConsent: false,
           requestHost: '',
           serviceName: 'Digital service manual',
@@ -175,6 +178,9 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           aiContent: { enabled: config.get('aiContent.enabled') },
+          featureFlags: {
+            askEnabled: config.get('featureFlags.askEnabled')
+          },
           hasAnalyticsConsent: false,
           requestHost: '',
           serviceName: 'Digital service manual',
