@@ -86,7 +86,7 @@ describe('#quoteAppearsOnPage', () => {
           reference: dataGuidanceUrl
         })
       }),
-      expect.stringContaining('could not be loaded')
+      expect.stringContaining('did not load')
     )
   })
 })

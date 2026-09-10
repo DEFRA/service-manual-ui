@@ -63,7 +63,7 @@ export function quoteAppearsOnPage (quote, url) {
         action: 'load_source',
         reference: url
       }),
-      'Ask the toolkit: dropped a quoted rule because its source page could not be loaded'
+      'Ask the toolkit dropped a quoted rule: its source page did not load'
     )
     return false
   }
