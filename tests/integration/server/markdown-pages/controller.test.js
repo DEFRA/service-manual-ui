@@ -1,0 +1,365 @@
+import { createServer } from '../../../../src/server/server.js'
+import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
+
+describe('markdownPagesController', () => {
+  let server
+
+  beforeAll(async () => {
+    server = await createServer()
+    await server.initialize()
+  })
+
+  afterAll(async () => {
+    await server.stop({ timeout: 0 })
+  })
+
+  describe('GET /architecture', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/architecture'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/architecture'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Architecture')
+      )
+    })
+
+    test('Should render markdown content as HTML', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/architecture'
+      })
+
+      // Check that markdown headings are converted to HTML
+      expect(result).toEqual(
+        expect.stringContaining('Defra software development standards')
+      )
+    })
+  })
+
+  describe('GET /accessibility', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/accessibility'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Accessibility'))
+    })
+  })
+
+  describe('GET /components', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/components'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+  })
+
+  describe('GET /patterns', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/patterns'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+  })
+
+  describe('GET /working-with-defra', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/working-with-defra'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+  })
+
+  describe('GET /accessibility-statement', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Accessibility statement'))
+    })
+
+    test('Should state full WCAG 2.2 AA compliance', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(expect.stringContaining('fully compliant'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Web Content Accessibility Guidelines version 2.2'
+        )
+      )
+    })
+
+    test('Should include contact information', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('AICapabilityAndEnablement@defra.gov.uk')
+      )
+    })
+  })
+
+  describe('Breadcrumbs', () => {
+    test('should include breadcrumbs with full navigation path', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Digital Defra'))
+      expect(result).toEqual(expect.stringContaining('href="/"'))
+      expect(result).toEqual(expect.stringContaining('Digital service manual'))
+      expect(result).toEqual(expect.stringContaining('href="/service-manual"'))
+    })
+  })
+
+  describe('Delivery group standards', () => {
+    test.each([
+      '/delivery-groups/meet-delivery-standards',
+      '/delivery-groups/meet-delivery-standards/define-outcomes',
+      '/delivery-groups/meet-delivery-standards/products-and-services',
+      '/delivery-groups/meet-delivery-standards/roadmap-for-change',
+      '/delivery-groups/meet-delivery-standards/success-measures'
+    ])('GET %s should return 200', async (url) => {
+      const { statusCode } = await server.inject({ method: 'GET', url })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render overview page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group standards')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('help teams run successful delivery groups')
+      )
+    })
+
+    test('should display breadcrumbs', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
+      expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
+    })
+
+    test('should render standard 1 with RAG ratings', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/meet-delivery-standards/define-outcomes'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('1. Define and share outcomes')
+      )
+      expect(result).toEqual(expect.stringContaining('Why this matters'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--green'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--yellow'))
+      expect(result).toEqual(expect.stringContaining('govuk-tag--red'))
+    })
+  })
+
+  describe('Delivery group governance', () => {
+    test.each([
+      '/delivery-groups/follow-delivery-governance',
+      '/delivery-groups/follow-delivery-governance/governance-model',
+      '/delivery-groups/follow-delivery-governance/assurance',
+      '/delivery-groups/follow-delivery-governance/assurance/spend-control',
+      '/delivery-groups/follow-delivery-governance/assurance/service-assessments',
+      '/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness',
+      '/delivery-groups/follow-delivery-governance/assurance/other-assurance-types'
+    ])('GET %s should return 200', async (url) => {
+      const { statusCode } = await server.inject({ method: 'GET', url })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the guidance page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Delivery group guidance')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('What a delivery group is')
+      )
+      expect(result).toEqual(expect.stringContaining('Assurance'))
+    })
+
+    test('should display breadcrumbs on governance pages', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance'
+      })
+
+      expect(result).toEqual(expect.stringContaining('govuk-breadcrumbs'))
+      expect(result).toEqual(expect.stringContaining('Delivery groups'))
+      expect(result).toEqual(expect.stringContaining('href="/delivery-groups"'))
+    })
+
+    test('should render governance model with all levels', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/governance-model'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Governance model'))
+      expect(result).toEqual(expect.stringContaining('Strategic level'))
+      expect(result).toEqual(expect.stringContaining('Co-ordination level'))
+      expect(result).toEqual(expect.stringContaining('Implementation level'))
+    })
+
+    test('should render assurance page with links', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/delivery-groups/follow-delivery-governance/assurance'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Assurance'))
+      expect(result).toEqual(expect.stringContaining('Spend control'))
+      expect(result).toEqual(expect.stringContaining('Service assessments'))
+    })
+  })
+
+  describe('Business analysis guardrails', () => {
+    test('GET /business-analysis/guardrails should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis/guardrails'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the guardrails page with its sections', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis/guardrails'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Guardrails'))
+      expect(result).toEqual(
+        expect.stringContaining('Quality assurance criteria')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('Problem and opportunity statements')
+      )
+      expect(result).toEqual(expect.stringContaining('User stories'))
+    })
+
+    test('should link to guardrails from the business analysis section nav', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/business-analysis'
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('href="/business-analysis/guardrails"')
+      )
+    })
+  })
+
+  describe('GET /software-development', () => {
+    test('Should return 200 status code', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/software-development'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('Should render page with title', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/software-development'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Software development'))
+    })
+  })
+
+  describe('Performance analysis', () => {
+    test('GET /performance-analysis should return 200', async () => {
+      const { statusCode } = await server.inject({
+        method: 'GET',
+        url: '/performance-analysis'
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('should render the page with the role and DDaT link', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/performance-analysis'
+      })
+
+      expect(result).toEqual(expect.stringContaining('Performance analysis'))
+      expect(result).toEqual(expect.stringContaining('Your role at Defra'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'ddat-capability-framework.service.gov.uk/role/performance-analyst'
+        )
+      )
+    })
+  })
+})
