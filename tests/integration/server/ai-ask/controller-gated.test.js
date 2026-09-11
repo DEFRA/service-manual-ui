@@ -24,7 +24,12 @@ const askUrl = '/ai-toolkit/ask'
 describe('Ask the toolkit flag off (the default)', () => {
   let server
   beforeAll(async () => {
+    // undefined deletes the variable rather than setting the string
+    // "undefined": that is vi.stubEnv's documented behaviour, and it is what
+    // "unset, so the default applies" needs. Asserted so nobody has to take
+    // it on trust.
     vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', undefined)
+    expect(process.env.AI_TOOLKIT_ASK_ENABLED).toBeUndefined()
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
     server = await createServer()

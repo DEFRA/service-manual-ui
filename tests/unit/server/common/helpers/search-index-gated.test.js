@@ -4,14 +4,14 @@
  * aiContent.enabled defaults to true, so the default suite indexes everything.
  * This file sets ENABLE_AI_CONTENT=false, resets the module cache (to drop both
  * the cached index and the cached config) and dynamically imports the helper,
- * mirroring the pattern used by src/server/home/controller-gated.test.js.
+ * mirroring the pattern used by tests/integration/server/home/controller-gated.test.js.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 
 describe('Search index with AI content gated off', () => {
   let buildSearchIndex
   let searchContent
-  let getSuggestions
+  let getSuggestions
   beforeAll(async () => {
     vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()

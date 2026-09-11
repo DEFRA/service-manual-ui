@@ -1,7 +1,7 @@
 /**
  * Search controller tests with AI content gated off.
  *
- * Mirrors src/server/home/controller-gated.test.js: set ENABLE_AI_CONTENT=false,
+ * Mirrors tests/integration/server/home/controller-gated.test.js: set ENABLE_AI_CONTENT=false,
  * reset modules, then dynamically import the server so route registration and
  * the search index both pick up the gated state.
  */
@@ -9,7 +9,7 @@ import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 describe('Search with AI content gated off', () => {
-  let server
+  let server
   beforeAll(async () => {
     vi.stubEnv('ENABLE_AI_CONTENT', 'false')
     vi.resetModules()
