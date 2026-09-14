@@ -158,13 +158,14 @@ describe('askController', () => {
       )
     })
 
-    test('titles the page with the question, so tabs and history differ', async () => {
+    test('titles the page by position, so tabs differ without carrying the question', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<title>How do I choose a tool? | AI digital toolkit'
-        )
+        expect.stringContaining('<title>Answer 1 of 1 | AI digital toolkit')
+      )
+      expect(result).not.toEqual(
+        expect.stringContaining('<title>How do I choose a tool?')
       )
     })
 
@@ -219,6 +220,20 @@ describe('askController', () => {
           'For personal data, the DPIA route is for a service you are building to process it'
         )
       )
+    })
+
+    test('quotes only the rule, keeping the label and the source outside it', async () => {
+      const { result } = await ask(
+        'Can I use Microsoft 365 Copilot with personal data?'
+      )
+      const quote = result.match(/<blockquote[\s\S]*?<\/blockquote>/)[0]
+
+      expect(quote).toEqual(
+        expect.stringContaining('For personal data, the DPIA route')
+      )
+      expect(quote).not.toEqual(expect.stringContaining('word for word'))
+      expect(quote).not.toEqual(expect.stringContaining('Using data with AI'))
+      expect(result).toEqual(expect.stringContaining('<figcaption'))
     })
 
     test.each([

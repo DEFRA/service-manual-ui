@@ -20,6 +20,13 @@ export function initAsk () {
     return
   }
 
+  // Only now is it true that Enter sends, so only now is the hint shown.
+  const keyHint = document.querySelector('[data-module="app-ask-key-hint"]')
+
+  if (keyHint) {
+    keyHint.hidden = false
+  }
+
   field.addEventListener('keydown', (event) => {
     const isPlainEnter =
       event.key === 'Enter' &&

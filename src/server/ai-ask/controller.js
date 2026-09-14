@@ -84,7 +84,11 @@ function renderAnswer (
 
   return h.view('ai-ask/answer', {
     ...baseView(),
-    pageTitle: exchange.question,
+    // The question is deliberately not the page title. Analytics records the
+    // title of every page it sees, so a question in the title would send
+    // what someone typed to a third party, on a page that asks them not to
+    // include anything personal. The position still tells tabs apart.
+    pageTitle: `Answer ${number} of ${exchanges.length}`,
     // A back link rather than breadcrumbs. A conversation is a journey, and
     // the Design System says a journey gets a back link and never both. The
     // route out of the service is already in the toolkit navigation above, so

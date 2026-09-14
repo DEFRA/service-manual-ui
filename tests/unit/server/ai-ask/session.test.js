@@ -52,6 +52,23 @@ describe('toThread', () => {
     expect(toThread([], 1)).toEqual([])
   })
 
+  test('shortens a long question at a word boundary, so the list stays a list', () => {
+    const long =
+      'Can I use Microsoft 365 Copilot with personal data belonging to farmers who have applied for a grant this year'
+    const [item] = toThread([exchange(long)], 1)
+
+    expect(item.question.length).toBeLessThan(long.length)
+    expect(item.question).toMatch(/…$/)
+    expect(item.question).not.toMatch(/\s…$/)
+    expect(long).toContain(item.question.replace('…', ''))
+  })
+
+  test('leaves a short question exactly as it was asked', () => {
+    const [item] = toThread([exchange('Can I use Copilot?')], 1)
+
+    expect(item.question).toBe('Can I use Copilot?')
+  })
+
   test('numbers the questions in the order they were asked, each with an address', () => {
     const thread = toThread([exchange('First'), exchange('Second')], 2)
 

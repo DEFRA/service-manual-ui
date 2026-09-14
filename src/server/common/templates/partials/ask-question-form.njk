@@ -43,6 +43,12 @@
       <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
         Ask<span class="govuk-visually-hidden"> the toolkit</span>
       </button>
+      {# Hidden until the JavaScript that makes Enter send has attached.
+         Without it Enter adds a line break, so saying otherwise would be
+         wrong for anyone the script never reaches. #}
+      <p class="govuk-hint app-ask__key-hint" data-module="app-ask-key-hint" hidden>
+        Press Enter to send. Shift and Enter starts a new line.
+      </p>
     </div>
     <div id="question-info" class="govuk-hint govuk-character-count__message">
       You can enter up to {{ maxQuestionLength }} characters

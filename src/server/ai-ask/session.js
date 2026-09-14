@@ -1,3 +1,4 @@
+import { THREAD_QUESTION_LENGTH } from './constants.js'
 import { answerPath } from './paths.js'
 
 const SESSION_KEY = 'ai-ask'
@@ -42,11 +43,28 @@ export function toThread (exchanges, currentNumber) {
 
     return {
       number,
-      question: exchange.question,
+      question: shorten(exchange.question),
       href: answerPath(number),
       isCurrent: number === currentNumber
     }
   })
+}
+
+/**
+ * Cuts a question down for the conversation list, at a word boundary so it
+ * does not stop mid-word.
+ * @param {string} question
+ * @returns {string}
+ */
+function shorten (question) {
+  if (question.length <= THREAD_QUESTION_LENGTH) {
+    return question
+  }
+
+  const cut = question.slice(0, THREAD_QUESTION_LENGTH)
+  const lastSpace = cut.lastIndexOf(' ')
+
+  return `${lastSpace > 0 ? cut.slice(0, lastSpace) : cut}…`
 }
 
 /**

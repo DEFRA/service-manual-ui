@@ -111,4 +111,32 @@ describe('initAsk', () => {
     expect(submitted).not.toHaveBeenCalled()
     expect(event.defaultPrevented).toBe(false)
   })
+
+  test('says how to send and how to start a new line, once Enter really sends', () => {
+    document.body.innerHTML = `
+      <form>
+        <textarea id="question" data-module="app-ask-question"></textarea>
+        <button type="submit">Ask</button>
+        <p data-module="app-ask-key-hint" hidden>Press Enter to send.</p>
+      </form>
+    `
+    document.querySelector('form').requestSubmit = submitted
+    initAsk()
+
+    expect(document.querySelector('[data-module="app-ask-key-hint"]').hidden).toBe(false)
+  })
+
+  test('keeps the sending hint hidden when Enter does not send', () => {
+    document.body.innerHTML = `
+      <form>
+        <textarea id="question" data-module="app-ask-question"></textarea>
+        <button type="submit">Ask</button>
+        <p data-module="app-ask-key-hint" hidden>Press Enter to send.</p>
+      </form>
+    `
+    document.querySelector('form').requestSubmit = undefined
+    initAsk()
+
+    expect(document.querySelector('[data-module="app-ask-key-hint"]').hidden).toBe(true)
+  })
 })

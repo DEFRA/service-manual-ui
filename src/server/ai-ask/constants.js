@@ -22,6 +22,12 @@ export const MAX_EXCHANGES = 20
 // short enough to keep what reaches the model bounded.
 export const MAX_QUESTION_LENGTH = 500
 
+// How much of a question the conversation list shows. A 500 character
+// question is fourteen lines in a third of the page, which buries the answer
+// beside it. Enough words to recognise which question it was is all the list
+// has to do.
+export const THREAD_QUESTION_LENGTH = 60
+
 // Longest mailto link we will build. Mail clients and browsers start dropping
 // or refusing longer ones, and a silently truncated email is worse than one
 // the person pastes into themselves.

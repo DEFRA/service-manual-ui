@@ -9,13 +9,19 @@
   {% endif %}
 
   {% if answer.rule %}
-  <blockquote class="app-ask__rule">
+  {# The label and the source sit outside the blockquote, so a screen reader
+     announces only the rule itself as quoted text. On a feature whose whole
+     point is that the quote is exact, the edges of the quote have to be
+     exact too. #}
+  <figure class="app-ask__rule">
     <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
-    <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
-    <p class="app-ask__rule-source">
+    <blockquote class="app-ask__rule-quote">
+      <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
+    </blockquote>
+    <figcaption class="app-ask__rule-source">
       From <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>
-    </p>
-  </blockquote>
+    </figcaption>
+  </figure>
   {% endif %}
 
   {% if answer.sources | length %}

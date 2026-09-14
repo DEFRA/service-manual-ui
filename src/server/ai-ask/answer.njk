@@ -2,13 +2,12 @@
 
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
-{# The tab carries the question, cut short, so history and open tabs stay
-   distinguishable. The heading on the page does not, because a question can
-   run to 500 characters and a heading that can become a paragraph is not a
-   heading. #}
+{# The tab carries the answer's position, never the question. See the note in
+   the controller: analytics collects page titles, and nothing a person types
+   should leave the service. #}
 {% block pageTitle %}
   {%- if error %}Error: {% endif -%}
-  {{ pageTitle | truncate(60) }} | {{ headerServiceName }}
+  {{ pageTitle }} | {{ headerServiceName }}
 {% endblock %}
 
 {% block beforeContent %}
