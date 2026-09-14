@@ -88,6 +88,29 @@ To mimic the application running in `production` mode locally run:
 npm start
 ```
 
+### Tests
+
+To run the whole suite with coverage, as CI does:
+
+```bash
+npm test
+```
+
+To run a single file or folder while working:
+
+```bash
+npx vitest run tests/unit/server/ai-ask
+```
+
+Tests live under `tests/`, never beside the source, following the
+[AICE JavaScript testing guide](https://github.com/DEFRA/aice-team/blob/main/style-guides/javascript-testing.md):
+
+- `tests/unit/` mirrors `src/` and addresses one module by importing it
+- `tests/integration/` addresses an entry point such as a page or plugin, and boots a server
+- `tests/helpers/` and `tests/fixtures/` hold test-only code and data
+
+> Some integration tests bind port 3000, so stop `npm run dev` before running the full suite.
+
 ### Npm scripts
 
 All available Npm scripts can be seen in [package.json](./package.json)
