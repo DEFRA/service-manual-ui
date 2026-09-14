@@ -14,7 +14,7 @@ import { statusCodes } from '../../../../src/server/common/constants/status-code
 const askUrl = '/ai-toolkit/ask'
 
 describe('askController', () => {
-  let server
+  let server
   beforeAll(async () => {
     vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', 'true')
     vi.resetModules()
@@ -28,6 +28,31 @@ describe('askController', () => {
     vi.unstubAllEnvs()
     vi.resetModules()
   })
+
+  /**
+   * Posts a question and hands back the session cookie, so later requests
+   * land in the same conversation. Pass a cookie to add to an existing
+   * conversation, or leave it out to start one.
+   * @param {string} question
+   * @param {string} [cookie]
+   * @returns {Promise<{ posted: object, cookie: string }>}
+   */
+  async function postQuestion (question, cookie) {
+    const posted = await server.inject({
+      method: 'POST',
+      url: askUrl,
+      payload: `question=${encodeURIComponent(question)}`,
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        ...(cookie ? { cookie } : {})
+      }
+    })
+
+    return {
+      posted,
+      cookie: posted.headers['set-cookie']?.[0].split(';')[0] ?? cookie
+    }
+  }
 
   describe(`GET ${askUrl}`, () => {
     test('returns 200', async () => {
@@ -94,17 +119,12 @@ describe('askController', () => {
      * @returns {Promise<object>} The rendered conversation response
      */
     async function ask (question) {
-      const posted = await server.inject({
-        method: 'POST',
-        url: askUrl,
-        payload: `question=${encodeURIComponent(question)}`,
-        headers: { 'content-type': 'application/x-www-form-urlencoded' }
-      })
+      const { posted, cookie } = await postQuestion(question)
 
       return server.inject({
         method: 'GET',
         url: posted.headers.location.split('#')[0],
-        headers: { cookie: posted.headers['set-cookie']?.[0].split(';')[0] }
+        headers: { cookie }
       })
     }
 
@@ -230,16 +250,7 @@ describe('askController', () => {
       let cookie
 
       for (const question of questions) {
-        const posted = await server.inject({
-          method: 'POST',
-          url: askUrl,
-          payload: `question=${encodeURIComponent(question)}`,
-          headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-            ...(cookie ? { cookie } : {})
-          }
-        })
-        cookie = posted.headers['set-cookie']?.[0].split(';')[0] ?? cookie
+        ({ cookie } = await postQuestion(question, cookie))
       }
 
       return cookie
@@ -489,14 +500,9 @@ describe('askController', () => {
      * @returns {Promise<string>}
      */
     async function startConversation () {
-      const { headers } = await server.inject({
-        method: 'POST',
-        url: askUrl,
-        payload: 'question=How%20do%20I%20choose%20a%20tool%3F',
-        headers: { 'content-type': 'application/x-www-form-urlencoded' }
-      })
+      const { cookie } = await postQuestion('How do I choose a tool?')
 
-      return headers['set-cookie'][0].split(';')[0]
+      return cookie
     }
 
     test('the front door is the front door when nothing has been asked', async () => {
@@ -570,13 +576,9 @@ describe('askController', () => {
      * @returns {Promise<object>} The rendered contact page
      */
     async function getStuck (includeConversation) {
-      const started = await server.inject({
-        method: 'POST',
-        url: askUrl,
-        payload: 'question=Can%20I%20use%20Copilot%20with%20personal%20data%3F',
-        headers: { 'content-type': 'application/x-www-form-urlencoded' }
-      })
-      const cookie = started.headers['set-cookie'][0].split(';')[0]
+      const { cookie } = await postQuestion(
+        'Can I use Copilot with personal data?'
+      )
 
       return server.inject({
         method: 'POST',
@@ -587,13 +589,7 @@ describe('askController', () => {
     }
 
     test('offers a way to reach the team from the conversation', async () => {
-      const started = await server.inject({
-        method: 'POST',
-        url: askUrl,
-        payload: 'question=How%20do%20I%20choose%20a%20tool%3F',
-        headers: { 'content-type': 'application/x-www-form-urlencoded' }
-      })
-      const cookie = started.headers['set-cookie'][0].split(';')[0]
+      const { cookie } = await postQuestion('How do I choose a tool?')
 
       const { result } = await server.inject({
         method: 'GET',

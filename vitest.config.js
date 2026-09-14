@@ -6,12 +6,12 @@ export default defineConfig(() => {
       globals: true,
       environment: 'node',
       clearMocks: true,
-      // Integration tests boot the whole server in beforeAll. Under a full
-      // run with coverage on that passes vitest's 10 second default.
+      // Integration tests boot the whole server before their first test.
+      // With coverage on and every file running at once, that takes longer
+      // than vitest's 10 second default allows.
       hookTimeout: 30000,
       // Tests live under tests/, never beside the source, per the AICE
-      // testing guide. Anchoring the include here also stops vitest scanning
-      // copies of the repo under .claude/worktrees.
+      // testing guide.
       include: ['tests/**/*.test.js'],
       setupFiles: ['./vitest.setup.js'],
       coverage: {
