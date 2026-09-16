@@ -9,11 +9,13 @@
   <p class="govuk-body">{{ answer.message }}</p>
   {% endif %}
 
-  {% if answer.status == 'need_more_detail' and answer.options | length %}
+  {% if canFollowUp and answer.status == 'need_more_detail' and answer.options | length %}
   {# The options narrow the question, so choosing one posts it as the next
      question through the same route the free-text follow-up box below
      uses. No script, no new endpoint: a form and a name the controller
-     already reads. #}
+     already reads. Gated on canFollowUp, same as the free-text box below:
+     an earlier answer page or a conversation at its limit must not offer a
+     control the POST handler will refuse. #}
   <form method="post" action="{{ paths.ask }}" novalidate class="app-ask__options">
     {{ govukRadios({
       idPrefix: "option",
