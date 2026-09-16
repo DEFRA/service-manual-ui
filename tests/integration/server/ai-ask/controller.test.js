@@ -128,6 +128,31 @@ describe('askController', () => {
       })
     }
 
+    test('says what to do when the backend gives no answer, and keeps the question', async () => {
+      const { config } = await import('../../config/config.js')
+      const previousUrl = config.get('aiContent.askApiUrl')
+      config.set('aiContent.askApiUrl', 'http://backend:8085')
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')))
+
+      try {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('How do I choose a tool?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded' }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        expect(result).toEqual(
+          expect.stringContaining('The toolkit could not answer just now. Try again in a minute.')
+        )
+        expect(result).toEqual(expect.stringContaining('How do I choose a tool?'))
+      } finally {
+        config.set('aiContent.askApiUrl', previousUrl)
+        vi.unstubAllGlobals()
+      }
+    })
+
     test('sends each answer to a page of its own', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'POST',
