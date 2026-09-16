@@ -1,11 +1,35 @@
 {# One answer: what the toolkit said, the rule it quoted if it quoted one,
    the guidance to check it against, and the reminder that it can be wrong. #}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 <div class="app-ask__answer">
 
   <span class="app-ask__eyebrow">Toolkit answer</span>
 
   {% if answer.message %}
   <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
+  {% if answer.status == 'need_more_detail' and answer.options | length %}
+  {# The options narrow the question, so choosing one posts it as the next
+     question through the same route the free-text follow-up box below
+     uses. No script, no new endpoint: a form and a name the controller
+     already reads. #}
+  <form method="post" action="{{ paths.ask }}" novalidate class="app-ask__options">
+    {{ govukRadios({
+      idPrefix: "option",
+      name: "question",
+      fieldset: {
+        legend: {
+          text: "Which is closest to what you are asking?",
+          classes: "govuk-visually-hidden"
+        }
+      },
+      items: answer.options | toRadioItems
+    }) }}
+    <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+      Continue
+    </button>
+  </form>
   {% endif %}
 
   {% if answer.rule %}

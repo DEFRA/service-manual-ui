@@ -221,6 +221,52 @@ describe('askController', () => {
       )
     })
 
+    test('shows a need_more_detail answer as a choice of options, in the order sent', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('type="radio"'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'What data am I allowed to use with an AI tool?'
+        )
+      )
+
+      const first = result.indexOf('What data am I allowed to use with an AI tool?')
+      const second = result.indexOf('Which AI tool should I use for my project?')
+      expect(first).toBeGreaterThan(-1)
+      expect(second).toBeGreaterThan(first)
+    })
+
+    test('keeps the follow-up question box under a need_more_detail answer', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('id="question"'))
+    })
+
+    test('choosing an option and continuing asks it as the next question', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+      const chosen = 'Which AI tool should I use for my project?'
+
+      const { posted: followedUp, cookie: followUpCookie } = await postQuestion(
+        chosen,
+        cookie
+      )
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: followedUp.headers.location,
+        headers: { cookie: followUpCookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          `<p class="govuk-body app-ask__asked-text">${chosen}</p>`
+        )
+      )
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],
