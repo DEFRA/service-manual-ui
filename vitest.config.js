@@ -6,12 +6,22 @@ export default defineConfig(() => {
       globals: true,
       environment: 'node',
       clearMocks: true,
+      // Integration tests boot the whole server before their first test.
+      // With coverage on and every file running at once, that takes longer
+      // than vitest's 10 second default allows.
+      hookTimeout: 30000,
+      // Tests live under tests/, never beside the source, per the AICE
+      // testing guide.
+      include: ['tests/**/*.test.js'],
       setupFiles: ['./vitest.setup.js'],
       coverage: {
         provider: 'v8',
         reportsDirectory: './coverage',
         reporter: ['text', 'lcov'],
-        include: ['src/**'],
+        // JavaScript only. With a bare src/** the uncovered-files pass tries
+        // to parse every markdown page under src/content and logs a parser
+        // error for each one.
+        include: ['src/**/*.js'],
         exclude: [
           ...configDefaults.exclude,
           '.public',

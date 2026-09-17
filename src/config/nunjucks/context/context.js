@@ -76,6 +76,9 @@ export function context (request) {
     breadcrumbs: [],
     navigation: buildNavigation(request),
     gtmContainerId: config.get('googleTagManager.containerId'),
+    featureFlags: {
+      askEnabled: config.get('featureFlags.askEnabled')
+    },
     cookieConsentSet,
     cookieAction,
     hasAnalyticsConsent,

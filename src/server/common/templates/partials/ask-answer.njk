@@ -1,0 +1,45 @@
+{# One answer: what the toolkit said, the rule it quoted if it quoted one,
+   the guidance to check it against, and the reminder that it can be wrong. #}
+<div class="app-ask__answer">
+
+  <span class="app-ask__eyebrow">Toolkit answer</span>
+
+  {% if answer.message %}
+  <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
+  {% if answer.rule %}
+  <blockquote class="app-ask__rule">
+    <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
+    <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
+    <p class="app-ask__rule-source">
+      From <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>
+    </p>
+  </blockquote>
+  {% endif %}
+
+  {% if answer.sources | length %}
+  <div class="app-ask__check">
+    <h2 class="govuk-heading-s app-ask__check-heading">Check this answer</h2>
+    {# Page titles only. The section came through as a subtitle like "What the
+       conditions mean", which reads as a stray fragment next to a page name
+       and told nobody anything. The API still carries it, and the right use
+       for it is a link straight to that part of the page rather than a label.
+       #}
+    <ul class="govuk-list govuk-list--bullet app-ask__sources">
+      {% for source in answer.sources %}
+      <li>
+        <a class="govuk-link" href="{{ source.url }}">{{ source.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {# Last, under the guidance it used, so the warning is the final word before
+     someone acts on the answer. #}
+  {% set warningText = "AI can make mistakes. Check the guidance before you act." %}
+  {% set warningClass = "" %}
+  {% include "partials/ask-warning.njk" %}
+
+</div>

@@ -1,0 +1,7 @@
+{# The Beta banner on every Ask the toolkit page. One copy, so the wording and
+   the feedback address change in one place. #}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: { text: "Beta" },
+  html: 'Ask the toolkit is experimental. <a class="govuk-link" href="mailto:' + teamEmail + '?subject=Ask%20the%20toolkit%3A%20feedback">Give feedback</a> to help us improve it.'
+}) }}

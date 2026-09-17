@@ -11,10 +11,21 @@ $govuk-black: #0b0c0c;
 $govuk-blue: #1d70b8;
 $govuk-light-grey: #f3f2f1;
 $govuk-mid-grey: #b1b4b6;
+$govuk-secondary-text-colour: #505a5f;
 $govuk-yellow: #ffdd00;
 $govuk-focus-colour: #ffdd00;
 
 $app-light-grey: #f8f8f8;
+
+// The darker green the Design System expects in the shadow under a green
+// button.
+$defra-green-dark: #003514;
+
+// A mid grey for borders that carry meaning. $govuk-mid-grey is 2.08:1
+// against white, under the 3:1 that WCAG 1.4.11 asks of a boundary; this is
+// 4.56:1, near enough to Defra green's 4.77:1 that the two read at the same
+// weight.
+$app-mid-grey: #6f777b;
 
 // Radar status indicators: match GOV.UK Tag colour family
 $status-endorse: #00703c;

@@ -1,0 +1,103 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{# The tab carries the question, cut short, so history and open tabs stay
+   distinguishable. The heading on the page does not, because a question can
+   run to 500 characters and a heading that can become a paragraph is not a
+   heading. #}
+{% block pageTitle %}
+  {%- if error %}Error: {% endif -%}
+  {{ pageTitle | truncate(60) }} | {{ headerServiceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "partials/ask-phase-banner.njk" %}
+  {# super() is not called: it renders breadcrumbs, and the Design System says
+     never to show a back link and breadcrumbs together. #}
+  <a href="{{ backLink.href }}" class="govuk-back-link">{{ backLink.text }}</a>
+{% endblock %}
+
+{% block content %}
+{# The heading has a row of its own, so the conversation beside the answer
+   starts level with the question box rather than with the heading. #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if error %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [{ text: error, href: "#question" }]
+      }) }}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Your answer</h1>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="app-ask__asked">
+      <span class="app-ask__eyebrow">You asked</span>
+      <p class="govuk-body app-ask__asked-text">{{ exchange.question }}</p>
+    </div>
+
+    {% set answer = exchange.answer %}
+    {% include "partials/ask-answer.njk" %}
+
+    {% if canFollowUp %}
+      {# Only the newest answer can be followed on from. Asking from partway
+         back would either branch the conversation or silently jump to the
+         end. #}
+      {% include "partials/ask-question-form.njk" %}
+      {# The way to start over sits where the decision is made: at the field,
+         when someone realises the next question is not a follow-up. A plain
+         sentence rather than hint text, because the Design System says not
+         to put links in hint text. #}
+      <p class="govuk-body app-ask__restart">Asking about something else? <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a></p>
+    {% elif isLatest %}
+      <p class="govuk-body">This conversation has reached {{ maxExchanges }} questions, which is as long as one can be. <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a> to keep asking.</p>
+    {% else %}
+      {# The back link at the top already returns to the latest answer, so this
+         says why you cannot ask from here rather than repeating that link. #}
+      <p class="govuk-body">You can only ask from the latest answer in a conversation.</p>
+    {% endif %}
+
+    {# The same support box as every other toolkit page, so the route to a
+       person is where people already look for it, rather than a small link
+       trailing off the foot of the page. #}
+    {% include "partials/support-box.njk" %}
+
+  </div>
+
+  {# The conversation as navigation, beside the answer rather than after it.
+     Each question is a page, so this is a list of links: it stays scannable
+     at twenty questions, works with the back button, and can be linked to.
+     It sits in the column GOV.UK uses for related content, so it orients
+     without pushing the answer down, and only appears once there is more than
+     one question to choose between. #}
+  {% if thread | length > 1 %}
+  <div class="govuk-grid-column-one-third">
+    <nav class="app-ask__thread" aria-labelledby="thread-heading">
+      <h2 class="govuk-heading-s app-ask__thread-heading" id="thread-heading">This conversation</h2>
+      {# role="list" because WebKit drops list semantics from a list with no
+         markers, and the numbers are drawn by hand. #}
+      <ol class="app-ask__thread-list" role="list">
+        {% for item in thread %}
+        <li class="app-ask__thread-item{% if item.isCurrent %} app-ask__thread-item--current{% endif %}">
+          <span class="app-ask__thread-number" aria-hidden="true">{{ item.number }}</span>
+          {% if item.isCurrent %}
+          <span class="app-ask__thread-question" aria-current="page">{{ item.question }}<span class="govuk-visually-hidden"> (the answer you are reading)</span></span>
+          {% else %}
+          <a class="govuk-link app-ask__thread-question" href="{{ item.href }}">{{ item.question }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

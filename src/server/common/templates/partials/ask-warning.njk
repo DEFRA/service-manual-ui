@@ -1,0 +1,12 @@
+{# The one-line reminder that answers can be wrong, with the icon GOV.UK Chat
+   uses for the same job. Under every answer, and on the front door before the
+   first question. Set warningText before including; add warningClass for a
+   placement modifier. #}
+<p class="app-ask__warning{% if warningClass %} {{ warningClass }}{% endif %}">
+  <svg class="app-ask__warning-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+    <circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M10 5v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="10" cy="14.5" r="1.25" fill="currentColor"/>
+  </svg>
+  <strong>{{ warningText }}</strong>
+</p>

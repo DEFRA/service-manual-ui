@@ -1,0 +1,51 @@
+{# The question field and its button. Shared by the front door and the
+   conversation, so the two never drift apart. The only difference is the
+   label, which changes once a conversation has started.
+
+   The privacy hint shows on the front door only. Pass questionHint as false to
+   leave it off: once someone is in a conversation it read as nagging, and the
+   ask page already carried it when they started.
+
+   The GOV.UK character count carries the limit rather than a maxlength
+   attribute. maxlength silently truncates pasted text, so someone would send a
+   question with the end cut off and never know. The threshold keeps the count
+   out of the way until the question is nearly too long. Without JavaScript the
+   limit shows as a static line and the server still rejects anything over it
+   with a specific error. #}
+{% set hint = questionHint if questionHint is defined else "Do not include personal or sensitive information" %}
+<form method="post" action="{{ paths.ask }}" class="{{ questionFormClass | default('app-ask__panel') }}">
+  <div class="govuk-character-count"
+    data-module="govuk-character-count"
+    data-maxlength="{{ maxQuestionLength }}"
+    data-threshold="{{ questionCountThreshold }}">
+    <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
+      <label class="govuk-label {{ questionLabelClass | default('govuk-label--m') }}" for="question">
+        {{ questionLabel | default('Your question') }}
+      </label>
+      {% if hint %}
+      <div id="question-hint" class="govuk-hint">{{ hint }}</div>
+      {% endif %}
+      {% if error %}
+      <p id="question-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> {{ error }}
+      </p>
+      {% endif %}
+      <div class="app-ask__field">
+        <textarea
+          class="govuk-textarea govuk-js-character-count app-ask__input{% if error %} govuk-textarea--error{% endif %}"
+          id="question"
+          name="question"
+          rows="{{ questionRows }}"
+          enterkeyhint="send"
+          data-module="app-ask-question"
+          aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
+      </div>
+      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+        Ask<span class="govuk-visually-hidden"> the toolkit</span>
+      </button>
+    </div>
+    <div id="question-info" class="govuk-hint govuk-character-count__message">
+      You can enter up to {{ maxQuestionLength }} characters
+    </div>
+  </div>
+</form>

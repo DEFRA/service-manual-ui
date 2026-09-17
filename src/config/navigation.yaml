@@ -13,7 +13,25 @@
 # =============================================================================
 
 # -----------------------------------------------------------------------------
+# CUSTOMNAV PATTERNS (Service navigation bar)
 # -----------------------------------------------------------------------------
+
+# AI digital toolkit service navigation.
+#
+# "Ask the toolkit" is deliberately not listed here. It is appended in
+# layouts/page.njk when featureFlags.askEnabled is on, because this file is
+# static data and cannot be gated on a flag.
+nav-ai-toolkit:
+  - text: Home
+    href: /
+  - text: Deliver with AI
+    href: /ai-toolkit/deliver-with-ai
+  - text: Find a tool
+    href: /ai-toolkit/tools
+  - text: Use AI patterns
+    href: /ai-toolkit/patterns
+  - text: See our projects
+    href: /ai-toolkit/projects
 
 # -----------------------------------------------------------------------------
 # SECTIONNAV PATTERNS (Sidebar/section navigation)

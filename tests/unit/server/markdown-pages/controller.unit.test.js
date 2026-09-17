@@ -1,0 +1,46 @@
+import { vi } from 'vitest'
+
+import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
+
+vi.mock('../../../../src/server/common/helpers/content-loader.js', () => ({
+  loadContent: () => {
+    throw new Error('Content file not found: missing.md')
+  }
+}))
+
+const { getMarkdownPage } = await import('../../../../src/server/markdown-pages/controller.js')
+
+describe('getMarkdownPage error handling', () => {
+  test('Should log error and return 404 when loadContent throws', () => {
+    const mockLoggerError = vi.fn()
+    const mockCode = vi.fn().mockReturnValue('not found response')
+    const mockResponse = vi.fn().mockReturnValue({ code: mockCode })
+
+    const request = {
+      path: '/missing-page',
+      logger: { error: mockLoggerError }
+    }
+    const h = { response: mockResponse }
+
+    const handler = getMarkdownPage('missing.md')
+    const result = handler(request, h)
+
+    const [payload, message] = mockLoggerError.mock.calls[0]
+    expect(message).toBe('Failed to load markdown page')
+    expect(Object.keys(payload).sort()).toEqual(['error', 'event'])
+    expect(payload.event).toEqual({
+      type: 'page_load',
+      action: 'render',
+      category: 'markdown_pages',
+      reference: 'missing.md',
+      outcome: 'failure'
+    })
+    expect(payload.error).toMatchObject({
+      message: 'Content file not found: missing.md',
+      type: 'Error'
+    })
+    expect(mockResponse).toHaveBeenCalledWith('Page not found')
+    expect(mockCode).toHaveBeenCalledWith(statusCodes.notFound)
+    expect(result).toBe('not found response')
+  })
+})

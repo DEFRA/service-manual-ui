@@ -12,6 +12,7 @@ import { serveStaticFiles } from './common/helpers/serve-static-files.js'
 import { interruption } from './interruption/index.js'
 import { aiTriage } from './ai-triage/index.js'
 import { verify } from './verify/index.js'
+import { aiAsk } from './ai-ask/index.js'
 
 export const router = {
   plugin: {
@@ -34,7 +35,8 @@ export const router = {
         search,
         deliveryGroups,
         interruption,
-        aiTriage
+        aiTriage,
+        aiAsk
       ])
 
       // Static assets
