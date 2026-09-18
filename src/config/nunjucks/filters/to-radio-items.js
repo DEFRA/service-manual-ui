@@ -1,9 +1,9 @@
 /**
  * Turns a list of plain strings into the item shape govukRadios expects.
  *
- * Nunjucks has no equivalent of Jinja's `namespace()`, so building this array
- * inside a template loop cannot carry values out of the loop's own scope.
- * A filter sidesteps that: it runs once, over the whole list.
+ * A filter keeps this mapping in one place, alongside the other view-model
+ * shaping, rather than repeated inline wherever a template loops over
+ * `answer.options`.
  * @param {Array<string>} [options]
  * @returns {Array<{ value: string, text: string }>}
  */

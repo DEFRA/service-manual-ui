@@ -281,6 +281,31 @@ describe('askController', () => {
       )
     })
 
+    test('pressing Continue with no option chosen shows the error on the options, not the free-text box', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+
+      const { result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'from=options',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          cookie
+        }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Select an option, or type your question below')
+      )
+      expect(result).toEqual(expect.stringContaining('href="#option"'))
+      expect(result).not.toEqual(expect.stringContaining('Enter your question'))
+
+      const followUpErrorIndex = result.indexOf('id="question-error"')
+      expect(followUpErrorIndex).toBe(-1)
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],

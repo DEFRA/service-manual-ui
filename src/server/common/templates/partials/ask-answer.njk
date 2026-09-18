@@ -22,13 +22,18 @@
       name: "question",
       fieldset: {
         legend: {
-          text: "Which is closest to what you are asking?",
+          text: "Choose an option",
           classes: "govuk-visually-hidden"
         }
       },
+      errorMessage: { text: optionsError } if optionsError else null,
       items: answer.options | toRadioItems
     }) }}
-    <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
+    {# name/value here, not on the free-text button, is how the controller
+       tells an empty options submission apart from an empty free-text one:
+       the same POST route serves both forms, and only one can point the
+       error back at the field that was actually used. #}
+    <button type="submit" name="from" value="options" class="govuk-button app-ask__send" data-module="govuk-button">
       Continue
     </button>
   </form>

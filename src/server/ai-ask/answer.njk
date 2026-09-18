@@ -24,10 +24,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if error %}
+    {% if error or optionsError %}
+      {% set errorItem = { text: error, href: "#question" } if error else { text: optionsError, href: "#option" } %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
-        errorList: [{ text: error, href: "#question" }]
+        errorList: [errorItem]
       }) }}
     {% endif %}
 
