@@ -221,6 +221,91 @@ describe('askController', () => {
       )
     })
 
+    test('shows a need_more_detail answer as a choice of options, in the order sent', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('type="radio"'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'What data am I allowed to use with an AI tool?'
+        )
+      )
+
+      const first = result.indexOf('What data am I allowed to use with an AI tool?')
+      const second = result.indexOf('Which AI tool should I use for my project?')
+      expect(first).toBeGreaterThan(-1)
+      expect(second).toBeGreaterThan(first)
+    })
+
+    test('keeps the follow-up question box under a need_more_detail answer', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('id="question"'))
+    })
+
+    test('choosing an option and continuing asks it as the next question', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+
+      const shown = await server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie }
+      })
+
+      // Read the value straight out of the rendered radio input, so this
+      // fails if the template or filter ever emitted the wrong name or
+      // value, rather than assuming the fixture text and the markup agree.
+      const radioMatch = shown.result.match(
+        /class="govuk-radios__input" id="option" name="question" type="radio" value="([^"]+)"/
+      )
+      expect(radioMatch).not.toBeNull()
+      const chosen = radioMatch[1]
+
+      const { posted: followedUp, cookie: followUpCookie } = await postQuestion(
+        chosen,
+        cookie
+      )
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: followedUp.headers.location,
+        headers: { cookie: followUpCookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          `<p class="govuk-body app-ask__asked-text">${chosen}</p>`
+        )
+      )
+    })
+
+    test('pressing Continue with no option chosen shows the error on the options, not the free-text box', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+
+      const { result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'from=options',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          cookie
+        }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Select an option, or type your question below')
+      )
+      expect(result).toEqual(expect.stringContaining('href="#option"'))
+      expect(result).not.toEqual(expect.stringContaining('Enter your question'))
+
+      const followUpErrorIndex = result.indexOf('id="question-error"')
+      expect(followUpErrorIndex).toBe(-1)
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],
@@ -299,6 +384,21 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('Can I use GitHub Copilot?')
       )
+    })
+
+    test('does not offer options on an earlier need_more_detail answer, only the latest can be followed on from', async () => {
+      const cookie = await haveConversation([
+        'help me get started',
+        'How do I choose a tool?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('type="radio"'))
     })
 
     test('lists the conversation as links, one per question', async () => {

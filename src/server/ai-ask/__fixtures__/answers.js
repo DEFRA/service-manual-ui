@@ -68,9 +68,24 @@ const generalAnswer = {
   ]
 }
 
+const needMoreDetailAnswer = {
+  status: 'need_more_detail',
+  message:
+    'The toolkit covers a few different things. Which is closest to what you are asking?',
+  rule_verbatim: null,
+  sources: [],
+  options: [
+    'What data am I allowed to use with an AI tool?',
+    'Which AI tool should I use for my project?',
+    'What patterns have other teams already built?',
+    'How do I get started with the AI digital toolkit?'
+  ]
+}
+
 const matchers = [
   { keywords: ['personal data', 'copilot'], answer: personalDataAnswer },
-  { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer }
+  { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer },
+  { keywords: ['help me', 'where do i start'], answer: needMoreDetailAnswer }
 ]
 
 // Openings that mean "carry on from what I just asked" rather than "here is a

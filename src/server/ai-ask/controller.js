@@ -78,7 +78,7 @@ function renderAsk (h, { question = '', error = null } = {}) {
 function renderAnswer (
   h,
   { exchanges, exchange, number },
-  { question = '', error = null } = {}
+  { question = '', error = null, optionsError = null } = {}
 ) {
   const isLatest = number === exchanges.length
 
@@ -120,7 +120,8 @@ function renderAnswer (
     maxExchanges: MAX_EXCHANGES,
     thread: session.toThread(exchanges, number),
     question,
-    error
+    error,
+    optionsError
   })
 }
 
@@ -158,10 +159,20 @@ export const askPostController = {
 
       const number = exchanges.length
 
+      // The Continue button on the options form carries this, so an empty
+      // submission from there gets its own message on the radios instead of
+      // the free-text error below them. Without it, someone using a
+      // keyboard or screen reader who pressed Continue with nothing chosen
+      // would land on "Enter your question", pointing at a field they never
+      // touched.
+      const fromOptions = request.payload?.from === 'options'
+
       return renderAnswer(
         h,
         { exchanges, exchange: exchanges[number - 1], number },
-        { question, error }
+        fromOptions
+          ? { question, optionsError: 'Select an option, or type your question below' }
+          : { question, error }
       )
     }
 

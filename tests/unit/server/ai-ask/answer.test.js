@@ -104,8 +104,28 @@ describe('toViewModel', () => {
       status: 'answered',
       message: 'Some explanation.',
       rule: null,
-      sources: []
+      sources: [],
+      options: []
     })
+  })
+
+  test('maps options for need_more_detail, in the order sent', () => {
+    const view = toViewModel({
+      status: 'need_more_detail',
+      message: 'Which is closest?',
+      options: ['First option', 'Second option', 'Third option']
+    })
+
+    expect(view.options).toEqual(['First option', 'Second option', 'Third option'])
+  })
+
+  test('defaults options to an empty list when the backend sends none', () => {
+    const view = toViewModel({
+      status: 'answered',
+      message: 'Some explanation.'
+    })
+
+    expect(view.options).toEqual([])
   })
 
   test.each([
@@ -183,6 +203,18 @@ describe('the stub answers', () => {
     if (raw.rule_verbatim) {
       expect(view.rule).not.toBeNull()
     }
+  })
+})
+
+describe('the stub answering "help me get started"', () => {
+  test('returns need_more_detail with two to four options, mapped in order', () => {
+    const raw = fixtureAnswerFor('help me get started')
+    const view = toViewModel(raw)
+
+    expect(view.status).toBe('need_more_detail')
+    expect(view.options.length).toBeGreaterThanOrEqual(2)
+    expect(view.options.length).toBeLessThanOrEqual(4)
+    expect(view.options).toEqual(raw.options)
   })
 })
 

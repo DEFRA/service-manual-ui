@@ -143,6 +143,7 @@ export function toViewModel (apiAnswer) {
     status: apiAnswer.status,
     message: apiAnswer.message ?? null,
     rule,
-    sources
+    sources,
+    options: apiAnswer.options ?? []
   }
 }
