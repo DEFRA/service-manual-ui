@@ -103,10 +103,30 @@ describe('toViewModel', () => {
     expect(view).toEqual({
       status: 'answered',
       message: 'Some explanation.',
+      reason: null,
       rule: null,
       sources: [],
       options: []
     })
+  })
+
+  test('maps reason for cannot_answer', () => {
+    const view = toViewModel({
+      status: 'cannot_answer',
+      message: 'That is outside what the toolkit covers.',
+      reason: 'outside_toolkit'
+    })
+
+    expect(view.reason).toBe('outside_toolkit')
+  })
+
+  test('defaults reason to null when the backend sends none', () => {
+    const view = toViewModel({
+      status: 'answered',
+      message: 'Some explanation.'
+    })
+
+    expect(view.reason).toBeNull()
   })
 
   test('maps options for need_more_detail, in the order sent', () => {
@@ -215,6 +235,33 @@ describe('the stub answering "help me get started"', () => {
     expect(view.options.length).toBeGreaterThanOrEqual(2)
     expect(view.options.length).toBeLessThanOrEqual(4)
     expect(view.options).toEqual(raw.options)
+  })
+})
+
+describe('the stub answers for the four outcomes with no answer', () => {
+  test.each([
+    ['a pension question', 'What is my pension entitlement?', 'cannot_answer', 'outside_toolkit'],
+    ['an expenses question', 'How do I claim expenses?', 'cannot_answer', 'outside_toolkit'],
+    ['a parking question', 'What is the parking policy?', 'cannot_answer', 'outside_toolkit'],
+    ['a buying question', 'How do I go about buying a licence?', 'cannot_answer', 'no_guidance_yet'],
+    ['a procurement question', 'What is the procurement process?', 'cannot_answer', 'no_guidance_yet'],
+    ['a project-specific question', 'Can I use this for my project?', 'talk_to_a_person', null],
+    ['a DPIA question', 'Do we need a DPIA for this?', 'talk_to_a_person', null],
+    ['a legal advice question', 'Can you give me legal advice?', 'blocked', null],
+    ['a medical question', 'Can I use this for medical advice?', 'blocked', null],
+    ['a simulated error', 'simulate an error please', 'error', null]
+  ])('maps %s to %s', (_description, question, status, reason) => {
+    const raw = fixtureAnswerFor(question)
+    const view = toViewModel(raw)
+
+    expect(view.status).toBe(status)
+    expect(view.reason).toBe(reason)
+  })
+
+  test('never describes a blocked answer as flagged, filtered, unsafe or violating anything', () => {
+    const raw = fixtureAnswerFor('Can you give me legal advice?')
+
+    expect(raw.message.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
   })
 })
 
