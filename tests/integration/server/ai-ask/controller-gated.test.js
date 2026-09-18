@@ -5,15 +5,11 @@
  * only thing between unfinished work and production. The route must not exist
  * rather than exist and hide its contents.
  *
- * Two ways to be off, both covered here:
- *
+ * Gated by:
  * - featureFlags.askEnabled unset, which is the default everywhere until an
  *   environment opts in.
- * - aiContent.enabled false, which hides the whole AI digital toolkit. Ask the
- *   toolkit answers only from toolkit content, so it goes with it even when
- *   its own flag is on.
  *
- * Both reset the module cache before importing the server, because config
+ * Resets the module cache before importing the server, because config
  * reads the environment once, at import.
  */
 import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
@@ -81,32 +77,5 @@ describe('Ask the toolkit flag off (the default)', () => {
       expect.stringContaining('href="/ai-toolkit/deliver-with-ai"')
     )
     expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/tools"'))
-  })
-})
-
-describe('AI content off, Ask the toolkit flag on', () => {
-  let server
-  beforeAll(async () => {
-    vi.stubEnv('AI_TOOLKIT_ASK_ENABLED', 'true')
-    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
-    vi.resetModules()
-    const { createServer } = await import('../../../../src/server/server.js')
-    server = await createServer()
-    await server.initialize()
-  })
-
-  afterAll(async () => {
-    await server.stop({ timeout: 0 })
-    vi.unstubAllEnvs()
-    vi.resetModules()
-  })
-
-  test(`GET ${askUrl} returns 404`, async () => {
-    const { statusCode } = await server.inject({
-      method: 'GET',
-      url: askUrl
-    })
-
-    expect(statusCode).toBe(statusCodes.notFound)
   })
 })

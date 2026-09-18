@@ -1,4 +1,3 @@
-import { config } from '../../config/config.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
 /**
@@ -13,10 +12,6 @@ import { statusCodes } from '../common/constants/status-codes.js'
  * /ai-toolkit to match the user-facing brand ("AI digital toolkit"). Anyone
  * who bookmarked or linked the old paths during dev is redirected to the
  * new equivalents permanently.
- *
- * The AI redirects are gated by aiContent.enabled. When AI content is hidden
- * in an environment, those redirects also disappear so we don't leak the
- * existence of the toolkit by hinting that "the content moved to a new URL".
  */
 export const redirects = {
   plugin: {
@@ -29,10 +24,6 @@ export const redirects = {
           return h.redirect('/architecture').code(statusCodes.movedPermanently)
         }
       })
-
-      if (!config.get('aiContent.enabled')) {
-        return
-      }
 
       server.route([
         {

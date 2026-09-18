@@ -36,11 +36,15 @@ export class TriageSubmission {
   }
 
   /**
-   * Build a TriageSubmission from session data.
+   * Build a TriageSubmission from session data. The email is not collected
+   * as one of the triage questions - it comes from the authenticated
+   * session set up by the magic link auth that protects these routes.
+   *
    * @param {Record<string, any>} sessionData
+   * @param {string} email
    * @returns {TriageSubmission}
    */
-  static fromSessionData (sessionData) {
+  static fromSessionData (sessionData, email) {
     const payload = {}
 
     for (const questionPath of triageQuestions) {
@@ -61,7 +65,7 @@ export class TriageSubmission {
     }
 
     return new TriageSubmission(
-      payload.email,
+      email,
       payload.problem,
       payload.users,
       payload.benefits,

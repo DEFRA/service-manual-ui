@@ -1,0 +1,24 @@
+[
+  {
+    "scope": "https://api.notifications.service.gov.uk:443",
+    "method": "POST",
+    "path": "/v2/notifications/email",
+    "body": {
+      "template_id": "4f5f6a8c-6f5a-4a3b-9c1a-2e6f0f5f3a1b",
+      "email_address": "test@example.com",
+      "personalisation": {
+        "verificationCode": "123456"
+      }
+    },
+    "status": 400,
+    "response": {
+      "errors": [
+        {
+          "error": "BadRequestError",
+          "message": "Can not send to this recipient using a team-only API key"
+        }
+      ],
+      "status_code": 400
+    }
+  }
+]

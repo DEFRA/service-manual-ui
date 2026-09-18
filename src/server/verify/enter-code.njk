@@ -1,0 +1,60 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: changeEmailHref or "/verify"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if error %}
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li><a href="#code">{{ error }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <h1 class="govuk-heading-xl">Enter your code</h1>
+    <p class="govuk-body">We have sent a code to {{ email }}. Enter it below to verify your email address.</p>
+
+    <form method="post" action="{{ codeSubmitHref or '/verify/code' }}">
+      <div class="govuk-form-group{% if error %} govuk-form-group--error{% endif %}">
+        <label class="govuk-label" for="code">Code</label>
+        {% if error %}
+        <p id="code-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> {{ error }}
+        </p>
+        {% endif %}
+        <input
+          class="govuk-input govuk-input--width-10{% if error %} govuk-input--error{% endif %}"
+          id="code"
+          name="code"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          spellcheck="false"
+          aria-describedby="{% if error %}code-error{% endif %}">
+      </div>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+
+    <p class="govuk-body">
+      <a href="{{ changeEmailHref or '/verify' }}">Enter a different email address</a>
+    </p>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 import { vi } from 'vitest'
 
-vi.mock('../../../../src/config/config.js', () => ({
+vi.mock('../../../../../src/config/config.js', () => ({
   config: { get: vi.fn() }
 }))
 
@@ -9,9 +9,11 @@ describe('isEmailDomainAllowed', () => {
 
   async function setup (domains) {
     vi.resetModules()
-    const { config } = await import('../../../../src/config/config.js')
+    const { config } = await import('../../../../../src/config/config.js')
     config.get.mockReturnValue(domains)
-    ;({ isEmailDomainAllowed } = await import('../../../../src/server/ai-triage/email-allow-list.js'))
+    ;({ isEmailDomainAllowed } = await import(
+      '../../../../../src/server/common/schemas/email-allow-list.js'
+    ))
   }
 
   describe('empty list', () => {

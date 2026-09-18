@@ -1,5 +1,4 @@
 // Routes for markdown-backed pages. Use AI patterns and Use AI responsibly restructure.
-import { config } from '../../config/config.js'
 import { getMarkdownPage } from './controller.js'
 
 export function isAiToolkitRoute (routePath) {
@@ -126,15 +125,11 @@ export const markdownRoutes = [
 ]
 
 /**
- * Returns the list of markdown routes that are currently enabled, applying
- * the same flag-driven filtering that the plugin uses to register routes.
- * Shared with the search index so gated content stays out of search results.
+ * Returns the list of markdown routes. Shared with the search index
+ * so we consistently use the same set of routes for both routing and search.
  */
 export function getEnabledMarkdownRoutes () {
-  const aiContentEnabled = config.get('aiContent.enabled')
-  return aiContentEnabled
-    ? markdownRoutes
-    : markdownRoutes.filter((path) => !isAiToolkitRoute(path))
+  return markdownRoutes
 }
 
 export const markdownPages = {

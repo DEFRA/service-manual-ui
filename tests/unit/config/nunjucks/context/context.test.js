@@ -71,7 +71,6 @@ describe('context and cache', () => {
           cookieConsentSet: false,
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
-          aiContent: { enabled: config.get('aiContent.enabled') },
           featureFlags: {
             askEnabled: config.get('featureFlags.askEnabled')
           },
@@ -177,7 +176,6 @@ describe('context and cache', () => {
           cookieConsentSet: false,
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
-          aiContent: { enabled: config.get('aiContent.enabled') },
           featureFlags: {
             askEnabled: config.get('featureFlags.askEnabled')
           },
