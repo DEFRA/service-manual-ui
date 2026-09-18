@@ -1,7 +1,8 @@
-import { config } from '../../config/config.js'
+import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest'
+import { config } from '../../../../src/config/config.js'
 
-import { answerFor } from './chat-api.js'
-import { fixtureAnswerFor } from './__fixtures__/answers.js'
+import { answerFor } from '../../../../src/server/ai-ask/chat-api.js'
+import { fixtureAnswerFor } from '../../../../src/server/ai-ask/__fixtures__/answers.js'
 
 describe('#chatApi', () => {
   let originalUrl

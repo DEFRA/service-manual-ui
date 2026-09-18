@@ -129,7 +129,7 @@ describe('askController', () => {
     }
 
     test('says what to do when the backend gives no answer, and keeps the question', async () => {
-      const { config } = await import('../../config/config.js')
+      const { config } = await import('../../../../src/config/config.js')
       const previousUrl = config.get('aiContent.askApiUrl')
       config.set('aiContent.askApiUrl', 'http://backend:8085')
       vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')))
