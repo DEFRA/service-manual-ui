@@ -1,12 +1,44 @@
 {# One answer: what the toolkit said, the rule it quoted if it quoted one,
-   the guidance to check it against, and the reminder that it can be wrong. #}
+   the guidance to check it against, and the reminder that it can be wrong.
+
+   cannot_answer, talk_to_a_person, blocked and error each get a short block
+   of their own below the message, in place of content built for an answer
+   that isn't there: a rule, a "check this answer" list with nothing behind
+   it, or a warning that nothing was generated. The wording in those blocks
+   is a stub that will be replaced (card 012); the one rule already agreed is
+   that blocked never says the question was flagged, filtered, unsafe or
+   violated anything. #}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 <div class="app-ask__answer">
 
+  {% if answer.status == 'answered' or answer.status == 'need_more_detail' %}
   <span class="app-ask__eyebrow">Toolkit answer</span>
+  {% endif %}
 
-  {% if answer.message %}
+  {% if answer.status == 'error' %}
+
+  {{ govukNotificationBanner({
+    text: answer.message
+  }) }}
+  {% elif answer.message %}
   <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
+  {% if answer.status == 'cannot_answer' %}
+    {% if answer.reason == 'no_guidance_yet' %}
+    <p class="govuk-body">This gap has been noted, so the guidance can catch up.</p>
+    {% else %}
+    <p class="govuk-body">The toolkit covers choosing a tool, the data you can use with it, and the patterns other teams have built. <a class="govuk-link" href="{{ paths.toolkit }}">Go to the AI digital toolkit</a></p>
+    {% endif %}
+  {% endif %}
+
+  {% if answer.status == 'talk_to_a_person' %}
+
+  <p class="app-ask__contact-link">
+    {{ govukButton({ href: paths.help, text: "Speak to the team" }) }}
+  </p>
   {% endif %}
 
   {% if canFollowUp and answer.status == 'need_more_detail' and answer.options | length %}
@@ -51,7 +83,9 @@
 
   {% if answer.sources | length %}
   <div class="app-ask__check">
-    <h2 class="govuk-heading-s app-ask__check-heading">Check this answer</h2>
+    {# cannot_answer's sources are the nearest guidance found, not something
+       to check an answer against, since there isn't one. #}
+    <h2 class="govuk-heading-s app-ask__check-heading">{{ "Nearest guidance" if answer.status == 'cannot_answer' else "Check this answer" }}</h2>
     {# Page titles only. The section came through as a subtitle like "What the
        conditions mean", which reads as a stray fragment next to a page name
        and told nobody anything. The API still carries it, and the right use
@@ -68,9 +102,12 @@
   {% endif %}
 
   {# Last, under the guidance it used, so the warning is the final word before
-     someone acts on the answer. #}
+     someone acts on the answer. Not shown on error: nothing was generated for
+     it to warn about. #}
+  {% if answer.status != 'error' %}
   {% set warningText = "AI can make mistakes. Check the guidance before you act." %}
   {% set warningClass = "" %}
   {% include "partials/ask-warning.njk" %}
+  {% endif %}
 
 </div>

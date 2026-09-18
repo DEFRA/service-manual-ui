@@ -306,6 +306,100 @@ describe('askController', () => {
       expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
+    test('shows a cannot_answer, outside_toolkit answer with its own heading and no Check this answer section', async () => {
+      const { result } = await ask('What is the parking policy?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+        )
+      )
+      expect(result).not.toEqual(expect.stringContaining('Check this answer'))
+    })
+
+    test('shows a cannot_answer, no_guidance_yet answer with its nearest guidance listed', async () => {
+      const { result } = await ask('What is the procurement process?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+        )
+      )
+      expect(result).toEqual(expect.stringContaining('Nearest guidance'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
+      )
+    })
+
+    test('shows a talk_to_a_person answer with a link to the team, and the conversation reaches them', async () => {
+      const { posted, cookie } = await postQuestion('Can I use this for my project?')
+
+      const shown = await server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie }
+      })
+
+      expect(shown.result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">This one is for the team</h1>'
+        )
+      )
+      expect(shown.result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/ask/help"')
+      )
+
+      const stuck = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: 'includeConversation=yes',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(stuck.result).toEqual(
+        expect.stringContaining('Can I use this for my project?')
+      )
+    })
+
+    test('shows a blocked answer in neutral words, with the follow-up field still there', async () => {
+      const { result } = await ask('Can you give me legal advice?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot help with this question</h1>'
+        )
+      )
+      expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
+      expect(result).toEqual(expect.stringContaining('id="question"'))
+    })
+
+    test('shows an error answer with the follow-up field pre-filled, so one click retries, and no AI-mistakes warning', async () => {
+      const { result } = await ask('simulate an error please')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">Something went wrong</h1>'
+        )
+      )
+      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+
+      const textareaMatch = result.match(
+        /<textarea[\s\S]*?id="question"[\s\S]*?>([\s\S]*?)<\/textarea>/
+      )
+      expect(textareaMatch).not.toBeNull()
+      expect(textareaMatch[1]).toBe('simulate an error please')
+    })
+
+    test('leaves answered and need_more_detail answers as they were', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+      )
+      expect(result).toEqual(expect.stringContaining('Toolkit answer'))
+      expect(result).toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],
