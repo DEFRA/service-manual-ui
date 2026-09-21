@@ -123,7 +123,8 @@ export const getSummaryPage = async (request, h) => {
     return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
       rows: viewModel.rows,
-      error: viewModel.error
+      error: viewModel.error,
+      email: request.auth.credentials.email
     })
   } catch (error) {
     request.logger.error(
@@ -144,7 +145,10 @@ export const getSummaryPage = async (request, h) => {
 export const postSummaryPage = async (request, h) => {
   try {
     const sessionData = sessionHelper.getTriageSessionData(request.yar)
-    const submission = model.TriageSubmission.fromSessionData(sessionData)
+    const submission = model.TriageSubmission.fromSessionData(
+      sessionData,
+      request.auth.credentials.email
+    )
 
     const submitResult = await aiTriageService.submit(submission, {
       stsClient: request.stsClient
@@ -159,7 +163,8 @@ export const postSummaryPage = async (request, h) => {
       return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
         ...meta,
         rows: viewModel.rows,
-        error: viewModel.error
+        error: viewModel.error,
+        email: request.auth.credentials.email
       })
     }
 
@@ -195,6 +200,7 @@ export const getThankYouPage = async (request, h) => {
       content,
       currentUrl: request.path,
       reference,
+      email: request.auth.credentials.email,
       showReference: config.get('featureFlags.showTriageReference'),
       confirmationEmailFailed: request.query.confirmationFailed === 'true'
     })

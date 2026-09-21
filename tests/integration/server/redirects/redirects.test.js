@@ -1,16 +1,11 @@
 /**
  * Tests for the 301 redirects from old /ai-playbook URLs to /ai-toolkit.
- *
- * AI content is enabled by default, so the redirect routes are registered and
- * we can hit them. A second describe block sets ENABLE_AI_CONTENT=false, resets
- * the module cache, and re-imports the server to verify the redirects also
- * disappear when AI content is gated off.
  */
-import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
+import { describe, test, expect, beforeAll, afterAll } from 'vitest'
 import { createServer } from '../../../../src/server/server.js'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
-describe('301 redirects (AI content enabled)', () => {
+describe('301 redirects', () => {
   let server
 
   beforeAll(async () => {
@@ -98,40 +93,5 @@ describe('301 redirects (AI content enabled)', () => {
     })
 
     expect(statusCode).toBe(statusCodes.ok)
-  })
-})
-
-describe('301 redirects (AI content gated off)', () => {
-  let server
-  beforeAll(async () => {
-    vi.stubEnv('ENABLE_AI_CONTENT', 'false')
-    vi.resetModules()
-    const { createServer: createServerGated } = await import('../../../../src/server/server.js')
-    server = await createServerGated()
-    await server.initialize()
-  })
-
-  afterAll(async () => {
-    await server.stop({ timeout: 0 })
-    vi.unstubAllEnvs()
-    vi.resetModules()
-  })
-
-  test('GET /ai-playbook returns 404 (no redirect leak)', async () => {
-    const { statusCode } = await server.inject({
-      method: 'GET',
-      url: '/ai-playbook'
-    })
-
-    expect(statusCode).toBe(statusCodes.notFound)
-  })
-
-  test('GET /ai-playbook/tools returns 404', async () => {
-    const { statusCode } = await server.inject({
-      method: 'GET',
-      url: '/ai-playbook/tools'
-    })
-
-    expect(statusCode).toBe(statusCodes.notFound)
   })
 })

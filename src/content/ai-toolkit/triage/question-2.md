@@ -1,5 +1,5 @@
 ---
-title: What is the problem?
+title: Who are the users and how many are affected?
 layout: question
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
@@ -19,14 +19,14 @@ breadcrumbItems:
     href: /
   - text: AI digital toolkit
     href: /ai-toolkit
-questionCaption: Question 2 of 6
+questionCaption: Question 2 of 5
 questionInputType: textarea
-questionHint: Describe the problem, who or what it affects, and the impact it is having.
+questionHint: For example, caseworkers, the public or internal teams. Add numbers if you can.
 questionRows: 6
 questionSchema: text-required
 questionBackHref: /ai-toolkit/triage/question-1
 questionSubmitHref: /ai-toolkit/triage/question-2
 questionContinueHref: /ai-toolkit/triage/question-3
 fields:
-  answer: problem
+  answer: users
 ---

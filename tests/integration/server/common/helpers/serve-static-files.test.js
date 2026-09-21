@@ -1,8 +1,17 @@
+import { vi } from 'vitest'
 import { startServer } from '../../../../../src/server/common/helpers/start-server.js'
 import { statusCodes } from '../../../../../src/server/common/constants/status-codes.js'
 
 describe('serveStaticFiles', () => {
   let server
+
+  beforeAll(() => {
+    vi.stubEnv('PORT', '3096')
+  })
+
+  afterAll(() => {
+    vi.unstubAllEnvs()
+  })
 
   describe('When secure context is disabled', () => {
     beforeEach(async () => {

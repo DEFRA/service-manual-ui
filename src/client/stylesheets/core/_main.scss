@@ -3,7 +3,22 @@
 // Example namespaced custom element style CSS classes
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+.govuk-width-container {
+  flex: 1;
+
+  @media (min-width: #{$govuk-page-width + 60px}) {
+    width: 100%;
+  }
+}
+
+main {
+  flex: 1;
 }
 
 .app-main-wrapper {

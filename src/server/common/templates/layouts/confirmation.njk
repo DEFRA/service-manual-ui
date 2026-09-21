@@ -12,7 +12,7 @@
         </svg>
         <div class="defra-alert__content">
           <p class="govuk-body">Your submission has been received.</p>
-          <p class="govuk-body">We were unable to send you a confirmation email. Please do not resubmit this form.</p>
+          <p class="govuk-body">We were unable to send a confirmation email to {{ email }}. Please do not resubmit this form.</p>
         </div>
       </div>
     {% endif %}
@@ -25,6 +25,10 @@
         Reference number<br><strong>{{ reference if reference else 'AICE-XX-XXXXXX' }}</strong>
       </div>
     </div>
+
+    {% if email and not confirmationEmailFailed %}
+      <p class="govuk-body">You submitted this as <strong>{{ email }}</strong>. We've sent a confirmation to this address.</p>
+    {% endif %}
 
     {{ content | markdown | safe }}
   </div>

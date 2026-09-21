@@ -36,8 +36,7 @@ export const aiAsk = {
   plugin: {
     name: 'ai-ask',
     register (server) {
-      const isEnabled =
-        config.get('aiContent.enabled') && config.get('featureFlags.askEnabled')
+      const isEnabled = config.get('featureFlags.askEnabled')
 
       if (!isEnabled) {
         return

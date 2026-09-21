@@ -9,6 +9,8 @@ import emailDomainArray from './formats/email-domain-array.js'
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const minSessionCookiePasswordLength = 32
+
+const fifteenMinutesMs = 900000
 const fourHoursMs = 14400000
 const threeSecondsMs = 3000
 const thirtySecondsMs = 30000
@@ -162,12 +164,6 @@ export const config = convict({
       default: 'AICapabilityAndEnablement@defra.gov.uk',
       env: 'AI_TOOLKIT_TEAM_EMAIL'
     },
-    enabled: {
-      doc: 'Whether AI content (the AI digital toolkit at /ai-toolkit) is visible. Defaults to true (visible in all environments). Set ENABLE_AI_CONTENT=false to hide it in a specific environment.',
-      format: Boolean,
-      default: true,
-      env: 'ENABLE_AI_CONTENT'
-    },
     askApiUrl: {
       doc: 'Base URL of service-manual-chat-backend, which answers Ask the toolkit questions. Empty means answer from the built-in fixtures, so an environment without a backend behaves as it did before one existed. Locally the backend runs on port 8085.',
       format: String,
@@ -201,6 +197,12 @@ export const config = convict({
         format: String,
         default: null,
         env: 'AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID'
+      },
+      verificationCodeTemplateId: {
+        doc: 'Gov.UK Notify template ID for verification code email',
+        format: String,
+        default: null,
+        env: 'VERIFICATION_CODE_EMAIL_TEMPLATE_ID'
       },
       mailbox: {
         doc: 'Shared mailbox email address to receive triage submissions',
@@ -318,6 +320,14 @@ export const config = convict({
         default: isProduction,
         env: 'SESSION_COOKIE_SECURE'
       }
+    }
+  },
+  verificationCode: {
+    codeTtl: {
+      doc: 'Verification code lifetime in milliseconds',
+      format: Number,
+      default: fifteenMinutesMs,
+      env: 'VERIFICATION_CODE_TTL'
     }
   },
   redis: {
