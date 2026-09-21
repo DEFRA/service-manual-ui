@@ -82,10 +82,74 @@ const needMoreDetailAnswer = {
   ]
 }
 
+// The four outcomes below are stub text only. Chris owns the final wording
+// (card 012); these exist to get the shape, and each screen, working without
+// the backend.
+const cannotAnswerOutsideToolkitAnswer = {
+  status: 'cannot_answer',
+  message: 'That is outside what the AI digital toolkit covers.',
+  reason: 'outside_toolkit',
+  rule_verbatim: null,
+  sources: []
+}
+
+const cannotAnswerNoGuidanceYetAnswer = {
+  status: 'cannot_answer',
+  message: 'The toolkit does not have guidance on this yet.',
+  reason: 'no_guidance_yet',
+  rule_verbatim: null,
+  sources: [
+    {
+      title: 'Choosing a tool',
+      url: '/ai-toolkit/guidance/choosing-a-tool',
+      section: null
+    }
+  ]
+}
+
+const talkToAPersonAnswer = {
+  status: 'talk_to_a_person',
+  message:
+    'This depends on your project, so it needs a conversation with the team rather than a general answer.',
+  rule_verbatim: null,
+  sources: []
+}
+
+// Never says the question was flagged, filtered, unsafe or violated anything,
+// per the one wording rule already agreed for this outcome.
+const blockedAnswer = {
+  status: 'blocked',
+  message:
+    'This is outside what Ask the toolkit can help with. Try asking about choosing a tool, using data with AI, or the patterns other teams have built.',
+  rule_verbatim: null,
+  sources: []
+}
+
+const errorAnswer = {
+  status: 'error',
+  message: 'Something went wrong answering this. No answer was generated.',
+  rule_verbatim: null,
+  sources: []
+}
+
 const matchers = [
   { keywords: ['personal data', 'copilot'], answer: personalDataAnswer },
   { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer },
-  { keywords: ['help me', 'where do i start'], answer: needMoreDetailAnswer }
+  { keywords: ['help me', 'where do i start'], answer: needMoreDetailAnswer },
+  {
+    keywords: ['pension', 'expenses', 'parking'],
+    answer: cannotAnswerOutsideToolkitAnswer
+  },
+  {
+    keywords: ['buying', 'procurement'],
+    answer: cannotAnswerNoGuidanceYetAnswer
+  },
+  {
+    keywords: ['my project', 'do we need a dpia'],
+    answer: talkToAPersonAnswer
+  },
+  { keywords: ['legal advice', 'medical'], answer: blockedAnswer },
+  { keywords: ['simulate an error'], answer: errorAnswer }
 ]
 
 // Openings that mean "carry on from what I just asked" rather than "here is a

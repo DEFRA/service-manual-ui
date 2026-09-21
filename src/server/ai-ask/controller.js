@@ -40,7 +40,13 @@ function baseView () {
     customNav: getNavigation('nav-ai-toolkit'),
     teamEmail: TEAM_EMAIL,
     // Form actions and links in the templates come from here, never typed in.
-    paths: { ask: askPath, help: helpPath, restart: restartPath, stuck: stuckPath },
+    paths: {
+      ask: askPath,
+      help: helpPath,
+      restart: restartPath,
+      stuck: stuckPath,
+      toolkit: toolkitPath
+    },
     questionRows: QUESTION_ROWS,
     maxQuestionLength: MAX_QUESTION_LENGTH,
     questionCountThreshold: QUESTION_COUNT_THRESHOLD,
@@ -229,7 +235,14 @@ export const answerController = {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    return renderAnswer(h, { exchanges, ...found })
+    // An error answer pre-fills the follow-up field with the question that
+    // failed, rather than a bespoke retry control, so one click submits the
+    // same question again through the form already on the page.
+    const question = found.exchange.answer.status === 'error'
+      ? found.exchange.question
+      : ''
+
+    return renderAnswer(h, { exchanges, ...found }, { question })
   }
 }
 
