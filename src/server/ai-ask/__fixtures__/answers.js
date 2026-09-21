@@ -41,7 +41,7 @@ const personalDataAnswer = {
 const choosingAToolAnswer = {
   status: 'answered',
   message:
-    'Start from the data you will use, then check the tools radar for a tool cleared for that classification. The radar entry tells you the status of the tool and any conditions on using it.',
+    'Start from the data you will use, because your classification and the tool type together decide what is allowed. The tools radar shows how established each tool is at Defra, not whether you are allowed to use it.',
   rule_verbatim: null,
   sources: [
     {
