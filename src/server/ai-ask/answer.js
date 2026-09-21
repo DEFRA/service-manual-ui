@@ -142,6 +142,10 @@ export function toViewModel (apiAnswer) {
   return {
     status: apiAnswer.status,
     message: apiAnswer.message ?? null,
+    // Only cannot_answer ever carries this, distinguishing outside_toolkit
+    // from no_guidance_yet. Defaulting to null keeps every other status
+    // unchanged, just as options does below.
+    reason: apiAnswer.reason ?? null,
     rule,
     sources,
     options: apiAnswer.options ?? []
