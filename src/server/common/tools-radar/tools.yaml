@@ -69,7 +69,7 @@ tools:
   - slug: model-context-protocol
     title: Model Context Protocol (MCP)
     category: framework
-    status: exploring
+    status: trialling
 
   - slug: retrieval-augmented-generation
     title: Retrieval-augmented generation (RAG)

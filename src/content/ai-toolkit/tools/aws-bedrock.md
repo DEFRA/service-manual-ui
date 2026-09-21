@@ -45,6 +45,8 @@ A small number of Defra teams are using Bedrock in real delivery, with support f
 
 Talk to the team before using it in delivery. They can advise on tenancy, model choice and the controls you need in place.
 
+Trialling is a status, not a permission. It tells you how established Bedrock is at Defra, not whether you are allowed to use it. What you can put into it is decided by your data's classification.
+
 ## When to consider it
 
 Bedrock may be a good fit if you need:

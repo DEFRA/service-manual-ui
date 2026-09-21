@@ -53,7 +53,7 @@ supportBox:
 
 Getting AI tools into people's hands at Defra is slow and expensive.
 
-Procurement takes time, subscription costs add up, and teams risk being locked into a single vendor. Each tool has different strengths, weaknesses and security controls, and the [tools radar](/ai-toolkit/tools) shows how few are cleared for sensitive work.
+Procurement takes time, subscription costs add up, and teams risk being locked into a single vendor. Each tool has different strengths, weaknesses and security controls, and the [tools radar](/ai-toolkit/tools) shows how many are already in use across Defra.
 
 It is not always clear whether staff can safely upload OFFICIAL files to a given service. The defaults are set out in [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
 
