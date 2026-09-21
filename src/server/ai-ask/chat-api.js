@@ -61,5 +61,24 @@ export async function answerFor (question, { previousQuestion } = {}) {
     throw error
   }
 
-  return response.json()
+  const answer = await response.json()
+
+  // The backend validates its own output, so this only catches a proxy or a
+  // misrouted URL answering 200 with something that is not an answer. Without
+  // it the mapping would throw on a null or a string.
+  if (!isAnswer(answer)) {
+    throw new Error(
+      'service-manual-chat-backend answered 200 with something other than an answer'
+    )
+  }
+
+  return answer
+}
+
+/**
+ * @param {unknown} value
+ * @returns {boolean} Whether the decoded body has the shape of an answer
+ */
+function isAnswer (value) {
+  return typeof value === 'object' && value !== null && typeof value.status === 'string'
 }

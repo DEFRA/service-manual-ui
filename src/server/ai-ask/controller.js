@@ -1,6 +1,5 @@
 import { getNavigation } from '../common/helpers/content-loader.js'
 import { buildErrorLog } from '../common/helpers/logging/build-error-log.js'
-import { createLogger } from '../common/helpers/logging/logger.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 
 import {
@@ -153,9 +152,32 @@ export const askController = {
 // do, as the content rules require, and no more: the cause is in the logs.
 export const NO_ANSWER_ERROR = 'The toolkit could not answer just now. Try again in a minute.'
 
+/**
+ * Shows the page the question was asked from again, with the question kept
+ * and an error against the field: the front door for a first question, the
+ * latest answer for a follow-up.
+ * @param {object} h - Hapi response toolkit
+ * @param {Array<object>} exchanges
+ * @param {object} options
+ * @returns {object}
+ */
+function renderQuestionError (h, exchanges, { question, error = null, optionsError = null }) {
+  if (!exchanges.length) {
+    return renderAsk(h, { question, error })
+  }
+
+  const number = exchanges.length
+
+  return renderAnswer(
+    h,
+    { exchanges, exchange: exchanges[number - 1], number },
+    { question, error, optionsError }
+  )
+}
+
 export const askPostController = {
   async handler (request, h) {
-    const { question, error } = validateQuestion(request.payload?.question)
+    const { question, error: questionError } = validateQuestion(request.payload?.question)
     const exchanges = session.getExchanges(request.yar)
 
     // A full conversation takes no more questions. The page stopped offering
@@ -164,60 +186,44 @@ export const askPostController = {
       return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
     }
 
-    if (error) {
-      if (!exchanges.length) {
-        return renderAsk(h, { question, error })
-      }
-
-      const number = exchanges.length
-
+    if (questionError) {
       // The Continue button on the options form carries this, so an empty
       // submission from there gets its own message on the radios instead of
       // the free-text error below them. Without it, someone using a
       // keyboard or screen reader who pressed Continue with nothing chosen
       // would land on "Enter your question", pointing at a field they never
       // touched.
-      const fromOptions = request.payload?.from === 'options'
+      const fromOptions = exchanges.length > 0 && request.payload?.from === 'options'
 
-      return renderAnswer(
+      return renderQuestionError(
         h,
-        { exchanges, exchange: exchanges[number - 1], number },
+        exchanges,
         fromOptions
           ? { question, optionsError: 'Select an option, or type your question below' }
-          : { question, error }
+          : { question, error: questionError }
       )
     }
 
-    let apiAnswer
+    let answer
 
+    // The mapping sits inside the try as well as the fetch, so a 200 carrying
+    // something that is not an answer gets the same message as no answer at
+    // all, rather than the generic error page.
     try {
-      apiAnswer = await answerFor(question, {
-        previousQuestion: exchanges.at(-1)?.question
-      })
-    } catch (failure) {
+      answer = toViewModel(
+        await answerFor(question, { previousQuestion: exchanges.at(-1)?.question })
+      )
+    } catch (error) {
       // The question is never logged: it is what the person typed.
-      createLogger().error(
-        buildErrorLog(failure, { type: 'ask_answer', action: 'fetch' }),
+      request.logger.error(
+        buildErrorLog(error, { type: 'ask_answer', action: 'fetch' }),
         'Ask the toolkit got no answer from the backend'
       )
 
-      if (!exchanges.length) {
-        return renderAsk(h, { question, error: NO_ANSWER_ERROR })
-      }
-
-      const number = exchanges.length
-
-      return renderAnswer(
-        h,
-        { exchanges, exchange: exchanges[number - 1], number },
-        { question, error: NO_ANSWER_ERROR }
-      )
+      return renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
     }
 
-    session.addExchange(request.yar, {
-      question,
-      answer: toViewModel(apiAnswer)
-    })
+    session.addExchange(request.yar, { question, answer })
 
     // Every answer has an address, so asking takes you to a page of its own
     // rather than back to a growing list. Refreshing does not ask again, the

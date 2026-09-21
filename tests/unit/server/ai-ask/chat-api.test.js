@@ -79,11 +79,18 @@ describe('#chatApi', () => {
       })
     })
 
-    test('gives the request a timeout', async () => {
+    test('aborts the request after the configured timeout', async () => {
+      config.set('aiContent.askApiTimeoutMs', 25)
+
       await answerFor('Copilot?')
 
       const { signal } = fetch.mock.calls[0][1]
       expect(signal).toBeInstanceOf(AbortSignal)
+      expect(signal.aborted).toBe(false)
+
+      await new Promise((resolve) => setTimeout(resolve, 50))
+
+      expect(signal.aborted).toBe(true)
     })
 
     test('returns the wire shape untouched', async () => {
@@ -97,6 +104,23 @@ describe('#chatApi', () => {
         message: 'service-manual-chat-backend answered with status 503',
         status: 503
       })
+    })
+
+    test.each([
+      ['null', null],
+      ['a string', 'Yes'],
+      ['an array', []],
+      ['an object with no status', { message: 'An answer' }]
+    ])('throws when a 200 carries %s instead of an answer', async (_description, body) => {
+      fetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue(body)
+      })
+
+      await expect(answerFor('Copilot?')).rejects.toThrow(
+        'service-manual-chat-backend answered 200 with something other than an answer'
+      )
     })
 
     test('lets a network failure through', async () => {

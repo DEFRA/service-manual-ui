@@ -128,13 +128,30 @@ describe('askController', () => {
       })
     }
 
-    test('says what to do when the backend gives no answer, and keeps the question', async () => {
+    /**
+     * Points the page at a backend for one request, with fetch stubbed to
+     * behave as given, and puts everything back afterwards.
+     * @param {Function} fetchStub
+     * @param {Function} run
+     */
+    async function withBackend (fetchStub, run) {
       const { config } = await import('../../../../src/config/config.js')
       const previousUrl = config.get('aiContent.askApiUrl')
       config.set('aiContent.askApiUrl', 'http://backend:8085')
-      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')))
+      vi.stubGlobal('fetch', fetchStub)
 
       try {
+        await run()
+      } finally {
+        config.set('aiContent.askApiUrl', previousUrl)
+        vi.unstubAllGlobals()
+      }
+    }
+
+    const NO_ANSWER = 'The toolkit could not answer just now. Try again in a minute.'
+
+    test('says what to do when the backend gives no answer, and keeps the question', async () => {
+      await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
         const { statusCode, result } = await server.inject({
           method: 'POST',
           url: askUrl,
@@ -143,14 +160,59 @@ describe('askController', () => {
         })
 
         expect(statusCode).toBe(statusCodes.ok)
-        expect(result).toEqual(
-          expect.stringContaining('The toolkit could not answer just now. Try again in a minute.')
-        )
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
         expect(result).toEqual(expect.stringContaining('How do I choose a tool?'))
-      } finally {
-        config.set('aiContent.askApiUrl', previousUrl)
-        vi.unstubAllGlobals()
-      }
+      })
+    })
+
+    test('shows the same message on the latest answer when a follow-up gets no answer', async () => {
+      const { cookie } = await postQuestion('Can I use GitHub Copilot?')
+
+      await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('What about agents?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        // Still the answer page, with the conversation so far on it.
+        expect(result).toEqual(expect.stringContaining('Can I use GitHub Copilot?'))
+        expect(result).toEqual(expect.stringContaining('Ask a follow-up question'))
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+        expect(result).toEqual(expect.stringContaining('What about agents?'))
+      })
+
+      // The failed follow-up was not added to the conversation, so there is
+      // no second answer to read.
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
+    })
+
+    test('treats a 200 that is not an answer as no answer', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue(null)
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('How do I choose a tool?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded' }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+      })
     })
 
     test('sends each answer to a page of its own', async () => {
