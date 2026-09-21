@@ -41,7 +41,7 @@ const personalDataAnswer = {
 const choosingAToolAnswer = {
   status: 'answered',
   message:
-    'Start from the data you will use, because the classification decides which kind of tool you can put it into. The tools radar shows how established each tool is at Defra, not whether you are allowed to use it.',
+    'Start from the data you will use, because your classification and the tool type together decide what is allowed. The tools radar shows how established each tool is at Defra, not whether you are allowed to use it.',
   rule_verbatim: null,
   sources: [
     {
