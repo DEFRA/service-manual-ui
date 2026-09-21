@@ -128,6 +128,93 @@ describe('askController', () => {
       })
     }
 
+    /**
+     * Points the page at a backend for one request, with fetch stubbed to
+     * behave as given, and puts everything back afterwards.
+     * @param {Function} fetchStub
+     * @param {Function} run
+     */
+    async function withBackend (fetchStub, run) {
+      const { config } = await import('../../../../src/config/config.js')
+      const previousUrl = config.get('aiContent.askApiUrl')
+      config.set('aiContent.askApiUrl', 'http://backend:8085')
+      vi.stubGlobal('fetch', fetchStub)
+
+      try {
+        await run()
+      } finally {
+        config.set('aiContent.askApiUrl', previousUrl)
+        vi.unstubAllGlobals()
+      }
+    }
+
+    const NO_ANSWER = 'The toolkit could not answer just now. Try again in a minute.'
+
+    test('says what to do when the backend gives no answer, and keeps the question', async () => {
+      await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('How do I choose a tool?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded' }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+        expect(result).toEqual(expect.stringContaining('How do I choose a tool?'))
+      })
+    })
+
+    test('shows the same message on the latest answer when a follow-up gets no answer', async () => {
+      const { cookie } = await postQuestion('Can I use GitHub Copilot?')
+
+      await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('What about agents?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        // Still the answer page, with the conversation so far on it.
+        expect(result).toEqual(expect.stringContaining('Can I use GitHub Copilot?'))
+        expect(result).toEqual(expect.stringContaining('Ask a follow-up question'))
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+        expect(result).toEqual(expect.stringContaining('What about agents?'))
+      })
+
+      // The failed follow-up was not added to the conversation, so there is
+      // no second answer to read.
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
+    })
+
+    test('treats a 200 that is not an answer as no answer', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue(null)
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { statusCode, result } = await server.inject({
+          method: 'POST',
+          url: askUrl,
+          payload: `question=${encodeURIComponent('How do I choose a tool?')}`,
+          headers: { 'content-type': 'application/x-www-form-urlencoded' }
+        })
+
+        expect(statusCode).toBe(statusCodes.ok)
+        expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+      })
+    })
+
     test('sends each answer to a page of its own', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'POST',
@@ -221,6 +308,185 @@ describe('askController', () => {
       )
     })
 
+    test('shows a need_more_detail answer as a choice of options, in the order sent', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('type="radio"'))
+      expect(result).toEqual(
+        expect.stringContaining(
+          'What data am I allowed to use with an AI tool?'
+        )
+      )
+
+      const first = result.indexOf('What data am I allowed to use with an AI tool?')
+      const second = result.indexOf('Which AI tool should I use for my project?')
+      expect(first).toBeGreaterThan(-1)
+      expect(second).toBeGreaterThan(first)
+    })
+
+    test('keeps the follow-up question box under a need_more_detail answer', async () => {
+      const { result } = await ask('help me get started')
+
+      expect(result).toEqual(expect.stringContaining('id="question"'))
+    })
+
+    test('choosing an option and continuing asks it as the next question', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+
+      const shown = await server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie }
+      })
+
+      // Read the value straight out of the rendered radio input, so this
+      // fails if the template or filter ever emitted the wrong name or
+      // value, rather than assuming the fixture text and the markup agree.
+      const radioMatch = shown.result.match(
+        /class="govuk-radios__input" id="option" name="question" type="radio" value="([^"]+)"/
+      )
+      expect(radioMatch).not.toBeNull()
+      const chosen = radioMatch[1]
+
+      const { posted: followedUp, cookie: followUpCookie } = await postQuestion(
+        chosen,
+        cookie
+      )
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: followedUp.headers.location,
+        headers: { cookie: followUpCookie }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          `<p class="govuk-body app-ask__asked-text">${chosen}</p>`
+        )
+      )
+    })
+
+    test('pressing Continue with no option chosen shows the error on the options, not the free-text box', async () => {
+      const { posted, cookie } = await postQuestion('help me get started')
+
+      const { result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'from=options',
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          cookie
+        }
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Select an option, or type your question below')
+      )
+      expect(result).toEqual(expect.stringContaining('href="#option"'))
+      expect(result).not.toEqual(expect.stringContaining('Enter your question'))
+
+      const followUpErrorIndex = result.indexOf('id="question-error"')
+      expect(followUpErrorIndex).toBe(-1)
+
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
+    test('shows a cannot_answer, outside_toolkit answer with its own heading and no Check this answer section', async () => {
+      const { result } = await ask('What is the parking policy?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+        )
+      )
+      expect(result).not.toEqual(expect.stringContaining('Check this answer'))
+    })
+
+    test('shows a cannot_answer, no_guidance_yet answer with its nearest guidance listed', async () => {
+      const { result } = await ask('What is the procurement process?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+        )
+      )
+      expect(result).toEqual(expect.stringContaining('Nearest guidance'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
+      )
+    })
+
+    test('shows a talk_to_a_person answer with a link to the team, and the conversation reaches them', async () => {
+      const { posted, cookie } = await postQuestion('Can I use this for my project?')
+
+      const shown = await server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie }
+      })
+
+      expect(shown.result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">This one is for the team</h1>'
+        )
+      )
+      expect(shown.result).toEqual(
+        expect.stringContaining('href="/ai-toolkit/ask/help"')
+      )
+
+      const stuck = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: 'includeConversation=yes',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(stuck.result).toEqual(
+        expect.stringContaining('Can I use this for my project?')
+      )
+    })
+
+    test('shows a blocked answer in neutral words, with the follow-up field still there', async () => {
+      const { result } = await ask('Can you give me legal advice?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">The toolkit cannot help with this question</h1>'
+        )
+      )
+      expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
+      expect(result).toEqual(expect.stringContaining('id="question"'))
+    })
+
+    test('shows an error answer with the follow-up field pre-filled, so one click retries, and no AI-mistakes warning', async () => {
+      const { result } = await ask('simulate an error please')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">Something went wrong</h1>'
+        )
+      )
+      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+
+      const textareaMatch = result.match(
+        /<textarea[\s\S]*?id="question"[\s\S]*?>([\s\S]*?)<\/textarea>/
+      )
+      expect(textareaMatch).not.toBeNull()
+      expect(textareaMatch[1]).toBe('simulate an error please')
+    })
+
+    test('leaves answered and need_more_detail answers as they were', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+      )
+      expect(result).toEqual(expect.stringContaining('Toolkit answer'))
+      expect(result).toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],
@@ -299,6 +565,21 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('Can I use GitHub Copilot?')
       )
+    })
+
+    test('does not offer options on an earlier need_more_detail answer, only the latest can be followed on from', async () => {
+      const cookie = await haveConversation([
+        'help me get started',
+        'How do I choose a tool?'
+      ])
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1',
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('type="radio"'))
     })
 
     test('lists the conversation as links, one per question', async () => {

@@ -181,6 +181,20 @@
   margin-bottom: 0;
 }
 
+// The narrowing choices for a need_more_detail answer. Sits between the
+// message and the rule/sources below it, so it needs its own bottom margin
+// rather than relying on the last-child rule above.
+.app-ask__options {
+  margin-bottom: 20px;
+}
+
+// The prominent link out to a person on a talk_to_a_person answer. Sits
+// where the options form does: between the message and whatever comes after
+// it.
+.app-ask__contact-link {
+  margin-bottom: 20px;
+}
+
 // The sources were a heading and two bare links floating at the end of the
 // answer. The rule above them ties them to it, and the bullets make them read
 // as a list of places to go rather than loose text.

@@ -13,6 +13,7 @@ const minSessionCookiePasswordLength = 32
 const fifteenMinutesMs = 900000
 const fourHoursMs = 14400000
 const threeSecondsMs = 3000
+const thirtySecondsMs = 30000
 const fiveMinutesSeconds = 300
 const oneWeekMs = 604800000
 
@@ -162,6 +163,18 @@ export const config = convict({
       format: 'email',
       default: 'AICapabilityAndEnablement@defra.gov.uk',
       env: 'AI_TOOLKIT_TEAM_EMAIL'
+    },
+    askApiUrl: {
+      doc: 'Base URL of service-manual-chat-backend, which answers Ask the toolkit questions. Empty means answer from the built-in fixtures, so an environment without a backend behaves as it did before one existed. Locally the backend runs on port 8085.',
+      format: String,
+      default: '',
+      env: 'AI_TOOLKIT_ASK_API_URL'
+    },
+    askApiTimeoutMs: {
+      doc: 'Timeout in milliseconds for a question posted to service-manual-chat-backend. An answer comes from a hosted AI model, so this is far longer than the triage post; fetch has no default timeout, so without one a backend that accepts the connection and never answers would hang the page.',
+      format: Number,
+      default: thirtySecondsMs,
+      env: 'AI_TOOLKIT_ASK_API_TIMEOUT_MS'
     }
   },
   notify: {

@@ -60,11 +60,12 @@ Any use needs written approval from the relevant Project Architect and the AI Ca
 
 ## Using MCP safely
 
-If your project is trialling MCP, follow these rules:
+Never auto-approve actions: keep a human in the loop and review tool calls before they run.
+
+If your project is trialling MCP, also follow these rules:
 
 - connect only to the vendor-provided MCP servers the team is trialling, not community or self-built servers
 - use OAuth-based authentication with least-privilege scopes, not Personal Access Tokens
-- never auto-approve actions: keep a human in the loop and review tool calls before they run
 - restrict access to only the repositories, projects and workspaces you need
 
 ## MCP servers we are trialling

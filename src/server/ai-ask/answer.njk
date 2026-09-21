@@ -21,17 +21,30 @@
 {% block content %}
 {# The heading has a row of its own, so the conversation beside the answer
    starts level with the question box rather than with the heading. #}
+{# Four outcomes get a heading that says what they are, in place of "Your
+   answer": a reader told to talk to a person, or whose question could not
+   be answered, is not looking at "an answer" in any sense that heading
+   implies. answered and need_more_detail are not in this map, so they keep
+   "Your answer" as before. Stub text: Chris owns the final wording (card
+   012). #}
+{% set outcomeHeadings = {
+  cannot_answer: "The toolkit cannot answer this",
+  talk_to_a_person: "This one is for the team",
+  blocked: "The toolkit cannot help with this question",
+  error: "Something went wrong"
+} %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if error %}
+    {% if error or optionsError %}
+      {% set errorItem = { text: error, href: "#question" } if error else { text: optionsError, href: "#option" } %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
-        errorList: [{ text: error, href: "#question" }]
+        errorList: [errorItem]
       }) }}
     {% endif %}
 
-    <h1 class="govuk-heading-l">Your answer</h1>
+    <h1 class="govuk-heading-l">{{ outcomeHeadings[exchange.answer.status] or "Your answer" }}</h1>
 
   </div>
 </div>
