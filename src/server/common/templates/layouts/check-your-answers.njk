@@ -30,6 +30,9 @@
 
     <h1 class="govuk-heading-xl">{{ title }}</h1>
     <p class="govuk-body">Check your answers before sending them to the team.</p>
+    {% if email %}
+      <p class="govuk-body">This will be sent as <strong>{{ email }}</strong>. We'll send a confirmation to this address.</p>
+    {% endif %}
 
     <form method="post" action="{{ questionSubmitHref }}">
       {% for row in rows %}

@@ -123,7 +123,8 @@ export const getSummaryPage = async (request, h) => {
     return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
       ...meta,
       rows: viewModel.rows,
-      error: viewModel.error
+      error: viewModel.error,
+      email: request.auth.credentials.email
     })
   } catch (error) {
     request.logger.error(
@@ -162,7 +163,8 @@ export const postSummaryPage = async (request, h) => {
       return h.view(CHECK_YOUR_ANSWERS_TEMPLATE, {
         ...meta,
         rows: viewModel.rows,
-        error: viewModel.error
+        error: viewModel.error,
+        email: request.auth.credentials.email
       })
     }
 
@@ -198,6 +200,7 @@ export const getThankYouPage = async (request, h) => {
       content,
       currentUrl: request.path,
       reference,
+      email: request.auth.credentials.email,
       showReference: config.get('featureFlags.showTriageReference'),
       confirmationEmailFailed: request.query.confirmationFailed === 'true'
     })
