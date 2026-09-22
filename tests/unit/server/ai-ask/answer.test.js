@@ -189,7 +189,7 @@ describe('quoteAppearsOnPage', () => {
   })
 
   test('logs a dropped paraphrase as a content defect, by page and length, never the words', () => {
-    const paraphrase = realQuote.replace('remove personal data first', 'remove personal data')
+    const paraphrase = realQuote.replace('remove personal data first', 'strip out personal data first')
 
     quoteAppearsOnPage(paraphrase, dataGuidanceUrl)
 
@@ -203,6 +203,23 @@ describe('quoteAppearsOnPage', () => {
       expect.stringContaining('not found on its source page')
     )
     expect(JSON.stringify(logger.warn.mock.calls)).not.toContain('personal data')
+  })
+
+  test('logs a quote that stops part way through a sentence as its own outcome', () => {
+    const halfTheRule =
+      'For personal data, the DPIA route is for a service you are building to process it.'
+
+    expect(quoteAppearsOnPage(halfTheRule, dataGuidanceUrl)).toBe(false)
+    expect(logger.warn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event: expect.objectContaining({
+          outcome: 'partial',
+          reference: dataGuidanceUrl
+        })
+      }),
+      expect.stringContaining('part of a sentence')
+    )
+    expect(JSON.stringify(logger.warn.mock.calls)).not.toContain('DPIA')
   })
 
   test('says nothing in the log when the quote checks out', () => {
