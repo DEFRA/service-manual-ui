@@ -11,7 +11,8 @@
  * The comparison is made against the page as a reader sees it. Many rules are
  * written inside markup, `<li><strong>The rule.</strong> The explanation.</li>`,
  * or hold a Markdown link, and a word-for-word quote of either does not appear
- * in the raw source. Tags, link targets and emphasis marks are removed first.
+ * in the raw source. Tags and link targets are removed first, and emphasis
+ * marks count as punctuation.
  *
  * service-manual-chat-backend has the same check in `app/ask/quote_check.py`,
  * and both are run against the one list of cases in
@@ -28,17 +29,20 @@ const inlineTags = new Set([
   'strong', 'sub', 'sup'
 ])
 
-const tag = /<\s*\/?\s*([a-zA-Z][a-zA-Z0-9]*)[^<>]*>/g
-const image = /!\[([^\]]*)\]\([^)]*\)/g
-const link = /\[([^\]]*)\]\([^)]*\)/g
-// Emphasis marks sit at a word boundary; an underscore inside a word does not.
-const emphasis = /(?<!\w)[*_]+|[*_]+(?!\w)/g
+// After the tag name comes either `>` or a space or slash and then whatever,
+// so the name and the rest never overlap and the scan is linear.
+const tag = /<\/?([a-zA-Z][a-zA-Z0-9]*)(?:[\s/][^<>]*)?>/g
+const image = /!\[([^[\]]*)\]\([^()]*\)/g
+const link = /\[([^[\]]*)\]\([^()]*\)/g
 // Heading marks, list markers and block quotes at the start of a line.
-const blockMarker = /^[ \t]*(?:#{1,6}[ \t]+|[-*+][ \t]+|\d+[.)][ \t]+|>[ \t]*)/gm
+const blockMarker = /^ *(?:#{1,6}|[-*+]|\d+[.)]) +/gm
+const blockQuote = /^ *> */gm
 const blankLine = /\n[ \t]*\n/
-const punctuationAtEnds = /^[^\p{L}\p{N}_]+|[^\p{L}\p{N}_]+$/gu
-const closers = /["')\]]+$/
+const wordChar = /[\p{L}\p{N}]/u
 const sentenceEnd = /[.!?:]$/
+// What can follow a full stop and still be the same sentence end: closing
+// quotes and brackets, and Markdown emphasis marks.
+const closers = new Set(['"', "'", ')', ']', '*', '_'])
 
 const entities = {
   '&amp;': '&',
@@ -83,6 +87,7 @@ export function stripInlineTags (markdown) {
 export function plainText (markdown) {
   let text = markdown
     .replace(blockMarker, '\n\n')
+    .replace(blockQuote, '\n\n')
     .replace(tag, (_whole, name) => (inlineTags.has(name.toLowerCase()) ? ' ' : '\n\n'))
     .replace(image, '$1')
     .replace(link, '$1')
@@ -91,9 +96,27 @@ export function plainText (markdown) {
     text = text.replaceAll(entity, char)
   }
 
-  return text
-    .replace(typographyPattern, (char) => typography[char])
-    .replace(emphasis, ' ')
+  return text.replace(typographyPattern, (char) => typography[char])
+}
+
+/**
+ * The token without the punctuation, brackets or emphasis marks at either
+ * end. "(ATRS)." and "ATRS" are the same word, "**Using.**" is "Using", and
+ * a bare "-" is no word at all. Written as loops rather than a regex so the
+ * cost is linear in the token however it is made up.
+ * @param {string} token
+ * @returns {string}
+ */
+function trimPunctuation (token) {
+  let start = 0
+  let end = token.length
+  while (start < end && !wordChar.test(token[start])) {
+    start++
+  }
+  while (end > start && !wordChar.test(token[end - 1])) {
+    end--
+  }
+  return token.slice(start, end)
 }
 
 /**
@@ -101,7 +124,11 @@ export function plainText (markdown) {
  * @returns {boolean}
  */
 function endsSentence (token) {
-  return sentenceEnd.test(token.replace(closers, ''))
+  let end = token.length
+  while (end > 0 && closers.has(token[end - 1])) {
+    end--
+  }
+  return sentenceEnd.test(token.slice(0, end))
 }
 
 /**
@@ -121,11 +148,9 @@ export function words (markdown) {
   const result = []
 
   for (const block of plainText(markdown).split(blankLine)) {
-    // Punctuation at either end of a token is not part of the word. "(ATRS)."
-    // and "ATRS" are the same word; a bare "-" is no word at all.
     const kept = block
       .split(/\s+/)
-      .map((token) => ({ word: token.replace(punctuationAtEnds, '').toLowerCase(), token }))
+      .map((token) => ({ word: trimPunctuation(token).toLowerCase(), token }))
       .filter(({ word }) => word !== '')
 
     kept.forEach(({ word, token }, i) => {

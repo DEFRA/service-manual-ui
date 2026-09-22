@@ -28,19 +28,24 @@ describe('checkQuote', () => {
 })
 
 describe('plainText', () => {
-  test('removes link targets, tags and emphasis marks', () => {
+  test('removes link targets and tags', () => {
     const text = plainText(
-      'See the [tools radar](/ai-toolkit/tools) and <a href="/x">this</a>, ' +
-        'which is **important** and _also_ my_variable.'
+      'See the [tools radar](/ai-toolkit/tools) and <a href="/x">this</a>.'
     )
 
-    expect(text.split(/\s+/).join(' ')).toBe(
-      'See the tools radar and this , which is important and also my_variable.'
-    )
+    expect(text.split(/\s+/).join(' ')).toBe('See the tools radar and this .')
   })
 })
 
 describe('words', () => {
+  test('treats emphasis marks as punctuation, keeping an underscore inside a word', () => {
+    expect(words('**Using.** _Also_ my_variable')).toEqual([
+      { text: 'using', startsSentence: true, endsSentence: true },
+      { text: 'also', startsSentence: true, endsSentence: false },
+      { text: 'my_variable', startsSentence: false, endsSentence: true }
+    ])
+  })
+
   test('marks sentence boundaries across blocks', () => {
     const page = 'First one. Second\n\n<li>Third</li>\n<li>Fourth (x).</li>'
 
