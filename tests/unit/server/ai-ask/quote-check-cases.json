@@ -1,0 +1,180 @@
+{
+  "note": "One list of quote-check cases, kept identical in two repos: service-manual-chat-backend at app/ask/quote_check_cases.json and service-manual-ui at tests/unit/server/ai-ask/quote-check-cases.json. Change both or neither. Each case gives the page as its markdown source, the quote as the model wrote it, and the outcome the check must return: ok, not_found (a word changed, added or removed), partial (the words are on the page but the quote starts or stops part way through a sentence) or empty (no words left once markup is removed). The golden set defines an exact quote as words and their order matching the source; spacing, line breaks and surrounding punctuation do not count.",
+  "pages": {
+    "using-data": "## What the conditions mean\n\nFor personal data, the DPIA route is for a service you are building to\nprocess it, not a way to paste it into an everyday tool. For everyday use,\nremove personal data first.\n",
+    "incident": "## What to do\n\n<ul class=\"govuk-list govuk-list--number\">\n<li><strong>Stop using the AI tool immediately.</strong></li>\n<li><strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.</li>\n<li><strong>Tell your line manager and your team's information asset owner.</strong> Give a short description of what happened and what data was involved.</li>\n<li><strong>Report it through Defra's security incident process</strong> so the information security team can assess it.</li>\n</ul>\n\nYou must report it if you have:\n\n<ul class=\"govuk-list govuk-list--bullet\">\n<li>put OFFICIAL-SENSITIVE content into a public consumer AI tool</li>\n<li>put any personal data into any AI tool</li>\n</ul>\n",
+    "ethics": "If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). This is mandatory across central government.\n",
+    "choosing": "You can use any AI tool, as long as you follow the rules on what data you put into it. The status tells you how established a tool is at Defra, not whether you are allowed to use it:\n\n<ul class=\"govuk-list govuk-list--bullet govuk-list--spaced\">\n<li><strong>Using.</strong> Used by teams across Defra today.</li>\n<li><strong>Trialling.</strong> Being trialled with some teams before wider use.</li>\n</ul>\n",
+    "markdown-emphasis": "Three statuses:\n\n- **Using.** Used by teams across Defra today.\n- *Trialling.* Being trialled with some teams before wider use.\n\n1. Check the radar first.\n2. Then check the data rules.\n"
+  },
+  "cases": [
+    {
+      "name": "the golden set's worked example: the exact rule, wrapped differently on the page",
+      "page": "using-data",
+      "quote": "For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool.",
+      "outcome": "ok"
+    },
+    {
+      "name": "the golden set's worked example: a word changed",
+      "page": "using-data",
+      "quote": "For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into a normal tool.",
+      "outcome": "not_found"
+    },
+    {
+      "name": "the golden set's worked example: a condition dropped",
+      "page": "using-data",
+      "quote": "The DPIA route is for a service you are building to process it.",
+      "outcome": "partial"
+    },
+    {
+      "name": "a word added",
+      "page": "using-data",
+      "quote": "For everyday use, always remove personal data first.",
+      "outcome": "not_found"
+    },
+    {
+      "name": "a word removed",
+      "page": "using-data",
+      "quote": "For everyday use, remove data first.",
+      "outcome": "not_found"
+    },
+    {
+      "name": "two sentences quoted together",
+      "page": "using-data",
+      "quote": "For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a quote that stops part way through a sentence",
+      "page": "using-data",
+      "quote": "For everyday use, remove personal data",
+      "outcome": "partial"
+    },
+    {
+      "name": "a quote that starts part way through a sentence",
+      "page": "using-data",
+      "quote": "remove personal data first.",
+      "outcome": "partial"
+    },
+    {
+      "name": "a heading quoted on its own",
+      "page": "using-data",
+      "quote": "What the conditions mean",
+      "outcome": "ok"
+    },
+    {
+      "name": "golden set row 42: a rule written inside strong tags, quoted as the reader sees it",
+      "page": "incident",
+      "quote": "Do not delete or change anything. The people handling the incident need to see clearly what happened.",
+      "outcome": "ok"
+    },
+    {
+      "name": "the bold part of a list item on its own",
+      "page": "incident",
+      "quote": "Stop using the AI tool immediately.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a rule that runs out of the bold and into the sentence",
+      "page": "incident",
+      "quote": "Report it through Defra's security incident process so the information security team can assess it.",
+      "outcome": "ok"
+    },
+    {
+      "name": "all four steps, which are four separate list items",
+      "page": "incident",
+      "quote": "Stop using the AI tool immediately. Do not delete or change anything. The people handling the incident need to see clearly what happened. Tell your line manager and your team's information asset owner. Give a short description of what happened and what data was involved. Report it through Defra's security incident process so the information security team can assess it.",
+      "outcome": "ok"
+    },
+    {
+      "name": "the model quoted through the tags",
+      "page": "incident",
+      "quote": "<strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a paraphrase of a rule written inside markup",
+      "page": "incident",
+      "quote": "Do not delete or alter anything.",
+      "outcome": "not_found"
+    },
+    {
+      "name": "words joined across a stripped tag are not the page's words",
+      "page": "incident",
+      "quote": "anything.The people handling the incident need to see clearly what happened.",
+      "outcome": "not_found"
+    },
+    {
+      "name": "a typographic apostrophe",
+      "page": "incident",
+      "quote": "Tell your line manager and your team’s information asset owner.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a typographic hyphen",
+      "page": "incident",
+      "quote": "put OFFICIAL‑SENSITIVE content into a public consumer AI tool",
+      "outcome": "ok"
+    },
+    {
+      "name": "a list item that is a fragment with no full stop",
+      "page": "incident",
+      "quote": "put any personal data into any AI tool",
+      "outcome": "ok"
+    },
+    {
+      "name": "markup and nothing else",
+      "page": "incident",
+      "quote": "<strong></strong>",
+      "outcome": "empty"
+    },
+    {
+      "name": "whitespace only",
+      "page": "incident",
+      "quote": "   \n  ",
+      "outcome": "empty"
+    },
+    {
+      "name": "a sentence holding a markdown link, quoted as it reads on the page",
+      "page": "ethics",
+      "quote": "If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the Algorithmic Transparency Recording Standard (ATRS).",
+      "outcome": "ok"
+    },
+    {
+      "name": "a sentence that introduces a list ends in a colon, quoted with a full stop",
+      "page": "choosing",
+      "quote": "The status tells you how established a tool is at Defra, not whether you are allowed to use it.",
+      "outcome": "ok"
+    },
+    {
+      "name": "the two sentences before the list, quoted together",
+      "page": "choosing",
+      "quote": "You can use any AI tool, as long as you follow the rules on what data you put into it. The status tells you how established a tool is at Defra, not whether you are allowed to use it:",
+      "outcome": "ok"
+    },
+    {
+      "name": "a radar status definition, rule and explanation either side of a closing tag",
+      "page": "choosing",
+      "quote": "Trialling. Being trialled with some teams before wider use.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a rule written with markdown emphasis marks",
+      "page": "markdown-emphasis",
+      "quote": "Using. Used by teams across Defra today.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a numbered list item, quoted without its number",
+      "page": "markdown-emphasis",
+      "quote": "Check the radar first.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a quote stitched from two different pages' words",
+      "page": "markdown-emphasis",
+      "quote": "Using. Then check the data rules.",
+      "outcome": "not_found"
+    }
+  ]
+}

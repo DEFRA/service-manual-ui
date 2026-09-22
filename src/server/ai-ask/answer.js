@@ -5,6 +5,7 @@ import {
 } from '../common/helpers/logging/build-error-log.js'
 import { createLogger } from '../common/helpers/logging/logger.js'
 import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
+import { checkQuote } from './quote-check.js'
 
 /**
  * Normalises an answer from the API into what the templates render.
@@ -22,48 +23,22 @@ import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
  */
 
 /**
- * Reduces both the quote and the page to comparable plain text.
- *
- * Markup is removed because many rules are written inside it. The incident
- * steps, the data conditions and the radar status definitions are all
- * `<li><strong>The rule.</strong> The explanation.</li>`, so a word-for-word
- * quote of one of them does not appear in the source: there is a closing tag
- * sitting inside the sentence. Twenty-seven rules across six pages are shaped
- * that way, and every one of them was being dropped as a misquote.
- *
- * Tags become a space rather than nothing, so `anything.</strong> The people`
- * does not close up into one word, and the whitespace collapse that follows
- * puts it back to a single space.
- *
- * Nothing here marks where one block ends and the next begins, which means a
- * quote can span two list items. That is deliberate: the four incident steps
- * are four `<li>` elements and are quoted as one rule. The cost is that a
- * quote stitched from two adjacent items would pass, and the golden set
- * covers invented rules separately.
- *
- * Curly quotes are flattened because our pages are written with straight
- * ones. A model that types a typographic apostrophe has not changed a word,
- * and dropping the quote over it would be a misquote we caused ourselves.
- * @param {string} text
- * @returns {string}
- */
-function normalise (text) {
-  return text
-    .replace(/<[^<>]*>/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/[\u2018\u2019]/g, "'")
-    .replace(/[\u201c\u201d]/g, '"')
-    .replace(/\u00a0/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-}
-
-/**
  * @param {string} url - Internal path, e.g. /ai-toolkit/guidance/using-data-with-ai
  * @returns {boolean}
  */
 function isServedPage (url) {
   return getEnabledMarkdownRoutes().includes(url)
+}
+
+const describe = {
+  // Every string contains the empty string, so a quote that normalises away
+  // to nothing would otherwise be accepted against any page.
+  empty: 'no words in it',
+  not_found: 'not found on its source page',
+  // The words are all on the page, but the quote starts or stops part way
+  // through a sentence. A rule quoted selectively can say the opposite of
+  // the rule, so this is the failure that matters most.
+  partial: 'part of a sentence on its source page'
 }
 
 /**
@@ -95,44 +70,26 @@ export function quoteAppearsOnPage (quote, url) {
     return false
   }
 
-  const wanted = normalise(quote)
+  // The words must be on the page, in order, and run from the start of a
+  // sentence to the end of one. Which check failed is logged by page and
+  // length only. The quote is model output and could echo what the person
+  // typed, which must never reach the logs.
+  const outcome = checkQuote(quote, content)
 
-  // Every string contains the empty string, so a quote that normalises away
-  // to nothing would be accepted against any page. Markup on its own does
-  // that now that tags are stripped, and so does whitespace on its own.
-  if (wanted === '') {
+  if (outcome !== 'ok') {
     logger.warn(
       buildEventLog({
         type: 'ask_quoted_rule',
         action: 'verify',
-        outcome: 'empty',
+        outcome,
         reference: url,
         reason: `quote_length_${quote.length}`
       }),
-      'Ask the toolkit: dropped a quoted rule with no words in it'
-    )
-    return false
-  }
-
-  const found = normalise(content).includes(wanted)
-
-  if (!found) {
-    // A content defect: the model quoted words that are not on the page it
-    // cites. Logged by page and length only. The quote is model output and
-    // could echo what the person typed, which must never reach the logs.
-    logger.warn(
-      buildEventLog({
-        type: 'ask_quoted_rule',
-        action: 'verify',
-        outcome: 'not_found',
-        reference: url,
-        reason: `quote_length_${quote.length}`
-      }),
-      'Ask the toolkit: dropped a quoted rule not found on its source page'
+      `Ask the toolkit: dropped a quoted rule, ${describe[outcome]}`
     )
   }
 
-  return found
+  return outcome === 'ok'
 }
 
 /**
