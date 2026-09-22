@@ -165,4 +165,28 @@ describe('initAsk busy state', () => {
 
     expect(() => initAsk()).not.toThrow()
   })
+
+  test('does nothing for a button carrying the hook outside a form', () => {
+    document.body.innerHTML = `
+      <button type="button" class="app-ask__send" data-ask-submit>
+        <span class="app-ask__send-text">Ask</span>
+      </button>
+    `
+
+    expect(() => initAsk()).not.toThrow()
+  })
+
+  test('still disables the button when it has no text span or status region to update', () => {
+    document.body.innerHTML = `
+      <form>
+        <button type="submit" class="app-ask__send" data-ask-submit>Ask</button>
+      </form>
+    `
+    const plainForm = document.querySelector('form')
+    const plainButton = document.querySelector('[data-ask-submit]')
+    initAsk()
+
+    expect(() => plainForm.dispatchEvent(new Event('submit', { cancelable: true }))).not.toThrow()
+    expect(plainButton.disabled).toBe(true)
+  })
 })
