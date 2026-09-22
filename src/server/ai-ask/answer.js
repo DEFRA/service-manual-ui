@@ -22,13 +22,40 @@ import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
  */
 
 /**
- * Collapses runs of whitespace so a quote still matches text that is wrapped
- * differently in the markdown source.
+ * Reduces both the quote and the page to comparable plain text.
+ *
+ * Markup is removed because many rules are written inside it. The incident
+ * steps, the data conditions and the radar status definitions are all
+ * `<li><strong>The rule.</strong> The explanation.</li>`, so a word-for-word
+ * quote of one of them does not appear in the source: there is a closing tag
+ * sitting inside the sentence. Twenty-seven rules across six pages are shaped
+ * that way, and every one of them was being dropped as a misquote.
+ *
+ * Tags become a space rather than nothing, so `anything.</strong> The people`
+ * does not close up into one word, and the whitespace collapse that follows
+ * puts it back to a single space.
+ *
+ * Nothing here marks where one block ends and the next begins, which means a
+ * quote can span two list items. That is deliberate: the four incident steps
+ * are four `<li>` elements and are quoted as one rule. The cost is that a
+ * quote stitched from two adjacent items would pass, and the golden set
+ * covers invented rules separately.
+ *
+ * Curly quotes are flattened because our pages are written with straight
+ * ones. A model that types a typographic apostrophe has not changed a word,
+ * and dropping the quote over it would be a misquote we caused ourselves.
  * @param {string} text
  * @returns {string}
  */
 function normalise (text) {
-  return text.replace(/\s+/g, ' ').trim()
+  return text
+    .replace(/<[^<>]*>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/[\u201c\u201d]/g, '"')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 /**
@@ -68,7 +95,26 @@ export function quoteAppearsOnPage (quote, url) {
     return false
   }
 
-  const found = normalise(content).includes(normalise(quote))
+  const wanted = normalise(quote)
+
+  // Every string contains the empty string, so a quote that normalises away
+  // to nothing would be accepted against any page. Markup on its own does
+  // that now that tags are stripped, and so does whitespace on its own.
+  if (wanted === '') {
+    logger.warn(
+      buildEventLog({
+        type: 'ask_quoted_rule',
+        action: 'verify',
+        outcome: 'empty',
+        reference: url,
+        reason: `quote_length_${quote.length}`
+      }),
+      'Ask the toolkit: dropped a quoted rule with no words in it'
+    )
+    return false
+  }
+
+  const found = normalise(content).includes(wanted)
 
   if (!found) {
     // A content defect: the model quoted words that are not on the page it
