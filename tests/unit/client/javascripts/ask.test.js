@@ -112,3 +112,57 @@ describe('initAsk', () => {
     expect(event.defaultPrevented).toBe(false)
   })
 })
+
+describe('initAsk busy state', () => {
+  let form
+  let button
+  let text
+  let status
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <form>
+        <textarea id="question" data-module="app-ask-question"></textarea>
+        <button type="submit" class="app-ask__send" data-ask-submit>
+          <span class="app-ask__send-text">Ask<span class="govuk-visually-hidden"> the toolkit</span></span>
+        </button>
+        <div data-ask-status></div>
+      </form>
+    `
+    form = document.querySelector('form')
+    button = document.querySelector('[data-ask-submit]')
+    text = document.querySelector('.app-ask__send-text')
+    status = document.querySelector('[data-ask-status]')
+
+    // jsdom does not implement form submission, so a plain submit event is
+    // dispatched instead of requestSubmit(), which is enough to exercise the
+    // handler under test.
+    initAsk()
+  })
+
+  test('disables the button, relabels it and announces the wait', () => {
+    form.dispatchEvent(new Event('submit', { cancelable: true }))
+
+    expect(button.disabled).toBe(true)
+    expect(button.classList.contains('app-ask__send--busy')).toBe(true)
+    expect(text.textContent).toBe('Working on your answer…')
+    expect(status.textContent).toBe('Working on your answer. This can take up to 30 seconds.')
+  })
+
+  test('ignores a second submit once busy, rather than announcing again', () => {
+    form.dispatchEvent(new Event('submit', { cancelable: true }))
+    status.textContent = 'changed'
+
+    const secondEvent = new Event('submit', { cancelable: true })
+    form.dispatchEvent(secondEvent)
+
+    expect(secondEvent.defaultPrevented).toBe(true)
+    expect(status.textContent).toBe('changed')
+  })
+
+  test('does nothing on a page with no submit button to enhance', () => {
+    document.body.innerHTML = '<form><button type="submit">Ask</button></form>'
+
+    expect(() => initAsk()).not.toThrow()
+  })
+})

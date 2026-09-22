@@ -40,9 +40,18 @@
           data-module="app-ask-question"
           aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
       </div>
-      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
-        Ask<span class="govuk-visually-hidden"> the toolkit</span>
+      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button" data-ask-submit>
+        <span class="app-ask__send-text">Ask<span class="govuk-visually-hidden"> the toolkit</span></span>
       </button>
+      {# Static, so it works with JavaScript off: the answer can take up to
+         30 seconds, and without this line the only sign anything is happening
+         is the browser's own loading indicator. #}
+      <p class="govuk-hint app-ask__wait-hint">This can take up to 30 seconds.</p>
+      {# Empty until JavaScript fills it in on submit. A screen reader user
+         gets the same "working on your answer" announcement a sighted user
+         gets from the button changing, which the button alone does not
+         reliably give once it is disabled. #}
+      <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-status></div>
     </div>
     <div id="question-info" class="govuk-hint govuk-character-count__message">
       You can enter up to {{ maxQuestionLength }} characters
