@@ -88,6 +88,32 @@ describe('quoteAppearsOnPage', () => {
     expect(quoteAppearsOnPage(realQuote, '/ai-toolkit/invented')).toBe(false)
   })
 
+  // Every string contains the empty string, so a quote with no words left in
+  // it after normalising would otherwise be accepted against any page and
+  // rendered as a verified rule.
+  test.each([
+    ['markup and nothing else', '<strong></strong>'],
+    ['a single tag', '<br>'],
+    ['whitespace only', '   \n  '],
+    ['nothing at all', '']
+  ])('rejects %s rather than matching every page', (_description, quote) => {
+    expect(quoteAppearsOnPage(quote, dataGuidanceUrl)).toBe(false)
+  })
+
+  test('logs an emptied quote as its own outcome, still without the words', () => {
+    quoteAppearsOnPage('<strong></strong>', dataGuidanceUrl)
+
+    expect(logger.warn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        event: expect.objectContaining({
+          outcome: 'empty',
+          reference: dataGuidanceUrl
+        })
+      }),
+      expect.stringContaining('no words in it')
+    )
+  })
+
   // Twenty-seven rules across six pages are written inside markup, as
   // <li><strong>The rule.</strong> The explanation.</li>. Quoting one of them
   // word for word produces text that is not in the source, because a closing

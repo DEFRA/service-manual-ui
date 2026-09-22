@@ -95,7 +95,26 @@ export function quoteAppearsOnPage (quote, url) {
     return false
   }
 
-  const found = normalise(content).includes(normalise(quote))
+  const wanted = normalise(quote)
+
+  // Every string contains the empty string, so a quote that normalises away
+  // to nothing would be accepted against any page. Markup on its own does
+  // that now that tags are stripped, and so does whitespace on its own.
+  if (wanted === '') {
+    logger.warn(
+      buildEventLog({
+        type: 'ask_quoted_rule',
+        action: 'verify',
+        outcome: 'empty',
+        reference: url,
+        reason: `quote_length_${quote.length}`
+      }),
+      'Ask the toolkit: dropped a quoted rule with no words in it'
+    )
+    return false
+  }
+
+  const found = normalise(content).includes(wanted)
 
   if (!found) {
     // A content defect: the model quoted words that are not on the page it
