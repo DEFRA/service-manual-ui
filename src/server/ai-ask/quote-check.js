@@ -134,6 +134,26 @@ function endsSentence (token) {
 }
 
 /**
+ * Adds a token to the block's words. Punctuation on its own, as in
+ * `<a href="/x">this</a>.` once the tag is gone, belongs to the word before
+ * it: that is where the sentence ends. Before any word there is nothing for
+ * it to belong to.
+ * @param {Array<{word: string, token: string}>} kept
+ * @param {string} token
+ */
+function keep (kept, token) {
+  const word = trimPunctuation(token).toLowerCase()
+  if (word !== '') {
+    kept.push({ word, token })
+    return
+  }
+  const previous = kept.at(-1)
+  if (previous) {
+    previous.token += token
+  }
+}
+
+/**
  * @typedef {object} Word
  * @property {string} text
  * @property {boolean} startsSentence
@@ -153,15 +173,7 @@ export function words (markdown) {
     const kept = []
 
     for (const token of block.split(/\s+/)) {
-      const word = trimPunctuation(token).toLowerCase()
-      if (word !== '') {
-        kept.push({ word, token })
-      } else if (kept.length > 0) {
-        // Punctuation on its own, as in `<a href="/x">this</a>.` once the tag
-        // is gone, belongs to the word before it: that is where the sentence
-        // ends.
-        kept[kept.length - 1].token += token
-      }
+      keep(kept, token)
     }
 
     kept.forEach(({ word, token }, i) => {
