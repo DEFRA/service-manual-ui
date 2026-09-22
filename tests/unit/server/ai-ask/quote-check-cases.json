@@ -5,7 +5,8 @@
     "incident": "## What to do\n\n<ul class=\"govuk-list govuk-list--number\">\n<li><strong>Stop using the AI tool immediately.</strong></li>\n<li><strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.</li>\n<li><strong>Tell your line manager and your team's information asset owner.</strong> Give a short description of what happened and what data was involved.</li>\n<li><strong>Report it through Defra's security incident process</strong> so the information security team can assess it.</li>\n</ul>\n\nYou must report it if you have:\n\n<ul class=\"govuk-list govuk-list--bullet\">\n<li>put OFFICIAL-SENSITIVE content into a public consumer AI tool</li>\n<li>put any personal data into any AI tool</li>\n</ul>\n",
     "ethics": "If your tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). This is mandatory across central government.\n",
     "choosing": "You can use any AI tool, as long as you follow the rules on what data you put into it. The status tells you how established a tool is at Defra, not whether you are allowed to use it:\n\n<ul class=\"govuk-list govuk-list--bullet govuk-list--spaced\">\n<li><strong>Using.</strong> Used by teams across Defra today.</li>\n<li><strong>Trialling.</strong> Being trialled with some teams before wider use.</li>\n</ul>\n",
-    "markdown-emphasis": "Three statuses:\n\n- **Using.** Used by teams across Defra today.\n- *Trialling.* Being trialled with some teams before wider use.\n\n1. Check the radar first.\n2. Then check the data rules.\n"
+    "markdown-emphasis": "Three statuses:\n\n- **Using.** Used by teams across Defra today.\n- *Trialling.* Being trialled with some teams before wider use.\n\n1. Check the radar first.\n2. Then check the data rules.\n",
+    "links": "Read the <a href=\"/ai-toolkit/tools\">tools radar</a>. Then choose a tool.\n\nSee [Travelling securely](<https://intranet.example/Travel(1).aspx>) before you go. Book through [the portal](https://intranet.example/book) first.\n"
   },
   "cases": [
     {
@@ -175,6 +176,30 @@
       "page": "markdown-emphasis",
       "quote": "Using. Then check the data rules.",
       "outcome": "not_found"
+    },
+    {
+      "name": "a sentence that ends with a full stop straight after a closing tag",
+      "page": "links",
+      "quote": "Read the tools radar.",
+      "outcome": "ok"
+    },
+    {
+      "name": "the sentence after a full stop that followed a closing tag starts a sentence",
+      "page": "links",
+      "quote": "Then choose a tool.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a link whose target is in angle brackets and holds parentheses",
+      "page": "links",
+      "quote": "See Travelling securely before you go.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a plain link target",
+      "page": "links",
+      "quote": "Book through the portal first.",
+      "outcome": "ok"
     }
   ]
 }

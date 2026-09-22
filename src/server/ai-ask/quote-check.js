@@ -32,8 +32,10 @@ const inlineTags = new Set([
 // After the tag name comes either `>` or a space or slash and then whatever,
 // so the name and the rest never overlap and the scan is linear.
 const tag = /<\/?([a-zA-Z][a-zA-Z0-9]*)(?:[\s/][^<>]*)?>/g
-const image = /!\[([^[\]]*)\]\([^()]*\)/g
-const link = /\[([^[\]]*)\]\([^()]*\)/g
+// A link target is either wrapped in angle brackets, which is how Markdown
+// writes a URL holding parentheses, or runs to the first closing one.
+const image = /!\[([^[\]]*)\]\((?:<[^<>]*>|[^()<>]*)\)/g
+const link = /\[([^[\]]*)\]\((?:<[^<>]*>|[^()<>]*)\)/g
 // Heading marks, list markers and block quotes at the start of a line.
 const blockMarker = /^ *(?:#{1,6}|[-*+]|\d+[.)]) +/gm
 const blockQuote = /^ *> */gm
@@ -148,10 +150,19 @@ export function words (markdown) {
   const result = []
 
   for (const block of plainText(markdown).split(blankLine)) {
-    const kept = block
-      .split(/\s+/)
-      .map((token) => ({ word: trimPunctuation(token).toLowerCase(), token }))
-      .filter(({ word }) => word !== '')
+    const kept = []
+
+    for (const token of block.split(/\s+/)) {
+      const word = trimPunctuation(token).toLowerCase()
+      if (word !== '') {
+        kept.push({ word, token })
+      } else if (kept.length > 0) {
+        // Punctuation on its own, as in `<a href="/x">this</a>.` once the tag
+        // is gone, belongs to the word before it: that is where the sentence
+        // ends.
+        kept[kept.length - 1].token += token
+      }
+    }
 
     kept.forEach(({ word, token }, i) => {
       const first = i === 0

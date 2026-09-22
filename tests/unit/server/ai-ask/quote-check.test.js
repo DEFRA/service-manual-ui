@@ -35,6 +35,14 @@ describe('plainText', () => {
 
     expect(text.split(/\s+/).join(' ')).toBe('See the tools radar and this .')
   })
+
+  test('removes a link target written in angle brackets, parentheses and all', () => {
+    const text = plainText(
+      'See [Travelling securely](<https://intranet.example/Travel(1).aspx>) first.'
+    )
+
+    expect(text).toBe('See Travelling securely first.')
+  })
 })
 
 describe('words', () => {
@@ -43,6 +51,15 @@ describe('words', () => {
       { text: 'using', startsSentence: true, endsSentence: true },
       { text: 'also', startsSentence: true, endsSentence: false },
       { text: 'my_variable', startsSentence: false, endsSentence: true }
+    ])
+  })
+
+  test('gives punctuation left on its own by a stripped tag to the word before it', () => {
+    expect(words('Read <a href="/x">this</a>. Then that')).toEqual([
+      { text: 'read', startsSentence: true, endsSentence: false },
+      { text: 'this', startsSentence: false, endsSentence: true },
+      { text: 'then', startsSentence: true, endsSentence: false },
+      { text: 'that', startsSentence: false, endsSentence: true }
     ])
   })
 
