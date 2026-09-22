@@ -49,7 +49,7 @@ import { getEnabledMarkdownRoutes } from '../markdown-pages/index.js'
  */
 function normalise (text) {
   return text
-    .replace(/<[^>]*>/g, ' ')
+    .replace(/<[^<>]*>/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/[\u2018\u2019]/g, "'")
     .replace(/[\u201c\u201d]/g, '"')
