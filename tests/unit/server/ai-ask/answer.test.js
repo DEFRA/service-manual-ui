@@ -1,3 +1,6 @@
+import { readFileSync, readdirSync, statSync } from 'node:fs'
+import { join, relative, sep } from 'node:path'
+
 import { describe, test, expect, vi } from 'vitest'
 
 import { loadContent } from '../../../../src/server/common/helpers/content-loader.js'
@@ -24,6 +27,42 @@ const dataGuidanceUrl = '/ai-toolkit/guidance/using-data-with-ai'
 const realQuote =
   'For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.'
 
+const contentRoot = join('src', 'content')
+const shortestRule = 20
+
+/**
+ * @param {string} dir
+ * @returns {Array<string>} Every markdown file below dir
+ */
+function markdownFilesIn (dir) {
+  return readdirSync(dir).flatMap((name) => {
+    const path = join(dir, name)
+    if (statSync(path).isDirectory()) {
+      return markdownFilesIn(path)
+    }
+    return path.endsWith('.md') ? [path] : []
+  })
+}
+
+/**
+ * Every rule the toolkit writes as `<li><strong>The rule.</strong> …</li>`,
+ * paired with the address of the page it is on. A word-for-word quote of one
+ * of these does not appear in the source, because a closing tag sits inside
+ * the sentence, so each is a case the verifier has to strip markup to accept.
+ * @returns {Array<[string, string]>} Page address and rule text
+ */
+function rulesWrittenInsideMarkup () {
+  return markdownFilesIn(join(contentRoot, 'ai-toolkit')).flatMap((file) => {
+    const page = relative(contentRoot, file).split(sep).join('/')
+    const url = `/${page.replace(/\.md$/, '')}`
+
+    return [...readFileSync(file, 'utf8').matchAll(/<li><strong>([\s\S]*?)<\/li>/g)]
+      .map((match) => match[1].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim())
+      .filter((rule) => rule.length > shortestRule && !rule.includes('href'))
+      .map((rule) => [url, rule])
+  })
+}
+
 describe('quoteAppearsOnPage', () => {
   test('accepts a quote that is on the page it cites', () => {
     expect(quoteAppearsOnPage(realQuote, dataGuidanceUrl)).toBe(true)
@@ -47,6 +86,80 @@ describe('quoteAppearsOnPage', () => {
 
   test('rejects a page this service does not serve', () => {
     expect(quoteAppearsOnPage(realQuote, '/ai-toolkit/invented')).toBe(false)
+  })
+
+  // Twenty-seven rules across six pages are written inside markup, as
+  // <li><strong>The rule.</strong> The explanation.</li>. Quoting one of them
+  // word for word produces text that is not in the source, because a closing
+  // tag sits inside the sentence. Every one of these was dropped as a
+  // misquote until normalise learned to strip tags.
+  describe('a rule written inside markup', () => {
+    const incidentUrl = '/ai-toolkit/guidance/report-an-ai-incident'
+
+    test.each([
+      [
+        'one step, rule and explanation either side of a closing tag',
+        'Do not delete or change anything. The people handling the incident need to see clearly what happened.'
+      ],
+      [
+        'the bold part on its own',
+        'Stop using the AI tool immediately.'
+      ],
+      [
+        'a rule that runs out of the bold and into the sentence',
+        "Report it through Defra's security incident process so the information security team can assess it."
+      ],
+      [
+        'all four steps, which are four separate list items',
+        "Stop using the AI tool immediately. Do not delete or change anything. The people handling the incident need to see clearly what happened. Tell your line manager and your team's information asset owner. Give a short description of what happened and what data was involved. Report it through Defra's security incident process so the information security team can assess it."
+      ]
+    ])('accepts %s', (_description, quote) => {
+      expect(quoteAppearsOnPage(quote, incidentUrl)).toBe(true)
+    })
+
+    test('still rejects a paraphrase of a rule written inside markup', () => {
+      const paraphrase = 'Do not delete or alter anything.'
+
+      expect(quoteAppearsOnPage(paraphrase, incidentUrl)).toBe(false)
+    })
+
+    test('does not join words across a stripped tag', () => {
+      // "anything.</strong> The" must not become "anything.The".
+      expect(
+        quoteAppearsOnPage('anything.The people handling', incidentUrl)
+      ).toBe(false)
+    })
+
+    // Our pages are written with straight apostrophes. A model that types a
+    // typographic one has not changed a word, so dropping the quote over it
+    // would be a misquote of our own making.
+    test.each([
+      ['a typographic apostrophe', '’'],
+      ['a straight apostrophe', "'"]
+    ])('accepts a rule quoted with %s', (_description, apostrophe) => {
+      const quote = `Tell your line manager and your team${apostrophe}s information asset owner.`
+
+      expect(quoteAppearsOnPage(quote, incidentUrl)).toBe(true)
+    })
+  })
+
+  test('accepts a condition from the data table, also written inside markup', () => {
+    const condition =
+      'With privacy settings on. Model training and chat history are turned off.'
+
+    expect(quoteAppearsOnPage(condition, dataGuidanceUrl)).toBe(true)
+  })
+
+  // Reads the real content rather than a fixture, so a rule written in a
+  // shape the verifier cannot handle fails here rather than in production,
+  // where it would show only as the service quietly declining to quote.
+  describe('every rule the toolkit writes inside markup', () => {
+    test.each(rulesWrittenInsideMarkup())(
+      'can be quoted word for word from %s',
+      (url, rule) => {
+        expect(quoteAppearsOnPage(rule, url)).toBe(true)
+      }
+    )
   })
 
   test('logs a dropped paraphrase as a content defect, by page and length, never the words', () => {
