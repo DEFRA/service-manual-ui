@@ -226,6 +226,13 @@ export const askPostController = {
       return renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
     }
 
+    // A 200 that answered, but with nothing to show: the same handling as a
+    // failed fetch, so a failed turn is never saved as part of the
+    // conversation and the question is not lost.
+    if (answer.status === 'error') {
+      return renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
+    }
+
     session.addExchange(request.yar, { question, answer })
 
     // Every answer has an address, so asking takes you to a page of its own
@@ -244,14 +251,7 @@ export const answerController = {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    // An error answer pre-fills the follow-up field with the question that
-    // failed, rather than a bespoke retry control, so one click submits the
-    // same question again through the form already on the page.
-    const question = found.exchange.answer.status === 'error'
-      ? found.exchange.question
-      : ''
-
-    return renderAnswer(h, { exchanges, ...found }, { question })
+    return renderAnswer(h, { exchanges, ...found })
   }
 }
 

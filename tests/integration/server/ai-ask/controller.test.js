@@ -459,21 +459,26 @@ describe('askController', () => {
       expect(result).toEqual(expect.stringContaining('id="question"'))
     })
 
-    test('shows an error answer with the follow-up field pre-filled, so one click retries, and no AI-mistakes warning', async () => {
-      const { result } = await ask('simulate an error please')
+    test('shows a soft error answer as the same error summary as a failed fetch, and does not save it', async () => {
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${encodeURIComponent('simulate an error please')}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
 
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">Something went wrong</h1>'
-        )
-      )
-      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+      expect(result).toEqual(expect.stringContaining('simulate an error please'))
+      expect(result).toEqual(expect.stringContaining('Error: Ask the toolkit'))
 
-      const textareaMatch = result.match(
-        /<textarea[\s\S]*?id="question"[\s\S]*?>([\s\S]*?)<\/textarea>/
-      )
-      expect(textareaMatch).not.toBeNull()
-      expect(textareaMatch[1]).toBe('simulate an error please')
+      // Nothing was saved: there is no answer at this address to read.
+      const { statusCode: laterStatus, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1'
+      })
+      expect(laterStatus).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
     })
 
     test('leaves answered and need_more_detail answers as they were', async () => {
