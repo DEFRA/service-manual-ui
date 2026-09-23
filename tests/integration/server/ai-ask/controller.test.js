@@ -820,9 +820,22 @@ describe('askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.ok)
-      expect(result).toEqual(expect.stringContaining('This deletes the 1 question and'))
+      expect(result).toEqual(expect.stringContaining('This deletes the 1 question and answer in your current conversation.'))
       expect(result).toEqual(expect.stringContaining('action="/ai-toolkit/ask/restart"'))
       expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1">Cancel'))
+    })
+    test('pluralizes questions and answers when there is more than one', async () => {
+      const { cookie } = await postQuestion('How do I choose a tool?')
+      await postQuestion('What about agents?', cookie)
+
+      const { statusCode, result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/restart',
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('This deletes the 2 questions and answers in your current conversation.'))
     })
 
     test('has nothing to ask about restarting when nothing has been asked', async () => {
