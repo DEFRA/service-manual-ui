@@ -109,6 +109,17 @@ describe('askController', () => {
         expect.stringContaining(`href="${askUrl}" aria-current="page"`)
       )
     })
+
+    test('does not show a notice on a plain visit', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: askUrl
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('You need a conversation before you can get help.')
+      )
+    })
   })
 
   describe('asking a question', () => {
@@ -909,6 +920,25 @@ describe('askController', () => {
       expect(help.statusCode).toBe(statusCodes.ok)
       expect(help.result).toEqual(
         expect.stringContaining('name="includeConversation"')
+      )
+    })
+
+    test('sends someone with no conversation back to the start, saying why', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/help'
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(`${askUrl}?notice=no-conversation`)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: headers.location
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('You need a conversation before you can get help. Ask a question first.')
       )
     })
 

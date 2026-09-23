@@ -27,6 +27,9 @@
 
     <p class="govuk-body-l">Get an answer, with a link to the guidance it came from.</p>
 
+    {% if notice == 'no-conversation' %}
+    <p class="govuk-body">You need a conversation before you can get help. Ask a question first.</p>
+    {% endif %}
   </div>
 </div>
 

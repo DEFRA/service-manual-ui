@@ -63,12 +63,13 @@ function baseView () {
  * @param {object} options
  * @returns {object} The front door
  */
-function renderAsk (h, { question = '', error = null } = {}) {
+function renderAsk (h, { question = '', error = null, notice = null } = {}) {
   return h.view('ai-ask/ask', {
     ...baseView(),
     pageTitle: 'Ask the toolkit',
     question,
-    error
+    error,
+    notice
   })
 }
 
@@ -147,7 +148,12 @@ export const askController = {
       return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
     }
 
-    return renderAsk(h)
+    // Set when a route that needs a conversation (help, so far) redirected
+    // here because there wasn't one, so the front door can say why instead of
+    // silently landing back on it.
+    const notice = request.query.notice === 'no-conversation' ? 'no-conversation' : null
+
+    return renderAsk(h, { notice })
   }
 }
 
@@ -291,7 +297,7 @@ export const helpController = {
     const exchanges = session.getExchanges(request.yar)
 
     if (!exchanges.length) {
-      return h.redirect(askPath).code(statusCodes.seeOther)
+      return h.redirect(`${askPath}?notice=no-conversation`).code(statusCodes.seeOther)
     }
 
     return h.view('ai-ask/help', {
