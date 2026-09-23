@@ -245,14 +245,13 @@ describe('askController', () => {
       )
     })
 
-    test('titles the page with the question, so tabs and history differ', async () => {
+    test('titles the page with its position in the conversation, never the question', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<title>How do I choose a tool? | AI digital toolkit'
-        )
+        expect.stringContaining('<title>Answer 1 of 1 | AI digital toolkit')
       )
+      expect(result).not.toEqual(expect.stringContaining('How do I choose a tool?</title>'))
     })
 
     test('shows the question back to the person who asked it', async () => {
