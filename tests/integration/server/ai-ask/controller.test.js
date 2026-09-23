@@ -383,6 +383,7 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('Select an option, or type your question below')
       )
+      expect(result).toEqual(expect.stringContaining('<title>Error: Answer 1 of 1'))
       expect(result).toEqual(expect.stringContaining('href="#option"'))
       expect(result).not.toEqual(expect.stringContaining('Enter your question'))
 

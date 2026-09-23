@@ -6,7 +6,7 @@
    question: analytics records page titles, and nothing someone typed should
    leave the service. #}
 {% block pageTitle %}
-  {%- if error %}Error: {% endif -%}
+  {%- if error or optionsError %}Error: {% endif -%}
   {{ pageTitle }} | {{ headerServiceName }}
 {% endblock %}
 
