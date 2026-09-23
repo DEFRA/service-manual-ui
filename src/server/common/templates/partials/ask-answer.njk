@@ -23,9 +23,8 @@
     <p class="govuk-body">The toolkit covers choosing a tool, the data you can use with it, and the patterns other teams have built. <a class="govuk-link" href="{{ paths.toolkit }}">Go to the AI digital toolkit</a></p>
     {% endif %}
   {% endif %}
-  
-  {% if answer.status == 'talk_to_a_person' %}
 
+  {% if answer.status == 'talk_to_a_person' %}
   <p class="app-ask__contact-link">
     {{ govukButton({ href: paths.help, text: "Speak to the team" }) }}
   </p>

@@ -120,6 +120,17 @@ describe('askController', () => {
         expect.stringContaining('You need a conversation before you can get help.')
       )
     })
+
+    test('ignores an unrecognised notice value', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: `${askUrl}?notice=anything-else`
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('You need a conversation before you can get help.')
+      )
+    })
   })
 
   describe('asking a question', () => {
