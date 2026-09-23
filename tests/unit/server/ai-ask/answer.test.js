@@ -133,11 +133,11 @@ describe('quoteAppearsOnPage', () => {
       ],
       [
         'a rule that runs out of the bold and into the sentence',
-        "Report it through Defra's security incident process so the information security team can assess it."
+        "Report it through your organisation's security incident process. If you are not sure what that is, your line manager or information asset owner can tell you."
       ],
       [
         'all four steps, which are four separate list items',
-        "Stop using the AI tool immediately. Do not delete or change anything. The people handling the incident need to see clearly what happened. Tell your line manager and your team's information asset owner. Give a short description of what happened and what data was involved. Report it through Defra's security incident process so the information security team can assess it."
+        "Stop using the AI tool immediately. Do not delete or change anything. The people handling the incident need to see clearly what happened. Tell your line manager and your team's information asset owner. Give a short description of what happened and what data was involved. Report it through your organisation's security incident process. If you are not sure what that is, your line manager or information asset owner can tell you."
       ]
     ])('accepts %s', (_description, quote) => {
       expect(quoteAppearsOnPage(quote, incidentUrl)).toBe(true)

@@ -89,10 +89,10 @@ Follow these steps as soon as you realise an incident has happened, or might hav
 <li><strong>Stop using the AI tool immediately.</strong></li>
 <li><strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.</li>
 <li><strong>Tell your line manager and your team's information asset owner.</strong> Give a short description of what happened and what data was involved.</li>
-<li><strong>Report it through Defra's security incident process</strong> so the information security team can assess it.</li>
+<li><strong>Report it through your organisation's security incident process.</strong> If you are not sure what that is, your line manager or information asset owner can tell you.</li>
 </ol>
 
-Your line manager and information asset owner will assess how serious it is and decide whether to escalate, including to Defra's information security team.
+Your line manager and information asset owner will assess how serious it is and decide whether to escalate, including to your organisation's information security team.
 
 ## If the incident involved personal data
 
