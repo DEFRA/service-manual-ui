@@ -57,7 +57,6 @@
 // Defra green, matching the primary buttons used elsewhere in the toolkit.
 // The shadow is the darker green the Design System expects underneath.
 .app-ask__send.govuk-button {
-  min-width: 100px;
   margin-bottom: 0;
   display: inline-flex;
   align-items: center;
@@ -108,11 +107,11 @@
   }
 }
 
-// The static "this can take a while" line under the button. A hint rather
-// than an error or a warning: it is routine, not a problem.
+// The static "this can take a while" line, stacked with the other hint
+// above the field. A hint rather than an error or a warning: it is
+// routine, not a problem.
 .app-ask__wait-hint.govuk-hint {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin-top: -5px;
 }
 
 // ── Asking again ──

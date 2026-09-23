@@ -1,7 +1,6 @@
-// Shown on the button and announced to screen readers once a question has
-// been sent, so someone waiting for the backend has something to look at
-// besides a page that appears to have stopped responding.
-const BUSY_BUTTON_TEXT = 'Working on your answer…'
+// Announced to screen readers once a question has been sent, so someone
+// waiting for the backend has something to notice besides a page that
+// appears to have stopped responding.
 const BUSY_STATUS_TEXT = 'Working on your answer. This can take up to 30 seconds.'
 
 /**
@@ -87,11 +86,6 @@ function initBusyState () {
 
       button.disabled = true
       button.classList.add('app-ask__send--busy')
-
-      const text = button.querySelector('.app-ask__send-text')
-      if (text) {
-        text.textContent = BUSY_BUTTON_TEXT
-      }
 
       const status = form.querySelector('[data-ask-status]')
       if (status) {

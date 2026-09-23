@@ -140,12 +140,12 @@ describe('initAsk busy state', () => {
     initAsk()
   })
 
-  test('disables the button, relabels it and announces the wait', () => {
+  test('disables the button, adds the busy spinner and announces the wait, keeping the label as Ask', () => {
     form.dispatchEvent(new Event('submit', { cancelable: true }))
 
     expect(button.disabled).toBe(true)
     expect(button.classList.contains('app-ask__send--busy')).toBe(true)
-    expect(text.textContent).toBe('Working on your answer…')
+    expect(text.textContent).toBe('Ask the toolkit')
     expect(status.textContent).toBe('Working on your answer. This can take up to 30 seconds.')
   })
 
