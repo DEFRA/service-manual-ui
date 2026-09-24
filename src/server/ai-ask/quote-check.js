@@ -40,6 +40,11 @@ const link = /\[([^[\]]*)\]\((?:<[^<>]*>|[^()<>]*)\)/g
 const blockMarker = /^ *(?:#{1,6}|[-*+]|\d+[.)]) +/gm
 const blockQuote = /^ *> */gm
 const blankLine = /\n[ \t]*\n/
+// A table cell's opening tag. Each cell becomes its own block, marked so a
+// quote cannot be stitched together out of cells: a row read across is not a
+// sentence, however whole each cell is.
+const cellOpen = /<\s*t[dh]\b[^<>]*>/gi
+const cellMark = '\uE000' // private use: never on a page, dropped before matching
 const wordChar = /[\p{L}\p{N}]/u
 const sentenceEnd = /[.!?:]$/
 // What can follow a full stop and still be the same sentence end: closing
@@ -158,18 +163,28 @@ function keep (kept, token) {
  * @property {string} text
  * @property {boolean} startsSentence
  * @property {boolean} endsSentence
+ * @property {number|null} cell
  */
 
 /**
  * The page's words in order, each knowing whether a sentence starts or ends
- * on it.
+ * on it and which table cell, if any, it sits in.
  * @param {string} markdown
  * @returns {Array<Word>}
  */
 export function words (markdown) {
   const result = []
+  const marked = markdown.replace(cellOpen, (whole) => whole + cellMark)
+  let cells = 0
 
-  for (const block of plainText(markdown).split(blankLine)) {
+  for (let block of plainText(marked).split(blankLine)) {
+    let cell = null
+    if (block.includes(cellMark)) {
+      cells += 1
+      cell = cells
+      block = block.replaceAll(cellMark, ' ')
+    }
+
     const kept = []
 
     for (const token of block.split(/\s+/)) {
@@ -182,7 +197,8 @@ export function words (markdown) {
       result.push({
         text: word,
         startsSentence: first || endsSentence(kept[i - 1].token),
-        endsSentence: last || endsSentence(token)
+        endsSentence: last || endsSentence(token),
+        cell
       })
     })
   }
@@ -194,13 +210,17 @@ export function words (markdown) {
  * Whether the quote is on the page, word for word and whole.
  *
  * `ok`: the words appear in order and run from the start of a sentence to the
- * end of one. `partial`: the words appear but the quote starts or stops part
- * way through a sentence, so a condition may have been dropped. `not_found`: a
- * word was changed, added or removed. `empty`: nothing left to check once
- * markup and whitespace are gone, which would otherwise match every page.
+ * end of one. `stitched`: the words appear in order but the match takes in a
+ * table cell and something outside it, another cell or the text around the
+ * table, so they were never one sentence. A quote may still run across whole
+ * list items: the four incident steps are one quote. `partial`: the words
+ * appear but the quote starts or stops part way through a sentence, so a
+ * condition may have been dropped. `not_found`: a word was changed, added or
+ * removed. `empty`: nothing left to check once markup and whitespace are
+ * gone, which would otherwise match every page.
  * @param {string} quote
  * @param {string} pageMarkdown
- * @returns {'ok'|'not_found'|'partial'|'empty'}
+ * @returns {'ok'|'not_found'|'partial'|'stitched'|'empty'}
  */
 export function checkQuote (quote, pageMarkdown) {
   const wanted = words(quote).map((word) => word.text)
@@ -211,17 +231,25 @@ export function checkQuote (quote, pageMarkdown) {
 
   const page = words(pageMarkdown)
   const n = wanted.length
-  let found = false
+  let outcome = 'not_found'
 
   for (let start = 0; start + n <= page.length; start++) {
     if (!wanted.every((word, i) => page[start + i].text === word)) {
       continue
     }
-    found = true
-    if (page[start].startsSentence && page[start + n - 1].endsSentence) {
+    const matched = page.slice(start, start + n)
+    const cells = new Set(matched.map((word) => word.cell))
+    if (cells.size > 1) {
+      outcome = 'stitched'
+      continue
+    }
+    if (matched[0].startsSentence && matched[n - 1].endsSentence) {
       return 'ok'
+    }
+    if (outcome === 'not_found') {
+      outcome = 'partial'
     }
   }
 
-  return found ? 'partial' : 'not_found'
+  return outcome
 }
