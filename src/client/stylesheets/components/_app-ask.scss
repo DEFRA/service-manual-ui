@@ -60,6 +60,9 @@
   margin-bottom: 0;
   display: inline-flex;
   align-items: center;
+  // A flex button does not centre its label on its own, so without this the
+  // label sits at the left of the min-width below.
+  justify-content: center;
   gap: 10px;
   // Keeps the button the same width once the spinner is added, rather than
   // growing and nudging the page.
