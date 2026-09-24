@@ -241,9 +241,12 @@ export function checkQuote (quote, pageMarkdown) {
     const cells = new Set(matched.map((word) => word.cell))
     if (cells.size > 1) {
       outcome = 'stitched'
-    } else if (matched[0].startsSentence && matched[n - 1].endsSentence) {
+      continue
+    }
+    if (matched[0].startsSentence && matched[n - 1].endsSentence) {
       return 'ok'
-    } else if (outcome === 'not_found') {
+    }
+    if (outcome === 'not_found') {
       outcome = 'partial'
     }
   }
