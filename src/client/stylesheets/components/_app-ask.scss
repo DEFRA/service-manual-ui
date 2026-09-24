@@ -190,9 +190,15 @@
 
 // The prominent link out to a person on a talk_to_a_person answer. Sits
 // where the options form does: between the message and whatever comes after
-// it.
+// it. The button's own default bottom margin (govuk-frontend's responsive
+// spacing-6) is on top of this, so it's zeroed here to leave just the one
+// deliberate 20px gap instead of the two stacking.
 .app-ask__contact-link {
   margin-bottom: 20px;
+}
+
+.app-ask__contact-link .govuk-button {
+  margin-bottom: 0;
 }
 
 // The sources were a heading and two bare links floating at the end of the
