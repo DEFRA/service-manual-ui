@@ -30,6 +30,13 @@
   </p>
   {% endif %}
 
+  {# cannot_answer and talk_to_a_person already have their own wording above,
+     in place of the model's message, so this only shows it for the
+     remaining statuses: answered, need_more_detail and blocked. #}
+  {% if answer.message and answer.status != 'cannot_answer' and answer.status != 'talk_to_a_person' %}
+  <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
   {% if canFollowUp and answer.status == 'need_more_detail' and answer.options | length %}
   {# The options narrow the question, so choosing one posts it as the next
      question through the same route the free-text follow-up box below

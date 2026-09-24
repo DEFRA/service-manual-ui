@@ -117,7 +117,7 @@ describe('askController', () => {
       })
 
       expect(result).not.toEqual(
-        expect.stringContaining('You need a conversation before you can get help.')
+        expect.stringContaining('Your conversation has ended')
       )
     })
 
@@ -128,7 +128,7 @@ describe('askController', () => {
       })
 
       expect(result).not.toEqual(
-        expect.stringContaining('You need a conversation before you can get help.')
+        expect.stringContaining('Your conversation has ended')
       )
     })
   })
@@ -512,6 +512,16 @@ describe('askController', () => {
       )
       expect(result).toEqual(expect.stringContaining('Toolkit answer'))
       expect(result).toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
+    test('shows the answer message on an answered page', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Start from the data you will use, because your classification and the tool type together decide what is allowed.'
+        )
+      )
     })
 
     test.each([
@@ -949,7 +959,7 @@ describe('askController', () => {
       })
 
       expect(result).toEqual(
-        expect.stringContaining('You need a conversation before you can get help. Ask a question first.')
+        expect.stringContaining('Your conversation has ended, so there is nothing to send to the team. Ask a new question, or use the contact details below.')
       )
     })
 
