@@ -1,5 +1,23 @@
+// Announced to screen readers once a question has been sent, so someone
+// waiting for the backend has something to notice besides a page that
+// appears to have stopped responding.
+const BUSY_STATUS_TEXT = 'Working on your answer. This can take up to 30 seconds.'
+
+// aria-disabled rather than the disabled attribute, so a browser still
+// submits the button's value: see initBusyState below.
+const ARIA_DISABLED = 'aria-disabled'
+
 /**
- * Ask the toolkit: send the question when Enter is pressed.
+ * Ask the toolkit: send the question when Enter is pressed, and show a busy
+ * state while an answer is on its way.
+ */
+export function initAsk () {
+  initEnterToSend()
+  initBusyState()
+}
+
+/**
+ * Send the question when Enter is pressed.
  *
  * The field is a textarea, so Enter would ordinarily add a line break. In a
  * box like this people expect Enter to send, and the alternative is reaching
@@ -9,7 +27,7 @@
  * carry over from other chat interfaces. Everything works unchanged without
  * this file: the button is a real submit button and the form posts on its own.
  */
-export function initAsk () {
+function initEnterToSend () {
   const field = document.querySelector('[data-module="app-ask-question"]')
 
   // requestSubmit is the only way to submit from a key press that still runs
@@ -36,5 +54,69 @@ export function initAsk () {
 
     event.preventDefault()
     field.form.requestSubmit()
+  })
+}
+
+/**
+ * Show a busy button and announce it once a question is on its way.
+ *
+ * The wait for an answer can run to 30 seconds, and asking is a full page
+ * post rather than a fetch, so nothing else on the page will change again
+ * until the answer page arrives. Without this, the only sign anything
+ * happened is the browser's own loading indicator, which is easy to miss and
+ * says nothing about how long is normal.
+ *
+ * The button marks itself busy with aria-disabled as its own guard against a
+ * second submit, from a stray double click or a second Enter press before
+ * the page navigates away. A real disabled attribute is not used because a
+ * browser never sends a disabled button's value with the form, and the
+ * options form on an answer page needs that value to tell a follow-up
+ * question apart from Continue with nothing chosen. Nothing here helps
+ * without JavaScript: the static wait message printed next to the button in
+ * the template is what covers that case.
+ */
+function initBusyState () {
+  document.querySelectorAll('[data-ask-submit]').forEach((button) => {
+    const form = button.form
+
+    if (!form) {
+      return
+    }
+
+    form.addEventListener('submit', (event) => {
+      if (button.getAttribute(ARIA_DISABLED) === 'true') {
+        // The button already shows the busy state, so a second submit
+        // reaching here (Enter fired again before navigation) is a repeat,
+        // not a new question.
+        event.preventDefault()
+        return
+      }
+
+      button.setAttribute(ARIA_DISABLED, 'true')
+      button.classList.add('app-ask__send--busy')
+
+      const status = form.querySelector('[data-ask-status]')
+      if (status) {
+        status.textContent = BUSY_STATUS_TEXT
+      }
+    })
+  })
+
+  // A page restored from the back-forward cache comes back mid-submit.
+  // Put the buttons back to normal so the person can ask again.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) {
+      return
+    }
+
+    document.querySelectorAll('[data-ask-submit]').forEach((button) => {
+      button.removeAttribute(ARIA_DISABLED)
+      button.classList.remove('app-ask__send--busy')
+
+      const status = button.form?.querySelector('[data-ask-status]')
+      if (status) {
+        status.textContent = ''
+      }
+    })
   })
 }

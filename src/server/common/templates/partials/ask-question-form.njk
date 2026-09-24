@@ -6,6 +6,12 @@
    leave it off: once someone is in a conversation it read as nagging, and the
    ask page already carried it when they started.
 
+   The "this can take up to 30 seconds" hint shows on the first question only.
+   Pass questionWaitHint as false to leave it off a follow-up: by then people
+   have waited once already, and the spinner covers the wait. It also reads
+   bigger than the follow-up label above it, which is 16px against the hint's
+   standard 19px.
+
    The GOV.UK character count carries the limit rather than a maxlength
    attribute. maxlength silently truncates pasted text, so someone would send a
    question with the end cut off and never know. The threshold keeps the count
@@ -13,6 +19,7 @@
    limit shows as a static line and the server still rejects anything over it
    with a specific error. #}
 {% set hint = questionHint if questionHint is defined else "Do not include personal or sensitive information" %}
+{% set waitHint = questionWaitHint if questionWaitHint is defined else true %}
 <form method="post" action="{{ paths.ask }}" class="{{ questionFormClass | default('app-ask__panel') }}">
   <div class="govuk-character-count"
     data-module="govuk-character-count"
@@ -24,6 +31,9 @@
       </label>
       {% if hint %}
       <div id="question-hint" class="govuk-hint">{{ hint }}</div>
+      {% endif %}
+      {% if waitHint %}
+      <p id="question-wait-hint" class="govuk-hint app-ask__wait-hint">This can take up to 30 seconds.</p>
       {% endif %}
       {% if error %}
       <p id="question-error" class="govuk-error-message">
@@ -38,11 +48,16 @@
           rows="{{ questionRows }}"
           enterkeyhint="send"
           data-module="app-ask-question"
-          aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
+          aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if waitHint %} question-wait-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
       </div>
-      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
-        Ask<span class="govuk-visually-hidden"> the toolkit</span>
+      <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button" data-ask-submit>
+        <span class="app-ask__send-text">Ask<span class="govuk-visually-hidden"> the toolkit</span></span>
       </button>
+      {# Empty until JavaScript fills it in on submit. A screen reader user
+         gets the same "working on your answer" announcement a sighted user
+         gets from the button changing, which the button alone does not
+         reliably give once it is busy. #}
+      <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-status></div>
     </div>
     <div id="question-info" class="govuk-hint govuk-character-count__message">
       You can enter up to {{ maxQuestionLength }} characters

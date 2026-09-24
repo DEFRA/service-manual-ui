@@ -57,14 +57,64 @@
 // Defra green, matching the primary buttons used elsewhere in the toolkit.
 // The shadow is the darker green the Design System expects underneath.
 .app-ask__send.govuk-button {
-  min-width: 100px;
   margin-bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  // Keeps the button the same width once the spinner is added, rather than
+  // growing and nudging the page.
+  min-width: 100px;
   background-color: $defra-green;
   box-shadow: 0 2px 0 $defra-green-dark;
 
   &:hover {
     background-color: color.adjust($defra-green, $lightness: -8%);
   }
+}
+
+// ── Working on your answer ──
+// A spinner appended to the button once a question is sent, rather than
+// replacing the button with one elsewhere on the page: the busy state stays
+// attached to the control someone just pressed, which is where they are
+// already looking.
+.app-ask__send--busy.govuk-button,
+.app-ask__send--busy.govuk-button:hover {
+  // The button is marked aria-disabled rather than disabled, so govuk-
+  // frontend does not dim it: it stays full green, with only the cursor
+  // changed, since "not-allowed" reads as an error rather than "busy".
+  cursor: wait;
+  background-color: $defra-green;
+}
+
+.app-ask__send--busy::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba($govuk-white, 0.4);
+  border-top-color: $govuk-white;
+  border-radius: 50%;
+  animation: app-ask-spin 0.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-ask__send--busy::after {
+    // Still shown, so the busy state is visible without relying on motion,
+    // just not spinning.
+    animation: none;
+  }
+}
+
+@keyframes app-ask-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// The static "this can take a while" line, stacked with the other hint
+// above the field. A hint rather than an error or a warning: it is
+// routine, not a problem.
+.app-ask__wait-hint.govuk-hint {
+  margin-top: -5px;
 }
 
 // ── Asking again ──

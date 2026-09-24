@@ -120,6 +120,10 @@ function renderAnswer (
     // No hint. The privacy reminder sits on the front door, where a question
     // starts. Repeated under every follow-up it read as nagging.
     questionHint: false,
+    // No wait hint either. By a follow-up, people have waited once already,
+    // and the spinner covers the wait. It also reads bigger than the
+    // follow-up label above it.
+    questionWaitHint: false,
     questionFormClass: 'app-ask__followup',
     exchange,
     number,

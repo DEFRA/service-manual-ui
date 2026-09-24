@@ -63,9 +63,10 @@
        tells an empty options submission apart from an empty free-text one:
        the same POST route serves both forms, and only one can point the
        error back at the field that was actually used. #}
-    <button type="submit" name="from" value="options" class="govuk-button app-ask__send" data-module="govuk-button">
-      Continue
+    <button type="submit" name="from" value="options" class="govuk-button app-ask__send" data-module="govuk-button" data-ask-submit>
+      <span class="app-ask__send-text">Continue</span>
     </button>
+    <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-status></div>
   </form>
   {% endif %}
 
