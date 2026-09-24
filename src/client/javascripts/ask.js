@@ -62,10 +62,14 @@ function initEnterToSend () {
  * happened is the browser's own loading indicator, which is easy to miss and
  * says nothing about how long is normal.
  *
- * The button disables itself as its own guard against a second submit, from
- * a stray double click or a second Enter press before the page navigates
- * away. Nothing here helps without JavaScript: the static wait message
- * printed next to the button in the template is what covers that case.
+ * The button marks itself busy with aria-disabled as its own guard against a
+ * second submit, from a stray double click or a second Enter press before
+ * the page navigates away. A real disabled attribute is not used because a
+ * browser never sends a disabled button's value with the form, and the
+ * options form on an answer page needs that value to tell a follow-up
+ * question apart from Continue with nothing chosen. Nothing here helps
+ * without JavaScript: the static wait message printed next to the button in
+ * the template is what covers that case.
  */
 function initBusyState () {
   document.querySelectorAll('[data-ask-submit]').forEach((button) => {
@@ -76,7 +80,7 @@ function initBusyState () {
     }
 
     form.addEventListener('submit', (event) => {
-      if (button.disabled) {
+      if (button.getAttribute('aria-disabled') === 'true') {
         // The button already shows the busy state, so a second submit
         // reaching here (Enter fired again before navigation) is a repeat,
         // not a new question.
@@ -84,12 +88,30 @@ function initBusyState () {
         return
       }
 
-      button.disabled = true
+      button.setAttribute('aria-disabled', 'true')
       button.classList.add('app-ask__send--busy')
 
       const status = form.querySelector('[data-ask-status]')
       if (status) {
         status.textContent = BUSY_STATUS_TEXT
+      }
+    })
+  })
+
+  // A page restored from the back-forward cache comes back mid-submit.
+  // Put the buttons back to normal so the person can ask again.
+  window.addEventListener('pageshow', (event) => {
+    if (!event.persisted) {
+      return
+    }
+
+    document.querySelectorAll('[data-ask-submit]').forEach((button) => {
+      button.removeAttribute('aria-disabled')
+      button.classList.remove('app-ask__send--busy')
+
+      const status = button.form?.querySelector('[data-ask-status]')
+      if (status) {
+        status.textContent = ''
       }
     })
   })

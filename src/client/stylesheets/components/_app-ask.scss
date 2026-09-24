@@ -61,6 +61,9 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  // Keeps the button the same width once the spinner is added, rather than
+  // growing and nudging the page.
+  min-width: 100px;
   background-color: $defra-green;
   box-shadow: 0 2px 0 $defra-green-dark;
 
@@ -76,9 +79,9 @@
 // already looking.
 .app-ask__send--busy.govuk-button,
 .app-ask__send--busy.govuk-button:hover {
-  // Disabled buttons already dim under govuk-frontend's own styling; this
-  // only sets the cursor, since "not-allowed" reads as an error rather than
-  // "busy".
+  // The button is marked aria-disabled rather than disabled, so govuk-
+  // frontend does not dim it: it stays full green, with only the cursor
+  // changed, since "not-allowed" reads as an error rather than "busy".
   cursor: wait;
   background-color: $defra-green;
 }

@@ -140,10 +140,11 @@ describe('initAsk busy state', () => {
     initAsk()
   })
 
-  test('disables the button, adds the busy spinner and announces the wait, keeping the label as Ask', () => {
+  test('marks the button aria-disabled, adds the busy spinner and announces the wait, keeping the label as Ask', () => {
     form.dispatchEvent(new Event('submit', { cancelable: true }))
 
-    expect(button.disabled).toBe(true)
+    expect(button.getAttribute('aria-disabled')).toBe('true')
+    expect(button.disabled).toBe(false)
     expect(button.classList.contains('app-ask__send--busy')).toBe(true)
     expect(text.textContent).toBe('Ask the toolkit')
     expect(status.textContent).toBe('Working on your answer. This can take up to 30 seconds.')
@@ -176,7 +177,7 @@ describe('initAsk busy state', () => {
     expect(() => initAsk()).not.toThrow()
   })
 
-  test('still disables the button when it has no text span or status region to update', () => {
+  test('still marks the button aria-disabled when it has no text span or status region to update', () => {
     document.body.innerHTML = `
       <form>
         <button type="submit" class="app-ask__send" data-ask-submit>Ask</button>
@@ -187,6 +188,19 @@ describe('initAsk busy state', () => {
     initAsk()
 
     expect(() => plainForm.dispatchEvent(new Event('submit', { cancelable: true }))).not.toThrow()
-    expect(plainButton.disabled).toBe(true)
+    expect(plainButton.getAttribute('aria-disabled')).toBe('true')
+    expect(plainButton.disabled).toBe(false)
+  })
+
+  test('resets the busy state when the page is restored from the back-forward cache', () => {
+    form.dispatchEvent(new Event('submit', { cancelable: true }))
+
+    const restored = new Event('pageshow')
+    Object.defineProperty(restored, 'persisted', { value: true })
+    window.dispatchEvent(restored)
+
+    expect(button.hasAttribute('aria-disabled')).toBe(false)
+    expect(button.classList.contains('app-ask__send--busy')).toBe(false)
+    expect(status.textContent).toBe('')
   })
 })
