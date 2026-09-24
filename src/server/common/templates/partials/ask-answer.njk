@@ -24,12 +24,6 @@
     {% endif %}
   {% endif %}
 
-  {% if answer.status == 'talk_to_a_person' %}
-  <p class="app-ask__contact-link">
-    {{ govukButton({ href: paths.help, text: "Speak to the team" }) }}
-  </p>
-  {% endif %}
-
   {# cannot_answer already has its own fixed wording and nearest-guidance
      list above, in place of the model's message, so this hides it there.
      talk_to_a_person still shows its message: that's where the model says
@@ -37,6 +31,12 @@
      that applies, and hiding it would leave just the button. #}
   {% if answer.message and answer.status != 'cannot_answer' %}
   <p class="govuk-body">{{ answer.message }}</p>
+  {% endif %}
+
+  {% if answer.status == 'talk_to_a_person' %}
+  <p class="app-ask__contact-link">
+    {{ govukButton({ href: paths.help, text: "Speak to the team" }) }}
+  </p>
   {% endif %}
 
   {% if canFollowUp and answer.status == 'need_more_detail' and answer.options | length %}
