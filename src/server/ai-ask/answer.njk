@@ -2,13 +2,12 @@
 
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
-{# The tab carries the question, cut short, so history and open tabs stay
-   distinguishable. The heading on the page does not, because a question can
-   run to 500 characters and a heading that can become a paragraph is not a
-   heading. #}
+{# The tab shows the answer's position in the conversation, never the
+   question: analytics records page titles, and nothing someone typed should
+   leave the service. #}
 {% block pageTitle %}
-  {%- if error %}Error: {% endif -%}
-  {{ pageTitle | truncate(60) }} | {{ headerServiceName }}
+  {%- if error or optionsError %}Error: {% endif -%}
+  {{ pageTitle }} | {{ headerServiceName }}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +20,7 @@
 {% block content %}
 {# The heading has a row of its own, so the conversation beside the answer
    starts level with the question box rather than with the heading. #}
-{# Four outcomes get a heading that says what they are, in place of "Your
+{# Three outcomes get a heading that says what they are, in place of "Your
    answer": a reader told to talk to a person, or whose question could not
    be answered, is not looking at "an answer" in any sense that heading
    implies. answered and need_more_detail are not in this map, so they keep
@@ -30,8 +29,7 @@
 {% set outcomeHeadings = {
   cannot_answer: "The toolkit cannot answer this",
   talk_to_a_person: "This one is for the team",
-  blocked: "The toolkit cannot help with this question",
-  error: "Something went wrong"
+  blocked: "The toolkit cannot help with this question"
 } %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

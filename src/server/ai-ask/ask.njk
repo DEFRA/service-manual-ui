@@ -27,6 +27,9 @@
 
     <p class="govuk-body-l">Get answers from Defra's guidance on using AI, with a link to the page each one came from.</p>
 
+    {% if notice == 'no-conversation' %}
+    <p class="govuk-body">Your conversation has ended, so there is nothing to send to the team. Ask a new question, or use the contact details below.</p>
+    {% endif %}
   </div>
 </div>
 

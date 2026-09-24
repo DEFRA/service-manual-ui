@@ -16,7 +16,7 @@
     {# Says what is lost, and that nothing else holds it, so the choice is an
        informed one. Not a warning button: a conversation that lives for four
        hours is not the kind of loss that warrants red. #}
-    <p class="govuk-body">This deletes the {{ questionCount }} question{% if questionCount != 1 %}s{% endif %} and answers in your current conversation. They are not kept anywhere else.</p>
+    <p class="govuk-body">This deletes the {{ questionCount }} question{% if questionCount != 1 %}s{% endif %} and answer{% if questionCount != 1 %}s{% endif %} in your current conversation. They are not kept anywhere else.</p>
 
     <form method="post" action="{{ paths.restart }}">
       <div class="govuk-button-group">

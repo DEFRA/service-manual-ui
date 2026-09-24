@@ -63,12 +63,13 @@ function baseView () {
  * @param {object} options
  * @returns {object} The front door
  */
-function renderAsk (h, { question = '', error = null } = {}) {
+function renderAsk (h, { question = '', error = null, notice = null } = {}) {
   return h.view('ai-ask/ask', {
     ...baseView(),
     pageTitle: 'Ask the toolkit',
     question,
-    error
+    error,
+    notice
   })
 }
 
@@ -91,7 +92,10 @@ function renderAnswer (
 
   return h.view('ai-ask/answer', {
     ...baseView(),
-    pageTitle: exchange.question,
+    // The question is deliberately not the page title. Analytics records the
+    // title of every page it sees, so a question in the title would send what
+    // someone typed to a third party. The position still tells tabs apart.
+    pageTitle: `Answer ${number} of ${exchanges.length}`,
     // A back link rather than breadcrumbs. A conversation is a journey, and
     // the Design System says a journey gets a back link and never both. The
     // route out of the service is already in the toolkit navigation above, so
@@ -144,7 +148,12 @@ export const askController = {
       return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
     }
 
-    return renderAsk(h)
+    // Set when a route that needs a conversation (help, so far) redirected
+    // here because there wasn't one, so the front door can say why instead of
+    // silently landing back on it.
+    const notice = request.query.notice === 'no-conversation' ? 'no-conversation' : null
+
+    return renderAsk(h, { notice })
   }
 }
 
@@ -223,6 +232,13 @@ export const askPostController = {
       return renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
     }
 
+    // A 200 that answered, but with nothing to show: the same handling as a
+    // failed fetch, so a failed turn is never saved as part of the
+    // conversation and the question is not lost.
+    if (answer.status === 'error') {
+      return renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
+    }
+
     session.addExchange(request.yar, { question, answer })
 
     // Every answer has an address, so asking takes you to a page of its own
@@ -241,14 +257,7 @@ export const answerController = {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    // An error answer pre-fills the follow-up field with the question that
-    // failed, rather than a bespoke retry control, so one click submits the
-    // same question again through the form already on the page.
-    const question = found.exchange.answer.status === 'error'
-      ? found.exchange.question
-      : ''
-
-    return renderAnswer(h, { exchanges, ...found }, { question })
+    return renderAnswer(h, { exchanges, ...found })
   }
 }
 
@@ -288,7 +297,7 @@ export const helpController = {
     const exchanges = session.getExchanges(request.yar)
 
     if (!exchanges.length) {
-      return h.redirect(askPath).code(statusCodes.seeOther)
+      return h.redirect(`${askPath}?notice=no-conversation`).code(statusCodes.seeOther)
     }
 
     return h.view('ai-ask/help', {

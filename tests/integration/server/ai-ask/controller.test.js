@@ -109,6 +109,28 @@ describe('askController', () => {
         expect.stringContaining(`href="${askUrl}" aria-current="page"`)
       )
     })
+
+    test('does not show a notice on a plain visit', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: askUrl
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('Your conversation has ended')
+      )
+    })
+
+    test('ignores an unrecognised notice value', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: `${askUrl}?notice=anything-else`
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('Your conversation has ended')
+      )
+    })
   })
 
   describe('asking a question', () => {
@@ -245,14 +267,13 @@ describe('askController', () => {
       )
     })
 
-    test('titles the page with the question, so tabs and history differ', async () => {
+    test('titles the page with its position in the conversation, never the question', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<title>How do I choose a tool? | AI digital toolkit'
-        )
+        expect.stringContaining('<title>Answer 1 of 1 | AI digital toolkit')
       )
+      expect(result).not.toEqual(expect.stringContaining('How do I choose a tool?</title>'))
     })
 
     test('shows the question back to the person who asked it', async () => {
@@ -384,6 +405,7 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('Select an option, or type your question below')
       )
+      expect(result).toEqual(expect.stringContaining('<title>Error: Answer 1 of 1'))
       expect(result).toEqual(expect.stringContaining('href="#option"'))
       expect(result).not.toEqual(expect.stringContaining('Enter your question'))
 
@@ -435,6 +457,11 @@ describe('askController', () => {
       expect(shown.result).toEqual(
         expect.stringContaining('href="/ai-toolkit/ask/help"')
       )
+      expect(shown.result).toEqual(
+        expect.stringContaining(
+          'This depends on your project, so it needs a conversation with the team rather than a general answer.'
+        )
+      )
 
       const stuck = await server.inject({
         method: 'POST',
@@ -460,21 +487,26 @@ describe('askController', () => {
       expect(result).toEqual(expect.stringContaining('id="question"'))
     })
 
-    test('shows an error answer with the follow-up field pre-filled, so one click retries, and no AI-mistakes warning', async () => {
-      const { result } = await ask('simulate an error please')
+    test('shows a soft error answer as the same error summary as a failed fetch, and does not save it', async () => {
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${encodeURIComponent('simulate an error please')}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
 
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">Something went wrong</h1>'
-        )
-      )
-      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(NO_ANSWER))
+      expect(result).toEqual(expect.stringContaining('simulate an error please'))
+      expect(result).toEqual(expect.stringContaining('Error: Ask the toolkit'))
 
-      const textareaMatch = result.match(
-        /<textarea[\s\S]*?id="question"[\s\S]*?>([\s\S]*?)<\/textarea>/
-      )
-      expect(textareaMatch).not.toBeNull()
-      expect(textareaMatch[1]).toBe('simulate an error please')
+      // Nothing was saved: there is no answer at this address to read.
+      const { statusCode: laterStatus, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1'
+      })
+      expect(laterStatus).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(askUrl)
     })
 
     test('leaves answered and need_more_detail answers as they were', async () => {
@@ -485,6 +517,16 @@ describe('askController', () => {
       )
       expect(result).toEqual(expect.stringContaining('Toolkit answer'))
       expect(result).toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
+    test('shows the answer message on an answered page', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          'Start from the data you will use, because your classification and the tool type together decide what is allowed.'
+        )
+      )
     })
 
     test.each([
@@ -815,9 +857,22 @@ describe('askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.ok)
-      expect(result).toEqual(expect.stringContaining('This deletes the 1 question and'))
+      expect(result).toEqual(expect.stringContaining('This deletes the 1 question and answer in your current conversation.'))
       expect(result).toEqual(expect.stringContaining('action="/ai-toolkit/ask/restart"'))
       expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1">Cancel'))
+    })
+    test('pluralizes questions and answers when there is more than one', async () => {
+      const { cookie } = await postQuestion('How do I choose a tool?')
+      await postQuestion('What about agents?', cookie)
+
+      const { statusCode, result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/restart',
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('This deletes the 2 questions and answers in your current conversation.'))
     })
 
     test('has nothing to ask about restarting when nothing has been asked', async () => {
@@ -891,6 +946,25 @@ describe('askController', () => {
       expect(help.statusCode).toBe(statusCodes.ok)
       expect(help.result).toEqual(
         expect.stringContaining('name="includeConversation"')
+      )
+    })
+
+    test('sends someone with no conversation back to the start, saying why', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/help'
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(`${askUrl}?notice=no-conversation`)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: headers.location
+      })
+
+      expect(result).toEqual(
+        expect.stringContaining('Your conversation has ended, so there is nothing to send to the team. Ask a new question, or use the contact details below.')
       )
     })
 
