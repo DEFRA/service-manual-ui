@@ -38,7 +38,10 @@ const describe = {
   // The words are all on the page, but the quote starts or stops part way
   // through a sentence. A rule quoted selectively can say the opposite of
   // the rule, so this is the failure that matters most.
-  partial: 'part of a sentence on its source page'
+  partial: 'part of a sentence on its source page',
+  // The words are all on the page, but read across a table: cells joined
+  // into a line the page never says.
+  stitched: 'stitched together from table cells on its source page'
 }
 
 /**

@@ -48,18 +48,18 @@ describe('plainText', () => {
 describe('words', () => {
   test('treats emphasis marks as punctuation, keeping an underscore inside a word', () => {
     expect(words('**Using.** _Also_ my_variable')).toEqual([
-      { text: 'using', startsSentence: true, endsSentence: true },
-      { text: 'also', startsSentence: true, endsSentence: false },
-      { text: 'my_variable', startsSentence: false, endsSentence: true }
+      { text: 'using', startsSentence: true, endsSentence: true, cell: null },
+      { text: 'also', startsSentence: true, endsSentence: false, cell: null },
+      { text: 'my_variable', startsSentence: false, endsSentence: true, cell: null }
     ])
   })
 
   test('gives punctuation left on its own by a stripped tag to the word before it', () => {
     expect(words('Read <a href="/x">this</a>. Then that')).toEqual([
-      { text: 'read', startsSentence: true, endsSentence: false },
-      { text: 'this', startsSentence: false, endsSentence: true },
-      { text: 'then', startsSentence: true, endsSentence: false },
-      { text: 'that', startsSentence: false, endsSentence: true }
+      { text: 'read', startsSentence: true, endsSentence: false, cell: null },
+      { text: 'this', startsSentence: false, endsSentence: true, cell: null },
+      { text: 'then', startsSentence: true, endsSentence: false, cell: null },
+      { text: 'that', startsSentence: false, endsSentence: true, cell: null }
     ])
   })
 
@@ -67,12 +67,12 @@ describe('words', () => {
     const page = 'First one. Second\n\n<li>Third</li>\n<li>Fourth (x).</li>'
 
     expect(words(page)).toEqual([
-      { text: 'first', startsSentence: true, endsSentence: false },
-      { text: 'one', startsSentence: false, endsSentence: true },
-      { text: 'second', startsSentence: true, endsSentence: true },
-      { text: 'third', startsSentence: true, endsSentence: true },
-      { text: 'fourth', startsSentence: true, endsSentence: false },
-      { text: 'x', startsSentence: false, endsSentence: true }
+      { text: 'first', startsSentence: true, endsSentence: false, cell: null },
+      { text: 'one', startsSentence: false, endsSentence: true, cell: null },
+      { text: 'second', startsSentence: true, endsSentence: true, cell: null },
+      { text: 'third', startsSentence: true, endsSentence: true, cell: null },
+      { text: 'fourth', startsSentence: true, endsSentence: false, cell: null },
+      { text: 'x', startsSentence: false, endsSentence: true, cell: null }
     ])
   })
 })
@@ -83,5 +83,14 @@ describe('stripInlineTags', () => {
       '<ul class="x">\n<li><strong>Stop.</strong> Now <a href="/y">go</a>.</li>\n</ul>'
 
     expect(stripInlineTags(body)).toBe('<ul class="x">\n<li>Stop. Now go.</li>\n</ul>')
+  })
+})
+
+describe('words in a table', () => {
+  test('numbers each cell and leaves the text around the table unnumbered', () => {
+    const page = 'Before.\n\n<table><tr><th>A b</th><td>C</td></tr></table>\n\nAfter.'
+    expect(words(page).map(({ text, cell }) => [text, cell])).toEqual([
+      ['before', null], ['a', 1], ['b', 1], ['c', 2], ['after', null]
+    ])
   })
 })
