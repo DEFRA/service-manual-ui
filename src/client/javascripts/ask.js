@@ -3,6 +3,10 @@
 // appears to have stopped responding.
 const BUSY_STATUS_TEXT = 'Working on your answer. This can take up to 30 seconds.'
 
+// aria-disabled rather than the disabled attribute, so a browser still
+// submits the button's value: see initBusyState below.
+const ARIA_DISABLED = 'aria-disabled'
+
 /**
  * Ask the toolkit: send the question when Enter is pressed, and show a busy
  * state while an answer is on its way.
@@ -80,7 +84,7 @@ function initBusyState () {
     }
 
     form.addEventListener('submit', (event) => {
-      if (button.getAttribute('aria-disabled') === 'true') {
+      if (button.getAttribute(ARIA_DISABLED) === 'true') {
         // The button already shows the busy state, so a second submit
         // reaching here (Enter fired again before navigation) is a repeat,
         // not a new question.
@@ -88,7 +92,7 @@ function initBusyState () {
         return
       }
 
-      button.setAttribute('aria-disabled', 'true')
+      button.setAttribute(ARIA_DISABLED, 'true')
       button.classList.add('app-ask__send--busy')
 
       const status = form.querySelector('[data-ask-status]')
@@ -106,7 +110,7 @@ function initBusyState () {
     }
 
     document.querySelectorAll('[data-ask-submit]').forEach((button) => {
-      button.removeAttribute('aria-disabled')
+      button.removeAttribute(ARIA_DISABLED)
       button.classList.remove('app-ask__send--busy')
 
       const status = button.form?.querySelector('[data-ask-status]')
