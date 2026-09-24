@@ -30,10 +30,12 @@
   </p>
   {% endif %}
 
-  {# cannot_answer and talk_to_a_person already have their own wording above,
-     in place of the model's message, so this only shows it for the
-     remaining statuses: answered, need_more_detail and blocked. #}
-  {% if answer.message and answer.status != 'cannot_answer' and answer.status != 'talk_to_a_person' %}
+  {# cannot_answer already has its own fixed wording and nearest-guidance
+     list above, in place of the model's message, so this hides it there.
+     talk_to_a_person still shows its message: that's where the model says
+     why the team is the right place, what to bring, and any general rule
+     that applies, and hiding it would leave just the button. #}
+  {% if answer.message and answer.status != 'cannot_answer' %}
   <p class="govuk-body">{{ answer.message }}</p>
   {% endif %}
 

@@ -457,6 +457,11 @@ describe('askController', () => {
       expect(shown.result).toEqual(
         expect.stringContaining('href="/ai-toolkit/ask/help"')
       )
+      expect(shown.result).toEqual(
+        expect.stringContaining(
+          'This depends on your project, so it needs a conversation with the team rather than a general answer.'
+        )
+      )
 
       const stuck = await server.inject({
         method: 'POST',
