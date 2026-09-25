@@ -511,12 +511,18 @@ export const reportPostController = {
       return renderReport(h, found, { problem, sendFailed: true })
     }
 
-    session.markReported(request.yar, found.number)
-    session.flashReported(request.yar, found.number)
+    const reportedNumber = session.markReported(request.yar, found.exchange.id)
+
+    if (reportedNumber) {
+      session.flashReported(request.yar, reportedNumber)
+    }
 
     // Back to the end of the conversation, where the confirmation shows at the
     // top. No anchor, so the page opens at the confirmation, not below it.
-    return h.redirect(answerPath(exchanges.length)).code(statusCodes.seeOther)
+    const current = session.getExchanges(request.yar)
+
+    return h.redirect(current.length ? answerPath(current.length) : askPath)
+      .code(statusCodes.seeOther)
   }
 }
 

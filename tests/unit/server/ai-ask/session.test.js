@@ -108,15 +108,23 @@ describe('clearConversation', () => {
 })
 
 describe('markReported', () => {
-  test('marks only the answer reported, keeping the rest of the conversation', () => {
+  test('marks only the answer reported, by its id, and says where it is', () => {
     const yar = mockYar([exchange('First'), exchange('Second')])
 
-    markReported(yar, 2)
+    const number = markReported(yar, 'id-Second')
 
+    expect(number).toBe(2)
     expect(yar.set).toHaveBeenCalledWith('ai-ask', [
       exchange('First'),
       { ...exchange('Second'), reported: true }
     ])
+  })
+
+  test('marks nothing when the answer is no longer in the conversation', () => {
+    const yar = mockYar([exchange('New first')])
+
+    expect(markReported(yar, 'id-Old first')).toBeNull()
+    expect(yar.set).not.toHaveBeenCalled()
   })
 })
 

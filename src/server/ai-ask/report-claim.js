@@ -1,13 +1,15 @@
 import { randomUUID } from 'node:crypto'
 
+import { config } from '../../config/config.js'
 import { getRedisClient } from '../common/helpers/session-cache/cache-engine.js'
 
-// How long a report stays claimed, in milliseconds. Far longer than any
-// Notify call, so a slow send cannot outlive its claim and let a second one
-// through. Holding it costs nothing: a failed send releases it at once, and a
-// sent report is marked on the answer. It only lingers if an instance stops
-// mid-send, and then clears itself.
-const CLAIM_MS = 300_000
+// How long a report stays claimed: as long as the session, so the claim, not
+// the session, is what stops an answer being reported twice. The session is
+// saved whole at the end of each request, so two requests at once in one
+// session can undo each other's changes; the claim sits outside it. A failed
+// send releases the claim at once, so this only holds sent reports, and a
+// claim left by an instance that stopped mid-send.
+const CLAIM_MS = config.get('session.cache.ttl')
 
 // Prefixed so the claims sit apart from the sessions in the same Redis.
 const KEY_PREFIX = 'ask-report-claim:'

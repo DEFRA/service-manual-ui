@@ -4,7 +4,7 @@
 
 /* global KeyboardEvent */
 
-import { describe, test, expect, beforeEach, vi } from 'vitest'
+import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest'
 
 import { initAsk } from '../../../../src/client/javascripts/ask.js'
 
@@ -351,5 +351,33 @@ describe('initAsk focus on a linked turn', () => {
     initAsk()
 
     expect(document.activeElement).toBe(document.body)
+  })
+
+  describe('at an answer address with no anchor', () => {
+    beforeEach(() => {
+      window.history.replaceState({}, '', '/ai-toolkit/ask/answers/2')
+    })
+
+    afterEach(() => {
+      window.history.replaceState({}, '', '/')
+    })
+
+    test('moves focus to that answer\'s turn', () => {
+      initAsk()
+
+      expect(document.activeElement).toBe(document.querySelector('#turn-2 .app-ask__speaker'))
+    })
+
+    test.each([
+      ['the report confirmation', '<div class="govuk-notification-banner"></div>'],
+      ['an error summary', '<div class="govuk-error-summary"></div>']
+    ])('leaves focus for %s, which takes it itself', (_description, markup) => {
+      document.body.insertAdjacentHTML('afterbegin', markup)
+      document.body.focus()
+
+      initAsk()
+
+      expect(document.activeElement).toBe(document.body)
+    })
   })
 })

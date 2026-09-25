@@ -175,11 +175,31 @@ function initQuickReplies () {
  * starts at "You, question 3" rather than reading the whole turn as one block.
  */
 function focusLinkedTurn () {
-  if (!/^#turn-\d+$/.test(window.location.hash)) {
-    return
-  }
-  const heading = document.getElementById(window.location.hash.slice(1))?.querySelector('.app-ask__speaker')
+  const number = linkedTurnNumber()
+  const heading = number && document.getElementById(`turn-${number}`)?.querySelector('.app-ask__speaker')
+
   if (heading) {
     heading.focus()
   }
+}
+
+/**
+ * The turn the page was opened at: from the #turn-N anchor, or, for an
+ * /answers/N address with no anchor, such as a bookmark, from the address.
+ * Not from the address when the page leads with something that takes focus
+ * itself, the report confirmation or an error summary, or has another anchor.
+ * @returns {string|null}
+ */
+function linkedTurnNumber () {
+  const fromAnchor = /^#turn-(\d+)$/.exec(window.location.hash)
+
+  if (fromAnchor) {
+    return fromAnchor[1]
+  }
+
+  if (window.location.hash || document.querySelector('.govuk-notification-banner, .govuk-error-summary')) {
+    return null
+  }
+
+  return /\/answers\/(\d+)$/.exec(window.location.pathname)?.[1] ?? null
 }

@@ -77,20 +77,29 @@ export function clearConversation (yar) {
 }
 
 /**
- * Records that an answer was reported, on the answer itself, so it is sent
- * once however many times the form is sent, and forgotten with the
- * conversation.
+ * Records that an answer was reported, on the answer itself, so its link says
+ * "Report sent", and forgotten with the conversation. Found by the answer's
+ * id, not its place, so a conversation that changed during the send is never
+ * marked in the wrong place.
  * @param {import('@hapi/yar').Yar} yar
- * @param {number} number - The answer reported, 1-based
- * @returns {void}
+ * @param {string} id - The id of the answer reported
+ * @returns {number|null} Its place in the conversation, 1-based, or null if
+ *   it is no longer there
  */
-export function markReported (yar, number) {
+export function markReported (yar, id) {
+  const exchanges = getExchanges(yar)
+  const index = exchanges.findIndex((exchange) => exchange.id === id)
+
+  if (index === -1) {
+    return null
+  }
+
   yar.set(
     SESSION_KEY,
-    getExchanges(yar).map((exchange, index) =>
-      index === number - 1 ? { ...exchange, reported: true } : exchange
-    )
+    exchanges.map((exchange, i) => (i === index ? { ...exchange, reported: true } : exchange))
   )
+
+  return index + 1
 }
 
 /**
