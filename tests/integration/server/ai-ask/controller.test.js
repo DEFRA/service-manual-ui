@@ -1108,15 +1108,35 @@ describe('askController', () => {
     }
 
     /**
+     * The id the report form carries for answer 1, read from the form itself
+     * so the test sends what a browser would.
+     * @param {string} cookie
+     * @returns {Promise<string>}
+     */
+    async function formExchangeId (cookie) {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1/report',
+        headers: { cookie }
+      })
+
+      return result.match(/name="exchange" value="([^"]+)"/)?.[1] ?? ''
+    }
+
+    /**
+     * Sends the report form for answer 1, as opened in this conversation.
      * @param {string} cookie
      * @param {string} problem
+     * @param {string} [exchange] - The id the form carries; read from the page if not given
      * @returns {Promise<object>}
      */
-    function report (cookie, problem) {
+    async function report (cookie, problem, exchange) {
+      const id = exchange ?? await formExchangeId(cookie)
+
       return server.inject({
         method: 'POST',
         url: '/ai-toolkit/ask/answers/1/report',
-        payload: `problem=${encodeURIComponent(problem)}`,
+        payload: `exchange=${encodeURIComponent(id)}&problem=${encodeURIComponent(problem)}`,
         headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
       })
     }
@@ -1166,16 +1186,17 @@ describe('askController', () => {
     })
 
     test.each([
-      ['only spaces', 'problem=%20%20%20'],
+      ['only spaces', '&problem=%20%20%20'],
       ['no field at all', '']
-    ])('says so when someone reports a problem with %s', async (_description, payload) => {
+    ])('says so when someone reports a problem with %s', async (_description, extra) => {
       const cookie = await startConversation()
       notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      const exchange = await formExchangeId(cookie)
 
       await server.inject({
         method: 'POST',
         url: '/ai-toolkit/ask/answers/1/report',
-        payload,
+        payload: `exchange=${exchange}${extra}`,
         headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
       })
 
@@ -1219,9 +1240,10 @@ describe('askController', () => {
         finishSending = () => resolve([{ data: {}, status: 201 }, null])
       }))
 
-      const first = report(cookie, 'It is out of date')
+      const exchange = await formExchangeId(cookie)
+      const first = report(cookie, 'It is out of date', exchange)
       await vi.waitFor(() => expect(notify.trySendEmail).toHaveBeenCalledTimes(1))
-      const second = await report(cookie, 'It is out of date')
+      const second = await report(cookie, 'It is out of date', exchange)
       finishSending()
       await first
 
@@ -1302,6 +1324,25 @@ describe('askController', () => {
 
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+    })
+
+    test('sends nothing from a form left open while the conversation changed in another tab', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      const oldExchange = await formExchangeId(cookie)
+
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('A different first question', cookie)
+
+      const stale = await report(cookie, 'It is out of date', oldExchange)
+
+      expect(notify.trySendEmail).not.toHaveBeenCalled()
+      expect(stale.statusCode).toBe(statusCodes.seeOther)
+      expect(stale.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
     test('rejects a report over the limit, keeping what was written', async () => {

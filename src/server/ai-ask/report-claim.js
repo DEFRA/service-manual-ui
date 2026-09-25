@@ -1,16 +1,27 @@
+import { randomUUID } from 'node:crypto'
+
 import { getRedisClient } from '../common/helpers/session-cache/cache-engine.js'
 
-// How long a report stays claimed, in milliseconds. Long enough to outlast
-// the Notify call and the moment before the session records the report, then
-// the claim clears itself.
-const CLAIM_MS = 60_000
+// How long a report stays claimed, in milliseconds. Far longer than any
+// Notify call, so a slow send cannot outlive its claim and let a second one
+// through. Holding it costs nothing: a failed send releases it at once, and a
+// sent report is marked on the answer. It only lingers if an instance stops
+// mid-send, and then clears itself.
+const CLAIM_MS = 300_000
 
 // Prefixed so the claims sit apart from the sessions in the same Redis.
 const KEY_PREFIX = 'ask-report-claim:'
 
+// Deletes the claim only if it still holds this request's token, in one step,
+// so a request whose claim expired cannot delete a newer request's claim.
+const RELEASE_IF_OWNER = `if redis.call('get', KEYS[1]) == ARGV[1] then
+  return redis.call('del', KEYS[1])
+end
+return 0`
+
 // Used only where sessions are kept in memory, which is on one machine in
-// local development, so one process sees every request.
-const localClaims = new Set()
+// local development, so one process sees every request. Claim key to token.
+const localClaims = new Map()
 
 /**
  * Claims the right to send one answer's report, so two submissions of the
@@ -20,43 +31,61 @@ const localClaims = new Set()
  * Where sessions are in Redis, the claim is a Redis key set only if it is not
  * there already, in one atomic step, so two instances cannot both win. It
  * expires on its own. Where sessions are in memory, there is one process, and
- * a set in that process does the same job.
+ * a map in that process does the same job.
+ *
+ * The claim holds a token only this request knows, so releasing it can never
+ * remove a claim some later request took after this one expired.
  * @param {string} key - The session and the answer, together
- * @returns {Promise<boolean>} Whether this request is the one to send
+ * @returns {Promise<string|null>} This request's token, or null if another
+ *   request holds the claim
  */
 async function claimReport (key) {
+  const token = randomUUID()
   const redis = getRedisClient()
 
   if (redis) {
-    const result = await redis.set(`${KEY_PREFIX}${key}`, '1', 'PX', CLAIM_MS, 'NX')
+    const result = await redis.set(`${KEY_PREFIX}${key}`, token, 'PX', CLAIM_MS, 'NX')
 
-    return result === 'OK'
+    return result === 'OK' ? token : null
   }
 
   if (localClaims.has(key)) {
-    return false
+    return null
   }
 
-  localClaims.add(key)
-  setTimeout(() => localClaims.delete(key), CLAIM_MS).unref()
+  localClaims.set(key, token)
+  setTimeout(() => releaseLocal(key, token), CLAIM_MS).unref()
 
-  return true
+  return token
 }
 
 /**
- * Lets the answer be reported again, after a send that failed.
  * @param {string} key
+ * @param {string} token
+ * @returns {void}
+ */
+function releaseLocal (key, token) {
+  if (localClaims.get(key) === token) {
+    localClaims.delete(key)
+  }
+}
+
+/**
+ * Lets the answer be reported again, after a send that failed. Does nothing if
+ * the claim has since passed to another request.
+ * @param {string} key
+ * @param {string} token - The token claimReport returned to this request
  * @returns {Promise<void>}
  */
-async function releaseReport (key) {
+async function releaseReport (key, token) {
   const redis = getRedisClient()
 
   if (redis) {
-    await redis.del(`${KEY_PREFIX}${key}`)
+    await redis.eval(RELEASE_IF_OWNER, 1, `${KEY_PREFIX}${key}`, token)
     return
   }
 
-  localClaims.delete(key)
+  releaseLocal(key, token)
 }
 
 export { claimReport, releaseReport }

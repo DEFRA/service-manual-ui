@@ -424,6 +424,7 @@ function renderReport (h, found, { problem = '', error = null, sendFailed = fals
     pageTitle: 'Report a problem with this answer',
     reportedQuestion: found.exchange.question,
     reportAction: reportPath(found.number),
+    exchangeId: found.exchange.id,
     backHref: turnPath(found.number),
     maxReportLength: MAX_REPORT_LENGTH,
     problem,
@@ -448,6 +449,14 @@ export const reportPostController = {
       return redirect
     }
 
+    // The form names the answer it was opened for. If the conversation has
+    // changed since, in another tab, the number now points at a different
+    // answer, so nothing is sent and the person goes back to the conversation
+    // as it is now.
+    if (request.payload?.exchange !== found.exchange.id) {
+      return h.redirect(turnPath(exchanges.length)).code(statusCodes.seeOther)
+    }
+
     const problem = String(request.payload?.problem ?? '').trim()
 
     if (problem.length > MAX_REPORT_LENGTH) {
@@ -462,10 +471,10 @@ export const reportPostController = {
     // instance. Keyed by the answer's own id, not its place, because starting
     // again keeps the session and reuses the places.
     const claim = `${request.yar.id}:${found.exchange.id}`
-    let claimed
+    let token
 
     try {
-      claimed = await claimReport(claim)
+      token = await claimReport(claim)
     } catch (error) {
       // Without the claim there is no way to know this is the only send, so
       // nothing is sent, and the person is asked to try again.
@@ -477,7 +486,7 @@ export const reportPostController = {
       return renderReport(h, found, { problem, sendFailed: true })
     }
 
-    if (!claimed) {
+    if (!token) {
       return h.redirect(turnPath(found.number)).code(statusCodes.seeOther)
     }
 
@@ -490,7 +499,7 @@ export const reportPostController = {
       )
 
       try {
-        await releaseReport(claim)
+        await releaseReport(claim, token)
       } catch (error) {
         // The claim expires on its own, so the person can try again shortly.
         request.logger.error(

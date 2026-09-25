@@ -42,6 +42,7 @@
     <p class="govuk-body">We will send the question, the answer and anything you write below to the AI Capability and Enablement team.</p>
 
     <form method="post" action="{{ reportAction }}" novalidate>
+      <input type="hidden" name="exchange" value="{{ exchangeId }}">
       {{ govukCharacterCount({
         name: "problem",
         id: "problem",
