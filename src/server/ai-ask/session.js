@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 const SESSION_KEY = 'ai-ask'
 const REPORTED_KEY = 'ai-ask-reported'
 
@@ -16,7 +18,21 @@ const REPORTED_KEY = 'ai-ask-reported'
  * @returns {Array<{question: string, answer: object}>} Oldest first
  */
 export function getExchanges (yar) {
-  return yar.get(SESSION_KEY) ?? []
+  const exchanges = yar.get(SESSION_KEY) ?? []
+
+  if (exchanges.every((exchange) => exchange.id)) {
+    return exchanges
+  }
+
+  // A conversation begun before answers had ids of their own, still in a
+  // session that has not expired. Each answer gets one now, kept in the
+  // session, so it can be reported like any other.
+  const withIds = exchanges.map((exchange) =>
+    exchange.id ? exchange : { ...exchange, id: randomUUID() }
+  )
+  yar.set(SESSION_KEY, withIds)
+
+  return withIds
 }
 
 /**

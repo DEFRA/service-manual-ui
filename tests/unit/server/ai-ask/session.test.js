@@ -10,7 +10,7 @@ import {
   takeReported
 } from '../../../../src/server/ai-ask/session.js'
 
-const exchange = (question) => ({ question, answer: { sources: [] } })
+const exchange = (question) => ({ id: `id-${question}`, question, answer: { sources: [] } })
 
 /**
  * @param {Array<object>} [stored]
@@ -32,8 +32,21 @@ describe('getExchanges', () => {
 
   test('returns what is stored', () => {
     const stored = [exchange('First')]
+    const yar = mockYar(stored)
 
-    expect(getExchanges(mockYar(stored))).toEqual(stored)
+    expect(getExchanges(yar)).toEqual(stored)
+    expect(yar.set).not.toHaveBeenCalled()
+  })
+
+  test('gives answers from before answers had ids an id of their own, and keeps it', () => {
+    const legacy = { question: 'Old', answer: { sources: [] } }
+    const yar = mockYar([exchange('First'), legacy])
+
+    const exchanges = getExchanges(yar)
+
+    expect(exchanges[0]).toEqual(exchange('First'))
+    expect(exchanges[1]).toEqual({ ...legacy, id: expect.any(String) })
+    expect(yar.set).toHaveBeenCalledWith('ai-ask', exchanges)
   })
 })
 
