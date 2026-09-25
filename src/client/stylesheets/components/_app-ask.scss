@@ -93,14 +93,36 @@
   content: "";
   width: 16px;
   height: 16px;
-  border: 2px solid rgba($govuk-white, 0.4);
-  border-top-color: $govuk-white;
+  // currentColor, so the spinner is white on the green button and black on
+  // the yellow focus state a keyboard user sees after pressing Enter.
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
   border-radius: 50%;
   animation: app-ask-spin 0.8s linear infinite;
 }
 
+// A quick reply or example question that was pressed keeps its own colours,
+// with the same spinner beside its text.
+.app-ask__choice--busy {
+  cursor: wait;
+}
+
+.app-ask__choice--busy::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  border: 2px solid currentcolor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  vertical-align: middle;
+  animation: app-ask-spin 0.8s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .app-ask__send--busy::after {
+  .app-ask__send--busy::after,
+  .app-ask__choice--busy::after {
     // Still shown, so the busy state is visible without relying on motion,
     // just not spinning.
     animation: none;
@@ -113,107 +135,124 @@
   }
 }
 
-// The static "this can take a while" line, stacked with the other hint
-// above the field. A hint rather than an error or a warning: it is
-// routine, not a problem.
-.app-ask__wait-hint.govuk-hint {
-  margin-top: -5px;
+// A follow-up has no hint, so without JavaScript, and so without the
+// spinner, this line says how long an answer takes. The spinner covers it
+// once the script runs.
+.app-ask__nojs-wait {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.js-enabled .app-ask__nojs-wait {
+  display: none;
 }
 
 // ── Asking again ──
-// On the front door the box is the hero. Here it is the next step after an
-// answer, so it takes no border: a second bordered box competing with the
-// answer above it would read as the more important of the two.
-// The next question is drawn as the next turn: the same grey outline as the
-// question above it, so the page reads as you, then the toolkit, then you
-// again, rather than a conversation with a form bolted underneath.
+// Under the newest answer, the box reads as your next message rather than a
+// second front door: no border, one row that grows as you type, and the
+// button beside it at the same height.
 .app-ask__followup {
+  margin-top: 10px;
   margin-bottom: 30px;
-  padding: 15px 20px;
-  border: 2px solid $app-mid-grey;
 }
 
-// A real label, set at the size of the turn labels above it. It marks whose
-// turn this is, which a section heading was not doing.
-.app-ask__eyebrow-label.govuk-label {
+.app-ask__followup .govuk-form-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 10px;
+  // start, not end: the character count adds a "characters remaining" line
+  // under the field, and end lined the button up with that line instead.
+  align-items: start;
   margin-bottom: 5px;
-  color: $govuk-secondary-text-colour;
+}
+
+.app-ask__followup .govuk-form-group > * {
+  grid-column: 1 / -1;
+}
+
+.app-ask__followup .app-ask__field {
+  grid-column: 1;
+  margin-bottom: 0;
+}
+
+.app-ask__followup .app-ask__send {
+  grid-column: 2;
+}
+
+.app-ask__followup .govuk-character-count__message {
+  margin-bottom: 0;
+}
+
+// field-sizing grows the field with its text. Browsers without it keep one
+// row and scroll, which still works.
+.app-ask__followup .app-ask__input.govuk-textarea {
+  min-height: 42px;
+  max-height: 25vh;
+  field-sizing: content;
+  resize: none;
+}
+
+.app-ask__followup .app-ask__send.govuk-button {
+  min-height: 42px;
+}
+
+// The follow-up label is set like the "You" and "AI toolkit" headings, so the
+// box reads as your next turn.
+.app-ask__speaker-label.govuk-label {
+  margin-bottom: 5px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 // ── Conversation ──
+// The whole conversation on one page. Your turn starts on the left in a grey
+// block that hugs its text; the toolkit's reply sits indented in an outlined
+// box, so the page reads as an exchange. Each turn also has a heading, so
+// nothing relies on position or shape alone.
 
-// The question is set at body size rather than as a heading, so a long one
-// wraps without turning the top of the page into a wall of type.
-//
-// The question and the answer are a matched pair of outlined boxes, grey for
-// the question and green for the answer, so an exchange reads as two turns of
-// one conversation. Grey matches the question box on the front door, and green
-// marks the half of the exchange the toolkit wrote.
-//
-// This departs from the brief, which says assistant answers are unboxed and
-// only the person's message gets a card. The design lead asked for it after seeing the
-// unboxed version. Outlines rather than fills keep the weight down, which was
-// the objection to boxing a block of answer text.
-.app-ask__asked {
-  margin-bottom: 20px;
-  padding: 15px 20px;
-  border: 2px solid $app-mid-grey;
+.app-ask__title {
+  margin-bottom: 10px;
 }
 
-// The small label above each half, so the pair reads as question then
-// response rather than two boxes that happen to be stacked.
-.app-ask__eyebrow {
-  display: block;
-  margin-bottom: 5px;
-  color: $govuk-secondary-text-colour;
+.app-ask__earlier {
+  margin-bottom: 30px;
+}
+
+.app-ask__turn {
+  scroll-margin-top: 20px;
+}
+
+// "You" and "AI toolkit". Headings, so screen reader users can move from turn
+// to turn, set at label size so they name a turn without shouting over it.
+.app-ask__speaker {
+  margin: 0 0 5px;
   font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+// The heading takes focus when the page opens at a turn, for screen readers.
+// It is not a control, so it draws no focus ring.
+.app-ask__speaker:focus {
+  outline: none;
+}
+
+// The question is set at body size rather than as a heading, so a long one
+// wraps without turning the page into a wall of type.
+.app-ask__asked {
+  width: fit-content;
+  max-width: 80%;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  // Transparent, so it takes no colour of its own, but forced-colours mode
+  // draws it, keeping the block's edge when backgrounds are removed. It also
+  // matches the 1px outline of the answer, so text in both lines up.
+  border: 1px solid transparent;
+  background-color: $govuk-light-grey;
 }
 
 .app-ask__asked-text {
   margin-bottom: 0;
-}
-
-// ── The conversation as navigation ──
-// A numbered list of the questions asked, each addressing its own answer page.
-// It sits in the right-hand column, where GOV.UK puts related content, so it
-// orients without pushing the answer down and is not lost below the form.
-// This replaced a stack of disclosures and then a list at the foot of the
-// page: a list of links stays scannable at twenty questions, works with the
-// back button, and can be linked to.
-
-.app-ask__thread {
-  margin-bottom: 30px;
-  padding-top: 10px;
-  border-top: 2px solid $defra-green;
-}
-
-.app-ask__thread-heading {
-  margin-bottom: 10px;
-}
-
-.app-ask__thread-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.app-ask__thread-item {
-  display: flex;
-  padding: 8px 0;
-  font-size: 16px;
-}
-
-.app-ask__thread-number {
-  flex-shrink: 0;
-  width: 25px;
-  color: $govuk-secondary-text-colour;
-}
-
-// The answer being read is not a link, and is marked by weight as well as by
-// aria-current, so it does not rely on being the only unlinked line.
-.app-ask__thread-item--current .app-ask__thread-question {
-  font-weight: bold;
 }
 
 // Sits under the follow-up field, where someone decides whether the next
@@ -225,33 +264,52 @@
 }
 
 .app-ask__answer {
+  width: 88%;
   margin-bottom: 30px;
+  margin-left: auto;
   padding: 15px 20px;
-  border: 2px solid $defra-green;
+  border: 1px solid $govuk-mid-grey;
 }
 
 .app-ask__answer > :last-child {
   margin-bottom: 0;
 }
 
-// The narrowing choices for a need_more_detail answer. Sits between the
-// message and the rule/sources below it, so it needs its own bottom margin
-// rather than relying on the last-child rule above.
-.app-ask__options {
-  margin-bottom: 20px;
+// What happened, before what to do: "This one is for the team."
+.app-ask__outcome {
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-// The prominent link out to a person on a talk_to_a_person answer. Sits
-// where the options form does: between the message and whatever comes after
-// it. The button's own default bottom margin (govuk-frontend's responsive
-// spacing-6) is on top of this, so it's zeroed here to leave just the one
-// deliberate 20px gap instead of the two stacking.
-.app-ask__contact-link {
-  margin-bottom: 20px;
+// Under each answer, starting at the answer's outer edge. The answer is 88%
+// wide plus 20px padding and a 1px border each side, so this takes the same
+// box.
+.app-ask__report {
+  box-sizing: content-box;
+  width: 88%;
+  margin-top: -10px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  padding-right: 42px;
 }
 
-.app-ask__contact-link .govuk-button {
+// The options on a need_more_detail answer, as grey buttons that each send
+// themselves as the next question.
+.app-ask__quick-replies {
+  margin-bottom: 15px;
+}
+
+.app-ask__quick-replies-label {
+  margin-bottom: 10px;
+}
+
+.app-ask__quick-replies .govuk-button-group {
   margin-bottom: 0;
+}
+
+.app-ask__quick-reply.govuk-button {
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 // The sources were a heading and two bare links floating at the end of the
@@ -267,8 +325,11 @@
   border-top: 1px solid $app-mid-grey;
 }
 
-.app-ask__check-heading {
+// At label size, so it introduces the list without competing with the
+// answer above it.
+.app-ask__check-heading.govuk-heading-s {
   margin-bottom: 5px;
+  font-size: 16px;
 }
 
 // Sits at the end of the answer, before the guidance it used. Not the GOV.UK
@@ -280,12 +341,6 @@
   margin-top: 20px;
   margin-bottom: 0;
   font-size: 16px;
-}
-
-// On the front door, under the question box rather than inside an answer.
-.app-ask__warning--standalone {
-  margin-top: 0;
-  margin-bottom: 30px;
 }
 
 .app-ask__warning-icon {
@@ -357,4 +412,104 @@
 
 .app-ask__sources li {
   margin-bottom: 5px;
+}
+
+// ── Example questions on the front door ──
+// Buttons, because each sends a question, drawn as links, because each takes
+// you to a new page as a link would. Lighter than a block of grey buttons
+// beside the Ask button. The link styles follow govuk-link.
+.app-ask__examples {
+  margin-bottom: 30px;
+}
+
+.app-ask__examples-label {
+  margin-bottom: 10px;
+}
+
+.app-ask__examples-list {
+  margin-bottom: 0;
+}
+
+.app-ask__examples-list li {
+  margin-bottom: 10px;
+}
+
+.app-ask__example {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $govuk-blue;
+  font-family: inherit;
+  font-size: 19px;
+  line-height: 1.32;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: 0.1578em;
+  cursor: pointer;
+}
+
+.app-ask__example:hover {
+  color: $govuk-link-hover-colour;
+  text-decoration-thickness: max(3px, 0.1875rem);
+}
+
+.app-ask__example:focus {
+  outline: 3px solid transparent;
+  background-color: $govuk-focus-colour;
+  box-shadow: 0 -2px $govuk-focus-colour, 0 4px $govuk-black;
+  color: $govuk-black;
+  text-decoration: none;
+}
+
+// High contrast mode draws buttons as ButtonText, which would hide that these
+// behave as links. Give them the system link colour instead.
+@media (forced-colors: active) {
+  .app-ask__example {
+    color: LinkText;
+  }
+}
+
+// ── Single-task pages: start again, help, report, contact ──
+// The site's main wrapper has 20px above the content, half of GOV.UK's 40px,
+// which crams the heading up against the back link. These pages take the
+// GOV.UK spacing: 55px from the back link to the heading on a tablet or
+// wider, and 30px between what you read and the button.
+@media (min-width: 40.0625em) {
+  .app-ask-subpage {
+    padding-top: 40px;
+  }
+}
+
+.app-ask-subpage form {
+  margin-top: 30px;
+}
+
+.app-ask-subpage .govuk-button-group {
+  margin-bottom: 40px;
+}
+
+// ── From site search ──
+// Offered on a search about AI, as a plain inset with a grey button, so it
+// reads as another option rather than an advert above the results.
+.app-ask-search .govuk-body {
+  margin-bottom: 15px;
+}
+
+.app-ask-search .govuk-button {
+  margin-bottom: 0;
+}
+
+// On a phone every turn takes the full width: at 320px an indented answer
+// leaves too little room for a line.
+@media (max-width: 40.0525em) {
+  .app-ask__answer,
+  .app-ask__report {
+    width: auto;
+  }
+
+  .app-ask__report {
+    padding-right: 0;
+  }
 }

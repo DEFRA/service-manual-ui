@@ -3,9 +3,11 @@ import { describe, test, expect, vi } from 'vitest'
 import {
   getExchanges,
   addExchange,
-  toThread,
   findExchange,
-  clearConversation
+  clearConversation,
+  flashReported,
+  markReported,
+  takeReported
 } from '../../../../src/server/ai-ask/session.js'
 
 const exchange = (question) => ({ question, answer: { sources: [] } })
@@ -47,37 +49,6 @@ describe('addExchange', () => {
   })
 })
 
-describe('toThread', () => {
-  test('has nothing to list for an empty conversation', () => {
-    expect(toThread([], 1)).toEqual([])
-  })
-
-  test('numbers the questions in the order they were asked, each with an address', () => {
-    const thread = toThread([exchange('First'), exchange('Second')], 2)
-
-    expect(thread).toEqual([
-      {
-        number: 1,
-        question: 'First',
-        href: '/ai-toolkit/ask/answers/1',
-        isCurrent: false
-      },
-      {
-        number: 2,
-        question: 'Second',
-        href: '/ai-toolkit/ask/answers/2',
-        isCurrent: true
-      }
-    ])
-  })
-
-  test('marks nothing current when reading none of them', () => {
-    const thread = toThread([exchange('First')])
-
-    expect(thread[0].isCurrent).toBe(false)
-  })
-})
-
 describe('findExchange', () => {
   const conversation = [exchange('First'), exchange('Second')]
 
@@ -111,5 +82,53 @@ describe('clearConversation', () => {
     clearConversation(yar)
 
     expect(yar.clear).toHaveBeenCalledWith('ai-ask')
+  })
+})
+
+describe('markReported', () => {
+  test('marks only the answer reported, keeping the rest of the conversation', () => {
+    const yar = mockYar([exchange('First'), exchange('Second')])
+
+    markReported(yar, 2)
+
+    expect(yar.set).toHaveBeenCalledWith('ai-ask', [
+      exchange('First'),
+      { ...exchange('Second'), reported: true }
+    ])
+  })
+})
+
+describe('a reported answer', () => {
+  /**
+   * A stand-in for yar's flash: set with override, read once, then gone.
+   * @returns {object}
+   */
+  function flashYar () {
+    const flashes = {}
+
+    return {
+      flash (type, message, isOverride) {
+        if (message === undefined) {
+          const value = flashes[type]
+          delete flashes[type]
+          return value ?? []
+        }
+        flashes[type] = isOverride ? message : [...(flashes[type] ?? []), message]
+        return undefined
+      }
+    }
+  }
+
+  test('is read back once, then forgotten', () => {
+    const yar = flashYar()
+
+    flashReported(yar, 2)
+
+    expect(takeReported(yar)).toBe(2)
+    expect(takeReported(yar)).toBeNull()
+  })
+
+  test('is nothing when none was reported', () => {
+    expect(takeReported(flashYar())).toBeNull()
   })
 })

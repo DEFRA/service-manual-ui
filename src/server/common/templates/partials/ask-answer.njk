@@ -1,72 +1,58 @@
-{# One answer: what the toolkit said, the rule it quoted if it quoted one,
-   the guidance to check it against, and the reminder that it can be wrong.
+{# One reply from the toolkit: what it said, the rule it quoted if it quoted
+   one, the guidance it used, and, where there is an answer to act on, the
+   reminder that it can be wrong.
 
-   cannot_answer, talk_to_a_person and blocked each get a short block of
-   their own below the message, in place of content built for an answer that
-   isn't there: a rule, or a "check this answer" list with nothing behind
-   it. The wording in those blocks is a stub that will be replaced (card
-   012); the one rule already agreed is that blocked never says the question
-   was flagged, filtered, unsafe or violated anything. #}
+   Set answer, answerNumber and canFollowUp before including. canFollowUp is
+   true only on the newest turn of a conversation that is not full.
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
+   cannot_answer and talk_to_a_person open with a line that says what
+   happened, before anything else. blocked never says the question was
+   flagged, filtered, unsafe or violated anything. #}
 <div class="app-ask__answer">
 
-  {% if answer.status == 'answered' or answer.status == 'need_more_detail' %}
-  <span class="app-ask__eyebrow">Toolkit answer</span>
+  {# Every reply is named, whatever its outcome, so screen reader users can
+     find each one by heading. #}
+  <h2 class="app-ask__speaker">AI toolkit<span class="govuk-visually-hidden">, answer {{ answerNumber }}</span></h2>
+
+  {% if answer.status == 'talk_to_a_person' %}
+  <p class="govuk-body app-ask__outcome">This one is for the team.</p>
   {% endif %}
 
   {% if answer.status == 'cannot_answer' %}
     {% if answer.reason == 'no_guidance_yet' %}
     <p class="govuk-body">The toolkit does not cover this yet. The closest guidance is below.</p>
     {% else %}
-    <p class="govuk-body">The toolkit covers choosing a tool, the data you can use with it, and the patterns other teams have built. <a class="govuk-link" href="{{ paths.toolkit }}">Go to the AI digital toolkit</a></p>
+    <p class="govuk-body">The toolkit cannot answer this. It covers choosing a tool, the data you can use with it, and the patterns other teams have built. <a class="govuk-link" href="{{ paths.toolkit }}">Go to the AI digital toolkit</a></p>
     {% endif %}
   {% endif %}
 
-  {# cannot_answer already has its own fixed wording and nearest-guidance
-     list above, in place of the model's message, so this hides it there.
-     talk_to_a_person still shows its message: that's where the model says
-     why the team is the right place, what to bring, and any general rule
-     that applies, and hiding it would leave just the button. #}
+  {# cannot_answer already has its own fixed wording above, in place of the
+     model's message, so this hides it there. talk_to_a_person still shows its
+     message: that's where the model says why the team is the right place and
+     what to bring. #}
   {% if answer.message and answer.status != 'cannot_answer' %}
   <p class="govuk-body">{{ answer.message }}</p>
   {% endif %}
 
-  {% if answer.status == 'talk_to_a_person' %}
-  <p class="app-ask__contact-link">
-    {{ govukButton({ href: paths.help, text: "Speak to the team" }) }}
-  </p>
+  {# The route to a person, on the newest turn only: an older reply should
+     not keep asking you to email. #}
+  {% if answer.status == 'talk_to_a_person' and canFollowUp %}
+  <p class="govuk-body"><a class="govuk-link" href="{{ paths.help }}">Email the AI Capability and Enablement team</a></p>
   {% endif %}
 
   {% if canFollowUp and answer.status == 'need_more_detail' and answer.options | length %}
-  {# The options narrow the question, so choosing one posts it as the next
-     question through the same route the free-text follow-up box below
-     uses. No script, no new endpoint: a form and a name the controller
-     already reads. Gated on canFollowUp, same as the free-text box below:
-     an earlier answer page or a conversation at its limit must not offer a
-     control the POST handler will refuse. #}
-  <form method="post" action="{{ paths.ask }}" novalidate class="app-ask__options">
-    {{ govukRadios({
-      idPrefix: "option",
-      name: "question",
-      fieldset: {
-        legend: {
-          text: "Choose an option",
-          classes: "govuk-visually-hidden"
-        }
-      },
-      errorMessage: { text: optionsError } if optionsError else null,
-      items: answer.options | toRadioItems
-    }) }}
-    {# name/value here, not on the free-text button, is how the controller
-       tells an empty options submission apart from an empty free-text one:
-       the same POST route serves both forms, and only one can point the
-       error back at the field that was actually used. #}
-    <button type="submit" name="from" value="options" class="govuk-button app-ask__send" data-module="govuk-button" data-ask-submit>
-      <span class="app-ask__send-text">Continue</span>
-    </button>
-    <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-status></div>
+  {# Quick replies: each option sends itself as the next question in one
+     press, through the same route as the question box. Grey buttons, so none
+     competes with the one green button on the page. The group is named, so a
+     screen reader announces what the choices are for. #}
+  <form method="post" action="{{ paths.ask }}" class="app-ask__quick-replies" role="group" aria-labelledby="quick-replies-{{ answerNumber }}" data-ask-quick-replies>
+    <p class="govuk-body-s app-ask__quick-replies-label" id="quick-replies-{{ answerNumber }}">Choose one, or ask your own question.</p>
+    <div class="govuk-button-group">
+      {% for option in answer.options %}
+      <button type="submit" name="question" value="{{ option }}" class="govuk-button govuk-button--secondary app-ask__quick-reply" data-module="govuk-button">{{ option }}</button>
+      {% endfor %}
+    </div>
+    <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-quick-status></div>
   </form>
   {% endif %}
 
@@ -82,14 +68,12 @@
 
   {% if answer.sources | length %}
   <div class="app-ask__check">
-    {# cannot_answer's sources are the nearest guidance found, not something
-       to check an answer against, since there isn't one. #}
-    <h2 class="govuk-heading-s app-ask__check-heading">{{ "Nearest guidance" if answer.status == 'cannot_answer' else "Check this answer" }}</h2>
+    {# cannot_answer's sources are the nearest guidance found, not the
+       guidance an answer used, since there isn't one. #}
+    <h3 class="govuk-heading-s app-ask__check-heading">{{ "Nearest guidance" if answer.status == 'cannot_answer' else "Guidance used" }}</h3>
     {# Page titles only. The section came through as a subtitle like "What the
        conditions mean", which reads as a stray fragment next to a page name
-       and told nobody anything. The API still carries it, and the right use
-       for it is a link straight to that part of the page rather than a label.
-       #}
+       and told nobody anything. #}
     <ul class="govuk-list govuk-list--bullet app-ask__sources">
       {% for source in answer.sources %}
       <li>
@@ -101,9 +85,10 @@
   {% endif %}
 
   {# Last, under the guidance it used, so the warning is the final word before
-     someone acts on the answer. #}
-  {% set warningText = "AI can make mistakes. Check the guidance before you act." %}
-  {% set warningClass = "" %}
+     someone acts on the answer. Only where there is an answer to act on: a
+     warning under "the toolkit cannot answer this" says nothing. #}
+  {% if answer.status == 'answered' or answer.status == 'need_more_detail' %}
   {% include "partials/ask-warning.njk" %}
+  {% endif %}
 
 </div>

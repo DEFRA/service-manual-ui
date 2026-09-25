@@ -192,6 +192,16 @@ describe('initAsk busy state', () => {
     expect(plainButton.disabled).toBe(false)
   })
 
+  test('keeps the busy state on a page shown fresh rather than from the back-forward cache', () => {
+    form.dispatchEvent(new Event('submit', { cancelable: true }))
+
+    const shown = new Event('pageshow')
+    Object.defineProperty(shown, 'persisted', { value: false })
+    window.dispatchEvent(shown)
+
+    expect(button.getAttribute('aria-disabled')).toBe('true')
+  })
+
   test('resets the busy state when the page is restored from the back-forward cache', () => {
     form.dispatchEvent(new Event('submit', { cancelable: true }))
 
@@ -202,5 +212,144 @@ describe('initAsk busy state', () => {
     expect(button.hasAttribute('aria-disabled')).toBe(false)
     expect(button.classList.contains('app-ask__send--busy')).toBe(false)
     expect(status.textContent).toBe('')
+  })
+})
+
+describe('initAsk quick replies and example questions', () => {
+  let replies
+  let first
+  let second
+  let quickStatus
+  let questionForm
+
+  /**
+   * Submits a form as though one of its buttons was pressed. jsdom does not
+   * submit forms, so the event is built by hand with its submitter set.
+   * @param {HTMLFormElement} target
+   * @param {HTMLButtonElement} [submitter]
+   * @returns {Event}
+   */
+  function press (target, submitter) {
+    const event = new Event('submit', { cancelable: true })
+    Object.defineProperty(event, 'submitter', { value: submitter })
+    target.dispatchEvent(event)
+    return event
+  }
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <form id="replies" data-ask-quick-replies>
+        <button type="submit" name="question" value="First">First</button>
+        <button type="submit" name="question" value="Second">Second</button>
+        <div data-ask-quick-status></div>
+      </form>
+      <form id="question-form">
+        <textarea id="question" data-module="app-ask-question"></textarea>
+        <button type="submit" class="app-ask__send" data-ask-submit>Ask</button>
+      </form>
+    `
+    replies = document.querySelector('#replies')
+    ;[first, second] = replies.querySelectorAll('button')
+    quickStatus = document.querySelector('[data-ask-quick-status]')
+    questionForm = document.querySelector('#question-form')
+    initAsk()
+  })
+
+  test('marks the pressed reply busy and announces the wait, leaving it enabled so its value is sent', () => {
+    const event = press(replies, first)
+
+    expect(event.defaultPrevented).toBe(false)
+    expect(first.getAttribute('aria-disabled')).toBe('true')
+    expect(first.disabled).toBe(false)
+    expect(first.classList.contains('app-ask__choice--busy')).toBe(true)
+    expect(second.classList.contains('app-ask__choice--busy')).toBe(false)
+    expect(quickStatus.textContent).toBe('Working on your answer. This can take up to 30 seconds.')
+  })
+
+  test('ignores a second reply once one is on its way', () => {
+    press(replies, first)
+
+    const again = press(replies, second)
+
+    expect(again.defaultPrevented).toBe(true)
+    expect(second.classList.contains('app-ask__choice--busy')).toBe(false)
+  })
+
+  test('ignores the question box once a reply is on its way, so only one question is sent', () => {
+    press(replies, first)
+
+    const typed = press(questionForm)
+
+    expect(typed.defaultPrevented).toBe(true)
+    expect(questionForm.querySelector('[data-ask-submit]').hasAttribute('aria-disabled')).toBe(false)
+  })
+
+  test('still marks the reply busy when the form has no status region to update', () => {
+    quickStatus.remove()
+
+    expect(() => press(replies, first)).not.toThrow()
+    expect(first.getAttribute('aria-disabled')).toBe('true')
+  })
+
+  test('still announces the wait when the browser does not say which button was pressed', () => {
+    expect(() => press(replies)).not.toThrow()
+    expect(quickStatus.textContent).toBe('Working on your answer. This can take up to 30 seconds.')
+  })
+
+  test('lets the page send again when it is restored from the back-forward cache', () => {
+    press(replies, first)
+
+    const restored = new Event('pageshow')
+    Object.defineProperty(restored, 'persisted', { value: true })
+    window.dispatchEvent(restored)
+
+    expect(first.hasAttribute('aria-disabled')).toBe(false)
+    expect(first.classList.contains('app-ask__choice--busy')).toBe(false)
+    expect(quickStatus.textContent).toBe('')
+    expect(press(replies, second).defaultPrevented).toBe(false)
+  })
+
+  test('starts each page able to send, whatever the last page did', () => {
+    press(replies, first)
+
+    // A new page: fresh markup, and the script run once for it.
+    document.body.innerHTML = `
+      <form id="next-page">
+        <button type="submit" class="app-ask__send" data-ask-submit>Ask</button>
+      </form>
+    `
+    initAsk()
+
+    expect(press(document.querySelector('#next-page')).defaultPrevented).toBe(false)
+  })
+})
+
+describe('initAsk focus on a linked turn', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div id="turn-1"><h2 class="app-ask__speaker" tabindex="-1">You</h2></div>
+      <div id="turn-2"><h2 class="app-ask__speaker" tabindex="-1">You</h2></div>
+    `
+  })
+
+  test('moves focus to the heading of the turn the page opened at', () => {
+    window.location.hash = '#turn-2'
+
+    initAsk()
+
+    expect(document.activeElement).toBe(document.querySelector('#turn-2 .app-ask__speaker'))
+  })
+
+  test.each([
+    ['no turn in the address', ''],
+    ['an anchor that is not a turn', '#main-content'],
+    ['a turn that is not on the page', '#turn-9']
+  ])('leaves focus alone with %s', (_description, hash) => {
+    window.location.hash = hash
+    document.body.focus()
+
+    initAsk()
+
+    expect(document.activeElement).toBe(document.body)
   })
 })

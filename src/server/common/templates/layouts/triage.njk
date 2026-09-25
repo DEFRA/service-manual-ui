@@ -18,7 +18,14 @@
           <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"/>
         </svg>
       </a>
-      {% if triageSecondaryText %}
+      {% if askLink and featureFlags.askEnabled %}
+      {# A link, not a second button, so Start now stays the one main action.
+         Set in the page's frontmatter; the flag check is here because
+         frontmatter cannot see flags. #}
+      <p class="app-triage__start-secondary">
+        Have a question? <a href="/ai-toolkit/ask" class="govuk-link app-triage__start-secondary-link">Ask the toolkit</a> for an AI answer.
+      </p>
+      {% elif triageSecondaryText %}
       <p class="app-triage__start-secondary">
         {{ triageSecondaryText }} <a href="{{ triageSecondaryHref }}" class="govuk-link app-triage__start-secondary-link">{{ triageSecondaryLinkText }}</a>
       </p>

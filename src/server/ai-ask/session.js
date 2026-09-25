@@ -1,6 +1,5 @@
-import { answerPath } from './paths.js'
-
 const SESSION_KEY = 'ai-ask'
+const REPORTED_KEY = 'ai-ask-reported'
 
 /**
  * The conversation is held in the server-side session, which expires after
@@ -30,26 +29,6 @@ export function addExchange (yar, exchange) {
 }
 
 /**
- * Turns the conversation into the index shown beside every answer: one entry
- * per question, in the order they were asked, each addressing its own page.
- * @param {Array<object>} exchanges
- * @param {number} [currentNumber] The answer being read, 1-based
- * @returns {Array<{number: number, question: string, href: string, isCurrent: boolean}>}
- */
-export function toThread (exchanges, currentNumber) {
-  return exchanges.map((exchange, index) => {
-    const number = index + 1
-
-    return {
-      number,
-      question: exchange.question,
-      href: answerPath(number),
-      isCurrent: number === currentNumber
-    }
-  })
-}
-
-/**
  * Reads one answer by its position in the conversation.
  *
  * Answers are numbered by where they fall in the conversation, which is enough
@@ -76,4 +55,43 @@ export function findExchange (exchanges, number) {
  */
 export function clearConversation (yar) {
   yar.clear(SESSION_KEY)
+}
+
+/**
+ * Records that an answer was reported, on the answer itself, so it is sent
+ * once however many times the form is sent, and forgotten with the
+ * conversation.
+ * @param {import('@hapi/yar').Yar} yar
+ * @param {number} number - The answer reported, 1-based
+ * @returns {void}
+ */
+export function markReported (yar, number) {
+  yar.set(
+    SESSION_KEY,
+    getExchanges(yar).map((exchange, index) =>
+      index === number - 1 ? { ...exchange, reported: true } : exchange
+    )
+  )
+}
+
+/**
+ * Remembers, for the next page only, which answer was just reported, so the
+ * conversation can confirm it once. A flash rather than a query string, so
+ * refreshing the page does not confirm it again.
+ * @param {import('@hapi/yar').Yar} yar
+ * @param {number} number - The answer reported, 1-based
+ * @returns {void}
+ */
+export function flashReported (yar, number) {
+  yar.flash(REPORTED_KEY, number, true)
+}
+
+/**
+ * @param {import('@hapi/yar').Yar} yar
+ * @returns {number|null} The answer just reported, if there was one
+ */
+export function takeReported (yar) {
+  const reported = yar.flash(REPORTED_KEY)
+
+  return Number.isInteger(reported) ? reported : null
 }
