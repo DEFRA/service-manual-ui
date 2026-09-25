@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto'
+
 import { getNavigation } from '../common/helpers/content-loader.js'
 import { buildErrorLog } from '../common/helpers/logging/build-error-log.js'
 import { statusCodes } from '../common/constants/status-codes.js'
@@ -240,6 +242,12 @@ export const askPostController = {
     if (request.payload?.prefill === 'yes') {
       const handedOver = String(request.payload?.question ?? '').trim()
 
+      // A full conversation has no box to put it in, so it goes through
+      // starting again, which carries it to the new front door.
+      if (exchanges.length >= MAX_EXCHANGES) {
+        return renderRestart(h, exchanges, handedOver)
+      }
+
       return renderQuestionError(h, exchanges, { question: handedOver })
     }
 
@@ -281,7 +289,10 @@ export const askPostController = {
       return renderNoAnswer(h, exchanges, question)
     }
 
-    session.addExchange(request.yar, { question, answer })
+    // An id of its own, so anything keyed to this answer, such as a report
+    // claim, cannot be mistaken for the answer in the same place in a later
+    // conversation in the same session.
+    session.addExchange(request.yar, { id: randomUUID(), question, answer })
 
     // Every answer has an address, so asking takes you to a page of its own
     // rather than back to a growing list. Refreshing does not ask again, the
@@ -310,6 +321,22 @@ export const answerController = {
 }
 
 /**
+ * @param {object} h - Hapi response toolkit
+ * @param {Array<object>} exchanges
+ * @param {string} [question] - A question to carry to the new conversation
+ * @returns {object}
+ */
+function renderRestart (h, exchanges, question = '') {
+  return h.view('ai-ask/restart', {
+    ...baseView(),
+    pageTitle: 'Start a new conversation',
+    questionCount: exchanges.length,
+    question,
+    backHref: turnPath(exchanges.length)
+  })
+}
+
+/**
  * Asks before throwing a conversation away. The conversation is only in the
  * session, so once it is gone it is gone, and a link that deletes on a click
  * would also be reachable by anything that prefetches links. So the link
@@ -323,12 +350,7 @@ export const restartController = {
       return h.redirect(askPath).code(statusCodes.seeOther)
     }
 
-    return h.view('ai-ask/restart', {
-      ...baseView(),
-      pageTitle: 'Start a new conversation',
-      questionCount: exchanges.length,
-      backHref: turnPath(exchanges.length)
-    })
+    return renderRestart(h, exchanges)
   }
 }
 
@@ -336,7 +358,13 @@ export const restartPostController = {
   handler (request, h) {
     session.clearConversation(request.yar)
 
-    return h.redirect(askPath).code(statusCodes.seeOther)
+    // A question carried here from search, because the old conversation was
+    // full, is filled in on the new front door rather than lost.
+    const carried = String(request.payload?.question ?? '').trim()
+
+    return carried
+      ? renderAsk(h, { question: carried })
+      : h.redirect(askPath).code(statusCodes.seeOther)
   }
 }
 
@@ -431,8 +459,9 @@ export const reportPostController = {
 
     // The session says whether this answer was reported by an earlier request
     // that finished. The claim covers one that is still going, on any
-    // instance.
-    const claim = `${request.yar.id}:${found.number}`
+    // instance. Keyed by the answer's own id, not its place, because starting
+    // again keeps the session and reuses the places.
+    const claim = `${request.yar.id}:${found.exchange.id}`
     let claimed
 
     try {
@@ -455,11 +484,20 @@ export const reportPostController = {
     const result = await sendReport({ number: found.number, exchange: found.exchange, problem })
 
     if (!result.success) {
-      await releaseReport(claim)
       request.logger.error(
         buildReportErrorLog(result.error),
         'Ask the toolkit could not send a reported problem'
       )
+
+      try {
+        await releaseReport(claim)
+      } catch (error) {
+        // The claim expires on its own, so the person can try again shortly.
+        request.logger.error(
+          buildErrorLog(error, { type: 'ask_report', action: 'release' }),
+          'Ask the toolkit could not release a report claim'
+        )
+      }
 
       return renderReport(h, found, { problem, sendFailed: true })
     }

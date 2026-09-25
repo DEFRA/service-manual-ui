@@ -1256,6 +1256,54 @@ describe('askController', () => {
       expect(notify.trySendEmail).not.toHaveBeenCalled()
     })
 
+    test('lets the first answer of a new conversation be reported straight after the last', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      await report(cookie, 'It is out of date')
+
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('How do I choose a tool?', cookie)
+      const second = await report(cookie, 'This one too')
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(2)
+      expect(second.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
+    test('does not carry a report confirmation into a new conversation', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      await report(cookie, 'It is out of date')
+
+      // Start again before the confirmation is ever shown.
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('How do I choose a tool?', cookie)
+      const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+
+      expect(result).not.toEqual(expect.stringContaining('has your report on answer'))
+    })
+
+    test('still asks to try again when the claim cannot be released after a failed send', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([null, { status: 500, data: null, message: 'Down' }])
+      const claims = await import('../../../../src/server/ai-ask/report-claim.js')
+      const releaseSpy = vi.spyOn(claims, 'releaseReport')
+      releaseSpy.mockRejectedValueOnce(new Error('Redis unavailable'))
+
+      const { statusCode, result } = await report(cookie, 'It is out of date')
+      releaseSpy.mockRestore()
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+    })
+
     test('rejects a report over the limit, keeping what was written', async () => {
       const cookie = await startConversation()
       const { MAX_REPORT_LENGTH } = await import('../../../../src/server/ai-ask/constants.js')
@@ -1380,6 +1428,32 @@ describe('askController', () => {
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('app-ask-question"'))
       expect(result).not.toEqual(expect.stringContaining('There is a problem'))
+    })
+
+    test('is carried through starting again when the conversation is full', async () => {
+      const { MAX_EXCHANGES } = await import('../../../../src/server/ai-ask/constants.js')
+      let cookie
+      for (let i = 1; i <= MAX_EXCHANGES; i++) {
+        ({ cookie } = await postQuestion(`Question ${i}`, cookie))
+      }
+
+      const offered = await handOver('copilot personal data', cookie)
+
+      expect(offered.result).toEqual(expect.stringContaining('<h1 class="govuk-heading-l">Start a new conversation</h1>'))
+      expect(offered.result).toEqual(expect.stringContaining('Your question will be ready to ask in a new one.'))
+      expect(offered.result).toEqual(expect.stringContaining('<input type="hidden" name="question" value="copilot personal data">'))
+
+      const restarted = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        payload: 'question=copilot%20personal%20data',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(restarted.statusCode).toBe(statusCodes.ok)
+      expect(restarted.result).toEqual(expect.stringContaining('copilot personal data</textarea>'))
+      const { statusCode } = await server.inject({ method: 'GET', url: askUrl, headers: { cookie } })
+      expect(statusCode).toBe(statusCodes.ok)
     })
 
     test('is filled in under the conversation when one is open', async () => {

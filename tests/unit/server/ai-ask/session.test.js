@@ -20,7 +20,8 @@ function mockYar (stored) {
   return {
     get: vi.fn(() => stored),
     set: vi.fn(),
-    clear: vi.fn()
+    clear: vi.fn(),
+    flash: vi.fn()
   }
 }
 
@@ -82,6 +83,14 @@ describe('clearConversation', () => {
     clearConversation(yar)
 
     expect(yar.clear).toHaveBeenCalledWith('ai-ask')
+  })
+
+  test('forgets a report confirmation that was never shown', () => {
+    const yar = mockYar([exchange('First')])
+
+    clearConversation(yar)
+
+    expect(yar.flash).toHaveBeenCalledWith('ai-ask-reported')
   })
 })
 

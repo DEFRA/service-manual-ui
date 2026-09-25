@@ -55,6 +55,9 @@ export function findExchange (exchanges, number) {
  */
 export function clearConversation (yar) {
   yar.clear(SESSION_KEY)
+  // A report confirmation not yet shown belongs to the conversation going,
+  // not the next one.
+  yar.flash(REPORTED_KEY)
 }
 
 /**
