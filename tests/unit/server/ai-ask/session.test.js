@@ -3,12 +3,14 @@ import { describe, test, expect, vi } from 'vitest'
 import {
   getExchanges,
   addExchange,
-  toThread,
   findExchange,
-  clearConversation
+  clearConversation,
+  flashReported,
+  markReported,
+  takeReported
 } from '../../../../src/server/ai-ask/session.js'
 
-const exchange = (question) => ({ question, answer: { sources: [] } })
+const exchange = (question) => ({ id: `id-${question}`, question, answer: { sources: [] } })
 
 /**
  * @param {Array<object>} [stored]
@@ -18,7 +20,8 @@ function mockYar (stored) {
   return {
     get: vi.fn(() => stored),
     set: vi.fn(),
-    clear: vi.fn()
+    clear: vi.fn(),
+    flash: vi.fn()
   }
 }
 
@@ -29,8 +32,21 @@ describe('getExchanges', () => {
 
   test('returns what is stored', () => {
     const stored = [exchange('First')]
+    const yar = mockYar(stored)
 
-    expect(getExchanges(mockYar(stored))).toEqual(stored)
+    expect(getExchanges(yar)).toEqual(stored)
+    expect(yar.set).not.toHaveBeenCalled()
+  })
+
+  test('gives answers from before answers had ids an id of their own, and keeps it', () => {
+    const legacy = { question: 'Old', answer: { sources: [] } }
+    const yar = mockYar([exchange('First'), legacy])
+
+    const exchanges = getExchanges(yar)
+
+    expect(exchanges[0]).toEqual(exchange('First'))
+    expect(exchanges[1]).toEqual({ ...legacy, id: expect.any(String) })
+    expect(yar.set).toHaveBeenCalledWith('ai-ask', exchanges)
   })
 })
 
@@ -44,37 +60,6 @@ describe('addExchange', () => {
       exchange('First'),
       exchange('Second')
     ])
-  })
-})
-
-describe('toThread', () => {
-  test('has nothing to list for an empty conversation', () => {
-    expect(toThread([], 1)).toEqual([])
-  })
-
-  test('numbers the questions in the order they were asked, each with an address', () => {
-    const thread = toThread([exchange('First'), exchange('Second')], 2)
-
-    expect(thread).toEqual([
-      {
-        number: 1,
-        question: 'First',
-        href: '/ai-toolkit/ask/answers/1',
-        isCurrent: false
-      },
-      {
-        number: 2,
-        question: 'Second',
-        href: '/ai-toolkit/ask/answers/2',
-        isCurrent: true
-      }
-    ])
-  })
-
-  test('marks nothing current when reading none of them', () => {
-    const thread = toThread([exchange('First')])
-
-    expect(thread[0].isCurrent).toBe(false)
   })
 })
 
@@ -111,5 +96,69 @@ describe('clearConversation', () => {
     clearConversation(yar)
 
     expect(yar.clear).toHaveBeenCalledWith('ai-ask')
+  })
+
+  test('forgets a report confirmation that was never shown', () => {
+    const yar = mockYar([exchange('First')])
+
+    clearConversation(yar)
+
+    expect(yar.flash).toHaveBeenCalledWith('ai-ask-reported')
+  })
+})
+
+describe('markReported', () => {
+  test('marks only the answer reported, by its id, and says where it is', () => {
+    const yar = mockYar([exchange('First'), exchange('Second')])
+
+    const number = markReported(yar, 'id-Second')
+
+    expect(number).toBe(2)
+    expect(yar.set).toHaveBeenCalledWith('ai-ask', [
+      exchange('First'),
+      { ...exchange('Second'), reported: true }
+    ])
+  })
+
+  test('marks nothing when the answer is no longer in the conversation', () => {
+    const yar = mockYar([exchange('New first')])
+
+    expect(markReported(yar, 'id-Old first')).toBeNull()
+    expect(yar.set).not.toHaveBeenCalled()
+  })
+})
+
+describe('a reported answer', () => {
+  /**
+   * A stand-in for yar's flash: set with override, read once, then gone.
+   * @returns {object}
+   */
+  function flashYar () {
+    const flashes = {}
+
+    return {
+      flash (type, message, isOverride) {
+        if (message === undefined) {
+          const value = flashes[type]
+          delete flashes[type]
+          return value ?? []
+        }
+        flashes[type] = isOverride ? message : [...(flashes[type] ?? []), message]
+        return undefined
+      }
+    }
+  }
+
+  test('is read back once, then forgotten', () => {
+    const yar = flashYar()
+
+    flashReported(yar, 2)
+
+    expect(takeReported(yar)).toBe(2)
+    expect(takeReported(yar)).toBeNull()
+  })
+
+  test('is nothing when none was reported', () => {
+    expect(takeReported(flashYar())).toBeNull()
   })
 })

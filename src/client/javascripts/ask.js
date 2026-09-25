@@ -7,13 +7,25 @@ const BUSY_STATUS_TEXT = 'Working on your answer. This can take up to 30 seconds
 // submits the button's value: see initBusyState below.
 const ARIA_DISABLED = 'aria-disabled'
 
+// A page can hold more than one way to send: the question box, and quick
+// replies or example questions. Only the first send counts, whichever it came
+// from, until the page is left.
+let sending = false
+
+// Marks the quick reply or example question that was pressed.
+const CHOICE_BUSY_CLASS = 'app-ask__choice--busy'
+
 /**
- * Ask the toolkit: send the question when Enter is pressed, and show a busy
- * state while an answer is on its way.
+ * Ask the toolkit: move focus to the turn the page opened at, send the
+ * question when Enter is pressed, and show a busy state while an answer is on
+ * its way.
  */
 export function initAsk () {
+  sending = false
+  focusLinkedTurn()
   initEnterToSend()
   initBusyState()
+  initQuickReplies()
 }
 
 /**
@@ -84,7 +96,7 @@ function initBusyState () {
     }
 
     form.addEventListener('submit', (event) => {
-      if (button.getAttribute(ARIA_DISABLED) === 'true') {
+      if (sending || button.getAttribute(ARIA_DISABLED) === 'true') {
         // The button already shows the busy state, so a second submit
         // reaching here (Enter fired again before navigation) is a repeat,
         // not a new question.
@@ -92,6 +104,7 @@ function initBusyState () {
         return
       }
 
+      sending = true
       button.setAttribute(ARIA_DISABLED, 'true')
       button.classList.add('app-ask__send--busy')
 
@@ -109,6 +122,15 @@ function initBusyState () {
       return
     }
 
+    sending = false
+    document.querySelectorAll(`.${CHOICE_BUSY_CLASS}`).forEach((button) => {
+      button.removeAttribute(ARIA_DISABLED)
+      button.classList.remove(CHOICE_BUSY_CLASS)
+    })
+    document.querySelectorAll('[data-ask-quick-status]').forEach((status) => {
+      status.textContent = ''
+    })
+
     document.querySelectorAll('[data-ask-submit]').forEach((button) => {
       button.removeAttribute(ARIA_DISABLED)
       button.classList.remove('app-ask__send--busy')
@@ -119,4 +141,65 @@ function initBusyState () {
       }
     })
   })
+}
+
+/**
+ * Quick replies and example questions send at once, so they get the same busy
+ * state and the same guard against a second send as the question box.
+ */
+function initQuickReplies () {
+  document.querySelectorAll('[data-ask-quick-replies]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      const button = event.submitter
+      if (sending || button?.getAttribute(ARIA_DISABLED) === 'true') {
+        event.preventDefault()
+        return
+      }
+      sending = true
+      if (button) {
+        button.setAttribute(ARIA_DISABLED, 'true')
+        button.classList.add(CHOICE_BUSY_CLASS)
+      }
+      const status = form.querySelector('[data-ask-quick-status]')
+      if (status) {
+        status.textContent = BUSY_STATUS_TEXT
+      }
+    })
+  })
+}
+
+/**
+ * When the page opens at a turn, move focus there too. Scrolling to an anchor
+ * moves the view, not a screen reader, so without this someone hears the page
+ * from the top again. The turn's heading takes focus, so a screen reader
+ * starts at "You, question 3" rather than reading the whole turn as one block.
+ */
+function focusLinkedTurn () {
+  const number = linkedTurnNumber()
+  const heading = number && document.getElementById(`turn-${number}`)?.querySelector('.app-ask__speaker')
+
+  if (heading) {
+    heading.focus()
+  }
+}
+
+/**
+ * The turn the page was opened at: from the #turn-N anchor, or, for an
+ * /answers/N address with no anchor, such as a bookmark, from the address.
+ * Not from the address when the page leads with something that takes focus
+ * itself, the report confirmation or an error summary, or has another anchor.
+ * @returns {string|null}
+ */
+function linkedTurnNumber () {
+  const fromAnchor = /^#turn-(\d+)$/.exec(window.location.hash)
+
+  if (fromAnchor) {
+    return fromAnchor[1]
+  }
+
+  if (window.location.hash || document.querySelector('.govuk-notification-banner, .govuk-error-summary')) {
+    return null
+  }
+
+  return /\/answers\/(\d+)$/.exec(window.location.pathname)?.[1] ?? null
 }

@@ -79,6 +79,9 @@
   color: $govuk-white;
   font-weight: 700;
 
+  // :link as well, or .govuk-link:link wins on specificity and the link turns
+  // GOV.UK blue on the green hero, which fails contrast.
+  &:link,
   &:visited {
     color: $govuk-white;
   }

@@ -1,0 +1,66 @@
+{% extends "layouts/page.njk" %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block pageTitle %}
+  {%- if error or sendFailed %}Error: {% endif -%}
+  {{ pageTitle }} | {{ headerServiceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "partials/ask-phase-banner.njk" %}
+  <a href="{{ backHref }}" class="govuk-back-link">Back to your conversation</a>
+{% endblock %}
+
+{# One screen: say what is wrong if you want to, press send, and it goes to
+   the team's mailbox with the question and the answer, so nobody has to
+   explain which answer they mean. #}
+{% block content %}
+<div class="govuk-grid-row app-ask-subpage">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if error %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [{ text: error, href: "#problem" }]
+      }) }}
+    {% elif sendFailed %}
+      {# Our failure, not theirs, so a summary with no field to fix, and what
+         they wrote is kept for the next try. #}
+      {{ govukErrorSummary({
+        titleText: "Sorry, there is a problem with the service",
+        descriptionText: "Your report could not be sent. Try again in a minute, or email the AI Capability and Enablement team at " + teamEmail + "."
+      }) }}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Report a problem with this answer</h1>
+
+    <p class="govuk-body">You are reporting the answer to "{{ reportedQuestion }}".</p>
+
+    <p class="govuk-body">We will send the question, the answer and anything you write below to the AI Capability and Enablement team.</p>
+
+    <form method="post" action="{{ reportAction }}" novalidate>
+      <input type="hidden" name="exchange" value="{{ exchangeId }}">
+      {{ govukCharacterCount({
+        name: "problem",
+        id: "problem",
+        maxlength: maxReportLength,
+        value: problem,
+        errorMessage: { text: error } if error,
+        label: {
+          text: "What is wrong with it? (optional)",
+          classes: "govuk-label--s"
+        },
+        hint: {
+          text: "For example, it is wrong, out of date or did not answer your question. Do not include personal or sensitive data."
+        }
+      }) }}
+
+      {{ govukButton({ text: "Send report", preventDoubleClick: true }) }}
+    </form>
+
+  </div>
+</div>
+{% endblock %}

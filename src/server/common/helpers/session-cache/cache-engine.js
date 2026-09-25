@@ -6,8 +6,25 @@ import { buildEventLog } from '../logging/build-error-log.js'
 import { buildRedisClient } from '../redis-client.js'
 import { config } from '../../../../config/config.js'
 
+// The Redis client the session cache uses, once one has been made. Shared so
+// other short-lived server-side state, such as Ask the toolkit's report
+// claims, sits in the same store as the sessions without a second connection.
+let redisClient = null
+
+/**
+ * @returns {import('ioredis').Redis | import('ioredis').Cluster | null} The
+ *   session cache's Redis client, or null where sessions are in memory
+ */
+export function getRedisClient () {
+  return redisClient
+}
+
 export function getCacheEngine (engine) {
   const logger = createLogger()
+
+  // Cleared first, so a switch to memory never leaves the last Redis client
+  // behind for anything that shares it.
+  redisClient = null
 
   if (engine === 'redis') {
     logger.info(
@@ -18,7 +35,7 @@ export function getCacheEngine (engine) {
       }),
       'Using Redis session cache'
     )
-    const redisClient = buildRedisClient(config.get('redis'))
+    redisClient = buildRedisClient(config.get('redis'))
     return new CatboxRedis({ client: redisClient })
   }
 

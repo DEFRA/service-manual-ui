@@ -67,6 +67,15 @@ describe('Ask the toolkit flag off (the default)', () => {
     expect(result).not.toEqual(expect.stringContaining('Ask the toolkit'))
   })
 
+  test('site search does not offer it, even for a search about AI', async () => {
+    const { result } = await server.inject({
+      method: 'GET',
+      url: '/search?q=can+I+use+copilot+with+personal+data'
+    })
+
+    expect(result).not.toEqual(expect.stringContaining(askUrl))
+  })
+
   test('the rest of the toolkit navigation is unchanged', async () => {
     const { result } = await server.inject({
       method: 'GET',

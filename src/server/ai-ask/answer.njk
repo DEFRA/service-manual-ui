@@ -1,12 +1,13 @@
 {% extends "layouts/page.njk" %}
 
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-{# The tab shows the answer's position in the conversation, never the
+{# The tab shows the question's position in the conversation, never the
    question: analytics records page titles, and nothing someone typed should
    leave the service. #}
 {% block pageTitle %}
-  {%- if error or optionsError %}Error: {% endif -%}
+  {%- if error or serviceProblem %}Error: {% endif -%}
   {{ pageTitle }} | {{ headerServiceName }}
 {% endblock %}
 
@@ -18,97 +19,82 @@
 {% endblock %}
 
 {% block content %}
-{# The heading has a row of its own, so the conversation beside the answer
-   starts level with the question box rather than with the heading. #}
-{# Three outcomes get a heading that says what they are, in place of "Your
-   answer": a reader told to talk to a person, or whose question could not
-   be answered, is not looking at "an answer" in any sense that heading
-   implies. answered and need_more_detail are not in this map, so they keep
-   "Your answer" as before. Stub text: Chris owns the final wording (card
-   012). #}
-{% set outcomeHeadings = {
-  cannot_answer: "The toolkit cannot answer this",
-  talk_to_a_person: "This one is for the team",
-  blocked: "The toolkit cannot help with this question"
-} %}
+{# Three quarters, the same width as the question box on the front door. Not
+   full width: a line there runs to about 120 characters, well past the 75 or
+   so that reads easily. #}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-three-quarters">
 
-    {% if error or optionsError %}
-      {% set errorItem = { text: error, href: "#question" } if error else { text: optionsError, href: "#option" } %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: [errorItem]
+    {% if reported %}
+      {{ govukNotificationBanner({
+        type: "success",
+        html: '<p class="govuk-notification-banner__heading">Report sent</p><p class="govuk-body">The AI Capability and Enablement team has your report on answer ' + reported + '. Thank you.</p>'
       }) }}
     {% endif %}
 
-    <h1 class="govuk-heading-l">{{ outcomeHeadings[exchange.answer.status] or "Your answer" }}</h1>
+    {# A failure on our side is not a mistake in the question, so it is a
+       summary with no field to fix. #}
+    {% if serviceProblem %}
+      {{ govukErrorSummary({
+        titleText: "Sorry, there is a problem with the service",
+        descriptionText: serviceProblem
+      }) }}
+    {% endif %}
 
-  </div>
-</div>
+    {% if error %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [{ text: error, href: "#question" }]
+      }) }}
+    {% endif %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l app-ask__title">Ask the toolkit</h1>
 
-    <div class="app-ask__asked">
-      <span class="app-ask__eyebrow">You asked</span>
-      <p class="govuk-body app-ask__asked-text">{{ exchange.question }}</p>
+    {% if hiddenCount %}
+    <p class="govuk-body app-ask__earlier">
+      <a class="govuk-link" href="{{ showEarlierHref }}">Show {{ hiddenCount }} earlier question{% if hiddenCount != 1 %}s{% endif %}</a>
+    </p>
+    {% endif %}
+
+    {# Each turn is named by a heading as well as set apart by position and
+       shape, so a screen reader user can move from turn to turn and nobody
+       has to rely on layout to tell who said what. #}
+    {% for turn in turns %}
+    <div class="app-ask__turn" id="turn-{{ turn.number }}">
+      <div class="app-ask__asked">
+        <h2 class="app-ask__speaker" tabindex="-1">You<span class="govuk-visually-hidden">, question {{ turn.number }}</span></h2>
+        <p class="govuk-body app-ask__asked-text">{{ turn.question }}</p>
+      </div>
+
+      {% set answer = turn.answer %}
+      {% set answerNumber = turn.number %}
+      {% set isLatestTurn = turn.isLatest %}
+      {% set canFollowUp = turn.isLatest and canContinue %}
+      {% include "partials/ask-answer.njk" %}
+
+      {% if turn.reported %}
+      <p class="govuk-body-s app-ask__report">Report sent<span class="govuk-visually-hidden"> for answer {{ turn.number }}</span></p>
+      {% elif turn.reportHref %}
+      <p class="govuk-body-s app-ask__report"><a class="govuk-link" href="{{ turn.reportHref }}">Report a problem with this answer<span class="govuk-visually-hidden"> (answer {{ turn.number }})</span></a></p>
+      {% endif %}
     </div>
+    {% endfor %}
 
-    {% set answer = exchange.answer %}
-    {% include "partials/ask-answer.njk" %}
-
-    {% if canFollowUp %}
-      {# Only the newest answer can be followed on from. Asking from partway
-         back would either branch the conversation or silently jump to the
-         end. #}
+    {% if canContinue %}
       {% include "partials/ask-question-form.njk" %}
       {# The way to start over sits where the decision is made: at the field,
          when someone realises the next question is not a follow-up. A plain
          sentence rather than hint text, because the Design System says not
          to put links in hint text. #}
       <p class="govuk-body app-ask__restart">Asking about something else? <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a></p>
-    {% elif isLatest %}
-      <p class="govuk-body">This conversation has reached {{ maxExchanges }} questions, which is as long as one can be. <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a> to keep asking.</p>
     {% else %}
-      {# The back link at the top already returns to the latest answer, so this
-         says why you cannot ask from here rather than repeating that link. #}
-      <p class="govuk-body">You can only ask from the latest answer in a conversation.</p>
+      <p class="govuk-body">This conversation has reached {{ maxExchanges }} questions, which is as long as one can be. <a class="govuk-link" href="{{ paths.restart }}">Start a new conversation</a> to keep asking.</p>
     {% endif %}
 
     {# The same support box as every other toolkit page, so the route to a
-       person is where people already look for it, rather than a small link
-       trailing off the foot of the page. #}
+       person is where people already look for it. #}
     {% include "partials/support-box.njk" %}
 
   </div>
-
-  {# The conversation as navigation, beside the answer rather than after it.
-     Each question is a page, so this is a list of links: it stays scannable
-     at twenty questions, works with the back button, and can be linked to.
-     It sits in the column GOV.UK uses for related content, so it orients
-     without pushing the answer down, and only appears once there is more than
-     one question to choose between. #}
-  {% if thread | length > 1 %}
-  <div class="govuk-grid-column-one-third">
-    <nav class="app-ask__thread" aria-labelledby="thread-heading">
-      <h2 class="govuk-heading-s app-ask__thread-heading" id="thread-heading">This conversation</h2>
-      {# role="list" because WebKit drops list semantics from a list with no
-         markers, and the numbers are drawn by hand. #}
-      <ol class="app-ask__thread-list" role="list">
-        {% for item in thread %}
-        <li class="app-ask__thread-item{% if item.isCurrent %} app-ask__thread-item--current{% endif %}">
-          <span class="app-ask__thread-number" aria-hidden="true">{{ item.number }}</span>
-          {% if item.isCurrent %}
-          <span class="app-ask__thread-question" aria-current="page">{{ item.question }}<span class="govuk-visually-hidden"> (the answer you are reading)</span></span>
-          {% else %}
-          <a class="govuk-link app-ask__thread-question" href="{{ item.href }}">{{ item.question }}</a>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ol>
-    </nav>
-  </div>
-  {% endif %}
 </div>
 {% endblock %}

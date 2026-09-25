@@ -44,6 +44,27 @@ export const MAX_PAYLOAD_BYTES = 8192
 // answer above it on the page.
 export const QUESTION_ROWS = 3
 
+// How many turns of a conversation show in full before the rest sit behind
+// "Show earlier questions". Enough to read the thread you are in without the
+// newest answer drifting far down a long page.
+export const VISIBLE_TURNS = 3
+
+// Longest report we accept on "Report a problem with this answer". The same
+// bound as a question, for the same reason: enough to say what is wrong,
+// short enough to keep an email readable.
+export const MAX_REPORT_LENGTH = MAX_QUESTION_LENGTH
+
+// Offered on the front door so nobody has to ask "where do I start?". Each is
+// a question the guidance answers directly, so each belongs in the golden set
+// too: an example that answers badly is worse than none. No "get help"
+// question: the support box below answers that without a wait. No incident
+// question: an incident needs the incident page at once, not an AI answer.
+export const EXAMPLE_QUESTIONS = [
+  'What data can I use with AI tools?',
+  'Can I use any AI tool at Defra?',
+  'What should I check before using an AI agent?'
+]
+
 /**
  * The route to a person, shown in the standard support box.
  *
@@ -56,13 +77,13 @@ export const SUPPORT_BOX = {
   title: 'Get help from a person',
   description: 'For advice on your own project, or a decision, the team can help.',
   items: [
-    `Email the <a href="mailto:${TEAM_EMAIL}?subject=Ask%20the%20toolkit%3A%20help%20with%20my%20project" class="govuk-link">AI Capability and Enablement team</a>`
+    `<a href="mailto:${TEAM_EMAIL}?subject=Ask%20the%20toolkit%3A%20help%20with%20my%20project" class="govuk-link">Email the AI Capability and Enablement team</a>`
   ]
 }
 
 export const ANSWER_SUPPORT_BOX = {
   ...SUPPORT_BOX,
   items: [
-    `<a href="${helpPath}" class="govuk-link">Speak to the AI Capability and Enablement team</a>`
+    `<a href="${helpPath}" class="govuk-link">Email the AI Capability and Enablement team</a>`
   ]
 }

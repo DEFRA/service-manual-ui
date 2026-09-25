@@ -24,6 +24,7 @@ triageTitle: Check if AI is right for your idea
 triageDescription: See how AI could help your work, whatever your role.
 triageButtonText: Start now
 triageButtonHref: /ai-toolkit/triage/question-1
+askLink: true
 primaryCardsHeading: What do you want to do?
 primaryCards:
   - text: Deliver with AI

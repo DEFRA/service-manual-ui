@@ -4,11 +4,11 @@
 
 {% block beforeContent %}
   {% include "partials/ask-phase-banner.njk" %}
-  <a href="{{ backHref }}" class="govuk-back-link">Back to your answer</a>
+  <a href="{{ backHref }}" class="govuk-back-link">Back to your conversation</a>
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
+<div class="govuk-grid-row app-ask-subpage">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">Start a new conversation</h1>
@@ -16,9 +16,14 @@
     {# Says what is lost, and that nothing else holds it, so the choice is an
        informed one. Not a warning button: a conversation that lives for four
        hours is not the kind of loss that warrants red. #}
+    {% if question %}
+    <p class="govuk-body">This conversation has reached {{ questionCount }} questions, which is as long as one can be. Your question will be ready to ask in a new one.</p>
+    {% endif %}
+
     <p class="govuk-body">This deletes the {{ questionCount }} question{% if questionCount != 1 %}s{% endif %} and answer{% if questionCount != 1 %}s{% endif %} in your current conversation. They are not kept anywhere else.</p>
 
     <form method="post" action="{{ paths.restart }}">
+      {% if question %}<input type="hidden" name="question" value="{{ question }}">{% endif %}
       <div class="govuk-button-group">
         <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button">
           Start a new conversation
