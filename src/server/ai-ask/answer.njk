@@ -68,6 +68,7 @@
 
       {% set answer = turn.answer %}
       {% set answerNumber = turn.number %}
+      {% set isLatestTurn = turn.isLatest %}
       {% set canFollowUp = turn.isLatest and canContinue %}
       {% include "partials/ask-answer.njk" %}
 

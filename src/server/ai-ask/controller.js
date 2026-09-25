@@ -28,7 +28,14 @@ import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
 import { buildContactLink, toPlainText } from './transcript.js'
 import { answerFor } from './chat-api.js'
-import { buildReportErrorLog, canSendReports, sendReport } from './report-email.js'
+import {
+  buildReportErrorLog,
+  canSendReports,
+  claimReport,
+  holdSentReport,
+  releaseReport,
+  sendReport
+} from './report-email.js'
 import * as session from './session.js'
 
 /**
@@ -428,9 +435,18 @@ export const reportPostController = {
       })
     }
 
+    // The session says whether this answer was reported by an earlier request
+    // that finished. The claim covers one that is still going.
+    const claim = `${request.yar.id}:${found.number}`
+
+    if (!claimReport(claim)) {
+      return h.redirect(turnPath(found.number)).code(statusCodes.seeOther)
+    }
+
     const result = await sendReport({ number: found.number, exchange: found.exchange, problem })
 
     if (!result.success) {
+      releaseReport(claim)
       request.logger.error(
         buildReportErrorLog(result.error),
         'Ask the toolkit could not send a reported problem'
@@ -439,6 +455,7 @@ export const reportPostController = {
       return renderReport(h, found, { problem, sendFailed: true })
     }
 
+    holdSentReport(claim)
     session.markReported(request.yar, found.number)
     session.flashReported(request.yar, found.number)
 

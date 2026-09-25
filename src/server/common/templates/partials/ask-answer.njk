@@ -2,8 +2,9 @@
    one, the guidance it used, and, where there is an answer to act on, the
    reminder that it can be wrong.
 
-   Set answer, answerNumber and canFollowUp before including. canFollowUp is
-   true only on the newest turn of a conversation that is not full.
+   Set answer, answerNumber, isLatestTurn and canFollowUp before including.
+   canFollowUp is true only on the newest turn of a conversation that is not
+   full; isLatestTurn is true on the newest turn whether or not it is full.
 
    cannot_answer and talk_to_a_person open with a line that says what
    happened, before anything else. blocked never says the question was
@@ -35,8 +36,10 @@
   {% endif %}
 
   {# The route to a person, on the newest turn only: an older reply should
-     not keep asking you to email. #}
-  {% if answer.status == 'talk_to_a_person' and canFollowUp %}
+     not keep asking you to email. Not tied to whether you can still ask: a
+     full conversation that ends on "this one is for the team" still needs
+     the way to the team. #}
+  {% if answer.status == 'talk_to_a_person' and isLatestTurn %}
   <p class="govuk-body"><a class="govuk-link" href="{{ paths.help }}">Email the AI Capability and Enablement team</a></p>
   {% endif %}
 

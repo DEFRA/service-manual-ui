@@ -534,6 +534,26 @@ describe('askController', () => {
       expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
     })
 
+    test('keeps the route to a person on the last turn of a full conversation', async () => {
+      const { MAX_EXCHANGES } = await import('../../../../src/server/ai-ask/constants.js')
+      let cookie
+      for (let i = 1; i < MAX_EXCHANGES; i++) {
+        ({ cookie } = await postQuestion(`Question ${i}`, cookie))
+      }
+      await postQuestion('Can I use this for my project?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: `/ai-toolkit/ask/answers/${MAX_EXCHANGES}`,
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('id="question"'))
+      expect(result).toEqual(
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">Email the AI Capability and Enablement team</a></p>')
+      )
+    })
+
     test('offers the route to a person on the newest turn only', async () => {
       const { cookie } = await postQuestion('Can I use this for my project?')
       await postQuestion('How do I choose a tool?', cookie)
@@ -1190,6 +1210,36 @@ describe('askController', () => {
       const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
       expect(result).toEqual(expect.stringContaining('Report sent<span class="govuk-visually-hidden"> for answer 1</span>'))
       expect(result).not.toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1/report"'))
+    })
+
+    test('sends one email when the same report arrives twice at once', async () => {
+      const cookie = await startConversation()
+      let finishSending
+      notify.trySendEmail.mockImplementation(() => new Promise((resolve) => {
+        finishSending = () => resolve([{ data: {}, status: 201 }, null])
+      }))
+
+      const first = report(cookie, 'It is out of date')
+      await vi.waitFor(() => expect(notify.trySendEmail).toHaveBeenCalledTimes(1))
+      const second = await report(cookie, 'It is out of date')
+      finishSending()
+      await first
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(1)
+      expect(second.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+    })
+
+    test('can be sent again after a send that failed', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail
+        .mockResolvedValueOnce([null, { status: 500, data: null, message: 'Down' }])
+        .mockResolvedValueOnce([{ data: {}, status: 201 }, null])
+
+      await report(cookie, 'It is out of date')
+      const retried = await report(cookie, 'It is out of date')
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(2)
+      expect(retried.headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
     test('rejects a report over the limit, keeping what was written', async () => {
