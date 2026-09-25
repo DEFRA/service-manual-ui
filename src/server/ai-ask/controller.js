@@ -28,14 +28,8 @@ import { validateQuestion } from './question.js'
 import { toViewModel } from './answer.js'
 import { buildContactLink, toPlainText } from './transcript.js'
 import { answerFor } from './chat-api.js'
-import {
-  buildReportErrorLog,
-  canSendReports,
-  claimReport,
-  holdSentReport,
-  releaseReport,
-  sendReport
-} from './report-email.js'
+import { buildReportErrorLog, canSendReports, sendReport } from './report-email.js'
+import { claimReport, releaseReport } from './report-claim.js'
 import * as session from './session.js'
 
 /**
@@ -436,17 +430,32 @@ export const reportPostController = {
     }
 
     // The session says whether this answer was reported by an earlier request
-    // that finished. The claim covers one that is still going.
+    // that finished. The claim covers one that is still going, on any
+    // instance.
     const claim = `${request.yar.id}:${found.number}`
+    let claimed
 
-    if (!claimReport(claim)) {
+    try {
+      claimed = await claimReport(claim)
+    } catch (error) {
+      // Without the claim there is no way to know this is the only send, so
+      // nothing is sent, and the person is asked to try again.
+      request.logger.error(
+        buildErrorLog(error, { type: 'ask_report', action: 'claim' }),
+        'Ask the toolkit could not claim a reported problem'
+      )
+
+      return renderReport(h, found, { problem, sendFailed: true })
+    }
+
+    if (!claimed) {
       return h.redirect(turnPath(found.number)).code(statusCodes.seeOther)
     }
 
     const result = await sendReport({ number: found.number, exchange: found.exchange, problem })
 
     if (!result.success) {
-      releaseReport(claim)
+      await releaseReport(claim)
       request.logger.error(
         buildReportErrorLog(result.error),
         'Ask the toolkit could not send a reported problem'
@@ -455,7 +464,6 @@ export const reportPostController = {
       return renderReport(h, found, { problem, sendFailed: true })
     }
 
-    holdSentReport(claim)
     session.markReported(request.yar, found.number)
     session.flashReported(request.yar, found.number)
 

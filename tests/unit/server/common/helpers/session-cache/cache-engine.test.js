@@ -1,7 +1,10 @@
 import { Engine as CatboxRedis } from '@hapi/catbox-redis'
 import { Engine as CatboxMemory } from '@hapi/catbox-memory'
 
-import { getCacheEngine } from '../../../../../../src/server/common/helpers/session-cache/cache-engine.js'
+import {
+  getCacheEngine,
+  getRedisClient
+} from '../../../../../../src/server/common/helpers/session-cache/cache-engine.js'
 import { config } from '../../../../../../src/config/config.js'
 
 const mockLoggerInfo = vi.fn()
@@ -34,6 +37,10 @@ describe('getCacheEngine', () => {
 
     test('Should setup Redis cache', () => {
       expect(CatboxRedis).toHaveBeenCalledWith(expect.any(Object))
+    })
+
+    test('shares the Redis client it made with the rest of the server', () => {
+      expect(getRedisClient()).toBe(CatboxRedis.mock.calls.at(-1)[0].client)
     })
 
     test('Should log expected Redis message in ECS shape', () => {

@@ -8,50 +8,6 @@ const notifyClient = createNotifyClient(config.get('notify.aiToolkit.apiKey'))
 // Shown in the email when someone reports a problem without saying what it is.
 const NO_DETAIL = 'They did not say what was wrong.'
 
-// How long a sent report stays claimed, in milliseconds. The session only
-// records the report once the response is written, so a second request that
-// started before then would read an unreported answer. A minute outlasts any
-// request, and the claim then clears itself so the set never grows.
-const SENT_CLAIM_MS = 60_000
-
-// Reports being sent, or just sent, by session and answer.
-const claims = new Set()
-
-/**
- * Claims the right to send one answer's report, so two submissions of the
- * same form at the same moment, a double click or a resent form, send one
- * email between them. Checked and set in one step, so there is no gap
- * between the two.
- * @param {string} key - The session and the answer, together
- * @returns {boolean} Whether this request is the one to send
- */
-function claimReport (key) {
-  if (claims.has(key)) {
-    return false
-  }
-
-  claims.add(key)
-  return true
-}
-
-/**
- * Lets the answer be reported again, after a send that failed.
- * @param {string} key
- * @returns {void}
- */
-function releaseReport (key) {
-  claims.delete(key)
-}
-
-/**
- * Keeps a sent report claimed until the session has certainly recorded it.
- * @param {string} key
- * @returns {void}
- */
-function holdSentReport (key) {
-  setTimeout(() => claims.delete(key), SENT_CLAIM_MS).unref()
-}
-
 /**
  * Whether reports can be sent here. The link is only offered where it works,
  * so an environment without the template never shows a button that fails.
@@ -109,11 +65,4 @@ function buildReportErrorLog (error) {
   }
 }
 
-export {
-  buildReportErrorLog,
-  canSendReports,
-  claimReport,
-  holdSentReport,
-  releaseReport,
-  sendReport
-}
+export { buildReportErrorLog, canSendReports, sendReport }

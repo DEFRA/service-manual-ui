@@ -1242,6 +1242,20 @@ describe('askController', () => {
       expect(retried.headers.location).toBe('/ai-toolkit/ask/answers/1')
     })
 
+    test('sends nothing, and asks to try again, when the claim cannot be made', async () => {
+      const cookie = await startConversation()
+      const claims = await import('../../../../src/server/ai-ask/report-claim.js')
+      const claimSpy = vi.spyOn(claims, 'claimReport')
+      claimSpy.mockRejectedValueOnce(new Error('Redis unavailable'))
+
+      const { statusCode, result } = await report(cookie, 'It is out of date')
+      claimSpy.mockRestore()
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+      expect(notify.trySendEmail).not.toHaveBeenCalled()
+    })
+
     test('rejects a report over the limit, keeping what was written', async () => {
       const cookie = await startConversation()
       const { MAX_REPORT_LENGTH } = await import('../../../../src/server/ai-ask/constants.js')
