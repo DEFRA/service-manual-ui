@@ -22,6 +22,10 @@ export function getRedisClient () {
 export function getCacheEngine (engine) {
   const logger = createLogger()
 
+  // Cleared first, so a switch to memory never leaves the last Redis client
+  // behind for anything that shares it.
+  redisClient = null
+
   if (engine === 'redis') {
     logger.info(
       buildEventLog({

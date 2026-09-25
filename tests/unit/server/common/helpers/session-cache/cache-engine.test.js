@@ -43,6 +43,12 @@ describe('getCacheEngine', () => {
       expect(getRedisClient()).toBe(CatboxRedis.mock.calls.at(-1)[0].client)
     })
 
+    test('shares no Redis client once memory is chosen instead', () => {
+      getCacheEngine('memory')
+
+      expect(getRedisClient()).toBeNull()
+    })
+
     test('Should log expected Redis message in ECS shape', () => {
       expect(mockLoggerInfo).toHaveBeenCalledWith(
         {
