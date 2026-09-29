@@ -42,7 +42,11 @@
       }) }}
     {% endif %}
 
-    <h1 class="govuk-heading-l">{{ outcomeHeadings[exchange.answer.status] or "Your answer" }}</h1>
+    {# The tab title already says which turn this is ("Answer X of Y"), but
+       someone navigating by heading never reaches the tab title. The hidden
+       span repeats the position on the heading itself, so heading navigation
+       tells turns apart the way the tab does. #}
+    <h1 class="govuk-heading-l">{{ outcomeHeadings[exchange.answer.status] or "Your answer" }}<span class="govuk-visually-hidden"> (answer {{ number }} of {{ totalAnswers }})</span></h1>
 
   </div>
 </div>

@@ -253,7 +253,39 @@ describe('askController', () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">Your answer<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
+        )
+      )
+    })
+
+    test('tells the heading and the tab title the same position, for someone navigating by heading', async () => {
+      const { posted, cookie } = await postQuestion('Can I use GitHub Copilot?')
+      const { posted: followedUp, cookie: followUpCookie } = await postQuestion(
+        'How do I choose a tool for my team?',
+        cookie
+      )
+
+      const first = await server.inject({
+        method: 'GET',
+        url: posted.headers.location,
+        headers: { cookie: followUpCookie }
+      })
+      const second = await server.inject({
+        method: 'GET',
+        url: followedUp.headers.location,
+        headers: { cookie: followUpCookie }
+      })
+
+      expect(first.result).toEqual(
+        expect.stringContaining(
+          '<span class="govuk-visually-hidden"> (answer 1 of 2)</span>'
+        )
+      )
+      expect(second.result).toEqual(
+        expect.stringContaining(
+          '<span class="govuk-visually-hidden"> (answer 2 of 2)</span>'
+        )
       )
     })
 
@@ -420,7 +452,7 @@ describe('askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
         )
       )
       expect(result).not.toEqual(expect.stringContaining('Check this answer'))
@@ -431,7 +463,7 @@ describe('askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
+          '<h1 class="govuk-heading-l">The toolkit cannot answer this<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
         )
       )
       expect(result).toEqual(expect.stringContaining('Nearest guidance'))
@@ -451,7 +483,7 @@ describe('askController', () => {
 
       expect(shown.result).toEqual(
         expect.stringContaining(
-          '<h1 class="govuk-heading-l">This one is for the team</h1>'
+          '<h1 class="govuk-heading-l">This one is for the team<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
         )
       )
       expect(shown.result).toEqual(
@@ -480,7 +512,7 @@ describe('askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot help with this question</h1>'
+          '<h1 class="govuk-heading-l">The toolkit cannot help with this question<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
         )
       )
       expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
@@ -513,7 +545,9 @@ describe('askController', () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+        expect.stringContaining(
+          '<h1 class="govuk-heading-l">Your answer<span class="govuk-visually-hidden"> (answer 1 of 1)</span></h1>'
+        )
       )
       expect(result).toEqual(expect.stringContaining('Toolkit answer'))
       expect(result).toEqual(expect.stringContaining('AI can make mistakes'))

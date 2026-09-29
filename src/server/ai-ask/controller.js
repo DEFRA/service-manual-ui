@@ -96,6 +96,11 @@ function renderAnswer (
     // title of every page it sees, so a question in the title would send what
     // someone typed to a third party. The position still tells tabs apart.
     pageTitle: `Answer ${number} of ${exchanges.length}`,
+    // The tab title carries the position in the conversation, but someone
+    // navigating by heading never reaches the tab title, only the <h1>. This
+    // gives the heading the same "answer X of Y" the tab already has, read
+    // out via a visually hidden span so sighted users see no change.
+    totalAnswers: exchanges.length,
     // A back link rather than breadcrumbs. A conversation is a journey, and
     // the Design System says a journey gets a back link and never both. The
     // route out of the service is already in the toolkit navigation above, so
