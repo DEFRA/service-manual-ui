@@ -25,9 +25,16 @@
 
     <h1 class="govuk-heading-xl">Ask the toolkit</h1>
 
-    <p class="govuk-body-l">Get answers from Defra's guidance on using AI, with a link to the page each one came from.</p>
+    {# Says it is AI, as every way in to this page does. The warning that AI
+       can be wrong sits under each answer, where it is acted on. #}
+    <p class="govuk-body-l">Get an AI answer from the toolkit's guidance, with a link to each page it used.</p>
 
-    {% if notice == 'no-conversation' %}
+    {% if notice == 'not-found' %}
+    {# True whether the conversation expired, was never started, or is shorter
+       than the link: an answer address with nothing behind it can be any of
+       these. #}
+    <p class="govuk-body">We could not find that conversation. Conversations are kept for 4 hours after your last question. Ask a new question to start again.</p>
+    {% elif notice == 'no-conversation' %}
     <p class="govuk-body">Your conversation has ended, so there is nothing to send to the team. Ask a new question, or use the contact details below.</p>
     {% endif %}
   </div>
@@ -37,18 +44,24 @@
    is not stranded in two-thirds of an otherwise empty page. Three quarters
    rather than the full width: at full width the field either runs past the 75
    characters a line the layout guidance asks for, or is held back and leaves a
-   band of empty grey beside it. At three quarters the field fills its box and
-   still lands inside the reading measure. #}
+   band of empty grey beside it. #}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
     {% include "partials/ask-question-form.njk" %}
 
-    {# The same one-line warning that sits under every answer, in the same
-       column as the box so both edges line up with it. What the answers draw
-       on is already said in the line under the heading. #}
-    {% set warningText = "AI can make mistakes. Check the guidance before you act." %}
-    {% set warningClass = "app-ask__warning--standalone" %}
-    {% include "partials/ask-warning.njk" %}
+    {# Example questions, so nobody has to ask "where do I start?". Each is a
+       button, because it sends a question, drawn as a link, because it takes
+       you to a new page as a link would and should not compete with the Ask
+       button. #}
+    <form method="post" action="{{ paths.ask }}" class="app-ask__examples" role="group" aria-labelledby="examples-label" data-ask-quick-replies>
+      <p class="govuk-body app-ask__examples-label" id="examples-label">Or try one of these:</p>
+      <ul class="govuk-list app-ask__examples-list">
+        {% for example in exampleQuestions %}
+        <li><button type="submit" name="question" value="{{ example }}" class="app-ask__example">{{ example }}</button></li>
+        {% endfor %}
+      </ul>
+      <div class="govuk-visually-hidden" aria-live="polite" role="status" data-ask-quick-status></div>
+    </form>
 
     {% include "partials/support-box.njk" %}
   </div>

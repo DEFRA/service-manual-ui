@@ -8,10 +8,19 @@
  * flagged-on state inside this file. controller-gated.test.js proves the
  * other direction.
  */
-import { describe, test, expect, beforeAll, afterAll, vi } from 'vitest'
+import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vitest'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 const askUrl = '/ai-toolkit/ask'
+
+// "Report a problem with this answer" sends through GOV.UK Notify. The
+// module is ours, so it is the seam: every other part of the route runs for
+// real.
+const notify = vi.hoisted(() => ({ trySendEmail: vi.fn() }))
+vi.mock('../../../../src/notify/notify-client.js', () => ({
+  createNotifyClient: () => ({}),
+  trySendEmail: notify.trySendEmail
+}))
 
 describe('askController', () => {
   let server
@@ -66,13 +75,15 @@ describe('askController', () => {
 
     test.each([
       ['the page heading', 'Ask the toolkit'],
-      ['what the page is for', "Get answers from Defra's guidance on using AI, with a link to the page each one came from"],
+      ['what the page is for, and that it is AI', 'Get an AI answer from the toolkit'],
+      ['that each answer links to its guidance', 'with a link to each page it used.'],
       ['the question field', 'id="question"'],
       ['a Defra green ask button', 'app-ask__send'],
       ['the route to a person', 'Get help from a person'],
       ['breadcrumbs', 'govuk-breadcrumbs'],
       ['a breadcrumb back to the toolkit', 'href="/ai-toolkit"'],
-      ['the privacy reminder', 'Do not include personal or sensitive information']
+      ['the privacy reminder and the wait, on one line', 'Do not include personal or sensitive data. Answers can take 30 seconds.'],
+      ['example questions to start from', 'What data can I use with AI tools?']
     ])('renders %s', async (_description, expected) => {
       const { result } = await server.inject({
         method: 'GET',
@@ -119,6 +130,34 @@ describe('askController', () => {
       expect(result).not.toEqual(
         expect.stringContaining('Your conversation has ended')
       )
+      expect(result).not.toEqual(
+        expect.stringContaining('We could not find that conversation')
+      )
+    })
+
+    test('leaves the warning that AI can be wrong for the answers, where it is acted on', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: askUrl
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
+    test('offers each example question as a button that asks it', async () => {
+      const { EXAMPLE_QUESTIONS } = await import('../../../../src/server/ai-ask/constants.js')
+      const { result } = await server.inject({
+        method: 'GET',
+        url: askUrl
+      })
+
+      for (const example of EXAMPLE_QUESTIONS) {
+        expect(result).toEqual(
+          expect.stringContaining(
+            `<button type="submit" name="question" value="${example.replaceAll("'", '&#39;')}" class="app-ask__example">`
+          )
+        )
+      }
     })
 
     test('ignores an unrecognised notice value', async () => {
@@ -129,6 +168,9 @@ describe('askController', () => {
 
       expect(result).not.toEqual(
         expect.stringContaining('Your conversation has ended')
+      )
+      expect(result).not.toEqual(
+        expect.stringContaining('We could not find that conversation')
       )
     })
   })
@@ -199,22 +241,27 @@ describe('askController', () => {
         })
 
         expect(statusCode).toBe(statusCodes.ok)
-        // Still the answer page, with the conversation so far on it.
+        // Still the conversation, with the question kept in the box.
         expect(result).toEqual(expect.stringContaining('Can I use GitHub Copilot?'))
-        expect(result).toEqual(expect.stringContaining('Ask a follow-up question'))
+        expect(result).toEqual(expect.stringContaining('What about agents?</textarea>'))
+        // A problem with the service, not the question, so no field error.
+        expect(result).toEqual(
+          expect.stringContaining('Sorry, there is a problem with the service')
+        )
         expect(result).toEqual(expect.stringContaining(NO_ANSWER))
-        expect(result).toEqual(expect.stringContaining('What about agents?'))
+        expect(result).not.toEqual(expect.stringContaining('id="question-error"'))
+        expect(result).toEqual(expect.stringContaining('<title>Error: Question 1, Ask the toolkit'))
       })
 
-      // The failed follow-up was not added to the conversation, so there is
-      // no second answer to read.
+      // The failed follow-up was not added to the conversation, so its
+      // address goes back to the one answer there is.
       const { statusCode, headers } = await server.inject({
         method: 'GET',
         url: '/ai-toolkit/ask/answers/2',
         headers: { cookie }
       })
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe(askUrl)
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
     test('treats a 200 that is not an answer as no answer', async () => {
@@ -246,14 +293,25 @@ describe('askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
-    test('leads with the answer, not a heading made of the question', async () => {
+    test('names the service in the heading, not the question', async () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
+        expect.stringContaining('<h1 class="govuk-heading-l app-ask__title">Ask the toolkit</h1>')
+      )
+    })
+
+    test('names each turn with a heading, so a screen reader can move between them', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('You<span class="govuk-visually-hidden">, question 1</span></h2>')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('AI toolkit<span class="govuk-visually-hidden">, answer 1</span></h2>')
       )
     })
 
@@ -271,7 +329,7 @@ describe('askController', () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).toEqual(
-        expect.stringContaining('<title>Answer 1 of 1 | AI digital toolkit')
+        expect.stringContaining('<title>Question 1, Ask the toolkit | AI digital toolkit')
       )
       expect(result).not.toEqual(expect.stringContaining('How do I choose a tool?</title>'))
     })
@@ -288,10 +346,27 @@ describe('askController', () => {
       const { result } = await ask('How do I choose a tool?')
 
       expect(result).not.toEqual(
-        expect.stringContaining('Do not include personal or sensitive information')
+        expect.stringContaining('Do not include personal or sensitive data')
       )
       expect(result).toEqual(
         expect.stringContaining('aria-describedby="question-info"')
+      )
+    })
+
+    test('asks the follow-up with the same words as the front door', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(expect.stringContaining('Your question'))
+      expect(result).toEqual(
+        expect.stringContaining('Ask<span class="govuk-visually-hidden"> the toolkit</span>')
+      )
+    })
+
+    test('says how long an answer takes where there is no spinner to say it', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('<p class="govuk-hint app-ask__nojs-wait">This can take up to 30 seconds.</p>')
       )
     })
 
@@ -308,7 +383,7 @@ describe('askController', () => {
     test('offers sources to check the answer against', async () => {
       const { result } = await ask('How do I choose a tool?')
 
-      expect(result).toEqual(expect.stringContaining('Check this answer'))
+      expect(result).toEqual(expect.stringContaining('Guidance used'))
       expect(result).toEqual(
         expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
       )
@@ -329,10 +404,13 @@ describe('askController', () => {
       )
     })
 
-    test('shows a need_more_detail answer as a choice of options, in the order sent', async () => {
+    test('shows a need_more_detail answer as quick replies, in the order sent', async () => {
       const { result } = await ask('help me get started')
 
-      expect(result).toEqual(expect.stringContaining('type="radio"'))
+      expect(result).toEqual(
+        expect.stringContaining('Choose one, or ask your own question.')
+      )
+      expect(result).toEqual(expect.stringContaining('app-ask__quick-reply'))
       expect(result).toEqual(
         expect.stringContaining(
           'What data am I allowed to use with an AI tool?'
@@ -351,25 +429,25 @@ describe('askController', () => {
       expect(result).toEqual(expect.stringContaining('id="question"'))
     })
 
-    test('choosing an option and continuing asks it as the next question', async () => {
+    test('pressing a quick reply asks it as the next question', async () => {
       const { posted, cookie } = await postQuestion('help me get started')
 
-      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
+      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
 
       const shown = await server.inject({
         method: 'GET',
-        url: posted.headers.location,
+        url: '/ai-toolkit/ask/answers/1',
         headers: { cookie }
       })
 
-      // Read the value straight out of the rendered radio input, so this
-      // fails if the template or filter ever emitted the wrong name or
-      // value, rather than assuming the fixture text and the markup agree.
-      const radioMatch = shown.result.match(
-        /class="govuk-radios__input" id="option" name="question" type="radio" value="([^"]+)"/
+      // Read the value straight out of the rendered button, so this fails if
+      // the template ever emitted the wrong name or value, rather than
+      // assuming the fixture text and the markup agree.
+      const replyMatch = shown.result.match(
+        /<button type="submit" name="question" value="([^"]+)" class="govuk-button govuk-button--secondary app-ask__quick-reply"/
       )
-      expect(radioMatch).not.toBeNull()
-      const chosen = radioMatch[1]
+      expect(replyMatch).not.toBeNull()
+      const chosen = replyMatch[1]
 
       const { posted: followedUp, cookie: followUpCookie } = await postQuestion(
         chosen,
@@ -378,7 +456,7 @@ describe('askController', () => {
 
       const { result } = await server.inject({
         method: 'GET',
-        url: followedUp.headers.location,
+        url: followedUp.headers.location.split('#')[0],
         headers: { cookie: followUpCookie }
       })
 
@@ -389,50 +467,21 @@ describe('askController', () => {
       )
     })
 
-    test('pressing Continue with no option chosen shows the error on the options, not the free-text box', async () => {
-      const { posted, cookie } = await postQuestion('help me get started')
-
-      const { result } = await server.inject({
-        method: 'POST',
-        url: askUrl,
-        payload: 'from=options',
-        headers: {
-          'content-type': 'application/x-www-form-urlencoded',
-          cookie
-        }
-      })
-
-      expect(result).toEqual(
-        expect.stringContaining('Select an option, or type your question below')
-      )
-      expect(result).toEqual(expect.stringContaining('<title>Error: Answer 1 of 1'))
-      expect(result).toEqual(expect.stringContaining('href="#option"'))
-      expect(result).not.toEqual(expect.stringContaining('Enter your question'))
-
-      const followUpErrorIndex = result.indexOf('id="question-error"')
-      expect(followUpErrorIndex).toBe(-1)
-
-      expect(posted.headers.location).toBe('/ai-toolkit/ask/answers/1')
-    })
-
-    test('shows a cannot_answer, outside_toolkit answer with its own heading and no Check this answer section', async () => {
+    test('shows a cannot_answer, outside_toolkit answer by saying so first, with no guidance used', async () => {
       const { result } = await ask('What is the parking policy?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
-        )
+        expect.stringContaining('The toolkit cannot answer this. It covers choosing a tool')
       )
-      expect(result).not.toEqual(expect.stringContaining('Check this answer'))
+      expect(result).not.toEqual(expect.stringContaining('Guidance used'))
+      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
     })
 
     test('shows a cannot_answer, no_guidance_yet answer with its nearest guidance listed', async () => {
       const { result } = await ask('What is the procurement process?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot answer this</h1>'
-        )
+        expect.stringContaining('The toolkit does not cover this yet.')
       )
       expect(result).toEqual(expect.stringContaining('Nearest guidance'))
       expect(result).toEqual(
@@ -445,18 +494,17 @@ describe('askController', () => {
 
       const shown = await server.inject({
         method: 'GET',
-        url: posted.headers.location,
+        url: posted.headers.location.split('#')[0],
         headers: { cookie }
       })
 
       expect(shown.result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">This one is for the team</h1>'
-        )
+        expect.stringContaining('<p class="govuk-body app-ask__outcome">This one is for the team.</p>')
       )
       expect(shown.result).toEqual(
-        expect.stringContaining('href="/ai-toolkit/ask/help"')
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">Email the AI Capability and Enablement team</a>')
       )
+      expect(shown.result).not.toEqual(expect.stringContaining('AI can make mistakes'))
       expect(shown.result).toEqual(
         expect.stringContaining(
           'This depends on your project, so it needs a conversation with the team rather than a general answer.'
@@ -479,12 +527,47 @@ describe('askController', () => {
       const { result } = await ask('Can you give me legal advice?')
 
       expect(result).toEqual(
-        expect.stringContaining(
-          '<h1 class="govuk-heading-l">The toolkit cannot help with this question</h1>'
-        )
+        expect.stringContaining('AI toolkit<span class="govuk-visually-hidden">, answer 1</span>')
       )
       expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
       expect(result).toEqual(expect.stringContaining('id="question"'))
+      expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
+    test('keeps the route to a person on the last turn of a full conversation', async () => {
+      const { MAX_EXCHANGES } = await import('../../../../src/server/ai-ask/constants.js')
+      let cookie
+      for (let i = 1; i < MAX_EXCHANGES; i++) {
+        ({ cookie } = await postQuestion(`Question ${i}`, cookie))
+      }
+      await postQuestion('Can I use this for my project?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: `/ai-toolkit/ask/answers/${MAX_EXCHANGES}`,
+        headers: { cookie }
+      })
+
+      expect(result).not.toEqual(expect.stringContaining('id="question"'))
+      expect(result).toEqual(
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">Email the AI Capability and Enablement team</a></p>')
+      )
+    })
+
+    test('offers the route to a person on the newest turn only', async () => {
+      const { cookie } = await postQuestion('Can I use this for my project?')
+      await postQuestion('How do I choose a tool?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('This one is for the team.'))
+      expect(result).not.toEqual(
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">Email the AI Capability and Enablement team</a></p>')
+      )
     })
 
     test('shows a soft error answer as the same error summary as a failed fetch, and does not save it', async () => {
@@ -506,16 +589,15 @@ describe('askController', () => {
         url: '/ai-toolkit/ask/answers/1'
       })
       expect(laterStatus).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe(askUrl)
+      expect(headers.location).toBe(`${askUrl}?notice=not-found`)
     })
 
-    test('leaves answered and need_more_detail answers as they were', async () => {
-      const { result } = await ask('How do I choose a tool?')
+    test.each([
+      ['an answered answer', 'How do I choose a tool?'],
+      ['a need_more_detail answer', 'help me get started']
+    ])('warns that %s can be wrong', async (_description, question) => {
+      const { result } = await ask(question)
 
-      expect(result).toEqual(
-        expect.stringContaining('<h1 class="govuk-heading-l">Your answer</h1>')
-      )
-      expect(result).toEqual(expect.stringContaining('Toolkit answer'))
       expect(result).toEqual(expect.stringContaining('AI can make mistakes'))
     })
 
@@ -564,21 +646,27 @@ describe('askController', () => {
       return cookie
     }
 
-    test('sends someone with no conversation back to the start', async () => {
+    test('sends someone with no conversation back to the start, saying why', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'GET',
         url: '/ai-toolkit/ask/answers/1'
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe(askUrl)
+      expect(headers.location).toBe(`${askUrl}?notice=not-found`)
+
+      const { result } = await server.inject({ method: 'GET', url: headers.location })
+
+      expect(result).toEqual(
+        expect.stringContaining('We could not find that conversation. Conversations are kept for 4 hours after your last question.')
+      )
     })
 
     test.each([
       ['past the end of the conversation', '99'],
       ['not a number', 'abc'],
       ['zero', '0']
-    ])('sends an answer number that is %s back to the start', async (_d, number) => {
+    ])('sends an answer number that is %s to the newest turn', async (_d, number) => {
       const cookie = await haveConversation(['Can I use GitHub Copilot?'])
 
       const { statusCode, headers } = await server.inject({
@@ -588,7 +676,7 @@ describe('askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe(askUrl)
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
     test('an earlier answer is still there at its own address', async () => {
@@ -621,10 +709,10 @@ describe('askController', () => {
         headers: { cookie }
       })
 
-      expect(result).not.toEqual(expect.stringContaining('type="radio"'))
+      expect(result).not.toEqual(expect.stringContaining('app-ask__quick-reply'))
     })
 
-    test('lists the conversation as links, one per question', async () => {
+    test('shows the whole conversation on one page, each turn at its own anchor', async () => {
       const cookie = await haveConversation([
         'Can I use GitHub Copilot?',
         'How do I choose a tool for my team?'
@@ -636,28 +724,70 @@ describe('askController', () => {
         headers: { cookie }
       })
 
-      expect(result).toEqual(expect.stringContaining('This conversation'))
-      expect(result).toEqual(
-        expect.stringContaining('href="/ai-toolkit/ask/answers/1"')
+      expect(result).toEqual(expect.stringContaining('id="turn-1"'))
+      expect(result).toEqual(expect.stringContaining('id="turn-2"'))
+      expect(result.indexOf('Can I use GitHub Copilot?')).toBeLessThan(
+        result.indexOf('How do I choose a tool for my team?')
       )
     })
 
-    test('shows no conversation list while there is only one question to choose from', async () => {
-      const cookie = await haveConversation(['Can I use GitHub Copilot?'])
+    describe('in a long conversation', () => {
+      const questions = [
+        'Question one',
+        'Question two',
+        'Question three',
+        'Question four',
+        'Question five'
+      ]
 
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/ai-toolkit/ask/answers/1',
-        headers: { cookie }
+      test('shows the last three turns, with a way to show the rest', async () => {
+        const cookie = await haveConversation(questions)
+
+        const { result } = await server.inject({
+          method: 'GET',
+          url: '/ai-toolkit/ask/answers/5',
+          headers: { cookie }
+        })
+
+        expect(result).not.toEqual(expect.stringContaining('id="turn-2"'))
+        expect(result).toEqual(expect.stringContaining('id="turn-3"'))
+        expect(result).toEqual(
+          expect.stringContaining('href="/ai-toolkit/ask/answers/5?all=1#turn-1">Show 2 earlier questions</a>')
+        )
       })
 
-      expect(result).not.toEqual(expect.stringContaining('This conversation'))
+      test('shows every turn once asked to', async () => {
+        const cookie = await haveConversation(questions)
+
+        const { result } = await server.inject({
+          method: 'GET',
+          url: '/ai-toolkit/ask/answers/5?all=1',
+          headers: { cookie }
+        })
+
+        expect(result).toEqual(expect.stringContaining('id="turn-1"'))
+        expect(result).not.toEqual(expect.stringContaining('earlier question'))
+      })
+
+      test('shows every turn when the address is for one that would be hidden', async () => {
+        const cookie = await haveConversation(questions)
+
+        const { result } = await server.inject({
+          method: 'GET',
+          url: '/ai-toolkit/ask/answers/1',
+          headers: { cookie }
+        })
+
+        expect(result).toEqual(expect.stringContaining('id="turn-1"'))
+        expect(result).toEqual(expect.stringContaining('id="turn-5"'))
+      })
     })
 
     test.each([
       ['the same support box as the rest of the toolkit', 'Get help from a person'],
       ['a route to a person that can carry the conversation', 'href="/ai-toolkit/ask/help"'],
       ['a way to start over, at the field', 'Asking about something else?'],
+      ['a way to report a problem with the answer', 'href="/ai-toolkit/ask/answers/1/report">Report a problem with this answer'],
       ['start over as a link to a confirmation page', 'href="/ai-toolkit/ask/restart"']
     ])('renders %s', async (_description, expected) => {
       const cookie = await haveConversation(['Can I use GitHub Copilot?'])
@@ -695,11 +825,11 @@ describe('askController', () => {
       })
       expect(refused.statusCode).toBe(statusCodes.seeOther)
       expect(refused.headers.location).toBe(
-        `/ai-toolkit/ask/answers/${MAX_EXCHANGES}`
+        `/ai-toolkit/ask/answers/${MAX_EXCHANGES}#turn-${MAX_EXCHANGES}`
       )
     })
 
-    test('marks the answer being read, and does not link it to itself', async () => {
+    test('holds one question box, under the newest turn, on any answer address', async () => {
       const cookie = await haveConversation([
         'Can I use GitHub Copilot?',
         'How do I choose a tool for my team?'
@@ -707,43 +837,13 @@ describe('askController', () => {
 
       const { result } = await server.inject({
         method: 'GET',
-        url: '/ai-toolkit/ask/answers/2',
-        headers: { cookie }
-      })
-
-      expect(result).toEqual(expect.stringContaining('aria-current="page"'))
-      expect(result).not.toEqual(
-        expect.stringContaining('href="/ai-toolkit/ask/answers/2"')
-      )
-    })
-
-    test('only the newest answer can be followed on from', async () => {
-      const cookie = await haveConversation([
-        'Can I use GitHub Copilot?',
-        'How do I choose a tool for my team?'
-      ])
-
-      const earlier = await server.inject({
-        method: 'GET',
         url: '/ai-toolkit/ask/answers/1',
         headers: { cookie }
       })
-      const latest = await server.inject({
-        method: 'GET',
-        url: '/ai-toolkit/ask/answers/2',
-        headers: { cookie }
-      })
 
-      expect(earlier.result).not.toEqual(
-        expect.stringContaining('Ask a follow-up question')
-      )
-      expect(earlier.result).toEqual(
-        expect.stringContaining(
-          'You can only ask from the latest answer in a conversation.'
-        )
-      )
-      expect(latest.result).toEqual(
-        expect.stringContaining('Ask a follow-up question')
+      expect(result.match(/id="question"/g)).toHaveLength(1)
+      expect(result.indexOf('id="question"')).toBeGreaterThan(
+        result.indexOf('How do I choose a tool for my team?')
       )
     })
 
@@ -779,7 +879,7 @@ describe('askController', () => {
       // is what the list at the foot of the page exists to avoid.
       expect(result).toEqual(
         expect.stringContaining(
-          '<a href="/ai-toolkit/ask/answers/3" class="govuk-back-link">Back to where you got to'
+          '<a href="/ai-toolkit/ask/answers/3#turn-3" class="govuk-back-link">Back to where you got to'
         )
       )
     })
@@ -844,7 +944,7 @@ describe('askController', () => {
       })
 
       expect(statusCode).toBe(statusCodes.seeOther)
-      expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
     test('asks before starting a new conversation, so a prefetched link cannot clear one', async () => {
@@ -859,7 +959,7 @@ describe('askController', () => {
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('This deletes the 1 question and answer in your current conversation.'))
       expect(result).toEqual(expect.stringContaining('action="/ai-toolkit/ask/restart"'))
-      expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1">Cancel'))
+      expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1#turn-1">Cancel'))
     })
     test('pluralizes questions and answers when there is more than one', async () => {
       const { cookie } = await postQuestion('How do I choose a tool?')
@@ -902,7 +1002,7 @@ describe('askController', () => {
       })
 
       expect(after.statusCode).toBe(statusCodes.seeOther)
-      expect(after.headers.location).toBe(askUrl)
+      expect(after.headers.location).toBe(`${askUrl}?notice=not-found`)
     })
   })
 
@@ -996,6 +1096,431 @@ describe('askController', () => {
     })
   })
 
+  describe('reporting a problem with an answer', () => {
+    /**
+     * Asks one question and returns the session cookie.
+     * @returns {Promise<string>}
+     */
+    async function startConversation () {
+      const { cookie } = await postQuestion('How do I choose a tool?')
+
+      return cookie
+    }
+
+    /**
+     * The id the report form carries for answer 1, read from the form itself
+     * so the test sends what a browser would.
+     * @param {string} cookie
+     * @returns {Promise<string>}
+     */
+    async function formExchangeId (cookie) {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1/report',
+        headers: { cookie }
+      })
+
+      return result.match(/name="exchange" value="([^"]+)"/)?.[1] ?? ''
+    }
+
+    /**
+     * Sends the report form for answer 1, as opened in this conversation.
+     * @param {string} cookie
+     * @param {string} problem
+     * @param {string} [exchange] - The id the form carries; read from the page if not given
+     * @returns {Promise<object>}
+     */
+    async function report (cookie, problem, exchange) {
+      const id = exchange ?? await formExchangeId(cookie)
+
+      return server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/answers/1/report',
+        payload: `exchange=${encodeURIComponent(id)}&problem=${encodeURIComponent(problem)}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+    }
+
+    afterEach(() => {
+      notify.trySendEmail.mockReset()
+    })
+
+    test('says which answer is being reported, and what will be sent', async () => {
+      const cookie = await startConversation()
+
+      const { statusCode, result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1/report',
+        headers: { cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('<h1 class="govuk-heading-l">Report a problem with this answer</h1>'))
+      expect(result).toEqual(expect.stringContaining('You are reporting the answer to'))
+      expect(result).toEqual(expect.stringContaining('How do I choose a tool?'))
+      expect(result).toEqual(expect.stringContaining('We will send the question, the answer and anything you write below'))
+      expect(result).toEqual(expect.stringContaining('action="/ai-toolkit/ask/answers/1/report"'))
+      expect(result).toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1#turn-1" class="govuk-back-link"'))
+    })
+
+    test('sends the question, the answer and what is wrong to the shared mailbox', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+
+      const { statusCode, headers } = await report(cookie, 'It is out of date')
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1')
+      expect(notify.trySendEmail).toHaveBeenCalledWith(
+        expect.anything(),
+        '6a1c2d3e-4f50-4a61-8b72-9c8d0e1f2a3b',
+        'dummy-mailbox-email-for-tests@example.com',
+        {
+          personalisation: {
+            answerNumber: '1',
+            problem: 'It is out of date',
+            exchange: expect.stringContaining('You asked:\nHow do I choose a tool?')
+          }
+        }
+      )
+    })
+
+    test.each([
+      ['only spaces', '&problem=%20%20%20'],
+      ['no field at all', '']
+    ])('says so when someone reports a problem with %s', async (_description, extra) => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      const exchange = await formExchangeId(cookie)
+
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/answers/1/report',
+        payload: `exchange=${exchange}${extra}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(notify.trySendEmail.mock.calls[0][3].personalisation.problem).toBe(
+        'They did not say what was wrong.'
+      )
+    })
+
+    test('confirms the report once, back in the conversation', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+
+      await report(cookie, 'It is out of date')
+
+      const first = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+      const second = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+
+      expect(first.result).toEqual(expect.stringContaining('has your report on answer 1'))
+      expect(second.result).not.toEqual(expect.stringContaining('has your report on answer 1'))
+    })
+
+    test('sends one report per answer, however many times the form is sent', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+
+      await report(cookie, 'It is out of date')
+      const again = await report(cookie, 'It is out of date')
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(1)
+      expect(again.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+
+      const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+      expect(result).toEqual(expect.stringContaining('Report sent<span class="govuk-visually-hidden"> for answer 1</span>'))
+      expect(result).not.toEqual(expect.stringContaining('href="/ai-toolkit/ask/answers/1/report"'))
+    })
+
+    test('sends one email when the same report arrives twice at once', async () => {
+      const cookie = await startConversation()
+      let finishSending
+      notify.trySendEmail.mockImplementation(() => new Promise((resolve) => {
+        finishSending = () => resolve([{ data: {}, status: 201 }, null])
+      }))
+
+      const exchange = await formExchangeId(cookie)
+      const first = report(cookie, 'It is out of date', exchange)
+      await vi.waitFor(() => expect(notify.trySendEmail).toHaveBeenCalledTimes(1))
+      const second = await report(cookie, 'It is out of date', exchange)
+      finishSending()
+      await first
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(1)
+      expect(second.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+    })
+
+    test('can be sent again after a send that failed', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail
+        .mockResolvedValueOnce([null, { status: 500, data: null, message: 'Down' }])
+        .mockResolvedValueOnce([{ data: {}, status: 201 }, null])
+
+      await report(cookie, 'It is out of date')
+      const retried = await report(cookie, 'It is out of date')
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(2)
+      expect(retried.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
+    test('sends nothing, and asks to try again, when the claim cannot be made', async () => {
+      const cookie = await startConversation()
+      const claims = await import('../../../../src/server/ai-ask/report-claim.js')
+      const claimSpy = vi.spyOn(claims, 'claimReport')
+      claimSpy.mockRejectedValueOnce(new Error('Redis unavailable'))
+
+      const { statusCode, result } = await report(cookie, 'It is out of date')
+      claimSpy.mockRestore()
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+      expect(notify.trySendEmail).not.toHaveBeenCalled()
+    })
+
+    test('lets the first answer of a new conversation be reported straight after the last', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      await report(cookie, 'It is out of date')
+
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('How do I choose a tool?', cookie)
+      const second = await report(cookie, 'This one too')
+
+      expect(notify.trySendEmail).toHaveBeenCalledTimes(2)
+      expect(second.headers.location).toBe('/ai-toolkit/ask/answers/1')
+    })
+
+    test('does not carry a report confirmation into a new conversation', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      await report(cookie, 'It is out of date')
+
+      // Start again before the confirmation is ever shown.
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('How do I choose a tool?', cookie)
+      const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+
+      expect(result).not.toEqual(expect.stringContaining('has your report on answer'))
+    })
+
+    test('still asks to try again when the claim cannot be released after a failed send', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([null, { status: 500, data: null, message: 'Down' }])
+      const claims = await import('../../../../src/server/ai-ask/report-claim.js')
+      const releaseSpy = vi.spyOn(claims, 'releaseReport')
+      releaseSpy.mockRejectedValueOnce(new Error('Redis unavailable'))
+
+      const { statusCode, result } = await report(cookie, 'It is out of date')
+      releaseSpy.mockRestore()
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+    })
+
+    test('sends nothing from a form left open while the conversation changed in another tab', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([{ data: {}, status: 201 }, null])
+      const oldExchange = await formExchangeId(cookie)
+
+      await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+      await postQuestion('A different first question', cookie)
+
+      const stale = await report(cookie, 'It is out of date', oldExchange)
+
+      expect(notify.trySendEmail).not.toHaveBeenCalled()
+      expect(stale.statusCode).toBe(statusCodes.seeOther)
+      expect(stale.headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+    })
+
+    test('rejects a report over the limit, keeping what was written', async () => {
+      const cookie = await startConversation()
+      const { MAX_REPORT_LENGTH } = await import('../../../../src/server/ai-ask/constants.js')
+      const tooLong = 'a'.repeat(MAX_REPORT_LENGTH + 1)
+
+      const { statusCode, result } = await report(cookie, tooLong)
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(`Your report must be ${MAX_REPORT_LENGTH} characters or less`))
+      expect(result).toEqual(expect.stringContaining('<title>Error: Report a problem with this answer'))
+      expect(result).toEqual(expect.stringContaining(tooLong))
+      expect(notify.trySendEmail).not.toHaveBeenCalled()
+    })
+
+    test('says the service failed when Notify does, keeping what was written', async () => {
+      const cookie = await startConversation()
+      notify.trySendEmail.mockResolvedValue([null, { status: 500, data: { errors: [{ message: 'Internal server error' }] } }])
+
+      const { statusCode, result } = await report(cookie, 'It is out of date')
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Sorry, there is a problem with the service'))
+      expect(result).toEqual(expect.stringContaining('Your report could not be sent.'))
+      expect(result).toEqual(expect.stringContaining('It is out of date</textarea>'))
+    })
+
+    test.each([
+      ['a report page', 'GET'],
+      ['a report', 'POST']
+    ])('sends %s for an answer that is not there to the newest turn', async (_d, method) => {
+      const cookie = await startConversation()
+
+      const { statusCode, headers } = await server.inject({
+        method,
+        url: '/ai-toolkit/ask/answers/9/report',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+    })
+
+    test('sends someone with no conversation back to the start, saying why', async () => {
+      const { statusCode, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1/report'
+      })
+
+      expect(statusCode).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(`${askUrl}?notice=not-found`)
+    })
+
+    describe('where no report template is set', () => {
+      let previousTemplate
+
+      beforeAll(async () => {
+        const { config } = await import('../../../../src/config/config.js')
+        previousTemplate = config.get('notify.aiToolkit.askReportTemplateId')
+        config.set('notify.aiToolkit.askReportTemplateId', '')
+      })
+
+      afterAll(async () => {
+        const { config } = await import('../../../../src/config/config.js')
+        config.set('notify.aiToolkit.askReportTemplateId', previousTemplate)
+      })
+
+      test('offers no report link', async () => {
+        const cookie = await startConversation()
+
+        const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/1', headers: { cookie } })
+
+        expect(result).not.toEqual(expect.stringContaining('Report a problem with this answer'))
+      })
+
+      test('sends a stale report link back to the conversation', async () => {
+        const cookie = await startConversation()
+
+        const { statusCode, headers } = await report(cookie, 'It is out of date')
+
+        expect(statusCode).toBe(statusCodes.seeOther)
+        expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+        expect(notify.trySendEmail).not.toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe('a question handed over from site search', () => {
+    /**
+     * @param {string} question
+     * @param {string} [cookie]
+     * @returns {Promise<object>}
+     */
+    function handOver (question, cookie) {
+      return server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `prefill=yes&question=${encodeURIComponent(question)}`,
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded',
+          ...(cookie ? { cookie } : {})
+        }
+      })
+    }
+
+    test('is filled in on the front door, beside the privacy reminder, and not sent', async () => {
+      const { statusCode, result } = await handOver('copilot personal data')
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('copilot personal data</textarea>'))
+      expect(result).toEqual(expect.stringContaining('Do not include personal or sensitive data.'))
+      expect(result).not.toEqual(expect.stringContaining('There is a problem'))
+    })
+
+    test('leaves the box empty, with no error, when nothing was handed over', async () => {
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: 'prefill=yes',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('app-ask-question"'))
+      expect(result).not.toEqual(expect.stringContaining('There is a problem'))
+    })
+
+    test('is carried through starting again when the conversation is full', async () => {
+      const { MAX_EXCHANGES } = await import('../../../../src/server/ai-ask/constants.js')
+      let cookie
+      for (let i = 1; i <= MAX_EXCHANGES; i++) {
+        ({ cookie } = await postQuestion(`Question ${i}`, cookie))
+      }
+
+      const offered = await handOver('copilot personal data', cookie)
+
+      expect(offered.result).toEqual(expect.stringContaining('<h1 class="govuk-heading-l">Start a new conversation</h1>'))
+      expect(offered.result).toEqual(expect.stringContaining('Your question will be ready to ask in a new one.'))
+      expect(offered.result).toEqual(expect.stringContaining('<input type="hidden" name="question" value="copilot personal data">'))
+
+      const restarted = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/restart',
+        payload: 'question=copilot%20personal%20data',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(restarted.statusCode).toBe(statusCodes.ok)
+      expect(restarted.result).toEqual(expect.stringContaining('copilot personal data</textarea>'))
+      const { statusCode } = await server.inject({ method: 'GET', url: askUrl, headers: { cookie } })
+      expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test('is filled in under the conversation when one is open', async () => {
+      const { cookie } = await postQuestion('How do I choose a tool?')
+
+      const { result } = await handOver('copilot personal data', cookie)
+
+      expect(result).toEqual(expect.stringContaining('How do I choose a tool?'))
+      expect(result).toEqual(expect.stringContaining('copilot personal data</textarea>'))
+
+      const { headers } = await server.inject({ method: 'GET', url: '/ai-toolkit/ask/answers/2', headers: { cookie } })
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
+    })
+
+    test.each([
+      ['a search about AI', 'can I use copilot with personal data', true],
+      ['another search', 'book a service assessment', false],
+      ['a search about AI too long to ask', `copilot ${'a'.repeat(500)}`, false],
+      ['a word that only contains ai', 'detail', false]
+    ])('is offered on %s', async (_description, query, offered) => {
+      const { result } = await server.inject({ method: 'GET', url: `/search?q=${encodeURIComponent(query)}` })
+
+      expect(result.includes('name="prefill" value="yes"')).toBe(offered)
+    })
+  })
+
   describe('the navigation link on other toolkit pages', () => {
     test.each([
       ['the toolkit landing page', '/ai-toolkit'],
@@ -1006,6 +1531,14 @@ describe('askController', () => {
 
       expect(result).toEqual(
         expect.stringContaining(`href="${askUrl}">Ask the toolkit</a>`)
+      )
+    })
+
+    test('the toolkit landing page also offers it under Start now, as a link', async () => {
+      const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit' })
+
+      expect(result).toEqual(
+        expect.stringContaining(`Have a question? <a href="${askUrl}" class="govuk-link app-triage__start-secondary-link">Ask the toolkit</a> for an AI answer.`)
       )
     })
   })

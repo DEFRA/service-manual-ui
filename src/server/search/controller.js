@@ -3,8 +3,14 @@ import {
   getSuggestions,
   getSearchIndex
 } from '../common/helpers/search-index.js'
+import { MAX_QUESTION_LENGTH } from '../ai-ask/constants.js'
 
 const MAX_AUTOCOMPLETE_SUGGESTIONS = 5
+
+// Ask the toolkit is offered only on a search about AI, because it answers
+// from the AI digital toolkit and not the whole service manual, and only on
+// one short enough to ask as it stands.
+const AI_TERMS = /\b(ai|copilot|chatgpt|gpt|claude|gemini|llm|genai|agents?|machine learning|prompts?|chatbots?)\b/i
 
 /**
  * Search results page controller
@@ -19,7 +25,8 @@ export const searchController = {
       heading: 'Search results',
       query,
       results,
-      resultsCount: results.length
+      resultsCount: results.length,
+      offerAsk: query.length <= MAX_QUESTION_LENGTH && AI_TERMS.test(query)
     })
   }
 }

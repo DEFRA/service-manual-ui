@@ -198,6 +198,12 @@ export const config = convict({
         default: null,
         env: 'AI_TOOLKIT_CONFIRMATION_TEMPLATE_ID'
       },
+      askReportTemplateId: {
+        doc: 'Gov.UK Notify template ID for a problem reported with an Ask the toolkit answer, sent to the shared mailbox. Empty turns reports off, so an environment without the template never offers them',
+        format: String,
+        default: '',
+        env: 'AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID'
+      },
       verificationCodeTemplateId: {
         doc: 'Gov.UK Notify template ID for verification code email',
         format: String,

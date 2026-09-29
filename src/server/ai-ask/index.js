@@ -7,6 +7,8 @@ import {
   restartController,
   restartPostController,
   helpController,
+  reportController,
+  reportPostController,
   stuckController
 } from './controller.js'
 import { MAX_PAYLOAD_BYTES } from './constants.js'
@@ -72,6 +74,20 @@ export const aiAsk = {
           method: 'GET',
           path: helpPath,
           ...helpController
+        },
+        {
+          // "Report a problem with this answer". The handlers send people back
+          // to the conversation where reports are not set up, as well as
+          // leaving the link off, so a stale link never reaches a dead form.
+          method: 'GET',
+          path: `${answersPath}/{number}/report`,
+          ...reportController
+        },
+        {
+          method: 'POST',
+          path: `${answersPath}/{number}/report`,
+          options: { payload: formPayload },
+          ...reportPostController
         },
         {
           // GET asks, POST does it. Clearing a conversation on a GET would let

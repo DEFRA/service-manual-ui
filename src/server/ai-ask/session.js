@@ -1,6 +1,7 @@
-import { answerPath } from './paths.js'
+import { randomUUID } from 'node:crypto'
 
 const SESSION_KEY = 'ai-ask'
+const REPORTED_KEY = 'ai-ask-reported'
 
 /**
  * The conversation is held in the server-side session, which expires after
@@ -17,7 +18,21 @@ const SESSION_KEY = 'ai-ask'
  * @returns {Array<{question: string, answer: object}>} Oldest first
  */
 export function getExchanges (yar) {
-  return yar.get(SESSION_KEY) ?? []
+  const exchanges = yar.get(SESSION_KEY) ?? []
+
+  if (exchanges.every((exchange) => exchange.id)) {
+    return exchanges
+  }
+
+  // A conversation begun before answers had ids of their own, still in a
+  // session that has not expired. Each answer gets one now, kept in the
+  // session, so it can be reported like any other.
+  const withIds = exchanges.map((exchange) =>
+    exchange.id ? exchange : { ...exchange, id: randomUUID() }
+  )
+  yar.set(SESSION_KEY, withIds)
+
+  return withIds
 }
 
 /**
@@ -27,26 +42,6 @@ export function getExchanges (yar) {
  */
 export function addExchange (yar, exchange) {
   yar.set(SESSION_KEY, [...getExchanges(yar), exchange])
-}
-
-/**
- * Turns the conversation into the index shown beside every answer: one entry
- * per question, in the order they were asked, each addressing its own page.
- * @param {Array<object>} exchanges
- * @param {number} [currentNumber] The answer being read, 1-based
- * @returns {Array<{number: number, question: string, href: string, isCurrent: boolean}>}
- */
-export function toThread (exchanges, currentNumber) {
-  return exchanges.map((exchange, index) => {
-    const number = index + 1
-
-    return {
-      number,
-      question: exchange.question,
-      href: answerPath(number),
-      isCurrent: number === currentNumber
-    }
-  })
 }
 
 /**
@@ -76,4 +71,55 @@ export function findExchange (exchanges, number) {
  */
 export function clearConversation (yar) {
   yar.clear(SESSION_KEY)
+  // A report confirmation not yet shown belongs to the conversation going,
+  // not the next one.
+  yar.flash(REPORTED_KEY)
+}
+
+/**
+ * Records that an answer was reported, on the answer itself, so its link says
+ * "Report sent", and forgotten with the conversation. Found by the answer's
+ * id, not its place, so a conversation that changed during the send is never
+ * marked in the wrong place.
+ * @param {import('@hapi/yar').Yar} yar
+ * @param {string} id - The id of the answer reported
+ * @returns {number|null} Its place in the conversation, 1-based, or null if
+ *   it is no longer there
+ */
+export function markReported (yar, id) {
+  const exchanges = getExchanges(yar)
+  const index = exchanges.findIndex((exchange) => exchange.id === id)
+
+  if (index === -1) {
+    return null
+  }
+
+  yar.set(
+    SESSION_KEY,
+    exchanges.map((exchange, i) => (i === index ? { ...exchange, reported: true } : exchange))
+  )
+
+  return index + 1
+}
+
+/**
+ * Remembers, for the next page only, which answer was just reported, so the
+ * conversation can confirm it once. A flash rather than a query string, so
+ * refreshing the page does not confirm it again.
+ * @param {import('@hapi/yar').Yar} yar
+ * @param {number} number - The answer reported, 1-based
+ * @returns {void}
+ */
+export function flashReported (yar, number) {
+  yar.flash(REPORTED_KEY, number, true)
+}
+
+/**
+ * @param {import('@hapi/yar').Yar} yar
+ * @returns {number|null} The answer just reported, if there was one
+ */
+export function takeReported (yar) {
+  const reported = yar.flash(REPORTED_KEY)
+
+  return Number.isInteger(reported) ? reported : null
 }

@@ -16,3 +16,21 @@ export const answersPath = `${askPath}/answers`
 export function answerPath (number) {
   return `${answersPath}/${number}`
 }
+
+/**
+ * An answer page opened at its own turn, so the page lands on that turn
+ * rather than the top of the conversation.
+ * @param {number} number - Position of the answer in the conversation, 1-based
+ * @returns {string}
+ */
+export function turnPath (number) {
+  return `${answerPath(number)}#turn-${number}`
+}
+
+/**
+ * @param {number} number - Position of the answer being reported, 1-based
+ * @returns {string}
+ */
+export function reportPath (number) {
+  return `${answerPath(number)}/report`
+}

@@ -26,6 +26,18 @@
         {% endif %}
       </p>
 
+      {% if offerAsk and featureFlags.askEnabled %}
+      {# POST, so the words do not go into another address, and they are only
+         filled in on the Ask page, beside its personal data reminder, for the
+         person to send themselves. #}
+      <form method="post" action="/ai-toolkit/ask" class="govuk-inset-text app-ask-search">
+        <input type="hidden" name="prefill" value="yes">
+        <input type="hidden" name="question" value="{{ query }}">
+        <p class="govuk-body">Ask the toolkit uses AI to answer from the AI digital toolkit's guidance, with a link to each page it used.</p>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Ask the toolkit</button>
+      </form>
+      {% endif %}
+
       {% if resultsCount > 0 %}
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 

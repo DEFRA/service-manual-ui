@@ -13,6 +13,19 @@
   )
 );
 
-.govuk-button:hover:not([disabled]) {
+// Defra green hover for the primary button only. govuk-frontend v6 gives the
+// secondary, warning and inverse buttons their own hover colours; applying
+// dark green to them left black text on dark green, which is unreadable.
+// :where() keeps this at the specificity of the original rule, so component
+// hovers declared later (such as the white Start now in the hero) still win.
+.govuk-button:where(:not(.govuk-button--secondary):not(.govuk-button--warning):not(.govuk-button--inverse)):hover:not([disabled]) {
   background-color: color.adjust($defra-green, $lightness: -20%);
+}
+
+// Defra green on the success banner, in place of GOV.UK's own success green.
+// Set through the colour variable govuk-frontend reads, because its banner
+// styles load after this file. White on Defra green is 4.77:1, so the
+// "Success" title still passes AA.
+.govuk-notification-banner--success {
+  --govuk-success-colour: #{$defra-green};
 }
