@@ -227,6 +227,18 @@ describe('toHistory', () => {
     expect(sent.message).toHaveLength(MAX_MESSAGE_LENGTH)
   })
 
+  test('cuts by characters, never through the middle of an emoji', () => {
+    // An emoji is two UTF-16 units. Cutting between them sends half of it,
+    // which the backend cannot pass on to Bedrock.
+    const message = `${'x'.repeat(MAX_MESSAGE_LENGTH - 1)}😀 and more`
+
+    const [sent] = toHistory([turn('Long?', { message })])
+
+    expect(sent.message).toBe(`${'x'.repeat(MAX_MESSAGE_LENGTH - 1)}😀`)
+    expect(Array.from(sent.message)).toHaveLength(MAX_MESSAGE_LENGTH)
+    expect(sent.message.isWellFormed()).toBe(true)
+  })
+
   test('sends an empty message and no options for an answer that had none', () => {
     const [sent] = toHistory([turn('Old?', { message: null, options: undefined })])
 

@@ -62,7 +62,9 @@ export function toHistory (exchanges) {
     .map(({ question, answer }) => ({
       question,
       status: answer.status,
-      message: (answer.message ?? '').slice(0, MAX_MESSAGE_LENGTH),
+      // Cut by character, as the backend counts, not by UTF-16 unit: slice
+      // could split an emoji and send half of it.
+      message: Array.from(answer.message ?? '').slice(0, MAX_MESSAGE_LENGTH).join(''),
       options: answer.options ?? []
     }))
 }
