@@ -24,13 +24,12 @@ describe('#chatApi', () => {
     test('answers from the fixtures and never calls out', async () => {
       config.set('aiContent.askApiUrl', '')
 
-      const answer = await answerFor('Can I use Copilot?', {
-        previousQuestion: 'Which tool?'
-      })
+      const history = [{ question: 'Which tool?', status: 'answered', message: 'M', options: [] }]
 
-      expect(answer).toEqual(
-        fixtureAnswerFor('Can I use Copilot?', { previousQuestion: 'Which tool?' })
-      )
+      const answer = await answerFor('what about it?', { history })
+
+      expect(answer).toEqual(fixtureAnswerFor('what about it?', { history }))
+      expect(answer.message).toEqual(expect.stringContaining('Still on "Which tool?"'))
       expect(fetch).not.toHaveBeenCalled()
     })
   })
@@ -53,30 +52,28 @@ describe('#chatApi', () => {
       })
     })
 
-    test('posts the question and the previous question to /ask', async () => {
-      await answerFor('what about agents?', { previousQuestion: 'Copilot?' })
+    test('posts the question and the conversation so far to /ask', async () => {
+      const history = [
+        { question: 'Copilot?', status: 'answered', message: 'An answer', options: [] }
+      ]
+
+      await answerFor('what about agents?', { history })
 
       expect(fetch).toHaveBeenCalledWith(
         'http://backend:8085/ask',
         expect.objectContaining({
           method: 'POST',
           headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            question: 'what about agents?',
-            previous_question: 'Copilot?'
-          })
+          body: JSON.stringify({ question: 'what about agents?', history })
         })
       )
     })
 
-    test('sends null, not undefined, for a first question', async () => {
+    test('sends an empty history, not a missing one, for a first question', async () => {
       await answerFor('Copilot?')
 
       const { body } = fetch.mock.calls[0][1]
-      expect(JSON.parse(body)).toEqual({
-        question: 'Copilot?',
-        previous_question: null
-      })
+      expect(JSON.parse(body)).toEqual({ question: 'Copilot?', history: [] })
     })
 
     test('aborts the request after the configured timeout', async () => {

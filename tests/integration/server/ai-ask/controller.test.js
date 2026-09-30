@@ -284,6 +284,29 @@ describe('askController', () => {
       })
     })
 
+    test('sends the backend the conversation so far, leaving out a blocked turn', async () => {
+      const { cookie } = await postQuestion('Can I use GitHub Copilot?')
+      await postQuestion('Can you give me legal advice?', cookie)
+
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({ status: 'answered', message: 'Corrected.', sources: [] })
+      })
+
+      await withBackend(fetchStub, async () => {
+        await postQuestion("That's wrong, there is more detail", cookie)
+      })
+
+      const { question, history } = JSON.parse(fetchStub.mock.calls[0][1].body)
+      expect(question).toBe("That's wrong, there is more detail")
+      expect(history).toEqual([
+        expect.objectContaining({ question: 'Can I use GitHub Copilot?', status: 'answered' })
+      ])
+      expect(history[0].message).toEqual(expect.any(String))
+      expect(history[0].message).not.toBe('')
+    })
+
     test('sends each answer to a page of its own', async () => {
       const { statusCode, headers } = await server.inject({
         method: 'POST',

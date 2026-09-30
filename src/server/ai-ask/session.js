@@ -1,5 +1,7 @@
 import { randomUUID } from 'node:crypto'
 
+import { MAX_HISTORY_TURNS, MAX_MESSAGE_LENGTH } from './constants.js'
+
 const SESSION_KEY = 'ai-ask'
 const REPORTED_KEY = 'ai-ask-reported'
 
@@ -42,6 +44,27 @@ export function getExchanges (yar) {
  */
 export function addExchange (yar, exchange) {
   yar.set(SESSION_KEY, [...getExchanges(yar), exchange])
+}
+
+/**
+ * The recent conversation, as the backend reads it: the words of each
+ * question and answer, without the sources or quoted rule.
+ *
+ * A blocked turn is left out, so a refused attempt to steer the model is not
+ * handed back to it, and does not use up one of the turns.
+ * @param {Array<object>} exchanges
+ * @returns {Array<{question: string, status: string, message: string, options: Array<string>}>} Oldest first
+ */
+export function toHistory (exchanges) {
+  return exchanges
+    .filter(({ answer }) => answer.status !== 'blocked')
+    .slice(-MAX_HISTORY_TURNS)
+    .map(({ question, answer }) => ({
+      question,
+      status: answer.status,
+      message: (answer.message ?? '').slice(0, MAX_MESSAGE_LENGTH),
+      options: answer.options ?? []
+    }))
 }
 
 /**

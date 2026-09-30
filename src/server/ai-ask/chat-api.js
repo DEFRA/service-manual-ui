@@ -28,28 +28,25 @@ function askUrl () {
 }
 
 /**
- * Fetches the answer to a question.
+ * Fetches the answer to a question, read against the conversation so far.
  *
  * Any failure to get an answer from the backend, whether a non-2xx status, a
  * timeout or a refused connection, throws for the controller to log and turn
  * into a message on the page.
  * @param {string} question
  * @param {object} [context]
- * @param {string} [context.previousQuestion] The question asked before this one
+ * @param {Array<object>} [context.history] Recent turns, oldest first, from session.toHistory
  * @returns {Promise<object>} An answer in the API wire shape
  */
-export async function answerFor (question, { previousQuestion } = {}) {
+export async function answerFor (question, { history = [] } = {}) {
   if (!askApiUrl()) {
-    return fixtureAnswerFor(question, { previousQuestion })
+    return fixtureAnswerFor(question, { history })
   }
 
   const response = await fetch(askUrl(), {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      question,
-      previous_question: previousQuestion ?? null
-    }),
+    body: JSON.stringify({ question, history }),
     signal: AbortSignal.timeout(config.get('aiContent.askApiTimeoutMs'))
   })
 

@@ -22,6 +22,18 @@ export const MAX_EXCHANGES = 20
 // short enough to keep what reaches the model bounded.
 export const MAX_QUESTION_LENGTH = 500
 
+// How much of the conversation goes to the backend with each question, so a
+// reply like "that's wrong" can be read against what came before. Four,
+// because "What was my second question?" after four questions needs all four.
+// Matches MAX_HISTORY_TURNS in service-manual-chat-backend `app/ask/schemas.py`.
+export const MAX_HISTORY_TURNS = 4
+
+// Longest answer text sent back as history. Real answers run to about 1,200
+// characters; anything longer is cut here, because the backend refuses a
+// longer one and every question after it would fail. Matches
+// MAX_MESSAGE_LENGTH in service-manual-chat-backend `app/ask/schemas.py`.
+export const MAX_MESSAGE_LENGTH = 2000
+
 // Longest mailto link we will build. Mail clients and browsers start dropping
 // or refusing longer ones, and a silently truncated email is worse than one
 // the person pastes into themselves.
