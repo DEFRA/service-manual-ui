@@ -270,7 +270,7 @@ export const askPostController = {
     // all, rather than the generic error page.
     try {
       answer = toViewModel(
-        await answerFor(question, { previousQuestion: exchanges.at(-1)?.question })
+        await answerFor(question, { history: session.toHistory(exchanges) })
       )
     } catch (error) {
       // The question is never logged: it is what the person typed.

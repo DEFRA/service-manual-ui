@@ -210,10 +210,11 @@ function readsAsFollowUp (asked) {
  * one, naming what it is following on from.
  * @param {string} question
  * @param {object} [context]
- * @param {string} [context.previousQuestion] The question asked before this one
+ * @param {Array<{question: string}>} [context.history] Earlier turns, oldest first
  * @returns {object} An answer in the API wire shape
  */
-export function fixtureAnswerFor (question, { previousQuestion } = {}) {
+export function fixtureAnswerFor (question, { history = [] } = {}) {
+  const previousQuestion = history.at(-1)?.question
   const asked = question.toLowerCase()
   const match = matchers.find(({ keywords }) =>
     keywords.some((keyword) => asked.includes(keyword))
