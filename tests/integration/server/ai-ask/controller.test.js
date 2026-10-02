@@ -515,6 +515,22 @@ describe('askController', () => {
       )
     })
 
+    test('offers the email route on a no_guidance_yet answer on the newest turn only', async () => {
+      const { cookie } = await postQuestion('What is the procurement process?')
+      await postQuestion('How do I choose a tool?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('The toolkit does not cover this yet.'))
+      expect(result).not.toEqual(
+        expect.stringContaining('email the AI Capability and Enablement team')
+      )
+    })
+
     test('shows a talk_to_a_person answer with a link to the team, and the conversation reaches them', async () => {
       const { posted, cookie } = await postQuestion('Can I use this for my project?')
 
