@@ -160,9 +160,9 @@ function renderAnswer (
     // A turn label rather than a section heading, so the box reads as the
     // next turn of the conversation instead of a form appended to it.
     questionLabelClass: 'app-ask__speaker-label',
-    // Three rows, same as the front door, so the follow-up box doesn't read
-    // as only fit for a short reply. It still grows as you type.
-    questionRows: 3,
+    // Same as the front door, so the follow-up box doesn't read as only fit
+    // for a short reply. It still grows as you type.
+    questionRows: QUESTION_ROWS,
     // No hint. The personal data reminder sits on the front door, where a
     // question starts, and repeated under every follow-up it read as nagging.
     questionHint: false,
