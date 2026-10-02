@@ -47,7 +47,31 @@
 .app-ask__input.govuk-textarea {
   // The resize handle would pull the row out of alignment horizontally.
   resize: vertical;
-  margin-bottom: 20px;
+  // Small, not none: the button still needs to read as a separate control
+  // rather than glued to the field's own border.
+  margin-bottom: 10px;
+}
+
+// GOV.UK's own character count CSS keeps this message's line reserved even
+// while it is hidden (visibility: hidden, not display: none), so the count
+// does not appear and shunt the page down once someone nears the limit. Left
+// alone, that reserved line sat between the field and the button as a gap
+// with nothing visibly in it. Collapsing it while disabled closes that gap;
+// the one-line nudge when the message does appear, close to the limit, is a
+// smaller trade than a permanent empty line under every question.
+.app-ask__panel .govuk-character-count__message--disabled,
+.app-ask__followup .govuk-character-count__message--disabled {
+  display: none;
+}
+
+// GOV.UK's own CSS sets this message's margin-bottom to 0, so once it does
+// show (close to the limit) it sat flush against the button under it, while
+// the field above kept its own 10px gap. Matching that 10px here keeps the
+// two gaps the same, field-to-message and message-to-button, whichever one
+// is visible.
+.app-ask__panel .govuk-character-count__message,
+.app-ask__followup .govuk-character-count__message {
+  margin-bottom: 10px;
 }
 
 // Defra green, matching the primary buttons used elsewhere in the toolkit.
@@ -146,60 +170,15 @@
 // ── Asking again ──
 // Under the newest answer, the box reads as your next message rather than a
 // second front door: no border, three rows that grow as you type, and the
-// button beside it at the bottom of the field rather than stretched to match
-// it.
+// button below the field, same as the front door and the Design System's
+// own pattern for a primary action (see the comment on that further up).
+// It was briefly beside the field, matching the shorter two-row box this
+// used to be, but a button held next to a three-row field either floats
+// adrift of it or gets squashed at phone width, so it moved back underneath
+// once the field grew.
 .app-ask__followup {
   margin-top: 10px;
   margin-bottom: 30px;
-}
-
-// The textarea and button share a row; the character count message below
-// gets a row of its own, full width, in normal flow, so it keeps reserving
-// its own (responsive) height rather than overlapping whatever follows it.
-//
-// No JavaScript does this: it falls out of how CSS Grid auto-placement works,
-// with one push from grid-auto-flow: dense. The textarea asks only for
-// column 1, leaving column 2 free in its row. Everything else here (the
-// character count message govuk-frontend moves in right after the textarea
-// included) spans both columns by default, and a two-column span can only
-// land in a row that is still entirely empty, so each of those is pushed
-// past the textarea's half-full row onto a new line of its own. Without
-// dense, auto-placement would still carry the button past those rows too,
-// because it only looks forward from wherever it last placed something.
-// Dense makes it look back over the whole grid for the first free cell
-// instead, which is column 2 of the textarea's own row.
-.app-ask__followup .govuk-form-group {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-auto-flow: row dense;
-  column-gap: 10px;
-  align-items: start;
-  margin-bottom: 5px;
-}
-
-.app-ask__followup .govuk-form-group > * {
-  grid-column: 1 / -1;
-}
-
-.app-ask__followup .app-ask__input {
-  grid-column: 1;
-  margin-bottom: 0;
-}
-
-.app-ask__followup .app-ask__send {
-  grid-column: 2;
-  // The textarea is the only other item sharing this row (see above), so the
-  // row is exactly as tall as the field, however much it has grown. The
-  // button tracks the bottom of that row rather than the top, so it sits
-  // level with the last line you typed instead of floating above the field.
-  // The small margin lifts it off the textarea's own bottom border, which
-  // otherwise sat flush against the button's edge.
-  align-self: end;
-  margin-bottom: 2px;
-}
-
-.app-ask__followup .govuk-character-count__message {
-  margin-bottom: 0;
 }
 
 // field-sizing sizes the field to its content rather than the rows attribute,
@@ -211,10 +190,6 @@
   max-height: 25vh;
   field-sizing: content;
   resize: none;
-}
-
-.app-ask__followup .app-ask__send.govuk-button {
-  min-height: 42px;
 }
 
 // The follow-up label is set like the "You" and "AI toolkit" headings, so the
