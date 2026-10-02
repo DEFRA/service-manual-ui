@@ -506,9 +506,28 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('The toolkit does not cover this yet.')
       )
+      expect(result).toEqual(
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>')
+      )
       expect(result).toEqual(expect.stringContaining('Nearest guidance'))
       expect(result).toEqual(
         expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
+      )
+    })
+
+    test('offers the email route on a no_guidance_yet answer on the newest turn only', async () => {
+      const { cookie } = await postQuestion('What is the procurement process?')
+      await postQuestion('How do I choose a tool?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('The toolkit does not cover this yet.'))
+      expect(result).not.toEqual(
+        expect.stringContaining('email the AI Capability and Enablement team')
       )
     })
 
