@@ -149,8 +149,8 @@
 
 // ── Asking again ──
 // Under the newest answer, the box reads as your next message rather than a
-// second front door: no border, one row that grows as you type, and the
-// button beside it at the same height.
+// second front door: no border, three rows that grow as you type, and the
+// button beside it at the top of the field rather than stretched to match it.
 .app-ask__followup {
   margin-top: 10px;
   margin-bottom: 30px;
@@ -173,20 +173,49 @@
 .app-ask__followup .app-ask__field {
   grid-column: 1;
   margin-bottom: 0;
+  // Positioning context for the character count status below: see that rule
+  // for why.
+  position: relative;
+}
+
+// govuk-frontend's character count script inserts its live "X characters
+// remaining" status as a sibling of the textarea, inside this field wrapper.
+// It stays invisible (visibility: hidden, not display: none) until the
+// threshold is reached, so revealing it later doesn't shift the page, but
+// that reserved line still added its own height to the field wrapper here,
+// which made the grid row taller than the textarea itself and pulled the
+// Ask button down with it, below the textarea's own bottom edge. Taking it
+// out of flow keeps the wrapper (and so the row, and so the button) sized to
+// the textarea alone, while the counter still renders in the same place
+// immediately under it, visible or not.
+.app-ask__followup .govuk-character-count__status {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
 }
 
 .app-ask__followup .app-ask__send {
   grid-column: 2;
+  // The grid row is as tall as the field, which grows as you type. The
+  // button tracks the bottom of that row rather than the top, so it sits
+  // level with the last line you typed instead of floating above the field.
+  // The small margin lifts it off the textarea's own bottom border, which
+  // otherwise sat flush against the button's edge.
+  align-self: end;
+  margin-bottom: 2px;
 }
 
 .app-ask__followup .govuk-character-count__message {
   margin-bottom: 0;
 }
 
-// field-sizing grows the field with its text. Browsers without it keep one
-// row and scroll, which still works.
+// field-sizing sizes the field to its content rather than the rows attribute,
+// so the starting height is set here instead: three rows, matching the front
+// door box. Browsers without field-sizing keep this height and scroll, which
+// still works.
 .app-ask__followup .app-ask__input.govuk-textarea {
-  min-height: 42px;
+  min-height: 86px;
   max-height: 25vh;
   field-sizing: content;
   resize: none;
