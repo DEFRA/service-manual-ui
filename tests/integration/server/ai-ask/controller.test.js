@@ -506,6 +506,9 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('The toolkit does not cover this yet.')
       )
+      expect(result).toEqual(
+        expect.stringContaining('<a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>')
+      )
       expect(result).toEqual(expect.stringContaining('Nearest guidance'))
       expect(result).toEqual(
         expect.stringContaining('href="/ai-toolkit/guidance/choosing-a-tool"')
