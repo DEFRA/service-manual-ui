@@ -20,14 +20,19 @@ function updateTableContainer (container) {
     container.dataset.tableLabel = container.getAttribute('aria-label') || ''
   }
 
-  if (container.scrollWidth > container.clientWidth) {
-    container.setAttribute('role', 'region')
-    container.setAttribute('aria-label', container.dataset.tableLabel)
-    container.setAttribute('tabindex', '0')
-  } else {
-    container.removeAttribute('role')
-    container.removeAttribute('aria-label')
-    container.removeAttribute('tabindex')
+  const region = {
+    role: 'region',
+    'aria-label': container.dataset.tableLabel,
+    tabindex: '0'
+  }
+  const overflows = container.scrollWidth > container.clientWidth
+
+  for (const [name, value] of Object.entries(region)) {
+    if (overflows) {
+      container.setAttribute(name, value)
+    } else {
+      container.removeAttribute(name)
+    }
   }
 }
 
