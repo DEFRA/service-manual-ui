@@ -32,16 +32,20 @@
         <span class="govuk-visually-hidden">Error:</span> {{ error }}
       </p>
       {% endif %}
-      <div class="app-ask__field">
-        <textarea
-          class="govuk-textarea govuk-js-character-count app-ask__input{% if error %} govuk-textarea--error{% endif %}"
-          id="question"
-          name="question"
-          rows="{{ questionRows }}"
-          enterkeyhint="send"
-          data-module="app-ask-question"
-          aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
-      </div>
+      {# No wrapper div around the field: govuk-frontend's character count
+         script relocates its "X characters remaining" message to sit right
+         after the textarea, as a sibling inside this form group. A wrapper
+         only big enough for the textarea would clip or crowd that message
+         at narrow widths; leaving it as a direct child lets it wrap onto
+         its own line like everything else here. #}
+      <textarea
+        class="govuk-textarea govuk-js-character-count app-ask__input{% if error %} govuk-textarea--error{% endif %}"
+        id="question"
+        name="question"
+        rows="{{ questionRows }}"
+        enterkeyhint="send"
+        data-module="app-ask-question"
+        aria-describedby="question-info{% if hint %} question-hint{% endif %}{% if error %} question-error{% endif %}">{{ question or '' }}</textarea>
       <button type="submit" class="govuk-button app-ask__send" data-module="govuk-button" data-ask-submit>
         <span class="app-ask__send-text">Ask<span class="govuk-visually-hidden"> the toolkit</span></span>
       </button>
