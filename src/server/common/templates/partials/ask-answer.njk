@@ -19,6 +19,17 @@
   <p class="govuk-body app-ask__outcome">This one is for the team.</p>
   {% endif %}
 
+  {# Fixed words, never the backend's: the platform's guardrail also blocks
+     innocent questions, so this cannot say the topic is outside the toolkit,
+     and it gives no "ask another way", which an innocent asker cannot act on.
+     The route to a person is on the newest turn only, as for the others. #}
+  {% if answer.status == 'blocked' %}
+  <p class="govuk-body app-ask__outcome">This question cannot be answered here.</p>
+    {% if isLatestTurn %}
+  <p class="govuk-body">If you still need an answer, <a class="govuk-link" href="{{ paths.help }}">email the AI Capability and Enablement team</a>.</p>
+    {% endif %}
+  {% endif %}
+
   {% if answer.status == 'cannot_answer' %}
     {% if answer.reason == 'no_guidance_yet' %}
     <p class="govuk-body">The toolkit does not cover this yet. The closest guidance is below.</p>
@@ -33,11 +44,11 @@
     {% endif %}
   {% endif %}
 
-  {# cannot_answer already has its own fixed wording above, in place of the
-     model's message, so this hides it there. talk_to_a_person still shows its
-     message: that's where the model says why the team is the right place and
-     what to bring. #}
-  {% if answer.message and answer.status != 'cannot_answer' %}
+  {# cannot_answer and blocked already have their own fixed wording above, in
+     place of the model's message, so this hides it there. talk_to_a_person
+     still shows its message: that's where the model says why the team is the
+     right place and what to bring. #}
+  {% if answer.message and answer.status != 'cannot_answer' and answer.status != 'blocked' %}
   <p class="govuk-body">{{ answer.message }}</p>
   {% endif %}
 
