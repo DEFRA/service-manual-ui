@@ -22,6 +22,12 @@
   {% if answer.status == 'cannot_answer' %}
     {% if answer.reason == 'no_guidance_yet' %}
     <p class="govuk-body">The toolkit does not cover this yet. The closest guidance is below.</p>
+    {# The route to a person, on the newest turn only: an older "not covered"
+       reply should not keep asking you to email, same rule as
+       talk_to_a_person below. #}
+    {% if isLatestTurn %}
+    <p class="govuk-body">If that does not help, <a class="govuk-link" href="{{ paths.help }}">email the AI Capability and Enablement team</a>.</p>
+    {% endif %}
     {% else %}
     <p class="govuk-body">The toolkit cannot answer this. It covers choosing a tool, the data you can use with it, and the patterns other teams have built. <a class="govuk-link" href="{{ paths.toolkit }}">Go to the AI digital toolkit</a></p>
     {% endif %}
