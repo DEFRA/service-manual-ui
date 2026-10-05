@@ -14,6 +14,7 @@ import { initSearch } from './search.js'
 import { initRadar } from './radar.js'
 import { initPatternFinder } from './pattern-finder.js'
 import { initAsk } from './ask.js'
+import { initTableScroll } from './table-scroll.js'
 
 createAll(Accordion)
 createAll(Button)
@@ -51,3 +52,4 @@ initSearch()
 initRadar()
 initPatternFinder()
 initAsk()
+initTableScroll()

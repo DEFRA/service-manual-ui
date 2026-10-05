@@ -156,4 +156,53 @@ describe('markdown', () => {
       expect(result).toContain('href="/accessibility"')
     })
   })
+
+  describe('wide tables', () => {
+    const region = (label) =>
+      `<div class="app-table-container" role="region" aria-label="${label}" tabindex="0">`
+
+    test.each([
+      ['a markdown table, named "Table"', '| Data | Tool |\n| --- | --- |\n| OFFICIAL | Yes |', 'Table'],
+      [
+        'a raw HTML table, named from its caption without the markup',
+        '<table class="govuk-table">\n<caption class="govuk-table__caption">What you can <strong>put</strong> where</caption>\n<tr><td>Yes</td></tr>\n</table>',
+        'What you can put where'
+      ],
+      [
+        'a table whose caption has quotes, with the quotes escaped',
+        '<table>\n<caption>The "any tool" rule</caption>\n<tr><td>Yes</td></tr>\n</table>',
+        'The &quot;any tool&quot; rule'
+      ],
+      [
+        'a raw HTML table in capitals, since tag names are not case-sensitive',
+        '<TABLE>\n<CAPTION>Upper case</CAPTION>\n<TR><TD>Yes</TD></TR>\n</TABLE>',
+        'Upper case'
+      ]
+    ])('puts %s in a box that scrolls sideways', (_description, content, label) => {
+      const result = markdown(content)
+
+      expect(result).toContain(region(label))
+      expect(result).toMatch(/tabindex="0"><table\b/i)
+      expect(result).toMatch(/<\/table>\s*<\/div>/i)
+    })
+
+    test('gives each table a box of its own', () => {
+      const table = '| A | B |\n| --- | --- |\n| 1 | 2 |'
+      const result = markdown(`${table}\n\nBetween the tables.\n\n${table}`)
+
+      expect(result.match(/class="app-table-container"/g)).toHaveLength(2)
+      expect(result).toMatch(/<\/table><\/div>\s*<p[^>]*>Between the tables\.<\/p>/)
+    })
+
+    test('starts the box at the table, not at a custom element named like one', () => {
+      const result = markdown('<table-foo>Not a table</table-foo>\n\n| A |\n| --- |\n| 1 |')
+
+      expect(result).toMatch(/<table-foo>Not a table<\/table-foo><\/p>\s*<div class="app-table-container"/)
+      expect(result.match(/class="app-table-container"/g)).toHaveLength(1)
+    })
+
+    test('adds no box to content without a table', () => {
+      expect(markdown('Just a paragraph.')).not.toContain('app-table-container')
+    })
+  })
 })
