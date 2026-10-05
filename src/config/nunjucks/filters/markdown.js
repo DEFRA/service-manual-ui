@@ -93,10 +93,12 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
 // so tables written in raw HTML in the content are caught as well as markdown
 // ones. Focusable and named, so keyboard and screen reader users can scroll it.
 const TABLE = /<table\b[\s\S]*?<\/table>/g
-const CAPTION = /<caption\b[^>]*>([\s\S]*?)<\/caption>/
+const CAPTION = /<caption\b[^<>]*>([\s\S]*?)<\/caption>/
+// Not [^>]: a run of "<" with no ">" would make each one scan to the end.
+const TAG = /<[^<>]*>/g
 
 function scrollable (table) {
-  const caption = CAPTION.exec(table)?.[1].replace(/<[^>]*>/g, '').trim()
+  const caption = CAPTION.exec(table)?.[1].replace(TAG, '').trim()
   const label = (caption || 'Table').replaceAll('"', '&quot;')
 
   return `<div class="app-table-container" role="region" aria-label="${label}" tabindex="0">${table}</div>`
