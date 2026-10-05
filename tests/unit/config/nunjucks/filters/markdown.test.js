@@ -194,6 +194,13 @@ describe('markdown', () => {
       expect(result).toMatch(/<\/table><\/div>\s*<p[^>]*>Between the tables\.<\/p>/)
     })
 
+    test('starts the box at the table, not at a custom element named like one', () => {
+      const result = markdown('<table-foo>Not a table</table-foo>\n\n| A |\n| --- |\n| 1 |')
+
+      expect(result).toMatch(/<table-foo>Not a table<\/table-foo><\/p>\s*<div class="app-table-container"/)
+      expect(result.match(/class="app-table-container"/g)).toHaveLength(1)
+    })
+
     test('adds no box to content without a table', () => {
       expect(markdown('Just a paragraph.')).not.toContain('app-table-container')
     })

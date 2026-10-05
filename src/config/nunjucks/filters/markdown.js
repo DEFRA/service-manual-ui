@@ -92,8 +92,10 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
 // instead, which WCAG 1.4.10 allows for data tables. Done on the rendered HTML
 // so tables written in raw HTML in the content are caught as well as markdown
 // ones. Focusable and named, so keyboard and screen reader users can scroll it.
-const TABLE = /<table\b[\s\S]*?<\/table>/gi
-const CAPTION = /<caption\b[^<>]*>([\s\S]*?)<\/caption>/i
+// The lookahead, not \b: a hyphen counts as a word boundary, so \b would also
+// match a custom element such as <table-foo>.
+const TABLE = /<table(?=[\s>/])[\s\S]*?<\/table>/gi
+const CAPTION = /<caption(?=[\s>/])[^<>]*>([\s\S]*?)<\/caption>/i
 // Not [^>]: a run of "<" with no ">" would make each one scan to the end.
 const TAG = /<[^<>]*>/g
 
