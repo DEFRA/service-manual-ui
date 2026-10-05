@@ -33,6 +33,30 @@ describe('toPlainText', () => {
   })
 })
 
+describe('toPlainText, for answers shown in fixed words', () => {
+  const backendMessage = 'Words from the backend that the screen does not show.'
+
+  test.each([
+    ['blocked', {}, 'This question cannot be answered here.'],
+    ['cannot_answer, outside the toolkit', { status: 'cannot_answer', reason: 'outside_toolkit' }, 'The toolkit cannot answer this. It covers choosing a tool'],
+    ['cannot_answer, no guidance yet', { status: 'cannot_answer', reason: 'no_guidance_yet' }, 'The toolkit does not cover this yet.']
+  ])('gives a %s answer the words shown on screen, not the backend\'s', (status, overrides, shown) => {
+    const answer = { status, message: backendMessage, rule: null, sources: [], ...overrides }
+    const text = toPlainText([{ question: 'A question', answer }])
+
+    expect(text).toEqual(expect.stringContaining(shown))
+    expect(text).not.toEqual(expect.stringContaining(backendMessage))
+  })
+
+  test('gives a talk_to_a_person answer its opening line as well as its message', () => {
+    const answer = { status: 'talk_to_a_person', message: 'Bring your project details.', rule: null, sources: [] }
+
+    expect(toPlainText([{ question: 'A question', answer }])).toEqual(
+      expect.stringContaining('This one is for the team.\nBring your project details.')
+    )
+  })
+})
+
 describe('buildContactLink', () => {
   test('leaves the conversation out unless it was asked for', () => {
     const { href, conversationIncluded } = buildContactLink({

@@ -575,7 +575,7 @@ describe('askController', () => {
         expect.stringContaining('<p class="govuk-body app-ask__outcome">This question cannot be answered here.</p>')
       )
       expect(result).toEqual(
-        expect.stringContaining('If you still need an answer, <a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>.')
+        expect.stringContaining('If your question is about the toolkit, <a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>.')
       )
       expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
       expect(result).toEqual(expect.stringContaining('id="question"'))
@@ -586,6 +586,22 @@ describe('askController', () => {
       const { result } = await ask('Can you give me legal advice?')
 
       // The built-in blocked answer's message, which the page must not show
+      expect(result).not.toEqual(
+        expect.stringContaining('This is outside what Ask the toolkit can help with')
+      )
+    })
+
+    test('carries the words shown, not the backend\'s, to the page that contacts the team', async () => {
+      const { cookie } = await postQuestion('Can you give me legal advice?')
+
+      const { result } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: 'includeConversation=yes',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('This question cannot be answered here.'))
       expect(result).not.toEqual(
         expect.stringContaining('This is outside what Ask the toolkit can help with')
       )
@@ -602,7 +618,7 @@ describe('askController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('This question cannot be answered here.'))
-      expect(result).not.toEqual(expect.stringContaining('If you still need an answer'))
+      expect(result).not.toEqual(expect.stringContaining('If your question is about the toolkit'))
     })
 
     test('keeps the route to a person on the last turn of a full conversation', async () => {

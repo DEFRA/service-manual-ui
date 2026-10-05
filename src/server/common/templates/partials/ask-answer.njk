@@ -22,11 +22,13 @@
   {# Fixed words, never the backend's: the platform's guardrail also blocks
      innocent questions, so this cannot say the topic is outside the toolkit,
      and it gives no "ask another way", which an innocent asker cannot act on.
-     The route to a person is on the newest turn only, as for the others. #}
+     The route to a person says who it is for, because deliberate blocks (legal
+     or medical advice) are not the team's to answer either. Newest turn only,
+     as for the others. The transcript repeats these words: see transcript.js. #}
   {% if answer.status == 'blocked' %}
   <p class="govuk-body app-ask__outcome">This question cannot be answered here.</p>
     {% if isLatestTurn %}
-  <p class="govuk-body">If you still need an answer, <a class="govuk-link" href="{{ paths.help }}">email the AI Capability and Enablement team</a>.</p>
+  <p class="govuk-body">If your question is about the toolkit, <a class="govuk-link" href="{{ paths.help }}">email the AI Capability and Enablement team</a>.</p>
     {% endif %}
   {% endif %}
 

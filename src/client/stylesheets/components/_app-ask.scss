@@ -271,10 +271,11 @@
   margin-bottom: 0;
 }
 
-// What happened, before what to do: "This one is for the team."
+// What happened, before what to do: "This one is for the team." Body weight,
+// like the cannot_answer lines: it comes first, so it needs no emphasis, and
+// in bold it outweighed the reply's own heading.
 .app-ask__outcome {
   margin-bottom: 10px;
-  font-weight: bold;
 }
 
 // Under each answer, starting at the answer's outer edge. The answer is 88%
