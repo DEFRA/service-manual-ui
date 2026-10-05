@@ -159,7 +159,7 @@ describe('markdown', () => {
 
   describe('wide tables', () => {
     const region = (label) =>
-      `<div class="app-table-container" role="region" aria-label="${label}" tabindex="0"><table`
+      `<div class="app-table-container" role="region" aria-label="${label}" tabindex="0">`
 
     test.each([
       ['a markdown table, named "Table"', '| Data | Tool |\n| --- | --- |\n| OFFICIAL | Yes |', 'Table'],
@@ -172,12 +172,18 @@ describe('markdown', () => {
         'a table whose caption has quotes, with the quotes escaped',
         '<table>\n<caption>The "any tool" rule</caption>\n<tr><td>Yes</td></tr>\n</table>',
         'The &quot;any tool&quot; rule'
+      ],
+      [
+        'a raw HTML table in capitals, since tag names are not case-sensitive',
+        '<TABLE>\n<CAPTION>Upper case</CAPTION>\n<TR><TD>Yes</TD></TR>\n</TABLE>',
+        'Upper case'
       ]
     ])('puts %s in a box that scrolls sideways', (_description, content, label) => {
       const result = markdown(content)
 
       expect(result).toContain(region(label))
-      expect(result).toMatch(/<\/table>\s*<\/div>/)
+      expect(result).toMatch(/tabindex="0"><table\b/i)
+      expect(result).toMatch(/<\/table>\s*<\/div>/i)
     })
 
     test('gives each table a box of its own', () => {
