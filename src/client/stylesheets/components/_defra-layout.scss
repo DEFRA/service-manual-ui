@@ -199,6 +199,21 @@ body {
   padding: 20px;
   background-color: $govuk-light-grey;
   border-left: 5px solid $defra-green;
+  // The team's email address is one long word, wider than the box on a
+  // phone. Break it rather than let it run out of the box.
+  overflow-wrap: break-word;
+}
+
+// ===== Wide tables =====
+// The box the markdown filter and the radar table put round each table, so a
+// table wider than the screen scrolls sideways instead of being cut off.
+.app-table-container {
+  overflow-x: auto;
+
+  &:focus {
+    outline: 3px solid $govuk-focus-colour;
+    outline-offset: 0;
+  }
 }
 
 // ===== Call to action callout =====

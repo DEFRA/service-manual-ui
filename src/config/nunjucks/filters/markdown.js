@@ -86,9 +86,25 @@ md.renderer.rules.link_open = function (tokens, idx, options, _env, self) {
   return defaultLinkRender(tokens, idx, options, _env, self)
 }
 
+// The page hides anything wider than the screen (overflow-x: hidden on html
+// and body), so a table wider than a phone was cut off with no way to reach
+// the rest of it. Each table gets a box of its own that scrolls sideways
+// instead, which WCAG 1.4.10 allows for data tables. Done on the rendered HTML
+// so tables written in raw HTML in the content are caught as well as markdown
+// ones. Focusable and named, so keyboard and screen reader users can scroll it.
+const TABLE = /<table\b[\s\S]*?<\/table>/g
+const CAPTION = /<caption\b[^>]*>([\s\S]*?)<\/caption>/
+
+function scrollable (table) {
+  const caption = CAPTION.exec(table)?.[1].replace(/<[^>]*>/g, '').trim()
+  const label = (caption || 'Table').replaceAll('"', '&quot;')
+
+  return `<div class="app-table-container" role="region" aria-label="${label}" tabindex="0">${table}</div>`
+}
+
 export function markdown (content) {
   if (!content) {
     return ''
   }
-  return md.render(content)
+  return md.render(content).replace(TABLE, scrollable)
 }

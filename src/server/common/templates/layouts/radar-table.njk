@@ -40,6 +40,9 @@
 
       <div class="govuk-visually-hidden" aria-live="polite" data-radar-live></div>
 
+      {# Scrolls sideways on a narrow screen rather than being cut off, like
+         the tables in the guidance pages (see the markdown filter). #}
+      <div class="app-table-container" role="region" aria-label="AI tools, platforms and frameworks at Defra" tabindex="0">
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-visually-hidden">AI tools, platforms and frameworks at Defra, grouped by status and listed alphabetically within each status</caption>
         <thead class="govuk-table__head">
@@ -59,6 +62,7 @@
           {% endfor %}
         </tbody>
       </table>
+      </div>
 
       <div class="app-radar-noresults" hidden data-radar-noresults>
         <h3 class="app-radar-noresults__title" data-radar-noresults-title>No tools match your search</h3>

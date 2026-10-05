@@ -11,6 +11,17 @@
   margin: 0 auto;
 }
 
+// Above the mobile breakpoint the links sit in a row, and without a gutter
+// the first one ran to the edge of the screen, cut off, until the page was
+// wide enough to centre it. The same 15px as the header lines the text up
+// with the logo. Below it the toggle button carries its own padding.
+@media (min-width: 769px) {
+  .defra-service-navigation__inner {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
 .defra-service-navigation__list {
   list-style: none;
   margin: 0;

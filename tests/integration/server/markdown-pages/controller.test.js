@@ -362,4 +362,17 @@ describe('markdownPagesController', () => {
       )
     })
   })
+
+  describe('Wide tables', () => {
+    test.each([
+      ['/ai-toolkit/guidance/using-data-with-ai', 'What data you can put into different types of AI tool'],
+      ['/ai-toolkit/tools', 'AI tools, platforms and frameworks at Defra']
+    ])('%s puts its table in a named box that scrolls sideways', async (url, label) => {
+      const { result } = await server.inject({ method: 'GET', url })
+
+      expect(result).toMatch(
+        new RegExp(`<div class="app-table-container" role="region" aria-label="${label}" tabindex="0">\\s*(<!--[\\s\\S]*?-->\\s*)?<table`)
+      )
+    })
+  })
 })
