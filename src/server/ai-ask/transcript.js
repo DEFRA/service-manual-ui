@@ -1,6 +1,42 @@
 import { MAX_MAILTO_LENGTH, TEAM_EMAIL } from './constants.js'
 const SUBJECT = 'Ask the toolkit: I need help'
 
+// The fixed words partials/ask-answer.njk shows for these outcomes. Change
+// them in both places: the transcript is what the person saw, so the help
+// page and the emails to the team must not carry words the screen hid.
+const SHOWN = {
+  blocked: 'This question cannot be answered here.',
+  outsideToolkit:
+    'The toolkit cannot answer this. It covers choosing a tool, the data you can use with it, and the patterns other teams have built.',
+  noGuidanceYet:
+    'The toolkit does not cover this yet. The closest guidance is below.',
+  forTheTeam: 'This one is for the team.'
+}
+
+/**
+ * The words an answer showed on screen. For blocked and cannot_answer that
+ * is fixed wording, never the backend's message.
+ * @param {object} answer
+ * @returns {string}
+ */
+function shownText (answer) {
+  if (answer.status === 'blocked') {
+    return SHOWN.blocked
+  }
+
+  if (answer.status === 'cannot_answer') {
+    return answer.reason === 'no_guidance_yet'
+      ? SHOWN.noGuidanceYet
+      : SHOWN.outsideToolkit
+  }
+
+  if (answer.status === 'talk_to_a_person') {
+    return [SHOWN.forTheTeam, answer.message].filter(Boolean).join('\n')
+  }
+
+  return answer.message ?? ''
+}
+
 /**
  * Renders the conversation as plain text, for a person to send on or keep.
  * @param {Array<object>} exchanges
@@ -11,7 +47,7 @@ export function toPlainText (exchanges) {
     .map(({ question, answer }) => {
       const parts = [
         `You asked:\n${question}`,
-        `Ask the toolkit answered:\n${answer.message ?? ''}`
+        `Ask the toolkit answered:\n${shownText(answer)}`
       ]
 
       if (answer.rule) {

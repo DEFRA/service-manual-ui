@@ -571,9 +571,54 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('AI toolkit<span class="govuk-visually-hidden">, answer 1</span>')
       )
+      expect(result).toEqual(
+        expect.stringContaining('<p class="govuk-body app-ask__outcome">This question cannot be answered here.</p>')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('If your question is about the toolkit, <a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>.')
+      )
       expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
       expect(result).toEqual(expect.stringContaining('id="question"'))
       expect(result).not.toEqual(expect.stringContaining('AI can make mistakes'))
+    })
+
+    test('never shows the backend\'s own words on a blocked answer', async () => {
+      const { result } = await ask('Can you give me legal advice?')
+
+      // The built-in blocked answer's message, which the page must not show
+      expect(result).not.toEqual(
+        expect.stringContaining('This is outside what Ask the toolkit can help with')
+      )
+    })
+
+    test('carries the words shown, not the backend\'s, to the page that contacts the team', async () => {
+      const { cookie } = await postQuestion('Can you give me legal advice?')
+
+      const { result } = await server.inject({
+        method: 'POST',
+        url: '/ai-toolkit/ask/stuck',
+        payload: 'includeConversation=yes',
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('This question cannot be answered here.'))
+      expect(result).not.toEqual(
+        expect.stringContaining('This is outside what Ask the toolkit can help with')
+      )
+    })
+
+    test('offers the email route on a blocked answer on the newest turn only', async () => {
+      const { cookie } = await postQuestion('Can you give me legal advice?')
+      await postQuestion('How do I choose a tool?', cookie)
+
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+
+      expect(result).toEqual(expect.stringContaining('This question cannot be answered here.'))
+      expect(result).not.toEqual(expect.stringContaining('If your question is about the toolkit'))
     })
 
     test('keeps the route to a person on the last turn of a full conversation', async () => {
