@@ -72,7 +72,9 @@ It also never guesses who uses your service, or what they need to do. Those come
 
 ## Use them and help improve them
 
-The skills are on GitHub under the Open Government Licence. Skills follow an open standard, so they work in many AI tools, including [GitHub Copilot](/ai-toolkit/tools/github-copilot) and [Claude Code](/ai-toolkit/tools/claude-code-marketplace). Before you point them at real material, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
+The skills are on GitHub under the Open Government Licence. They follow an open standard, so they work in many AI tools.
+
+Before you point them at real material, check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai).
 
 <a href="https://github.com/DEFRA/defra-ai-plugins" role="button" draggable="false" class="govuk-button" data-module="govuk-button">See the skills on GitHub</a>
 
