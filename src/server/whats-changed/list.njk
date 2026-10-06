@@ -1,0 +1,31 @@
+{% extends "layouts/page.njk" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">What's changed</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body-l">Changes to the toolkit, and news from the team. Newest first.</p>
+
+    {% for group in months %}
+    <h2 class="govuk-heading-l app-whats-changed__month">{{ group.month }}</h2>
+    <ol class="app-whats-changed__timeline">
+      {% for entry in group.entries %}
+      <li class="app-whats-changed__item">
+        <p class="app-whats-changed__date govuk-body-s">{{ entry.date | formatDate('d MMM') }}</p>
+        <div>
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="{{ entry.url }}">{{ entry.title }}</a></h3>
+          <p class="govuk-body govuk-!-margin-bottom-1">{{ entry.summary }}</p>
+          <p class="govuk-body-s app-whats-changed__meta govuk-!-margin-bottom-0">{{ entry.type }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

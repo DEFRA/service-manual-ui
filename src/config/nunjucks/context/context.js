@@ -77,7 +77,8 @@ export function context (request) {
     navigation: buildNavigation(request),
     gtmContainerId: config.get('googleTagManager.containerId'),
     featureFlags: {
-      askEnabled: config.get('featureFlags.askEnabled')
+      askEnabled: config.get('featureFlags.askEnabled'),
+      whatsChangedEnabled: config.get('featureFlags.whatsChangedEnabled')
     },
     cookieConsentSet,
     cookieAction,

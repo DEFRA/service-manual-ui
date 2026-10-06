@@ -1,0 +1,36 @@
+{% extends "layouts/page.njk" %}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{% block content %}
+{# Title, text and pictures all keep to two-thirds, like the rest of the
+   toolkit: about 75 characters a line, because full-width text is tiring
+   to read, and a screenshot any wider is shown bigger than the real
+   screen. #}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ entry.title }}</h1>
+    <p class="govuk-body-s app-whats-changed__meta">
+      {{ entry.type }}{% if entry.author %} by {{ entry.author }}{% if entry.authorRole %}, {{ entry.authorRole }}{% endif %}{% endif %}<br>
+      {{ entry.date | formatDate('d MMMM yyyy') }}. {{ entry.readingMinutes }} minute read
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body-l">{{ entry.summary }}</p>
+
+    <div class="app-whats-changed__body">
+      {{ entry.body | markdown | safe }}
+    </div>
+
+    {{ govukPagination({
+      previous: { text: "Older", labelText: older.title, href: older.url } if older,
+      next: { text: "Newer", labelText: newer.title, href: newer.url } if newer,
+      blockLevel: true,
+      classes: "app-whats-changed__pagination",
+      landmarkLabel: "Older and newer posts"
+    }) }}
+  </div>
+</div>
+{% endblock %}

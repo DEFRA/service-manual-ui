@@ -13,6 +13,7 @@ import { interruption } from './interruption/index.js'
 import { aiTriage } from './ai-triage/index.js'
 import { verify } from './verify/index.js'
 import { aiAsk } from './ai-ask/index.js'
+import { whatsChanged } from './whats-changed/index.js'
 
 export const router = {
   plugin: {
@@ -36,7 +37,8 @@ export const router = {
         deliveryGroups,
         interruption,
         aiTriage,
-        aiAsk
+        aiAsk,
+        whatsChanged
       ])
 
       // Static assets

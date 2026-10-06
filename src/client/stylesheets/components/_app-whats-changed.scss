@@ -1,0 +1,124 @@
+@use 'govuk-frontend' as *;
+@use '../variables/colours' as *;
+
+// What's changed: the list page, a post, and the block on the toolkit home page.
+
+.app-whats-changed__meta {
+  color: #505a5f;
+}
+
+.app-whats-changed__month {
+  margin-top: 40px;
+}
+
+.app-whats-changed__timeline {
+  margin: 0 0 20px;
+  padding: 0 0 0 20px;
+  list-style: none;
+  border-left: 4px solid #b1b4b6;
+}
+
+.app-whats-changed__item,
+.app-whats-changed-home__item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 15px;
+}
+
+.app-whats-changed__item {
+  margin-bottom: 25px;
+}
+
+.app-whats-changed__date {
+  margin: 2px 0 0;
+  font-weight: bold;
+}
+
+// A post's pictures are real screens, so they get a thin edge to separate
+// them from the page, and a caption that says what they show.
+.app-whats-changed__body figure {
+  margin: 30px 0;
+}
+
+.app-whats-changed__body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #b1b4b6;
+}
+
+.app-whats-changed__body figcaption {
+  margin-top: govuk-spacing(3);
+  color: govuk-functional-colour(secondary-text);
+  @include govuk-font($size: 16);
+}
+
+// An explainer drawn in real text, not a picture of text: it stays sharp,
+// reflows on a phone and is read out like the rest of the page. Who does
+// each step leads it, so the order of hands is the first thing you read.
+// Two by two, not four across: four columns at text width left about 150px
+// each, too cramped for body-size text. Both lines are body size, so the
+// detail is as easy to read as the rest of the post. Each step is an action
+// and a short detail, one line each.
+.app-flow {
+  display: grid;
+  gap: govuk-spacing(6);
+  margin: 0 0 govuk-spacing(4);
+  padding: 0;
+  list-style: none;
+
+  @include govuk-media-query($from: tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.app-flow__step {
+  padding-top: govuk-spacing(3);
+  border-top: 5px solid $defra-green;
+  color: govuk-functional-colour(secondary-text);
+  @include govuk-font($size: 19);
+}
+
+.app-flow__action {
+  display: block;
+  margin-bottom: govuk-spacing(1);
+  color: govuk-functional-colour(text);
+  @include govuk-font($size: 19, $weight: bold);
+}
+
+// The closing button sits in a paragraph from the markdown. Drop the
+// paragraph's margin so the gap under the button is the button's own, as
+// everywhere else on GOV.UK.
+.app-whats-changed__body p:has(> .govuk-button) {
+  margin-bottom: 0;
+}
+
+// Older and newer posts are navigation, not part of the post, so they get
+// clear space from the sign-off line above them.
+.app-whats-changed__pagination {
+  margin-top: govuk-spacing(6);
+}
+
+.app-whats-changed-home {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.app-whats-changed-home__list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #b1b4b6;
+}
+
+.app-whats-changed-home__item {
+  padding: 15px 0;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+@media (max-width: 40.0525em) {
+  .app-whats-changed__item {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

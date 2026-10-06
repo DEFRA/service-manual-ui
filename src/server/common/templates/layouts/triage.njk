@@ -71,6 +71,12 @@
     </div>
     {% endif %}
 
+    {# Gated on the flag alone, not page frontmatter: the toolkit's pages are
+       what Ask the toolkit answers from, so they do not mention this. #}
+    {% if featureFlags.whatsChangedEnabled %}
+    {% include "partials/whats-changed-home.njk" %}
+    {% endif %}
+
     {{ content | markdown | safe }}
 
     {% include "partials/support-box.njk" %}

@@ -1,0 +1,25 @@
+{# The newest entries from What's changed, under the cards on the toolkit home
+   page. What kind of entry it is goes in words after the title, not as a
+   label. #}
+{% set changes = latestChanges(3) %}
+{% if changes | length %}
+<section class="app-whats-changed-home" aria-labelledby="whats-changed-heading">
+  <h2 class="govuk-heading-l app-triage__section-heading" id="whats-changed-heading">What's changed</h2>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <ol class="app-whats-changed-home__list">
+        {% for entry in changes %}
+        <li class="app-whats-changed-home__item">
+          <p class="app-whats-changed__date govuk-body-s">{{ entry.date | formatDate('d MMM') }}</p>
+          <div>
+            <a class="govuk-link govuk-!-font-weight-bold" href="{{ entry.url }}">{{ entry.title }}</a>
+            <p class="govuk-body-s app-whats-changed__meta govuk-!-margin-bottom-0">{{ entry.type }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+      <p class="govuk-body"><a class="govuk-link" href="/ai-toolkit/whats-changed">See everything that's changed</a></p>
+    </div>
+  </div>
+</section>
+{% endif %}
