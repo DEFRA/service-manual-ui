@@ -58,7 +58,9 @@ export function quoteAppearsOnPage (quote, url) {
   let content
 
   try {
-    content = loadContent(`${url.slice(1)}.md`).content
+    // A Windows checkout has CRLF line endings, and the check finds blocks by
+    // blank lines, so a quote across a list would be dropped locally only.
+    content = loadContent(`${url.slice(1)}.md`).content.replaceAll('\r\n', '\n')
   } catch (error) {
     // loadContent logs the read failure itself. This records the
     // consequence: an answer went out without the rule it meant to quote.

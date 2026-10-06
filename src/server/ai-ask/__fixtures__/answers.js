@@ -107,6 +107,28 @@ const cannotAnswerNoGuidanceYetAnswer = {
   ]
 }
 
+// A rule that runs across a list: the quote keeps the page's line breaks.
+const incidentAnswer = {
+  status: 'answered',
+  message:
+    'Treat this as an AI incident and act on it straight away.',
+  rule_verbatim: {
+    text: 'Follow these steps as soon as you realise an incident has happened, or might have happened.\n\n1. Stop using the AI tool immediately.\n2. Do not delete or change anything. The people handling the incident need to see clearly what happened.\n3. Tell your line manager and your team\'s information asset owner. Give a short description of what happened and what data was involved.\n4. Report it through your organisation\'s security incident process. If you are not sure what that is, your line manager or information asset owner can tell you.',
+    source: {
+      title: 'Report an AI incident',
+      url: '/ai-toolkit/guidance/report-an-ai-incident',
+      section: 'What to do'
+    }
+  },
+  sources: [
+    {
+      title: 'Report an AI incident',
+      url: '/ai-toolkit/guidance/report-an-ai-incident',
+      section: 'What to do'
+    }
+  ]
+}
+
 const talkToAPersonAnswer = {
   status: 'talk_to_a_person',
   message:
@@ -134,6 +156,7 @@ const errorAnswer = {
 
 const matchers = [
   { keywords: ['personal data', 'copilot'], answer: personalDataAnswer },
+  { keywords: ['incident', 'by mistake'], answer: incidentAnswer },
   { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer },
   { keywords: ['help me', 'where do i start'], answer: needMoreDetailAnswer },
   {

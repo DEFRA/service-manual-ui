@@ -375,14 +375,23 @@
 
 .app-ask__rule-text {
   margin-bottom: 10px;
+}
+
+.app-ask__rule-text .govuk-body {
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
-.app-ask__rule-text::before {
+.app-ask__rule-text .govuk-body:last-child {
+  margin-bottom: 0;
+}
+
+// One pair of quotation marks round the whole rule, however many paragraphs.
+.app-ask__rule-text .govuk-body:first-child::before {
   content: '\201C';
 }
 
-.app-ask__rule-text::after {
+.app-ask__rule-text .govuk-body:last-child::after {
   content: '\201D';
 }
 
