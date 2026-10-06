@@ -274,6 +274,12 @@ export const config = convict({
       format: Boolean,
       default: false,
       env: 'AI_TOOLKIT_ASK_ENABLED'
+    },
+    whatsChangedEnabled: {
+      doc: "Whether What's changed at /ai-toolkit/whats-changed is registered, with the block on the toolkit home page. Off by default because merging to main deploys; turned on per environment in cdp-app-config. Its posts link to Ask the toolkit, so turn it on only where AI_TOOLKIT_ASK_ENABLED is on. Set AI_TOOLKIT_WHATS_CHANGED_ENABLED=true to show it.",
+      format: Boolean,
+      default: false,
+      env: 'AI_TOOLKIT_WHATS_CHANGED_ENABLED'
     }
   },
   session: {

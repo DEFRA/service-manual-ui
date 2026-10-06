@@ -33,20 +33,20 @@ supportBox:
 
 <ul class="app-figure-cards govuk-list">
   <li class="app-stat-card">
-    <span class="app-stat-card__number">34</span>
+    <span class="app-stat-card__number">52</span>
     <span class="app-stat-card__label">Requests received</span>
   </li>
   <li class="app-stat-card">
-    <span class="app-stat-card__number">3</span>
+    <span class="app-stat-card__number">4</span>
     <span class="app-stat-card__label">Projects in delivery</span>
   </li>
   <li class="app-stat-card">
-    <span class="app-stat-card__number">13</span>
+    <span class="app-stat-card__number">26</span>
     <span class="app-stat-card__label">Requests closed</span>
   </li>
 </ul>
 
-<p class="govuk-body-s">Last updated August 2026.</p>
+<p class="govuk-body-s">Last updated October 2026.</p>
 
 <h2 class="govuk-heading-m">How we choose</h2>
 

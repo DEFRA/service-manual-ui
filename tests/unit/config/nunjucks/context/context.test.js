@@ -72,7 +72,8 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           featureFlags: {
-            askEnabled: config.get('featureFlags.askEnabled')
+            askEnabled: config.get('featureFlags.askEnabled'),
+            whatsChangedEnabled: config.get('featureFlags.whatsChangedEnabled')
           },
           hasAnalyticsConsent: false,
           requestHost: '',
@@ -177,7 +178,8 @@ describe('context and cache', () => {
           currentUrl: '/',
           gtmContainerId: config.get('googleTagManager.containerId'),
           featureFlags: {
-            askEnabled: config.get('featureFlags.askEnabled')
+            askEnabled: config.get('featureFlags.askEnabled'),
+            whatsChangedEnabled: config.get('featureFlags.whatsChangedEnabled')
           },
           hasAnalyticsConsent: false,
           requestHost: '',

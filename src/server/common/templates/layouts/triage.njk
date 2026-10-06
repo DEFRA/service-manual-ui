@@ -71,6 +71,14 @@
     </div>
     {% endif %}
 
+    {# Gated on the flag and the path, not page frontmatter: the toolkit's
+       pages are what Ask the toolkit answers from, so they do not mention
+       this. The path keeps it to the toolkit home page if another page ever
+       uses this layout. #}
+    {% if featureFlags.whatsChangedEnabled and currentUrl == '/ai-toolkit' %}
+    {% include "partials/whats-changed-home.njk" %}
+    {% endif %}
+
     {{ content | markdown | safe }}
 
     {% include "partials/support-box.njk" %}
