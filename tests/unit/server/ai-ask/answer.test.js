@@ -167,6 +167,28 @@ describe('quoteAppearsOnPage', () => {
 
       expect(quoteAppearsOnPage(quote, incidentUrl)).toBe(true)
     })
+
+    // A Windows checkout reads pages with CRLF line endings. Blocks are found
+    // by blank lines, so without normalising, the heading ran into the first
+    // sentence and the quote was dropped as part of a sentence.
+    test('accepts a quote across a list on a page with CRLF line endings', () => {
+      const page = [
+        '## What to do',
+        '',
+        'Follow these steps as soon as you realise an incident has happened, or might have happened.',
+        '',
+        '<ol class="govuk-list govuk-list--number">',
+        '<li><strong>Stop using the AI tool immediately.</strong></li>',
+        '<li><strong>Do not delete or change anything.</strong> The people handling the incident need to see clearly what happened.</li>',
+        '</ol>'
+      ].join('\r\n')
+      const quote =
+        'Follow these steps as soon as you realise an incident has happened, or might have happened.\n\n1. Stop using the AI tool immediately.\n2. Do not delete or change anything. The people handling the incident need to see clearly what happened.'
+      loadContent.mockImplementationOnce(() => ({ content: page }))
+
+      expect(quoteAppearsOnPage(quote, incidentUrl)).toBe(true)
+      expect(logger.warn).not.toHaveBeenCalled()
+    })
   })
 
   test('accepts a condition from the data table, also written inside markup', () => {

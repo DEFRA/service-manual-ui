@@ -84,7 +84,13 @@
   {% if answer.rule %}
   <blockquote class="app-ask__rule">
     <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
-    <p class="app-ask__rule-text govuk-body">{{ answer.rule.text }}</p>
+    {# A rule can run across a list, so it keeps the page's line breaks, one
+       paragraph each. The words are unchanged. #}
+    <div class="app-ask__rule-text">
+      {% for paragraph in answer.rule.text | paragraphs %}
+      <p class="govuk-body">{{ paragraph }}</p>
+      {% endfor %}
+    </div>
     <p class="app-ask__rule-source">
       From <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>
     </p>

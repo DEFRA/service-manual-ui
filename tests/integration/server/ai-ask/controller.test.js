@@ -427,6 +427,21 @@ describe('askController', () => {
       )
     })
 
+    test('shows each line of a quoted rule in its own paragraph', async () => {
+      const { result } = await ask('What do I do after an incident?')
+
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<p class="govuk-body">1. Stop using the AI tool immediately.</p>'
+        )
+      )
+      expect(result).toEqual(
+        expect.stringContaining(
+          '<p class="govuk-body">2. Do not delete or change anything.'
+        )
+      )
+    })
+
     test('shows a need_more_detail answer as quick replies, in the order sent', async () => {
       const { result } = await ask('help me get started')
 
