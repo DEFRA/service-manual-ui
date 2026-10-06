@@ -1,6 +1,6 @@
 ---
 title: Sharing our AI skills for user-centred design
-date: 2026-10-12
+date: 2026-10-06
 type: Blog post
 author: Chris Leo
 authorRole: AI Design Lead

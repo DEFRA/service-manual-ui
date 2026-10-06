@@ -1,6 +1,6 @@
 ---
 title: Why we are building a way to ask the toolkit
-date: 2026-10-05
+date: 2026-10-02
 type: Blog post
 author: Chris Leo
 authorRole: AI Design Lead
