@@ -46,7 +46,7 @@ We also share AI skills on [GitHub](https://github.com/DEFRA/defra-ai-plugins). 
 
 Some problems need more than guidance. Any team in Defra can send us a problem, and we [score every request the same way](/ai-toolkit/projects/how-we-score). We take on the few where AI is the best answer, and build them with the team.
 
-More than 50 requests have come in so far. 4 are now in delivery, including:
+So far, 52 requests have come in. 4 are now in delivery, including:
 
 - [making guidance easier to find and trust](/ai-toolkit/projects/guidance-easier-to-find), with the Rural Payments Agency
 - [checking spending against policy](/ai-toolkit/projects/checking-spending-against-policy), with Defra Finance

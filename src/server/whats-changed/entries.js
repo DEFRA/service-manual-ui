@@ -5,8 +5,10 @@
  * its details in frontmatter and the post itself as the body. The file name
  * is the slug. An entry with an href points at the page that changed and has
  * no page of its own; every other entry is a post at /ai-toolkit/whats-changed
- * /<slug>. Entries are checked when first read, so a typo in the frontmatter
- * stops the server starting rather than showing a broken page.
+ * /<slug>. The plugin reads every entry as it registers, so a typo in the
+ * frontmatter stops the server starting rather than showing a broken page.
+ * An entry dated after today stays hidden until that day, so a post can be
+ * merged ahead of its date.
  *
  * The folder sits outside src/content/ai-toolkit on purpose: Ask the toolkit's
  * backend answers from every page in there, and posts are not guidance.
@@ -111,12 +113,30 @@ function getEntries () {
 }
 
 /**
+ * Leaves out entries dated after now.
+ * @param {object[]} entries - Entries, newest first
+ * @param {Date} now - The moment to publish up to
+ * @returns {object[]} Entries dated now or earlier, newest first
+ */
+function published (entries, now) {
+  return entries.filter((entry) => entry.date <= now)
+}
+
+/**
+ * The toolkit's entries that are out today.
+ * @returns {object[]} Entries, newest first
+ */
+function publishedEntries () {
+  return published(getEntries(), new Date())
+}
+
+/**
  * The newest entries, for the block on the toolkit home page.
  * @param {number} count - How many to return
  * @returns {object[]} Entries, newest first
  */
 function latestChanges (count) {
-  return getEntries().slice(0, count)
+  return publishedEntries().slice(0, count)
 }
 
 /**
@@ -142,5 +162,7 @@ export {
   groupByMonth,
   latestChanges,
   loadEntries,
+  published,
+  publishedEntries,
   whatsChangedPath
 }

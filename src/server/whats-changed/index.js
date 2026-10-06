@@ -1,7 +1,12 @@
 import { config } from '../../config/config.js'
 import { statusCodes } from '../common/constants/status-codes.js'
 import { getNavigation } from '../common/helpers/content-loader.js'
-import { getEntries, groupByMonth, whatsChangedPath } from './entries.js'
+import {
+  getEntries,
+  groupByMonth,
+  publishedEntries,
+  whatsChangedPath
+} from './entries.js'
 
 const pageTitle = "What's changed"
 
@@ -27,12 +32,12 @@ function listHandler (_request, h) {
     ...toolkitView(),
     pageTitle,
     breadcrumbs: toolkitCrumbs,
-    months: groupByMonth(getEntries())
+    months: groupByMonth(publishedEntries())
   })
 }
 
 function entryHandler (request, h) {
-  const posts = getEntries().filter((entry) => entry.hasPage)
+  const posts = publishedEntries().filter((entry) => entry.hasPage)
   const index = posts.findIndex((entry) => entry.slug === request.params.slug)
 
   if (index === -1) {
@@ -64,6 +69,10 @@ export const whatsChanged = {
       if (!config.get('featureFlags.whatsChangedEnabled')) {
         return
       }
+
+      // Read every entry now, so bad frontmatter fails the deploy rather
+      // than the first request.
+      getEntries()
 
       server.route([
         { method: 'GET', path: whatsChangedPath, handler: listHandler },

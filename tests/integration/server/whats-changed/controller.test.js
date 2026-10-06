@@ -28,7 +28,7 @@ describe("What's changed flag on", () => {
     vi.stubEnv('AI_TOOLKIT_WHATS_CHANGED_ENABLED', 'true')
     vi.resetModules()
     const { createServer } = await import('../../../../src/server/server.js')
-    ;({ getEntries: entries } = await import(
+    ;({ publishedEntries: entries } = await import(
       '../../../../src/server/whats-changed/entries.js'
     ))
     server = await createServer()

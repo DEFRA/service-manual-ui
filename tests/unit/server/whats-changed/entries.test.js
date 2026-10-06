@@ -6,7 +6,8 @@ import { describe, test, expect } from 'vitest'
 import {
   getEntries,
   groupByMonth,
-  loadEntries
+  loadEntries,
+  published
 } from '../../../../src/server/whats-changed/entries.js'
 
 const fixtures = path.resolve(
@@ -72,6 +73,22 @@ describe('groupByMonth', () => {
       ['October 2026', ['newer-post', 'guidance-change']],
       ['September 2026', ['older-post']]
     ])
+  })
+})
+
+describe('published', () => {
+  const entries = loadEntries(path.join(fixtures, 'valid'))
+
+  test('leaves out an entry dated after now, so a post can be merged ahead of its day', () => {
+    const slugs = published(entries, new Date('2026-10-03')).map((e) => e.slug)
+
+    expect(slugs).toEqual(['guidance-change', 'older-post'])
+  })
+
+  test('includes an entry from the start of its own day', () => {
+    const slugs = published(entries, new Date('2026-10-04')).map((e) => e.slug)
+
+    expect(slugs).toContain('newer-post')
   })
 })
 
