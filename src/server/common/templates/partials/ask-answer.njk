@@ -49,9 +49,12 @@
   {# cannot_answer and blocked already have their own fixed wording above, in
      place of the model's message, so this hides it there. talk_to_a_person
      still shows its message: that's where the model says why the team is the
-     right place and what to bring. #}
+     right place and what to bring. One paragraph per line break in the
+     message, so numbered points and paragraphs do not run together. #}
   {% if answer.message and answer.status != 'cannot_answer' and answer.status != 'blocked' %}
-  <p class="govuk-body">{{ answer.message }}</p>
+  {% for paragraph in answer.message | paragraphs %}
+  <p class="govuk-body">{{ paragraph }}</p>
+  {% endfor %}
   {% endif %}
 
   {# The route to a person, on the newest turn only: an older reply should
