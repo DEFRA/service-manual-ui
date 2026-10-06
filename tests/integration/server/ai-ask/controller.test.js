@@ -698,6 +698,17 @@ describe('askController', () => {
       )
     })
 
+    test('shows each paragraph of the answer message in its own paragraph', async () => {
+      const { result } = await ask('How do I choose a tool?')
+
+      expect(result).toEqual(
+        expect.stringContaining('decide what is allowed.</p>')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('<p class="govuk-body">The tools radar shows')
+      )
+    })
+
     test.each([
       ['nothing at all', '', 'Enter your question'],
       ['only spaces', '%20%20%20', 'Enter your question'],
