@@ -590,8 +590,12 @@ describe('askController', () => {
       expect(result).toEqual(
         expect.stringContaining('<p class="govuk-body app-ask__outcome">This question cannot be answered here.</p>')
       )
+      expect(result).toEqual(expect.stringContaining('<li>ask your question a different way</li>'))
       expect(result).toEqual(
-        expect.stringContaining('If your question is about the toolkit, <a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a>.')
+        expect.stringContaining('<li>take out any personal details, like names, and ask again</li>')
+      )
+      expect(result).toEqual(
+        expect.stringContaining('<li><a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a> if your question is about the toolkit</li>')
       )
       expect(result.toLowerCase()).not.toMatch(/flagged|filtered|unsafe|violat/)
       expect(result).toEqual(expect.stringContaining('id="question"'))
@@ -634,7 +638,8 @@ describe('askController', () => {
       })
 
       expect(result).toEqual(expect.stringContaining('This question cannot be answered here.'))
-      expect(result).not.toEqual(expect.stringContaining('If your question is about the toolkit'))
+      expect(result).not.toEqual(expect.stringContaining('ask your question a different way'))
+      expect(result).not.toEqual(expect.stringContaining('if your question is about the toolkit'))
     })
 
     test('keeps the route to a person on the last turn of a full conversation', async () => {
