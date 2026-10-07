@@ -213,6 +213,7 @@ describe('askController', () => {
     }
 
     const NO_ANSWER = 'The toolkit could not answer just now. Try again in a minute.'
+    const DAILY_LIMIT = 'The toolkit cannot answer any more questions today. Try again tomorrow, or email the AI Capability and Enablement team at AICapabilityAndEnablement@defra.gov.uk.'
 
     test('says what to do when the backend gives no answer, and keeps the question', async () => {
       await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
@@ -684,6 +685,10 @@ describe('askController', () => {
       expect(result).toEqual(expect.stringContaining(NO_ANSWER))
       expect(result).toEqual(expect.stringContaining('simulate an error please'))
       expect(result).toEqual(expect.stringContaining('Error: Ask the toolkit'))
+      // The backend's own message, never shown for the error status.
+      expect(result).not.toEqual(
+        expect.stringContaining('Something went wrong answering this. No answer was generated.')
+      )
 
       // Nothing was saved: there is no answer at this address to read.
       const { statusCode: laterStatus, headers } = await server.inject({
@@ -692,6 +697,59 @@ describe('askController', () => {
       })
       expect(laterStatus).toBe(statusCodes.seeOther)
       expect(headers.location).toBe(`${askUrl}?notice=not-found`)
+    })
+
+    test('shows the daily limit words instead of "try again in a minute" on the front page, and does not save it', async () => {
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${encodeURIComponent('simulate the daily limit please')}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded' }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(DAILY_LIMIT))
+      expect(result).not.toEqual(expect.stringContaining(NO_ANSWER))
+      expect(result).not.toEqual(
+        expect.stringContaining('The toolkit has reached today\'s limit. Try again tomorrow.')
+      )
+      expect(result).toEqual(expect.stringContaining('simulate the daily limit please'))
+
+      const { statusCode: laterStatus, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/1'
+      })
+      expect(laterStatus).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe(`${askUrl}?notice=not-found`)
+    })
+
+    test('shows the daily limit words, not "try again in a minute", on a follow-up in a conversation', async () => {
+      const { cookie } = await postQuestion('Can I use GitHub Copilot?')
+
+      const { statusCode, result } = await server.inject({
+        method: 'POST',
+        url: askUrl,
+        payload: `question=${encodeURIComponent('simulate the daily limit please')}`,
+        headers: { 'content-type': 'application/x-www-form-urlencoded', cookie }
+      })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining('Can I use GitHub Copilot?'))
+      expect(result).toEqual(expect.stringContaining('simulate the daily limit please</textarea>'))
+      expect(result).toEqual(expect.stringContaining('There is a problem'))
+      expect(result).not.toEqual(
+        expect.stringContaining('Sorry, there is a problem with the service')
+      )
+      expect(result).toEqual(expect.stringContaining(DAILY_LIMIT))
+      expect(result).not.toEqual(expect.stringContaining(NO_ANSWER))
+
+      const { statusCode: laterStatus, headers } = await server.inject({
+        method: 'GET',
+        url: '/ai-toolkit/ask/answers/2',
+        headers: { cookie }
+      })
+      expect(laterStatus).toBe(statusCodes.seeOther)
+      expect(headers.location).toBe('/ai-toolkit/ask/answers/1#turn-1')
     })
 
     test.each([

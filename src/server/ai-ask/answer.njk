@@ -33,11 +33,17 @@
     {% endif %}
 
     {# A failure on our side is not a mistake in the question, so it is a
-       summary with no field to fix. #}
+       summary with no field to fix. serviceProblemHeading replaces the
+       default wording only for the daily limit, a cap the service sets on
+       purpose rather than a fault in it. The daily limit message carries the
+       team's email address in full, which has no spaces to wrap at, so the
+       summary forces long words to break rather than overflow on a narrow
+       screen. #}
     {% if serviceProblem %}
       {{ govukErrorSummary({
-        titleText: "Sorry, there is a problem with the service",
-        descriptionText: serviceProblem
+        titleText: serviceProblemHeading or "Sorry, there is a problem with the service",
+        descriptionText: serviceProblem,
+        classes: "govuk-!-text-break-word"
       }) }}
     {% endif %}
 

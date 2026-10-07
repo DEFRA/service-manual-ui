@@ -150,9 +150,10 @@ export function toViewModel (apiAnswer) {
   return {
     status: apiAnswer.status,
     message: apiAnswer.message ?? null,
-    // Only cannot_answer ever carries this, distinguishing outside_toolkit
-    // from no_guidance_yet. Defaulting to null keeps every other status
-    // unchanged, just as options does below.
+    // cannot_answer carries outside_toolkit or no_guidance_yet; error can
+    // carry daily_limit (the service-wide ceiling on Bedrock calls).
+    // Defaulting to null keeps every other status unchanged, just as options
+    // does below.
     reason: apiAnswer.reason ?? null,
     rule,
     sources,
