@@ -592,7 +592,7 @@ describe('askController', () => {
       )
       expect(result).toEqual(expect.stringContaining('<li>ask your question a different way</li>'))
       expect(result).toEqual(
-        expect.stringContaining('<li>take out any personal details, like names, and ask again</li>')
+        expect.stringContaining('<li>if it includes personal details, like names, take them out and ask again</li>')
       )
       expect(result).toEqual(
         expect.stringContaining('<li><a class="govuk-link" href="/ai-toolkit/ask/help">email the AI Capability and Enablement team</a> if your question is about the toolkit</li>')
