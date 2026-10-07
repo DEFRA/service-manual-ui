@@ -213,7 +213,7 @@ describe('askController', () => {
     }
 
     const NO_ANSWER = 'The toolkit could not answer just now. Try again in a minute.'
-    const DAILY_LIMIT = 'The toolkit cannot answer any more questions today. Try again tomorrow.'
+    const DAILY_LIMIT = 'The toolkit cannot answer any more questions today. Try again tomorrow, or email the AI Capability and Enablement team at AICapabilityAndEnablement@defra.gov.uk.'
 
     test('says what to do when the backend gives no answer, and keeps the question', async () => {
       await withBackend(vi.fn().mockRejectedValue(new TypeError('fetch failed')), async () => {
@@ -736,7 +736,8 @@ describe('askController', () => {
       expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining('Can I use GitHub Copilot?'))
       expect(result).toEqual(expect.stringContaining('simulate the daily limit please</textarea>'))
-      expect(result).toEqual(
+      expect(result).toEqual(expect.stringContaining('There is a problem'))
+      expect(result).not.toEqual(
         expect.stringContaining('Sorry, there is a problem with the service')
       )
       expect(result).toEqual(expect.stringContaining(DAILY_LIMIT))

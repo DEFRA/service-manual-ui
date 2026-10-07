@@ -113,7 +113,7 @@ function hiddenTurns (total, number, showAll) {
 function renderAnswer (
   h,
   { exchanges, number },
-  { question = '', error = null, serviceProblem = null } = {}
+  { question = '', error = null, serviceProblem = null, serviceProblemHeading = null } = {}
 ) {
   const isLatest = number === exchanges.length
   const hidden = hiddenTurns(exchanges.length, number, h.request.query?.all === '1')
@@ -169,7 +169,8 @@ function renderAnswer (
     questionFormClass: 'app-ask__followup',
     question,
     error,
-    serviceProblem
+    serviceProblem,
+    serviceProblemHeading
   })
 }
 
@@ -206,7 +207,18 @@ export const NO_ANSWER_ERROR = 'The toolkit could not answer just now. Try again
 // count resets. Fixed words, never the backend's message, same rule as a
 // blocked answer (see transcript.js). Deliberately silent on a specific time:
 // the count resets at 00:00 UTC, which is 01:00 in British Summer Time.
-export const DAILY_LIMIT_ERROR = 'The toolkit cannot answer any more questions today. Try again tomorrow.'
+// Keeps a route to a person, as NO_ANSWER_ERROR does not need to: that one
+// expects trying again shortly to work, this one does not. Agreed with
+// Chris.
+export const DAILY_LIMIT_ERROR = `The toolkit cannot answer any more questions today. Try again tomorrow, or email the AI Capability and Enablement team at ${TEAM_EMAIL}.`
+
+// Heading for the daily-limit error summary on a follow-up, replacing the
+// usual "Sorry, there is a problem with the service": the ceiling is one the
+// service sets on purpose, not a fault in it, so "sorry" and "problem with
+// the service" both say more than is true. Matches the heading already used
+// for a problem with the question itself (see renderAsk's error option),
+// which says only that a problem exists. Agreed with Chris.
+export const DAILY_LIMIT_HEADING = 'There is a problem'
 
 /**
  * Shows the page the question was asked from again, with the question kept:
@@ -233,11 +245,13 @@ function renderQuestionError (h, exchanges, options) {
  * @param {Array<object>} exchanges
  * @param {string} question
  * @param {string} [message] - NO_ANSWER_ERROR unless the ceiling was the cause
+ * @param {string} [heading] - Set only for the ceiling, to replace the
+ * default "Sorry, there is a problem with the service" on a follow-up
  * @returns {object}
  */
-function renderNoAnswer (h, exchanges, question, message = NO_ANSWER_ERROR) {
+function renderNoAnswer (h, exchanges, question, message = NO_ANSWER_ERROR, heading = null) {
   return exchanges.length
-    ? renderQuestionError(h, exchanges, { question, serviceProblem: message })
+    ? renderQuestionError(h, exchanges, { question, serviceProblem: message, serviceProblemHeading: heading })
     : renderQuestionError(h, exchanges, { question, error: message })
 }
 
@@ -297,8 +311,9 @@ export const askPostController = {
     // daily_limit) gets its own words rather than NO_ANSWER_ERROR, since
     // "try again in a minute" is not true until the count resets.
     if (answer.status === 'error') {
-      const message = answer.reason === 'daily_limit' ? DAILY_LIMIT_ERROR : NO_ANSWER_ERROR
-      return renderNoAnswer(h, exchanges, question, message)
+      const dailyLimit = answer.reason === 'daily_limit'
+      const message = dailyLimit ? DAILY_LIMIT_ERROR : NO_ANSWER_ERROR
+      return renderNoAnswer(h, exchanges, question, message, dailyLimit ? DAILY_LIMIT_HEADING : null)
     }
 
     // An id of its own, so anything keyed to this answer, such as a report

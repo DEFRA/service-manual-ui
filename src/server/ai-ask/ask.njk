@@ -19,7 +19,8 @@
     {% if error %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
-        errorList: [{ text: error, href: "#question" }]
+        errorList: [{ text: error, href: "#question" }],
+        classes: "govuk-!-text-break-word"
       }) }}
     {% endif %}
 
