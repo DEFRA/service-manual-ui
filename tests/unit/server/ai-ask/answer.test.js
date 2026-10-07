@@ -298,6 +298,16 @@ describe('toViewModel', () => {
     expect(view.reason).toBe('outside_toolkit')
   })
 
+  test('maps reason daily_limit for error', () => {
+    const view = toViewModel({
+      status: 'error',
+      message: 'Daily ceiling reached.',
+      reason: 'daily_limit'
+    })
+
+    expect(view.reason).toBe('daily_limit')
+  })
+
   test('defaults reason to null when the backend sends none', () => {
     const view = toViewModel({
       status: 'answered',
@@ -427,7 +437,8 @@ describe('the stub answers for the four outcomes with no answer', () => {
     ['a DPIA question', 'Do we need a DPIA for this?', 'talk_to_a_person', null],
     ['a legal advice question', 'Can you give me legal advice?', 'blocked', null],
     ['a medical question', 'Can I use this for medical advice?', 'blocked', null],
-    ['a simulated error', 'simulate an error please', 'error', null]
+    ['a simulated error', 'simulate an error please', 'error', null],
+    ['a simulated daily limit refusal', 'simulate the daily limit please', 'error', 'daily_limit']
   ])('maps %s to %s', (_description, question, status, reason) => {
     const raw = fixtureAnswerFor(question)
     const view = toViewModel(raw)

@@ -154,11 +154,33 @@ const errorAnswer = {
   sources: []
 }
 
+// Stub text only, like the cannot_answer outcomes above: the front end never
+// shows this message for reason daily_limit, so its wording does not matter.
+const dailyLimitAnswer = {
+  status: 'error',
+  message: 'The toolkit has reached today\'s limit. Try again tomorrow.',
+  reason: 'daily_limit',
+  rule_verbatim: null,
+  sources: []
+}
+
 const matchers = [
-  { keywords: ['personal data', 'copilot'], answer: personalDataAnswer },
-  { keywords: ['incident', 'by mistake'], answer: incidentAnswer },
-  { keywords: ['tool', 'radar', 'approved'], answer: choosingAToolAnswer },
-  { keywords: ['help me', 'where do i start'], answer: needMoreDetailAnswer },
+  {
+    keywords: ['personal data', 'copilot'],
+    answer: personalDataAnswer
+  },
+  {
+    keywords: ['incident', 'by mistake'],
+    answer: incidentAnswer
+  },
+  {
+    keywords: ['tool', 'radar', 'approved'],
+    answer: choosingAToolAnswer
+  },
+  {
+    keywords: ['help me', 'where do i start'],
+    answer: needMoreDetailAnswer
+  },
   {
     keywords: ['pension', 'expenses', 'parking'],
     answer: cannotAnswerOutsideToolkitAnswer
@@ -171,8 +193,18 @@ const matchers = [
     keywords: ['my project', 'do we need a dpia'],
     answer: talkToAPersonAnswer
   },
-  { keywords: ['legal advice', 'medical'], answer: blockedAnswer },
-  { keywords: ['simulate an error'], answer: errorAnswer }
+  {
+    keywords: ['legal advice', 'medical'],
+    answer: blockedAnswer
+  },
+  {
+    keywords: ['simulate an error'],
+    answer: errorAnswer
+  },
+  {
+    keywords: ['simulate the daily limit'],
+    answer: dailyLimitAnswer
+  }
 ]
 
 // Openings that mean "carry on from what I just asked" rather than "here is a

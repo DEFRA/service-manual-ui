@@ -200,6 +200,14 @@ export const askController = {
 // do, as the content rules require, and no more: the cause is in the logs.
 export const NO_ANSWER_ERROR = 'The toolkit could not answer just now. Try again in a minute.'
 
+// Shown instead of NO_ANSWER_ERROR when the error carries reason
+// daily_limit: the service-wide ceiling on Bedrock calls for the
+// day has been reached, so "try again in a minute" would be false until the
+// count resets. Fixed words, never the backend's message, same rule as a
+// blocked answer (see transcript.js). Deliberately silent on a specific time:
+// the count resets at 00:00 UTC, which is 01:00 in British Summer Time.
+export const DAILY_LIMIT_ERROR = 'The toolkit cannot answer any more questions today. Try again tomorrow.'
+
 /**
  * Shows the page the question was asked from again, with the question kept:
  * the front door for a first question, the conversation for a follow-up.
@@ -217,19 +225,20 @@ function renderQuestionError (h, exchanges, options) {
 }
 
 /**
- * The backend gave no answer. That is a problem with the service, not with the
- * question, so on the conversation it goes in the summary with no field to
- * fix. The front door has no conversation to keep, so it points at the field
- * as before.
+ * The backend gave no answer, or refused with the daily ceiling reached. That
+ * is a problem with the service, not with the question, so on the
+ * conversation it goes in the summary with no field to fix. The front door
+ * has no conversation to keep, so it points at the field as before.
  * @param {object} h - Hapi response toolkit
  * @param {Array<object>} exchanges
  * @param {string} question
+ * @param {string} [message] - NO_ANSWER_ERROR unless the ceiling was the cause
  * @returns {object}
  */
-function renderNoAnswer (h, exchanges, question) {
+function renderNoAnswer (h, exchanges, question, message = NO_ANSWER_ERROR) {
   return exchanges.length
-    ? renderQuestionError(h, exchanges, { question, serviceProblem: NO_ANSWER_ERROR })
-    : renderQuestionError(h, exchanges, { question, error: NO_ANSWER_ERROR })
+    ? renderQuestionError(h, exchanges, { question, serviceProblem: message })
+    : renderQuestionError(h, exchanges, { question, error: message })
 }
 
 export const askPostController = {
@@ -284,9 +293,12 @@ export const askPostController = {
 
     // A 200 that answered, but with nothing to show: the same handling as a
     // failed fetch, so a failed turn is never saved as part of the
-    // conversation and the question is not lost.
+    // conversation and the question is not lost. A ceiling refusal (reason
+    // daily_limit) gets its own words rather than NO_ANSWER_ERROR, since
+    // "try again in a minute" is not true until the count resets.
     if (answer.status === 'error') {
-      return renderNoAnswer(h, exchanges, question)
+      const message = answer.reason === 'daily_limit' ? DAILY_LIMIT_ERROR : NO_ANSWER_ERROR
+      return renderNoAnswer(h, exchanges, question, message)
     }
 
     // An id of its own, so anything keyed to this answer, such as a report
