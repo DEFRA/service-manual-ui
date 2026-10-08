@@ -35,6 +35,10 @@ Microsoft 365 Copilot is Microsoft's AI assistant for everyday work. It can draf
 
 Everyone in the Defra group has [Copilot Chat](https://m365.cloud.microsoft/chat), the web version included in the standard Microsoft 365 suite. You sign in with your Defra account. There is nothing to request or install.
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">If you work for a supplier or partner organisation and do not have a Defra account, Copilot Chat is not available to you. Check what your own organisation provides, and see <a class="govuk-link" href="/ai-toolkit/guidance/using-data-with-ai">Using data with AI</a> for how to apply the same rules to whatever tool you use.</p>
+</div>
+
 ## What data you can use with it
 
 Copilot Chat runs inside Defra's Microsoft 365 tenant. The same security and data protection that cover your email and documents apply to it, which is what sets it apart from public tools like ChatGPT.

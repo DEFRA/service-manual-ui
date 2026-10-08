@@ -132,6 +132,10 @@ The type of tool decides what data you can use with it. Check which type you are
 <li><strong>Defra-hosted.</strong> A model running on infrastructure Defra controls, like Azure OpenAI or Bedrock in a Defra tenancy. It is not self-serve for OFFICIAL-SENSITIVE or personal data, so talk to the AI Capability and Enablement team (AICE) first.</li>
 </ul>
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">If you do not have a Defra account, for example you work for a supplier, you cannot use Defra's enterprise or Defra-hosted tools. Ask your own organisation what it has approved, and apply the same public, OFFICIAL, OFFICIAL-SENSITIVE and personal data distinctions from the table above to whatever tool you use.</p>
+</div>
+
 ## Which device you can use
 
 Your device matters as much as the tool. The rules here assume a Defra-managed device, such as a Defra laptop or virtual desktop.
