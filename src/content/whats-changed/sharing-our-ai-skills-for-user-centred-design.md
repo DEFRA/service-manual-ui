@@ -3,11 +3,11 @@ title: Sharing our AI skills for user-centred design
 date: 2026-10-06
 type: Blog post
 author: Chris Leo
-authorRole: AI Design Lead
+authorRole: Design Lead for the AI Capability and Enablement team
 summary: We have published the instructions we give AI for design and research work, so any team can use them.
 ---
 
-In my [last post](/ai-toolkit/whats-changed/why-we-are-building-a-way-to-ask-the-toolkit), I explained why we are building Ask the toolkit. This time I want to share the AI skills we used to design and test it. They are open, so any team can use them and help improve them.
+My last post explained [why we are building Ask the toolkit](/ai-toolkit/whats-changed/why-we-are-building-a-way-to-ask-the-toolkit). This time I want to share the artificial intelligence (AI) skills we used to design and test it. They are open, so any team can use them and help improve them.
 
 ## What a skill is
 
@@ -34,17 +34,17 @@ The synthetic usability review skill tries a service in a real browser. It plays
 It checks every screen against:
 
 - Nielsen's 10 usability heuristics
-- Microsoft's guidelines for human-AI interaction
+- Microsoft's guidelines for human-AI&nbsp;interaction
 - the GOV.UK Design System
 
 Then a second AI reviews the same evidence on its own. One reviewer finds only about a third of the problems, so a second review catches more.
 
 <figure>
   <ol class="app-flow">
-    <li class="app-flow__step"><strong class="app-flow__action">AI tries the jobs</strong>as different people</li>
-    <li class="app-flow__step"><strong class="app-flow__action">Another AI</strong>reviews it alone</li>
-    <li class="app-flow__step"><strong class="app-flow__action">Fix the obvious</strong>before research</li>
-    <li class="app-flow__step"><strong class="app-flow__action">People test</strong>how it feels to use</li>
+    <li class="app-flow__step"><strong class="app-flow__action">AI tries the jobs</strong> as different people</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Another AI</strong> reviews it alone</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Fix the obvious</strong> before research</li>
+    <li class="app-flow__step"><strong class="app-flow__action">People test</strong> how it feels to use</li>
   </ol>
 </figure>
 

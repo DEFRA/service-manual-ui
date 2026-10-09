@@ -11,9 +11,9 @@ I lead the AI Capability and Enablement team at Defra. We started in March. Six 
 
 ## Why we exist
 
-Teams across Defra want to use AI. Many of them were asking us the same things. Which tools can we use? What data can we put in them? Has anyone done this before?
+Teams across Defra want to use artificial intelligence (AI). Many of them were asking us the same things. Which tools can we use? What data can we put in them? Has anyone done this before?
 
-Our job is to make those questions easier to answer, so every team can use AI safely and well. We put it like this: enable, don't own. Patterns over platforms. It all lives in one place, the [AI digital toolkit](/ai-toolkit).
+Our job is to make those questions easier to answer, so every team can use AI safely and well. We help teams do it themselves, and build things once so everyone can reuse them. It all lives in one place, the [AI digital toolkit](/ai-toolkit).
 
 <figure>
   <picture>
@@ -26,7 +26,7 @@ Our job is to make those questions easier to answer, so every team can use AI sa
 
 [Deliver with AI](/ai-toolkit/deliver-with-ai) has 8 guidance pages. They cover choosing a tool, using data, keeping data safe, working with AI agents, security, ethics, sustainability and reporting an incident.
 
-We wrote them with the AI Unit in Digital, Data and Technology Services (DDTS), which supports Microsoft 365 Copilot across Defra. So the rules you read in the toolkit are the rules Defra works to.
+We wrote them with the AI Unit in Digital, Data and Technology Services (DDTS), so Defra speaks with one voice on AI. The rules you read in the toolkit are the same ones you will hear from the AI Unit.
 
 The most important one is simple. You can use any AI tool, as long as you follow the rules on [what data you put into it](/ai-toolkit/guidance/using-data-with-ai).
 
@@ -40,7 +40,7 @@ A radar is usually a picture, which is hard to use with a screen reader or on a 
 
 [Use AI patterns](/ai-toolkit/patterns) has 5 proofs of concept built and shared by Defra teams. They range from an AI assistant to cutting the cost of AI calls. Start from one of these instead of from scratch.
 
-We also share AI skills on [GitHub](https://github.com/DEFRA/defra-ai-plugins). These are written instructions that help AI assistants work to Defra's standards, from building a frontend to reviewing a design.
+We also share [Defra's AI skills on GitHub](https://github.com/DEFRA/defra-ai-plugins). These are written instructions that help AI assistants work to Defra's standards, from building a frontend to reviewing a design.
 
 ## Our incubator projects
 
@@ -56,6 +56,7 @@ So far, 52 requests have come in. 4 are now in delivery, including:
 
 Here is what I am most excited about next:
 
+- building an AI platform, so we can keep up with demand for AI-enabled services
 - growing more incubator teams, so we can take on more of Defra's hardest problems
 - running more training with Defra's heads of profession and their communities
 - launching Ask the toolkit, so you can ask a question in your own words (more in our next posts)
@@ -67,10 +68,10 @@ We want Defra to be the best place in government to use AI well, and to share wh
 
 <figure>
   <ol class="app-flow">
-    <li class="app-flow__step"><strong class="app-flow__action">Check an idea</strong>in 5 questions</li>
-    <li class="app-flow__step"><strong class="app-flow__action">Read guidance</strong>on tools and data</li>
-    <li class="app-flow__step"><strong class="app-flow__action">Reuse a pattern</strong>from Defra teams</li>
-    <li class="app-flow__step"><strong class="app-flow__action">Send a problem</strong>and we score it</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Check an idea</strong> in 5 questions</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Read guidance</strong> on tools and data</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Reuse a pattern</strong> from Defra teams</li>
+    <li class="app-flow__step"><strong class="app-flow__action">Send a problem</strong> and we score it</li>
   </ol>
 </figure>
 

@@ -34,6 +34,16 @@
   font-weight: bold;
 }
 
+// Stops text ending on a lone word or link at any screen width. Headings
+// balance their lines. Browsers that do not support it wrap as normal.
+.app-whats-changed__body :is(p, li, figcaption) {
+  text-wrap: pretty;
+}
+
+.app-whats-changed__body :is(h2, h3) {
+  text-wrap: balance;
+}
+
 // A post's pictures are real screens, so they get a thin edge to separate
 // them from the page, and a caption that says what they show.
 .app-whats-changed__body figure {
