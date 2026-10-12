@@ -30,7 +30,7 @@ supportBox:
   title: Send us a problem to look at
   description: Tell the AI Capability and Enablement team about a problem in your area and we will score it with you.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20incubator%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20pilot%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 <p class="govuk-body">We score against what the team sends us, any documents they attach, and the conversation we have with them. The panel talks each one through and agrees a colour.</p>

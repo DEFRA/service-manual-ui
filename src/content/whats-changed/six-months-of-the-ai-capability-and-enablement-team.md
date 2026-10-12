@@ -42,11 +42,11 @@ A radar is usually a picture, which is hard to use with a screen reader or on a 
 
 We also share [Defra's AI skills on GitHub](https://github.com/DEFRA/defra-ai-plugins). These are written instructions that help AI assistants work to Defra's standards, from building a frontend to reviewing a design.
 
-## Our incubator projects
+## Our AI pilots
 
-Some problems need more than guidance. Any team in Defra can send us a problem, and we [score every request the same way](/ai-toolkit/projects/how-we-score). We take on the few where AI is the best answer, and build them with the team.
+Some problems need more than guidance. Any team in Defra can send us a problem, and we [score every request the same way](/ai-toolkit/projects/how-we-score). We take on the few where AI is the best answer, and pilot them with the team.
 
-So far, 52 requests have come in. 4 are now in delivery, including:
+So far, 52 requests have come in. 4 are now being piloted, including:
 
 - [making guidance easier to find and trust](/ai-toolkit/projects/guidance-easier-to-find), with the Rural Payments Agency
 - [checking spending against policy](/ai-toolkit/projects/checking-spending-against-policy), with Defra Finance
@@ -57,7 +57,7 @@ So far, 52 requests have come in. 4 are now in delivery, including:
 Here is what I am most excited about next:
 
 - building an AI platform, so we can keep up with demand for AI-enabled services
-- growing more incubator teams, so we can take on more of Defra's hardest problems
+- running more pilots, so we can take on more of Defra's hardest problems
 - running more training with Defra's heads of profession and their communities
 - launching Ask the toolkit, so you can ask a question in your own words (more in our next posts)
 - helping teams measure what their AI costs, and how well it works

@@ -23,7 +23,7 @@ The user-centred designer skills cover 3 kinds of work:
 - service design, for blueprints and journey maps
 - interaction and content design, for prototypes, Design System patterns and accessibility
 
-I have refined them over a year of real work: on this service manual, content for Defra's delivery groups, the AI digital toolkit and several incubator projects, including one with the Rural Payments Agency. Whenever a design decision would help other services too, it went into a skill. So every rule comes from a real decision on a real service.
+I have refined them over a year of real work: on this service manual, content for Defra's delivery groups, the AI digital toolkit and several AI pilots, including one with the Rural Payments Agency. Whenever a design decision would help other services too, it went into a skill. So every rule comes from a real decision on a real service.
 
 ## A usability check before research
 

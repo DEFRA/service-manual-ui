@@ -28,7 +28,7 @@ supportBox:
   title: Send us a problem to look at
   description: Tell the AI Capability and Enablement team about a problem in your area and we will score it with you.
   items:
-    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20incubator%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
+    - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=AI%20pilot%20enquiry" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
 <ul class="app-figure-cards govuk-list">
@@ -38,7 +38,7 @@ supportBox:
   </li>
   <li class="app-stat-card">
     <span class="app-stat-card__number">4</span>
-    <span class="app-stat-card__label">Projects in delivery</span>
+    <span class="app-stat-card__label">Current pilots</span>
   </li>
   <li class="app-stat-card">
     <span class="app-stat-card__number">26</span>
@@ -63,7 +63,7 @@ supportBox:
 
 <p class="govuk-body"><a class="govuk-link" href="/ai-toolkit/projects/how-we-score">Read how we score a request</a>.</p>
 
-<h2 class="govuk-heading-m">Projects in delivery</h2>
+<h2 class="govuk-heading-m">Current pilots</h2>
 
 <ul class="app-project-list">
   <li class="app-radar-card">
