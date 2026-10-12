@@ -1,10 +1,10 @@
 @use '../variables/colours' as *;
 
 // ===== Our projects =====
-// Layout for the AI incubator pages at /ai-toolkit/projects.
+// Layout for the AI pilot pages at /ai-toolkit/projects.
 //
 //   figure cards  headline numbers showing where triaged requests get to
-//   project list  the projects in delivery, each linking to its own page
+//   project list  the current pilots, each linking to its own page
 //
 // Both reuse components the toolkit already has: the stat card from the hub
 // layout and the radar card from the tools pages. This file supplies the two

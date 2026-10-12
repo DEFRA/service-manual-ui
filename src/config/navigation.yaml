@@ -37,7 +37,7 @@ nav-ai-toolkit:
 # SECTIONNAV PATTERNS (Sidebar/section navigation)
 # -----------------------------------------------------------------------------
 
-# AI incubator projects section navigation
+# AI pilots section navigation
 nav-ai-projects:
   - title: In this section
     items:
@@ -47,7 +47,7 @@ nav-ai-projects:
     items:
       - text: How we score a request
         href: /ai-toolkit/projects/how-we-score
-  - title: Projects in delivery
+  - title: Current pilots
     items:
       - text: Making guidance easier to find and trust
         href: /ai-toolkit/projects/guidance-easier-to-find
