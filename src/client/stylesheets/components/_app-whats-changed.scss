@@ -35,9 +35,12 @@
 }
 
 // Stops text ending on a lone word or link at any screen width. Headings
-// balance their lines. Browsers that do not support it wrap as normal.
+// balance their lines. Browsers that do not support it wrap as normal. The
+// team's email address is one long word, wider than a phone screen, so it
+// breaks rather than runs off the page.
 .app-whats-changed__body :is(p, li, figcaption) {
   text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .app-whats-changed__body :is(h2, h3) {
