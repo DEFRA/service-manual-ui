@@ -9,6 +9,9 @@ The Defra Digital Service Manual provides guidance and standards for digital tea
 - [Requirements](#requirements)
   - [Node.js](#nodejs)
 - [Documentation](#documentation)
+- [Ask the toolkit](#ask-the-toolkit)
+  - [Turning it off](#turning-it-off)
+  - [Report emails are untrusted](#report-emails-are-untrusted)
 - [Local Development](#local-development)
   - [Setup](#setup)
   - [Development](#development)
@@ -53,6 +56,24 @@ Proxying is handled at the infrastructure level via the `NODE_USE_ENV_PROXY` env
 application setting up a global `undici` `ProxyAgent` dispatcher itself. When enabled, Node's built-in `fetch`
 (and anything built on `undici`) will automatically pick up the standard `HTTP_PROXY`/`HTTPS_PROXY`/`NO_PROXY`
 environment variables.
+
+## Ask the toolkit
+
+Ask the toolkit, at `/ai-toolkit/ask`, answers questions from the AI digital toolkit's guidance. The answers come from
+service-manual-chat-backend.
+
+### Turning it off
+
+- Set `AI_TOOLKIT_ASK_ENABLED=false` to turn off Ask the toolkit. Its pages then return 404.
+- Set `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` to an empty value to turn off problem reports and leave the rest on.
+
+Both are set per environment in cdp-app-config and take effect after service-manual-ui is redeployed.
+
+### Report emails are untrusted
+
+A problem report emails the reader's question, the answer and anything they wrote in the report to the team mailbox.
+The reader and the AI model wrote all of it. Nothing reads the mailbox automatically today. Anything that does in future,
+such as a triage tool or an AI summary, must treat report text as untrusted input, never as instructions.
 
 ## Local Development
 
