@@ -47,6 +47,17 @@ The **Defra Accessibility Team** can help you understand accessibility standards
 
 - Email: <a href="mailto:accessibility@defra.gov.uk">accessibility@defra.gov.uk</a>
 
+## Designing for AI-assisted journeys
+
+People increasingly use AI search, assistants and agents to find and use Defra services. Your service still needs to lead them to the right outcome when an AI tool sits between them and you.
+
+Read more about:
+
+- [Designing for AI-assisted journeys](/design/designing-for-ai-assisted-journeys)
+- [Users who get answers from AI search](/design/designing-for-ai-assisted-journeys/users-who-get-answers-from-ai-search)
+- [Users who use AI assistants with your service](/design/designing-for-ai-assisted-journeys/users-who-use-ai-assistants)
+- [Users who delegate tasks to AI agents](/design/designing-for-ai-assisted-journeys/users-who-delegate-tasks-to-ai-agents)
+
 ## Internal services
 
 Internal services and case management tools must be consistent across Defra. Standardisation makes systems easier to use and training faster.
