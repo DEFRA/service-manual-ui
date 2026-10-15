@@ -8,7 +8,7 @@ breadcrumbs:
   - text: Accessibility statement
 ---
 
-This accessibility statement applies to the Digital Service Manual at service-manual-ui.
+This accessibility statement applies to the Digital Service Manual at digital.defra.gov.uk.
 
 This website is run by the Department for Environment, Food and Rural Affairs (Defra). We want as many people as possible to be able to use this website. For example, that means you should be able to:
 
@@ -23,7 +23,13 @@ We've also made the website text as simple as possible to understand.
 
 ## How accessible this website is
 
-We believe this website is fully accessible. If you find any accessibility issues, please contact us using the details below.
+We believe this website is fully accessible. If you find any accessibility issues, contact us using the details below.
+
+### Ask the toolkit
+
+[Ask the toolkit](/ai-toolkit/ask) uses AI to write each answer from the toolkit's guidance. We cannot check every answer before you see it, so some may be longer or harder to read than the rest of this website.
+
+Ask the toolkit has not had a full accessibility audit yet. We will get one after it launches and update this page with the results.
 
 ## Feedback and contact information
 
@@ -45,11 +51,14 @@ This website is fully compliant with the [Web Content Accessibility Guidelines v
 
 We are committed to maintaining accessibility standards. Our ongoing activities include:
 
-- conducting regular accessibility audits
+- testing new pages against WCAG 2.2 AA before they go live
+- getting a full accessibility audit of Ask the toolkit after it launches
 - training our team on accessibility best practices
 
 ## Preparation of this accessibility statement
 
-This statement was prepared on 3 February 2026. It was last reviewed on 3 February 2026.
+This statement was prepared on 3 February 2026. It was last reviewed on 15 October 2026.
 
 This website was last tested on 3 February 2026. The test was carried out using automated testing tools against WCAG 2.2 AA criteria.
+
+Ask the toolkit was tested on 15 October 2026 against WCAG 2.2 AA criteria. We used automated testing tools and a keyboard, and checked it at 320 pixels wide and at 400% zoom.
