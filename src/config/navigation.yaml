@@ -163,6 +163,18 @@ nav-design:
         href: /design/tools
       - text: Components and patterns
         href: /design/components-and-patterns
+  - title: Designing for AI-assisted journeys
+    items:
+      - text: Overview
+        href: /design/designing-for-ai-assisted-journeys
+      - text: What designers should do
+        href: /design/designing-for-ai-assisted-journeys/what-designers-should-do
+      - text: Users who get answers from AI search
+        href: /design/designing-for-ai-assisted-journeys/users-who-get-answers-from-ai-search
+      - text: Users who use AI assistants with your service
+        href: /design/designing-for-ai-assisted-journeys/users-who-use-ai-assistants
+      - text: Users who delegate tasks to AI agents
+        href: /design/designing-for-ai-assisted-journeys/users-who-delegate-tasks-to-ai-agents
 
 # Product and delivery section navigation
 nav-product-delivery:
