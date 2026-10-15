@@ -27,9 +27,15 @@ We believe this website is fully accessible. If you find any accessibility issue
 
 ### Ask the toolkit
 
-[Ask the toolkit](/ai-toolkit/ask) uses AI to write each answer from the toolkit's guidance. We cannot check every answer before you see it, so some may be longer or harder to read than the rest of this website.
+[Ask the toolkit](/ai-toolkit/ask) is new. It is built with the same GOV.UK components as the rest of this website. Before it launched, we:
 
-Ask the toolkit has not had a full accessibility audit yet. We will get one after it launches and update this page with the results.
+- checked it against WCAG 2.2 AA using automated tools and a keyboard, and at 320 pixels wide and 400% zoom, and found no failures
+- tested it with Defra staff in 2 rounds of research
+- contacted the Defra accessibility team in September 2026 to arrange a full accessibility audit
+
+We will add the audit results to this page when we have them.
+
+Ask the toolkit uses AI to write each answer from the toolkit's guidance. We cannot check every answer before you see it, so some may be longer or harder to read than the rest of this website.
 
 ## Feedback and contact information
 
@@ -52,7 +58,7 @@ This website is fully compliant with the [Web Content Accessibility Guidelines v
 We are committed to maintaining accessibility standards. Our ongoing activities include:
 
 - testing new pages against WCAG 2.2 AA before they go live
-- getting a full accessibility audit of Ask the toolkit after it launches
+- arranging a full accessibility audit of Ask the toolkit
 - training our team on accessibility best practices
 
 ## Preparation of this accessibility statement
