@@ -13,6 +13,21 @@ on:
       - ready_for_review
 
 jobs:
+  dependency-review:
+    name: Review Dependency Changes
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+
   pr-validator:
     name: Run Pull Request Checks
     runs-on: ubuntu-latest
@@ -30,6 +45,11 @@ jobs:
           npm run build:frontend
           npm run lint
           npm test
+
+      # Fails on critical vulnerabilities in production dependencies. Raise
+      # to high once the open high alerts are cleared.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=critical
 
       - name: Test Docker Image Build
         run: |

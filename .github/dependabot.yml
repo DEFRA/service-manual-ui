@@ -59,6 +59,10 @@ updates:
       time: '10:30'
       timezone: 'Europe/London'
 
+    # Wait 7 days after a release, to match min-release-age in .npmrc
+    cooldown:
+      default-days: 7
+
     versioning-strategy: increase
 
     allow:
