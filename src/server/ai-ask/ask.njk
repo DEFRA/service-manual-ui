@@ -26,9 +26,12 @@
 
     <h1 class="govuk-heading-xl">Ask the toolkit</h1>
 
-    {# Says it is AI, as every way in to this page does. The warning that AI
-       can be wrong sits under each answer, where it is acted on. #}
-    <p class="govuk-body-l">Get an AI answer from the toolkit's guidance, with a link to each page it used.</p>
+    {# Says it is AI, as every way in to this page does, and what it covers, so
+       people know before they ask rather than after a refusal (usability round
+       2). Licences are left out on purpose: there is no route to one for the
+       page to point at. The warning that AI can be wrong sits under each
+       answer, where it is acted on. #}
+    <p class="govuk-body-l">Get an AI answer on tools, using data, incidents or Defra projects, with links to the guidance it used.</p>
 
     {% if notice == 'not-found' %}
     {# True whether the conversation expired, was never started, or is shorter
