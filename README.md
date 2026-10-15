@@ -211,8 +211,11 @@ docker compose up --build -d
 
 ### Dependabot
 
-We have added an example dependabot configuration file to the repository. You can enable it by renaming
-the [.github/example.dependabot.yml](.github/example.dependabot.yml) to `.github/dependabot.yml`
+Dependabot is configured in [.github/dependabot.yml](.github/dependabot.yml). It opens weekly pull requests
+for npm packages and GitHub Actions, and waits 7 days after a release, to match `min-release-age` in `.npmrc`.
+
+Every pull request also runs the dependency review action, which fails if the change adds a dependency with a
+high or critical vulnerability, and `npm audit`, which fails on critical vulnerabilities in production dependencies.
 
 ### SonarCloud
 
