@@ -30,6 +30,7 @@ We believe this website is fully accessible. If you find any accessibility issue
 [Ask the toolkit](/ai-toolkit/ask) is new. It is built with the same GOV.UK components as the rest of this website. Before it launched, we:
 
 - checked it against WCAG 2.2 AA using automated tools and a keyboard, and at 320 pixels wide and 400% zoom, and found no failures
+- checked what screen readers are told on each page: headings, labels, link text, error messages and reading order
 - tested it with Defra staff in 2 rounds of research
 - contacted the Defra accessibility team in September 2026 to arrange a full accessibility audit
 
@@ -67,4 +68,4 @@ This statement was prepared on 3 February 2026. It was last reviewed on 15 Octob
 
 This website was last tested on 3 February 2026. The test was carried out using automated testing tools against WCAG 2.2 AA criteria.
 
-Ask the toolkit was tested on 15 October 2026 against WCAG 2.2 AA criteria. We used automated testing tools and a keyboard, and checked it at 320 pixels wide and at 400% zoom.
+Ask the toolkit was tested on 15 October 2026 against WCAG 2.2 AA criteria. We used automated testing tools and a keyboard, checked what screen readers are told on each page, and checked it at 320 pixels wide and at 400% zoom.
