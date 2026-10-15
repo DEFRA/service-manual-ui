@@ -75,8 +75,8 @@ describe('askController', () => {
 
     test.each([
       ['the page heading', 'Ask the toolkit'],
-      ['what the page is for, and that it is AI', 'Get an AI answer from the toolkit'],
-      ['that each answer links to its guidance', 'with a link to each page it used.'],
+      ['what the page is for, and that it is AI', 'Get an AI answer on tools, using data, incidents or Defra projects'],
+      ['that each answer links to its guidance', 'with links to the guidance it used.'],
       ['the question field', 'id="question"'],
       ['a Defra green ask button', 'app-ask__send'],
       ['the route to a person', 'Get help from a person'],
