@@ -132,6 +132,10 @@ The type of tool decides what data you can use with it. Check which type you are
 <li><strong>Defra-hosted.</strong> A model running on infrastructure Defra controls, like Azure OpenAI or Bedrock in a Defra tenancy. It is not self-serve for OFFICIAL-SENSITIVE or personal data, so talk to the AI Capability and Enablement team (AICE) first.</li>
 </ul>
 
+<div class="govuk-inset-text">
+  <p class="govuk-body govuk-!-margin-bottom-0">If you work for a supplier and do not have a Defra account, you cannot use tools that need one, like Microsoft 365 Copilot. Ask your own organisation which AI tools it has approved. Unless you use a Defra-managed device, the device rules below apply: public or OFFICIAL information only, and never OFFICIAL-SENSITIVE content or personal data.</p>
+</div>
+
 ## Which device you can use
 
 Your device matters as much as the tool. The rules here assume a Defra-managed device, such as a Defra laptop or virtual desktop.
