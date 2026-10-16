@@ -6,48 +6,22 @@ updates:
     directory: /
     open-pull-requests-limit: 10
 
-    # Group packages into shared PR
+    # Two pull requests a week: one for minor and patch updates, which are
+    # usually safe to merge together, and one for major updates, which can
+    # break things and need checking one by one
     groups:
-      build:
+      minor-and-patch:
         patterns:
-          - '@babel/*'
-          - 'autoprefixer'
-          - 'babel-plugin-module-resolver'
-          - 'babel-loader'
-          - 'babel-plugin-transform-import-meta'
-          - 'tsx'
-          - 'webpack'
-          - 'webpack-*'
-          - 'terser-webpack-plugin'
+          - '*'
+        update-types:
+          - minor
+          - patch
 
-      lint:
+      major:
         patterns:
-          - 'prettier'
-          - 'stylelint'
-          - 'stylelint-*'
-
-      logging:
-        patterns:
-          - '*-pino'
-          - '*-pino-format'
-          - 'pino'
-          - 'pino-*'
-
-      tools:
-        patterns:
-          - 'husky'
-          - 'vitest'
-          - 'vitest-*'
-          - 'nodemon'
-          - 'npm-run-all'
-          - 'lodash'
-          - 'source-map-loader'
-          - 'sass-*'
-          - 'postcss-*'
-
-      types:
-        patterns:
-          - '@types/*'
+          - '*'
+        update-types:
+          - major
 
     ignore:
       - dependency-name: 'eslint-*'
@@ -73,8 +47,27 @@ updates:
   - package-ecosystem: github-actions
     directory: /
 
+    # Split the same way as npm, so major updates never ride along with safe ones
+    groups:
+      actions-minor-and-patch:
+        patterns:
+          - '*'
+        update-types:
+          - minor
+          - patch
+
+      actions-major:
+        patterns:
+          - '*'
+        update-types:
+          - major
+
     # Schedule run every Monday, local time
     schedule:
       interval: weekly
       time: '10:30'
       timezone: 'Europe/London'
+
+    # Wait 7 days after a release, the same as npm
+    cooldown:
+      default-days: 7
