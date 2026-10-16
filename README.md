@@ -211,9 +211,9 @@ docker compose up --build -d
 
 ### Dependabot
 
-Dependabot is configured in [.github/dependabot.yml](.github/dependabot.yml). Each week it opens at most 3 pull
-requests: one for minor and patch npm updates, one for major npm updates, which need checking one by one, and one
-for GitHub Actions. It waits 7 days after a release, to match `min-release-age` in `.npmrc`.
+Dependabot is configured in [.github/dependabot.yml](.github/dependabot.yml). Each week it opens at most 4 pull
+requests: for npm packages and for GitHub Actions, one with minor and patch updates and one with major updates,
+which need checking one by one. It waits 7 days after a release, to match `min-release-age` in `.npmrc`.
 
 Every pull request also runs the dependency review action, which fails if the change adds a dependency with a
 high or critical vulnerability, and `npm audit`, which fails on critical vulnerabilities in production dependencies.

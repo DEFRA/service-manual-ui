@@ -47,14 +47,27 @@ updates:
   - package-ecosystem: github-actions
     directory: /
 
-    # One pull request a week for all actions
+    # Split the same way as npm, so major updates never ride along with safe ones
     groups:
-      actions:
+      actions-minor-and-patch:
         patterns:
           - '*'
+        update-types:
+          - minor
+          - patch
+
+      actions-major:
+        patterns:
+          - '*'
+        update-types:
+          - major
 
     # Schedule run every Monday, local time
     schedule:
       interval: weekly
       time: '10:30'
       timezone: 'Europe/London'
+
+    # Wait 7 days after a release, the same as npm
+    cooldown:
+      default-days: 7
