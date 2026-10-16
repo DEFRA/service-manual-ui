@@ -86,6 +86,9 @@ Use these in order:
 
 To turn off problem reports and leave the rest on, set `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` to an empty value.
 
+To turn Ask back on, set `ASK_DAILY_CEILING` back to 600 or `AI_TOOLKIT_ASK_ENABLED` back to true, whichever you
+changed, and redeploy that service.
+
 ### If something goes wrong
 
 Most problems reach the team as problem reports in the team mailbox.
@@ -93,7 +96,7 @@ Most problems reach the team as problem reports in the team mailbox.
 | What happened | What to do first |
 | :-- | :-- |
 | An answer is wrong or could cause harm | Check it against the guidance. If it could lead someone to put data at risk, stop the answers. Then fix the guidance or the backend's prompt. |
-| Someone typed personal data, or an answer shows it | Follow [report an AI incident](https://digital.defra.gov.uk/ai-toolkit/guidance/report-an-ai-incident). Amazon Bedrock keeps every question and answer for 30 days in a store the platform runs, so give the time it happened. |
+| Someone typed personal data, or an answer shows it | Follow [report an AI incident](https://digital.defra.gov.uk/ai-toolkit/guidance/report-an-ai-incident). Amazon Bedrock keeps every question and answer for 30 days in a store the platform runs, so give the time it happened. If the answer was reported, the report email in the team mailbox holds it too, so delete that email. |
 | Readers are told it cannot answer any more questions today | The daily ceiling of model calls has been reached. It resets at midnight UTC. Check the backend logs for a spike, and raise the ceiling only if the use is genuine. |
 | Every question gets "The toolkit could not answer just now" | The backend or Bedrock is failing. Check service-manual-chat-backend's logs in OpenSearch. If it lasts, stop the answers. |
 | Answers miss a recent change to the guidance | Ask answers from a fixed copy of the toolkit pages, set by `CONTENT_REF` in the backend's Dockerfile. Update it to the latest commit on main and redeploy the backend. |
