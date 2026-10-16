@@ -133,7 +133,7 @@ The type of tool decides what data you can use with it. Check which type you are
 </ul>
 
 <div class="govuk-inset-text">
-  <p class="govuk-body govuk-!-margin-bottom-0">If you do not have a Defra account, for example you work for a supplier, you cannot use Defra's enterprise or Defra-hosted tools. Ask your own organisation what it has approved, and apply the same public, OFFICIAL, OFFICIAL-SENSITIVE and personal data distinctions from the table above to whatever tool you use.</p>
+  <p class="govuk-body govuk-!-margin-bottom-0">If you work for a supplier and do not have a Defra account, you cannot use tools that need one, like Microsoft 365 Copilot. Ask your own organisation which AI tools it has approved. Unless you use a Defra-managed device, the device rules below apply: public or OFFICIAL information only, and never OFFICIAL-SENSITIVE content or personal data.</p>
 </div>
 
 ## Which device you can use
