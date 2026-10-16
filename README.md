@@ -68,8 +68,8 @@ service-manual-chat-backend.
 
 | Variable | What it does |
 | :-- | :-- |
-| `AI_TOOLKIT_ASK_ENABLED` | Turns Ask on. Off by default, and needs `ENABLE_AI_CONTENT` on as well. |
-| `AI_TOOLKIT_ASK_API_URL` | The address of service-manual-chat-backend. |
+| `AI_TOOLKIT_ASK_ENABLED` | Turns Ask on. Off by default. |
+| `AI_TOOLKIT_ASK_API_URL` | The address of service-manual-chat-backend. If empty, Ask answers from built-in examples, not the AI model. |
 | `AI_TOOLKIT_ASK_API_TIMEOUT_MS` | How long the site waits for an answer. Default 30000 (30 seconds). |
 | `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` | The GOV.UK Notify template for problem reports. Empty turns reports off. |
 
