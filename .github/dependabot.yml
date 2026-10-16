@@ -6,48 +6,22 @@ updates:
     directory: /
     open-pull-requests-limit: 10
 
-    # Group packages into shared PR
+    # Two pull requests a week: one for minor and patch updates, which are
+    # usually safe to merge together, and one for major updates, which can
+    # break things and need checking one by one
     groups:
-      build:
+      minor-and-patch:
         patterns:
-          - '@babel/*'
-          - 'autoprefixer'
-          - 'babel-plugin-module-resolver'
-          - 'babel-loader'
-          - 'babel-plugin-transform-import-meta'
-          - 'tsx'
-          - 'webpack'
-          - 'webpack-*'
-          - 'terser-webpack-plugin'
+          - '*'
+        update-types:
+          - minor
+          - patch
 
-      lint:
+      major:
         patterns:
-          - 'prettier'
-          - 'stylelint'
-          - 'stylelint-*'
-
-      logging:
-        patterns:
-          - '*-pino'
-          - '*-pino-format'
-          - 'pino'
-          - 'pino-*'
-
-      tools:
-        patterns:
-          - 'husky'
-          - 'vitest'
-          - 'vitest-*'
-          - 'nodemon'
-          - 'npm-run-all'
-          - 'lodash'
-          - 'source-map-loader'
-          - 'sass-*'
-          - 'postcss-*'
-
-      types:
-        patterns:
-          - '@types/*'
+          - '*'
+        update-types:
+          - major
 
     ignore:
       - dependency-name: 'eslint-*'
@@ -72,6 +46,12 @@ updates:
   # Update GitHub Actions
   - package-ecosystem: github-actions
     directory: /
+
+    # One pull request a week for all actions
+    groups:
+      actions:
+        patterns:
+          - '*'
 
     # Schedule run every Monday, local time
     schedule:
