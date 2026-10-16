@@ -10,7 +10,9 @@ The Defra Digital Service Manual provides guidance and standards for digital tea
   - [Node.js](#nodejs)
 - [Documentation](#documentation)
 - [Ask the toolkit](#ask-the-toolkit)
+  - [Settings](#settings)
   - [Turning it off](#turning-it-off)
+  - [If something goes wrong](#if-something-goes-wrong)
   - [Report emails are untrusted](#report-emails-are-untrusted)
 - [Local Development](#local-development)
   - [Setup](#setup)
@@ -62,12 +64,39 @@ environment variables.
 Ask the toolkit, at `/ai-toolkit/ask`, answers questions from the AI digital toolkit's guidance. The answers come from
 service-manual-chat-backend.
 
+### Settings
+
+| Variable | What it does |
+| :-- | :-- |
+| `AI_TOOLKIT_ASK_ENABLED` | Turns Ask on. Off by default, and needs `ENABLE_AI_CONTENT` on as well. |
+| `AI_TOOLKIT_ASK_API_URL` | The address of service-manual-chat-backend. |
+| `AI_TOOLKIT_ASK_API_TIMEOUT_MS` | How long the site waits for an answer. Default 30000 (30 seconds). |
+| `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` | The GOV.UK Notify template for problem reports. Empty turns reports off. |
+
+All are set per environment in cdp-app-config and take effect after service-manual-ui is redeployed.
+
 ### Turning it off
 
-- Set `AI_TOOLKIT_ASK_ENABLED=false` to turn off Ask the toolkit. Its pages then return 404.
-- Set `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` to an empty value to turn off problem reports and leave the rest on.
+Use these in order:
 
-Both are set per environment in cdp-app-config and take effect after service-manual-ui is redeployed.
+1. Stop the answers. Set `ASK_DAILY_CEILING=0` on service-manual-chat-backend and redeploy it. No AI model is
+   called. Readers are told the toolkit cannot answer any more questions today and are given the team's email
+   address. The pages stay up.
+2. Remove the pages. Set `AI_TOOLKIT_ASK_ENABLED=false` here and redeploy. The Ask pages then return 404.
+
+To turn off problem reports and leave the rest on, set `AI_TOOLKIT_ASK_REPORT_TEMPLATE_ID` to an empty value.
+
+### If something goes wrong
+
+Most problems reach the team as problem reports in the team mailbox.
+
+| What happened | What to do first |
+| :-- | :-- |
+| An answer is wrong or could cause harm | Check it against the guidance. If it could lead someone to put data at risk, stop the answers. Then fix the guidance or the backend's prompt. |
+| Someone typed personal data, or an answer shows it | Follow [report an AI incident](https://digital.defra.gov.uk/ai-toolkit/guidance/report-an-ai-incident). Amazon Bedrock keeps every question and answer for 30 days in a store the platform runs, so give the time it happened. |
+| Readers are told it cannot answer any more questions today | The daily ceiling of model calls has been reached. It resets at midnight UTC. Check the backend logs for a spike, and raise the ceiling only if the use is genuine. |
+| Every question gets "The toolkit could not answer just now" | The backend or Bedrock is failing. Check service-manual-chat-backend's logs in OpenSearch. If it lasts, stop the answers. |
+| Answers miss a recent change to the guidance | Ask answers from a fixed copy of the toolkit pages, set by `CONTENT_REF` in the backend's Dockerfile. Update it to the latest commit on main and redeploy the backend. |
 
 ### Report emails are untrusted
 
