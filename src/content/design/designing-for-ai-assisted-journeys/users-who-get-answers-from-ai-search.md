@@ -25,8 +25,8 @@ Users may see AI answers in different places, including:
 
 | **Term** | **What it is** |
 |---|---|
-| **AI Overviews** | A short AI-generated summary at the top of some Google search results, with links to sources. Google only shows one when it decides it adds to the normal results. |
-| **AI Mode** | A separate, conversational search mode in Google for questions that need more reasoning or comparison. It gives a longer answer with links, and users can ask follow-up questions. |
+| **AI summaries in search results** | A short AI-generated summary at the top of some search results, with links to sources. Examples include AI Overviews in Google and Ecosia, and Copilot answers in Bing. The search engine decides when to show one. |
+| **AI search modes** | A separate, conversational mode in a search engine for questions that need more reasoning or comparison. It gives a longer answer with links, and users can ask follow-up questions. Examples include Google AI Mode, Copilot Search in Bing and Ecosia AI Chat. |
 | **AI chatbots with search** | Tools such as ChatGPT, Copilot, Claude, Gemini and Perplexity that search the web to answer a question. |
 
 For example, a user might ask:
