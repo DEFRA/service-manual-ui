@@ -68,8 +68,7 @@ Service flooding is already a concern across government. The Information Commiss
 ### Monitor demand
 
 - Monitor request volumes for signs of automation, scraping or repeated high-volume demand.
-- Ask your developers how they will spot automated traffic, such as bursts of requests or the same request repeated many times. Your security colleagues can advise on bot detection.
-- Look for patterns such as bursts of requests, sequences of nearby locations, or repeated identical requests.
+- Ask your developers how they will spot automated traffic, such as bursts of requests, sequences of nearby locations, or the same request repeated many times. Your security colleagues can advise on bot detection.
 - Agree with operational teams what level of demand they can handle. [Non-functional requirements](/business-analysis/non-functional-requirements) and [Operational service readiness](/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness) cover performance, reliability and running the live service.
 
 ### Build proportionate controls
