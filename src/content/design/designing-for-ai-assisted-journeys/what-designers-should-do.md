@@ -25,7 +25,7 @@ Consider AI-assisted use alongside browser, device, accessibility and assisted d
 
 You should:
 
-- add AI-assisted scenarios to your test plan, especially for maps, dynamic panels and multi-step triage journeys
+- add AI-assisted scenarios to your test plan, especially for maps, charts and graphs, dynamic panels and multi-step triage journeys
 - test your key journeys with AI assistants and agents
 - plan a round of discovery if your service went live before AI summaries, assistants and agents were widely used
 - ask users in research and feedback whether they used an AI summary, AI assistant or AI-generated advice before or during their journey
@@ -36,7 +36,7 @@ AI search answers fill gaps from whatever evidence they can find, and AI assista
 
 You should:
 
-- say clearly where users should go for authoritative, up-to-date results
+- say clearly where users should go for authoritative, up-to-date information
 - make the intended route visible on start pages and guidance pages, before users reach complex interactive steps
 - work with the BAU content team on your GOV.UK start page and guidance, so the real steps and the right route are clear. [Designing for different content types](/content/designing-different-content-types) explains what they manage
 - describe the real steps of your journey as numbered steps on your start page, so AI tools have the actual process to quote

@@ -22,7 +22,7 @@ breadcrumbItems:
   - text: Designing for AI-assisted journeys
 ---
 
-<p class="govuk-body-l">AI search, assistants and agents may already be affecting your service without you knowing. If you do not check and act, you risk increasing failure demand across your service.</p>
+AI search, assistants and agents may already be affecting your service without you knowing. If you do not check and act, you risk increasing failure demand across your service.
 
 ^ This guidance is based on early findings from testing AI-assisted journeys on a Defra service. The picture will develop as evidence grows across Defra and wider government, and as AI tools and technology evolves. Help keep this guidance up to date by sharing your own findings and examples. ^
 
@@ -42,7 +42,7 @@ The service experience may now start outside your service. Users may already hav
 
 If you do not consider AI-assisted users, you risk:
 
-- users acting on false or outdated information, such as the wrong result for their location
+- users acting on false or outdated information
 - users being sent to slower, historic routes that create manual work for your team
 - users following invented service steps that do not exist
 - falling user visits to your service that do not show up clearly in analytics
@@ -77,10 +77,10 @@ These 5 things apply to every service, whatever type of AI-assisted user you des
 
 This guidance is especially important if your service:
 
+- has downstream processes that are manual or only partly automated
 - relies on live or location-specific data that users need to make decisions
 - has its main call to action behind triage questions, forms or interactive steps
 - uses maps, visual layers, dynamic panels or other complex visuals
 - relies on JavaScript to show key content, routes or results
 - has older guidance that describes previous routes, such as requesting something by email
 - publishes data through APIs, feeds or other structured routes
-- has downstream processes that are manual or only partly automated

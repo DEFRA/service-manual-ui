@@ -40,7 +40,7 @@ With maps and other complex visuals, an assistant may know a map is on the page 
 - where the map is centred and which location is selected
 - what an information panel says, or when it has changed
 
-Assistants may also miss content that changes after the page loads, such as a results panel that updates as the user interacts. The assistant may still answer confidently, so the user cannot tell it is wrong.
+Assistants may also miss content that changes after the page loads, such as dynamic content that updates as the user interacts. The assistant may still answer confidently, so the user cannot tell it is wrong.
 
 ## Risks to users and your service
 
