@@ -38,6 +38,15 @@ For external facing sites not on [GOV.UK](https://www.gov.uk), you must use a De
 - The crest image itself must be ignored by screen readers
 - Links in the logo must be focusable and usable with keyboards and assistive technology
 
+### Favicons
+
+If your service is not on [GOV.UK](https://www.gov.uk), use the Defra favicon or your agency's own.
+
+- [Defra favicon (SVG, 2KB)](/public/images/favicon.svg)
+- [Defra favicon for older browsers (ICO, 4KB)](/public/images/favicon.ico)
+
+Services on [GOV.UK](https://www.gov.uk) use the favicon that comes with GOV.UK Frontend.
+
 ## Colours
 
 Colours should be consistent with the [GOV.UK frontend palette](https://design-system.service.gov.uk/styles/colour/).
