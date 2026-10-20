@@ -64,6 +64,9 @@ environment variables.
 Ask the toolkit, at `/ai-toolkit/ask`, answers questions from the AI digital toolkit's guidance. The answers come from
 service-manual-chat-backend.
 
+How to run it, its alerts and logs, and its known issues are in the
+[runbook](https://github.com/DEFRA/service-manual-chat-backend/blob/main/docs/runbook.md).
+
 ### Settings
 
 | Variable | What it does |
