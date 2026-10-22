@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "type": "module",
   "engines": {
-    "node": ">=22.16.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
     "build:frontend": "cross-env NODE_ENV=production webpack",
