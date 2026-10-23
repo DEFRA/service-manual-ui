@@ -126,7 +126,8 @@ export const markdownRoutes = [
   '/ai-toolkit/projects/how-we-score',
   '/ai-toolkit/projects/guidance-easier-to-find',
   '/ai-toolkit/projects/checking-spending-against-policy',
-  '/ai-toolkit/projects/content-that-needs-fixing'
+  '/ai-toolkit/projects/content-that-needs-fixing',
+  '/ai-toolkit/ask/privacy-notice'
 ]
 
 /**

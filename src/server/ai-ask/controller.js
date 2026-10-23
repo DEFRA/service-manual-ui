@@ -20,6 +20,7 @@ import {
   answerPath,
   askPath,
   helpPath,
+  privacyNoticePath,
   reportPath,
   restartPath,
   stuckPath,
@@ -47,10 +48,13 @@ function baseView () {
     headerServiceUrl: toolkitPath,
     customNav: getNavigation('nav-ai-toolkit'),
     teamEmail: TEAM_EMAIL,
+    // The footer's Privacy link goes to the Ask notice on every Ask page.
+    privacyHref: privacyNoticePath,
     // Form actions and links in the templates come from here, never typed in.
     paths: {
       ask: askPath,
       help: helpPath,
+      privacyNotice: privacyNoticePath,
       restart: restartPath,
       stuck: stuckPath,
       toolkit: toolkitPath

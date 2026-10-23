@@ -1110,6 +1110,15 @@ describe('askController', () => {
       expect(statusCode).toBe(statusCodes.ok)
     })
 
+    test.each([
+      ['the front door', 'in the <a class="govuk-link" href="/ai-toolkit/ask/privacy-notice">privacy notice</a>'],
+      ['the footer', 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>']
+    ])('links the privacy notice from %s', async (_place, expected) => {
+      const { result } = await server.inject({ method: 'GET', url: askUrl })
+
+      expect(result).toEqual(expect.stringContaining(expected))
+    })
+
     test('going back to the front door mid-conversation returns to the latest answer', async () => {
       const cookie = await startConversation()
 
