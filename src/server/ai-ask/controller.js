@@ -20,6 +20,7 @@ import {
   answerPath,
   askPath,
   helpPath,
+  privacyNoticePath,
   reportPath,
   restartPath,
   stuckPath,
@@ -51,6 +52,7 @@ function baseView () {
     paths: {
       ask: askPath,
       help: helpPath,
+      privacyNotice: privacyNoticePath,
       restart: restartPath,
       stuck: stuckPath,
       toolkit: toolkitPath
