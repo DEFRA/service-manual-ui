@@ -1,4 +1,6 @@
 // Routes for markdown-backed pages. Use AI patterns and Use AI responsibly restructure.
+import { config } from '../../config/config.js'
+import { privacyNoticePath } from '../ai-ask/paths.js'
 import { getMarkdownPage } from './controller.js'
 
 export function isAiToolkitRoute (routePath) {
@@ -126,16 +128,23 @@ export const markdownRoutes = [
   '/ai-toolkit/projects/how-we-score',
   '/ai-toolkit/projects/guidance-easier-to-find',
   '/ai-toolkit/projects/checking-spending-against-policy',
-  '/ai-toolkit/projects/content-that-needs-fixing',
-  '/ai-toolkit/ask/privacy-notice'
+  '/ai-toolkit/projects/content-that-needs-fixing'
 ]
+
+/**
+ * Markdown pages that belong to Ask the toolkit. Like its other routes, they
+ * exist only where Ask is switched on, so search cannot surface them either.
+ */
+const askRoutes = [privacyNoticePath]
 
 /**
  * Returns the list of markdown routes. Shared with the search index
  * so we consistently use the same set of routes for both routing and search.
  */
 export function getEnabledMarkdownRoutes () {
-  return markdownRoutes
+  return config.get('featureFlags.askEnabled')
+    ? [...markdownRoutes, ...askRoutes]
+    : markdownRoutes
 }
 
 export const markdownPages = {

@@ -145,37 +145,6 @@ describe('markdownPagesController', () => {
     })
   })
 
-  describe('GET /ai-toolkit/ask/privacy-notice', () => {
-    test.each([
-      ['the notice title', 'Ask the toolkit privacy notice'],
-      ['the lawful basis', 'performance of a task carried out in the public interest'],
-      ['how long problem reports are kept', 'problem reports: 90 days'],
-      ['a footer Privacy link to the notice itself', 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>']
-    ])('renders %s', async (_description, expected) => {
-      const { statusCode, result } = await server.inject({
-        method: 'GET',
-        url: '/ai-toolkit/ask/privacy-notice'
-      })
-
-      expect(statusCode).toBe(statusCodes.ok)
-      expect(result).toEqual(expect.stringContaining(expected))
-    })
-
-    test('leaves the GOV.UK privacy link in the footer of other pages', async () => {
-      const { result } = await server.inject({
-        method: 'GET',
-        url: '/accessibility-statement'
-      })
-
-      expect(result).toEqual(
-        expect.stringContaining('href="https://www.gov.uk/help/privacy-notice">Privacy</a>')
-      )
-      expect(result).not.toEqual(
-        expect.stringContaining('href="/ai-toolkit/ask/privacy-notice"')
-      )
-    })
-  })
-
   describe('Breadcrumbs', () => {
     test('should include breadcrumbs with full navigation path', async () => {
       const { result } = await server.inject({

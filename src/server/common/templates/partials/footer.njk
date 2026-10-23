@@ -1,10 +1,13 @@
+{# Once Ask the toolkit is switched on, its privacy notice replaces the general
+   GOV.UK one on every page. #}
+{% set privacyHref = '/ai-toolkit/ask/privacy-notice' if featureFlags.askEnabled else 'https://www.gov.uk/help/privacy-notice' %}
 <footer class="defra-footer" role="contentinfo">
   <div class="govuk-width-container">
     <div class="defra-footer__meta">
       <div class="defra-footer__meta-item">
         <ul class="defra-footer__inline-list">
           <li class="defra-footer__inline-list-item">
-            <a class="defra-footer__link" href="{{ privacyHref | default('https://www.gov.uk/help/privacy-notice') }}">Privacy</a>
+            <a class="defra-footer__link" href="{{ privacyHref }}">Privacy</a>
           </li>
           <li class="defra-footer__inline-list-item">
             <a class="defra-footer__link" href="/cookies">Cookies</a>

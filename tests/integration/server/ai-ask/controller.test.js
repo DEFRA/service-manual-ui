@@ -12,6 +12,7 @@ import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vite
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 const askUrl = '/ai-toolkit/ask'
+const privacyNoticeUrl = '/ai-toolkit/ask/privacy-notice'
 
 // "Report a problem with this answer" sends through GOV.UK Notify. The
 // module is ours, so it is the seam: every other part of the route runs for
@@ -1111,12 +1112,28 @@ describe('askController', () => {
     })
 
     test.each([
-      ['the front door', 'in the <a class="govuk-link" href="/ai-toolkit/ask/privacy-notice">privacy notice</a>'],
-      ['the footer', 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>']
-    ])('links the privacy notice from %s', async (_place, expected) => {
-      const { result } = await server.inject({ method: 'GET', url: askUrl })
+      ['the front door links the notice', askUrl, 'in the <a class="govuk-link" href="/ai-toolkit/ask/privacy-notice">privacy notice</a>'],
+      ['the footer of an Ask page links the notice', askUrl, 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>'],
+      ['the footer of any other page links the notice', '/accessibility-statement', 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>'],
+      ['the notice has its title', privacyNoticeUrl, 'Ask the toolkit privacy notice'],
+      ['the notice gives the lawful basis', privacyNoticeUrl, 'performance of a task carried out in the public interest'],
+      ['the notice says how long problem reports are kept', privacyNoticeUrl, 'problem reports: 90 days']
+    ])('%s', async (_description, url, expected) => {
+      const { statusCode, result } = await server.inject({ method: 'GET', url })
 
+      expect(statusCode).toBe(statusCodes.ok)
       expect(result).toEqual(expect.stringContaining(expected))
+    })
+
+    test('no page links the general GOV.UK privacy notice any more', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('https://www.gov.uk/help/privacy-notice')
+      )
     })
 
     test('going back to the front door mid-conversation returns to the latest answer', async () => {

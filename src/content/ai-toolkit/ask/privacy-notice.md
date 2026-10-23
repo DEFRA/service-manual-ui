@@ -16,7 +16,6 @@ customNav:
     href: /ai-toolkit/projects
 headerServiceName: AI digital toolkit
 headerServiceUrl: /ai-toolkit
-privacyHref: /ai-toolkit/ask/privacy-notice
 breadcrumbs:
   - text: Digital Defra
     href: /

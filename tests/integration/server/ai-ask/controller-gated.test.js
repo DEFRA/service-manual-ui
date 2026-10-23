@@ -67,6 +67,26 @@ describe('Ask the toolkit flag off (the default)', () => {
     expect(result).not.toEqual(expect.stringContaining('Ask the toolkit'))
   })
 
+  test('its privacy notice does not exist', async () => {
+    const { statusCode } = await server.inject({
+      method: 'GET',
+      url: `${askUrl}/privacy-notice`
+    })
+
+    expect(statusCode).toBe(statusCodes.notFound)
+  })
+
+  test('the footer keeps the general GOV.UK privacy notice', async () => {
+    const { result } = await server.inject({
+      method: 'GET',
+      url: '/accessibility-statement'
+    })
+
+    expect(result).toEqual(
+      expect.stringContaining('href="https://www.gov.uk/help/privacy-notice">Privacy</a>')
+    )
+  })
+
   test('site search does not offer it, even for a search about AI', async () => {
     const { result } = await server.inject({
       method: 'GET',
