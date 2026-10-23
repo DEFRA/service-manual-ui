@@ -95,9 +95,9 @@ You do not need to give any personal data to use Ask the toolkit.
 
 The personal data may be processed using AI for the following purposes:
 
-- to answer your questions in Ask the toolkit, using Claude, a generative AI model from Anthropic
+- to answer your questions in Ask the toolkit, using Claude, a generative AI model from Anthropic.
 
-We use the model through Defra's own cloud platform in London, so Anthropic does not receive your questions or answers. The AI model answers only from the toolkit's published guidance and links to the pages it used. Your questions and answers are not used to train the model.
+We use the model through Defra's own cloud platform, so Anthropic does not receive your questions or answers. The AI model answers only from the toolkit's published guidance and links to the pages it used. Your questions and answers are not used to train the model.
 
 ## Use of automated decision-making or profiling
 
@@ -108,7 +108,7 @@ The personal data you provide is not used for:
 
 ## Transfer of your personal data outside of the UK
 
-We store and process your personal data in the UK. We will only transfer your personal data to another country that is deemed adequate for data protection purposes.
+We will only transfer your personal data to another country that is deemed adequate for data protection purposes.
 
 ## Your rights
 
