@@ -3,7 +3,7 @@ title: Building AI teams for today, developing the skills we need for tomorrow
 date: 2026-10-28
 type: Blog post
 author: Kate Richards
-summary: Why small, multidisciplinary teams work well for AI prototyping, and why they must also make room for people earlier in their careers.
+summary: Why small teams suit AI prototyping, and why they must make room for people earlier in their careers.
 ---
 
 As the AI Capability and Enablement team works with AI use cases, one lesson is becoming increasingly clear: the way we compose teams for AI prototyping matters.
