@@ -1,3 +1,5 @@
+import { getTraceId } from '@defra/hapi-tracing'
+
 import { config } from '../../config/config.js'
 
 import { fixtureAnswerFor } from './__fixtures__/answers.js'
@@ -45,7 +47,7 @@ export async function answerFor (question, { history = [] } = {}) {
 
   const response = await fetch(askUrl(), {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: askHeaders(),
     body: JSON.stringify({ question, history }),
     signal: AbortSignal.timeout(config.get('aiContent.askApiTimeoutMs'))
   })
@@ -70,6 +72,17 @@ export async function answerFor (question, { history = [] } = {}) {
   }
 
   return answer
+}
+
+// The backend logs the request ID it is given, so passing the reader's on lets
+// a question be followed from the site's logs into the backend's.
+function askHeaders () {
+  const headers = { 'content-type': 'application/json' }
+  const traceId = getTraceId()
+  if (traceId) {
+    headers[config.get('tracing.header')] = traceId
+  }
+  return headers
 }
 
 /**
