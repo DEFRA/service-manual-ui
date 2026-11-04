@@ -2,6 +2,7 @@
 title: "Data readiness: why an AI request may not be ready yet"
 date: 2026-11-04
 type: Blog post
+author: Timea Ivacson and George Foulds
 summary: A strong AI idea can arrive before the data needed to make it work is ready. That is not a reason to stop, but it may change what needs to happen next.
 ---
 
