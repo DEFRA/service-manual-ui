@@ -7,7 +7,8 @@
     "choosing": "You can use any AI tool, as long as you follow the rules on what data you put into it. The status tells you how established a tool is at Defra, not whether you are allowed to use it:\n\n<ul class=\"govuk-list govuk-list--bullet govuk-list--spaced\">\n<li><strong>Using.</strong> Used by teams across Defra today.</li>\n<li><strong>Trialling.</strong> Being trialled with some teams before wider use.</li>\n</ul>\n",
     "markdown-emphasis": "Three statuses:\n\n- **Using.** Used by teams across Defra today.\n- *Trialling.* Being trialled with some teams before wider use.\n\n1. Check the radar first.\n2. Then check the data rules.\n",
     "links": "Read the <a href=\"/ai-toolkit/tools\">tools radar</a>. Then choose a tool.\n\nSee [Travelling securely](<https://intranet.example/Travel(1).aspx>) before you go. Book through [the portal](https://intranet.example/book) first.\n",
-    "table": "## What you can put in\n\n<table class=\"govuk-table\">\n  <tbody class=\"govuk-table__body\">\n    <tr class=\"govuk-table__row\">\n      <th scope=\"row\" class=\"govuk-table__header\">OFFICIAL-SENSITIVE</th>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n      <td class=\"govuk-table__cell\"><strong>Yes</strong></td>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n    </tr>\n    <tr class=\"govuk-table__row\">\n      <th scope=\"row\" class=\"govuk-table__header\">Personal data</th>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n      <td class=\"govuk-table__cell\"><strong>DPIA required</strong> before use</td>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n    </tr>\n  </tbody>\n</table>\n\n## What the conditions mean\n\n<ul class=\"govuk-list govuk-list--bullet\">\n<li><strong>DPIA required.</strong> The assessment must be completed and signed off before any processing begins. For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool.</li>\n</ul>\n"
+    "table": "## What you can put in\n\n<table class=\"govuk-table\">\n  <tbody class=\"govuk-table__body\">\n    <tr class=\"govuk-table__row\">\n      <th scope=\"row\" class=\"govuk-table__header\">OFFICIAL-SENSITIVE</th>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n      <td class=\"govuk-table__cell\"><strong>Yes</strong></td>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n    </tr>\n    <tr class=\"govuk-table__row\">\n      <th scope=\"row\" class=\"govuk-table__header\">Personal data</th>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n      <td class=\"govuk-table__cell\"><strong>DPIA required</strong> before use</td>\n      <td class=\"govuk-table__cell\"><strong>No</strong></td>\n    </tr>\n  </tbody>\n</table>\n\n## What the conditions mean\n\n<ul class=\"govuk-list govuk-list--bullet\">\n<li><strong>DPIA required.</strong> The assessment must be completed and signed off before any processing begins. For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool.</li>\n</ul>\n",
+    "warning-box": "## Before you start\n\n<div class=\"govuk-warning-text\">\n  <span class=\"govuk-warning-text__icon\" aria-hidden=\"true\">!</span>\n  <strong class=\"govuk-warning-text__text\">\n    <span class=\"govuk-visually-hidden\">Warning</span>\n    Talk to the AI Capability and Enablement team before you use MCP. We are trialling it, so it is not approved for general use.\n  </strong>\n</div>\n"
   },
   "cases": [
     {
@@ -231,6 +232,24 @@
       "page": "table",
       "quote": "No. What the conditions mean.",
       "outcome": "stitched"
+    },
+    {
+      "name": "a GOV.UK warning box: the hidden \"Warning\" label is not part of the rule",
+      "page": "warning-box",
+      "quote": "Talk to the AI Capability and Enablement team before you use MCP. We are trialling it, so it is not approved for general use.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a GOV.UK warning box: the second sentence on its own",
+      "page": "warning-box",
+      "quote": "We are trialling it, so it is not approved for general use.",
+      "outcome": "ok"
+    },
+    {
+      "name": "a GOV.UK warning box: the hidden label is not on the page a reader sees",
+      "page": "warning-box",
+      "quote": "Warning Talk to the AI Capability and Enablement team before you use MCP.",
+      "outcome": "not_found"
     }
   ]
 }
