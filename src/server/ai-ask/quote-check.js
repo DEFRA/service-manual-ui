@@ -41,8 +41,10 @@ const blockMarker = /^ *(?:#{1,6}|[-*+]|\d+[.)]) +/gm
 const blockQuote = /^ *> */gm
 const blankLine = /\n[ \t]*\n/
 // Text only a screen reader hears, such as the "Warning" label inside a GOV.UK
-// warning box. A reader never sees it, so it is not part of any sentence. The
-// element holds plain text, so no tag inside it is matched.
+// warning box. A reader never sees it, so it is not part of any sentence on the
+// page. It is removed from the page only: the quote keeps every word, so hidden
+// markup in a quote cannot slip a word past the check. The element holds plain
+// text, so no tag inside it is matched.
 const visuallyHidden =
   /<\s*([a-zA-Z][a-zA-Z0-9]*)[^<>]*\bclass\s*=\s*["'][^"']*\bgovuk-visually-hidden\b[^"']*["'][^<>]*>[^<]*<\s*\/\s*\1\s*>/g
 // A table cell's opening tag. Each cell becomes its own block, marked so a
@@ -98,7 +100,6 @@ export function stripInlineTags (markdown) {
  */
 export function plainText (markdown) {
   let text = markdown
-    .replace(visuallyHidden, ' ')
     .replace(blockMarker, '\n\n')
     .replace(blockQuote, '\n\n')
     .replace(tag, (_whole, name) => (inlineTags.has(name.toLowerCase()) ? ' ' : '\n\n'))
@@ -235,7 +236,7 @@ export function checkQuote (quote, pageMarkdown) {
     return 'empty'
   }
 
-  const page = words(pageMarkdown)
+  const page = words(pageMarkdown.replace(visuallyHidden, ' '))
   const n = wanted.length
   let outcome = 'not_found'
 

@@ -250,6 +250,12 @@
       "page": "warning-box",
       "quote": "Warning Talk to the AI Capability and Enablement team before you use MCP.",
       "outcome": "not_found"
+    },
+    {
+      "name": "a GOV.UK warning box: hidden markup in the quote cannot slip a word past the check",
+      "page": "warning-box",
+      "quote": "We are <span class=\"govuk-visually-hidden\">not</span> trialling it, so it is not approved for general use.",
+      "outcome": "not_found"
     }
   ]
 }
