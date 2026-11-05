@@ -40,13 +40,12 @@ const link = /\[([^[\]]*)\]\((?:<[^<>]*>|[^()<>]*)\)/g
 const blockMarker = /^ *(?:#{1,6}|[-*+]|\d+[.)]) +/gm
 const blockQuote = /^ *> */gm
 const blankLine = /\n[ \t]*\n/
-// Text only a screen reader hears, such as the "Warning" label inside a GOV.UK
-// warning box. A reader never sees it, so it is not part of any sentence on the
-// page. It is removed from the page only: the quote keeps every word, so hidden
-// markup in a quote cannot slip a word past the check. The element holds plain
-// text, so no tag inside it is matched.
-const visuallyHidden =
-  /<\s*([a-zA-Z][a-zA-Z0-9]*)[^<>]*\bclass\s*=\s*["'][^"']*\bgovuk-visually-hidden\b[^"']*["'][^<>]*>[^<]*<\s*\/\s*\1\s*>/g
+// Text only a screen reader hears: the "Warning" label inside a GOV.UK warning
+// box, written on the pages as exactly this span. A reader never sees it, so it
+// is not part of any sentence on the page. It is removed from the page only:
+// the quote keeps every word, so hidden markup in a quote cannot slip a word
+// past the check.
+const visuallyHidden = /<span class="govuk-visually-hidden">[^<]*<\/span>/g
 // A table cell's opening tag. Each cell becomes its own block, marked so a
 // quote cannot be stitched together out of cells: a row read across is not a
 // sentence, however whole each cell is.
