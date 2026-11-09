@@ -9,6 +9,7 @@
  * other direction.
  */
 import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vitest'
+import { load } from 'cheerio'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 const askUrl = '/ai-toolkit/ask'
@@ -427,6 +428,49 @@ describe('askController', () => {
           'For personal data, the DPIA route is for a service you are building to process it'
         )
       )
+    })
+
+    test('shows the quoted page in guidance used once, alongside other known pages', async () => {
+      const quotedUrl = '/ai-toolkit/guidance/using-data-with-ai'
+      const otherUrl = '/ai-toolkit/tools/microsoft-365-copilot'
+      const unknownUrl = '/ai-toolkit/invented'
+      const quotedSource = { title: 'Using data with AI', url: quotedUrl }
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Check the guidance.',
+          rule_verbatim: {
+            text: 'For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.',
+            source: quotedSource
+          },
+          sources: [
+            quotedSource,
+            { title: 'Microsoft 365 Copilot', url: otherUrl },
+            { ...quotedSource, section: 'Another section' },
+            { title: 'Invented page', url: unknownUrl }
+          ]
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { statusCode, result } = await ask('What guidance applies?')
+        expect(statusCode).toBe(statusCodes.ok)
+
+        const $ = load(result)
+        const attribution = $('.app-ask__rule-source a')
+        expect(attribution).toHaveLength(1)
+        expect(attribution.attr('href')).toBe(quotedUrl)
+        expect(attribution.text()).toBe('Using data with AI')
+        expect($('.app-ask__check-heading').text()).toBe('Guidance used')
+        const links = $('.app-ask__sources a')
+        expect(links.toArray().map((link) => $(link).attr('href'))).toEqual([
+          quotedUrl,
+          otherUrl
+        ])
+        expect($(`a[href="${unknownUrl}"]`)).toHaveLength(0)
+      })
     })
 
     test('shows each line of a quoted rule in its own paragraph', async () => {
