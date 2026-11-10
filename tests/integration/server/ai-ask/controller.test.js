@@ -473,19 +473,96 @@ describe('askController', () => {
       })
     })
 
-    test('shows each line of a quoted rule in its own paragraph', async () => {
+    test('shows a quoted rule with numbered steps as a numbered list, not text markers', async () => {
       const { result } = await ask('What do I do after an incident?')
+      const $ = load(result)
+      const items = $('.app-ask__rule-text ol.govuk-list--number li')
 
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<p class="govuk-body">1. Stop using the AI tool immediately.</p>'
+      expect(items).toHaveLength(4)
+      expect($(items[0]).text()).toBe('Stop using the AI tool immediately.')
+      expect($(items[1]).text()).toEqual(expect.stringContaining('Do not delete or change anything.'))
+      expect(result).not.toEqual(expect.stringContaining('1. Stop using the AI tool'))
+    })
+
+    test('shows a quoted bulleted definition as a bulleted list, with its sentences either side as paragraphs', async () => {
+      const { result } = await ask('What counts as personal data?')
+      const $ = load(result)
+      const rule = $('.app-ask__rule-text')
+      const items = rule.find('ul.govuk-list--bullet li')
+
+      expect(items).toHaveLength(6)
+      expect($(items[0]).text()).toBe('names')
+      expect(result).not.toEqual(expect.stringContaining('- names'))
+      expect(rule.find('p').first().text()).toEqual(expect.stringContaining('Personal data is any data'))
+      expect(rule.find('p').last().text()).toEqual(expect.stringContaining('Some types are sensitive personal data'))
+    })
+
+    test('starts a numbered list at the step a quote opens on, not at 1', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Carry on from where you stopped.',
+          rule_verbatim: {
+            text: '2. Do not delete or change anything. The people handling the incident need to see clearly what happened.\n3. Tell your line manager and your team\'s information asset owner. Give a short description of what happened and what data was involved.',
+            source: { title: 'Report an AI incident', url: '/ai-toolkit/guidance/report-an-ai-incident' }
+          },
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('What is step 2?')
+        const $ = load(result)
+        const list = $('.app-ask__rule-text ol.govuk-list--number')
+
+        expect(list.attr('start')).toBe('2')
+        expect(list.find('li').first().attr('value')).toBe('2')
+      })
+    })
+
+    test('gives the answer message the same list treatment as the quote', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Check these first:\n\n- the data classification\n- the tool\'s approval status\n\nThen proceed.',
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('What should I check?')
+        const $ = load(result)
+        const items = $('.app-ask__answer ul.govuk-list--bullet li')
+
+        expect(items).toHaveLength(2)
+        expect($(items[0]).text()).toBe('the data classification')
+        expect(result).not.toEqual(expect.stringContaining('- the data classification'))
+      })
+    })
+
+    test('still escapes any markup in the message or a quoted rule', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Treat <script> & this as plain text.',
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('Will this escape?')
+
+        expect(result).toEqual(
+          expect.stringContaining('Treat &lt;script&gt; &amp; this as plain text.')
         )
-      )
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<p class="govuk-body">2. Do not delete or change anything.'
-        )
-      )
+        expect(result).not.toEqual(expect.stringContaining('Treat <script> & this as plain text.'))
+      })
     })
 
     test('shows a need_more_detail answer as quick replies, in the order sent', async () => {

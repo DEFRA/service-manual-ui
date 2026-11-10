@@ -9,6 +9,29 @@
    cannot_answer and talk_to_a_person open with a line that says what
    happened, before anything else. blocked never says the question was
    flagged, filtered, unsafe or violated anything. #}
+{# A bulleted or numbered run becomes a real list; everything else stays a
+   paragraph. A numbered item keeps the page's own step number, so a quote
+   that opens mid-list (step 2 onward) does not renumber from 1. #}
+{% macro renderAnswerBlocks(blocks) %}
+  {% for block in blocks %}
+    {% if block.type == 'bullets' %}
+  <ul class="govuk-list govuk-list--bullet">
+    {% for item in block.items %}
+    <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+    {% elif block.type == 'numbers' %}
+  <ol class="govuk-list govuk-list--number" start="{{ block.items[0].number }}">
+    {% for item in block.items %}
+    <li value="{{ item.number }}">{{ item.text }}</li>
+    {% endfor %}
+  </ol>
+    {% else %}
+  <p class="govuk-body">{{ block.text }}</p>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
 <div class="app-ask__answer">
 
   {# Every reply is named, whatever its outcome, so screen reader users can
@@ -57,12 +80,10 @@
   {# cannot_answer and blocked already have their own fixed wording above, in
      place of the model's message, so this hides it there. talk_to_a_person
      still shows its message: that's where the model says why the team is the
-     right place and what to bring. One paragraph per line break in the
-     message, so numbered points and paragraphs do not run together. #}
+     right place and what to bring. A list marker becomes a real list; every
+     other line is still a paragraph. #}
   {% if answer.message and answer.status != 'cannot_answer' and answer.status != 'blocked' %}
-  {% for paragraph in answer.message | paragraphs %}
-  <p class="govuk-body">{{ paragraph }}</p>
-  {% endfor %}
+  {{ renderAnswerBlocks(answer.message | answerBlocks) }}
   {% endif %}
 
   {# The route to a person, on the newest turn only: an older reply should
@@ -92,12 +113,10 @@
   {% if answer.rule %}
   <blockquote class="app-ask__rule">
     <p class="app-ask__rule-label">Quoted from the guidance, word for word</p>
-    {# A rule can run across a list, so it keeps the page's line breaks, one
-       paragraph each. The words are unchanged. #}
+    {# A rule can run across a list: the marker becomes a real list, the
+       words stay exactly as quoted. #}
     <div class="app-ask__rule-text">
-      {% for paragraph in answer.rule.text | paragraphs %}
-      <p class="govuk-body">{{ paragraph }}</p>
-      {% endfor %}
+      {{ renderAnswerBlocks(answer.rule.text | answerBlocks) }}
     </div>
     <p class="app-ask__rule-source">
       From <a class="govuk-link" href="{{ answer.rule.source.url }}">{{ answer.rule.source.title }}</a>

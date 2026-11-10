@@ -38,6 +38,29 @@ const personalDataAnswer = {
   ]
 }
 
+// A rule that runs across a bulleted list, opening and closing on a plain
+// sentence either side of it.
+const personalDataDefinitionAnswer = {
+  status: 'answered',
+  message:
+    'Personal data covers more than a name, so check the full list before you assume a field is safe to use.',
+  rule_verbatim: {
+    text: 'Personal data is any data that could identify a specific individual, alone or in combination with other data. That includes:\n\n- names\n- email addresses, phone numbers and physical addresses\n- usernames and customer IDs that link to a person\n- IP addresses and device identifiers\n- date of birth and other identifiers\n- photographs of identifiable people\n\nSome types are sensitive personal data, for example health, biometric or financial data, and need extra protection on top of the general rules.',
+    source: {
+      title: 'Keeping data safe',
+      url: '/ai-toolkit/guidance/keeping-data-safe',
+      section: 'What counts as personal data'
+    }
+  },
+  sources: [
+    {
+      title: 'Keeping data safe',
+      url: '/ai-toolkit/guidance/keeping-data-safe',
+      section: 'What counts as personal data'
+    }
+  ]
+}
+
 const choosingAToolAnswer = {
   status: 'answered',
   message:
@@ -165,6 +188,10 @@ const dailyLimitAnswer = {
 }
 
 const matchers = [
+  {
+    keywords: ['counts as personal data'],
+    answer: personalDataDefinitionAnswer
+  },
   {
     keywords: ['personal data', 'copilot'],
     answer: personalDataAnswer
