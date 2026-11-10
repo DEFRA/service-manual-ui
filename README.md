@@ -78,6 +78,15 @@ How to run it, its alerts and logs, and its known issues are in the
 
 All are set per environment in cdp-app-config and take effect after service-manual-ui is redeployed.
 
+Answer messages and verified quotes render line-start `- `/`* ` markers as bulleted lists and `1. `-style
+markers as numbered lists, keeping the page's own step numbers (a quote can open mid-list, e.g. at step 2).
+Every other line stays a paragraph. HTML and any other Markdown stay escaped, plain text; the backend text
+and the quote verification are unchanged.
+
+With the API URL empty, ask "What counts as personal data?" to check the six-item bulleted definition, and
+"What do I do after an incident?" to check the four numbered steps. Check both at full width and 320px,
+including the quote's quotation marks and the list's indentation, and check list announcements with VoiceOver.
+
 ### Turning it off
 
 Use these in order:
