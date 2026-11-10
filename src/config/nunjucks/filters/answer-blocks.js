@@ -1,6 +1,6 @@
 const LINE_BREAKS = /\r?\n+/
-const BULLET_MARKER = /^[-*]\s+(.*)$/
-const NUMBER_MARKER = /^(\d+)[.)]\s+(.*)$/
+const BULLET_MARKER = /^[-*]\s+(\S.*)$/
+const NUMBER_MARKER = /^(\d+)[.)]\s+(\S.*)$/
 
 /**
  * Splits plain text into the blocks a template renders: a run of consecutive
@@ -27,8 +27,8 @@ function answerBlocks (text) {
   const blocks = []
 
   for (const line of lines) {
-    const bullet = line.match(BULLET_MARKER)
-    const number = !bullet && line.match(NUMBER_MARKER)
+    const bullet = BULLET_MARKER.exec(line)
+    const number = !bullet && NUMBER_MARKER.exec(line)
     const last = blocks.at(-1)
 
     if (bullet) {
