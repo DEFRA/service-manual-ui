@@ -401,12 +401,7 @@ describe('the stub answers', () => {
     const raw = fixtureAnswerFor(question)
     const view = toViewModel(raw)
 
-    // A page the quotation already links to is not listed again below it.
-    const repeated = raw.sources.filter(
-      (source) => source.url === raw.rule_verbatim?.source.url
-    ).length
-
-    expect(view.sources).toHaveLength(raw.sources.length - repeated)
+    expect(view.sources).toHaveLength(raw.sources.length)
 
     if (raw.rule_verbatim) {
       expect(view.rule).not.toBeNull()
@@ -486,25 +481,31 @@ describe('the stub answering a follow-up', () => {
   })
 })
 
-describe('sources the quotation already links to', () => {
+describe('sources the quotation links to', () => {
   const dataGuidance = {
     title: 'Using data with AI',
     url: '/ai-toolkit/guidance/using-data-with-ai',
     section: null
   }
 
-  test('are not listed again underneath it', () => {
+  test('are listed once underneath it even if repeated with different sections', () => {
     const view = toViewModel({
       status: 'answered',
       message: 'Some explanation.',
       rule_verbatim: { text: realQuote, source: dataGuidance },
-      sources: [dataGuidance, { title: 'Find a tool', url: '/ai-toolkit/tools' }]
+      sources: [
+        dataGuidance,
+        { title: 'Find a tool', url: '/ai-toolkit/tools' },
+        { ...dataGuidance, section: 'Another section' }
+      ]
     })
 
     expect(view.rule.source.url).toBe(dataGuidance.url)
     expect(view.sources.map((source) => source.url)).toEqual([
+      dataGuidance.url,
       '/ai-toolkit/tools'
     ])
+    expect(view.sources[0]).toEqual(dataGuidance)
   })
 
   test('are left alone when there is no quotation', () => {
