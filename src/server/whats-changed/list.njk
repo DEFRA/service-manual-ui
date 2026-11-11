@@ -18,7 +18,7 @@
       <li class="app-whats-changed__item">
         <p class="app-whats-changed__date govuk-body-s">{{ entry.date | formatDate('d MMM') }}</p>
         <div>
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-1"><a class="govuk-link" href="{{ entry.url }}">{{ entry.title }}</a></h3>
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1 app-whats-changed__title"><a class="govuk-link" href="{{ entry.url }}">{{ entry.title }}</a></h3>
           <p class="govuk-body govuk-!-margin-bottom-1 app-whats-changed__summary">{{ entry.summary }}</p>
           <p class="govuk-body-s app-whats-changed__meta govuk-!-margin-bottom-0">{{ entry.type }}</p>
         </div>
