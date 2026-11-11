@@ -3,7 +3,7 @@ title: "Data readiness: why an AI request may not be ready"
 date: 2026-11-04
 type: Blog post
 author: Timea Ivacson and George Foulds
-summary: A strong AI idea can arrive before the data needed to make it work is ready. That is not a reason to stop, but it may change what needs to happen next.
+summary: An AI idea is often ready before the data is. That need not stop it, but it may change what comes next.
 ---
 
 There is often an exciting moment at the start of an AI conversation. Someone has found a task that takes too long, information that is difficult to search, or a service that could work better.
