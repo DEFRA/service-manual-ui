@@ -8,7 +8,7 @@
    screen. #}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">{{ entry.title }}</h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4 app-whats-changed__title">{{ entry.title }}</h1>
     <p class="govuk-body-s app-whats-changed__meta">
       {{ entry.type }}{% if entry.author %} by {{ entry.author }}{% if entry.authorRole %}, {{ entry.authorRole }}{% endif %}{% endif %}<br>
       {{ entry.date | formatDate('d MMMM yyyy') }}. {{ entry.readingMinutes }} minute read
@@ -18,7 +18,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <p class="govuk-body-l">{{ entry.summary }}</p>
+    <p class="govuk-body-l app-whats-changed__summary">{{ entry.summary }}</p>
 
     <div class="app-whats-changed__body">
       {{ entry.body | markdown | safe }}
