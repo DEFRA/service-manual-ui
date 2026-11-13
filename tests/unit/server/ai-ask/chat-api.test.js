@@ -1,8 +1,11 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest'
+import { getTraceId } from '@defra/hapi-tracing'
 import { config } from '../../../../src/config/config.js'
 
 import { answerFor } from '../../../../src/server/ai-ask/chat-api.js'
 import { fixtureAnswerFor } from '../../../../src/server/ai-ask/__fixtures__/answers.js'
+
+vi.mock('@defra/hapi-tracing', () => ({ getTraceId: vi.fn() }))
 
 describe('#chatApi', () => {
   let originalUrl
@@ -67,6 +70,27 @@ describe('#chatApi', () => {
           body: JSON.stringify({ question: 'what about agents?', history })
         })
       )
+    })
+
+    test("passes the reader's request ID on, so the two services' logs join up", async () => {
+      getTraceId.mockReturnValue('abc-123')
+
+      await answerFor('Copilot?')
+
+      const { headers } = fetch.mock.calls[0][1]
+      expect(headers).toEqual({
+        'content-type': 'application/json',
+        'x-cdp-request-id': 'abc-123'
+      })
+    })
+
+    test('sends no request ID header when there is none', async () => {
+      getTraceId.mockReturnValue(null)
+
+      await answerFor('Copilot?')
+
+      const { headers } = fetch.mock.calls[0][1]
+      expect(headers).toEqual({ 'content-type': 'application/json' })
     })
 
     test('sends an empty history, not a missing one, for a first question', async () => {
