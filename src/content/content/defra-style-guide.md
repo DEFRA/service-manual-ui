@@ -15,6 +15,10 @@ If a term is not listed here, or you think a term is listed incorrectly, you can
 
 ## A
 
+### abattoir
+
+For the general public, use 'abattoir (slaughterhouse)' to explain at first mention and 'abattoir' after that. For guidance aimed at others, such as farmers and businesses that slaughter animals, use 'abattoir'.
+
 ### agent
 
 A person or company paid to act on behalf of a keeper. Do not confuse with 'delegate'.
@@ -41,6 +45,12 @@ Write out in full, and always in lower case or sentence case. Use AHO after firs
 
 'Approved' is the preferred term, as RPA approves ear tag suppliers to issue tags and other identifiers to keepers. Do not use 'official ear tag suppliers'.
 
+### approved person
+
+Within the 'Report packaging data' and 'Record reprocessed or exported packaging waste' services, an approved person is someone who can submit data to the environmental regulators.
+
+Lower case.
+
 ### Areas of Outstanding Natural Beauty (AONBs)
 
 See [National Landscapes](#national-landscapes).
@@ -59,6 +69,10 @@ Preferred term for electronic identification of cattle. Do not use 'holding addr
 
 Cattle keepers are sent barcode labels when they register with the British Cattle Movement Service (BCMS). They stick them in passports when recording movements and reporting deaths.
 
+### BERNs
+
+See [BRNs and BERNs](#brns-and-berns).
+
 ### bird flu v avian influenza
 
 For the general public, use bird flu (avian influenza) on the first mention, and then use bird flu.
@@ -72,6 +86,19 @@ Do not use bovine to refer to cattle, bison and buffalo (you should write these 
 ### British Cattle Movement Service (BCMS)
 
 Name of an organisation, so use title case. Use BCMS after first mention.
+
+<span id="brns-and-berns"></span>
+
+### BRNs and BERNs
+
+When spelt out in full, 'BRNs' and 'BERNs' stand for:
+
+- waste batteries recycling notes (BRNs)
+- waste batteries export recycling notes (BERNs)
+
+Write out in full on first use and shorten to BRNs and BERNs after.
+
+Do not use 'WBRNs' or 'WBERNs'.
 
 ### business
 
@@ -101,13 +128,29 @@ Lower case. Use CPRC after first mention.
 
 Capitalise. After first mention, you can shorten to sentence case Cefas. Do not use 'the Cefas'.
 
+### certificate of compliance
+
+A confirmation that a recycling target has been met under extended producer responsibility (EPR) for packaging.
+
+Lower case.
+
 ### certificate of registration
 
 Do not use 'certificate of CTS registration'.
 
+### collect packaging
+
+Use 'report packaging' instead when describing producers' obligation under extended producer responsibility (EPR) for packaging.
+
 ### common land
 
 Lower case. Use 'common land,' not 'Common Land'.
+
+### commonly ends up in public bins
+
+Used in extended producer responsibility (EPR) for packaging to mean a type of packaging that is likely to be discarded away from the home, such as paper coffee cups.
+
+Do not use 'street bin waste', 'commonly littered' or 'commonly binned'.
 
 ### company registration number
 
@@ -116,6 +159,12 @@ Do not capitalise. Also, do not use 'Companies House' registration number.
 ### compatible farm software
 
 Use instead of 'compatible farming software'.
+
+### compliance scheme
+
+Used when a third party takes legal responsibility for fulfilling an organisation's obligations under extended producer responsibility (EPR) for packaging.
+
+Lower case.
 
 ### county parish holding number (CPH number)
 
@@ -139,6 +188,12 @@ For external audiences, use 'Defra and its agencies and public bodies', or list 
 
 Use 'group' (lower case) when writing for internal staff.
 
+### Deposit Return Scheme (DRS)
+
+Upper case.
+
+Write out in full on first use and shorten to DRS.
+
 <span id="disease-control-zone"></span>
 
 ### disease control zone
@@ -146,6 +201,12 @@ Use 'group' (lower case) when writing for internal staff.
 Use to talk about disease zones more generally, if not referring to a specific zone. For example, 'If you're in a disease control zone, you cannot…'.
 
 Never abbreviate control zone terms. Always spell disease control zone terms out in full – for example, 'protection zone'.
+
+### drink containers
+
+In content about extended producer responsibility (EPR) for packaging, 'drink' is singular.
+
+Do not use the plural, 'drinks containers'.
 
 <span id="e"></span>
 
@@ -155,9 +216,31 @@ Never abbreviate control zone terms. Always spell disease control zone terms out
 
 Always write out in full. Never shorten to EA. Can use with 'the' where appropriate, for example, 'Work being carried out by the Environment Agency is...'.
 
+### environmental regulator
+
+Lower case.
+
+In content about extended producer responsibility (EPR) for packaging, use 'environmental regulator' or 'environmental regulators'.
+
+Do not use 'regulator' or 'regulators' by itself.
+
 ### export
 
 Do not use export for animals or goods moving within Great Britain or from Great Britain to Northern Ireland. Use moving, not export.
+
+<span id="extended-producer-responsibility-epr-for-packaging"></span>
+
+### extended producer responsibility (EPR) for packaging
+
+Lower case.
+
+Write out in full on first use and shorten to 'EPR for packaging' after.
+
+Do not use 'EPR' on its own.
+
+Do not use 'pEPR'.
+
+Use in the same way for other extended producer responsibility schemes. For example, 'EPR for batteries'.
 
 <span id="f"></span>
 
@@ -171,6 +254,10 @@ Use instead of 'carcass' or 'dead livestock' when writing for livestock keepers.
 
 Do not use 'carcass collection company'.
 
+### fibre-based composite material
+
+Hyphenated and lower case. After first use, shorten to 'fibre-based composite'.
+
 ### field officers
 
 Do not use 'inspectors'.
@@ -178,6 +265,16 @@ Do not use 'inspectors'.
 ### field visit
 
 Do not use 'inspection'.
+
+<span id="filled-or-unfilled-packaging"></span>
+
+### filled or unfilled packaging
+
+Use 'filled or unfilled' rather than 'filled or empty' in content about extended producer responsibility (EPR) for packaging.
+
+Use 'filled packaging' rather than 'packaged goods'.
+
+Also see [supplied as empty](#supplied-as-empty).
 
 ### first tag (sheep and goats)
 
@@ -273,6 +370,14 @@ Use for cattle. Do not use for other animals. (See '[flock mark](#flock-mark)' f
 
 Use this term to describe the land and buildings used to keep livestock. Avoid 'farm' or 'business'.
 
+<span id="holding-company"></span>
+
+### holding company
+
+In extended producer responsibility (EPR) for packaging, use 'holding company' instead of 'parent company' or 'holding group'.
+
+Holding companies own and control subsidiary companies.
+
 ### holding register
 
 Do not use 'herd register,' 'farm records,' or 'farm book'.
@@ -288,6 +393,10 @@ Use title case. Spell it out in full the first time, then use 'HMO'.
 ### import
 
 Do not use import for animals or goods moving within Great Britain or from Northern Ireland to Great Britain. Use moving, not import.
+
+### income from waste packaging notes
+
+Do not use. See [revenue from waste packaging notes](#revenue-from-waste-packaging-notes).
 
 <span id="k"></span>
 
@@ -309,13 +418,23 @@ Familiar language with livestock keepers and vets; broad 'catch all' for symptom
 
 One word. Do not use 'land owner' or 'landholder'.
 
-### livestock
+<span id="liability-or-liabilities"></span>
 
-Do not use 'farm animals'.
+### liability or liabilities
+
+In extended producer responsibility (EPR) for packaging, an organisation has liabilities if it is legally responsible financially under EPR for packaging. Liabilities are different from obligations – see [obligations](#obligations).
+
+Do not use 'liable packaging' or 'liable producer'.
 
 ### Livestock Information Service (LIS)
 
 Use LIS after first mention.
+
+### livestock v farm animals
+
+For the general public, use farm animals (livestock) on the first mention, and then use farm animals.
+
+For farmers or a more specialist audience, use livestock (farm animals) on the first mention, then use livestock.
 
 ### Local Planning Authority (LPA)
 
@@ -381,6 +500,29 @@ Do not use 'receiving' or 'reports'.
 
 ## N
 
+<span id="nation-data"></span>
+
+### nation data
+
+Lower case.
+
+Refers to data that captures which of the UK nations packaging waste is supplied from and discarded in. Used in the context of extended producer responsibility (EPR) for packaging.
+
+The specific terms used in nation data are:
+
+- nation of supply
+- nation of discard
+
+Do not use 'nation of sale' or 'nation of reporting'.
+
+### nation of reporting
+
+Do not use. See [nation data](#nation-data).
+
+### nation of sale
+
+Do not use. See [nation data](#nation-data).
+
 ### National Grid field number
 
 A 4-digit code used to identify a specific, small field parcel.
@@ -415,13 +557,31 @@ Title case.
 
 Always write out in full. Never shorten to NE.
 
+### Natural Resources Wales
+
+Upper case. After first use, you can shorten to NRW.
+
 ### net zero
 
 Lower case, for example, 'reaching net zero', except in the full name of government strategies, 'the Net Zero Strategy'.
 
+### Northern Ireland Environment Agency
+
+Upper case. After first use, you can shorten to NIEA.
+
 <span id="o"></span>
 
 ## O
+
+<span id="obligations"></span>
+
+### obligations
+
+In extended producer responsibility (EPR) for packaging, large producers have obligations and liabilities (for example, they receive a 'Notice of liability'). Small producers only have obligations.
+
+An organisation has obligations if it needs to comply with extended producer responsibility (EPR) for packaging. Obligations are different from liabilities – see [liability or liabilities](#liability-or-liabilities).
+
+Do not use 'obligated packaging'.
 
 ### official ear tag number
 
@@ -430,6 +590,18 @@ Use this to describe the unique 12-digit number used to identify cattle. Do not 
 ### official identification number
 
 Use this to refer to the 6-digit number that is part of the official (12-digit) ear tag number.
+
+### offset
+
+One word.
+
+Do not use 'offset' in relation to packaging waste recycling notes (PRNs).
+
+### online marketplace
+
+Describes any packaging where non-UK suppliers sell their goods into the UK through a website or app (online only).
+
+Lower case. 'Marketplace' is one word.
 
 ### Ordnance Survey (OS) grid reference
 
@@ -449,6 +621,22 @@ Use to refer to the other person involved in reporting a movement of livestock i
 
 ## P
 
+### packaging activities
+
+Used in extended producer responsibility (EPR) for packaging content to describe how producers supply or import packaging.
+
+Do not use 'producer functions'.
+
+### packaging data
+
+In extended producer responsibility (EPR) for packaging, producers report 'packaging data' or 'packaging'.
+
+Do not use 'packaging information'.
+
+### parent company
+
+See [holding company](#holding-company).
+
 ### pastern band
 
 Do not use variants like 'pastern tag' or 'leg band'.
@@ -459,9 +647,36 @@ A band put on a sheep or goat's leg to identify it.
 
 Use 'people' wherever possible. Avoid 'users'.
 
+### pEPR
+
+Do not use. See [extended producer responsibility (EPR) for packaging](#extended-producer-responsibility-epr-for-packaging).
+
+### PERNs
+
+See [PRNs and PERNs](#prns-and-perns).
+
+<span id="placed-on-the-market"></span>
+
+### placed on the market
+
+Do not use 'placed on the UK market' or 'supplied to the UK market' in content for extended producer responsibility (EPR) for packaging. Use 'supplied in the UK' instead.
+
 ### primary ear tag (cattle)
 
 Do not use 'yellow flag tag' except in brackets.
+
+<span id="prns-and-perns"></span>
+
+### PRNs and PERNs
+
+When spelt out in full, 'PRNs' and 'PERNs' stand for:
+
+- packaging waste recycling notes (PRNs)
+- packaging waste export recycling notes (PERNs)
+
+Write out in full on first use and shorten to PRNs and PERNs after.
+
+Do not use 'PWRNs' or 'PWERNs'.
 
 ### protection zone
 
@@ -483,9 +698,23 @@ Refers to recording a movement of animals. Use only for holding register require
 
 We use 'reporting a movement' when someone is submitting information online to us.
 
+### recyclability assessment methodology
+
+Lower case. Shorten to RAM after first use.
+
 ### register a birth (cattle)
 
 Do not use 'register animal,' 'apply for passport,' or 'CPP12'.
+
+### regulatory position statement
+
+Refers to statements issued by UK environmental regulators clarifying how certain requirements should be applied.
+
+Lower case.
+
+Shorten to RPS after first use.
+
+For Natural Resources Wales, use 'regulatory statement' instead.
 
 ### replacement tag (cattle)
 
@@ -499,13 +728,29 @@ Use only when referencing the legal requirement to report movements, births and 
 
 Do not use 'report movements electronically'.
 
+### Report packaging data
+
+The name of the service that producers use to comply with extended producer responsibility (EPR) for packaging.
+
+Use sentence case.
+
+Use RPD after first mention.
+
 ### restricted zone
 
 Use instead of 'restriction zone' in the context of animal disease. See [disease control zone](#disease-control-zone).
 
+<span id="revenue-from-waste-packaging-notes"></span>
+
+### revenue from waste packaging notes
+
+In extended producer responsibility (EPR) for packaging content, use instead of 'income' for money generated from the sale of waste packaging notes.
+
+Lower case.
+
 ### Rural Payments Agency (RPA)
 
-Capitalise RPA. Use 'the RPA' after first mention. For example, 'contact the Rural Payments Agency' or 'contact the RPA'.
+On first use, write 'the Rural Payments Agency (RPA)'. Use 'RPA', without the 'the', from that point on.
 
 ### Rural Payments service
 
@@ -521,6 +766,30 @@ The Rural Payments service is an online service that pays farmers. Not to be con
 
 Hyphenate. Do not use 'same day movement'.
 
+### Scottish Environment Protection Agency
+
+Upper case. After first use, you can shorten to SEPA.
+
+### self-managed consumer waste
+
+In extended producer responsibility (EPR) for packaging this means waste collected through a front-of-store take-back scheme to offset your own waste.
+
+Lower case and hyphenated.
+
+### self-managed organisation waste
+
+In extended producer responsibility (EPR) for packaging this means 'backhauled' waste (using return delivery routes to collect and transport packaging waste back to your organisation).
+
+Lower case and hyphenated.
+
+### service names
+
+Rather than using the service name, consider describing what it enables people to do instead - especially when writing link text.
+
+If you do use the service name in a sentence, write it in sentence case.
+
+Try to avoid using the word 'service' as this is internal jargon.
+
 ### severe flood warning
 
 Lower case. Do not just use 'severe warning'.
@@ -530,6 +799,10 @@ Lower case. Do not just use 'severe warning'.
 Sentence case (lower case, except if starting a sentence).
 
 A main single business identifier (SBI) is a unique 9-digit number given to a farmer or business that is involved in an agricultural activity
+
+### single-use
+
+Hyphenated. As in, 'single-use drink containers'.
 
 ### site visits
 
@@ -542,14 +815,6 @@ Title case, spell out in full the first time, then use the acronym.
 ### slap mark
 
 Use only for pig shoulder tattoos.
-
-### slaughterhouse
-
-Do not use 'abattoir'.
-
-### slaughterhouse operator
-
-Do not use 'abattoir operator'.
 
 ### Special Areas of Conservation (SACs)
 
@@ -566,6 +831,28 @@ Title case, spell out in full the first time, then use the acronym.
 As stated in [the Guardian style guide](https://www.theguardian.com/guardian-style-guide-s), this is not the same as metres squared. 300m squared is 90,000 square metres, for example.
 
 Write this out in full – do not use 'm²'.
+
+<span id="supplied-as-empty"></span>
+
+### supplied as empty
+
+Do not describe packaging as 'supplied as empty' in the context of extended producer responsibility (EPR) for packaging. Use [unfilled packaging](#filled-or-unfilled-packaging) instead.
+
+Only use 'supplied as empty' when describing how to report unfilled packaging in the Report packaging data service.
+
+See [filled or unfilled packaging](#filled-or-unfilled-packaging).
+
+### supplied in the UK
+
+Use in extended producer responsibility (EPR) for packaging content. See [placed on the market](#placed-on-the-market).
+
+### supply or import
+
+Use this phrase to describe the activities of organisations under extended producer responsibility (EPR) for packaging.
+
+For example, 'organisations that supply or import filled or unfilled packaging may have to comply with EPR for packaging.'
+
+Do not say organisations 'that work with packaging' or 'handle and supply packaging'.
 
 ### surface water
 
@@ -586,6 +873,18 @@ Use only for cattle, sheep and goats. For pigs, only use 'tag' for ear tags.
 ### tags (sheep and goats)
 
 Do not use 'identifier'.
+
+### take-back
+
+Hyphenated when using as a noun, for example, a 'front of store take-back scheme' – which means having collection bins for takeaway cups.
+
+Write as 2 words when using as a verb.
+
+### takeaway
+
+No hyphen when using as a noun, for example, 'takeaway cups'.
+
+Write as 2 words when using as a verb, for example 'cups that you take away'.
 
 ### temporary control zone
 
@@ -620,6 +919,10 @@ Use 'people' wherever possible.
 <span id="w"></span>
 
 ## W
+
+### weight
+
+Use metric, for example, tonne or kg. As the GOV.UK style guide says, abbreviating kilograms to kg is fine - you do not need to spell it out.
 
 ### whole movement reporting
 

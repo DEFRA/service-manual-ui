@@ -9,9 +9,11 @@
  * other direction.
  */
 import { describe, test, expect, beforeAll, afterAll, afterEach, vi } from 'vitest'
+import { load } from 'cheerio'
 import { statusCodes } from '../../../../src/server/common/constants/status-codes.js'
 
 const askUrl = '/ai-toolkit/ask'
+const privacyNoticeUrl = '/ai-toolkit/ask/privacy-notice'
 
 // "Report a problem with this answer" sends through GOV.UK Notify. The
 // module is ours, so it is the seam: every other part of the route runs for
@@ -428,19 +430,139 @@ describe('askController', () => {
       )
     })
 
-    test('shows each line of a quoted rule in its own paragraph', async () => {
-      const { result } = await ask('What do I do after an incident?')
+    test('shows the quoted page in guidance used once, alongside other known pages', async () => {
+      const quotedUrl = '/ai-toolkit/guidance/using-data-with-ai'
+      const otherUrl = '/ai-toolkit/tools/microsoft-365-copilot'
+      const unknownUrl = '/ai-toolkit/invented'
+      const quotedSource = { title: 'Using data with AI', url: quotedUrl }
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Check the guidance.',
+          rule_verbatim: {
+            text: 'For personal data, the DPIA route is for a service you are building to process it, not a way to paste it into an everyday tool. For everyday use, remove personal data first.',
+            source: quotedSource
+          },
+          sources: [
+            quotedSource,
+            { title: 'Microsoft 365 Copilot', url: otherUrl },
+            { ...quotedSource, section: 'Another section' },
+            { title: 'Invented page', url: unknownUrl }
+          ]
+        })
+      })
 
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<p class="govuk-body">1. Stop using the AI tool immediately.</p>'
+      await withBackend(fetchStub, async () => {
+        const { statusCode, result } = await ask('What guidance applies?')
+        expect(statusCode).toBe(statusCodes.ok)
+
+        const $ = load(result)
+        const attribution = $('.app-ask__rule-source a')
+        expect(attribution).toHaveLength(1)
+        expect(attribution.attr('href')).toBe(quotedUrl)
+        expect(attribution.text()).toBe('Using data with AI')
+        expect($('.app-ask__check-heading').text()).toBe('Guidance used')
+        const links = $('.app-ask__sources a')
+        expect(links.toArray().map((link) => $(link).attr('href'))).toEqual([
+          quotedUrl,
+          otherUrl
+        ])
+        expect($(`a[href="${unknownUrl}"]`)).toHaveLength(0)
+      })
+    })
+
+    test('shows a quoted rule with numbered steps as a numbered list, not text markers', async () => {
+      const { result } = await ask('What do I do after an incident?')
+      const $ = load(result)
+      const items = $('.app-ask__rule-text ol.govuk-list--number li')
+
+      expect(items).toHaveLength(4)
+      expect($(items[0]).text()).toBe('Stop using the AI tool immediately.')
+      expect($(items[1]).text()).toEqual(expect.stringContaining('Do not delete or change anything.'))
+      expect(result).not.toEqual(expect.stringContaining('1. Stop using the AI tool'))
+    })
+
+    test('shows a quoted bulleted definition as a bulleted list, with its sentences either side as paragraphs', async () => {
+      const { result } = await ask('What counts as personal data?')
+      const $ = load(result)
+      const rule = $('.app-ask__rule-text')
+      const items = rule.find('ul.govuk-list--bullet li')
+
+      expect(items).toHaveLength(6)
+      expect($(items[0]).text()).toBe('names')
+      expect(result).not.toEqual(expect.stringContaining('- names'))
+      expect(rule.find('p').first().text()).toEqual(expect.stringContaining('Personal data is any data'))
+      expect(rule.find('p').last().text()).toEqual(expect.stringContaining('Some types are sensitive personal data'))
+    })
+
+    test('starts a numbered list at the step a quote opens on, not at 1', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Carry on from where you stopped.',
+          rule_verbatim: {
+            text: '2. Do not delete or change anything. The people handling the incident need to see clearly what happened.\n3. Tell your line manager and your team\'s information asset owner. Give a short description of what happened and what data was involved.',
+            source: { title: 'Report an AI incident', url: '/ai-toolkit/guidance/report-an-ai-incident' }
+          },
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('What is step 2?')
+        const $ = load(result)
+        const list = $('.app-ask__rule-text ol.govuk-list--number')
+
+        expect(list.attr('start')).toBe('2')
+        expect(list.find('li').first().attr('value')).toBe('2')
+      })
+    })
+
+    test('gives the answer message the same list treatment as the quote', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Check these first:\n\n- the data classification\n- the tool\'s approval status\n\nThen proceed.',
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('What should I check?')
+        const $ = load(result)
+        const items = $('.app-ask__answer ul.govuk-list--bullet li')
+
+        expect(items).toHaveLength(2)
+        expect($(items[0]).text()).toBe('the data classification')
+        expect(result).not.toEqual(expect.stringContaining('- the data classification'))
+      })
+    })
+
+    test('still escapes any markup in the message or a quoted rule', async () => {
+      const fetchStub = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: vi.fn().mockResolvedValue({
+          status: 'answered',
+          message: 'Treat <script> & this as plain text.',
+          sources: []
+        })
+      })
+
+      await withBackend(fetchStub, async () => {
+        const { result } = await ask('Will this escape?')
+
+        expect(result).toEqual(
+          expect.stringContaining('Treat &lt;script&gt; &amp; this as plain text.')
         )
-      )
-      expect(result).toEqual(
-        expect.stringContaining(
-          '<p class="govuk-body">2. Do not delete or change anything.'
-        )
-      )
+        expect(result).not.toEqual(expect.stringContaining('Treat <script> & this as plain text.'))
+      })
     })
 
     test('shows a need_more_detail answer as quick replies, in the order sent', async () => {
@@ -1108,6 +1230,31 @@ describe('askController', () => {
       const { statusCode } = await server.inject({ method: 'GET', url: askUrl })
 
       expect(statusCode).toBe(statusCodes.ok)
+    })
+
+    test.each([
+      ['the front door links the notice', askUrl, 'in the <a class="govuk-link" href="/ai-toolkit/ask/privacy-notice">privacy notice</a>'],
+      ['the footer of an Ask page links the notice', askUrl, 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>'],
+      ['the footer of any other page links the notice', '/accessibility-statement', 'href="/ai-toolkit/ask/privacy-notice">Privacy</a>'],
+      ['the notice has its title', privacyNoticeUrl, 'Ask the toolkit privacy notice'],
+      ['the notice gives the lawful basis', privacyNoticeUrl, 'performance of a task carried out in the public interest'],
+      ['the notice says how long problem reports are kept', privacyNoticeUrl, 'problem reports: 90 days']
+    ])('%s', async (_description, url, expected) => {
+      const { statusCode, result } = await server.inject({ method: 'GET', url })
+
+      expect(statusCode).toBe(statusCodes.ok)
+      expect(result).toEqual(expect.stringContaining(expected))
+    })
+
+    test('no page links the general GOV.UK privacy notice any more', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/accessibility-statement'
+      })
+
+      expect(result).not.toEqual(
+        expect.stringContaining('https://www.gov.uk/help/privacy-notice')
+      )
     })
 
     test('going back to the front door mid-conversation returns to the latest answer', async () => {

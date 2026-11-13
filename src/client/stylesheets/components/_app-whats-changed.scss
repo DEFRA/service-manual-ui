@@ -35,7 +35,8 @@
 }
 
 // Stops text ending on a lone word or link at any screen width. Headings
-// balance their lines. Browsers that do not support it wrap as normal. The
+// and the short summaries balance their lines, because pretty leaves a lone
+// word on some of them. Browsers that do not support it wrap as normal. The
 // team's email address is one long word, wider than a phone screen, so it
 // breaks rather than runs off the page.
 .app-whats-changed__body :is(p, li, figcaption) {
@@ -43,6 +44,8 @@
   overflow-wrap: break-word;
 }
 
+.app-whats-changed__title,
+.app-whats-changed__summary,
 .app-whats-changed__body :is(h2, h3) {
   text-wrap: balance;
 }

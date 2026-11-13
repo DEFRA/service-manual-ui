@@ -8,6 +8,7 @@ export const helpPath = `${askPath}/help`
 export const restartPath = `${askPath}/restart`
 export const stuckPath = `${askPath}/stuck`
 export const answersPath = `${askPath}/answers`
+export const privacyNoticePath = `${askPath}/privacy-notice`
 
 /**
  * @param {number} number - Position of the answer in the conversation, 1-based

@@ -70,4 +70,4 @@ That last one mattered most. People found the AI marker was too kind. It passed 
 
 Before we tested Ask with people, we tested it with AI. [Sharing our AI skills for user-centred design](/ai-toolkit/whats-changed/sharing-our-ai-skills-for-user-centred-design) explains how, and shares the skills we built to do it.
 
-<p class="govuk-body">Want to help us test Ask the toolkit before it launches?<br>Email <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Testing%20Ask%20the%20toolkit">AICapabilityAndEnablement@defra.gov.uk</a></p>
+<p class="govuk-body"><a class="govuk-link" href="/ai-toolkit/ask">Ask the toolkit</a> is now live. To tell us what you think, email <a class="govuk-link" href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Ask%20the%20toolkit%20feedback">AICapabilityAndEnablement@defra.gov.uk</a></p>

@@ -378,21 +378,27 @@
   margin-bottom: 10px;
 }
 
-.app-ask__rule-text .govuk-body {
+.app-ask__rule-text > .govuk-body,
+.app-ask__rule-text > .govuk-list {
   margin-bottom: 10px;
   font-weight: bold;
 }
 
-.app-ask__rule-text .govuk-body:last-child {
+.app-ask__rule-text > :last-child {
   margin-bottom: 0;
 }
 
-// One pair of quotation marks round the whole rule, however many paragraphs.
-.app-ask__rule-text .govuk-body:first-child::before {
+// One pair of quotation marks round the whole rule, however many blocks,
+// and whichever kind of block opens or closes it.
+.app-ask__rule-text > p:first-child::before,
+.app-ask__rule-text > ul:first-child > li:first-child::before,
+.app-ask__rule-text > ol:first-child > li:first-child::before {
   content: '\201C';
 }
 
-.app-ask__rule-text .govuk-body:last-child::after {
+.app-ask__rule-text > p:last-child::after,
+.app-ask__rule-text > ul:last-child > li:last-child::after,
+.app-ask__rule-text > ol:last-child > li:last-child::after {
   content: '\201D';
 }
 

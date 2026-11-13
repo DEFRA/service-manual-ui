@@ -102,8 +102,17 @@ export function quoteAppearsOnPage (quote, url) {
  * @returns {Array<object>} Only those pointing at pages this service serves
  */
 function usableSources (sources) {
+  const seen = new Set()
+
   return (sources ?? [])
     .filter((source) => source?.url && isServedPage(source.url))
+    .filter((source) => {
+      if (seen.has(source.url)) {
+        return false
+      }
+      seen.add(source.url)
+      return true
+    })
     .map(({ title, url, section }) => ({ title, url, section: section ?? null }))
 }
 
@@ -139,13 +148,7 @@ function usableRule (ruleVerbatim) {
  */
 export function toViewModel (apiAnswer) {
   const rule = usableRule(apiAnswer.rule_verbatim)
-
-  // A page already linked from the quotation is not listed again underneath
-  // it. The quotation names where its wording came from, so repeating the same
-  // page two lines below adds nothing and reads as a mistake.
-  const sources = usableSources(apiAnswer.sources).filter(
-    (source) => source.url !== rule?.source.url
-  )
+  const sources = usableSources(apiAnswer.sources)
 
   return {
     status: apiAnswer.status,
