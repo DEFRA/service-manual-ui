@@ -46,10 +46,9 @@ jobs:
           npm run lint
           npm test
 
-      # Fails on critical vulnerabilities in production dependencies. Raise
-      # to high once the open high alerts are cleared.
+      # Fails on high or critical vulnerabilities in production dependencies.
       - name: Audit production dependencies
-        run: npm audit --omit=dev --audit-level=critical
+        run: npm audit --omit=dev --audit-level=high
 
       - name: Test Docker Image Build
         run: |
