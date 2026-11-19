@@ -75,15 +75,16 @@ If you are using a Defra-provisioned GitHub Copilot licence, follow the [MCP set
 
 Never auto-approve actions: keep a human in the loop and review tool calls before they run. Do not use options that approve every tool call automatically.
 
-When you set up authentication:
+Restrict access to only the repositories, projects and workspaces you need.
 
-- use OAuth where the server supports it
-- use least-privilege scopes
-- restrict access to only the repositories, projects and workspaces you need
+## Keeping tokens safe
 
-Keep tokens, API keys and other secrets out of MCP configuration files that you commit to a repository. Where you can, add servers to a user-level configuration in your home directory instead.
-
-If a server needs a token, do not write it into any configuration file, even a user-level one. Have your tool ask for it when the server starts, or read it from an environment variable. Give the token only the scopes it needs and the shortest expiry you can.
+- add servers to your user-level configuration, not to a repository
+- do not commit tokens, API keys or other secrets
+- use OAuth where the server supports it, so you do not have to manage a static token
+- if you need a static token, such as an API key, do not write it into any MCP configuration file, even your user-level one. Use the secure options your tool provides, such as being asked for it when the server starts
+- give each static token only the scopes it needs and the shortest expiry you can
+- revoke and replace a static token straight away if you think it has been exposed
 
 ## Servers we are assessing
 

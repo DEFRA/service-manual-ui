@@ -111,18 +111,6 @@ How you add a server changes often, so follow the latest official guidance:
 
 Use the configuration from the server's official documentation.
 
-### Keeping tokens safe
-
-- add servers to your user-level configuration, not to a repository
-- do not commit tokens, API keys or other secrets
-- use OAuth where the server supports it, so you do not have to handle a token
-- if you need a token, do not write it into any MCP configuration file, even your user-level one. Use the secure options your tool provides, such as being asked for the token when the server starts
-- give each token only the scopes it needs and the shortest expiry you can
-- revoke and replace a token straight away if you think it has been exposed
-
-### Before you use a server
-
-- turn off telemetry and usage-data collection in its configuration
-- do not auto-approve tool calls, or use options that approve every tool call automatically
+Before you use a server, follow the rules on the Model Context Protocol page for [using MCP safely](/ai-toolkit/tools/model-context-protocol#using-mcp-safely) and [keeping tokens safe](/ai-toolkit/tools/model-context-protocol#keeping-tokens-safe).
 
 If a server will not connect or load, its configuration may not match what is allowed for Defra Copilot licences. Contact the AI Capability and Enablement team or a Principal Developer.
