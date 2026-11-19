@@ -12,6 +12,11 @@ import { statusCodes } from '../common/constants/status-codes.js'
  * /ai-toolkit to match the user-facing brand ("AI digital toolkit"). Anyone
  * who bookmarked or linked the old paths during dev is redirected to the
  * new equivalents permanently.
+ *
+ * The sustainability pages were previously served at /sustainability, as
+ * part of the service manual. They moved to their own area at
+ * /digital-sustainability, alongside the digital sustainability actions and
+ * measurement guidance.
  */
 export const redirects = {
   plugin: {
@@ -43,6 +48,38 @@ export const redirects = {
           }
         }
       ])
+
+      server.route({
+        method: 'GET',
+        path: '/sustainability',
+        handler (_request, h) {
+          return h.redirect('/digital-sustainability').code(statusCodes.movedPermanently)
+        }
+      })
+
+      server.route({
+        method: 'GET',
+        path: '/sustainability/process',
+        handler (_request, h) {
+          return h.redirect('/digital-sustainability/service-standard/process').code(statusCodes.movedPermanently)
+        }
+      })
+
+      server.route({
+        method: 'GET',
+        path: '/sustainability/objectives',
+        handler (_request, h) {
+          return h.redirect('/digital-sustainability/service-standard/objectives').code(statusCodes.movedPermanently)
+        }
+      })
+
+      server.route({
+        method: 'GET',
+        path: '/sustainability/metrics',
+        handler (_request, h) {
+          return h.redirect('/digital-sustainability/service-standard/questions').code(statusCodes.movedPermanently)
+        }
+      })
     }
   }
 }

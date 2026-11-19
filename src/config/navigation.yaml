@@ -225,20 +225,290 @@ nav-software-development:
         href: /software-development
   - *common-tools-section
 
-# Sustainability section navigation
-nav-sustainability:
+
+# Digital sustainability area: top navigation
+nav-digital-sustainability:
+  - text: Home
+    href: /
+  - text: Take action
+    href: /digital-sustainability/actions
+  - text: Measure
+    href: /digital-sustainability/measure
+  - text: Meet the standard
+    href: /digital-sustainability/service-standard
+
+# Digital sustainability actions: Research and planning
+nav-ds-research-and-planning:
   - title: In this section
     items:
-      - text: Deliver a sustainable service
-        href: /sustainability
-      - text: Defra's six objectives
-        href: /sustainability/objectives
-  - title: How to do this
+      - text: "1. Project research, planning and tracking progress"
+        href: /digital-sustainability/actions/research-and-planning
+  - title: Actions
     items:
-      - text: Assess risks and record sustainability actions
-        href: /sustainability/process
-      - text: Taking action and tracking sustainability performance
-        href: /sustainability/metrics
+      - text: "1a. Factor sustainability into project research"
+        href: /digital-sustainability/actions/research-and-planning/research
+      - text: "1b. Include sustainability in business cases, project requirements and planning"
+        href: /digital-sustainability/actions/research-and-planning/business-cases-and-planning
+      - text: "1c. Measure and report on sustainability"
+        href: /digital-sustainability/actions/research-and-planning/measure-and-report
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Journeys and processes
+nav-ds-journeys-and-processes:
+  - title: In this section
+    items:
+      - text: "2. Journey & Process Design"
+        href: /digital-sustainability/actions/journeys-and-processes
+  - title: Actions
+    items:
+      - text: "2a. Use established patterns and design well-paced user journeys"
+        href: /digital-sustainability/actions/journeys-and-processes/patterns-and-pace
+      - text: "2b. Design for lightweight digital pages, notifications and documents"
+        href: /digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents
+      - text: "2c. Reduce and simplify offline channels while maintaining inclusivity"
+        href: /digital-sustainability/actions/journeys-and-processes/offline-channels
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of service journeys and processes"
+        href: /digital-sustainability/measure/journeys-and-processes
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Software
+nav-ds-software:
+  - title: In this section
+    items:
+      - text: "3. Software"
+        href: /digital-sustainability/actions/software
+  - title: Actions
+    items:
+      - text: "3a. Apply the principles of circularity to software"
+        href: /digital-sustainability/actions/software/circular-software
+      - text: "3b. Develop energy-efficient software"
+        href: /digital-sustainability/actions/software/energy-efficient-software
+      - text: "3c. Take an efficient software testing approach"
+        href: /digital-sustainability/actions/software/efficient-testing
+      - text: "3d. Factor sustainability into DevOps practices"
+        href: /digital-sustainability/actions/software/devops
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of software"
+        href: /digital-sustainability/measure/software
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Data
+nav-ds-data:
+  - title: In this section
+    items:
+      - text: "4. Data"
+        href: /digital-sustainability/actions/data
+  - title: Actions
+    items:
+      - text: "4a. Take a lean approach to data collection & management"
+        href: /digital-sustainability/actions/data/lean-data
+      - text: "4b. Optimise data storage"
+        href: /digital-sustainability/actions/data/data-storage
+      - text: "4c. Optimise data for transit"
+        href: /digital-sustainability/actions/data/data-in-transit
+      - text: "4d. Balance data backup, security and sustainability"
+        href: /digital-sustainability/actions/data/backup-and-security
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of data"
+        href: /digital-sustainability/measure/data
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Architecture
+nav-ds-architecture:
+  - title: In this section
+    items:
+      - text: "5. Architecture"
+        href: /digital-sustainability/actions/architecture
+  - title: Actions
+    items:
+      - text: "5a. Design workloads for modularity, portability and flexibility"
+        href: /digital-sustainability/actions/architecture/flexible-workloads
+      - text: "5b. Ensure cloud services are efficiently provisioned"
+        href: /digital-sustainability/actions/architecture/cloud-provisioning
+      - text: "5c. Shift cloud demand to match the availability of low carbon electricity"
+        href: /digital-sustainability/actions/architecture/low-carbon-electricity
+      - text: "5d. Maximise efficiency for on-premises workloads"
+        href: /digital-sustainability/actions/architecture/on-premises-workloads
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of architectural decisions"
+        href: /digital-sustainability/measure/architecture
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Artificial intelligence
+nav-ds-ai:
+  - title: In this section
+    items:
+      - text: "5. Artificial Intelligence"
+        href: /digital-sustainability/actions/ai
+  - title: Actions
+    items:
+      - text: "6a. Be clear on the need and readiness for AI use"
+        href: /digital-sustainability/actions/ai/need-and-readiness
+      - text: "6b. Choose the lowest energy AI model that meets your needs"
+        href: /digital-sustainability/actions/ai/choose-a-model
+      - text: "6c. Take a sustainable approach to training AI models"
+        href: /digital-sustainability/actions/ai/training
+      - text: "6d. Take a sustainable approach to operating AI"
+        href: /digital-sustainability/actions/ai/operating
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of AI"
+        href: /digital-sustainability/measure/ai
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Hosting
+nav-ds-hosting:
+  - title: In this section
+    items:
+      - text: "7. Hosting"
+        href: /digital-sustainability/actions/hosting
+  - title: Actions
+    items:
+      - text: "7a. Choose data centres in more sustainable locations"
+        href: /digital-sustainability/actions/hosting/data-centre-location
+      - text: "7b. Choose data centres that are energy, heat and water-efficient"
+        href: /digital-sustainability/actions/hosting/efficient-data-centres
+      - text: "7c. Choose data centres that can manage sustainability at the service level"
+        href: /digital-sustainability/actions/hosting/service-level-reporting
+      - text: "7d. Choose data centres with resilient infrastructure"
+        href: /digital-sustainability/actions/hosting/resilient-data-centres
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impacts of hosting"
+        href: /digital-sustainability/measure/hosting
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Hardware
+nav-ds-hardware:
+  - title: In this section
+    items:
+      - text: "8. Hardware"
+        href: /digital-sustainability/actions/hardware
+  - title: Actions
+    items:
+      - text: "8a. Extend the working life of hardware"
+        href: /digital-sustainability/actions/hardware/extend-hardware-life
+      - text: "8b. Take the most sustainable approaches to renting or buying hardware"
+        href: /digital-sustainability/actions/hardware/renting-or-buying
+      - text: "8c. Choose the most sustainable options for hardware at end of life"
+        href: /digital-sustainability/actions/hardware/end-of-life
+  - title: Measuring progress
+    items:
+      - text: "Measuring the impact of hardware"
+        href: /digital-sustainability/measure/hardware
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability actions: Procurement
+nav-ds-procurement:
+  - title: In this section
+    items:
+      - text: "9. Procurement"
+        href: /digital-sustainability/actions/procurement
+  - title: Actions
+    items:
+      - text: "9a. Follow mandatory sustainability standards and requirements"
+        href: /digital-sustainability/actions/procurement/mandatory-standards
+      - text: "9b. Embed the Digital Sustainability Actions into procurements where appropriate"
+        href: /digital-sustainability/actions/procurement/embed-the-actions
+  - title: Other themes
+    items:
+      - text: All digital sustainability actions
+        href: /digital-sustainability/actions
+
+# Digital sustainability: measure
+nav-ds-measure:
+  - title: In this section
+    items:
+      - text: "Measuring the sustainability of digital services"
+        href: /digital-sustainability/measure
+  - title: Plan your measurement
+    items:
+      - text: "Choosing a level and order of measurement"
+        href: /digital-sustainability/measure/level-and-order
+      - text: "Setting boundaries and functional units"
+        href: /digital-sustainability/measure/boundaries-and-units
+      - text: "Data availability, using proxies and direct measurement"
+        href: /digital-sustainability/measure/data-and-proxies
+  - title: Calculate carbon
+    items:
+      - text: "Carbon"
+        href: /digital-sustainability/measure/carbon
+      - text: "The equation for carbon measurement"
+        href: /digital-sustainability/measure/carbon-formula
+      - text: "Calculating carbon for services based in the cloud"
+        href: /digital-sustainability/measure/cloud-carbon
+      - text: "Calculating carbon for services using on-premise or off-premise data centres"
+        href: /digital-sustainability/measure/data-centre-carbon
+      - text: "Estimating the energy use of hardware"
+        href: /digital-sustainability/measure/hardware-energy
+      - text: "Calculating embodied carbon"
+        href: /digital-sustainability/measure/embodied-carbon
+  - title: Other impacts
+    items:
+      - text: "Water"
+        href: /digital-sustainability/measure/water
+      - text: "Other sustainability impacts"
+        href: /digital-sustainability/measure/other-impacts
+  - title: Measure by area
+    items:
+      - text: "Measuring the impact of service journeys and processes"
+        href: /digital-sustainability/measure/journeys-and-processes
+      - text: "Measuring the impact of software"
+        href: /digital-sustainability/measure/software
+      - text: "Measuring the impact of data"
+        href: /digital-sustainability/measure/data
+      - text: "Measuring the impact of architectural decisions"
+        href: /digital-sustainability/measure/architecture
+      - text: "Measuring the impact of AI"
+        href: /digital-sustainability/measure/ai
+      - text: "Measuring the impacts of hosting"
+        href: /digital-sustainability/measure/hosting
+      - text: "Measuring the impact of hardware"
+        href: /digital-sustainability/measure/hardware
+
+# Digital sustainability: meet the standard
+nav-ds-standard:
+  - title: In this section
+    items:
+      - text: "15. Deliver a sustainable service"
+        href: /digital-sustainability/service-standard
+      - text: "Defra's six objectives"
+        href: /digital-sustainability/service-standard/objectives
+  - title: How to meet the standard
+    items:
+      - text: "Assess risks and record sustainability actions"
+        href: /digital-sustainability/service-standard/process
+      - text: "Key sustainability questions through the Agile lifecycle"
+        href: /digital-sustainability/service-standard/questions
 
 # Testing and assurance section navigation
 nav-testing:

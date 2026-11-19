@@ -1,19 +1,24 @@
 ---
-title: 15. Deliver a sustainable service
-caption: Service standard
+title: "15. Deliver a sustainable service"
+caption: "Meet the sustainability standard"
 layout: section
-sectionTitle: Sustainability
-sectionNav: nav-sustainability
+sectionNav: nav-ds-standard
+customNav: nav-digital-sustainability
+headerServiceName: Digital sustainability
+headerServiceUrl: /digital-sustainability
+breadcrumbItems:
+  - text: "Digital Defra"
+    href: /
+  - text: "Digital sustainability"
+    href: /digital-sustainability
+  - text: "15. Deliver a sustainable service"
 supportBox:
   title: Get support
-  description: >-
-    The <strong>Sustainable IT Team</strong> can help you understand these risks
-    and draft your statement.
+  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
-    - >-
-      Email: <a href="mailto:sustainableICT@defra.gov.uk"
-      class="govuk-link">sustainableICT@defra.gov.uk</a>
+    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
+Service standard
 
 All services must meet the 14 points of the cross-government [GOV.UK service standard](https://www.gov.uk/service-manual/service-standard). Due to Defra's role in protecting the environment, services must also meet an additional 15th point about sustainability.
 
@@ -39,8 +44,14 @@ Service teams should design, develop, and operate their services to be as sustai
 
 You will also need to set out your approach in a sustainability statement.
 
-A sustainability statement should lay out what actions have been taken, and those that are planned, against the [6 objectives in Defra's digital sustainability strategy](/sustainability/objectives).
+A sustainability statement should lay out what actions have been taken, and those that are planned, against the [6 objectives in Defra's digital sustainability strategy](/digital-sustainability/service-standard/objectives).
 
 ## Where to find out more on sustainability
 
-For information about sustainability and artificial intelligence, read [Defra's AI sustainability guidance](https://defra.sharepoint.com/:w:/t/Team740/ESn6XK_adQRJurJYDXe_c6YBfU63gFpOVGQiaNoCvQgV8A?e=Bi9U2s).
+For information about sustainability and artificial intelligence, read [Defra's AI sustainability guidance](/interruption-card?targetUrl=https%3A%2F%2Fdefra.sharepoint.com%2F%3Aw%3A%2Ft%2FTeam740%2FESn6XK_adQRJurJYDXe_c6YBfU63gFpOVGQiaNoCvQgV8A%3Fe%3DBi9U2s).
+
+## Get support
+
+The **Sustainable IT Team** can help you understand these risks and draft your statement.
+
+- Email: [sustainableICT@defra.gov.uk](mailto:sustainableICT@defra.gov.uk)
