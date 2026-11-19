@@ -5,12 +5,12 @@ description: "Follow these 3 steps to meet the 15th Service Standard point on su
 layout: section
 sectionNav: nav-ds-standard
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Meet the sustainability standard"
     href: /digital-sustainability/service-standard

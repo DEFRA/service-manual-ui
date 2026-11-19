@@ -5,12 +5,12 @@ description: "Check AI is the right tool first. AI you do not need wastes energy
 layout: section
 sectionNav: nav-ds-ai
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions

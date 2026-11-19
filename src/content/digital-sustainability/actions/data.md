@@ -5,12 +5,12 @@ description: "Managing how much data a service collects, processes, stores, tran
 layout: section
 sectionNav: nav-ds-data
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions

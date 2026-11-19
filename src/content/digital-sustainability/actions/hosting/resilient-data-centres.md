@@ -5,12 +5,12 @@ description: "Resilient data centres help services withstand climate-related and
 layout: section
 sectionNav: nav-ds-hosting
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions

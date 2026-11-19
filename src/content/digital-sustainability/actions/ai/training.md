@@ -5,12 +5,12 @@ description: "Training AI models uses a lot of computing power and energy. Reuse
 layout: section
 sectionNav: nav-ds-ai
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions

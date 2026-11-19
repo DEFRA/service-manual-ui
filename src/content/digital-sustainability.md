@@ -1,27 +1,27 @@
 ---
-title: "Digital sustainability"
-description: "Reduce the environmental and social impact of Defra's digital services and infrastructure, measure that impact, and meet Defra's 15th Service Standard point on sustainability."
-layout: hub
+title: "Sustainability"
+description: "Reduce the environmental and social impact of your digital work."
+layout: landing
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
 hubSections:
-  - title: "What do you want to do?"
-    description: "This guidance is for anyone in Defra who designs, builds, runs or buys digital services and infrastructure. That includes infrastructure projects and other work that is not on the Core Delivery Platform (CDP)."
+  - title: "Guidance and standards"
+    description: "For anyone in Defra who designs, builds, runs or buys digital services and infrastructure."
     items:
-      - text: "Digital sustainability actions"
+      - text: "Take action"
         href: /digital-sustainability/actions
-        description: "Find the actions to take to design, build, run and buy more environmentally and socially sustainable services."
-      - text: "Measure sustainability"
+        description: "Find actions that help you design, build, run and buy services that are better for the environment and society."
+      - text: "Measure"
         href: /digital-sustainability/measure
-        description: "Measure the environmental and social impacts of your service, starting with energy use and carbon."
-      - text: "Meet the sustainability standard"
+        description: "Measure your service's environmental and social impacts, starting with energy use and carbon."
+      - text: "Meet the standard"
         href: /digital-sustainability/service-standard
-        description: "Assess your risks, write a sustainability statement and prepare to be assessed against the 15th point."
+        description: "Assess your risks, write a sustainability statement and get ready to be assessed against the 15th point."
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."

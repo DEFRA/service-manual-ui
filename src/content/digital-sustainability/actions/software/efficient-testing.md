@@ -5,12 +5,12 @@ description: "Efficient testing saves energy by cutting the time, effort and res
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions

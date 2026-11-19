@@ -4,12 +4,12 @@ caption: "Meet the sustainability standard"
 layout: section
 sectionNav: nav-ds-standard
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "15. Deliver a sustainable service"
 supportBox:

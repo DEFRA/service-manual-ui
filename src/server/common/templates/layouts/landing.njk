@@ -1,0 +1,50 @@
+{% extends "layouts/page.njk" %}
+
+{# Area landing page: hero, then sections of tiles, like the service manual and delivery groups pages. #}
+
+{% block beforeContent %}{% endblock %}
+
+{% block content %}
+<div class="defra-hero">
+  <div class="defra-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{{ title }}</h1>
+        {% if description %}
+        <p class="govuk-body-l">{{ description }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="defra-width-container defra-main-inner">
+  {% for section in hubSections %}
+  <section class="defra-section">
+    <h2 class="govuk-heading-l">{{ section.title }}</h2>
+    {% if section.description %}
+    <p class="govuk-body">{{ section.description }}</p>
+    {% endif %}
+
+    <ul class="defra-tile-grid">
+      {% for item in section.items %}
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="{{ item.href }}" class="defra-tile__link">{{ item.text }}</a>
+          </h3>
+          {% if item.description %}
+          <p class="govuk-body-s defra-tile__body">{{ item.description }}</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+
+  {{ content | markdown | safe }}
+
+  {% include "partials/support-box.njk" %}
+</div>
+{% endblock %}

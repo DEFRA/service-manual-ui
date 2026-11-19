@@ -5,12 +5,12 @@ description: "The Defra digital sustainability strategy sets 6 objectives. Your 
 layout: section
 sectionNav: nav-ds-standard
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Meet the sustainability standard"
     href: /digital-sustainability/service-standard

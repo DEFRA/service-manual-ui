@@ -129,7 +129,7 @@ describe('homeController', () => {
         url: '/'
       })
 
-      expect(result).toEqual(expect.stringContaining('Digital sustainability'))
+      expect(result).toEqual(expect.stringContaining('>Sustainability<'))
       expect(result).toEqual(
         expect.stringContaining('href="/digital-sustainability"')
       )

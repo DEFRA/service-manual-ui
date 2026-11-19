@@ -3,12 +3,12 @@ title: "Digital sustainability actions"
 description: "The digital sustainability actions are guidelines to help you design, build and run services and other digital projects that are better for the environment. They help make services resilient, efficient and circular, which means keeping things in use for longer."
 layout: hub
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Digital sustainability actions"
 hubSections:

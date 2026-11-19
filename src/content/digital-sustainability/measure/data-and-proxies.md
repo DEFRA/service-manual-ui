@@ -5,12 +5,12 @@ description: "You often cannot measure an impact directly. Use direct measuremen
 layout: section
 sectionNav: nav-ds-measure
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Measure sustainability"
     href: /digital-sustainability/measure

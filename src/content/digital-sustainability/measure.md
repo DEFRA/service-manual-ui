@@ -5,12 +5,12 @@ description: "Digital services have environmental and social impacts across thei
 layout: section
 sectionNav: nav-ds-measure
 customNav: nav-digital-sustainability
-headerServiceName: Digital sustainability
+headerServiceName: Sustainability
 headerServiceUrl: /digital-sustainability
 breadcrumbItems:
   - text: "Digital Defra"
     href: /
-  - text: "Digital sustainability"
+  - text: "Sustainability"
     href: /digital-sustainability
   - text: "Measuring the sustainability of digital services"
 supportBox:
