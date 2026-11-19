@@ -45,6 +45,8 @@
 
   {{ content | markdown | safe }}
 
-  {% include "partials/support-box.njk" %}
+  <div class="defra-landing-support">
+    {% include "partials/support-box.njk" %}
+  </div>
 </div>
 {% endblock %}

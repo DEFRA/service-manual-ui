@@ -1,6 +1,6 @@
 ---
 title: "Sustainability"
-description: "Reduce the environmental and social impact of your digital work."
+description: "Reduce the environmental and social impact of your digital work, and meet Defra's sustainability standard."
 layout: landing
 customNav: nav-digital-sustainability
 headerServiceName: Sustainability
@@ -15,13 +15,13 @@ hubSections:
     items:
       - text: "Take action"
         href: /digital-sustainability/actions
-        description: "Find actions that help you design, build, run and buy services that are better for the environment and society."
+        description: "Find actions that make your services better for the environment."
       - text: "Measure"
         href: /digital-sustainability/measure
-        description: "Measure your service's environmental and social impacts, starting with energy use and carbon."
+        description: "Measure the energy, carbon and other impacts of your service."
       - text: "Meet the standard"
         href: /digital-sustainability/service-standard
-        description: "Assess your risks, write a sustainability statement and get ready to be assessed against the 15th point."
+        description: "Assess your risks and get ready for your 15th point assessment."
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
