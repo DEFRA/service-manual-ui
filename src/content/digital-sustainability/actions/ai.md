@@ -40,9 +40,9 @@ The actions in this theme go further.
 
 Before you start:
 
-- [check if AI is right for your idea](/ai-toolkit/triage/question-1)
-- [find a tool](/ai-toolkit/tools) that teams across Defra already use or are trialling
-- read about [Amazon Bedrock](/ai-toolkit/tools/aws-bedrock), the route Defra uses to reach approved models
+- use the [AI digital toolkit](/ai-toolkit) to check if AI is right for your idea
+- [find a tool](/ai-toolkit/tools) that teams across Defra use, are trialling or are exploring
+- read about [AWS Bedrock](/ai-toolkit/tools/aws-bedrock), a managed model service some Defra teams are trialling
 - talk to the AI Capability and Enablement team before you use Bedrock in delivery
 
 Defra has a position statement on sustainability and AI. Find it in the Ethics section of the [AI governance page](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx) (requires Defra sign-in).

@@ -39,7 +39,7 @@ General-purpose generative models, such as large language models (LLMs), are tra
 
 The smallest model that can do the job can cut energy use a lot, in training and in inference. Inference is when a trained model runs to answer a request.
 
-Test a smaller model against your real task before you commit. Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) found that small local models matched an LLM on short summaries, but could not produce longer, detailed ones.
+Test a smaller model against your real task before you commit. Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) found in early tests that small local models produced short summaries semantically similar to an LLM's, but could not produce longer, detailed ones.
 
 Smaller models can sometimes run on local devices rather than in the cloud. See [6d (v) Run AI models at the edge](/digital-sustainability/actions/ai/operating).
 
@@ -181,7 +181,7 @@ Open models are usually general-purpose rather than task-specific. Examples incl
 
 Open models usually tell you more about their performance and energy efficiency than closed models. They are also easier to audit for flaws. But published weights can also help attackers.
 
-If you need a general-purpose model, consider an open one. In Defra, models must come through an approved route. Check the [AI toolkit tools](/ai-toolkit/tools) and talk to the AI Capability and Enablement team before you use one.
+If you need a general-purpose model, consider an open one. In Defra, check the [AI toolkit tools](/ai-toolkit/tools) and the rules on [using data with AI](/ai-toolkit/guidance/using-data-with-ai), and talk to the AI Capability and Enablement team before you use one.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

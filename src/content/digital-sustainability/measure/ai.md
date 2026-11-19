@@ -55,6 +55,8 @@ The right method depends on where the model runs:
 
 AI used through APIs in the public cloud is usually paid for by input and output tokens.
 
+In the AI toolkit's rules on [using data with AI](/ai-toolkit/guidance/using-data-with-ai), a model in a Defra tenancy, such as Bedrock or Azure OpenAI, counts as Defra-hosted. Those rules decide what data you can use with it.
+
 Ways to access it include:
 
 <table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Approach</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Direct model APIs</th><td class="govuk-table__cell">You call a provider's own model API, such as OpenAI, Anthropic or Google AI Studio. You pay for the input and output tokens used.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI model as a service (AIaaS or MaaS)</th><td class="govuk-table__cell">Raw or pretrained AI or machine learning models, delivered through cloud infrastructure and standard API endpoints. You pay by subscription or by token.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hyperscaler managed AI platforms</th><td class="govuk-table__cell">Enterprise AI suites built into the cloud platforms of hyperscalers, the very large cloud providers. Examples are Microsoft Azure AI Services, Amazon Bedrock, Google Cloud Vertex AI and Oracle Cloud OCI Generative AI.</td></tr></tbody></table>

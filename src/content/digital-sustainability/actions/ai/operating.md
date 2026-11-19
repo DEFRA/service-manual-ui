@@ -170,6 +170,8 @@ See also (i) Implement a multi-tiered approach to AI, on this page.
 
 AI agents are autonomous AI systems that make decisions and perform actions with little human supervision. In an agentic workflow, agents work through several steps, using tools and datasets and following set rules.
 
+When you cut steps to save energy, keep a human approval step before an agent writes to any system. Read the AI toolkit's guidance on [working with agents](/ai-toolkit/guidance/working-with-agents).
+
 Agentic AI can automate complex processes and save resources. But it also uses a lot of resources itself.
 
 Design the workflow your agents follow so it makes only the model and tool calls it needs, and still gives high-quality output. In Defra, also read [working with AI agents](/ai-toolkit/guidance/working-with-agents).
@@ -226,7 +228,7 @@ Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) 
 
 Alongside sustainability impact, running AI models at the edge brings co-benefits in terms of:
 
-- security: data can stay on the device, which reduces what is sent and stored elsewhere
+- security: data can stay on the device, which reduces what is sent and stored elsewhere. The rules on [using data with AI](/ai-toolkit/guidance/using-data-with-ai) still apply
 - speed: running the model on the device (local inference) avoids network round trips, so responses can be faster
 - resilience: local models can keep working with a poor connection or none
 

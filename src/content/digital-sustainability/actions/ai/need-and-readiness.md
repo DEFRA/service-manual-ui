@@ -131,6 +131,10 @@ Potential trade-offs may include:
 
 ## (iii) Create and maintain a register of AI use
 
+If your AI tool significantly influences a decision with a public effect, or interacts directly with the public, you must publish a record in the [Algorithmic Transparency Recording Standard (ATRS)](https://www.gov.uk/government/collections/algorithmic-transparency-recording-standard-hub). Read the AI toolkit's guidance on [ethics](/ai-toolkit/guidance/ethics).
+
+To see which tools teams across Defra already use, check the [AI toolkit tools](/ai-toolkit/tools).
+
 An AI register is a catalogue of the AI systems a project or organisation uses.
 
 A register can record use cases, system types, ownership and data use, and track deployment, monitoring and compliance.
@@ -144,7 +148,7 @@ When you know which AI systems teams use, you can share and reuse tools and data
 Alongside sustainability impact, creating a register of AI use brings co-benefits in terms of:
 
 - cost: a list of active AI systems helps you find redundant tools to remove and avoid duplicate purchases
-- security: a register helps you find unapproved tools and monitor security weaknesses
+- security: a register helps you find tools nobody knew about and monitor security weaknesses
 
 </div>
 </details>
