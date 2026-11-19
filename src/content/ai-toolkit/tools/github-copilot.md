@@ -104,28 +104,25 @@ You can connect GitHub Copilot to an approved Model Context Protocol (MCP) serve
 
 Name each server exactly as follows, or it will not load: `sonarqube` or `playwright`.
 
-### In Visual Studio Code
+How you add a server changes often, so follow the latest official guidance:
 
-1. Open an `mcp.json` file. To share the server with your team, run **MCP: Open Workspace Folder MCP Configuration** from the Command Palette. This opens `.vscode/mcp.json` in your workspace. To add it just for yourself, run **MCP: Open User Configuration**.
-2. Add the server as an entry under `"servers"`. Use the configuration from the server's official documentation.
-3. Run **MCP: List Servers** from the Command Palette, select the server and start it.
-4. In Copilot Chat, select **Agent** and check the server's tools are listed in the tools you can select.
+- [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+- [Adding MCP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
 
-For more detail, see the [VS Code MCP configuration reference](https://code.visualstudio.com/docs/copilot/reference/mcp-configuration).
+Use the configuration from the server's official documentation.
 
-### In Copilot CLI
+### Keeping tokens safe
 
-1. Add the server from your terminal with `copilot mcp add SERVER-NAME -- COMMAND`. Use the command from the server's official documentation.
-2. Run `copilot mcp list` to check the server has been added.
-3. Start an interactive Copilot CLI session and run `/mcp show SERVER-NAME` to check its status and the tools it provides.
-
-You can also add a server from an interactive session with `/mcp add`. Copilot CLI saves your servers in `~/.copilot/mcp-config.json`. For more detail, see [Adding MCP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers).
+- add servers to your user-level configuration, not to a repository
+- do not commit tokens, API keys or other secrets
+- use OAuth where the server supports it, so you do not have to handle a token
+- if you need a token, do not write it into any MCP configuration file, even your user-level one. Use the secure options your tool provides, such as being asked for the token when the server starts
+- give each token only the scopes it needs and the shortest expiry you can
+- revoke and replace a token straight away if you think it has been exposed
 
 ### Before you use a server
 
 - turn off telemetry and usage-data collection in its configuration
-- use OAuth where the server supports it
-- do not auto-approve tool calls
-- in Copilot CLI, do not use the `--allow-all` or `--yolo` options
+- do not auto-approve tool calls, or use options that approve every tool call automatically
 
 If a server will not connect or load, its configuration may not match what is allowed for Defra Copilot licences. Contact the AI Capability and Enablement team or a Principal Developer.

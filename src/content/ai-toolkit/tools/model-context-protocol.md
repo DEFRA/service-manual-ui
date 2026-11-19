@@ -81,6 +81,10 @@ When you set up authentication:
 - use least-privilege scopes
 - restrict access to only the repositories, projects and workspaces you need
 
+Keep tokens, API keys and other secrets out of MCP configuration files that you commit to a repository. Where you can, add servers to a user-level configuration in your home directory instead.
+
+If a server needs a token, do not write it into any configuration file, even a user-level one. Have your tool ask for it when the server starts, or read it from an environment variable. Give the token only the scopes it needs and the shortest expiry you can.
+
 ## Servers we are assessing
 
 We are assessing other MCP servers, such as Atlassian. We are not expanding access yet.
