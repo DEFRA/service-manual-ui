@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   localstack:
-    image: localstack/localstack:3.0.2@sha256:e606c4421419030b12d63a59f1211f57f5b0fbf7e9ce769e6250ee62ff4f9293
+    image: localstack/localstack:3.0.2
     ports:
       - '4566:4566' # LocalStack Gateway
       - '4510-4559:4510-4559' # external services port range
@@ -24,7 +24,7 @@ services:
       - cdp-tenant
 
   redis:
-    image: redis:7.2.3-alpine3.18@sha256:3ce533b2b057f74b235d1d8697ae08b1b6ff0a5e16827ea6a377b6365693c7ed
+    image: redis:7.2.3-alpine3.18
     ports:
       - '6379:6379'
     restart: always
@@ -32,7 +32,7 @@ services:
       - cdp-tenant
 
   mongodb:
-    image: mongo:6.0.13@sha256:b415b12f638e2685d06c58ab7fb5943577c50fadec6d9340ef67d21aeac72070
+    image: mongo:6.0.13
     networks:
       - cdp-tenant
     ports:
