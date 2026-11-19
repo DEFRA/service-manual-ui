@@ -71,3 +71,43 @@ updates:
     # Wait 7 days after a release, the same as npm
     cooldown:
       default-days: 7
+
+  # Update Dockerfile base images
+  - package-ecosystem: docker
+    directory: /
+
+    # Wait 7 days after release before raising an update
+    cooldown:
+      default-days: 7
+
+    # Group all base image updates into one PR per run
+    groups:
+      docker:
+        patterns:
+          - '*'
+
+    # Schedule run every Monday, local time
+    schedule:
+      interval: weekly
+      time: '10:30'
+      timezone: 'Europe/London'
+
+  # Update Docker Compose images
+  - package-ecosystem: docker-compose
+    directory: /
+
+    # Wait 7 days after release before raising an update
+    cooldown:
+      default-days: 7
+
+    # Group all compose image updates into one PR per run
+    groups:
+      docker-compose:
+        patterns:
+          - '*'
+
+    # Schedule run every Monday, local time
+    schedule:
+      interval: weekly
+      time: '10:30'
+      timezone: 'Europe/London'
