@@ -20,52 +20,60 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-The [Software Carbon Intensity (SCI) specification](https://grnsft.org/sci) by the the [Green Software Foundation](https://greensoftware.foundation/standards/sci/) provides a formula to calculate the carbon produced by digital software and systems.
+The [Software Carbon Intensity (SCI) specification](https://grnsft.org/sci) from the [Green Software Foundation](https://greensoftware.foundation/standards/sci/) gives a formula for the carbon produced by software and digital systems. It is an ISO standard (ISO/IEC 21031).
 
-Rather than measuring total carbon, the SCI is an intensity metric that measures emissions per unit of service delivered, such as per completed transaction or volume of data captured per user. The closer the SCI score is to zero, the lower the carbon emissions per functional unit of the software system.
+The SCI does not measure total carbon. It is an intensity metric: emissions per unit of service delivered, such as per completed transaction or per user. The closer the SCI score is to zero, the lower the emissions for each unit.
 
-The SCI makes it easier to assess changes in carbon efficiency as service use grows or falls, helping teams make better, evidence-based decisions on what they can influence – whether technology stack, design, development and operation in order to minimise carbon emissions.
+Because it is a rate, the SCI shows changes in carbon efficiency as use of the service grows or falls. It shows how your choices of technology, design and operation affect carbon.
 
-The SCI is an ISO standard and following the formula for whole-service carbon measurement should be considered best practice.
+Defra recommends the SCI for measuring carbon for a whole service.
 
-## The Formula
-
-The SCI methodology calculates emissions using the equation:
+## The formula
 
 <div class="govuk-inset-text">
 
-SCI = (E × I) + M per R
+SCI = ((E × I) + M) per R
 
 </div>
 
 Where:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">(E × I)</dt><dd class="govuk-summary-list__value">Describes the operational carbon produced by the service:</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">E (Energy)</dt><dd class="govuk-summary-list__value">The amount of energy (in kilowatt-hours, or kWh) the software consumes to run on servers, storage, and networks.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">I (Carbon Intensity)</dt><dd class="govuk-summary-list__value">The carbon intensity of the electricity grid where the software runs (measured in grams of CO₂ per kWh).</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">M (Embodied Emissions)</dt><dd class="govuk-summary-list__value">A proportional share of the carbon emissions tied to manufacturing and disposing of the physical hardware the software uses, split by time and resource allocation.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">R (Functional Unit)</dt><dd class="govuk-summary-list__value">The specific unit of output that the software scales with (such as per active user or per Gigabyte processed)</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">E × I</dt><dd class="govuk-summary-list__value">The operational carbon produced by the service, in kilograms of carbon dioxide equivalent (kgCO2e)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">E (energy)</dt><dd class="govuk-summary-list__value">The energy the software uses to run on servers, storage and networks, in kilowatt-hours (kWh)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">I (carbon intensity)</dt><dd class="govuk-summary-list__value">The carbon intensity of the electricity grid where the software runs, in kgCO2e per kWh. The UK government conversion factors give this in kilograms.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">M (embodied emissions)</dt><dd class="govuk-summary-list__value">A share of the emissions from making and disposing of the hardware the software uses, split by time and resource allocation, in kgCO2e. Read about <a class="govuk-link" href="/digital-sustainability/measure/embodied-carbon">calculating embodied carbon</a>.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">R (functional unit)</dt><dd class="govuk-summary-list__value">The unit of output the software scales with, such as per active user or per gigabyte processed</dd></div></dl>
 
-Before we can calculate the SCI, we need to determine:
+Before you calculate the SCI, [set a system boundary and choose a functional unit](/digital-sustainability/measure/boundaries-and-units).
 
-- The functional unit (R)
-- The system boundary
+### Worked example
 
-### Extensions to the SCI standard
+This example uses illustrative figures for one month. Take your own value for I from the current [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK).
 
-There are a number of domain-specific standards that build on the original SCI for software that are in progress by the Green Software Foundation.
+- E = 120 kWh, after adding data centre overhead
+- I = 0.177 kgCO2e per kWh
+- M = 8 kgCO2e
+- R = 40,000 transactions
+
+E × I = 120 × 0.177 = 21.24 kgCO2e
+
+(E × I) + M = 21.24 + 8 = 29.24 kgCO2e
+
+SCI = 29.24 ÷ 40,000 = 0.00073 kgCO2e per transaction (0.73 grams)
+
+### Extensions to the SCI
+
+The Green Software Foundation is working on standards for particular domains that build on the SCI.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about extensions to the SCI</span></summary>
 <div class="govuk-details__text">
 
-**SCI for AI:** The [SCI for AI](https://greensoftware.foundation/standards/sci-ai/) extends the SCI ISO speciation to address the unique aspects of Artificial Intelligence systems across its entire lifecycle. This includes:
+**SCI for AI:** [SCI for AI](https://greensoftware.foundation/standards/sci-ai/) extends the SCI specification to cover the parts of an AI system's lifecycle that are specific to AI, including:
 
-- AI training
-- Data preparation
-- Inference
+- data preparation
+- training
+- inference
 
-**SCI for Web:** The SCI for Web adapts the ISO-accredited SCI framework specifically to web applications, helping to define appropriate boundaries across servers, networks, third-party services, and end-user devices
+**SCI for Web:** [SCI for Web](https://greensoftware.foundation/standards/sci-web/) (Green Software Foundation) adapts the SCI for web applications. It helps you set boundaries across servers, networks, third-party services and end-user devices.
 
-The SCI for web [https://greensoftware.foundation/standards/sci-web/](https://greensoftware.foundation/standards/sci-web/)
-
-[https://www.thegreenwebfoundation.org/news/an-update-on-sci-for-web-a-new-standard-for-measuring-software-carbon-intensity-for-the-web/](https://www.thegreenwebfoundation.org/news/an-update-on-sci-for-web-a-new-standard-for-measuring-software-carbon-intensity-for-the-web/) An update on SCI for Web – a new standard for measuring software carbon intensity for the Web
+Read [an update on SCI for Web](https://www.thegreenwebfoundation.org/news/an-update-on-sci-for-web-a-new-standard-for-measuring-software-carbon-intensity-for-the-web/) (Green Web Foundation).
 
 </div>
 </details>

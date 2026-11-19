@@ -1,7 +1,7 @@
 ---
 title: "5. Architecture"
 caption: "Architecture"
-description: "Architectural decisions influence the energy, carbon and resource consumption of a digital system throughout its lifecycle, because they determine how much infrastructure, computation, storage and data transfer the service requires."
+description: "Architecture decisions set how much infrastructure, computing, storage and data transfer a service needs. That drives its energy, carbon and resource use throughout its life."
 layout: section
 sectionNav: nav-ds-architecture
 customNav: nav-digital-sustainability
@@ -21,45 +21,21 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about architecture and sustainability</span></summary>
-<div class="govuk-details__text">
+**Applies to:** services, platforms and infrastructure projects, on and off CDP, in the cloud or on premises.
 
-### Public cloud providers on sustainability
+In Defra, many services are moving to the [Core Delivery Platform (CDP)](/architecture-and-software-development/core-delivery-platform), which has build pipelines, hosting, logging and monitoring already in place. If your service is on CDP, the platform makes many architecture decisions for you. Work with your architect and the CDP team on the choices you still control, and read [architecture in Defra](/architecture).
 
-The major public cloud providers have guidance on sustainability:
+Many government services are hosted in the public cloud, where a third-party provider delivers computing resources over the internet to many customers who share the same hardware. The government's [Cloud First policy](https://www.gov.uk/guidance/government-cloud-first-policy), introduced in 2013, requires public sector organisations to evaluate and use public cloud services as their first choice when they buy or design IT services. Read the [cloud guide for the public sector](https://www.gov.uk/government/publications/cloud-guide-for-the-public-sector/cloud-guide-for-the-public-sector) and [cloud technology and the public sector](https://www.gov.uk/government/collections/cloud-technology-and-the-public-sector).
 
-- [Sustainability Pillar - AWS Well-Architected Framework,](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html/) Amazon Web Services
-- [Well-Architected Framework: Sustainability pillar,](https://docs.cloud.google.com/architecture/framework/sustainability/) Google Cloud
-- [Sustainable workloads,](https://learn.microsoft.com/en-us/azure/well-architected/sustainability/overview#enable-storage-compression/) Microsoft Azure
+The major cloud providers publish their own sustainability guidance: the [AWS Well-Architected sustainability pillar](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html) (Amazon Web Services), the [Well-Architected Framework sustainability pillar](https://docs.cloud.google.com/architecture/framework/sustainability/) (Google Cloud) and [sustainable workloads](https://learn.microsoft.com/en-us/azure/well-architected/sustainability/overview) (Microsoft Azure).
 
-### GreenOps and FinOps
+GreenOps is the practice of cutting the carbon emissions of cloud workloads by optimising resources, architecture and use. It is closely related to FinOps, financial operations, because lower emissions often mean lower costs. Read [how FinOps and GreenOps relate](https://greenly.earth/en-gb/blog/industries/finops-and-greenops-how-do-they-relate/) (Greenly) and join the [FinOps community](https://www.gov.uk/service-manual/communities/finops-community) (GOV.UK Service Manual).
 
-GreenOps (Green Operations) is the practice of minimising the carbon emissions of workloads in public cloud, through optimising resources, architecture and usage.
+The actions in this theme are:
 
-GreenOps is closely related to FinOps (Financial Operations), as sustainability goals often align with financial efficiency, and optimising resources for lower emissions frequently results in lower costs.
+- [5a. Design workloads for modularity, portability and flexibility](/digital-sustainability/actions/architecture/flexible-workloads): modular patterns, portable workloads and work that can wait
+- [5b. Provision cloud services efficiently](/digital-sustainability/actions/architecture/cloud-provisioning): tagging, right-sizing, autoscaling, spot instances and removing unused assets
+- [5c. Shift cloud demand to match low-carbon electricity](/digital-sustainability/actions/architecture/low-carbon-electricity): run work when and where electricity is cleaner
+- [5d. Maximise efficiency for on-premises workloads](/digital-sustainability/actions/architecture/on-premises-workloads): for the services and systems that still run in your own data centres
 
-- [FinOps & GreenOps: How do they relate?](https://greenly.earth/en-gb/blog/industries/finops-and-greenops-how-do-they-relate/) Greenly
-- [FinOps Community,](https://www.gov.uk/service-manual/communities/finops-community/) GOV.UK Service Manual
-
-</div>
-</details>
-
----
-
-## Architectural standards for UK Government
-
-Many digital services have shifted to being hosted in the public cloud.
-
-Public cloud is a model where a third-party provider delivers computing resources over the public internet to multiple customers who share the same underlying hardware infrastructure.
-
-- [Cloud guide for the public sector](https://www.gov.uk/government/publications/cloud-guide-for-the-public-sector/cloud-guide-for-the-public-sector)
-- [Cloud technology and the public sector](https://www.gov.uk/government/collections/cloud-technology-and-the-public-sector)
-
-The UK Government introduced its [Cloud First policy](https://www.gov.uk/guidance/government-cloud-first-policy/) in 2013. This requires public sector organisations to evaluate and use public cloud services as their first choice when procuring or designing IT services
-
-## Following architectural standards in Defra
-
-Find out about [architecture in Defra](/architecture) .
-
-In Defra, many services are moving to the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform) . The guidance includes information about sustainability and the shared responsibility model.
+To measure the impact of architecture decisions, read [measuring the impact of architectural decisions](/digital-sustainability/measure/architecture).

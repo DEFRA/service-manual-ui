@@ -241,13 +241,13 @@ nav-digital-sustainability:
 nav-ds-research-and-planning:
   - title: In this section
     items:
-      - text: "1. Project research, planning and tracking progress"
+      - text: "1. Research and planning"
         href: /digital-sustainability/actions/research-and-planning
   - title: Actions
     items:
       - text: "1a. Factor sustainability into project research"
         href: /digital-sustainability/actions/research-and-planning/research
-      - text: "1b. Include sustainability in business cases, project requirements and planning"
+      - text: "1b. Include sustainability in business cases, requirements and planning"
         href: /digital-sustainability/actions/research-and-planning/business-cases-and-planning
       - text: "1c. Measure and report on sustainability"
         href: /digital-sustainability/actions/research-and-planning/measure-and-report
@@ -260,15 +260,15 @@ nav-ds-research-and-planning:
 nav-ds-journeys-and-processes:
   - title: In this section
     items:
-      - text: "2. Journey & Process Design"
+      - text: "2. Journeys and processes"
         href: /digital-sustainability/actions/journeys-and-processes
   - title: Actions
     items:
-      - text: "2a. Use established patterns and design well-paced user journeys"
+      - text: "2a. Use established patterns and design well-paced journeys"
         href: /digital-sustainability/actions/journeys-and-processes/patterns-and-pace
-      - text: "2b. Design for lightweight digital pages, notifications and documents"
+      - text: "2b. Design lightweight pages, notifications and documents"
         href: /digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents
-      - text: "2c. Reduce and simplify offline channels while maintaining inclusivity"
+      - text: "2c. Reduce and simplify offline channels without excluding people"
         href: /digital-sustainability/actions/journeys-and-processes/offline-channels
   - title: Measuring progress
     items:
@@ -312,9 +312,9 @@ nav-ds-data:
         href: /digital-sustainability/actions/data
   - title: Actions
     items:
-      - text: "4a. Take a lean approach to data collection & management"
+      - text: "4a. Take a lean approach to data collection and management"
         href: /digital-sustainability/actions/data/lean-data
-      - text: "4b. Optimise data storage"
+      - text: "4b. Optimise data storage and queries"
         href: /digital-sustainability/actions/data/data-storage
       - text: "4c. Optimise data for transit"
         href: /digital-sustainability/actions/data/data-in-transit
@@ -339,9 +339,9 @@ nav-ds-architecture:
     items:
       - text: "5a. Design workloads for modularity, portability and flexibility"
         href: /digital-sustainability/actions/architecture/flexible-workloads
-      - text: "5b. Ensure cloud services are efficiently provisioned"
+      - text: "5b. Provision cloud services efficiently"
         href: /digital-sustainability/actions/architecture/cloud-provisioning
-      - text: "5c. Shift cloud demand to match the availability of low carbon electricity"
+      - text: "5c. Shift cloud demand to match low-carbon electricity"
         href: /digital-sustainability/actions/architecture/low-carbon-electricity
       - text: "5d. Maximise efficiency for on-premises workloads"
         href: /digital-sustainability/actions/architecture/on-premises-workloads
@@ -358,7 +358,7 @@ nav-ds-architecture:
 nav-ds-ai:
   - title: In this section
     items:
-      - text: "5. Artificial Intelligence"
+      - text: "6. Artificial intelligence"
         href: /digital-sustainability/actions/ai
   - title: Actions
     items:
@@ -437,7 +437,7 @@ nav-ds-procurement:
     items:
       - text: "9a. Follow mandatory sustainability standards and requirements"
         href: /digital-sustainability/actions/procurement/mandatory-standards
-      - text: "9b. Embed the Digital Sustainability Actions into procurements where appropriate"
+      - text: "9b. Embed the digital sustainability actions into procurements"
         href: /digital-sustainability/actions/procurement/embed-the-actions
   - title: Other themes
     items:
@@ -450,6 +450,8 @@ nav-ds-measure:
     items:
       - text: "Measuring the sustainability of digital services"
         href: /digital-sustainability/measure
+      - text: "Get a carbon figure for your service"
+        href: /digital-sustainability/measure/carbon-figure
   - title: Plan your measurement
     items:
       - text: "Choosing a level and order of measurement"
@@ -466,7 +468,7 @@ nav-ds-measure:
         href: /digital-sustainability/measure/carbon-formula
       - text: "Calculating carbon for services based in the cloud"
         href: /digital-sustainability/measure/cloud-carbon
-      - text: "Calculating carbon for services using on-premise or off-premise data centres"
+      - text: "Calculating carbon for services using on-premises or off-premises data centres"
         href: /digital-sustainability/measure/data-centre-carbon
       - text: "Estimating the energy use of hardware"
         href: /digital-sustainability/measure/hardware-energy
@@ -507,7 +509,7 @@ nav-ds-standard:
     items:
       - text: "Assess risks and record sustainability actions"
         href: /digital-sustainability/service-standard/process
-      - text: "Key sustainability questions through the Agile lifecycle"
+      - text: "Sustainability questions for alpha and beta"
         href: /digital-sustainability/service-standard/questions
 
 # Testing and assurance section navigation

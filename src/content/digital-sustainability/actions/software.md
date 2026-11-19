@@ -1,7 +1,7 @@
 ---
 title: "3. Software"
 caption: "Software"
-description: "The way that software is designed, developed, tested and operated determines how much computing, data storage, network capacity and hardware are needed to deliver a digital service. When software code runs, its use translates into physical impacts across energy use, water, and a range of embodied impacts coming from the whole lifecycle of hardware."
+description: "How software is designed, built, tested and run decides how much computing, storage, network capacity and hardware a service needs. When code runs, that becomes energy and water use and the embodied impact of hardware."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -21,16 +21,17 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
----
+**Applies to:** custom software that Defra builds or commissions, on and off CDP, including internal tools. For software you buy as a service, use the actions to ask suppliers for evidence.
 
-### Applying the Digital Sustainability Actions for software
+These actions are mainly for teams that develop, test and run custom software. Where you buy software as a service, ask suppliers how far their applications follow the actions.
 
-The actions in this section are primarily aimed at the development, testing and operation of bespoke software.
+All developers working for Defra must follow the [Defra software development standards](https://defra.github.io/software-development-standards/). Read [software development](/software-development) in this manual for more, including Defra's [common tools](/software-development#common-tools).
 
-Where software is procured ‘as a service’, suppliers can also be asked for evidence for how far their applications adhere to the actions.
+The actions in this theme are:
 
-### Software development standards in Defra
+- [3a. Apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software): reuse components, build for reuse and retire software you no longer need
+- [3b. Develop energy-efficient software](/digital-sustainability/actions/software/energy-efficient-software): progressive enhancement, lean code, server-side rendering, caching and lazy loading
+- [3c. Take an efficient software testing approach](/digital-sustainability/actions/software/efficient-testing): test earlier, run less and switch off what you are not using
+- [3d. Factor sustainability into DevOps practices](/digital-sustainability/actions/software/devops): logging, updates and refactoring that use less computing and storage
 
-All developers working on behalf of Defra need to follow the [Defra Software Development Standards](https://defra.github.io/software-development-standards/).
-
-More guidance on software development in Defra can be found in the [Software Development](/software-development) section of the Defra Service Manual.
+To measure the impact of software, including what to ask suppliers, read [measuring the impact of software](/digital-sustainability/measure/software).

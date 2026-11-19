@@ -1,7 +1,7 @@
 ---
 title: "1a. Factor sustainability into project research"
 caption: "Research and planning"
-description: "Factoring sustainability into project research from the start ensures alignment with departmental and national objectives and helps identify opportunities to reduce energy, carbon, water, materials and waste before key design decisions are made."
+description: "Build sustainability into research from the start. You will find ways to cut energy, carbon, water and waste before the big decisions are made."
 layout: section
 sectionNav: nav-ds-research-and-planning
 customNav: nav-digital-sustainability
@@ -23,58 +23,97 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Research, Product & Delivery
+**Applies to:** discovery and early research on any project, including services on and off CDP, internal tools, infrastructure projects and procurement.
+
+**Lead role families:** Research, and Product and delivery
 
 ---
 
-## (i) Understand departmental and cross-government goals around sustainability
+## (i) Understand departmental and cross-government sustainability goals
 
-Sustainability goals and objectives are set at the governmental level for the civil service through objectives such as the Greening Government Commitments. Individual departments also have their own objectives on net zero, circularity and other environmental impacts.
+Find out which sustainability goals apply to your work, and how your service or project can help meet them.
 
-Understand what goals your department may have around sustainability, as well as cross government objectives, and how your service or project can contribute to the delivery of these.
+Government sets goals for the whole civil service through the Greening Government Commitments. Departments also set their own goals on net zero, circularity and other environmental impacts. In Defra, these are [Defra's six objectives](/digital-sustainability/service-standard/objectives) from the Digital Sustainability Strategy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Cross-UK Government
+Alongside sustainability impact, understanding departmental and cross-government goals brings co-benefits in terms of:
 
-[Greening Government Commitments,](https://www.gov.uk/government/collections/greening-government-commitments) Department for Environment, Food and Rural Affairs and Cabinet Office
+- compliance: teams can show how their work supports the Greening Government Commitments and departmental targets
+- delivery time: knowing the goals early avoids rework when sustainability comes up at service assessment
 
-The Greening Government Commitments set out the actions UK government departments and their agencies will take to reduce their impacts on the environment.
+</div>
+</details>
 
-### In Defra
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
-[Digital Sustainability Strategy, 2025-2030,](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030/) Department for Environment, Food and Rural Affairs
+Potential trade-offs may include:
+
+- upfront effort: goals are spread across several documents and take time to find and interpret
+- fit: departmental goals may not map neatly onto one service, so teams need to judge what applies
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Greening Government Commitments](https://www.gov.uk/government/collections/greening-government-commitments) (Department for Environment, Food and Rural Affairs and Cabinet Office): the actions UK government departments and their agencies will take to reduce their impact on the environment
+- [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (Department for Environment, Food and Rural Affairs)
 
 </div>
 </details>
 
 ---
 
-## (ii) Include sustainability in project research phases
+## (ii) Include sustainability in project research
 
-Research into the 'problem' teams are trying to solve frequently includes understanding the future end-users of a service or project, as well as organisational objectives and policy goals.
+In discovery you learn about users, constraints, policy intent and what could be better. Add environmental impact to that list.
 
-For projects following the Agile lifecycle, the GOV.UK Service Manual states that the 'Discovery' phase should involve understanding users and what they are trying to achieve, constraints that the service may face, underlying policy intent and opportunities for improvements.
+Questions to add to your research:
 
-Project research should also cover environmental aspects, where appropriate. This can include:
+- what environmental outcomes are policymakers trying to achieve?
+- where do the biggest environmental impacts happen in the current journey or process, for example in data capture and processing, travel, or the devices users and staff use?
+- where could a new or redesigned service or process reduce those impacts?
 
-- Any environmental outcomes that policymakers are seeking to deliver
-- Where significant environmental impacts occur within existing user journeys or processes, such as data capture and processing, travel or through the devices users and support staff currently use
-- Where there may be opportunities to reduce environmental impacts through a new or redesigned service or process
-
-Insights into these factors can inform the design of journeys and processes to reduce environmental impacts as far as possible, as well as the best ways to deliver on broader policy outcomes.
+What you learn can shape journeys and processes that cut environmental impact, and show the best ways to meet wider policy outcomes.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [How the discovery phase works,](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works/) GOV.UK Service Manual
+Alongside sustainability impact, including sustainability in project research brings co-benefits in terms of:
 
-### Government 'Styles of Action'
+- usability and performance: research into current journeys often finds pain points that also cause waste, such as repeat contact
+- cost: spotting resource-heavy steps early can point to savings, for example less travel or printing
+- delivery time: finding environmental constraints in discovery avoids late changes in alpha or beta
 
-Developing a new digital service may be one option from a range of possible levers or interventions that government can make. Often government is most effective when it pulls a number of complementary levers or follows a number of ‘styles of action’ in combination. See the [Government as a System](https://openpolicy.blog.gov.uk/2020/03/06/introducing-a-government-as-a-system-toolkit/) Toolkit.
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- research time: environmental questions take time from a discovery that may already be tight
+- evidence gaps: data on the impact of current processes is often missing or estimated, so findings may be uncertain
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [How the discovery phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works) (GOV.UK Service Manual)
+- [Introducing a government as a system toolkit](https://openpolicy.blog.gov.uk/2020/03/06/introducing-a-government-as-a-system-toolkit/) (Open Policy Making blog): a new digital service may be one of several levers government can pull, and government is often most effective when it combines several "styles of action"
 
 </div>
 </details>

@@ -33,6 +33,8 @@ Assessors are subject matter experts who check your service against the [Service
 
 All services must meet the [Service Standard](https://www.gov.uk/service-manual/service-standard). It ensures services are built for user needs and are sustainable.
 
+Defra also assesses a [15th point on sustainability](/digital-sustainability/service-standard).
+
 The Service Standard ensures public money is spent wisely. Read the [GOV.UK Service Manual](https://www.gov.uk/service-manual) for guidance on designing and delivering services, including [accessibility](/accessibility).
 
 ## Does my service need an assessment?

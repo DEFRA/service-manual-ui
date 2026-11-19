@@ -22,43 +22,43 @@ supportBox:
 ---
 Water is used throughout the lifecycle of a digital service:
 
-- In supply chain during the manufacture of devices and infrastructure,
-- During operation through electricity generation and data centre cooling.
+- in the supply chain, to make devices and infrastructure
+- during operation, to generate electricity and cool data centres
 
 <div class="govuk-inset-text">
 
-Service-level water measurement is not yet commonplace, and data availability may limit the scope and accuracy of an assessment. Currently some cloud providers and GreenOps providers supply this data.
+Few services measure water yet, and the data available may limit how much you can assess and how accurately. Some cloud providers and GreenOps providers, which track the environmental impact of cloud use alongside its cost, supply this data.
 
 </div>
 
-## Water associated with hardware manufacture
+## Water used to make hardware
 
-Where available, supplier lifecycle assessments can provide information on water use associated with manufacturing the hardware used by a service. Availability is limited, and assessments may use different boundaries or water indicators. Check what each figure covers before combining or comparing results, and allocate a suitable share to the service where hardware is shared, taking account of its expected lifespan and the assessment period.
+Where suppliers have them, lifecycle assessments can show the water used to make the hardware your service uses. Few are available, and they may use different boundaries or water indicators. Check what each figure covers before you combine or compare results.
 
-See the section on embodied carbon of hardware for a calculation on how to attribute a total figure to a service.
+If hardware is shared, allocate a share to your service, taking account of the hardware's expected lifespan and the assessment period. The method is the same as for [embodied carbon](/digital-sustainability/measure/embodied-carbon).
 
-## Water associated with electricity generation
+## Water used to generate electricity
 
-The electricity consumed by a service has indirect water footprint, including water used for cooling at power stations. This is not routinely reported at service level. Where suitable data is available, estimate this separately by multiplying electricity consumption by a water intensity factor for the relevant electricity supply.
+The electricity a service uses has an indirect water footprint, including water used for cooling at power stations. This is not routinely reported for individual services. Where you have suitable data, estimate it separately: multiply electricity use by a water intensity factor for the electricity supply.
 
-## Water used for data centre cooling
+## Water used to cool data centres
 
-Some data centres use water to remove heat from IT equipment, with water consumed through evaporation in cooling systems. Ask the hosting provider for metered water data and the reporting boundary, ideally for the specific facility hosting the service.
+Some data centres use water to remove heat from IT equipment, and water is lost through evaporation in cooling systems. Ask the hosting provider for metered water data and what it covers, ideally for the facility that hosts your service.
 
-Water Usage Effectiveness (WUE) expresses data centre water use relative to the energy consumed by its IT equipment, normally in litres per kilowatt-hour (L/kWh):
+Water usage effectiveness (WUE) is a data centre's water use compared with the energy its IT equipment uses, normally in litres per kilowatt-hour (L/kWh):
 
 <div class="govuk-inset-text">
 
-WUE = Site water use (litres) ÷ IT equipment energy consumption (kWh)
+WUE = site water use (litres) ÷ IT equipment energy use (kWh)
 
 </div>
 
-Where a suitable site WUE and the service’s allocated IT energy consumption are available, an indicative service-level estimate can be calculated:
+If you have the site's WUE and your service's allocated IT energy use, you can make an indicative estimate for your service:
 
 <div class="govuk-inset-text">
 
-Allocated site water use (litres) = Site WUE (L/kWh) × Service IT energy consumption (kWh)
+Allocated site water use (litres) = site WUE (L/kWh) × service IT energy use (kWh)
 
 </div>
 
-<div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>This apportions site water use using IT energy as a proxy. It is not a direct measurement of the service’s cooling water consumption. Use IT energy rather than total facility energy, as the WUE denominator excludes cooling and other facility overheads. Prioritise site-specific data as a provider-wide average may not reflect the facility or period relevant to the service.</strong></div>
+<div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>This shares out site water use using IT energy as a proxy. It does not measure the cooling water your service uses. Use IT energy, not total facility energy, because WUE leaves out cooling and other overheads. Use figures for the specific site where you can, because a provider-wide average may not reflect your facility or period.</strong></div>

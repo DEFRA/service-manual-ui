@@ -20,91 +20,89 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Measuring the environmental impacts of stpes in service journeys and business processes can:
+Measuring the environmental impacts of steps in service journeys and business processes can:
 
-- Provide insight that can guide practitioners working on this aspect of digital services towards identifying how reductions can be made
-- Feed into estimates of the environmental impacts of a [whole service or project](/digital-sustainability/measure)
+- show the people working on these parts of a service where they can make reductions
+- feed into estimates of the impacts of a [whole service or project](/digital-sustainability/measure)
 
-Measuring the environmental impacts can be conducted for:
+You can measure:
 
-- Digital journey steps
-- Offline part of journeys
+- digital steps of a journey
+- offline steps of a journey
+- how much the service reuses established patterns
 
 ---
 
 ## Digital steps
 
-For the digital steps of service journeys and business processes, the energy use of software can be measured through the following approaches:
+To measure the energy used by the software behind digital steps, and convert it to carbon and water, read [measuring the impact of software](/digital-sustainability/measure/software).
 
-1. Estimating the energy use of software running in the cloud
-2. Measuring the energy use of software when we have visibility of the hardware on which it runs
+### (i) Proxies for websites and applications
 
-The energy used by software can then be converted into an estimate for carbon emissions and water use.
+Websites and web applications have some measures you can observe and use as [proxies](/digital-sustainability/measure/data-and-proxies) for energy use. They can guide the decisions of the people designing them. Proxies include:
 
-<div class="govuk-inset-text">
-
-For guidance on these approaches, see the [Software Measurement](/digital-sustainability/measure/software) page.
-
-</div>
-
-### (i) Using proxy measures for websites and applications
-
-For software that runs on the internet as ‘web applications’ and websites, there are a number of observable proxy measures that can be used as ‘directional indicators’ for energy use. This means that we assume that if we reduce one of these proxy metrics, there will be a corresponding reduction in energy use.
-
-In this way, these proxy measures can guide the decisions taken by those designing websites and web applications. Proxies include:
-
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">‘Time-to-Interactive (TTI)’ / Page Load Speed</dt><dd class="govuk-summary-list__value">This approach assumes that faster, leaner experiences consume less device and network energy.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page Weight</dt><dd class="govuk-summary-list__value">This method is used by a number of online webpage carbon footprint calculators and models like the <a class="govuk-link" href="https://sustainablewebdesign.org/">Sustainable Web Design Model </a>and CO2.js. They take the weight (in bytes) of web pages and multiply it by an energy intensity factor to estimate the carbon emissions from the transfer of this data to the end user.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page load speed</dt><dd class="govuk-summary-list__value">Measure <a class="govuk-link" href="https://web.dev/articles/lcp">Largest Contentful Paint (LCP)</a> (web.dev). This approach assumes that faster, leaner pages use less device and network energy.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page weight</dt><dd class="govuk-summary-list__value">The transfer size of a page, in bytes. Online page carbon calculators and models such as the <a class="govuk-link" href="https://sustainablewebdesign.org/">Sustainable Web Design Model</a> and CO2.js multiply page weight by an energy intensity factor to estimate the carbon from sending the page to the user.</dd></div></dl>
 
 ### (ii) Other proxies
 
-There are a number of other proxies that can be treated as ‘directional indicators’ and can be used to guide the design of digital journey steps. These include:
+Other proxies can also act as directional indicators and guide the design of digital journey steps. These include:
 
-- User time on task (for example, registration or data submission)
-- User task completion rate
-- The number of users succeeding at the first attempt versus abandoned or repeated visits
+- user time on task, such as registering or submitting data
+- user task completion rate
+- the number of users who succeed first time, compared with those who give up or come back again
 
 Proxies for internal business processes might include:
 
-- Support contacts per hundred registrations
-- Staff processing time per completed case
-- Number of processing steps or hand-offs
-- Number of internal system transactions
+- support contacts per hundred registrations
+- staff processing time per completed case
+- number of processing steps or hand-offs
+- number of internal system transactions
 
 ---
 
 ## Offline journey steps
 
-Estimating the environmental impacts of offline steps of service journeys and business processes typically involves a combination of data from:
+To estimate the environmental impacts of offline steps in service journeys and business processes, you usually combine:
 
-- Life Cycle Assessments (LCA)
-- Activity-based measures that take inputs such as transport methods and distances, and then use conversion factors to estimate either energy use or carbon. The latest [UK government conversion factors,](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026) which cover activities such as fuel and electricity use, travel, freight and waste can be used for this purpose.
+- life cycle assessments (LCA)
+- activity-based measures, which take inputs such as transport methods and distances and use conversion factors to estimate energy or carbon
 
-### (i) Customer & Staff Travel
+The [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) cover activities such as fuel and electricity use, travel, freight and waste.
 
-Travel, whether via public transport or private means is often the single largest contributor to offline carbon emissions.
+### (i) Customer and staff travel
 
-UK Government Conversion factors can be used to multiply the distance travelled (or fuel consumed) by the relevant emission factor per kilometre or litre.
+Travel, by public transport or private vehicle, is often the largest source of offline carbon emissions.
 
-There are also number of tools that can help estimate the environmental impacts coming from user or staff travel. These include:
+Use the UK government conversion factors to multiply the distance travelled, or fuel used, by the emission factor per kilometre or litre.
 
-- The [Deloitte Travel Emissions Calculator](https://www.deloitte.com/uk/en/issues/climate/content/travel-emissions-calculator.html) combines distance-based travel emissions with hotel stays, allowing you to estimate emissions for a single trip, event or project.
-- The [BlocCarbon Travel Carbon Calculator](https://bloccarbon.com/calculators/travel) estimates and compare emissions across different transport modes, including cars, buses, trains and flights.
-- The [University of Manchester Carbon Emissions Saving Tool](https://carbon.manchester.ac.uk/) compares the carbon footprint of point-to-point journeys by air, rail, ferry, electric car and fossil-fuel car, showing potential carbon savings from switching transport mode.
+Some tools can help estimate the impact of user or staff travel. These include:
 
-### (ii) Buildings & Facilities
+- the [Deloitte Travel Emissions Calculator](https://www.deloitte.com/uk/en/issues/climate/content/travel-emissions-calculator.html), which combines distance-based travel emissions with hotel stays to estimate emissions for a single trip, event or project
+- the [BlocCarbon Travel Carbon Calculator](https://bloccarbon.com/calculators/travel), which estimates and compares emissions for different transport, including cars, buses, trains and flights
+- the [University of Manchester Carbon Emissions Saving Tool](https://carbon.manchester.ac.uk/), which compares the carbon footprint of point-to-point journeys by air, rail, ferry, electric car and fossil-fuel car, and shows the savings from switching
 
-When an in-person service interaction takes place, a portion of the host building’s energy, heating, cooling and waste can be apportioned to it.
+### (ii) Buildings and facilities
+
+When an interaction happens in person, you can attribute a share of the building's energy, heating, cooling and waste to it.
 
 <div class="govuk-inset-text">
 
-Where direct measurement is unavailable, allocate building consumption by occupied floor area, opening hours, staff time, appointments or number of visitors.
+If you cannot measure directly, share out the building's consumption by floor area used, opening hours, staff time, appointments or number of visitors.
 
 </div>
 
-### (iii) Paper, printing and other materials
+### (iii) Paper and post
 
-To estimate the environmental impacts of physical artefacts such as posted letters, measure the number, weight and delivery class of letters or parcels, transport distances, failed deliveries and returns. These figures can then be combined with the [UK government conversion factors](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026) to estimate carbon emissions.
+To estimate the impact of physical items such as posted letters, measure the number, weight and delivery class of letters or parcels, transport distances, failed deliveries and returns. Combine these figures with the UK government conversion factors to estimate carbon emissions.
 
 ### (iv) Call centre interactions
 
-For the impacts of call centres, use call volumes and average handling time alongside measured or estimated energy consumption for offices, telephony, devices and supporting systems. Include repeat calls and transfers because these may be significant sources of avoidable demand.
+For call centres, use call volumes and average handling time alongside measured or estimated energy use for offices, telephony, devices and supporting systems. Include repeat calls and transfers, because they can be a large source of avoidable demand.
+
+---
+
+## Reuse of patterns
+
+Reusing established patterns is part of Defra's objective to put circular practices into action. Record:
+
+- the proportion of established service and design patterns you reuse, compared with those you develop from scratch

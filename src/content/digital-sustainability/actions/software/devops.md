@@ -1,7 +1,7 @@
 ---
 title: "3d. Factor sustainability into DevOps practices"
 caption: "Software"
-description: "Build on established DevOps best practices to reduce unnecessary computing, storage and data transfer throughout software development and operation."
+description: "Build on DevOps good practice to cut unnecessary computing, storage and data transfer while you develop and run software."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -23,64 +23,92 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Software, IT Operations
+**Applies to:** teams that build and run software on and off CDP, and IT operations teams. On CDP, build pipelines, hosting, logging and monitoring are already in place, so ask the CDP team which settings you control.
 
-**Likely co-benefits:** Cost
+**Lead role families:** Software and IT operations
 
 ---
 
 ## (i) Optimise your logging and retention policy
 
-Check logging and retention policies are appropriate, and automate the deletion and archiving of usused and unneeded logs.
+Check that your logging and retention policies fit what your service needs. Automate deleting and archiving logs you no longer use or need.
 
-Removing unused logs reduces data storage and lowers energy consumption.
+Removing unused logs cuts data storage and energy use. Keep the logs you need for security and incident response, and agree retention periods with your security team. For retaining other data, see [implement a data retention policy](/digital-sustainability/actions/data/lean-data).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Alongside sustainability impact, optimising logging and retention brings co-benefits in terms of:
 
-Alongside sustainability benefits, optimising logging and retention brings co-benefits in terms of:
+- cost: storing less can lower infrastructure costs
+- efficiency and observability: fewer logs to index, query and analyse means less processing, and focusing on useful logs makes systems easier to observe
 
-- Cost: Reducing storage volumes can lower infrastructure costs
-- Efficiency and observability: Having fewer logs to index, query, and analyse decreases data processing overhead, and improves system efficiency and observability by focusing on meaningful, high-value logs
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
 Trade-offs may include:
 
-- Balancing sustainability with potential future data use: Risk of losing valuable diagnostic or audit information if retention policies are too aggressive
-- Upfront effort: Careful design of retention policies is required to ensure compliance, security, and incident response needs are met
+- future use: retention that is too aggressive can lose useful diagnostic or audit information
+- upfront effort: retention policies need careful design to meet compliance, security and incident response needs
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Introduction to logging for security purposes](https://www.ncsc.gov.uk/guidance/introduction-logging-security-purposes) (National Cyber Security Centre): building a logging capability, including how long to keep logs
+- [Set storage retention policies](https://patterns.greensoftware.foundation/operations/resource-lifecycle/set-retention-policy-on-storage-resources) (Green Software Foundation): automating deletion of data once it is no longer needed
+- [SUS04-BP03 Use policies to manage the lifecycle of your datasets](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_data_a4.html) (Amazon Web Services): automating archiving and deletion, including log retention settings
 
 </div>
 </details>
 
 ---
 
-## (ii) Update libraries and dependencies only when necessary
+## (ii) Batch routine updates to libraries and dependencies
 
-Consider how often libraries and dependencies are updated, and avoid daily or continual updates if they are not needed.
+Batch routine updates. Apply security updates when they are released.
 
-Removing unnecessary build, testing, and deployment cycles lowers compute usage and energy consumption.
+For routine updates that do not fix a security issue, update in batches rather than daily or continually. You run fewer build, test and deployment cycles, which lowers compute use and energy.
+
+Security updates are always necessary. Never hold one back to save energy. Follow the [Defra software development standards](https://defra.github.io/software-development-standards/) and Defra's guidance on [creating a secure service](/security).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Batching routine updates brings co-benefits in terms of:
 
-Reducing library and dependency updates brings co-benefits in terms of:
+- stability: less churn from frequent dependency changes
+- control: upgrades can be planned around risk and value
 
-- Stability: Improved stability by avoiding excessive churn from frequent dependency changes
-- Control: Enabling more controlled, planned upgrades aligned to risk and value
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
 Trade-offs may include:
 
-- Balancing priorities: A balance between efficiency, security patching, and maintainability needs to be found for updates. Infrequent updates may increase exposure to security vulnerabilities
-- Complexity: Larger, less frequent updates can introduce higher change risk and complexity
+- complexity: larger, less frequent updates can bring more change risk and complexity
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Managing software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies) (GOV.UK Service Manual): says you must keep dependencies up to date, as new versions often fix security issues
+- [Vulnerability management guidance](https://www.ncsc.gov.uk/guidance/vulnerability-management) (National Cyber Security Centre): applying updates within best-practice timescales, and what to do when no fix exists
 
 </div>
 </details>
@@ -89,62 +117,16 @@ Trade-offs may include:
 
 ## (iii) Continue to optimise and refactor new code
 
-Refactoring is the process of restructuring code, without affecting its original functionality.
-
-Refactoring improves code efficiency over time and so reduces CPU, memory, and processing requirements.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
-<div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, optimising and refactoring new code brings co-benefits in terms of:
-
-- Performance: Enables continuous performance improvements without changing functionality
-- Maintainability: Reduced technical debt, leading to simpler, more maintainable systems and avoiding inefficient legacy patterns accumulating
-
-### Trade-offs
-
-Trade-offs may include:
-
-- Delivery time: Ongoing engineering effort and prioritisation is required alongside feature delivery
-- Complexity: Poorly managed refactoring can introduce defects or regressions
-
-</div>
-</details>
+Keep optimising and refactoring code as it changes. For how, see [optimise code](/digital-sustainability/actions/software/energy-efficient-software).
 
 ---
 
-## (iv) Schedule carbon-aware updates and other operational practices
+## (iv) Schedule routine operations for lower-carbon times
 
-Carbon-aware operations are those that run when the electricity mix is made up of a higher proportion of renewable and low-carbon sources.
-
-These can include software updates, as well as broader operational practices, such as batch jobs, background processing, and CI/CD (Continuous Integration and Continuous Delivery) workloads.
-
-Rather than patching immediately, where possible schedule carbon-aware updates and other operations to take advantage of low carbon electricity.
-
-See also: [5c. Shift cloud demand to match availability of low carbon electricity](/digital-sustainability/actions/architecture/low-carbon-electricity)
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
-<div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, scheduling carbon-aware updates brings co-benefits in terms of:
-
-- Costs: Off-peak or flexible scheduling aligns with lower pricing models.
-
-### Trade-offs
-
-Potential trade-offs may include:
-
-- Speed: Carbon-aware updates may delay updates or operations, impacting timelines and responsiveness
-- Security: Critical updates (e.g. security patches, incident fixes) which must be applied immediately
-- Tooling: Additional tooling and scheduling capability may be reqired to integrate carbon intensity data into pipelines
-
-</div>
-</details>
+Run routine operations that can wait, such as batch jobs, background processing and continuous integration and continuous delivery (CI/CD) workloads, when electricity is lower carbon. Never delay security patches or incident fixes to do this. For how, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
 
 ---
+
+## How to measure this
+
+To measure the impact of software, read [measuring the impact of software](/digital-sustainability/measure/software).

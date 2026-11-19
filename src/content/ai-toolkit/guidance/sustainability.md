@@ -57,6 +57,8 @@ supportBox:
     - 'Email: <a href="mailto:AICapabilityAndEnablement@defra.gov.uk?subject=Help%20with%20AI%20sustainability" class="govuk-link">AICapabilityAndEnablement@defra.gov.uk</a>'
 ---
 
+For more detail, read the [AI sustainability actions](/digital-sustainability/actions/ai) in Defra's digital sustainability guidance.
+
 ## Use the smallest model that meets your needs
 
 Larger models use more energy per request. If a lightweight model can do the job, use it, and default to the smallest model that meets the need.

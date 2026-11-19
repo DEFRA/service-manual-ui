@@ -1,7 +1,7 @@
 ---
 title: "8b. Take the most sustainable approaches to renting or buying hardware"
 caption: "Hardware"
-description: "Take a circular approach to renting or buying hardware by replacing equipment only when necessary, prioritising second-life devices, choosing new hardware that meets recognised ecolabels, and selecting suppliers that monitor device performance and take responsibility for e-waste."
+description: "Replace hardware only when you need to. Choose second-life devices first, new devices with recognised ecolabels, and suppliers that monitor device performance and take responsibility for e-waste."
 layout: section
 sectionNav: nav-ds-hardware
 customNav: nav-digital-sustainability
@@ -23,144 +23,244 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
+**Applies to:** procurement teams, Defra Group IT, and projects that rent or buy hardware, including servers for infrastructure projects. Defra Group IT buys staff devices, so service teams set their requirements through it.
+
 **Lead role families:** Procurement
 
 ---
 
 ## (i) Only replace hardware when there is a clear need
 
-Rather than setting a fixed timeframe for refreshing hardware (such as a particular number of years), only update or replace hardware when there is an evidenced need for this.
+Do not replace hardware on a fixed timetable, such as after a set number of years. Update or replace it only when there is evidence that you need to.
 
-Telemetry and performance metrics can inform data-driven, health-based hardware refreshes. These could include:
+Telemetry and performance data can tell you when a device's health means it needs replacing. Examples of signals include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Aspect</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Battery Performance</td><td class="govuk-table__cell">Degradation of batteries, as Health drops below 70-80% capacity</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Performance Telemetry</td><td class="govuk-table__cell">application launch delays, logon times, Sustained high CPU/RAM utilization during normal daily tasks</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Repair Thresholds</td><td class="govuk-table__cell">The cost of a single out-of-warranty repair exceeds 50% of the device's residual value</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Security Non-Compliance</td><td class="govuk-table__cell">The hardware can no longer support required security protocols or TPM requirements</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Signal</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Battery performance</td><td class="govuk-table__cell">The battery has degraded, for example its health has dropped below 70 to 80% of its original capacity</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Performance telemetry</td><td class="govuk-table__cell">Slow application launches and logons, or CPU and memory use that stays high during normal daily tasks</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Repair thresholds</td><td class="govuk-table__cell">A single out-of-warranty repair would cost more than, for example, 50% of the device's remaining value</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Security non-compliance</td><td class="govuk-table__cell">The hardware can no longer support required security protocols or Trusted Platform Module (TPM) requirements</td></tr></tbody></table>
 
-Avoiding unneccessary device refreshes means that electronic waste is avoided, as well as the environmental impacts associated with replacement equipment.
+Avoiding unnecessary refreshes avoids electronic waste and the environmental impact of replacement equipment.
 
-Selecting equipment suppliers monitoring performance of hardware can enable performance-based refreshes.
+Suppliers that monitor device performance make these health-based refreshes possible. See (iv).
 
-Consider 'Device as a Service' (DaaS). This is a subscription model where organisations lease IT hardware, and this includes management of the end of life and disposal. This approach generally boosts sustainability through performance-based device refreshes, prioritising repair and refurbishment.
+You can also use device as a service (DaaS). This is a subscription where you lease IT hardware and the supplier manages its end of life and disposal. It usually helps sustainability, because devices are refreshed on performance and repair and refurbishment come first.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [When to retire hardware and build a refresh cycle that reduces waste,](https://zerotechwaste.com/resources/when-to-retire-a-business-computer-refresh-cycle/) Zero Tech Waste
+Alongside sustainability impact, data-driven hardware refreshes bring co-benefits in terms of:
+
+- cost: you spend on new devices only when you need to
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, adopting data-drvien hardware refreshes brings co-benefits in terms of:
-
-- Cost: optimizes capital expenditure
-
-### Trade-offs
 
 Potential trade-offs may include:
 
-- • The "Software Drag" Effect: Older hardware may struggle with modern OS updates or security patches, leading to user frustration. • Support Cost Escalation: Maintenance costs and helpdesk tickets often spike sharply after year 4.
+- software drag: older hardware may struggle with new operating system updates or security patches, which frustrates users
+- support costs: maintenance costs and helpdesk tickets often rise sharply as devices age
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [When to retire hardware and build a refresh cycle that reduces waste](https://zerotechwaste.com/resources/when-to-retire-a-business-computer-refresh-cycle/) (Zero Tech Waste)
 
 </div>
 </details>
 
 ---
 
-## (ii) Rent or purchase second life equipment when possible
+## (ii) Rent or buy second-life equipment when possible
 
-Instead of renting or purchasing new hardware, 'second life' IT equipment refers to that which has been used previously.
+Second-life IT equipment has been used before. It usually needs some restoration first:
 
-Second life hardware often involves some degree of restoration, which can mean either refurbishment or remanufacture:
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Refurbishment</td><td class="govuk-table__cell">Repairing and cleaning a used product to restore basic function and fix broken parts</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Remanufacture</td><td class="govuk-table__cell">Stripping a device down, replacing all worn or out-of-spec components, and rebuilding it to match or beat its original factory specification</td></tr></tbody></table>
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Refurbishment</td><td class="govuk-table__cell">Repairing and cleaning a used product to restore basic function and fix broken parts</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Remanufacture</td><td class="govuk-table__cell">A comprehensive process that strips down a device, replaces all worn or out-of-spec components, and rebuilds it to match or even exceed original factory specifications</td></tr></tbody></table>
-
-If your project hires or purchases hardware, then choose remanufactured or refurbished devices where possible. This saves on the environmental impacts associated with securing new devices.
+If your project rents or buys hardware, choose remanufactured or refurbished devices where you can. This avoids the environmental impact of new devices.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [How we’re making technology procurement more sustainable,](https://sustainableict.blog.gov.uk/2026/02/18/how-were-making-technology-procurement-more-sustainable/) UK Government Sustainable ICT
+Alongside sustainability impact, renting or buying second-life equipment brings co-benefits in terms of:
+
+- cost: business-grade equipment costs a fraction of the price of buying new
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, renting or purchasing second life equipment brings co-benefits in terms of:
-
-- Cost: Cost Reduction: Businesses and consumers acquire business-grade equipment (like Dell, HP, or Lenovo hardware) at a fraction of the cost of buying brand-new.
-
-### Trade-offs
 
 Potential trade-offs may include:
 
-- Latest Technology: Features cutting-edge performance, higher energy efficiency, modern safety compliance, and up-to-date specs.
+- newer technology: new devices may perform better, be more energy efficient and meet newer safety standards
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [How we're making technology procurement more sustainable](https://sustainableict.blog.gov.uk/2026/02/18/how-were-making-technology-procurement-more-sustainable/) (UK Government Sustainable ICT blog)
 
 </div>
 </details>
 
 ---
 
-## (iii) Ensure any new hardware meets relevant ecolabel requirements
+## (iii) Choose new hardware with recognised ecolabels
 
-There are a number of global 'ecolabel' certifications, providing various levels of verification of the sustainability credentials of electronic devices.
+Ecolabels are certifications that verify, to different levels, the sustainability of electronic devices.
 
-Ecolabels can be 'Type 1' (governed by ISO 14024) which are multi-criteria, life-cycle-based environmental labels certified by independent third parties. Or 'Type 2', which are self-declared environmental claims made directly by manufacturers, importers, distributors, or retailers.
+There are two types:
+
+- Type 1 ecolabels are governed by ISO 14024. They cover several criteria across the whole lifecycle and are certified by independent third parties.
+- Type 2 ecolabels are environmental claims made by the manufacturer, importer, distributor or retailer itself.
 
 The two most significant Type 1 ecolabels are:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Type 1 Certification</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">TCO</td><td class="govuk-table__cell">TCO covers environmental and social criteria, across climate impacts, chemical safety and usage, circularity and social and environmental risks across supply chains. All criteria are mandatory for all products.</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">EPEAT</td><td class="govuk-table__cell">EPEAT evaluates the environmental impacts of devices across the full lifecycle, from material extraction to end-of-life. EPEAT can be awarded at gold, silver and bronze certifications.</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Type 1 certification</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">TCO Certified</td><td class="govuk-table__cell">Covers environmental and social criteria: climate impact, chemical safety and use, circularity, and social and environmental risks in supply chains. All criteria are mandatory for all products.</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">EPEAT</td><td class="govuk-table__cell">Assesses the environmental impact of devices across the whole lifecycle, from material extraction to end of life. Devices can be certified gold, silver or bronze.</td></tr></tbody></table>
 
-When renting or purchasing new hardware, choose devices that meet the highest ecolabel standards where possible.
+When you rent or buy new hardware, choose devices that meet the highest ecolabel standards you can.
 
-If a Type 1 certification is not available, then other ecolabels such as Energy Star, which focuses on energy efficiency alone, can be used.
+If no Type 1 certification is available, use another ecolabel such as Energy Star, which covers energy efficiency only.
 
-If devices do not have an appropriate ecolabel, or there are multiple devices being considered which have achieved the same level of ecolabel certification (e.g. EPEAT gold) then additional information such as Lifecycle Assessments (LCAs) or Product Carbon Footprints (PCFs) can be requested from manufacturers, and may provide further insight into environmental impacts.
+If devices have no suitable ecolabel, or several have the same level, for example EPEAT gold, ask manufacturers for lifecycle assessments (LCAs) or product carbon footprints (PCFs). These can tell you more about environmental impact.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [EPEAT (Electronic Product Environmental Assessment Tool),](https://www.epeat.net/) Global Electronics Council
-- [TCO Certified,](https://tcocertified.com/) TCO
-- [Energy Star,](https://www.energystar.gov/) U.S. Environmental Protection Agency, US Government
+Alongside sustainability impact, choosing ecolabelled hardware brings co-benefits in terms of:
+
+- cost: energy-efficient certified devices cost less to run over their life
+- compliance: ecolabels give clear evidence against the Government Buying Standards in tenders
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- narrower choice: requiring the top certification can reduce the range of models and suppliers
+- partial picture: labels such as Energy Star cover energy only, not materials or repairability
+- what to watch: Defra Group IT buys staff devices, so set ecolabel requirements through it
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [EPEAT](https://www.epeat.net/) (Global Electronics Council)
+- [TCO Certified](https://tcocertified.com/) (TCO Certified)
+- [Energy Star](https://www.energystar.gov/) (US Environmental Protection Agency)
 
 </div>
 </details>
 
 ---
 
-## (iv) Select equipment suppliers monitoring performance of end-user devices
+## (iv) Choose suppliers that monitor end-user device performance
 
-Ongoing performance monitoring of end-user devices can include real-time telemetry on power consumption and lifecycle emissions tracking.
+Monitoring end-user devices can include real-time telemetry on power use and tracking lifecycle emissions.
 
-Insights from performance monitoring can identify opportunities to optimise power consumption through the use phase for hardware.
-
----
-
-## (iv) Select equipment suppliers applying e-waste compensation
-
-Electronic-waste (E-waste) compensation is where the purchase or lease of new hardware is balanced by the collection and responsible recycling of an equivalent volume of old or broken equipment.
-
-E-waste compensation helps ensure that devices are recycled responsibly, and the environmental impacts such as chemical leeching and caron emissions are reduced as far as possible.
-
-Where leasing or purchasing new hardware, choose suppliers offering e-waste compensation.
+What you learn from monitoring can show where to cut power use while devices are in use.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [E-waste compensation,](https://industry.tcocertified.com/about/tco-certified-edge/e-waste-compensated/) TCO Certified
+Alongside sustainability impact, choosing suppliers that monitor device performance brings co-benefits in terms of:
+
+- cost: health data shows which devices can be kept, so refreshes happen only when needed
+- service performance: spotting failing batteries or drives early reduces disruption for staff
+- security: monitoring can confirm devices are patched and compliant
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- privacy: telemetry can capture data about staff, so check it against the Information Commissioner's Office guidance on monitoring workers
+- resource use: monitoring software uses device power and network data of its own
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Employment practices and data protection: monitoring workers](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/monitoring-workers/) (Information Commissioner's Office): what to check before collecting data from staff devices
+- [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (Department for Environment, Food and Rural Affairs): Defra's targets for refurbished devices and e-waste
+
+</div>
+</details>
+
+---
+
+## (v) Choose suppliers that offer e-waste compensation
+
+Electronic waste (e-waste) compensation balances the purchase or lease of new hardware by collecting and responsibly recycling the same volume of old or broken equipment.
+
+It helps make sure devices are recycled responsibly, and keeps environmental impacts such as chemical leaching and carbon emissions as low as possible.
+
+When you lease or buy new hardware, choose suppliers that offer e-waste compensation.
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
+<div class="govuk-details__text">
+
+Alongside sustainability impact, choosing suppliers that offer e-waste compensation brings co-benefits in terms of:
+
+- compliance: compensation adds evidence of responsible disposal alongside duties under the Waste Electrical and Electronic Equipment (WEEE) regulations
+- data quality: suppliers can report the volume of e-waste collected against the devices they supply
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- what to watch: compensation offsets waste but does not reduce the number of new devices bought
+- assurance: check how the scheme is verified, as some claims are self-declared
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [E-waste compensated](https://industry.tcocertified.com/about/tco-certified-edge/e-waste-compensated/) (TCO Certified)
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+[Measuring the impact of hardware](/digital-sustainability/measure/hardware) covers ecolabels, lifecycle assessments, device monitoring and second-life quality checks.

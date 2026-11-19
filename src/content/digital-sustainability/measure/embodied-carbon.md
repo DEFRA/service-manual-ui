@@ -20,22 +20,24 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Embodied carbon is the total carbon emissions emitted during the manufacturing, transport, and eventual disposal of the physical hardware. This is typically factored into carbon reports provided by public cloud providers, but not from supplier reporting of off and on premise hosting.
+Embodied carbon is the total carbon emitted in making, transporting and finally disposing of physical hardware. Public cloud providers usually include it in their carbon reports. Suppliers of on-premises and off-premises hosting usually do not.
 
-Embodied carbon is calculated at a product level and may be provided in manufacture Product Carbon Footprint sheets or Lifecycle Assessments. Note where it is not available, reference items can be used.
+Manufacturers publish embodied carbon in product carbon footprint sheets or lifecycle assessments. If there is none, use a similar product's figure.
 
 ## Apportion embodied emissions
 
-Where hardware is shared with other services, then the embodied emissions need to be apportioned to isolate the fractional share of a particular service, as for operational emissions. This means we need to know:
+If hardware is shared with other services, work out your service's share of its embodied emissions, as you would for operational emissions. Read about [allocation](/digital-sustainability/measure/data-centre-carbon). You need to know:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Time Allocation</dt><dd class="govuk-summary-list__value">How many hours the software utilised hardware relative to it’s expected total lifespan</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Expected lifespan</dt><dd class="govuk-summary-list__value">the expected useful lifetime of hardware</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Resource Allocation</dt><dd class="govuk-summary-list__value">Measure the share of the physical machine resources the software reserved (e.g., specific allocated vCPUs divided by the total vCPUs on the host machine).</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Time allocation</dt><dd class="govuk-summary-list__value">How many hours the software used the hardware, compared with the hardware's expected lifespan</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Expected lifespan</dt><dd class="govuk-summary-list__value">The expected useful life of the hardware, in hours</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Resource allocation</dt><dd class="govuk-summary-list__value">The share of the machine's resources the software reserved, for example the vCPUs allocated to it divided by the total vCPUs on the host machine</dd></div></dl>
 
 ## Calculate the total embodied carbon
 
-The total embodied carbon of the service can then be calculated as:
+Calculate the service's embodied carbon as:
 
 <div class="govuk-inset-text">
 
-Embodied carbon x service resource allocation % x (service usage hours/expected lifespan of hardware in hours)
+Service embodied carbon (kgCO2e) = hardware embodied carbon (kgCO2e) × service resource allocation (%) × (service usage hours ÷ expected lifespan of hardware in hours)
 
 </div>
+
+This is M in the [Software Carbon Intensity formula](/digital-sustainability/measure/carbon-formula).

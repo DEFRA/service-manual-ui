@@ -113,6 +113,7 @@ export const markdownRoutes = [
   '/digital-sustainability/actions/procurement/mandatory-standards',
   '/digital-sustainability/actions/procurement/embed-the-actions',
   '/digital-sustainability/measure',
+  '/digital-sustainability/measure/carbon-figure',
   '/digital-sustainability/measure/level-and-order',
   '/digital-sustainability/measure/data-and-proxies',
   '/digital-sustainability/measure/hardware-energy',

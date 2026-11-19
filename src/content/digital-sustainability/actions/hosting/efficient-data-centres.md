@@ -1,7 +1,7 @@
 ---
 title: "7b. Choose data centres that are energy, heat and water-efficient"
 caption: "Hosting"
-description: "Choosing energy, heat and water-efficient data centres reduces the resources needed to run and cool digital infrastructure, helping to lower carbon emissions, water consumption and wider environmental impacts."
+description: "Energy, heat and water-efficient data centres need fewer resources to run and cool, which lowers carbon emissions, water use and wider environmental impacts."
 layout: section
 sectionNav: nav-ds-hosting
 customNav: nav-digital-sustainability
@@ -23,25 +23,52 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Procurement, Product & Delivery
+**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP does not choose the data centre, but can ask the CDP team for its provider's efficiency figures.
+
+**Lead role families:** Procurement, Product and delivery, and Architecture
 
 ---
 
 ## (i) Choose providers with energy-efficient infrastructure
 
-The energy efficiency of a data centre is often expressed in terms of Power Usage Effectiveness (PUE).
+A data centre's energy efficiency is often given as its Power Usage Effectiveness (PUE).
 
-PUE is a ratio of the total amount of energy consumed by the facility (such as for cooling, power conversion, lighting) relative to the energy used specifically by the IT equipment. This means that a lower PUE score reflects a more energy-efficient data centre.
+PUE is the total energy a facility uses, including cooling, power conversion and lighting, divided by the energy its IT equipment uses. A lower PUE means a more energy-efficient data centre.
 
-When selecting hosting providers, compare the PUE metrics of potential candidates to select the most energy-efficient infrastructure.
+When you choose a hosting provider, compare the PUE of each candidate and choose the most energy-efficient infrastructure.
 
-In addition, choose data centres adopting the principles set out in the [EU Code of Conduct on Data Centre Energy Efficiency](https://knowledge-for-policy.ec.europa.eu/file/european-code-conduct-data-centre-energy-efficiency_en) (or an equivalent recognised standard) and facilities certified under an appropriate sustainability or energy-efficiency scheme, such as [CEEDA](https://www.datacenterdynamics.com/en/ceeda/) , [BREEAM](https://breeam.com/) , [LEED](https://www.usgbc.org/discoverleed/certification/bd-c-data-centers/) , [EDGE](https://edge.gbci.org/) , or equivalent.
+Choose data centres that follow the [EU Code of Conduct on Data Centre Energy Efficiency](https://knowledge-for-policy.ec.europa.eu/file/european-code-conduct-data-centre-energy-efficiency_en), or an equivalent standard. Look for [CEEDA](https://www.datacenterdynamics.com/en/ceeda/), [BREEAM](https://breeam.com/), [LEED](https://www.usgbc.org/discoverleed/certification/bd-c-data-centers/) or [EDGE](https://edge.gbci.org/) certification, or an equivalent scheme.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [The data centre covenant,](https://www.gov.uk/government/publications/data-centre-covenant/the-data-centre-covenant/) HM Treasury
+Alongside sustainability impact, choosing energy-efficient data centres brings co-benefits in terms of:
+
+- cost: less energy lost to cooling and power conversion can lower hosting prices
+- compliance: Defra's digital sustainability strategy targets a PUE of 1.3 or lower for Defra-operated data centres
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- partial measure: PUE shows facility overhead, not how efficiently the IT equipment itself is used
+- water: a low PUE can come from evaporative cooling, which raises water use (see (ii))
+- limited choice: large cloud providers publish fleet or regional averages, and teams on CDP do not choose the facility
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [The data centre covenant](https://www.gov.uk/government/publications/data-centre-covenant/the-data-centre-covenant) (HM Treasury)
 
 </div>
 </details>
@@ -50,43 +77,96 @@ In addition, choose data centres adopting the principles set out in the [EU Code
 
 ## (ii) Choose providers with water-efficient infrastructure
 
-A continuous supply of freshwater plays an essential role in cooling many data centres. Tracking water use is particularly important in areas of water stress and where free air cooling is not available.
+Many data centres need a steady supply of fresh water for cooling. Tracking water use matters most in water-stressed areas and where free air cooling is not available.
 
-Water Usage Effectiveness (WUE) is a measure of water use efficiency, focused on how much water a data centre uses for cooling and humidification relative to the energy consumed by its IT equipment. A lower WUE score indicates greater water-use efficiency.
+Water Usage Effectiveness (WUE) measures how much water a data centre uses for cooling and humidification, relative to the energy its IT equipment uses. A lower WUE means more efficient water use.
 
-When selecting hosting providers, consider how water is being made use of and what WUE score their facilities have.
+When you compare providers, ask how they use water and what WUE their facilities achieve.
 
 <div class="govuk-inset-text">
 
-Consider that lower WUE often comes at the expense of higher PUE and vice versa. Some new data centres are increasingly making use of cooling approaches that do not rely on a steady supply of freshwater. These approaches include liquid immersion cooling, closed-loop designs and direct air cooling. Some facilities also use treated municipal wastewater in place of freshwater for cooling purposes.
+A lower WUE often comes with a higher PUE, and the other way round. Some newer data centres use cooling that does not need a steady supply of fresh water, such as liquid immersion cooling, closed-loop designs and direct air cooling. Some use treated municipal wastewater instead of fresh water.
 
 </div>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Water use in AI and data centres,](https://assets.publishing.service.gov.uk/media/688cb407dc6688ed50878367/Water_use_in_data_centre_and_AI_report.pdf/) Government Digital Sustainability Alliance
+Alongside sustainability impact, choosing water-efficient data centres brings co-benefits in terms of:
+
+- resilience: water-efficient sites are less exposed to drought restrictions
+- compliance: lower water use supports the water targets in the Greening Government Commitments
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- energy: cooling that uses less water often uses more electricity, which raises PUE
+- limited data: few providers publish WUE by site, so like-for-like comparison is hard
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Water use in AI and data centres](https://assets.publishing.service.gov.uk/media/688cb407dc6688ed50878367/Water_use_in_data_centre_and_AI_report.pdf) (Government Digital Sustainability Alliance)
 
 </div>
 </details>
 
 ---
 
-## (iii) Choose providers making reuse of heat
+## (iii) Choose providers that reuse heat
 
-Data centres convert a large proportion of their consumed electrical energy into waste heat.
+Data centres turn a large share of the electricity they use into waste heat.
 
-This can be captured and re-purposed for a variety of things, such as residential or commerical district heating, heating swimming pools or sports centres or industrial and agricultural processes.
+This heat can be captured and reused, for example to heat homes and businesses through district heating, to heat swimming pools or sports centres, or in industrial and agricultural processes.
 
-Choose providers with data centres that are making re-use of waste heat from computing activities.
+Choose providers with data centres that reuse the waste heat from computing.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Data centres, heat reuse and the future of circular energy systems,](https://www.arup.com/insights/data-centres-heat-reuse-and-the-future-of-circular-energy-systems/) Arup
-- [Thousands of homes to be kept warm by waste heat from computer data centres in UK first,](https://www.arup.com/insights/data-centres-heat-reuse-and-the-future-of-circular-energy-systems/) Department for Energy Security and Net Zero
+Alongside sustainability impact, choosing providers that reuse heat brings co-benefits in terms of:
+
+- social value: waste heat can warm homes and public buildings, which supports social value commitments in procurement
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- what to watch: heat reuse does not cut the electricity a service uses, so put efficiency first
+- limited availability: few UK data centres are connected to heat networks, so this may narrow supplier choice
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Data centres, heat reuse and the future of circular energy systems](https://www.arup.com/insights/data-centres-heat-reuse-and-the-future-of-circular-energy-systems/) (Arup)
+- [Thousands of homes to be kept warm by waste heat from computer data centres in UK first](https://www.gov.uk/government/news/thousands-of-homes-to-be-kept-warm-by-waste-heat-from-computer-data-centres-in-uk-first) (Department for Energy Security and Net Zero)
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+[Measuring the impact of hosting](/digital-sustainability/measure/hosting) sets out PUE, WUE, CUE and the other data centre metrics to ask providers for.

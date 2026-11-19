@@ -1,7 +1,7 @@
 ---
 title: "7d. Choose data centres with resilient infrastructure"
 caption: "Hosting"
-description: "Choosing data centres with resilient infrastructure and plans helps services withstand climate-related and other disruptions, reducing the environmental impacts associated with outages, recovery, replacement and rebuilding."
+description: "Resilient data centres help services withstand climate-related and other disruptions, and avoid the environmental impacts of outages, recovery, replacement and rebuilding."
 layout: section
 sectionNav: nav-ds-hosting
 customNav: nav-digital-sustainability
@@ -23,53 +23,100 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-The UK government officially designated data infrastructure (data centres and cloud operators) as Critical National Infrastructure (CNI) in September 2024, placing it on the same strategic footing as energy, water, and emergency services.
+**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP should agree its resilience needs with the CDP team, based on its service tier.
 
-<div class="govuk-inset-text">
-
-Resilience measures such as backups and redundancies come with their own resource consumption and environmental impacts. Resilience measures should be proportionate, right-sized and appropriate based on need.
-
-</div>
-
-**Lead role families:** Procurement, Product & Delivery
+**Lead role families:** Procurement, Product and delivery, and Architecture
 
 ---
 
-## (i) Choose providers incorporating resilience into site selection
+## (i) Choose providers that build resilience into site selection
 
-Factoring resilience into site selection means choosing geographical locations that minimise exposure to environmental and logistical risks while maximising access to critical resources
+In September 2024 the UK government designated data infrastructure, meaning data centres and cloud operators, as Critical National Infrastructure (CNI). This puts it on the same footing as energy, water and the emergency services.
 
-For data centres, this looks liks:
+Building resilience into site selection means choosing locations that limit exposure to environmental and logistical risks, and give good access to the resources a data centre needs.
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Aspect</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Mapping climate risks at the site level</td><td class="govuk-table__cell">Use hyper-local analysis to map risks of flooding, high temperatures, water scarcity, earthquakes, or wildfires</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Scenario testing</td><td class="govuk-table__cell">Model multiple time horizons and high-emissions climate trajectories during the pre-construction phase to identify critical points where equipment or cooling will fail</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Considering power grid stability &amp; capacity</td><td class="govuk-table__cell">Ensuring reliable, high-capacity electricity connections, access to renewable energy sources, and proximity to substations to prevent grid-failure blackouts</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Considering geographic redundancy for cloud services</td><td class="govuk-table__cell">Distribute mission-critical services across geographically decoupled zones to prevent single-region failures during correlated climate events</td></tr></tbody></table>
+Ask providers:
+
+- what climate risks, such as flooding, high temperatures, water scarcity or wildfires, have you mapped at each site?
+- how reliable is each site's power connection, and does it have access to renewable energy?
+- how do you spread critical services across separate zones, so one climate event cannot stop a whole region?
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Data centres: planning policy, sustainability, and resilience,](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) House of Commons Library
-- [Climate resilience: A critical pillar of data centre strategy,](https://www.the-esg-institute.org/blog/climate-resilience-a-critical-pillar-of-data-centre-strategy-the-esg-institute/) The ESG Institute
+Alongside sustainability impact, building resilience into site selection brings co-benefits in terms of:
+
+- resilience: sites with low exposure to flooding and heat are less likely to suffer outages
+- service performance: fewer outages mean users can reach the service when they need it
+- cost: avoiding high-risk sites reduces recovery and repair costs
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- resource use: geographic redundancy runs duplicate infrastructure, which adds energy and hardware use
+- data residency: spreading services across regions can conflict with keeping data in the UK
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Data centres: planning policy, sustainability, and resilience](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) (House of Commons Library)
+- [Climate resilience: a critical pillar of data centre strategy](https://www.the-esg-institute.org/blog/climate-resilience-a-critical-pillar-of-data-centre-strategy-the-esg-institute/) (The ESG Institute)
 
 </div>
 </details>
 
 ---
 
-## (ii) Choose providers with proportionate physical and technical systems for resilience
+## (ii) Choose providers with proportionate systems for resilience
 
-Resilient data centre design means engineering a facility’s physical and technical systems so it can withstand disruptions, maintain continuous operations, and recover quickly from failures.
+Backups, redundancy and other resilience measures use resources and have environmental impacts of their own. Match them to what your service needs. Your service tier sets the [non-functional requirements](/business-analysis/non-functional-requirements) your service must meet as a minimum.
 
-Measures may include:
+Resilient data centre design means building a facility's physical and technical systems so it can withstand disruption, keep running and recover quickly from failures. Measures can include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Aspect</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">On-site generation and storage</td><td class="govuk-table__cell">Dedicated backup generators, Uninterruptible Power Supplies (UPS), and co-located renewable energy or battery storage systems to ensure that critical servers and services do no go offline if there is a power failure</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Heatwave-adapted systems</td><td class="govuk-table__cell">Cooling infrastructure such as liquid cooling, closed-loop systems, or higher-capacity chillers to handle sustained heatwave temperatures, and analytics in place to aid dynamically adjust workloads during sudden temperature spikes to avoid overheating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Water-scarcity redundancy</td><td class="govuk-table__cell">If data centres are located in water-stressed regions, transition away from water-intensive evaporative cooling methods or install on-site water recycling and storage</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Physical and structural engineering</td><td class="govuk-table__cell">Build structures to withstand wind speeds during storms, and elevate physical infrastructure above predicted flood lines</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Measure</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">On-site generation and storage</td><td class="govuk-table__cell">Backup generators, uninterruptible power supplies (UPS), and co-located renewable energy or battery storage, so that critical servers and services do not go offline if the power fails</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Heatwave-adapted systems</td><td class="govuk-table__cell">Cooling such as liquid cooling, closed-loop systems or higher-capacity chillers that can handle sustained heatwaves, and analytics that adjust workloads during sudden temperature spikes to avoid overheating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Water-scarcity redundancy</td><td class="govuk-table__cell">In water-stressed regions, moving away from water-intensive evaporative cooling, or installing on-site water recycling and storage</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Physical and structural engineering</td><td class="govuk-table__cell">Structures built to withstand storm winds, with physical infrastructure raised above predicted flood levels</td></tr></tbody></table>
 
-Choose hosting providers with proportionate resilience measures to avoid excess energy waste while maintaining resilience.
+Choose hosting providers whose resilience measures are proportionate, so they stay resilient without wasting energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Data centres: planning policy, sustainability, and resilience,](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) House of Commons Library
+Alongside sustainability impact, proportionate resilience systems bring co-benefits in terms of:
+
+- cost: sizing backup systems to real need avoids paying for idle capacity
+- resilience: well-matched backup power and cooling keep services running through heatwaves and power cuts
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- risk: cutting redundancy too far raises the chance of an outage, so agree the level with service owners
+- emissions: backup generators often run on diesel, so ask about cleaner fuels and testing schedules
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Data centres: planning policy, sustainability, and resilience](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) (House of Commons Library)
 
 </div>
 </details>
@@ -78,6 +125,49 @@ Choose hosting providers with proportionate resilience measures to avoid excess 
 
 ## (iii) Choose providers with operational plans for resilience
 
-Operational planning may cover early-warning systems, emergency response and early-warning of extreme weather events:
+Operational plans for resilience can cover:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Aspect</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Early-warning systems for climate events</td><td class="govuk-table__cell">Integrate real-time weather tracking and natural catastrophe monitoring tools into site management workflows</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Emergency Response Planning</td><td class="govuk-table__cell">Establish clear protocols for staff safety, site accessibility during floods or wildfires, and emergency fuel/water resupplier contracts</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Upstream dependencies</td><td class="govuk-table__cell">Secure backup paths for fibre-optic routes, transport corridors, and cloud dependencies so a local physical impact does not sever broader network operations</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Plan</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Early warning of climate events</td><td class="govuk-table__cell">Real-time weather tracking and natural catastrophe monitoring built into site management</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Emergency response</td><td class="govuk-table__cell">Clear procedures for staff safety, site access during floods or wildfires, and emergency fuel and water resupply contracts</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Upstream dependencies</td><td class="govuk-table__cell">Backup routes for fibre-optic cables, transport and cloud dependencies, so a local physical impact does not cut wider network operations</td></tr></tbody></table>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
+<div class="govuk-details__text">
+
+Alongside sustainability impact, choosing providers with operational resilience plans brings co-benefits in terms of:
+
+- resilience: tested plans shorten recovery time after floods, heatwaves or power cuts
+- service performance: faster recovery keeps the service available when users need it
+- security: clear emergency procedures help keep sites and data secure when normal controls are disrupted
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- effort: plans need regular testing and updating, which takes staff time
+- what to watch: services on CDP rely on the platform's and its provider's plans, so check what those cover
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Plan for disaster recovery](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/plan-for-disaster-recovery-dr.html) (AWS Well-Architected Framework): setting recovery objectives and testing recovery plans
+- [The UK Government Resilience Framework](https://www.gov.uk/government/publications/the-uk-government-resilience-framework) (Cabinet Office): the government's approach to preparing for and recovering from disruption
+- [Operate a reliable service](https://www.gov.uk/service-manual/service-standard/point-14-operate-a-reliable-service) (GOV.UK Service Manual): point 14 of the Service Standard, on keeping a service available and recovering from failure
+- [Cyber Assessment Framework](https://www.ncsc.gov.uk/collection/cyber-assessment-framework) (National Cyber Security Centre): a framework for assessing the resilience of essential services
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+[Measuring the impact of hosting](/digital-sustainability/measure/hosting) explains what to ask providers to report on resilience.

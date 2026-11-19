@@ -20,97 +20,95 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Measurement using the Software Carbon Intensity formula involves choosing a functional unit, as well as setting a system boundary.
+To measure with the [Software Carbon Intensity (SCI) formula](/digital-sustainability/measure/carbon-formula), you need to set a system boundary and choose a functional unit.
 
-## Selecting a system boundary
+## Choose a system boundary
 
-In order to conduct a calculation of the carbon intensity of a digital service, a system boundary needs to be chosen. This defines which part of a digital system are included in the assessment, and which are not.
+The system boundary sets out which parts of a digital system you include in the assessment, and which you leave out.
 
-A boundary that includes all the segments of a digital service would cover:
+A boundary that covered every part of a digital service would include:
 
-- Data centres (where the service is hosted)
-- Network infrastructure (enables end to end connectivity of the service)
-- End-user devices (such as mobile phones or laptop computers used by those consuming the service)
+- data centres, where the service is hosted
+- network infrastructure, which connects the service to its users
+- end-user devices, such as the phones or laptops people use to reach the service
 
 <div class="govuk-inset-text">
 
-Choosing a boundary that is feasible is essential as a practical starting point for service-level measurement.
+Choose a boundary you can measure. It is a practical starting point for measuring a service.
 
 </div>
 
-### A recommended boundary for measuring carbon for a digital service
+### The recommended boundary
 
-A boundary can be drawn to focus measurement on the aspects of the service that can be changed and influenced by the service team.
+Draw the boundary around the parts of the service your team can change and influence: the infrastructure that runs the service.
 
-A recommended starting boundary that teams can draw for a digital service is:
+The boundary **includes**:
 
-- The environmental footprint of the infrastructure used to run service in a data centre
+- the servers, cloud instances and storage the service uses, in the cloud or in on-premises or off-premises data centres
+- managed services and software as a service that the service uses
 
-This boundary **includes**:
+The boundary **excludes** these, where they are outside the service's control:
 
-- the impacts of servers and other hardware that is being used by a service in cloud or on- and -off premises data centres.
-
-The boundary **excludes** the following where they are out of service’s scope to control:
-
-- Networking hardware,
-- End user device hardware such as phones or laptops
-- offline aspects of services, such as paper, travel, and telephone interactions
+- networking hardware
+- end-user devices such as phones or laptops
+- offline parts of the service, such as paper, travel and phone calls
 
 <div class="govuk-inset-text">
 
-Note: end user devices can be included within the system boundary if equipment is managed, procured or disposed of as part of the service.
+You can include end-user devices in the boundary if the service manages, buys or disposes of them.
 
 </div>
 
-### Calculating carbon for this boundary
+Use this boundary every time, so your figures can be compared.
 
-The approach taken to calculating the carbon footprint of a service using this boundary differs depends on:
+### How to calculate carbon for this boundary
 
-- Service based in the cloud (link)
-- Service based in on or off-premises data centres (link)
+How you calculate the carbon footprint within this boundary depends on where the service is hosted:
 
-### Setting a boundary at the level of an individual service component
+- [calculating carbon for services based in the cloud](/digital-sustainability/measure/cloud-carbon)
+- [calculating carbon for services using on-premises or off-premises data centres](/digital-sustainability/measure/data-centre-carbon)
+- for software as a service and managed software, ask the supplier for the [metrics on the software page](/digital-sustainability/measure/software)
 
-For complex digital services comprising multiple software components or architectural layers, it may be useful to calculate separate Software Carbon Intensity (SCI) scores for each component, rather than relying solely on a single service-level score.
+### Setting a boundary for one component
 
-Different components may have significantly different energy consumption, resource requirements and environmental impacts. Measuring them independently provides greater granularity, helping to identify the components contributing most to the service's overall environmental impact and enabling more targeted optimisation.
+For a complex service made of several software components or architectural layers, it can help to calculate a separate SCI score for each component, as well as one for the whole service.
 
-Measuring the component before and after a change, using a consistent methodology and comparable workloads, helps distinguish the effect of the change from variations in service use.
+Components can differ a lot in the energy and resources they use and in their environmental impact. Measuring them separately shows which components contribute most, so you can target your improvements.
 
-Teams can define a component-level measurement boundary to assess the impact of that particular aspect.
+Measure the component before and after a change, with the same method and comparable workloads. This separates the effect of the change from changes in how much the service is used.
 
 <div class="govuk-inset-text">
 
-For example, a team focused on data storage could select a boundary of the data storage footprint rather than the footprint of the whole service.
+For example, a team working on data storage could set a boundary around the storage footprint, rather than the footprint of the whole service.
 
 </div>
 
 ## Choosing a functional unit (R)
 
-Depending on whether we are measuring a whole service metric, or particular components of a digital service, we need to select an appropriate functional unit.
+Choose a functional unit for the whole service, or for the component you are measuring.
 
-### Choosing a functional unit (R) for a whole service
+### Choosing a functional unit for a whole service
 
-A functional unit should be chosen that represents a core scaling factor, that drives an digital service’s load and resource usage.
+Choose a functional unit that drives the service's load and resource use.
 
-For example, for end-user applications, energy use and carbon may likely scale per active user, user-session, or logged-in minute. For a project that involves data, then an appropriate functional unit might be per scheduled job, database transaction, or processed gigabyte of data.
+For example, the energy and carbon of an application people use may scale with active users, user sessions or logged-in minutes. For a data project, the functional unit might be a scheduled job, a database transaction or a gigabyte of data processed.
 
-Common examples of functional unit for a whole service include:
+Common functional units for a whole service include:
 
-- Carbon per number of active users
-- Carbon per number of user transactions completed
-- Carbon per gigabytes (GB) of data processed
+- carbon per active user
+- carbon per completed user transaction
+- carbon per gigabyte (GB) of data processed
 
-### Choosing a functional unit (R) for an individual service component
+### Choosing a functional unit for a component
 
-Where multiple SCI scores are calculated for different service components, the functional units may also differ and should be selected on the scaling factor of the service component in question.
+If you calculate SCI scores for different components, the functional units can differ. Base each one on what drives that component's load.
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Aspect</th><th scope="col" class="govuk-table__header">Recommended functional unit (R)</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">User-facing applications</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per active user</li><li>Per user-session</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI Inference</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per token (for Large Language Models)</li><li>Per image (for image generation)</li><li>Per workflow execution (for agentic AI)</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Batch or scheduled jobs</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job executed,</li><li>Per database transaction</li><li>Per page processed</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">APIs and microservices</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per API request</li><li>Per transaction</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Data pipelines</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job</li><li>Per record processed</li><li>Per Gigabyte transferred</li></ul></td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Aspect</th><th scope="col" class="govuk-table__header">Recommended functional unit (R)</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">User-facing applications</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per active user</li><li>Per user session</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI inference</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per token (for large language models)</li><li>Per image (for image generation)</li><li>Per workflow run (for agentic AI)</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Batch or scheduled jobs</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job run</li><li>Per database transaction</li><li>Per page processed</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">APIs and microservices</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per API request</li><li>Per transaction</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Data pipelines</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job</li><li>Per record processed</li><li>Per gigabyte transferred</li></ul></td></tr></tbody></table>
 
-The pages on individual Digital Sustainability Actions provide more detail on approaching the measurement of energy use and proxies for the following aspects:
+These pages give more detail on measuring energy use and proxies for each area:
 
-- Data
-- Software
-- Architecture
-- AI
-- Journey and Experience
+- [data](/digital-sustainability/measure/data)
+- [software](/digital-sustainability/measure/software)
+- [architecture](/digital-sustainability/measure/architecture)
+- [AI](/digital-sustainability/measure/ai)
+- [service journeys and processes](/digital-sustainability/measure/journeys-and-processes)

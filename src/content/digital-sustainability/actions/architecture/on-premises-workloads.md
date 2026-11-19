@@ -1,7 +1,7 @@
 ---
 title: "5d. Maximise efficiency for on-premises workloads"
 caption: "Architecture"
-description: "Maximising efficiencies in on-premises data centres involves consolidating and refreshing servers where appropriate, and increasing utilisation rates as far as possible."
+description: "If you run workloads in your own data centres, consolidate and refresh servers where it makes sense, and keep the servers you have as busy as possible."
 layout: section
 sectionNav: nav-ds-architecture
 customNav: nav-digital-sustainability
@@ -23,68 +23,72 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Architecture, IT Operations
+**Applies to:** services, systems and infrastructure that run in on-premises data centres. Most Defra services run in the cloud, so this is mainly for infrastructure and IT operations teams looking after the systems that remain.
 
-**Likely co-benefits:** Cost, service performance, development time
+**Lead role families:** Architecture and IT operations
 
 ---
 
-### (i) Monitor, consolidate and refresh server hardware when appropriate
+## (i) Monitor, consolidate and refresh server hardware
 
-Powering down, sleeping or retiring servers that are running with low-levels of utilisation or energy efficiency can save on overall energy consumption.
+Powering down, sleeping or retiring servers that run at low utilisation or low energy efficiency saves energy overall.
 
-Approaches can include:
+Approaches include:
 
-- Identifying low-utilisation and zombie servers: Track inventory, monitor hardware power, and orchestrate analytics to identify servers that are consistently running at low rates of utilisation or are ‘zombies’ (doing no productive work)
-- Powering down or retiring low-utilisation and zombie servers: Sleep and shut down underutilised, abandoned, or single-purpose legacy servers
-- Refreshing server hardware where appropriate: Replace older servers, storage arrays, and network switches with more energy-efficient hardware, when this is the more sustainable option
+- finding low-utilisation and zombie servers: track your inventory, monitor hardware power and use analytics to find servers that consistently run at low utilisation, or "zombies" that do no useful work
+- powering down or retiring them: sleep or shut down underused, abandoned or single-purpose legacy servers
+- refreshing server hardware where it makes sense: replace older servers, storage arrays and network switches with more energy-efficient hardware, when that is the more sustainable option
+
+For buying and disposing of hardware, see [take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying) and [choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [What is server monitoring?,](https://www.ibm.com/think/topics/server-monitoring/) IBM
+- [What is server monitoring](https://www.ibm.com/think/topics/server-monitoring/) (IBM)
 
 </div>
 </details>
-
-See also [8b. ake the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying) and [8c. Choose the most sustainable options at the end of life](/digital-sustainability/actions/hardware/end-of-life)
 
 ---
 
 ## (ii) Maximise server utilisation
 
-Increasing server utilisation rates improves the efficiency of an on-premises data centre and reduces overall energy consumption.
+Busier servers make an on-premises data centre more efficient and use less energy overall.
 
-Approaches that can maximise server utilisation include:
+Ways to increase server utilisation include:
 
-- Virtualising workloads: Run workloads inside virtual machines (VMs) to enable multiple applications to run on an individual server, reducing the total number of physical machines required
-- Consolidating workloads: Combine multiple applications, databases, or virtual machines that previously ran on separate physical servers onto a smaller number of higher capacity servers
-- Dynamic workload balancing: Move workloads across servers in real-time based on demand, including scheduling batch workloads for times of low demand
+- virtualising workloads: run workloads in virtual machines (VMs) so several applications share one server, and fewer physical machines are needed
+- consolidating workloads: move applications, databases or virtual machines that ran on separate physical servers onto fewer, higher-capacity servers
+- balancing workloads dynamically: move workloads between servers as demand changes
+
+To run batch work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [What is virtualisation?,](https://www.ibm.com/think/topics/virtualization/) IBM
-- [What is a virtual machine?,](https://cloud.google.com/learn/what-is-a-virtual-machine/) Google Cloud
-- [Dynamic load balancing,](https://www.sciencedirect.com/topics/computer-science/dynamic-load-balancing/) Science Direct
+Alongside sustainability impact, maximising server utilisation brings co-benefits in terms of:
+
+- cost: lower running costs for servers, and less need to buy new hardware
+- agility: teams can start, copy or scale virtualised and containerised workloads quickly
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
-
-Alongside sustainability benefits, maximising server utilisation brings co-benefits in terms of:
-
-- Cost: Lowering costs associated with operating servers and the need to purchase new hardware
-- Agility: Virtualised and containerised workloads allow teams to spin up, clone, or scale workloads quickly
+- [What is virtualisation](https://www.ibm.com/think/topics/virtualization/) (IBM)
+- [What is a virtual machine](https://cloud.google.com/learn/what-is-a-virtual-machine/) (Google Cloud)
+- [Dynamic load balancing](https://www.sciencedirect.com/topics/computer-science/dynamic-load-balancing/) (ScienceDirect)
 
 </div>
 </details>
 
 ---
+
+## How to measure this
+
+To measure the impact of on-premises workloads, read [measuring the impact of architectural decisions](/digital-sustainability/measure/architecture).

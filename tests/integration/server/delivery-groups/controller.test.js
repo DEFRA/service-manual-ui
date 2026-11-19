@@ -32,7 +32,7 @@ describe('deliveryGroupsController', () => {
       expect(result).toEqual(expect.stringContaining('Delivery groups'))
       expect(result).toEqual(
         expect.stringContaining(
-          'Understanding the standards, governance and assurance process'
+          'Find out about the standards, governance and assurance'
         )
       )
     })

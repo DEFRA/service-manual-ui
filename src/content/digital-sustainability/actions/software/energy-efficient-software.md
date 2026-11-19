@@ -1,7 +1,7 @@
 ---
 title: "3b. Develop energy-efficient software"
 caption: "Software"
-description: "Energy-efficient software is that developed to deliver the required functionality while reducing energy consumption as far as possible."
+description: "Energy-efficient software delivers the functionality users need while using as little energy as possible."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -23,247 +23,232 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Software, Architecture
+**Applies to:** custom software on and off CDP, including internal tools. On CDP, the frontend template renders pages on the server, so much of points (i) and (iii) is already done for you.
 
-**Likely co-benefits:** Cost, user experience
+**Lead role families:** Software and Architecture
 
 ---
 
 ## (i) Develop pages using progressive enhancement
 
-Progressive enhancement is a way of building websites and applications where base functionality and core content works in HyperText Markup Language (HTML) alone. Enhancements are then built on top of this base.
+Progressive enhancement is a way of building websites and applications so that core content and functions work in HTML alone. You then build enhancements on top.
 
-Progressive enhancement reduces reliance on heavy JavaScript and client-side processing and so reduces energy consumption.
+It reduces reliance on heavy JavaScript and processing in the browser, so it uses less energy.
+
+Defra's [software development standards](/software-development#approved-technologies-and-languages) say to build pages with the GOV.UK Frontend Nunjucks templates and vanilla JavaScript, not frontend frameworks such as React or Vue. Following them takes you most of the way.
+
+For the design side, see [design for text-based journeys](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- GOV.UK Service Manual, [Build a robust frontend using progressive enhancement](https://www.gov.uk/service-manual/technology/using-progressive-enhancement/)
-- W3C, Web Sustainability Guidelines, [3.10 Ensure layouts work for different devices and requirements](https://www.w3.org/TR/web-sustainability-guidelines/#ensure-layouts-work-for-different-devices-and-requirements/)
+Alongside sustainability impact, developing software for progressive enhancement brings co-benefits in terms of:
+
+- performance: faster load times and less network use, especially on low-bandwidth connections
+- inclusion: services work on older devices, with assistive technologies and for users with poor connections or limited data allowances
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability benefits, developing software for progressive enhancement brings co-benefits in terms of:
-
-- Performance: Faster load times and reduced network usage, especially on low-bandwidth connections
-- Inclusivity: Services working on older devices, with assistive technologies and for users with poor network connections or limited data allowances.
-
-### Trade-offs
 
 Trade-offs from developing software for progressive enhancement may include:
 
-- Development Time: Requiring additional design and development effort to separate core and enhanced functionality
-- Flexibility: Progressive enhancement may sometimes limit the use of complex, interactive front-end experiences as the default option
+- development time: it takes extra design and development effort to separate core and enhanced functions
+- flexibility: progressive enhancement may sometimes rule out complex, interactive frontend experiences as the default
 
 </div>
 </details>
 
-See also: [2b. Design for lightweight digital pages, notifications and documents](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Build a robust frontend using progressive enhancement](https://www.gov.uk/service-manual/technology/using-progressive-enhancement) (GOV.UK Service Manual)
+- [Ensure layouts work for different devices and requirements](https://www.w3.org/TR/web-sustainability-guidelines/#ensure-layouts-work-for-different-devices-and-requirements) (W3C Web Sustainability Guidelines, guideline 3.10)
+
+</div>
+</details>
 
 ---
 
 ## (ii) Optimise code
 
-Optimising code is the process of modifying software to improve its efficiency, without changing its functional behaviour.
+Optimising code means changing software to make it more efficient without changing what it does. Refactoring, restructuring code without changing its function, does the same over time.
 
-Code reviews can identify where there is obsolete code, and Remove obsolete code and features regularly, rather than allowing the codebase to accumulate unnecessary complexity.
+Use code reviews to find obsolete code and features, and remove them regularly, so the codebase does not build up unnecessary complexity. Profile your code to find the parts that use the most time or resources, and fix those first.
 
-Optimising improves resource efficiency (Central Processing Unit (CPU), memory, network usage) and lowers energy consumption.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-The [Web Sustainability Guidelines](https://www.w3.org/TR/web-sustainability-guidelines/) detail a number of actions that can be taken to optimise code, focused on web development. These include:
-
-- 3.2 [Minify and remove unused code](https://www.w3.org/TR/web-sustainability-guidelines/#minify-and-remove-unused-code/)
-- 3.3 [Modularize bandwidth-heavy components](https://www.w3.org/TR/web-sustainability-guidelines/#modularize-bandwidth-heavy-components/)
-- 3.4 [Avoid redundancy and duplication in code](https://www.w3.org/TR/web-sustainability-guidelines/#avoid-redundancy-and-duplication-in-code/)
-- 3.6 [Ensure code follows good semantic practices](https://www.w3.org/TR/web-sustainability-guidelines/#ensure-code-follows-good-semantic-practices/)
-
-</div>
-</details>
+Optimised code uses less processor (CPU), memory and network, so it uses less energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Optimising code brings co-benefits in terms of:
 
-- Performance: Faster execution times and reduced latency
-- Lower costs: Reduced infrastructure costs through more efficient compute usage
+- performance: code runs faster with less delay
+- cost: more efficient use of compute cuts infrastructure costs
+- maintainability: refactoring reduces technical debt and stops inefficient legacy patterns building up
 
-### Trade-offs
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
 Optimising code may bring trade-offs such as:
 
-- Development time: Optimising may mean additional engineering effort, profiling, and ongoing optimisation work
-- Re-use: Over-optimisation can reduce code readability, maintainability, and developer productivity
+- development time: optimising means extra engineering effort, profiling and ongoing work alongside feature delivery
+- reuse: over-optimising can make code harder to read and maintain, and slow developers down
+- defects: poorly managed refactoring can introduce bugs or regressions
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+The W3C [Web Sustainability Guidelines](https://www.w3.org/TR/web-sustainability-guidelines/) set out ways to optimise code for the web, including:
+
+- [Minify and remove unused code](https://www.w3.org/TR/web-sustainability-guidelines/#minify-and-remove-unused-code) (guideline 3.2)
+- [Modularize bandwidth-heavy components](https://www.w3.org/TR/web-sustainability-guidelines/#modularize-bandwidth-heavy-components) (guideline 3.3)
+- [Avoid redundancy and duplication in code](https://www.w3.org/TR/web-sustainability-guidelines/#avoid-redundancy-and-duplication-in-code) (guideline 3.4)
+- [Ensure code follows good semantic practices](https://www.w3.org/TR/web-sustainability-guidelines/#ensure-code-follows-good-semantic-practices) (guideline 3.6)
+
+Also read [SUS03-BP03 Optimize areas of code that consume the most time or resources](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_software_a4.html) (Amazon Web Services): using profilers and code review to find and fix the most resource-hungry code.
 
 </div>
 </details>
 
 ---
 
-## (iii) Utilise server-side rendering where appropriate
+## (iii) Use server-side rendering
 
-Server-side rendering (SSR) renders a web page on a server before sending it to the user’s browser. This is in contrast to client-side rendering (CSR), where the browser gets raw data from a server to generate content on the user's device.
+Server-side rendering (SSR) builds a web page on a server before sending it to the user's browser. In client-side rendering (CSR), the browser gets raw data from a server and builds the page on the user's device.
 
-Server-side rendering can reduce network data transfer and lead to less JavaScript execution in the browser, and with it significant reductions in energy consumption.
+Server-side rendering can reduce data transfer and the JavaScript the browser has to run, which can reduce energy use.
 
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- Green Software Foundation, [Use server-side rendering for high-traffic pages](https://patterns.greensoftware.foundation/development/web-performance/use-server-side-rendering/)
-
-</div>
-</details>
+CDP's frontend template already renders pages on the server. If you build elsewhere, follow the same approach.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, server-side rendering can bring co-benefits such as:
 
-- Speed: Improved initial page load performance, especially on lower-powered devices
-- Accessibility and resilience: Content is available to users even if Javascript fails
+- speed: pages load faster at first, especially on lower-powered devices
+- accessibility and resilience: content is available to users even if JavaScript fails
 
-### Trade-offs
+</div>
+</details>
 
-Trade-offs from implementing server-side rendering may include:
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
-- Displaced energy consumption: Increased server-side compute load, potentially shifting energy consumption to backend infrastructure
-- Complexity: May introduce caching and scaling complexity to maintain performance at high traffic volumes
+Trade-offs from server-side rendering may include:
+
+- displaced energy use: more computing on the server, which may shift energy use to backend infrastructure
+- complexity: you may need caching and scaling to keep performance up at high traffic
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Use server-side rendering for high-traffic pages](https://patterns.greensoftware.foundation/development/web-performance/use-server-side-rendering) (Green Software Foundation)
 
 </div>
 </details>
 
 ---
 
-## (iv) Utilise caching where possible
+## (iv) Use caching and content delivery networks
 
-Caching temporarily stores frequently accessed data in a designated area (the “cache”) to enable faster access to it. Caching can focus on:
+Caching stores frequently used data in a temporary store, the cache, so it can be reached faster. You can cache in:
 
 - the browser
-- Content Delivery Networks (CDN)
-- Application Programming Interfaces (API)
+- content delivery networks (CDNs)
+- application programming interfaces (APIs)
 
-Caching can reduce repeated data processing and transfer, leading to lower processing and energy consumption.
+Caching cuts repeated processing and data transfer, so it uses less energy.
+
+A content delivery network is a network of servers that caches static content as close to users as possible. In some cases, this shortens the distance data travels and lowers the energy the network uses.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- Green Software Foundation, [Cache static data](https://patterns.greensoftware.foundation/development/data-handling/cache-static-data/)
+Alongside sustainability impact, caching and content delivery networks can bring co-benefits in terms of:
+
+- user experience: pages and API responses load faster
+- scaling: backend systems carry less load, so they scale better
+- resilience: content delivery networks spread content across many servers, which improves availability
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Trade-offs may include:
 
-Alongside sustainability impact, caching can bring co-benefits in terms of:
+- complexity: caching layers, such as content delivery networks and distributed caches, add infrastructure to manage
+- duplication: a poorly configured content delivery network can duplicate content and increase the overall footprint
+- dependencies: a content delivery network adds an infrastructure layer and a dependency on a third-party provider
 
-- User experience: Faster page load times and API responses
-- Scalability: Better scalability through reduced loads on backend systems
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
 
-Trade-offs from implementing caching may include:
-
-- Complexity: Caching layers (such as content delivery networks and distributed caches) introduce additional infrastructure to manage
+- [Cache static data](https://patterns.greensoftware.foundation/development/data-handling/cache-static-data) (Green Software Foundation)
+- [Use content delivery networks (CDNs) when beneficial](https://www.w3.org/TR/web-sustainability-guidelines/#use-content-delivery-networks-cdns-when-beneficial) (W3C Web Sustainability Guidelines, guideline 4.10)
 
 </div>
 </details>
 
 ---
 
-## (v) Utilise lazy loading
+## (v) Use lazy loading
 
-Lazy loading delays the loading of resources on pages until they are needed, such as when users scroll to them.
+Lazy loading waits to load resources on a page until they are needed, for example when users scroll to them.
 
-This approach reduces initial page load size and network transfer, and with it, lowers energy consumption.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- Sustainable Web Design, [Optimize media to reduce resource use](https://sustainablewebdesign.org/guidelines/2-9-optimize-media-to-reduce-resource-use/)
-
-</div>
-</details>
+This makes the first page load smaller and cuts data transfer, so it uses less energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, lazy loading brings co-benefits in terms of:
 
-- Performance: Improved performance, with pages faster to load
-- Inclusivity: Improved experience for mobile users and low-bandwidth environments
+- performance: pages load faster
+- inclusion: a better experience for mobile users and on low-bandwidth connections
 
-### Trade-offs
+</div>
+</details>
 
-Lazy loading may also :
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
 
-- Reduced control: Reduced control over performance, architecture, and energy efficiency
-- Dependencies: Potential dependency risks (external code quality, updates, licensing)
+- [Optimize media to reduce resource use](https://sustainablewebdesign.org/guidelines/2-9-optimize-media-to-reduce-resource-use/) (Sustainable Web Design)
 
 </div>
 </details>
 
 ---
 
-## (vi) Use content delivery networks where appropriate
+## How to measure this
 
-Content delivery networks (CDNs) are a network of servers that cache static content and resources as close to users as possible.
-
-In some cases, content delivery networks can reduce the distance data travels and lowers network energy consumption.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- Web Sustainability Guidelines, 4.10 [Use content delivery networks (CDNs) when beneficial](https://www.w3.org/TR/web-sustainability-guidelines/#use-content-delivery-networks-cdns-when-beneficial/)
-
-</div>
-</details>
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
-<div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, using content delivery networks brings co-benefits in terms of:
-
-- Performance: Serving content closer to users can lead to faster load times
-- Resilience: Enhanced resilience and availability through distributed infrastructure
-
-### Trade-offs
-
-Trade-offs coming from using content delivery networks may include:
-
-- Duplication: Content duplication may lead to increase in overall footprint if poorly configured
-- Dependencies: Content Delivery Networks introduce an additional infrastructure layer and dependency on third-party providers
-
-</div>
-</details>
+To measure the impact of software, read [measuring the impact of software](/digital-sustainability/measure/software).

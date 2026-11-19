@@ -1,7 +1,7 @@
 ---
 title: "Defra's six objectives"
 caption: "Meet the sustainability standard"
-description: "Your sustainability statement should lay out what actions have been taken, and those that are planned, against these six objectives."
+description: "The Defra digital sustainability strategy sets 6 objectives. Your sustainability statement records the actions you have taken, and those you plan, against each one."
 layout: section
 sectionNav: nav-ds-standard
 customNav: nav-digital-sustainability
@@ -21,30 +21,28 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Digital Sustainability Strategy
+Read the full [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030) (GOV.UK).
 
-Read the full [Defra's Digital Sustainability Strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030).
+## 1\. Reduce and mitigate carbon emissions towards net zero targets
 
-## 1\. Reduce greenhouse gas emissions
+Reduce greenhouse gas emissions as far as possible, to help Defra reach its net zero target.
 
-Reduce greenhouse gas emissions as far as possible to contribute towards Defra's net zero target.
+## 2\. Reduce the wider planetary impacts of digital services
 
-## 2\. Reduce wider planetary impacts
+Reduce impacts beyond carbon, such as water use, e-waste, land use change and harm to biodiversity.
 
-Reduce wider planetary impacts such as water consumption, land use change and biodiversity impacts.
+## 3\. Reduce natural resource use and improve our circular economy approach
 
-## 3\. Put circular practices into action
+For example, extend the life of existing equipment, or buy remanufactured or refurbished hardware.
 
-For example through extending the lifespan of existing equipment or purchasing remanufactured or refurbished hardware.
+## 4\. Reduce social risk and deliver social value
 
-## 4\. Reduce social risk
+Reduce the risk of social inequality or exploitation in supply chains, and use procurement to deliver social value.
 
-Reduce social risk from supply chains that are high risk for social inequality or exploitation.
+## 5\. Increase transparency and accountability, internally and in the supply chain
 
-## 5\. Increase supply chain transparency
+Work to understand the environmental and social impacts of your supply chain, beyond the first supplier.
 
-Work to increase supply chain transparency.
+## 6\. Improve our technology's resilience to climate and environment risks
 
-## 6\. Improve resilience to climate risk
-
-Take an approach to infrastructure and hosting that seeks to ensure that services are as resilient as possible to the risks of climate change (for example, flooding or extreme heat).
+Choose infrastructure and hosting that make your service as resilient as possible to the risks of climate change, such as flooding or extreme heat.

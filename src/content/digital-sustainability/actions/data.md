@@ -1,7 +1,7 @@
 ---
 title: "4. Data"
 caption: "Data"
-description: "Carefully managing how much data a digital service collects, processes, stores, transfers and retains can reduce demand for computing, storage and network resources, lowering a service's energy use and environmental impact."
+description: "Managing how much data a service collects, processes, stores, transfers and keeps cuts demand for computing, storage and networks. That lowers its energy use and environmental impact."
 layout: section
 sectionNav: nav-ds-data
 customNav: nav-digital-sustainability
@@ -21,14 +21,17 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about data in UK Government</span></summary>
-<div class="govuk-details__text">
+**Applies to:** any service or project that collects, stores or moves data, on and off CDP, including internal tools and data and reporting platforms.
 
-- [Designing with data: an introduction,](https://www.gov.uk/service-manual/design/designing-with-data-an-introduction) GOV.UK Service Manual
-- [Data manual,](https://www.data.gov.uk/data-manual) National Data Library
+These actions cover collecting only the data you need, storing and moving it efficiently, and matching backup and security to how sensitive the data is. Your security and data protection duties set the floor: read [creating a secure service](/security) and [non-functional requirements](/business-analysis/non-functional-requirements).
 
-</div>
-</details>
+For data in government more widely, read [designing with data](https://www.gov.uk/service-manual/design/designing-with-data-an-introduction) (GOV.UK Service Manual) and the [data manual](https://www.data.gov.uk/data-manual) (National Data Library).
 
----
+The actions in this theme are:
+
+- [4a. Take a lean approach to data collection and management](/digital-sustainability/actions/data/lean-data): reuse data that already exists and delete what you no longer need
+- [4b. Optimise data storage and queries](/digital-sustainability/actions/data/data-storage): storage tiers, compression, formats, indexing, queries and access
+- [4c. Optimise data for transit](/digital-sustainability/actions/data/data-in-transit): compress data, use it at its source and use efficient network protocols
+- [4d. Balance data backup, security and sustainability](/digital-sustainability/actions/data/backup-and-security): match encryption, backups and scans to the sensitivity of the data and the risk
+
+To measure the impact of data, read [measuring the impact of data](/digital-sustainability/measure/data).

@@ -1,5 +1,5 @@
 ---
-title: "Key sustainability questions through the Agile lifecycle"
+title: "Sustainability questions for alpha and beta"
 caption: "Meet the sustainability standard"
 layout: section
 sectionNav: nav-ds-standard
@@ -13,31 +13,29 @@ breadcrumbItems:
     href: /digital-sustainability
   - text: "Meet the sustainability standard"
     href: /digital-sustainability/service-standard
-  - text: "Key sustainability questions through the Agile lifecycle"
+  - text: "Sustainability questions for alpha and beta"
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-How to meet the standard
+The [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (GOV.UK) sets out 6 sustainability objectives. The 15th Service Standard point asks services to take action and track performance against them.
 
-[Defra's Digital Sustainability Strategy](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) lays out 6 key sustainability objectives, and the 15th Service Standard point requires that services take action and track performance against these.
+Service teams use the digital sustainability statement to record the sustainability actions they have taken or plan to take, and how they track sustainability performance, for each of the 6 objectives.
 
-The Digital Sustainability Statement provides a document for service teams to record what sustainability actions they have been able to take, or plan to, and how sustainability performance is being tracked for each of the 6 strategic sustainability objectives.
+This page lists the sustainability questions to consider at alpha and beta, for each of the 6 objectives.
 
-This page lays out key digital sustainability questions to consider at the Alpha and Beta phases of service projects, broken down by the 6 objectives of the Defra Digital Sustainability Strategy.
+For more help:
 
-Further guidance that can help your project can be found on:
-
-- The [Digital Sustainability Actions](/digital-sustainability/actions) provide detailed advice on the sustainability actions a project can take, across 9 themes
-- The pages on [Measuring Sustainability for a Service](/digital-sustainability/measure) provide guidance on how services can get started with quantifying energy use and carbon for a whole service
+- the [digital sustainability actions](/digital-sustainability/actions) give detailed advice on the actions a project can take, across 9 themes
+- [measure sustainability](/digital-sustainability/measure) explains how to start quantifying energy use and carbon for a whole service
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">A pragmatic approach to tracking sustainability performance and taking action</span></summary>
 <div class="govuk-details__text">
 
-Defra has the aspiration for individual projects and services to track sustainability performance for each of the 6 objectives of the Digital Sustainability Strategy.
+Defra has the aspiration for individual projects and services to track sustainability performance for each of the 6 objectives in the digital sustainability strategy.
 
 However, while measurement may be relatively straightforward for some objectives, for others, it may still be very challenging at present. This page lays out expectations for tracking sustainability performance for each of the 6 objectives.
 
@@ -51,7 +49,7 @@ Even in the absence of tracking particular metrics, it is important to note that
 </div>
 </details>
 
-## Objective 1: Decarbonisation towards net zero targets
+## Objective 1: Reduce and mitigate carbon emissions towards net zero targets
 
 ### What this objective is about
 
@@ -60,7 +58,7 @@ Digital technology creates carbon emissions from the electricity it consumes whe
 Embodied carbon comes through the mining, processing, manufacture, distribution and disposal of hardware used by services, as well as the processes that are followed to design and develop digital services.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
 **Procurement of hosting**
@@ -73,15 +71,15 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 - Will the project be working with suppliers to design and develop the service?
 - If so, have suppliers made commitments to environmental sustainability in delivery?
 
-**Planning for sustainable delivery from Private Beta**
+**Planning for sustainable delivery from private beta**
 
-- Are the team aware of and planning to follow best practice at Private Beta for the delivery of efficient, appropriately provisioned and carbon aware services in terms of software, AI, architecture, UX and journey design and data management?
+- Is the team aware of, and planning to follow, best practice at private beta for the delivery of efficient, appropriately provisioned and carbon aware services in terms of software, AI, architecture, UX and journey design and data management?
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Beta</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at beta</span></summary>
 <div class="govuk-details__text">
 
 **Software**
@@ -101,13 +99,13 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 - What approaches are being taken to reduce the energy consumption associated with data storage, processing and transfer?
 - Are security measures proportionate and balanced against sustainability impacts?
 
-**User Experience & Journey Design**
+**User experience and journey design**
 
 - What approaches are being taken to design service journeys to be as sustainable as possible, including both online and offline steps, and reducing the need for users to change channels as far as possible?
 - How are web pages, notifications and documentation being designed to be as lightweight as possible?
 - Are potential rebound effects of the service, and associated sustainability impacts, being considered?
 
-**Artificial Intelligence**
+**AI**
 
 - Is the service clear on the need for and benefits coming from any use of AI?
 - Has the lowest energy AI model that meets the project's needs been selected?
@@ -120,7 +118,7 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-- See the pages on [Measuring Sustainability for a Service](/digital-sustainability/measure) for guidance on quantifying energy use and carbon for a service
+- See [measure sustainability](/digital-sustainability/measure) for guidance on quantifying energy use and carbon for a service
 
 </div>
 </details>
@@ -145,23 +143,22 @@ These impacts can occur through:
 - the operation of digital services, such as water used for cooling in data centres
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
 **Procurement of hosting**
 
 - Will the service require new cloud hosting or data centre capacity?
-
-If so, is sustainability being factored into the choice of locations for infrastructure, including cooling methods (e.g. passive air cooling, water cooling), the Water Usage Effectiveness (WUE - the efficiency of water usage in relation to IT equipment energy consumption) and water stress levels of the regions that data centres will be located in?
+- If so, is sustainability being factored into the choice of locations for infrastructure? This includes cooling methods (for example, passive air cooling or water cooling), Water Usage Effectiveness (WUE, the efficiency of water use relative to the energy used by IT equipment) and the water stress levels of the regions where data centres will be.
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Beta</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at beta</span></summary>
 <div class="govuk-details__text">
 
-There are no additional sustainability considerations for this objective, in addition to those laid out for Objective 1: Decarbonisation towards net zero targets.
+There are no questions for this objective beyond those for objective 1.
 
 </div>
 </details>
@@ -170,7 +167,7 @@ There are no additional sustainability considerations for this objective, in add
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-Planetary impacts, such as water usage or land use change may be tracked by suppliers of hosting or hardware. Beyond supplier reporting, Defra does not currently expect services to be tracking performance for this objective.
+Planetary impacts, such as water use or land use change, may be tracked by suppliers of hosting or hardware. Beyond supplier reporting, Defra does not currently expect services to be tracking performance for this objective.
 
 </div>
 </details>
@@ -193,7 +190,7 @@ Circularity can be achieved through following the 4 principles of the [Circular 
 When products reach their end of life, then we should ensure that they are appropriately recycled.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
 **Legacy systems and technology**
@@ -206,15 +203,15 @@ When products reach their end of life, then we should ensure that they are appro
 - Is there hardware being bought or rented by the service?
 - If so, are refurbished or remanufactured equipment options being considered over new?
 
-**Planning for sustainable delivery from Private Beta**
+**Planning for sustainable delivery from private beta**
 
-- Are the team aware of and planning to follow the principles of circularity from the Private Beta onwards, in terms of software, architecture and hardware management?
+- Is the team aware of, and planning to follow, the principles of circularity from private beta onwards, in terms of software, architecture and hardware management?
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Beta</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at beta</span></summary>
 <div class="govuk-details__text">
 
 **Hardware**
@@ -230,7 +227,7 @@ When products reach their end of life, then we should ensure that they are appro
 
 - Are existing architectural components being re-used, rather than developed from scratch?
 
-**User Experience & Journey Design**
+**User experience and journey design**
 
 - Are established service patterns being used to design service journeys?
 - Are existing design patterns being followed for interactions and the layout of website pages?
@@ -242,7 +239,7 @@ When products reach their end of life, then we should ensure that they are appro
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-- See the page on [Measuring the impact of hardware](/digital-sustainability/measure/hardware) in the Digital Sustainability Actions for guidance on hardware and circularity metrics.
+- See [measuring the impact of hardware](/digital-sustainability/measure/hardware) for guidance on hardware and circularity metrics
 
 </div>
 </details>
@@ -256,7 +253,7 @@ When products reach their end of life, then we should ensure that they are appro
 We also need to ensure that procurement considers and seeks to mitigate areas of operational supply chains that are high risk for social exploitation or inequality.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
 **Procurement**
@@ -276,13 +273,13 @@ Tracking success against this objective primarily involves reporting from suppli
 - progress on delivering on any social value commitments made
 - evidence of action to uphold fair labour practices
 - actions to address modern slavery
-- actions to address Equality, Diversity, and Inclusion (EDI) risks
+- actions to address equality, diversity and inclusion (EDI) risks
 - the sustainable use of resources
 
 </div>
 </details>
 
-## Objective 5: Increase supply chain transparency and accountability
+## Objective 5: Increase transparency and accountability, internally and in the supply chain
 
 ### What this objective is about
 
@@ -291,7 +288,7 @@ The full environmental and social impacts of hardware components and other servi
 Defra has the ambition to be an organisation that has a clear understanding of the sustainability risks and global challenges within its supply chain by 2030, in order that action can be taken to reduce these as far as possible.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
 **Procurement**
@@ -311,31 +308,31 @@ At the service level, tracking success can involve reporting from suppliers and 
 </div>
 </details>
 
-## Objective 6: Improve resilience to climate and environment risks
+## Objective 6: Improve our technology's resilience to climate and environment risks
 
 ### What this objective is about
 
 Defra's digital and technology operations and services may be at risk from an imminently changing climate, risks of extreme weather events and critical minerals shortages.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Alpha</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
 <div class="govuk-details__text">
 
-**Planning for sustainable delivery from Private Beta**
+**Planning for sustainable delivery from private beta**
 
-- Is resilience to climate and extreme weather events being factored into the delivery of the service from Private Beta onwards?
+- Is resilience to climate and extreme weather events being factored into the delivery of the service from private beta onwards?
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Key sustainability considerations at Beta</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at beta</span></summary>
 <div class="govuk-details__text">
 
 **Service delivery**
 
 - Is resilience to climate and extreme weather events being factored into service design and development, and any appropriate adaptation measures being taken?
-- Are backups and redundancy be sized and balanced appropriately, given the risks and the environmental footprint of this resilience?
+- Are backups and redundancy sized and balanced appropriately, given the risks and the environmental footprint of this resilience?
 
 </div>
 </details>

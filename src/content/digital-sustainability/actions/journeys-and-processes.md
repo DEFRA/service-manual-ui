@@ -1,7 +1,7 @@
 ---
-title: "2. Journey & Process Design"
+title: "2. Journeys and processes"
 caption: "Journeys and processes"
-description: "Decisions about the design of user journeys and business processes can lead to significant environmental impacts because they determine how many activities, interactions, transactions, devices and physical resources are needed to achieve an outcome."
+description: "The design of user journeys and business processes decides how many interactions, transactions, devices and physical resources it takes to reach an outcome. So design choices can have a large environmental impact."
 layout: section
 sectionNav: nav-ds-journeys-and-processes
 customNav: nav-digital-sustainability
@@ -14,26 +14,23 @@ breadcrumbItems:
     href: /digital-sustainability
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
-  - text: "2. Journey & Process Design"
+  - text: "2. Journeys and processes"
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about defining services</span></summary>
-<div class="govuk-details__text">
+**Applies to:** services on and off CDP, internal tools and the business processes behind them, including offline channels such as paper, phone and face-to-face contact.
 
-- [What a service is,](https://www.gov.uk/service-manual/service-assessments/what-a-service-is/) GOV.UK Service Standard, Point 10
-- [15 principles of good service design,](https://good.services/15-principles-of-good-service-design) The School of Good Services
+Journey design works from the outside in: it maps what a user or member of staff experiences across every step and channel. Business process design works from the inside out: it sets the internal steps, rules, resources and systems.
 
-</div>
-</details>
+For what counts as a service, read [what a service is](https://www.gov.uk/service-manual/service-assessments/what-a-service-is) (GOV.UK Service Manual) and the [15 principles of good service design](https://good.services/15-principles-of-good-service-design) (The School of Good Services).
 
----
+The actions in this theme are:
 
-Journey and business process design are two complementary approaches used to plan how an organisation operates and how people interact with it, differing primarily in their starting point and scope.
+- [2a. Use established patterns and design well-paced journeys](/digital-sustainability/actions/journeys-and-processes/patterns-and-pace): reuse proven patterns and match the pace of the service to what users need
+- [2b. Design lightweight pages, notifications and documents](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents): send less data to users with page weight budgets, text-first journeys and HTML documents
+- [2c. Reduce and simplify offline channels without excluding people](/digital-sustainability/actions/journeys-and-processes/offline-channels): cut paper, phone calls and travel while keeping offline routes for people who need them
 
-- Journey Design is an outside-in approach that maps and optimises the holistic, end-to-end experience a user or employee has across time and touchpoints.
-- Business Process Design is an inside-out approach that structures, sequences, and standardises internal operational steps, resources, rules, and technology systems.
+To measure the impact of journeys and processes, including travel, buildings and paper, read [measuring the impact of service journeys and processes](/digital-sustainability/measure/journeys-and-processes).

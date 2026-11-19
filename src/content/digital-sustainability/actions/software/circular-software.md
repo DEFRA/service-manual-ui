@@ -1,7 +1,7 @@
 ---
 title: "3a. Apply the principles of circularity to software"
 caption: "Software"
-description: "For software, embracing the principles of circularity means saving resources and avoiding waste by sharing and reusing existing components where possible, as well as responsibly retiring software at the end of its life."
+description: "Reuse existing components, build new ones so others can reuse them, and retire software you no longer need. This saves resources and avoids waste."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -23,65 +23,61 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Software, Architecture
+**Applies to:** custom software on and off CDP, including internal tools. On CDP, the platform and Defra's common tools already give you shared components to build with.
 
-**Likely co-benefits:** Cost, development time, accessibility
+**Lead role families:** Software and Architecture
 
 ---
 
-## (i) Build software with existing components where possible
+## (i) Build software with existing components
 
-Building software by making use of existing components means assembling and integrating pre-tested libraries and modules rather than writing code from scratch.
+Build with existing, tested libraries and modules rather than writing code from scratch. This avoids duplicating the effort and resources needed to develop and test components that already exist.
 
-This approach avoids the unnesessary duplication of effort and resource consumption associated with developing and testing new components that could have been reused from another project.
+If you work on a Defra service, start with Defra's [common tools](/software-development#common-tools). These include:
+
+- the [Core Delivery Platform (CDP)](/architecture-and-software-development/core-delivery-platform), Defra's internal development platform for building, deploying and running services
+- [Defra Forms](/architecture-and-software-development/defra-forms) to build accessible, GOV.UK-styled forms
+- [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) to let users sign in once and use several Defra services
+- [Defra Interactive Map](/architecture-and-software-development/defra-accessible-maps) to build lightweight, accessible maps
+
+The Government Digital Service (GDS) also provides components that services across government can use:
+
+- [GOV.UK Forms](https://www.forms.service.gov.uk/) to create accessible online forms for GOV.UK pages
+- [GOV.UK Notify](https://www.notifications.service.gov.uk/) to send emails, text messages and letters
+- [GOV.UK One Login](https://www.sign-in.service.gov.uk/) to let users prove their identity and sign in
+- [GOV.UK Pay](https://www.payments.service.gov.uk/) to let users pay for things
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Government Digital Service (GDS) Components
+Alongside sustainability impact, building with existing components brings co-benefits in terms of:
 
-Government Digital Service have created a number of components that can be used by services across government.
-
-- [GOV.UK Forms](https://www.forms.service.gov.uk/) is a platform to create accessible online forms for GOV.UK pages
-- [GOV.UK Notify](https://www.notifications.service.gov.uk/) is a platform to to send emails, text messages and letters to users
-- [GOV.UK One Login](https://www.sign-in.service.gov.uk/) lets users prove identity and sign in to services
-- [GOV.UK Forms](https://www.payments.service.gov.uk/) is a platform to to enable users to pay for things on services
-
-### Shared components in Defra
-
-If you are working on a Defra service, there are a there are a set of [common tools](/architecture-and-software-development/defra-forms) which can be used to build services. These include:
-
-- [Defra Forms](/architecture-and-software-development/defra-forms) to build accessible, GOV.UK-styled forms for your digital service at Defra
-- [Defra Customer Identity](/architecture-and-software-development/defra-customer-identity) to allow users to sign in once and access multiple Defra services
-- [Defra Interactive Maps](/architecture-and-software-development/defra-accessible-maps) to build lightweight, accessible maps for frontend applications
-
-### Other UK Government materials
-
-- The [Gov Reuse Library](https://reuselibrary.service.justice.gov.uk/) provides a library of reusable government components from a range of departments.
+- development time: developers avoid repeating work, which speeds up delivery
+- cost: shorter development cycles cut the cost of people and resources
+- maintainability: standard tools and components make the service easier to iterate and maintain
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability benefits, building with existing components brings co-benefits in terms of:
-
-- Development Time: Developers avoid repeating unnecessary work, speeding up delivery
-- Lower costs: Shorter development cycles reduce overall project labor and resource expenses
-- Maintainability: Use of standard tools and components helps provide for ease of iteration and future maintainability
-
-### Trade-offs
 
 Building with shared components can bring trade-offs such as:
 
-- Time: Upfront effort required to find or adapt existing components
-- Dependencies: Reusing components from a shared library can bring dependency risks (such as external code quality, updates, licensing)
-- Governance: Open sourcing code requires ongoing governance
+- time: it takes effort upfront to find or adapt existing components
+- dependencies: components from a shared library can bring risks, such as external code quality, updates and licensing
+- governance: open source code needs ongoing governance
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [GOV Reuse Library](https://reuselibrary.service.justice.gov.uk/) (Ministry of Justice): reusable government components from a range of departments
 
 </div>
 </details>
@@ -90,88 +86,136 @@ Building with shared components can bring trade-offs such as:
 
 ## (ii) Develop new software components with reuse in mind
 
-Developing software with reuse in mind could mean writing code that is designed to perform a particular function that is modular, independent and self-contained.
+If you develop new software components, design them for reuse: modular, independent and self-contained, each doing one job. Think about how easy the code will be to refactor and update.
 
-If you are developing new software components, then do so with reuse in mind. Where possible, think about how easy the code will be to refactor and update.
+The Service Standard requires you to [make your source code open and reusable](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable), so others can reuse it and build on it. Code in the open from the start and publish your code under an open licence. In Defra, store code in the [Defra GitHub organisation](https://github.com/DEFRA).
 
-For services following the Agile lifecyle, the Service Standard requires that [code is made open source and reusable](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable/), so that it is available to reuse and be built upon. This means writing code in the open from the start, and publishing code under an open license where appropriate.
-
-In addition, software components can also be shared via a component library. Libraries can help teams make use of things created for other projects.
+You can also share components through a component library, so other teams can use what you built.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### UK Government materials
+Alongside sustainability impact, developing components with reuse in mind brings co-benefits in terms of:
 
-The GOV.UK Service Manual provides guidance on how code can be made [open & reusable.](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable/)
+- delivery time: other teams can build on tested components rather than start from scratch
+- cost: reuse spreads the cost of building and testing across several services
+- maintainability: modular, self-contained code is easier to test, update and replace
 
-### GOV.UK Service Standard, Point 13
+</div>
+</details>
 
-Point 13 of the GOV.UK Service Standard sets out the requirement for government services to ['Use and contribute to open standards, common components and patterns'](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns/)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- upfront effort: designing for reuse takes longer than building for a single service
+- governance: shared components need owners, documentation and support, or they fall out of date
+- over-engineering: building for uses that never arrive wastes effort and adds complexity
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Use and contribute to open standards, common components and patterns](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns) (GOV.UK Service Standard, point 13)
 
 </div>
 </details>
 
 ---
 
-## (iii) Use low and no-code approaches where appropriate
+## (iii) Use low-code and no-code approaches when they fit
 
-Low-code or no-code are methods of designing and developing apps using visual interfaces, drag-and-drop components, and automated code generation instead of the need to writing code from scratch.
+Low-code and no-code tools let you design and build apps with visual interfaces, drag-and-drop components and generated code, instead of writing code from scratch.
 
-These approaches can save resources through reduced development effort and rework, and also improve efficiency where platforms optimise shared infrastructure.
+They can save resources by cutting development effort and rework. They can also be more efficient where the platform shares infrastructure between apps.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Low-code vs. no-code app development,](https://www.microsoft.com/en-us/power-platform/products/power-apps/topics/low-code-no-code/low-code-no-code-development-platforms/) Microsoft
-- [What is low-code/no-code?](https://www.sap.com/uk/resources/what-is-low-code-no-code/) SAP
+Building with low-code and no-code approaches brings co-benefits in terms of:
+
+- development time: faster delivery, and people in the team without specialist software skills can take part
+- cost: shorter development cycles cut the cost of people and resources
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Low-code and no-code approaches can come with trade-offs such as:
 
-Building with low and no-code approaches brings co-benefits in terms of:
+- reduced control: you have less control over performance, architecture and energy efficiency
+- more compute: the platform's abstraction and runtime overhead can increase compute use
 
-- Development Time: Faster delivery and enables broader participation from other roles on teams that don't have specialist software skills
-- Lower costs: Shorter development cycles reduce overall project labor and resource expenses
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
 
-Low and no-code approaches can come with trade-offs such as:
-
-- Reduced control: Reduced control over performance, architecture, and energy efficiency
-- Increased compute usage: Platform abstraction and runtime overhead can increase compute usage
+- [Low-code versus no-code app development](https://www.microsoft.com/en-us/power-platform/products/power-apps/topics/low-code-no-code/low-code-no-code-development-platforms/) (Microsoft)
+- [What is low-code and no-code](https://www.sap.com/uk/resources/what-is-low-code-no-code/) (SAP)
 
 </div>
 </details>
 
 ---
 
-## (iv) Ensure software is decommissioned at the end of life
+## (iv) Decommission software at the end of its life
 
-Decommissioning software is the structured, secure process of retiring legacy, redundant, or obsolete applications.
+Decommissioning is the structured, secure process of retiring legacy, redundant or obsolete applications. Unused applications still need running servers, cooling and background processing, whether on premises or in the cloud. Retiring software you no longer need frees up that infrastructure.
 
-Unused or legacy applications still require active server instances, cooling, and background processing whether on-premises or in the cloud.
-
-Decommissioning software that is no longer needed or used frees up infrastructure
+Plan the retirement. Tell users, move or archive any data and records you must keep, and check what else depends on the software. Then remove the infrastructure it ran on. For removing unused cloud resources, see [review and remove unused assets](/digital-sustainability/actions/architecture/cloud-provisioning).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Alongside sustainability impact, decommissioning software you no longer need brings co-benefits in terms of:
 
-Alongside sustainability impact, decommissioning software when no longer needed brings co-benefits in terms of:
-
-- Cost: Reduced costs associated with maintaining software unnecessarily
-- Security: Reduced security risks from eliminating unmaintained systems
+- cost: you stop paying to maintain software nobody uses
+- security: removing unmaintained systems reduces security risks
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- records: decommissioning can lose audit history or records that must be kept, so archive them first
+- effort: moving users, data and integrations to a replacement takes planning and time
+- hidden dependencies: other systems may still rely on the software in ways nobody has written down
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Retiring your service](https://www.gov.uk/service-manual/agile-delivery/retiring-your-service) (GOV.UK Service Manual): how to wind down a service, tell users and look after their data
+- [Moving away from legacy systems](https://www.gov.uk/service-manual/technology/moving-away-from-legacy-systems) (GOV.UK Service Manual): planning a replacement, including agreeing a date to turn the old system off
+- [Secure sanitisation and disposal of storage media](https://www.ncsc.gov.uk/guidance/secure-sanitisation-storage-media) (National Cyber Security Centre): wiping or destroying storage so data cannot be recovered
+- [Remove unused assets](https://patterns.greensoftware.foundation/operations/resource-lifecycle/remove-unused-assets) (Green Software Foundation): finding and removing idle cloud resources
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+To measure the impact of software, read [measuring the impact of software](/digital-sustainability/measure/software).

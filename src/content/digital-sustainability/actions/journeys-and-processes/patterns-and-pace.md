@@ -1,7 +1,7 @@
 ---
-title: "2a. Use established patterns and design well-paced user journeys"
+title: "2a. Use established patterns and design well-paced journeys"
 caption: "Journeys and processes"
-description: "Designing with established patterns and appropriately paced journeys helps users complete tasks efficiently and at the first attempt, reducing unnecessary interactions and associated resource consumption."
+description: "Use established patterns and match the pace of journeys to what users need. People complete tasks first time, with fewer interactions and less resource use."
 layout: section
 sectionNav: nav-ds-journeys-and-processes
 customNav: nav-digital-sustainability
@@ -16,88 +16,109 @@ breadcrumbItems:
     href: /digital-sustainability/actions
   - text: "Journeys and processes"
     href: /digital-sustainability/actions/journeys-and-processes
-  - text: "2a. Use established patterns and design well-paced user journeys"
+  - text: "2a. Use established patterns and design well-paced journeys"
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Design, Product & Delivery
+**Applies to:** the design of any user journey or business process, for services on and off CDP and for internal tools.
 
-**Likely co-benefits:** Service performance, accessibility, cost
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about this action</span></summary>
-<div class="govuk-details__text">
-
-- [Define what success looks like and publish performance data,](https://www.gov.uk/service-manual/service-standard/point-10-define-success-publish-performance-data/) GOV.UK Service Standard, Point 10
-- [Measuring success: data you must publish,](https://www.gov.uk/service-manual/measuring-success/data-you-must-publish/) GOV.UK Service Manual
-
-</div>
-</details>
+**Lead role families:** Design, and Product and delivery
 
 ---
 
 ## (i) Design with established patterns
 
-In design, a pattern is a reusable template or blueprint that solves a commonly recurring problem.
+A pattern is a reusable solution to a problem that comes up again and again. Services use patterns at two levels:
 
-Patterns are commonly described at two different levels for services:
+- a design pattern solves a common interaction design problem, such as the layout of a screen or a sequence of screens
+- a service pattern solves a common service design problem, such as a user task or a stage of a service
 
-- A design pattern is a general solution to a common problem in digital interaction design, such as the layout of particular screen or a sequence of screens
-- A service pattern provides a solution to a common problem in service design, such as a user task or stage of a service
+Use established, proven patterns. This helps sustainability because:
 
-Use of established and proven patterns, where appropriate brings sustainability benefits such as:
+- familiar, well-tested patterns help users understand what to do, so fewer journeys fail or need repeating
+- you avoid the rework, and the resources, needed to develop and test a design from scratch
 
-- Reducing failed or repeated user journeys because familiar, well-tested patterns help users understand what to do and complete tasks successfully
-- Avoiding unnecessary rework the resources required to develop and test a design or service solution from scratch
+Start with the [GOV.UK Design System](https://design-system.service.gov.uk/) and Defra's guidance on [components and patterns](/design/components-and-patterns). [Point 13 of the Service Standard](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns) requires services to use and contribute to open standards, common components and patterns.
+
+To reuse software components as well as design patterns, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### GOV.UK Service Standard, Point 13
+Alongside sustainability impact, designing with established patterns brings co-benefits in terms of:
 
-Point 13 of the GOV.UK Service Standard sets out the requirement for government services to ['Use and contribute to open standards, common components and patterns'](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns/)
-
-### The GOV.UK Design System
-
-The [GOV.UK Design System](https://design-system.service.gov.uk/) ensures the consistency of digital pages of services hosted on GOV.UK. The system features a library of ‘components’ (individual elements of a user interface) and ‘patterns’ (best practice design solutions for specific user-focused tasks and page types) that can be reused by services.
-
-### The GOV Reuse Library
-
-The [GOV Reuse Library](https://dev.reuselibrary.service.justice.gov.uk/) is a directory of departmental and public sector design systems, many of which build on the components and patterns in the GOV.UK Design System. The library also includes service patterns, design standards and content style guides.
-
-### More reading on service patterns:
-
-- Kay Dale and Ignacia Orellana, [10 Principles for Service patterns](https://designnotes.blog.gov.uk/2018/05/17/10-principles-for-service-patterns/), Design in Government Blog
-- Scottish Service Manual, [Service Patterns](https://servicemanual.gov.scot/building-your-service/service-patterns/)
+- delivery time: proven patterns cut rework and save delivery time
+- usability and performance: common design and service patterns are familiar, so users find their way and complete tasks quickly
+- accessibility: GOV.UK design patterns have already been tested for accessibility
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
-
-Alongside sustainability benefits, designing with established patterns brings co-benefits in terms of:
-
-- Delivery time: Use of proven patterns reduces unnecessary rework and saves on delivery time
-- Usability and performance: Common design and service patterns are familiar for users, helping them quickly navigate and complete tasks
-- Accessibility: GOV.UK design patterns have already been tested for accessibility
+- [GOV.UK Design System](https://design-system.service.gov.uk/) (Government Digital Service): components (single parts of an interface) and patterns (proven solutions for specific tasks and page types) that services can reuse
+- [GOV Reuse Library](https://reuselibrary.service.justice.gov.uk/) (Ministry of Justice): a directory of departmental and public sector design systems, service patterns, design standards and content style guides
+- [10 principles for service patterns](https://designnotes.blog.gov.uk/2018/05/17/10-principles-for-service-patterns/) (Design in Government blog)
+- [Service patterns](https://servicemanual.gov.scot/building-your-service/service-patterns/) (Scottish Service Manual)
 
 </div>
 </details>
-
-See also: [3a. Apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software)
 
 ---
 
-## (ii) Design an appropriately paced service
+## (ii) Design a well-paced service
 
-The pace of a service is the speed or rate it is delivered at. This covers response time, processing time and task completion time. Faster services may require more resources to deliver.
+The pace of a service is how quickly it delivers. This covers response time, processing time and how long tasks take to complete. Faster services can need more resources.
 
-Consider how soon users need a response or outcome and if the pace of the service could be reduced. For example, if users need a response the same day or this could be delivered the next day, with environments and resources turned off overnight.
+Find out how soon users need a response or outcome, and whether the service could go at a slower pace without harming them. For example, if users can have an answer the next day rather than the same day, you can process work in batches and turn environments and resources off overnight.
+
+To run that work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
+<div class="govuk-details__text">
+
+Alongside sustainability impact, designing a well-paced service brings co-benefits in terms of:
+
+- cost: fewer always-on resources and off-peak processing can lower hosting costs
+- resilience: queuing non-urgent work smooths out demand spikes and lowers the risk of overload
+- usability and performance: telling users when to expect an outcome can cut repeat contact from people chasing progress
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- user expectations: slower outcomes may frustrate users, so set the pace from research into real need
+- content and design: users need clear messages about response times, which adds design work
+- urgent cases: a slower default may need a faster route for urgent cases or users in vulnerable circumstances
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Match your service level objectives to business needs](https://patterns.greensoftware.foundation/requirements/match-slo) (Green Software Foundation): designing availability around what users need rather than maximum uptime
+- [Queue non-urgent processing requests](https://patterns.greensoftware.foundation/architecture/system-topology/queue-non-urgent-requests) (Green Software Foundation): sending work that does not need an instant response through a queue
+- [Uptime and availability](https://www.gov.uk/service-manual/technology/uptime-and-availability-keeping-your-service-online) (GOV.UK Service Manual): using research to decide when your service needs to be available
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+To measure the impact of your journeys, read [measuring the impact of service journeys and processes](/digital-sustainability/measure/journeys-and-processes).

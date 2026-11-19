@@ -1,7 +1,7 @@
 ---
-title: "4a. Take a lean approach to data collection & management"
+title: "4a. Take a lean approach to data collection and management"
 caption: "Data"
-description: "Identify and reuse existing data and apply appropriate retention policies to reduce unnecessary data collection, processing, transfer and storage, lowering the energy, carbon and hardware impacts of digital services."
+description: "Reuse data that already exists and delete data you no longer need. Collecting, processing, moving and storing less data lowers the energy, carbon and hardware impact of a service."
 layout: section
 sectionNav: nav-ds-data
 customNav: nav-digital-sustainability
@@ -16,98 +16,102 @@ breadcrumbItems:
     href: /digital-sustainability/actions
   - text: "Data"
     href: /digital-sustainability/actions/data
-  - text: "4a. Take a lean approach to data collection & management"
+  - text: "4a. Take a lean approach to data collection and management"
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Data, Architecture
+**Applies to:** any service or project that collects or keeps data, on and off CDP, including internal tools and data platforms.
 
-**Likely co-benefits:** Cost, delivery time, user experience
+**Lead role families:** Data and Architecture
 
 ---
 
-### (i) Identify and reuse existing data
+## (i) Identify and reuse existing data
 
-The data that your service needs may have already been collected elsewhere and could be reused by your project.
+The data your service needs may already have been collected elsewhere. Reusing it avoids the resources needed to collect, store and process duplicate data.
 
-Reusing existing data sets reduces the resources associated with the collection, storage and processing of duplicate data.
+Before you collect new data, find out whether other services or projects, in your department or in others, already hold the data your service needs.
 
-Before collecting new data for your project, identify if other services or projects, in your department or perhaps adjacent ones, have already collected the data that your service needs.
+Only collect new data when you have established that:
 
-Only collect new data when you have established:
+- there is a clear user or organisational need for it
+- it is not available elsewhere
 
-- Clear user or organisational needs for the data
-- The data is not available elsewhere
-
-Consider also where data can be made reusable by other teams and projects.
+Where you can, make your own data reusable by other teams and projects.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-- [Sharing and reusing data,](https://www.gov.uk/service-manual/design/designing-with-data-an-introduction#sharing-and-reusing-data/) Designing with data: An introduction, GOV.UK Service Manual
-- [Data Sharing,](https://ddt.beta.education.gov.uk/standards/ddt-standards/data-sharing/) Department for Education
-- [Data Sharing Governance Framework,](https://www.gov.uk/government/publications/data-sharing-governance-framework/) Government Digital Service
-
-The [National Data Library](https://www.data.gov.uk/data-manual/) features a range of data sets that can be browsed for reuse.
-
-</div>
-</details>
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
-<div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, reusing existing data brings co-benefits in terms of:
 
-- Usability: Reducing data collection may make service journeys easier for external users and internal processes simpler
-- Costs: Less data storage, fewer pipelines and reduced compute demand can mean reduced infrastructure costs
-- Delivery time: Improves delivery speed by using existing data rather than building new pipelines
-- Security: Reducing unnecessary data collection supports privacy, compliance and cyber security
+- usability: collecting less data can make journeys easier for users and internal processes simpler
+- cost: less storage, fewer pipelines and less compute can cut infrastructure costs
+- delivery time: using existing data is quicker than building new pipelines
+- security: collecting less data supports privacy, compliance and cyber security
 
-### Trade-offs
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
 Potential trade-offs may include:
 
-- Flexibility: Reducing data collection may limit future analytics, reporting, or policy insight
-- Complexity: Data sharing can introduce complexity (access, permissions, governance, APIs)
+- flexibility: collecting less data may limit future analysis, reporting or policy insight
+- complexity: data sharing brings its own complexity, such as access, permissions, governance and APIs
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Sharing and reusing data](https://www.gov.uk/service-manual/design/designing-with-data-an-introduction#sharing-and-reusing-data) (GOV.UK Service Manual)
+- [Data sharing](https://ddt.beta.education.gov.uk/standards/ddt-standards/data-sharing/) (Department for Education)
+- [Data sharing governance framework](https://www.gov.uk/government/publications/data-sharing-governance-framework) (Government Digital Service)
+- [Data manual](https://www.data.gov.uk/data-manual) (National Data Library): includes data sets you can browse for reuse
 
 </div>
 </details>
 
 ---
 
-## (ii) Implement an appropriate data retention policy
+## (ii) Implement a data retention policy
 
-A data retention policy defines how long data must be kept for legal or operational purposes, and how it can be deleted.
+A data retention policy sets how long data must be kept for legal or operational reasons, and how it is deleted.
 
-Ensuring that data is deleted when no longer needed prevents accumulation of redundant or unused data. This reduces long term data storage, processing and transfer, and with it and energy consumption.
+Delete data when you no longer need it, so redundant and unused data does not build up. This cuts long-term storage, processing and transfer, and the energy they use. For logs, see [optimise your logging and retention policy](/digital-sustainability/actions/software/devops).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Set retention policy on storage resources,](https://patterns.greensoftware.foundation/operations/resource-lifecycle/set-retention-policy-on-storage-resources/) Green Software Foundation
-- [Delete unused storage resources,](https://patterns.greensoftware.foundation/operations/resource-lifecycle/delete-unused-storage-resources/) Green Software Foundation
-- [Data Protection Principles,](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/storage-limitation/) Information Commissioner’s Office
+Alongside sustainability impact, storing less data brings co-benefits in terms of:
+
+- cost: less storage, fewer pipelines and less compute can cut infrastructure costs
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
-
-Alongside sustainability impact, reducing data storage brings co-benefits in terms of:
-
-- Costs: Less data storage, fewer pipelines and reduced compute demand can mean reduced infrastructure costs
+- [Set retention policy on storage resources](https://patterns.greensoftware.foundation/operations/resource-lifecycle/set-retention-policy-on-storage-resources) (Green Software Foundation)
+- [Delete unused storage resources](https://patterns.greensoftware.foundation/operations/resource-lifecycle/delete-unused-storage-resources) (Green Software Foundation)
+- [Storage limitation](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/storage-limitation/) (Information Commissioner's Office)
 
 </div>
 </details>
+
+---
+
+## How to measure this
+
+To measure the impact of data, read [measuring the impact of data](/digital-sustainability/measure/data).

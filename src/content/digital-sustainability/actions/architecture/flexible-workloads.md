@@ -1,7 +1,7 @@
 ---
 title: "5a. Design workloads for modularity, portability and flexibility"
 caption: "Architecture"
-description: "Designing workloads for modularity, portability and flexibility helps enable the development and operation of more sustainable digital services, by avoiding over-provisioning infrastructure, supporting reuse and sharing of architectural components and running workloads when there is unused capacity or the electricity grid is greener."
+description: "Modular, portable, time-flexible workloads need less infrastructure. You can reuse parts and run work when capacity is spare or electricity cleaner."
 layout: section
 sectionNav: nav-ds-architecture
 customNav: nav-digital-sustainability
@@ -23,177 +23,181 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Architecture, IT Operations
+**Applies to:** services, platforms and infrastructure projects on and off CDP. CDP runs services in containers, so on CDP much of the portability in point (ii) is already built in.
 
-**Likely co-benefits:** Cost
+**Lead role families:** Architecture and IT operations
 
 ---
 
-## (i) Design for 'modular' architectural patterns
+## (i) Design for modular architectural patterns
 
-Traditional monolithic architecture is where an application is built, compiled, and deployed as a single, self-contained unit.
+A traditional monolithic application is built, compiled and deployed as one self-contained unit. More modular patterns break it into self-contained, reusable parts:
 
-More modular patterns, such as modular monoliths and microservice architectures, break traditional monolithic systems down into self-contained and reusable components.
+- a modular monolith is still one application, but split into independent, loosely coupled modules
+- a microservice architecture structures an application as a set of small, independent, loosely coupled services
 
-Modular approaches can bring sustainability benefits through:
+Modular approaches can help sustainability because they:
 
-- Enabling the independent scaling of services, more efficient allocation of compute resources and reduced energy consumption
-- Aiding the reuse of modular components across projects, which saves on the resources associated with developing and testing components from scratch.
+- let you scale parts of a service independently, so you allocate compute more efficiently and use less energy
+- make it easier to reuse components across projects, which saves the resources needed to develop and test them from scratch
 
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-### Modular Monoliths
-
-A modular monolithic architecture breaks a single, unified application into independent, loosely coupled logical modules.
-
-- [What is monolithic architecture?](https://www.ibm.com/think/topics/monolithic-architecture/) IBM
-- [Microservices vs. monolithic architecture](https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith/) Atlassian
-- [Developing modular monolith vs. traditional monolith in software engineering, pros and cons](https://dev.to/flashblack/developing-modular-monolith-vs-traditional-monolith-in-software-engineering-pros-and-cons-p61/) DEV.TO
-- [Modular monoliths explained: Structure, strategy, and scalability](https://medium.com/@husain.ammar/modular-monoliths-explained-structure-strategy-and-scalability-ba94b103b345) Ammar Husain
-
-### Microservices
-
-A microservice architecture structures an application as a collection of small, autonomous, and loosely coupled services, rather than a single unified codebase.
-
-- [Microservices](https://aws.amazon.com/microservices/) Amazon Web Services
-- [Microservices architecture style](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices/) Microsoft Azure
-- [What is microservices architecture?](https://cloud.google.com/learn/what-is-microservices-architecture/) Google Cloud
-- [Microservices architecture](https://www.atlassian.com/microservices/microservices-architecture/) Atlassian
-- [What are microservices?](https://www.ibm.com/think/topics/microservices/) IBM
-
-</div>
-</details>
+For reusing software components, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits of modular monoliths
 
 Alongside sustainability impact, modular monoliths bring co-benefits in terms of:
 
-- Development Time: Developers work within a single codebase, making refactoring, testing and continuous integration faster
-- Cost: Reduced costs as less infrastructure, cloud resource overhead, and maintenance required compared to distributed architecture
+- development time: developers work in a single codebase, so refactoring, testing and continuous integration are faster
+- cost: they need less infrastructure, cloud overhead and maintenance than a distributed architecture
 
-### Trade-offs of modular monoliths
+Microservice approaches bring co-benefits in terms of:
 
-Potential trade-offs of modular monoliths may include:
-
-- Scalability: With a modular monolith, the entire application scales as one block, limiting the scalbility of individual modules
-- Resilience: A sever crash or exception in one module can bring down the entire application process
-
-### Co-benefits of microservices
-
-Alongside sustainability impact, microservice approaches bring co-benefits in terms of:
-
-- Cost: Microservice architectures support independent scaling of services and efficient cost allocation
-- Resilience: Improved resilience and fault isolation as failure in one service does not impact the whole system
-
-### Trade-offs of microservices
-
-Potential trade-offs of microservices may include:
-
-- Resource usage: Communication between microservices can lead to increased energy consumption due to communication between services
-- Complexity: Microservice approaches can increase architectural and operational complexity through deployment and monitoring
+- cost: services scale independently and costs can be allocated to each one
+- resilience: a failure in one service does not bring down the whole system
 
 </div>
 </details>
 
-See also [3a. Apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software) and [5b. (vi) Move from rented infrastructure to platform and serverless models where appropriate](/digital-sustainability/actions/architecture/cloud-provisioning)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs of modular monoliths may include:
+
+- scaling: the whole application scales as one block, so you cannot scale single modules
+- resilience: a server crash or exception in one module can bring down the whole application
+
+Potential trade-offs of microservices may include:
+
+- resource use: communication between services can increase energy use
+- complexity: microservices add architectural and operational complexity, for example in deployment and monitoring
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+On modular monoliths:
+
+- [What is monolithic architecture](https://www.ibm.com/think/topics/monolithic-architecture/) (IBM)
+- [Microservices versus monolithic architecture](https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith/) (Atlassian)
+- [Developing modular monolith versus traditional monolith in software engineering](https://dev.to/flashblack/developing-modular-monolith-vs-traditional-monolith-in-software-engineering-pros-and-cons-p61/) (DEV Community)
+- [Modular monoliths explained](https://medium.com/@husain.ammar/modular-monoliths-explained-structure-strategy-and-scalability-ba94b103b345) (Ammar Husain)
+
+On microservices:
+
+- [Microservices](https://aws.amazon.com/microservices/) (Amazon Web Services)
+- [Microservices architecture style](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices/) (Microsoft Azure)
+- [What is microservices architecture](https://cloud.google.com/learn/what-is-microservices-architecture/) (Google Cloud)
+- [Microservices architecture](https://www.atlassian.com/microservices/microservices-architecture/) (Atlassian)
+- [What are microservices](https://www.ibm.com/think/topics/microservices/) (IBM)
+
+</div>
+</details>
 
 ---
 
 ## (ii) Design for portable workloads
 
-Portable workloads are those where applications, data, and services can be moved between computing environments with minimal code refactoring or configuration changes.
+Portable workloads are applications, data and services that can move between computing environments with little code refactoring or configuration change.
 
-This requires that workloads not be reliant on any single environment or underlying infrastructure, and then 'porting' can occur between public and private cloud, on-premises or even between different providers.
+They must not rely on any single environment or underlying infrastructure. Then they can move between public and private cloud, on premises, or between providers.
 
-This approach can bring sustainability benefit by:
+Portability can help sustainability because you can:
 
-- Enabling workloads to be shifted to locations where more energy-efficient hardware is available, so reducing energy consumption
-- Running workloads in locations where more low carbon electricity is available on the grid
+- move workloads to places with more energy-efficient hardware, which uses less energy
+- run workloads where the grid has more low-carbon electricity, as set out in [shift workload location](/digital-sustainability/actions/architecture/low-carbon-electricity)
 
-Approaches that can help enable portability include:
+CDP runs services in containers, so if you are on CDP you already have much of this. Approaches that help portability include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Use of containers</td><td class="govuk-table__cell">Containarised architecture means packaging software into self-contained units that can then run in any environment</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Automated container workflows</td><td class="govuk-table__cell">Platforms such as Kubernetes can be used to automate the deployment, scaling, and management of containerized workloads</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Following open standards</td><td class="govuk-table__cell">Applications that are designed to follow open industry standards, rather than proprietary, vendor-specific standards, can more easily be ported between environments</td></tr></tbody></table>
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- [Hybrid and portable](https://www.ibm.com/think/architectures/well-architected/hybrid) IBM Well-architected framework
-- [What is cloud portability?](https://www.akamai.com/glossary/what-is-cloud-portability/) Akamai
-- [Portability](https://microsoft.github.io/code-with-engineering-playbook/non-functional-requirements/portability/) Microsoft
-
-</div>
-</details>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Approach</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Use containers</td><td class="govuk-table__cell">Containerised architecture packages software into self-contained units that can run in any environment</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Automate container workflows</td><td class="govuk-table__cell">Platforms such as Kubernetes can automate the deployment, scaling and management of containerised workloads</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Follow open standards</td><td class="govuk-table__cell">Applications that follow open industry standards, rather than proprietary, vendor-specific ones, are easier to move between environments</td></tr></tbody></table>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, portable workloads bring co-benefits in terms of:
 
-- Cost: Increased flexibility in terms of workload placement allows optimising for cost, avoiding vendor lock-in
-- Resilience: Improved resilience by allowing workloads to be relocated or scaled across environments
-- Performance: Supports workload placement optimisation (e.g. region, provider, infrastructure type)
-
-### Trade-offs
-
-Potential trade-offs may include:
-
-- Complexity: Portable workloads introduce additional architectural and operational complexity
+- cost: more choice about where workloads run lets you optimise for cost and avoid vendor lock-in
+- resilience: workloads can be moved or scaled across environments
+- performance: you can choose where a workload runs, such as the region, provider or type of infrastructure
 
 </div>
 </details>
 
-See also [5c. Shift cloud demand to match availability of low carbon electricity](/digital-sustainability/actions/architecture/low-carbon-electricity)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- complexity: portable workloads add architectural and operational complexity
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Hybrid and portable](https://www.ibm.com/think/architectures/well-architected/hybrid) (IBM Well-Architected Framework)
+- [What is cloud portability](https://www.akamai.com/glossary/what-is-cloud-portability/) (Akamai)
+- [Portability](https://microsoft.github.io/code-with-engineering-playbook/non-functional-requirements/portability/) (Microsoft)
+
+</div>
+</details>
 
 ---
 
-### (iii) Design for time-flexible workloads
+## (iii) Design for time-flexible workloads
 
-Designing workloads for flexibility means moving away from 'real-time' models that aim to complete tasks as soon as possible, to those where computational demand can be dynamically shifted in time.
+A time-flexible workload does not have to finish as soon as possible. You can move when it runs, rather than designing for real time.
 
-Flexible workload patterns can help maximise efficiency by avoiding reliance on peak-capacity infrastructure, and allow workloads to be scheduled when there is unused capacity or the electricity grid is at a lower carbon intensity.
+Flexible workloads avoid relying on infrastructure sized for peak demand. They can run when there is spare capacity or when the grid is lower carbon, which can save cost as well as carbon.
 
-These approaches can save significantly on costs as well as carbon.
+To be time-flexible, a workload must not need to give a user an immediate response. Examples include batch jobs, data analytics, video encoding and rendering, and large-scale AI model training.
 
-To be time-flexible, workloads must not require that an immediate response be provided to a end user. These include things like batch jobs, data analytics, video encoding and rendering or large-scale AI model training.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- [Asynchronous Request-Reply pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply/) Microsoft Azure
-- [Workload shifting techniques: From digital inebriation to sobriety](https://dl.acm.org/doi/full/10.1145/3769301/) ACM Digital Library
-
-</div>
-</details>
+For when to run them, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity). They can also use spare capacity at lower cost: see [use spot instances](/digital-sustainability/actions/architecture/cloud-provisioning).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, flexible workloads can bring co-benefits in terms of:
 
-- Cost: Aligning resources with actual usage optimises infrastructure costs
-- Scaling: Enables more efficient scaling strategies to be put in place
-
-### Trade-offs
-
-Potential trade-offs may include:
-
-- Complexity: Flexible workloads introduce architectural complexity (e.g. queues, event handling, retry logic)
+- cost: matching resources to actual use keeps infrastructure costs down
+- scaling: you can put more efficient scaling strategies in place
 
 </div>
 </details>
 
-See also [5c. Shift cloud demand to match availability of low carbon electricity](/digital-sustainability/actions/architecture/low-carbon-electricity) and [5b, (iv) Use spot instances](/digital-sustainability/actions/architecture/cloud-provisioning)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- complexity: flexible workloads add architectural complexity, such as queues, event handling and retry logic
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Asynchronous request-reply pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/asynchronous-request-reply/) (Microsoft Azure)
+- [Workload shifting techniques](https://dl.acm.org/doi/full/10.1145/3769301) (ACM Digital Library)
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+To measure the impact of architecture decisions, read [measuring the impact of architectural decisions](/digital-sustainability/measure/architecture).

@@ -1,7 +1,7 @@
 ---
 title: "3c. Take an efficient software testing approach"
 caption: "Software"
-description: "Efficient testing approaches save energy by reducing the time, effort and resources required to evaluate the performance of software."
+description: "Efficient testing saves energy by cutting the time, effort and resources it takes to check how software performs."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -23,53 +23,47 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Software, Quality Assurance Testing
+**Applies to:** testing of custom software on and off CDP, including internal tools.
 
-**Likely co-benefits:** Cost, user experience
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about this action</span></summary>
-<div class="govuk-details__text">
-
-- GOV.UK Service Manual, [How to test frontend performance](https://www.gov.uk/service-manual/technology/how-to-test-frontend-performance)
-- The Chartered Institute for IT, [Understanding sustainable software testing](https://www.bcs.org/articles-opinion-and-research/understanding-sustainable-software-testing/)
-
-</div>
-</details>
+**Lead role families:** Software and Quality assurance testing
 
 ---
 
 ## (i) Adopt a shift-left testing approach
 
-A 'shift-left' approach to testing means beginning testing earlier in the software development cycle. This helps identify issues early, helping reduce rework, repeated builds, and unnecessary compute usage.
+Shift-left testing means you start testing earlier in development. You find issues sooner, which cuts rework, repeated builds and unnecessary compute use. Defra expects teams to [shift testing left](/software-development) with their quality assurance (QA) colleagues.
 
-A 'shift-right' approach to testing complements shift-left by identifying production inefficiencies and performance issues once software is in a live environment and being used for real.
+Shift-right testing complements it. It finds inefficiencies and performance issues once software is live and in real use.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- IBM, [What is shift-left testing?](https://www.ibm.com/think/topics/shift-left-testing)
+Alongside sustainability impact, shift-left testing brings co-benefits in terms of:
+
+- development time: delivery is more efficient and cycles are shorter, because issues are stopped before they move through environments
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Trade-offs from shifting left may include:
 
-Alongside sustainability benefits, shift-left testing brings co-benefits in terms of:
+- upfront work: more effort upfront on test design, automation and tooling
+- later checks: early testing may not fully reflect real-world conditions, so you may still need checks later on
 
-- Overall development time: Improved delivery efficiency and reduced development cycle time as issues are prevented from progressing through environments
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
 
-Trade-offs from 'shifting-left' may include:
-
-- Upfront work: Increased upfront effort in test design, automation, and tooling
-- Later validation work: Early testing may not fully replicate real-world conditions, requiring additional later-stage validation
+- [What is shift-left testing](https://www.ibm.com/think/topics/shift-left-testing) (IBM)
+- [Understanding sustainable software testing](https://www.bcs.org/articles-opinion-and-research/understanding-sustainable-software-testing/) (BCS, The Chartered Institute for IT)
 
 </div>
 </details>
@@ -78,69 +72,77 @@ Trade-offs from 'shifting-left' may include:
 
 ## (ii) Optimise test scripts
 
-A test script is a set of detailed instructions that outlines the steps to be taken to test specific functionality of a software application.
+A test script is a set of detailed steps for testing a specific function of a software application.
 
-Optimising test scripts removes redundant or inefficient test steps, and so reduces compute usage and energy consumption when testing is conducted.
+Optimising test scripts removes redundant or inefficient steps, so testing uses less compute and energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- IBM, [What is shift-left testing?](https://www.ibm.com/think/topics/shift-left-testing)
+Optimising test scripts brings co-benefits in terms of:
+
+- reliability: test suites become more reliable and easier to maintain
+- cost: tests run faster and infrastructure costs less
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Optimising test scripts brings co-benefits in terms of:
-
-- Reliability: Improved reliability and maintainability of test suites
-- Lower costs: Reduced test times and lower infrastructure costs
-
-### Trade-offs
 
 Optimising test scripts may bring trade-offs such as:
 
-- Delivery time: Additional effort to analyse, refactor and maintain test scripts, and ongoing optimsation needed as systems evolve
+- delivery time: it takes effort to analyse, refactor and maintain test scripts, and to keep optimising them as systems change
 
 </div>
 </details>
 
 ---
 
-## (iii) Avoid duplication of test data and reuse it where possible
+## (iii) Avoid duplicating test data and reuse it
 
-To avoid duplication of testing data, consider:
+To avoid duplicating test data:
 
-- using test data across multiple tests
-- deduplicating test records
-- generating test data on demand to avoid storing it
-- automatically removing redundant test data
+- use the same test data across several tests
+- remove duplicate test records
+- generate test data when you need it rather than storing it
+- remove test data you no longer need, automatically
 
-Reducing duplication of test data reduces the storage and processing of redundant data, reducing energy consumption.
+Less duplicate test data means less storage and processing, so less energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Alongside sustainability impact, avoiding duplicate test data brings co-benefits in terms of:
 
-Alongside sustainability impact, avoiding the duplication of test data brings co-benefits in terms of:
+- consistency: test environments are more consistent and easier to maintain
+- testing speed: tests run faster because there is less data to load, process and clean
 
-- Consistency: Improved consistency and mantainability of test environments
-- Testing speed: Faster test execution due to less data to load, process and clean
+</div>
+</details>
 
-### Trade-offs
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
-Avoiding duplication of test data may bring trade-offs such as:
+Avoiding duplicate test data may bring trade-offs such as:
 
-- Delivery time: Reusable, well-structured test data sets take time to design
-- Complexity: Dynamic or on-demand data generation may increase runtime complexity and variability
+- delivery time: reusable, well-structured test data sets take time to design
+- complexity: generating data on demand can make test runs more complex and less predictable
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Delete unused storage resources](https://patterns.greensoftware.foundation/operations/resource-lifecycle/delete-unused-storage-resources) (Green Software Foundation): removing idle storage, and the risk of losing data you need later
+- [Set storage retention policies](https://patterns.greensoftware.foundation/operations/resource-lifecycle/set-retention-policy-on-storage-resources) (Green Software Foundation): automating deletion of data once it is no longer needed
+- [Synthetic data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/privacy-enhancing-technologies/what-pets-are-there/synthetic-data/) (Information Commissioner's Office): what synthetic data is and how it can stand in for personal data
 
 </div>
 </details>
@@ -149,24 +151,37 @@ Avoiding duplication of test data may bring trade-offs such as:
 
 ## (iv) Make use of asynchronous testing
 
-Testing software using asynchronous processing allows tests to run independently of each other and in parallel, reducing total runtime and energy consumption.
+Asynchronous testing lets tests run independently of each other and in parallel. This cuts the total run time and the energy used.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, asynchronous testing brings co-benefits in terms of:
 
-- Delivery time: Reduced wait times and faster test completion, leading to faster feedback loops for developers.
+- delivery time: less waiting and faster test runs, so developers get feedback sooner
 
-### Trade-offs
+</div>
+</details>
 
-Asynchronous testing may also lead to trade-offs:
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
-- Peak resource consumption: Higher peak resource usage is possible when multiple tests are running simultaneously
-- Complexity: Increased complexity of test design (such as dependency management and ordering) and debugging of test failures
+Asynchronous testing may also bring trade-offs:
+
+- peak resource use: running many tests at once can raise peak resource use
+- complexity: test design, such as managing dependencies and order, and debugging failures both get harder
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Run any tests in parallel](https://learn.microsoft.com/en-us/azure/devops/pipelines/test/parallel-testing-any-test-runner) (Microsoft): splitting a test suite so its parts run at the same time on several agents
+- [Testing your service regularly](https://www.gov.uk/service-manual/technology/quality-assurance-testing-your-service-regularly) (GOV.UK Service Manual): automating tests and running them as part of continuous integration
 
 </div>
 </details>
@@ -175,27 +190,42 @@ Asynchronous testing may also lead to trade-offs:
 
 ## (v) Test designs on representative devices and platforms
 
-Test designs on an appropriate range of different platforms and devices, in order to identify inefficiencies (such as heavy scripts and excessive processing). Reducing inefficiencies can in turn reduce energy demands.
+Test designs on a range of platforms and devices to find inefficiencies, such as heavy scripts and excessive processing. Fixing them reduces energy use.
 
-Testing on older and lower-specification user devices helps ensure that software performs sufficiently and that users are not obliged to replace their device unnecessarily.
+Defra's standards expect you to test on the browsers and devices GOV.UK requires, including mobile. Include older and lower-specification devices, so software works well enough on them and users do not have to replace a device they could keep.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, testing designs on a range of devices and platforms brings co-benefits in terms of:
 
-- Accessibility and inclusivity: Improving accessibility and inclusivity by supporting a wider range of user devices and environments
-- Delivery time: Reducing risk of over-engineering software focused on high-end devices
+- accessibility and inclusion: the service supports a wider range of user devices and settings
+- delivery time: less risk of over-engineering software for high-end devices
 
-### Trade-offs
+</div>
+</details>
 
-Testing on a range of representative devices and platforms may lead to trade-offs such as:
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
 
-- Delivery time: Increased testing effort and need for access to a full range of devices/environments
-- Complexity: Potential additional complexity in test setup and environment management
+Testing on a range of representative devices and platforms may bring trade-offs such as:
+
+- delivery time: more testing effort, and you need access to a full range of devices and environments
+- complexity: test set-up and environment management can get more complex
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Designing for different browsers and devices](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices) (GOV.UK Service Manual): which browsers and devices to test on, and how to keep the list current
+- [Testing with assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies) (GOV.UK Service Manual): testing with screen readers, magnifiers and speech recognition software
+- [SUS03-BP04 Optimize impact on devices and equipment](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_software_a5.html) (Amazon Web Services): backward compatibility and device farms that reduce the need for new devices
+- [Web Sustainability Guidelines](https://www.w3.org/TR/web-sustainability-guidelines/) (W3C): guideline 2.17 covers testing on older or low-performance devices
 
 </div>
 </details>
@@ -204,15 +234,40 @@ Testing on a range of representative devices and platforms may lead to trade-off
 
 ## (vi) Turn off testing environments when not in use
 
-Test environments contain the hardware, software, and network configurations needed to test an application before it reaches live users.
+A test environment holds the hardware, software and network set-up you need to test an application before it reaches live users.
 
-Switching off testing environments when not in use saves on energy consumption.
+Switch test environments off when you are not using them, for example overnight and at weekends. This saves energy.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- Green Software Foundation, [Minimizing deployed environments](https://patterns.greensoftware.foundation/development/minimizing-deployed-environments/)
+Alongside sustainability impact, turning off testing environments brings co-benefits in terms of:
+
+- cost: environments switched off overnight and at weekends cost less to run
+- security: fewer running environments means fewer systems open to attack
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- start-up time: environments can take time to restart, which may slow the first tests of the day
+- automation: scheduled shutdowns need tooling, and long test runs may fail if an environment turns off mid-run
+- out-of-hours use: teams working late or on call may need environments outside normal hours
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Minimizing deployed environments](https://patterns.greensoftware.foundation/development/minimizing-deployed-environments) (Green Software Foundation)
 
 </div>
 </details>
@@ -221,28 +276,45 @@ Switching off testing environments when not in use saves on energy consumption.
 
 ## (vii) Test for page weight
 
-Testing web pages for their 'weight' (their size in bytes) can help identify unnecessary components such as scripts, assets and dependencies.
+Test web pages for their weight, their size in bytes, to find things you do not need, such as scripts, assets and dependencies. Then cut them, and check that pages stay within any page weight budget you have set.
 
-In turn, testing in this way enables reduction of page weights and enforcement of any page weight budgets that have been set, reducing energy consumption.
-
-See also: [2b. Design for lightweight digital pages, notifications and documents](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents)
+To set a budget, see [set page weight budgets](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, reducing page weight can bring co-benefits in terms of:
 
-- User experience: Improved page load times and responsiveness
-- Accessibility and inclusivity: Lighter pages perform well on low-bandwidth or low-spec devices
-
-### Trade-offs
-
-Testing for page weight can also bring trade-offs such as:
-
-- Tooling: Testing for page weight may require additional tooling
+- user experience: pages load and respond faster
+- accessibility and inclusion: lighter pages work well on low-bandwidth connections and low-specification devices
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Testing for page weight can also bring trade-offs such as:
+
+- tooling: you may need extra tools to test page weight
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [How to test frontend performance](https://www.gov.uk/service-manual/technology/how-to-test-frontend-performance) (GOV.UK Service Manual): setting performance budgets, including page size, and tools to test against them
+- [Web Sustainability Guidelines](https://www.w3.org/TR/web-sustainability-guidelines/) (W3C): guidelines 3.1 and 3.2 cover performance goals and removing unused code
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+To measure the impact of software, read [measuring the impact of software](/digital-sustainability/measure/software).

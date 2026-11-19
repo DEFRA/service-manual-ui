@@ -1,7 +1,7 @@
 ---
 title: "8c. Choose the most sustainable options for hardware at end of life"
 caption: "Hardware"
-description: "Prioritise external reuse and other circular end-of-life options to keep devices, components and materials in use for as long as possible, reducing e-waste and demand for new resources."
+description: "Reuse devices outside Defra first, then choose the most circular end-of-life option, to keep devices, components and materials in use and cut e-waste and demand for new resources."
 layout: section
 sectionNav: nav-ds-hardware
 customNav: nav-digital-sustainability
@@ -23,35 +23,107 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
+**Applies to:** Defra Group IT, procurement teams writing disposal and take-back requirements, and infrastructure projects retiring servers or other equipment. Service teams return devices they no longer need to Defra Group IT.
+
 **Lead role families:** Procurement
 
 ---
 
 ## (i) Prioritise external reuse of devices
 
-If electronic devices cannot be reused internally, but are still functioning, then prioritise external reuse. This could include:
+If working devices cannot be reused inside Defra, find them a use outside it. You can:
 
-- Selling functioning devices back to suppliers or remarketers
-- Certified Refurbishment and Resale: Sending used assets to specialized partners who wipe data, test components, repair faults, and resell them into the secondary market
-- Donate devices, where appropriate to charities, schools or public services or sell devices and donate funds. Check if closed loops are in place where the donation of hardware does not lead to additional e-waste elsewhere.
+- sell working devices back to suppliers or remarketers
+- send used devices to certified refurbishment partners, who wipe data, test components, repair faults and resell them
+- donate devices to charities, schools or public services, or sell them and donate the money
 
----
+If you donate devices, check that a closed loop is in place, so donated hardware does not become e-waste somewhere else.
 
-## (ii) Prioritise more circular options at the end of hardware’s usable life
-
-For hardware devices that have reached the end of their usable life, and that cannot be reused, or economically refurbished or remanufactured, then we should follow the most environmentally friendly options for disposal.
-
-The waste hierarchy applies the principle of the circular economy to rank waste management options from most to least environmentally friendly. For ICT hardware, these would be:
-
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Reclaiming and upcycling components</td><td class="govuk-table__cell">Harvesting valuable components such as circuit boards, hard drives or displays for reuse, refurbishing other devices or sale</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Recycling materials</td><td class="govuk-table__cell">Recovering valubale materials such as gold, platinum, lithium, aluminium and copper that can then be used to manufacture new electronics, industrial goods, and infrastructure</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration with energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials at high temperatures to create steam, which spins turbines to generate electricity or supply district heating systems</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration without energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials and the heat generated is dissipated into the environment rather than captured for electricity or heating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Landfill</td><td class="govuk-table__cell">Residual waste is placed into engineered or open-air pits where it slowly compacts over decades</td></tr></tbody></table>
-
-Work with partners that can demonstrate clear capability and commitment to responsible disposal, recycling, and circular economy principles.
+Devices must be sanitised to National Cyber Security Centre (NCSC) standards before they leave Defra.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Guidance on applying the waste hierarchy,](https://www.gov.uk/government/publications/guidance-on-applying-the-waste-hierarchy) GOV.UK
+Alongside sustainability impact, reusing devices outside Defra brings co-benefits in terms of:
+
+- cost: selling devices back to suppliers or remarketers returns some of their value
+- social value: donated devices can help charities, schools and people without access to technology
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- security: sanitising devices before they leave Defra adds cost and time
+- what to watch: check that donated devices are reused, not passed on as waste elsewhere
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Make your technology sustainable](https://www.gov.uk/guidance/make-your-technology-sustainable) (Government Digital Service): guidance for point 12 of the Technology Code of Practice, including buy-back and reuse by other government projects
+- [Secure sanitisation and disposal of storage media](https://www.ncsc.gov.uk/guidance/secure-sanitisation-storage-media) (National Cyber Security Centre): removing data before devices are sold or donated
+
+</div>
+</details>
+
+---
+
+## (ii) Prioritise more circular options at the end of hardware's usable life
+
+If a device cannot be reused or repaired at a sensible cost, use the highest option left in the waste hierarchy.
+
+The waste hierarchy applies the principle of the circular economy to rank waste options from most to least environmentally friendly. For ICT hardware, the options are:
+
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Reclaiming and upcycling components</td><td class="govuk-table__cell">Taking valuable components such as circuit boards, hard drives or displays to reuse, to refurbish other devices or to sell</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Recycling materials</td><td class="govuk-table__cell">Recovering valuable materials such as gold, platinum, lithium, aluminium and copper to make new electronics, industrial goods and infrastructure</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration with energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials at high temperatures to make steam, which drives turbines to generate electricity or supply district heating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration without energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials, with the heat lost to the environment rather than captured for electricity or heating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Landfill</td><td class="govuk-table__cell">Placing residual waste in engineered or open-air pits, where it slowly compacts over decades</td></tr></tbody></table>
+
+Work with partners that can show clear capability and commitment to responsible disposal, recycling and circular economy principles.
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
+<div class="govuk-details__text">
+
+Alongside sustainability impact, choosing circular end-of-life options brings co-benefits in terms of:
+
+- compliance: following the waste hierarchy supports the waste duty of care and the Waste Electrical and Electronic Equipment (WEEE) regulations
+- security: certified disposal partners give evidence that data has been destroyed
+- cost: recovered components and materials can return some value
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- cost: certified recycling and audit trails can cost more than basic disposal
+- what to watch: ask where materials go after collection, as some e-waste is exported and handled poorly
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Guidance on applying the waste hierarchy](https://www.gov.uk/government/publications/guidance-on-applying-the-waste-hierarchy) (Department for Environment, Food and Rural Affairs)
+- [Regulations: waste electrical and electronic equipment](https://www.gov.uk/guidance/regulations-waste-electrical-and-electronic-equipment) (GOV.UK): the legal duties for handling electrical and electronic waste
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+[Measuring the impact of hardware](/digital-sustainability/measure/hardware) lists the end-of-life volumes to report, from repaired to landfilled.

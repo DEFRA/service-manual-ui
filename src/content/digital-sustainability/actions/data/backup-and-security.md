@@ -1,7 +1,7 @@
 ---
 title: "4d. Balance data backup, security and sustainability"
 caption: "Data"
-description: "Apply security and backup measures proportionate to data sensitivity and risk, avoiding unnecessary resource use."
+description: "Match security and backup measures to how sensitive the data is and to the risk, so you do not use resources you do not need."
 layout: section
 sectionNav: nav-ds-data
 customNav: nav-digital-sustainability
@@ -23,110 +23,126 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Data, Security
+**Applies to:** services and data platforms on and off CDP, including internal tools. Security policy and your service's tier set the minimum for encryption, backups and redundancy. These points apply above that floor, and only with your security team.
+
+**Lead role families:** Data and Security
 
 <div class="govuk-inset-text">
 
-Services and other projects in UK Govermment should follow the [Secure by Design](https://www.security.gov.uk/policy-and-guidance/secure-by-design/principles/) security principles.
+Services and other projects in UK government should follow the [Secure by Design principles](https://www.security.gov.uk/policy-and-guidance/secure-by-design/principles/). Read Defra's guidance on [creating a secure service](/security).
 
 </div>
 
 ---
 
-## (i) Encrypt data only when necessary
+## (i) Match encryption to data sensitivity, with your security team
 
-Encryption is a security method that takes data from a readable format and translates it into a code (or ciphertext) that can only be read via a 'key'.
+Encryption turns readable data into code, called ciphertext, that can only be read with a key. Encrypting and decrypting data uses processing and energy, and encryption can add to the amount of data you store.
 
-Encryption can be a resource-intense process, and can increase data storage volumes as well as the energy consumed through encrypting and decrypting the data.
-
-<div class="govuk-inset-text">
-
-Decisions on data encryption are likely to occur at the level of the enterprise, rather than individual services or other digital projects. Where a project is involved in decisions about encryption, then a risk-based approach should be taken, considering the sensitivity of data
-
-</div>
+Decisions on encryption are usually made for the whole organisation, not by individual services or projects. If your project is involved in a decision about encryption, work with your security team and take a risk-based approach based on how sensitive the data is. Any decision to encrypt less needs a documented risk decision, agreed with your security and data protection teams.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Encrypt what is necessary](https://patterns.greensoftware.foundation/requirements/encrypt-what-is-necessary/) Green Software Foundation
-- [Principle: B3 Data Security](https://www.security.gov.uk/policy-and-guidance/government-cyber-security-policy-handbook/principle-b3-data-security/) Government Security
-- [Encryption and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-and-data-protection/) Information Commissioner's Office
-- [Data encryption and passphrase guidance](https://www.gov.uk/government/publications/lrs-help-and-support/data-encryption-and-passphrase-guidance/) Department for Education
-- [Protect data at rest and in transit](https://www.ncsc.gov.uk/collection/device-security-principles-for-manufacturers/protect-data-at-rest-and-in-transit/) National Cyber Security Centre
+Alongside sustainability impact, matching encryption to data sensitivity brings co-benefits in terms of:
 
-</div>
-</details>
-
----
-
-## (ii) Optimise backups and redundancies
-
-A backup is a point-in-time copy of your digital data stored separately so you can restore it after a loss, deletion, or cyberattack, while redundancy maintains live, duplicate copies or systems in real time to prevent a single point of failure.
-
-Digital backups and redundancy can create additional data processing and transfer and energy consumption.
-
-Consider:
-
-- The necessity of duplicates and storage
-- Where necessary, if shortening retention times is possible
-
-Design backup and redundancy approaches that meet resilience and recovery needs without excessive duplication, storage, or retention.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- [What are redundancy, replication, and backup?,](https://learn.microsoft.com/en-us/azure/reliability/concept-redundancy-replication-backup/) Microsoft
-- [What is storage optimization and why does it matter?,](https://www.security.gov.uk/policy-and-guidance/government-cyber-security-policy-handbook/principle-b3-data-security/) IBM
+- cost: less encryption overhead can reduce compute and storage costs
+- service performance: avoiding needless encryption and decryption can speed up processing
 
 </div>
 </details>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
-
-Alongside sustainability impact, optimising backups and redundancies brings co-benefits in terms of:
-
-- Cost: Reduced network usage can lead to cost savings
-
-### Trade-offs
 
 Potential trade-offs may include:
 
-- Recovery: Shorter retention periods may limit the ability to recover older data or investigate historical issues
+- security: encrypting less raises risk if data is misclassified or becomes more sensitive
+- compliance: UK GDPR and government security policy may expect encryption
+- small gains: encryption on modern hardware is often cheap, so the saving may be small against the risk
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Encrypt what is necessary](https://patterns.greensoftware.foundation/requirements/encrypt-what-is-necessary) (Green Software Foundation)
+- [Principle B3 data security](https://www.security.gov.uk/policy-and-guidance/government-cyber-security-policy-handbook/principle-b3-data-security/) (Government Security)
+- [Encryption and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/encryption/encryption-and-data-protection/) (Information Commissioner's Office)
+- [Data encryption and passphrase guidance](https://www.gov.uk/government/publications/lrs-help-and-support/data-encryption-and-passphrase-guidance) (Department for Education)
+- [Protect data at rest and in transit](https://www.ncsc.gov.uk/collection/device-security-principles-for-manufacturers/protect-data-at-rest-and-in-transit/) (National Cyber Security Centre)
 
 </div>
 </details>
 
 ---
 
-## (iii) Consider timing of security scans and updates
+## (ii) Optimise backups and redundancy
 
-Security scans identify vulnerabilities and other risks, while security updates fix known issues to keep digital services secure.
+A backup is a copy of your data at one point in time, kept apart. Redundancy keeps live copies so one failure does not stop the service. Both add data processing, transfer and energy use.
 
-Schedule intensive security scans and updates during off-peak hours to take advantage of lower-carbon electricity.
+Check:
+
+- whether you need every copy and all the storage
+- whether you can shorten retention times
+
+Design backup and redundancy to meet your resilience and recovery needs without extra duplication, storage or retention. Your service's [non-functional requirements](/business-analysis/non-functional-requirements) and security policy set the minimum.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-### Co-benefits
+Alongside sustainability impact, optimising backups and redundancy brings co-benefits in terms of:
 
-Alongside sustainability impact, scheduling security scans and updates during off-peak hours brings co-benefits in terms of:
-
-- Cost: This approach can optimise operational costs where off-peak pricing applies
-
-### Trade-offs
-
-Potential trade-offs may include:
-
-- Suitability: Scheduling security scans during off-peak hours is not suitable for critical security updates or real-time threat response
+- cost: storing and moving fewer copies can save money
 
 </div>
 </details>
 
-See also: [5c. Shift cloud demand to match the availability of low carbon electricity](/digital-sustainability/actions/architecture/low-carbon-electricity)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- recovery: shorter retention may limit your ability to recover older data or investigate past issues
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [What are redundancy, replication and backup](https://learn.microsoft.com/en-us/azure/reliability/concept-redundancy-replication-backup) (Microsoft)
+
+</div>
+</details>
+
+---
+
+## (iii) Schedule routine security scans for lower-carbon times
+
+Security scans find vulnerabilities and other risks. Security updates fix known issues.
+
+Apply security updates, and run any scan you need for a live threat, as soon as they are needed. Do not delay them. You can schedule routine, intensive scans for times when electricity is lower carbon: see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Vulnerability management guidance](https://www.ncsc.gov.uk/guidance/vulnerability-management) (National Cyber Security Centre): applying updates within best-practice timescales, and how to prioritise
+- [Vulnerability and penetration testing](https://www.gov.uk/service-manual/technology/vulnerability-and-penetration-testing) (GOV.UK Service Manual): testing often as you build, and again after major code changes
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+To measure the impact of stored and backed-up data, read [measuring the impact of data](/digital-sustainability/measure/data).

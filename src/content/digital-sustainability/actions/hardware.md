@@ -1,7 +1,7 @@
 ---
 title: "8. Hardware"
 caption: "Hardware"
-description: "Hardware decisions can significantly affect sustainability across the whole lifecycle, from raw material extraction and manufacture to energy use, maintenance, reuse, repair and end-of-life recycling or disposal."
+description: "Hardware affects sustainability across its whole life, from mining and manufacture to energy use, maintenance, repair, reuse and recycling or disposal."
 layout: section
 sectionNav: nav-ds-hardware
 customNav: nav-digital-sustainability
@@ -21,37 +21,29 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-<div class="govuk-inset-text">
+**Applies to:** anyone who buys, rents, manages or retires hardware, including Defra Group IT, procurement teams and infrastructure projects, and service teams whose users rely on devices.
 
-The UK Government's [Critical Minerals Strategy](https://www.gov.uk/government/publications/uk-critical-minerals-strategy/vision-2035-critical-minerals-strategy/) sets out a 10-year vision for securing the materials needed to drive economic growth and the clean energy transition. This includes 20% sourced from recycling and the circular economy.
+Defra Group IT supplies and retires devices. Service and project teams can still:
 
-</div>
+- design services that work on older devices and slow connections
+- set requirements for hardware they need, such as ecolabels or second-life devices, through Defra Group IT or the procurement
+- return devices they no longer need, so they can be redeployed or reused
 
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about hardware and circularity</span></summary>
-<div class="govuk-details__text">
-
-- [Hardware Lifecycle Management Toolkit](https://assets.publishing.service.gov.uk/media/6ad7573b8ef5e8a9fc8ed5f5/Circular_Economy_Working_Group_Hardware_Lifecycle_Management_Toolkit.pdf/) GDSA
-- [Barriers to Circularity](https://assets.publishing.service.gov.uk/media/684aa1f81c8d5c94e201ab63/Barriers_to_Circularity_Recommendations_Paper.pdf) GDSA
-
-</div>
-</details>
-
-**Lead role families:** Procurement
+Reducing hardware use supports objective 3 of [Defra's six objectives](/digital-sustainability/service-standard/objectives): reduce natural resource use and improve our circular economy approach.
 
 ---
 
-## Circularity for hardware
+## Actions in this theme
 
-Circularity means minimising our demand for primary resources and preventing unnecessary resource consumption and waste generation.
+- [8a. Extend the working life of hardware](/digital-sustainability/actions/hardware/extend-hardware-life): maintain, redeploy and secure devices so they last longer
+- [8b. Take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying): replace only when needed, and choose second-life or ecolabelled devices
+- [8c. Choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life): reuse first, then follow the waste hierarchy
 
-Circularity can be achieved through following the 4 principles of the Circular and Fair ICT Pact:
-
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Buy Less</dt><dd class="govuk-summary-list__value">Ensure that we are only purchasing new hardware and software when it is clear that existing products cannot do the job</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Buy Better</dt><dd class="govuk-summary-list__value">If new products are necessary, then ensure that we are procuring or developing energy-efficient, durable items that are designed to be repaired, upgraded and re-used</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Use Better</dt><dd class="govuk-summary-list__value">Optimising the use of ICT products through their functional life, through proper maintenance, upgrades and sharing</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Use Longer</dt><dd class="govuk-summary-list__value">Extending the lifespan of devices or software to avoid premature disposal, through repair and refurbishment, and sharing to keep in use</dd></div></dl>
+To find out what to report on devices, see [measuring the impact of hardware](/digital-sustainability/measure/hardware).
 
 ## Hardware and sustainability
 
-IT Hardware has very significant ‘embodied’ environmental and social impacts coming from the sourcing of raw materials, processing, manufacture, distribution and disposal of equipment at the end of its life. These go beyond carbon to include things like:
+IT hardware has large embodied environmental and social impacts. They come from sourcing raw materials, processing, manufacture, distribution and disposal at the end of its life. They go beyond carbon to include:
 
 - freshwater use
 - eutrophication
@@ -61,4 +53,26 @@ IT Hardware has very significant ‘embodied’ environmental and social impacts
 - land use change, including deforestation
 - biodiversity loss
 
-Cloud services, AI and software all need hardware to run. Doing less of these things can indirectly reduce the need for more hardware.
+Cloud services, AI and software all need hardware to run. Using less of them can reduce the need for more hardware.
+
+## Circularity for hardware
+
+Circularity means using fewer primary resources and preventing unnecessary resource use and waste.
+
+The [Circular and Fair ICT Pact](https://circularandfairictpact.com/cfit-framework-cases/) sets out four principles:
+
+- buy less: buy new hardware and software only when existing products cannot do the job
+- buy better: if you need new products, buy or build energy-efficient, durable items designed to be repaired, upgraded and reused
+- use better: get the most from ICT products through their working life, with maintenance, upgrades and sharing
+- use longer: extend the life of devices and software through repair, refurbishment and sharing, to avoid early disposal
+
+<div class="govuk-inset-text">
+
+The UK government's [Critical Minerals Strategy](https://www.gov.uk/government/publications/uk-critical-minerals-strategy/vision-2035-critical-minerals-strategy) sets out a 10-year vision for securing the materials needed for economic growth and the clean energy transition. This includes 20% sourced from recycling and the circular economy.
+
+</div>
+
+Further reading from the Government Digital Sustainability Alliance:
+
+- [Hardware Lifecycle Management Toolkit](https://assets.publishing.service.gov.uk/media/6ad7573b8ef5e8a9fc8ed5f5/Circular_Economy_Working_Group_Hardware_Lifecycle_Management_Toolkit.pdf)
+- [Barriers to circularity recommendations paper](https://assets.publishing.service.gov.uk/media/684aa1f81c8d5c94e201ab63/Barriers_to_Circularity_Recommendations_Paper.pdf)

@@ -22,32 +22,34 @@ supportBox:
 ---
 ## E-waste
 
-This section applies only where a service retires or disposes of physical hardware, including equipment removed during replacement or decommissioning. Measure the hardware leaving the service during a defined reporting period, recording its total weight in kilograms and quantity (number of items), broken down by equipment type and destination. Do not estimate a share of a cloud provider or other supplier’s wider e-waste unless it can be reliably attributed to the service.
+This section applies only if your service retires or disposes of physical hardware, including equipment removed when it is replaced or decommissioned. Measure the hardware leaving the service during a set reporting period. Record its total weight in kilograms and the number of items, by equipment type and destination. Do not estimate a share of a cloud provider's or other supplier's wider e-waste unless you can reliably attribute it to the service.
 
 ### What to measure
 
-Record the following routes separately.
+Record each of these routes separately.
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Re-use</dt><dd class="govuk-summary-list__value">weight and number of items redeployed, sold, donated or refurbished for continued use, with confirmation of the destination.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Recycle</dt><dd class="govuk-summary-list__value">weight and number of items recycled. Supplier should provide breakdown of materials reclaimed where available.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Incinerate</dt><dd class="govuk-summary-list__value">weight and number of items sent for incineration Distinguish incineration with energy recovery from incineration without energy recovery.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Landfill</dt><dd class="govuk-summary-list__value">weight sent to landfill and number of items where identifiable, including any confirmed residues from treatment.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Reuse</dt><dd class="govuk-summary-list__value">Weight and number of items redeployed, sold, donated or refurbished for continued use, with confirmation of where they went</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Recycle</dt><dd class="govuk-summary-list__value">Weight and number of items recycled. The supplier should give a breakdown of materials recovered, where available.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Incinerate</dt><dd class="govuk-summary-list__value">Weight and number of items sent for incineration. Separate incineration with energy recovery from incineration without it.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Landfill</dt><dd class="govuk-summary-list__value">Weight sent to landfill, and number of items where you can identify them, including any confirmed residues from treatment</dd></div></dl>
+
+For what to ask hardware suppliers to report at end of life, read [measuring the impact of hardware](/digital-sustainability/measure/hardware).
 
 ## Other environmental and social impacts
 
 ### Environmental impacts
 
-There is currently no standarised service measurement methodology for environmental impacts such as resource depletion, land use change, biodiversity loss and pollution. If service teams are procuring IT, these impacts should be assessed through supplier assurance and contract monitoring to ensure due diligence and adherence to industry best practice.
+There is no standard method yet for measuring a service's other environmental impacts, such as resource depletion, land use change, biodiversity loss and pollution. If you are buying IT, assess these impacts through supplier assurance and contract monitoring, to check suppliers carry out due diligence and follow industry good practice.
 
 ### Resource depletion
 
-Hardware consumption can be used a proxy to measure resource depletion. Metrics can include:
+You can use hardware consumption as a proxy for resource depletion. Metrics can include:
 
-- Extending hardware lifespan beyond industry average (measured in years extended)
-- Quantity of hardware purchased split by new and second life
-- Utilisation of existing hardware: percentage of available capacity used over a defined period, tracking improvements that reduce idle capacity and the need for additional hardware.
+- how far you extend hardware lifespan beyond the industry average, in years
+- the quantity of hardware bought, split into new and second life
+- utilisation of existing hardware: the percentage of available capacity used over a set period, to track improvements that reduce idle capacity and the need for more hardware
 
 ### Social impacts
 
-There is no standardised service measurement methodology for social impacts, such as modern slavery and labour rights. If service teams are procuring IT, impacts should be assessed through supply chain diligence and adherence to industry best practice.
+There is no standard method for measuring a service's social impacts, such as modern slavery and labour rights. If you are buying IT, assess them through supply chain due diligence and industry good practice.
 
 ### Social value
 
-There may be contract specific social value deliverables for a service. Contract managers should measure delivery of these commitments.
+A contract for your service may include social value commitments. Contract managers should measure whether these are delivered.

@@ -1,7 +1,7 @@
 ---
 title: "6d. Take a sustainable approach to operating AI"
 caption: "Artificial intelligence"
-description: "Operate AI efficiently by matching models to tasks, reducing repeated processing, managing token use, optimising agentic workflows and using edge AI where appropriate."
+description: "Run AI efficiently: match each task to a suitable model, avoid repeated processing, track the tokens you use, trim agent workflows and run models locally where it helps."
 layout: section
 sectionNav: nav-ds-ai
 customNav: nav-digital-sustainability
@@ -23,63 +23,94 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** AI Engineer, Architect, Software
+**Applies to:** any team running AI in a service, internal tool or agent, on or off the Core Delivery Platform (CDP), including models you reach through a provider such as Amazon Bedrock.
 
-**Likely co-benefits:** Cost, service performance
+**Lead role families:** AI engineer, architect and software
 
 ---
 
 ## (i) Implement a multi-tiered approach to AI
 
-Rather than relying on a single solution, a multi-tier approach means the right AI model is selected for each task.
+A multi-tiered approach means choosing the right AI model for each task, rather than relying on one model for everything.
 
-Implementing a multi-tiered approach requires that a suitable range of AI technologies (such as AI agents, Large Language Models and decision models) are available in an organisation. User prompts and agent workflows can then be directed to the simplest and/or most cost-effective model capable of solving them reliably.
+It needs a range of AI technologies to be available, such as AI agents, large language models and decision models. Prompts and agent workflows then go to the simplest or most cost-effective model that can handle them reliably.
 
-A multi-tiered approach reduces waste by avoiding simple prompts being sent to complex models, and in this way reduces energy consumption.
-
-<details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
-<div class="govuk-details__text">
-
-- [Multi-LLM routing strategies for generative AI applications on AWS,](https://aws.amazon.com/blogs/machine-learning/multi-llm-routing-strategies-for-generative-ai-applications-on-aws/) Amazon Web Services
-
-</div>
-</details>
+This avoids sending simple prompts to complex models, which cuts waste and energy use.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits and trade-offs</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
-
-### Co-benefits
 
 Alongside sustainability impact, a multi-tiered approach to AI brings co-benefits in terms of:
 
-- Accuracy: Appropriate multi-tiered approach reduces risk of error within an AI workflow
-
-### Trade-offs
-
-Potential trade-offs may include:
-
-- Versatility: G
+- accuracy: matching each task to a suitable model reduces the risk of errors in an AI workflow
 
 </div>
 </details>
 
-See also [6a. (i) Be clear on the use case for AI](/digital-sustainability/actions/ai/need-and-readiness)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- complexity: routing prompts to different models adds a layer to build, test and maintain
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Multi-LLM routing strategies for generative AI applications on AWS](https://aws.amazon.com/blogs/machine-learning/multi-llm-routing-strategies-for-generative-ai-applications-on-aws/) (Amazon Web Services)
+
+</div>
+</details>
+
+See also [6a (i) Be clear on the use case for AI](/digital-sustainability/actions/ai/need-and-readiness).
 
 ---
 
 ## (ii) Implement prompt caching
 
-Prompt caching stores the frequently unchanged first part of an AI prompt so the model does not have to reprocess those tokens on every request.
+AI models read and write text in tokens, which are small chunks of words. Input tokens are what you send the model. Output tokens are what it sends back.
 
-This approach can reduce input token usage by as much as 80%, lowering energy use and costs significantly
+Prompt caching stores the first part of a prompt, when it stays the same between requests, so the model does not reprocess those tokens every time. This lowers the input tokens processed, which cuts energy use and cost.
+
+Prompt caching is not the same as caching results. The AI toolkit says to [cache results](/ai-toolkit/guidance/sustainability): store the model's responses to repeated, similar requests so you do not call the model again. Use both where they fit. Cached responses can go out of date, so decide how long to keep them.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [What is prompt caching?,](https://www.ibm.com/think/topics/prompt-caching/) IBM
+Alongside sustainability impact, prompt caching brings co-benefits in terms of:
+
+- cost: tokens read from the cache are usually billed at a lower rate than standard input
+- speed: the model skips reprocessing the cached part, so responses start sooner
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- short cache life: many prompt caches expire after a few minutes without use, so low-traffic services gain little
+- write cost: writing to the cache can cost more than standard input, so savings depend on reuse
+- prompt design: savings only come when the fixed part of the prompt sits at the start and stays unchanged
+- freshness: cached responses can be out of date, so set how long they are kept
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [What is prompt caching](https://www.ibm.com/think/topics/prompt-caching) (IBM)
 
 </div>
 </details>
@@ -88,60 +119,145 @@ This approach can reduce input token usage by as much as 80%, lowering energy us
 
 ## (iii) Implement token metering
 
-Token metering is the process of tracking the number of tokens consumed when interacting with an AI model.
+Token metering tracks the tokens your service uses when it calls an AI model. It can cover input tokens, from prompts, conversation history and files, and the output tokens the model generates.
 
-This can cover both the ‘input’ tokens (consumed through the prompts, conversation history and files provided to models) and the tokens associated with the ‘outputs’ that are generated in response.
+Token metering shows where you can make AI use more efficient. It can also guide model routing, where prompts go to smaller, task-specific models.
 
-Token metering provides insight into opportunities for optimisation of AI use, and can guide intelligent model routing, where prompts are matched to smaller, task-specific models.
+Measure input and output tokens together. Defra's [token optimisation pattern](/ai-toolkit/patterns/token-optimisation) found that when prompts were compressed, models wrote longer responses, which partly cancelled out the input savings. Fewer input tokens does not always mean less energy.
+
+Log token counts, not prompt text, unless you need the content. Full logs can hold personal data.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Tokens and greens: Measuring the impacts of agentic AI,](https://greensoftware.foundation/articles/tokens-and-greens-measuring-the-impacts-of-agentic-ai/) Green Software Foundation
-- [Return on AI: How CFOs and CIOs can manage the token meter,](https://www.bcg.com/publications/2026/managing-ai-token-costs/) Boston Consulting Group
+Alongside sustainability impact, token metering brings co-benefits in terms of:
+
+- cost: teams can see where tokens go and set budgets or alerts before costs grow
+- service performance: metering spots runaway prompts or agent loops early
+- governance: token data gives evidence for model choice and sustainability reporting
 
 </div>
 </details>
 
-See also [6d. (i) Implement a multi-tiered approach to AI](/digital-sustainability/actions/ai/operating)
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- proxy measure: tokens do not map directly to energy, which varies by model and hardware
+- overhead: dashboards and alerts take time to set up, and need someone to act on them
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Tokens and greens: measuring the impacts of agentic AI](https://greensoftware.foundation/articles/tokens-and-greens-measuring-the-impacts-of-agentic-ai/) (Green Software Foundation)
+- [Return on AI: how CFOs and CIOs can manage the token meter](https://www.bcg.com/publications/2026/managing-ai-token-costs/) (Boston Consulting Group)
+
+</div>
+</details>
+
+See also (i) Implement a multi-tiered approach to AI, on this page.
 
 ---
 
 ## (iv) Optimise agentic AI workflows
 
-Agents are autonomous AI systems that can make decisions and perform actions with minimal human supervision.
+AI agents are autonomous AI systems that make decisions and perform actions with little human supervision. In an agentic workflow, agents work through several steps, using tools and datasets and following set rules.
 
-An AI agentic workflow is a multi-step process within which agents make decisions and interact with tools and datasets following a set of predefined rules.
+Agentic AI can automate complex processes and save resources. But it also uses a lot of resources itself.
 
-Agentic AI has the potential to automate complex processes, deliver significant efficiencies and with this, resource savings. However Agentic AI also comes with significant resource consumption of its own.
-
-Optimising the workflow that AI agents follow ensures that energy consumption is reduced as far as possible while output quality is maximised.
+Design the workflow your agents follow so it makes as few model and tool calls as it needs, while keeping output quality high. In Defra, also read [working with AI agents](/ai-toolkit/guidance/working-with-agents).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [AI Insights: Agentic Workflow,](https://www.gov.uk/government/publications/ai-insights/ai-insights-agentic-workflow-html/) Department for Digital, Culture, Media & Sport and Government Digital Service
-- [Optimize agent orchestration to reduce unnecessary model calls,](https://patterns.greensoftware.foundation/development/optimize-agent-orchestration-reduce-model-calls/) Green Software Foundation
+Alongside sustainability impact, optimising agentic workflows brings co-benefits in terms of:
+
+- cost: fewer model and tool calls per task lower running costs
+- reliability: shorter, well-defined workflows are easier to test and give more predictable results
+- security: limiting which tools an agent can call reduces the harm if it is misled
+- speed: fewer steps mean users get a result sooner
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- versatility: tighter workflows handle unexpected cases less well and may need a human fallback
+- delivery time: finding which steps to cut takes evaluation, logging and testing
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [AI insights: agentic workflow](https://www.gov.uk/government/publications/ai-insights/ai-insights-agentic-workflow-html) (Department for Digital, Culture, Media and Sport and Government Digital Service)
+- [Optimize agent orchestration to reduce unnecessary model calls](https://patterns.greensoftware.foundation/development/optimize-agent-orchestration-reduce-model-calls/) (Green Software Foundation)
 
 </div>
 </details>
 
 ---
 
-## (v) Run AI models 'at the edge'
+## (v) Run AI models at the edge
 
-Instead of sending data to a model in the cloud, using AI 'at the edge' means running models directly on local hardware such as laptops, mobile phones, or edge servers.
+Running AI at the edge means running models on local hardware, such as laptops, mobile phones or edge servers, instead of sending data to a model in the cloud.
 
-This approach can mean that data is processed near its source, reducing network usage and overall energy consumption.
+Data is processed near where it is created, which reduces network use and can reduce overall energy use.
+
+Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) ran small models locally. They handled short summaries well and kept the source text on Defra infrastructure, but could not produce longer, detailed summaries.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Run AI models at the edge,](https://patterns.greensoftware.foundation/architecture/system-topology/run-ai-models-edge/) Green Software Foundation
-- [Foundation models at the edge,](https://www.ibm.com/think/insights/edge-ai-strategy/) IBM
+Alongside sustainability impact, running AI models at the edge brings co-benefits in terms of:
+
+- security: data can stay on the device, which reduces what is sent and stored elsewhere
+- speed: local inference avoids network round trips, so responses can be faster
+- resilience: local models can keep working with a poor connection or none
 
 </div>
 </details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- device capability: edge models need enough memory and processing power, which older devices may lack
+- inclusion: requiring newer devices can exclude some users and push early hardware replacement (see [8a. Extend the working life of hardware](/digital-sustainability/actions/hardware/extend-hardware-life))
+- device management: Defra Group IT manages staff devices, so local models need its approval and support
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Run AI models at the edge](https://patterns.greensoftware.foundation/architecture/system-topology/run-ai-models-edge/) (Green Software Foundation)
+- [Foundation models at the edge](https://www.ibm.com/think/insights/edge-ai-strategy) (IBM)
+
+</div>
+</details>
+
+---
+
+## How to measure this
+
+[Measuring the impact of AI](/digital-sustainability/measure/ai) explains how to use token counts to estimate energy use.

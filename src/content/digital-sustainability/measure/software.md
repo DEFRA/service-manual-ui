@@ -20,65 +20,73 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Measuring the environmental impacts produced by software can:
+Measuring the environmental impacts of software can:
 
-- Provide insight that can guide practitioners working on this aspect of digital services towards identifying how reductions can be made
-- Feed into estimates of the environmental impacts of a [whole service or project](/digital-sustainability/measure)
+- show the people working on software where they can make reductions
+- feed into estimates of the impacts of a [whole service or project](/digital-sustainability/measure)
 
-There are a number of methods to estimate software energy consumption, depending on whether:
+How you estimate the energy software uses depends on whether it:
 
-- Software runs in the cloud
-- Software runs on hardware that we can access
-- Software is consumed 'as a service'
+- runs in the cloud
+- runs on hardware you can access
+- is bought as a service
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about measuring software energy use</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading on measuring software energy use</span></summary>
 <div class="govuk-details__text">
 
-- [How to accurately measure the energy consumption of application software,](https://greensoftware.foundation/articles/how-to-accurately-measure-the-energy-consumption-of-application-software/) Green Software Foundation
-- [Software Energy Intensity (SEI),](https://greensoftware.foundation/standards/sei/) Green Software Foundation
-- [How to measure and reduce the carbon footprint of your application,](https://www.microsoft.com/en-gb/microsoft-cloud/blog/technetuk/2021/10/12/how-to-measure-and-reduce-the-carbon-footprint-of-your-application/) Microsoft
+- [How to accurately measure the energy consumption of application software](https://greensoftware.foundation/articles/how-to-accurately-measure-the-energy-consumption-of-application-software/) (Green Software Foundation)
+- [Software Energy Intensity (SEI)](https://greensoftware.foundation/standards/sei/) (Green Software Foundation)
+- [How to measure and reduce the carbon footprint of your application](https://www.microsoft.com/en-gb/microsoft-cloud/blog/technetuk/2021/10/12/how-to-measure-and-reduce-the-carbon-footprint-of-your-application/) (Microsoft)
 
 </div>
 </details>
 
 ---
 
-## Software running in the cloud
+## Software in the cloud
 
-When software applications run in the public cloud, we do not have access to power meters or sensors that can be used to directly measure energy use. Instead, assumptions must be used about the shared hardware it runs on and the rate at which that hardware is utilised.
+In the public cloud you cannot use power meters or sensors to measure energy directly. Instead, you make assumptions about the shared hardware the software runs on and how heavily it is used.
 
-The page on approaching measuring the [carbon for cloud computing](/digital-sustainability/measure/cloud-carbon) details approaches that can be taken to converting cloud usage metrics from supplier reporting and dashboards into energy use estimates.
-
----
-
-## Software running on visible hardware
-
-Software can run on equipment that is controlled by the organisation. This could be a laptop, or a server in an on-premises data centre.
-
-In these cases, measuring energy use can occur by:
-
-- Direct measurement of hardware power draw
-- Modelling of energy use through hardware utisilisation
-
-Guidance on taking these approaches can be found on the [energy use](/digital-sustainability/measure/hardware-energy) page in the measurement section.
+[Calculating carbon for services based in the cloud](/digital-sustainability/measure/cloud-carbon) explains how to turn cloud usage data from supplier reporting and dashboards into energy estimates.
 
 ---
 
-## Software-as-a-Service and other managed software
+## Software on hardware you can access
 
-Software is often consumed ‘as a service’, through Software-as-a-Service or Managed Software-as-a-Service models. In these circumstances the hosting and maintenance of software will be managed by a supplier and are outside of the direct control of teams working to design and develop government services.
+Software can run on equipment your organisation controls, such as a laptop or a server in an on-premises data centre.
 
-Where a service team has contact with the supplier, request the following metrics:
+You can then measure energy use by:
 
-- Energy consumption attributable to the software in kWh. For complex software comprising multiple applications, modules or functional components, energy consumption should be disaggregated at component level wherever possible.
-- Hosting location
-- Data centre Power Usage Effectiveness (PUE, if not accounted for in energy consumption)
-- Hardware embodied carbon
-- Hardware expected lifespan
+- measuring the power the hardware draws directly
+- modelling energy use from hardware utilisation
 
-Collecting these metrics is valuable, as although services cannot directly influence the hosting infrastructure, teams may be able to influence how the software is configured, used and managed. For example, services may be able to set data retention policies, storage configuration and usage configurations which impact the environmental footprint.
+Read about [estimating the energy use of hardware](/digital-sustainability/measure/hardware-energy).
 
-Metrics provided by suppliers can then be combined with the Greenhouse Gas (GHG) conversion factors for electricity and an appropriate functional unit to calculate the [Software Carbon Intensity](/digital-sustainability/measure/carbon-formula).
+---
 
-For complex software, it may be appropriate to calculate SCI scores at component level as a more granular assessment can highlight opportunities for targeted optimisation.
+## Software as a service
+
+Software is often bought as a service, through software as a service (SaaS) or managed SaaS. The supplier hosts and maintains the software, so it is outside the direct control of teams designing and building government services. It is still inside the [recommended boundary](/digital-sustainability/measure/boundaries-and-units).
+
+If you are in contact with the supplier, ask for:
+
+- the energy the software uses, in kWh, broken down by application, module or component where possible for complex software
+- the hosting location
+- the data centre's power usage effectiveness (PUE), if it is not already in the energy figure
+- the embodied carbon of the hardware
+- the expected lifespan of the hardware
+
+These metrics are worth collecting. You cannot change the supplier's infrastructure, but you may be able to change how the software is configured, used and managed. For example, you may be able to set data retention policies, storage settings and usage settings that affect its footprint.
+
+Combine the supplier's figures with the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) for electricity, and a suitable functional unit, to calculate the [Software Carbon Intensity (SCI)](/digital-sustainability/measure/carbon-formula).
+
+For complex software, it may help to calculate an SCI score for each component. A more detailed assessment can show where to target improvements.
+
+---
+
+## Reuse of components
+
+Reusing software components is part of Defra's objective to put circular practices into action. Record:
+
+- the proportion of software components you reuse, compared with those you build from scratch

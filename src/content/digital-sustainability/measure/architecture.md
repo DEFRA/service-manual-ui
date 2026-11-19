@@ -20,14 +20,20 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-Measuring the environmental impacts of service architecture can:
+Measuring the environmental impacts of a service's architecture can:
 
-- Provide insight that can guide practitioners working on this aspect of digital services towards identifying how reductions can be made
-- Feed into estimates of the environmental impacts of a [whole service or project](/digital-sustainability/measure)
+- show architects where they can make reductions
+- feed into estimates of the impacts of a [whole service or project](/digital-sustainability/measure)
 
-Architects may find it useful to look at specific components of a service, rather than the total figures. Usage metrics from cloud providers dashboards, usage reports and monitoring tools can be used as a proxy to guide architectural decisions.
+Architects often get more from looking at specific components than at total figures. Usage metrics from cloud provider dashboards, usage reports and monitoring tools can act as [proxies](/digital-sustainability/measure/data-and-proxies) to guide architectural decisions.
 
-Guidance on approaching estimating energy and carbon for services based in the cloud and on- and off- premises data centres can be found on these pages:
+## What to track
 
-- [Cloud data centres](/digital-sustainability/measure/cloud-carbon)
-- [On- and off- premises data centres](/digital-sustainability/measure/data-centre-carbon)
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Metric</th><th scope="col" class="govuk-table__header">What it shows</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Average and peak CPU and memory utilisation (%)</th><td class="govuk-table__cell">Whether the service is efficiently provisioned, with servers kept busy</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Number of idle, underused or over-provisioned resources</th><td class="govuk-table__cell">Unused assets to remove and resources to right-size</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Running hours, by environment</th><td class="govuk-table__cell">Whether environments are turned on only when they are needed</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Proportion of architectural components reused, compared with those built from scratch</th><td class="govuk-table__cell">Progress on Defra's objective to put circular practices into action</td></tr></tbody></table>
+
+## Turn usage into energy and carbon
+
+To convert usage metrics into energy and carbon estimates, read:
+
+- [calculating carbon for services based in the cloud](/digital-sustainability/measure/cloud-carbon)
+- [calculating carbon for services using on-premises or off-premises data centres](/digital-sustainability/measure/data-centre-carbon)

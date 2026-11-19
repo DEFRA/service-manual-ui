@@ -1,7 +1,7 @@
 ---
-title: "2c. Reduce and simplify offline channels while maintaining inclusivity"
+title: "2c. Reduce and simplify offline channels without excluding people"
 caption: "Journeys and processes"
-description: "Digitalisation can bring sustainability benefit as user interactions through digital channels are usually less resource intensive than those occurring offline through paper forms, or in-person and telephone interactions."
+description: "Digital channels usually use fewer resources than paper, phone or face-to-face contact. Reduce offline channels where you can, and keep them for people who cannot use digital services."
 layout: section
 sectionNav: nav-ds-journeys-and-processes
 customNav: nav-digital-sustainability
@@ -16,94 +16,89 @@ breadcrumbItems:
     href: /digital-sustainability/actions
   - text: "Journeys and processes"
     href: /digital-sustainability/actions/journeys-and-processes
-  - text: "2c. Reduce and simplify offline channels while maintaining inclusivity"
+  - text: "2c. Reduce and simplify offline channels without excluding people"
 supportBox:
   title: Get support
   description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-However, offline channels must be available as accessible alternatives for people who cannot use digital services.
+**Applies to:** services on and off CDP that use paper, phone or face-to-face channels, and the staff processes behind them.
 
-**Lead role families:** Design, Product & Delivery
+**Lead role families:** Design, and Product and delivery
 
-**Likely co-benefits:** Cost, accessibility, inclusivity
+The GOV.UK Service Manual says teams must plan to keep increasing digital take-up. Digital take-up is the percentage of people who use a service online rather than through other channels. You must still provide offline channels for people who lack access to digital technology or the skills to use it, and those channels must be accessible. Read [make sure everyone can use the service](/accessibility) and [measuring digital take-up](https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up) (GOV.UK Service Manual).
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about digital take-up and offline channels</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-### Digital take-up
-
-Digital take-up is a measure of the the percentage of people using services online in relation to other channels.
-
-The GOV.UK Service Manual states that teams must plan to continually increase digital take-up, whilst still ensuring that offline channels are provided for those who lack access to digital technology or the skills to use it.
-
-- [Measuring digital take-up,](https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up) GOV.UK Service Manual
-- [Provide a joined up experience across all channels,](https://www.gov.uk/service-manual/service-standard/point-3-join-up-across-channels/) Point 3, GOV.UK Service Standard
-- [Making your service more inclusive,](https://www.gov.uk/service-manual/design/making-your-service-more-inclusive/) GOV.UK Service Manual
-- [The importance of creating inclusive government services,](https://gds.blog.gov.uk/2018/06/29/building-inclusive-government-services/) Ben Carpenter, Government Digital Service Blog
+- [Provide a joined up experience across all channels](https://www.gov.uk/service-manual/service-standard/point-3-join-up-across-channels) (GOV.UK Service Standard, point 3)
+- [Making your service more inclusive](https://www.gov.uk/service-manual/design/making-your-service-more-inclusive) (GOV.UK Service Manual)
+- [The importance of creating inclusive government services](https://gds.blog.gov.uk/2018/06/29/building-inclusive-government-services/) (Government Digital Service blog)
 
 </div>
 </details>
 
 ---
 
-### (i) Design to reduce consumption of paper, printing and postage
+## (i) Design to reduce paper, printing and postage
 
-Paper is often used for physical documents that users fill out and submit to access services, as well as by staff supporting them.
+Paper is often used for forms that users fill in and send to access services, and by the staff who support them.
 
-Where appropriate, design services and processes to reduce consumption of paper and printing and postage through digitisation.
+Design services and processes to use less paper, printing and postage, for example by digitising forms.
 
-Consider that sometimes paper forms will be needed to support digitally excluded users. In some circumstances, staff supporting delivering of the service may also need paper. For example, vets conducting visits to farms as part of Defra services need to use paper rather than digital devices.
+Paper forms may still be needed for people who are digitally excluded. Staff who deliver the service may need paper too. For example, vets visiting farms as part of Defra services use paper rather than digital devices.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [Making government services more efficient,](https://cddo.blog.gov.uk/2023/04/14/making-government-services-more-efficient/) Government Digital & Data Blog
+- [Making government services more efficient](https://cddo.blog.gov.uk/2023/04/14/making-government-services-more-efficient/) (Government Digital and Data blog)
 
 </div>
 </details>
 
 ---
 
-### (ii) Design to reduce telephone interactions
+## (ii) Design to reduce phone calls
 
-Service journeys may involve telephone interactions between individuals or businesses and staff working on behalf of government departments.
+Some journeys involve phone calls between users and staff working for government. The infrastructure behind phone channels can use a lot of resources.
 
-The infrastructure required for telephone channels may lead to significant resource use and associated environmental impacts.
-
-Ensure that the need for telephone interactions are clearly established. Consider how telephone interactions can be reduced, whilst ensuring that appropriate telephone channels are in place to prevent the exclusion of users who lack digital access, trust, or skills, and to offer assisted digital support.
+Find out why people phone. Remove the reasons you can. Keep a phone line for people who need it, including people who lack digital access, trust or skills, and for assisted digital support.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [Ringing in success with the GOV.UK One Login contact centre,](https://gds.blog.gov.uk/2024/10/16/ringing-in-success-with-the-gov-uk-one-login-contact-centre/) Government Digital Service Blog
+- [Ringing in success with the GOV.UK One Login contact centre](https://gds.blog.gov.uk/2024/10/16/ringing-in-success-with-the-gov-uk-one-login-contact-centre/) (Government Digital Service blog)
 
 </div>
 </details>
 
 ---
 
-### (iii) Design to reduce user and staff travel
+## (iii) Design to reduce travel
 
-Services may require users or staff to travel for in-person interactions such as appointments, assessments or site visits.
+Some services need users or staff to travel for appointments, assessments or site visits.
 
-Consider opportunities to reduce the need for user travel and in-person interactions, whilst understanding when or if face-to-face human interaction maybe be more effective, or needed alongside digital touchpoints to deliver desired policy outcomes.
+Cut travel where you can. Keep face-to-face contact where research shows it works better, or where it is needed alongside digital steps to achieve the policy outcome.
 
-In-person interactions may be particularly important for services intended to shift behaviours, rather than those that are purely transactional. For example, farmers signing up for new farming subsidies.
+Face-to-face contact can matter most for services that aim to change behaviour rather than complete a transaction, for example farmers signing up for new farming subsidies. Good social and user research shows when digital and human contact will work best.
 
-Robust social and user research can help a team better understand when digital and human touchpoints will be most effective in service delivery.
-
-Where appropriate, allow people to make an informed decision about when to travel.
+Where you can, give people the information they need to decide when to travel.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [Measuring the face-to-face interactions of a service,](https://userresearch.blog.gov.uk/2019/04/01/measuring-the-face-to-face-interactions-of-a-service/) User research in government blog
+- [Measuring the face-to-face interactions of a service](https://userresearch.blog.gov.uk/2019/04/01/measuring-the-face-to-face-interactions-of-a-service/) (User research in government blog)
 
 </div>
 </details>
+
+---
+
+## How to measure this
+
+To measure travel, buildings, paper and printing, read [measuring the impact of service journeys and processes](/digital-sustainability/measure/journeys-and-processes).

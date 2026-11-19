@@ -134,7 +134,7 @@ body {
   // Align headings and body with the tiles and version banner
   .govuk-heading-l,
   .govuk-heading-m:not(.defra-tile__title),
-  .govuk-body {
+  .govuk-body:not(.defra-tile__body) {
     margin-left: -15px;
   }
 }

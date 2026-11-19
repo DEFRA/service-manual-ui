@@ -1,7 +1,7 @@
 ---
 title: "7a. Choose data centres in more sustainable locations"
 caption: "Hosting"
-description: "Choose data centre locations with access to low-carbon electricity, efficient infrastructure and sustainable water management, while meeting operational, resilience and data requirements."
+description: "Choose data centre locations with low-carbon electricity and good water availability, while meeting your operational, resilience and data requirements."
 layout: section
 sectionNav: nav-ds-hosting
 customNav: nav-digital-sustainability
@@ -23,31 +23,60 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Lead role families:** Procurement, Product & Delivery
+**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP cannot choose where its service is hosted, so this is a decision for the platform and commercial teams.
+
+**Lead role families:** Procurement, Product and delivery, and Architecture
 
 ---
 
-## (i) Choose providers with regions (or sites) with renewable energy available
+## (i) Choose regions or sites with renewable energy
 
-Data centres can be powered by low-carbon energy, either because they are located in regions with a high proportion of renewables available on the electricity grid, or because they have clean sources of energy generated on-site.
+Data centres can run on low-carbon electricity because the local grid has a high share of renewables, or because they generate clean energy on site.
 
-Where possible, choose hosting providers with sites or in regions that have higher proportions of renewable energy available.
+Where you can, choose providers with sites or regions that have more renewable energy.
 
-Renewable energy usage by data centres can be assessed by compliance with standards such as EnergyTag, which help to identify and avoid loopholes.
+Standards such as EnergyTag help you check a data centre's renewable energy claims and spot loopholes in them.
+
+Carbon usage effectiveness (CUE) compares a data centre's total carbon emissions with the energy its IT equipment uses. Ask providers for it alongside their renewable energy figures.
 
 <div class="govuk-inset-text">
 
-While UK government services may be limited to remaining in the UK for sovereignity reasons, there are usually marked differences between carbon intensity of the electricity supply within the UK, e.g. between south Wales and Scotland, so shifting location within the UK may still be of environmental benefit.
+Most government services must be hosted in the UK. Carbon intensity varies across the UK, for example between south Wales and Scotland, so a cleaner site still cuts emissions.
 
 </div>
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Data centre siting in the UK,](https://www.gov.uk/government/publications/data-centre-siting-in-the-uk/data-centre-siting-in-the-uk/) Government Office for Science
-- [Data centres: planning policy, sustainability, and resilience,](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) House of Commons Library
-- [Regional renewable electricity in 2025,](https://assets.publishing.service.gov.uk/media/6aba6e97fceb6fb3a65012bf/Regional_renewable_electricity_in_2025.pdf/) UK Government
+Alongside sustainability impact, choosing regions with more renewable energy brings co-benefits in terms of:
+
+- compliance: lower-carbon hosting helps departments meet their emissions targets and reporting duties
+- resilience: sites with on-site generation and storage are less exposed to grid disruption
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- limited choice: for services on CDP this is a platform decision
+- data residency: moving outside the UK can raise sovereignty and data protection issues
+- claims: market-based renewable claims may not match the grid mix when your service runs, so ask for location-based figures too
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Data centre siting in the UK](https://www.gov.uk/government/publications/data-centre-siting-in-the-uk/data-centre-siting-in-the-uk) (Government Office for Science)
+- [Data centres: planning policy, sustainability, and resilience](https://commonslibrary.parliament.uk/research-briefings/cbp-10315/) (House of Commons Library)
+- [Regional renewable electricity in 2025](https://assets.publishing.service.gov.uk/media/6aba6e97fceb6fb3a65012bf/Regional_renewable_electricity_in_2025.pdf) (UK government)
 
 </div>
 </details>
@@ -56,25 +85,46 @@ While UK government services may be limited to remaining in the UK for sovereign
 
 ## (ii) Choose providers with good water availability
 
-Data centres can be located in regions that are water-stressed. This is where the demand for freshwater exceeds the available supply during a certain period of the year. Even within the UK, regions vary significantly in terms of water-stress.
+Some data centres are in water-stressed regions, where demand for fresh water is greater than the supply for part of the year. Even within the UK, water stress varies a lot between regions.
 
-Choose providers with data centres in regions that have good freshwater availability and are not water-stressed or likely to experience water shortages.
+Choose providers with data centres in regions that have good freshwater availability and are not water-stressed or likely to face shortages.
 
 <details class="govuk-details">
-<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about implementing this point</span></summary>
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-- [Water availability: National Framework for Water Resources 2025,](https://www.gov.uk/government/publications/national-framework-for-water-resources-2025-water-for-growth-nature-and-a-resilient-future/4-water-availability-national-framework-for-water-resources-2025/) Environment Agency
+Alongside sustainability impact, choosing sites with good water availability brings co-benefits in terms of:
+
+- resilience: sites outside water-stressed areas are less likely to face cooling limits in a drought
+- compliance: lower water use supports the water targets in the Greening Government Commitments
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
+<div class="govuk-details__text">
+
+Potential trade-offs may include:
+
+- carbon or water: the lowest-carbon site may be in a drier region, so weigh both
+- limited data: providers often report water use by region rather than by data centre, so site comparisons are hard
+- limited choice: services on CDP share the platform's hosting, so teams cannot choose sites
+
+</div>
+</details>
+
+<details class="govuk-details">
+<summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
+<div class="govuk-details__text">
+
+- [Water availability: National Framework for Water Resources 2025](https://www.gov.uk/government/publications/national-framework-for-water-resources-2025-water-for-growth-nature-and-a-resilient-future/4-water-availability-national-framework-for-water-resources-2025) (Environment Agency)
 
 </div>
 </details>
 
 ---
 
-## (iii) Choose providers with data centres that are closest to users
+## How to measure this
 
-A data centre can be located close to a digital service's users, or on the other side of the planet.
-
-Choosing a hosting provider close to the majority of your users shortens the distance a network packet travels so that less energy is required to transmit it.
-
----
+[Measuring the impact of hosting](/digital-sustainability/measure/hosting) lists the energy, carbon and water figures to ask providers for.
