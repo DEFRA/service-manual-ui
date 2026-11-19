@@ -1,7 +1,7 @@
 ---
 title: "9b. Embed the digital sustainability actions into procurements"
 caption: "Procurement"
-description: "Write the relevant digital sustainability actions into requirements and contracts, ask suppliers for the data you need to measure them, and ask suppliers to show which actions they have delivered."
+description: "Write the relevant digital sustainability actions into requirements and contracts. Ask suppliers for the data you need to measure them, and to show which actions they have delivered."
 layout: section
 sectionNav: nav-ds-procurement
 customNav: nav-digital-sustainability
@@ -68,7 +68,7 @@ Potential trade-offs may include:
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [PPN 006: taking account of carbon reduction plans in the procurement of major government contracts](https://www.gov.uk/government/publications/ppn-006-taking-account-of-carbon-reduction-plans-in-the-procurement-of-major-government-contracts) (Cabinet Office): carbon reduction plans for contracts over £5 million a year
+- [PPN 006: taking account of carbon reduction plans in the procurement of major government contracts](https://www.gov.uk/government/publications/ppn-006-taking-account-of-carbon-reduction-plans-in-the-procurement-of-major-government-contracts) (Cabinet Office): a procurement policy note (PPN) on carbon reduction plans for contracts over £5 million a year
 - [PPN 002: taking account of social value in the award of contracts](https://www.gov.uk/government/publications/ppn-002-taking-account-of-social-value-in-the-award-of-contracts) (Cabinet Office): how to weight social value, including environmental outcomes, when awarding contracts
 - [Procurement Act 2023 guidance documents](https://www.gov.uk/government/collections/procurement-act-2023-guidance-documents) (Cabinet Office): guidance on running procurements under the Act
 
@@ -103,22 +103,33 @@ See [measuring the impact of software](/digital-sustainability/measure/software)
 - an AI Energy Score, or an equivalent benchmark, for each proposed model, and its energy use
 - an attributional lifecycle assessment (LCA) of each proposed model, verified to ISO 14040 and 14044
 
-The LCA should cover the model and the data, hardware, networking and infrastructure it uses through development, training and deployment. It should cover four stages:
+An attributional LCA adds up the impacts attributable to the product itself. It should cover the model and the data, hardware, networking and infrastructure it uses. It should cover development, training and deployment, in four stages:
 
 - A, raw material acquisition: mining, extracting and processing the materials, and the energy, water and other resources this uses
 - B, production of devices: production and assembly, manufacturer support, support equipment and ICT-specific site construction
-- C, use: acquiring, processing and storing training data, training (including research and development, retraining and fine-tuning), running the model to answer requests (inference), network transfer, support equipment, and operator and service provider support
+- C, use: acquiring, processing and storing training data, and training, including research and development, retraining and fine-tuning. Also running the model to answer requests (inference), network transfer, support equipment, and operator and service provider support.
 - D, end of life: preparing ICT goods for reuse, and storage, disassembly, dismantling and crushing
 
-At minimum, it should report energy use in watt-hours (Wh), greenhouse gas emissions in grams of carbon dioxide equivalent (gCO2e), water use in litres or cubic metres, and abiotic resource depletion in kilograms of antimony equivalent (kgSb-e).
+At minimum, it should report:
 
-If the supplier cannot provide an LCA, ask for measured figures or verified estimates for training data, training, inference (as a median per token, or per inference if the model does not use tokens) and the embodied impact of the hardware used.
+- energy use in watt-hours (Wh)
+- greenhouse gas emissions in grams of carbon dioxide equivalent (gCO2e)
+- water use in litres or cubic metres
+- abiotic resource depletion, the use of minerals and metals, in kilograms of antimony equivalent (kgSb-e)
+
+If the supplier cannot provide an LCA, ask for measured figures or verified estimates for:
+
+- training data
+- training
+- inference, as a median per token, or per inference if the model does not use tokens
+- the embodied impact of the hardware used
 
 See [measuring the impact of AI](/digital-sustainability/measure/ai).
 
 ### Hardware
 
-- the number of new devices meeting Type 1 ecolabels, such as EPEAT or TCO Certified, and Type 2 ecolabels
+- the number of new devices meeting Type 1 ecolabels (independently certified), such as EPEAT or TCO Certified
+- the number of new devices meeting Type 2 ecolabels (claims made by the manufacturer or seller itself)
 - lifecycle assessment or product carbon footprint figures, such as power use, embodied carbon, embodied water and recycled content
 - device monitoring: energy use in kWh, greenhouse gas emissions, devices kept beyond the standard refresh cycle, and refurbished or remanufactured devices deployed
 - end of life: the volume of hardware repaired, refurbished, redeployed, reused, recycled, incinerated or landfilled, and confirmation that data was securely sanitised or destroyed

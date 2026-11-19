@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, platforms and infrastructure projects on and off CDP. CDP runs services in containers, so on CDP much of the portability in point (ii) is already built in.
+**Applies to:** services, platforms and infrastructure projects on and off the Core Delivery Platform (CDP). CDP runs services in containers, so on CDP much of the portability in point (ii) is already built in.
 
 **Lead role families:** Architecture and IT operations
 
@@ -33,7 +33,7 @@ supportBox:
 
 A traditional monolithic application is built, compiled and deployed as one self-contained unit. More modular patterns break it into self-contained, reusable parts:
 
-- a modular monolith is still one application, but split into independent, loosely coupled modules
+- a modular monolith is still one application, but split into independent, loosely coupled modules, each depending little on the others
 - a microservice architecture structures an application as a set of small, independent, loosely coupled services
 
 Modular approaches can help sustainability because they:
@@ -122,7 +122,7 @@ CDP runs services in containers, so if you are on CDP you already have much of t
 
 Alongside sustainability impact, portable workloads bring co-benefits in terms of:
 
-- cost: more choice about where workloads run lets you optimise for cost and avoid vendor lock-in
+- cost: more choice about where workloads run lets you optimise for cost and avoid being locked in to one supplier (vendor lock-in)
 - resilience: workloads can be moved or scaled across environments
 - performance: you can choose where a workload runs, such as the region, provider or type of infrastructure
 

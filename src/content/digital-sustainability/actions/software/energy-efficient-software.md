@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software on and off CDP, including internal tools. On CDP, the frontend template renders pages on the server, so much of points (i) and (iii) is already done for you.
+**Applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the frontend template renders pages on the server, so much of points (i) and (iii) is already done for you.
 
 **Lead role families:** Software and Architecture
 
@@ -35,7 +35,7 @@ Progressive enhancement is a way of building websites and applications so that c
 
 It reduces reliance on heavy JavaScript and processing in the browser, so it uses less energy.
 
-Defra's [software development standards](/software-development#approved-technologies-and-languages) say to build pages with the GOV.UK Frontend Nunjucks templates and vanilla JavaScript, not frontend frameworks such as React or Vue. Following them takes you most of the way.
+Defra's [software development standards](/software-development#approved-technologies-and-languages) say to build pages with the GOV.UK Frontend Nunjucks templates and vanilla JavaScript, which is plain JavaScript without a framework. They rule out frontend frameworks such as React or Vue. Following them takes you most of the way.
 
 For the design side, see [design for text-based journeys](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
 
@@ -77,9 +77,9 @@ Trade-offs from developing software for progressive enhancement may include:
 
 ## (ii) Optimise code
 
-Optimising code means changing software to make it more efficient without changing what it does. Refactoring, restructuring code without changing its function, does the same over time.
+Optimising code means changing software to make it more efficient without changing what it does. Refactoring means restructuring code without changing what it does. It makes code more efficient over time.
 
-Use code reviews to find obsolete code and features, and remove them regularly, so the codebase does not build up unnecessary complexity. Profile your code to find the parts that use the most time or resources, and fix those first.
+Use code reviews to find obsolete code and features, and remove them regularly, so the codebase does not build up unnecessary complexity. Use a profiler, a tool that measures where code spends time and resources, to find the most costly parts. Fix those first.
 
 Optimised code uses less processor (CPU), memory and network, so it uses less energy.
 
@@ -120,7 +120,7 @@ The W3C [Web Sustainability Guidelines](https://www.w3.org/TR/web-sustainability
 - [Avoid redundancy and duplication in code](https://www.w3.org/TR/web-sustainability-guidelines/#avoid-redundancy-and-duplication-in-code) (guideline 3.4)
 - [Ensure code follows good semantic practices](https://www.w3.org/TR/web-sustainability-guidelines/#ensure-code-follows-good-semantic-practices) (guideline 3.6)
 
-Also read [SUS03-BP03 Optimize areas of code that consume the most time or resources](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_software_a4.html) (Amazon Web Services): using profilers and code review to find and fix the most resource-hungry code.
+Also read [SUS03-BP03 Optimize areas of code that consume the most time or resources](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_software_a4.html) (Amazon Web Services). It covers using profilers and code review to find and fix the most resource-hungry code.
 
 </div>
 </details>
@@ -176,7 +176,7 @@ Caching stores frequently used data in a temporary store, the cache, so it can b
 
 - the browser
 - content delivery networks (CDNs)
-- application programming interfaces (APIs)
+- application programming interfaces (APIs), the way systems ask each other for data
 
 Caching cuts repeated processing and data transfer, so it uses less energy.
 

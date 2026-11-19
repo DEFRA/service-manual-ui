@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, platforms and infrastructure projects in the public cloud, on and off CDP. On CDP, the platform manages much of the infrastructure, so ask the CDP team which of these settings you control.
+**Applies to:** services, platforms and infrastructure projects in the public cloud, on and off the Core Delivery Platform (CDP). On CDP, the platform manages much of the infrastructure, so ask the CDP team which of these settings you control.
 
 **Lead role families:** Architecture and IT operations
 
@@ -151,7 +151,7 @@ Spot instances are spare cloud computing capacity on physical servers that are a
 
 Spot instances make better use of data centres. You get more useful output for each unit of energy, and less extra hardware is needed.
 
-To use spot instances, a workload needs flexible start and end times, such as batch processing or continuous integration and continuous delivery (CI/CD) pipelines. See [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads).
+To use spot instances, a workload needs flexible start and end times. Examples are batch processing and continuous integration and continuous delivery (CI/CD) pipelines, which automatically build, test and release code. See [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -170,7 +170,7 @@ Alongside sustainability impact, using spot instances brings co-benefits in term
 
 Potential trade-offs may include:
 
-- workload suitability: spot instances do not suit critical, stateful or latency-sensitive services
+- workload suitability: spot instances do not suit critical services, stateful services that keep data between requests, or latency-sensitive services that must respond instantly
 
 </div>
 </details>
@@ -192,9 +192,9 @@ Potential trade-offs may include:
 
 A service mesh is a layer of infrastructure that handles communication between microservices.
 
-A service mesh can make traffic between microservices more efficient and save energy there, but it also uses energy through extra compute and overhead.
+A service mesh can make traffic between microservices more efficient, which saves energy. But it also uses energy through extra compute and overhead.
 
-Decide carefully whether your project or service needs one. A service mesh is more likely to help a complex service, and may be unnecessary for a smaller system or a simpler architecture. For modular patterns, see [design for modular architectural patterns](/digital-sustainability/actions/architecture/flexible-workloads).
+Decide carefully whether your project or service needs one. A service mesh is more likely to help a complex service. It may be unnecessary for a smaller system or a simpler architecture. For modular patterns, see [design for modular architectural patterns](/digital-sustainability/actions/architecture/flexible-workloads).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -237,7 +237,7 @@ Potential trade-offs may include:
 
 Platform and serverless models let you build and run applications without managing server infrastructure yourself. They cut over-provisioning because they can scale down when inactive, which improves efficiency and uses less energy.
 
-In Defra, the shared platform is CDP, and the [software development guidance](/software-development) expects services to build on it. Anything else is managed as an exception through the Delivery Architecture team's governance process, so serverless needs a recorded architecture decision.
+In Defra, the shared platform is CDP, and the [software development guidance](/software-development) expects services to build on it. The Delivery Architecture team manages anything else as an exception through its governance process. So serverless needs a recorded architecture decision.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

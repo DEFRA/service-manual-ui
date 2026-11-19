@@ -41,11 +41,11 @@ To measure the energy used by the software behind digital steps, and convert it 
 
 Websites and web applications have some measures you can observe and use as [proxies](/digital-sustainability/measure/data-and-proxies) for energy use. They can guide the decisions of the people designing them. Proxies include:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page load speed</dt><dd class="govuk-summary-list__value">Measure <a class="govuk-link" href="https://web.dev/articles/lcp">Largest Contentful Paint (LCP)</a> (web.dev). This approach assumes that faster, leaner pages use less device and network energy.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page weight</dt><dd class="govuk-summary-list__value">The transfer size of a page, in bytes. Online page carbon calculators and models such as the <a class="govuk-link" href="https://sustainablewebdesign.org/">Sustainable Web Design Model</a> and CO2.js multiply page weight by an energy intensity factor to estimate the carbon from sending the page to the user.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page load speed</dt><dd class="govuk-summary-list__value">Measure <a class="govuk-link" href="https://web.dev/articles/lcp">Largest Contentful Paint (LCP)</a> (web.dev): how long the main content takes to appear. This approach assumes that faster, leaner pages use less device and network energy.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Page weight</dt><dd class="govuk-summary-list__value">The transfer size of a page, in bytes. Online page carbon calculators and models such as the <a class="govuk-link" href="https://sustainablewebdesign.org/">Sustainable Web Design Model</a> and CO2.js multiply page weight by an energy intensity factor to estimate the carbon from sending the page to the user.</dd></div></dl>
 
 ### (ii) Other proxies
 
-Other proxies can also act as directional indicators and guide the design of digital journey steps. These include:
+Other proxies can also act as directional indicators: if the proxy goes down, the impact should go down too. They can guide the design of digital journey steps. These include:
 
 - user time on task, such as registering or submitting data
 - user task completion rate
@@ -64,7 +64,7 @@ Proxies for internal business processes might include:
 
 To estimate the environmental impacts of offline steps in service journeys and business processes, you usually combine:
 
-- life cycle assessments (LCA)
+- life cycle assessments (LCA), which add up a product's impacts from raw materials to disposal
 - activity-based measures, which take inputs such as transport methods and distances and use conversion factors to estimate energy or carbon
 
 The [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) cover activities such as fuel and electricity use, travel, freight and waste.
@@ -79,7 +79,7 @@ Some tools can help estimate the impact of user or staff travel. These include:
 
 - the [Deloitte Travel Emissions Calculator](https://www.deloitte.com/uk/en/issues/climate/content/travel-emissions-calculator.html), which combines distance-based travel emissions with hotel stays to estimate emissions for a single trip, event or project
 - the [BlocCarbon Travel Carbon Calculator](https://bloccarbon.com/calculators/travel), which estimates and compares emissions for different transport, including cars, buses, trains and flights
-- the [University of Manchester Carbon Emissions Saving Tool](https://carbon.manchester.ac.uk/), which compares the carbon footprint of point-to-point journeys by air, rail, ferry, electric car and fossil-fuel car, and shows the savings from switching
+- the [University of Manchester Carbon Emissions Saving Tool](https://carbon.manchester.ac.uk/), which compares the carbon footprint of point-to-point journeys by air, rail, ferry, electric car and fossil-fuel car. It shows the savings from switching
 
 ### (ii) Buildings and facilities
 
@@ -93,7 +93,13 @@ If you cannot measure directly, share out the building's consumption by floor ar
 
 ### (iii) Paper and post
 
-To estimate the impact of physical items such as posted letters, measure the number, weight and delivery class of letters or parcels, transport distances, failed deliveries and returns. Combine these figures with the UK government conversion factors to estimate carbon emissions.
+To estimate the impact of physical items such as posted letters, measure:
+
+- the number, weight and delivery class of letters or parcels
+- transport distances
+- failed deliveries and returns
+
+Combine these figures with the UK government conversion factors to estimate carbon emissions.
 
 ### (iv) Call centre interactions
 

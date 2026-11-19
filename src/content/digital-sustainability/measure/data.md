@@ -31,7 +31,7 @@ You can measure data in 3 ways:
 
 - absolute metrics, such as the total volume of data stored or transferred
 - time metrics, such as monthly storage growth
-- intensity metrics, which divide absolute and time metrics by a unit of service activity, such as data stored per user or data transferred per transaction
+- intensity metrics, which divide absolute and time metrics by a unit of service activity. For example, data stored per user or data transferred per transaction
 
 <div class="govuk-inset-text">
 
@@ -79,7 +79,7 @@ This section covers data storage and transfer. For compute, read [calculating ca
 
 Apply energy use factors to data storage and transfer figures to get a total energy figure. Cloud and data centre providers usually do not publish energy or carbon figures for data storage, so use industry estimates. They are approximate, but they help you track trends and check improvements.
 
-The [Impact of growth of data centres on energy consumption](https://assets.publishing.service.gov.uk/media/689d9dc487bf475940723f6c/impact-of-growth-of-data-centres.pdf) report (2025, Department for Energy Security and Net Zero, PDF) used these estimates of energy use a year:
+The Department for Energy Security and Net Zero supported a 2025 report, [Impact of growth of data centres on energy consumption](https://assets.publishing.service.gov.uk/media/689d9dc487bf475940723f6c/impact-of-growth-of-data-centres.pdf) (PDF). It used these estimates of energy use a year:
 
 <table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Data type</th><th scope="col" class="govuk-table__header">Estimates</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Storage</th><td class="govuk-table__cell"><p class="govuk-body">Long-term storage at:</p><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>0.0025 kWh per GB for HDDs (cold storage)</li><li>0.005 kWh per GB central estimate (warm storage)</li><li>0.008 kWh per GB for SSDs (hot storage)</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Transfer</th><td class="govuk-table__cell">Energy intensity of 0.02 kWh per GB for uploading data to a data centre (ingress)</td></tr></tbody></table>
 
@@ -100,7 +100,7 @@ Once you have the energy used to store data, add the data centre overhead using 
 
 ### Redundancy and replication
 
-Depending on the storage configuration and the redundancy, replication and backup you choose, your data may be copied across several servers or data centres. This increases the physical storage and the energy it uses. Usage reports may count one copy of your data. Multiply by the copies you keep.
+Your data may be copied across several servers or data centres. This depends on the storage configuration and the redundancy, replication and backup you choose. Each copy increases the physical storage and the energy it uses. Usage reports may count one copy of your data. Multiply by the copies you keep.
 
 <div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>When you estimate storage energy, check what redundancy is configured for the service and count every copy and backup.</strong></div>
 
@@ -117,7 +117,7 @@ If the service has its own storage, you need:
 
 If the service uses shared storage, allocate a share of the total storage energy to the service:
 
-- storage capacity and allocation: get the capacity allocated to the service and the total capacity of the storage, and use them to work out the service's percentage of the total power. If you do not have this, use the service's spend. Read about [allocation](/digital-sustainability/measure/data-centre-carbon).
+- storage capacity and allocation: get the capacity allocated to the service and the total capacity of the storage. Use them to work out the service's percentage of the total power. If you do not have this, use the service's spend. Read about [allocation](/digital-sustainability/measure/data-centre-carbon).
 
 If you have no data, use the benchmark factors in the cloud section of this page to estimate average energy per GB stored.
 
@@ -134,4 +134,4 @@ You need:
 
 ## Calculating carbon and water use
 
-To convert energy into carbon and water figures, multiply energy use (such as kilowatt-hours or fuel volume) by carbon intensity and water intensity factors for the region. Read about [converting energy to carbon](/digital-sustainability/measure/carbon) and [water](/digital-sustainability/measure/water).
+To convert energy into carbon and water figures, multiply energy use by carbon intensity and water intensity factors for the region. Energy use might be in kilowatt-hours or fuel volume. Read about [converting energy to carbon](/digital-sustainability/measure/carbon) and [water](/digital-sustainability/measure/water).

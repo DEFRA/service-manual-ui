@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any project that needs a business case, a plan or a set of requirements, including services on and off CDP, internal tools, infrastructure projects and procurement.
+**Applies to:** any project that needs a business case, a plan or a set of requirements. This includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
 
 **Lead role families:** Product and delivery
 
@@ -44,7 +44,7 @@ Setting out the environmental risks and benefits in the business case builds env
 Alongside sustainability impact, including sustainability in business cases brings co-benefits in terms of:
 
 - compliance: shows due regard to the Environmental Principles Policy Statement, as the Green Book expects
-- cost: whole-life costing can show savings from options that use less energy, hardware or travel
+- cost: whole-life costing counts costs over the full life of an option. It can show savings from options that use less energy, hardware or travel
 - resilience: naming environmental risks early lets approvers weigh them against other options
 
 </div>
@@ -80,8 +80,8 @@ A project plan sets out how a service or other project will be researched, desig
 
 Plan for environmental factors alongside your other priorities. This means thinking about:
 
-- co-benefits between priorities, for example when a lighter digital service also brings performance, accessibility and inclusion benefits as well as using less energy
-- trade-offs between environmental sustainability and other factors, for example when cost or the need to integrate with legacy systems rules out the option with the lowest carbon footprint
+- co-benefits between priorities, for example a lighter service that is faster, more accessible and more inclusive, and also uses less energy
+- trade-offs between sustainability and other factors, for example when cost or the need to link to legacy systems rules out the lowest-carbon option
 - the environmental risks of keeping parts of an existing service or process running alongside the new one
 
 <details class="govuk-details">
@@ -126,7 +126,11 @@ Potential trade-offs may include:
 
 Non-functional requirements (NFRs) set out a software system's capabilities and constraints, such as speed, security and reliability. They describe how a system behaves rather than what it does, and guide design and development choices as the project goes on.
 
-Include sustainability in your NFRs. For example, you could cap the cloud carbon footprint for each user transaction, set a minimum life for hardware, or schedule some kinds of work to run when electricity is cleaner (see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity)).
+Include sustainability in your NFRs. For example, you could:
+
+- cap the cloud carbon footprint for each user transaction
+- set a minimum life for hardware
+- schedule some kinds of work to run when electricity is cleaner (see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity))
 
 Defra's guidance on [non-functional requirements](/business-analysis/non-functional-requirements) explains how to write and manage them.
 

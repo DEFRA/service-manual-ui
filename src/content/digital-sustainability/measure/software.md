@@ -74,12 +74,12 @@ If you are in contact with the supplier, ask for:
 - the energy the software uses, in kWh, broken down by application, module or component where possible for complex software
 - the hosting location
 - the data centre's power usage effectiveness (PUE), if it is not already in the energy figure
-- the embodied carbon of the hardware
+- the embodied carbon of the hardware: the carbon from making and transporting it
 - the expected lifespan of the hardware
 
 These metrics are worth collecting. You cannot change the supplier's infrastructure, but you may be able to change how the software is configured, used and managed. For example, you may be able to set data retention policies, storage settings and usage settings that affect its footprint.
 
-Combine the supplier's figures with the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) for electricity, and a suitable functional unit, to calculate the [Software Carbon Intensity (SCI)](/digital-sustainability/measure/carbon-formula).
+You can use the supplier's figures to calculate the [Software Carbon Intensity (SCI)](/digital-sustainability/measure/carbon-formula). Combine them with the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) for electricity. Then use a suitable functional unit: a unit of output, such as a user or a transaction.
 
 For complex software, it may help to calculate an SCI score for each component. A more detailed assessment can show where to target improvements.
 

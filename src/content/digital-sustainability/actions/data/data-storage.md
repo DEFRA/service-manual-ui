@@ -23,17 +23,17 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off CDP, including internal tools.
+**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools.
 
 **Lead role families:** Data and Architecture
 
-This action has two parts: how you store data, in points (i) to (v), and how you query and give access to it, in points (vi) to (ix).
+This action has two parts. Points (i) to (v) cover how you store data. Points (vi) to (ix) cover how you query it and give access to it.
 
 ---
 
 ## (i) Use the right storage tiers
 
-Storage tiers sort data by how often it is used. They are often described by temperature: "hot" storage is fast and high-performance, for data you use often, and "cold" storage is slower and cheaper, for data you use less often.
+Storage tiers sort data by how often it is used. They are often described by temperature. "Hot" storage is fast and high-performance, for data you use often. "Cold" storage is slower and cheaper, for data you use less often.
 
 Put data you rarely use, or do not need straight away, in cold or archive tiers. This uses less energy.
 
@@ -116,7 +116,7 @@ Potential trade-offs may include:
 
 File formats differ in how well they compress and how efficiently they store data. That affects how much storage you use, and how much energy.
 
-Use more efficient formats, especially for large volumes of data. For example, Parquet files store large data sets more efficiently than comma-separated values (CSV) files. Parquet is a columnar format: it stores data by column rather than by row, so files are smaller and analytical queries can read only the columns they need.
+Use more efficient formats, especially for large volumes of data. For example, Parquet files store large data sets more efficiently than comma-separated values (CSV) files. Parquet is a columnar format: it stores data by column rather than by row. Files are smaller, and analytical queries can read only the columns they need.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -126,7 +126,7 @@ Alongside sustainability impact, choosing the right data formats brings co-benef
 
 - cost: smaller files cost less to store and to move
 - service performance: columnar formats such as Parquet speed up analytical queries by reading only the columns needed
-- data quality: formats that store a schema, such as Parquet, keep data types consistent between uses
+- data quality: formats such as Parquet store a schema, a fixed description of how the data is structured. This keeps data types consistent between uses
 
 </div>
 </details>
@@ -292,7 +292,7 @@ Plan permissions and access so each user loads and processes only the data they 
 Alongside sustainability impact, permissions and access plans that minimise data load per user bring co-benefits in terms of:
 
 - performance: less unnecessary data transfer improves performance
-- security: least-privilege access to data improves security and privacy
+- security: least-privilege access, where people get only the access they need, improves security and privacy
 
 </div>
 </details>
@@ -324,7 +324,7 @@ Potential trade-offs may include:
 
 ## (viii) Use edge computing
 
-Edge computing means storing and processing data at the edge of a network.
+Edge computing means storing and processing data at the edge of a network, near where it is produced or used.
 
 This can put data much closer to the devices that produce it and the users who need it. Data travels less far, which reduces network load and energy use.
 

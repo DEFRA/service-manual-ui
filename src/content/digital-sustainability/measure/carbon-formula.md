@@ -46,7 +46,7 @@ Before you calculate the SCI, [set a system boundary and choose a functional uni
 
 This example uses illustrative figures for one month. Take your own value for I from the current [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK).
 
-- E = 120 kWh, after adding data centre overhead
+- E = 120 kWh, after adding data centre overhead with the power usage effectiveness (PUE)
 - I = 0.177 kgCO2e per kWh
 - M = 8 kgCO2e
 - R = 40,000 transactions
@@ -65,7 +65,7 @@ The Green Software Foundation is working on standards for particular domains tha
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about extensions to the SCI</span></summary>
 <div class="govuk-details__text">
 
-**SCI for AI:** [SCI for AI](https://greensoftware.foundation/standards/sci-ai/) extends the SCI specification to cover the parts of an AI system's lifecycle that are specific to AI, including:
+**SCI for AI:** [SCI for AI](https://greensoftware.foundation/standards/sci-ai/) extends the SCI to the parts of an AI system's lifecycle that only AI has, including:
 
 - data preparation
 - training

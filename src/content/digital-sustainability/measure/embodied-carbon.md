@@ -26,13 +26,13 @@ Manufacturers publish embodied carbon in product carbon footprint sheets or life
 
 ## Apportion embodied emissions
 
-If hardware is shared with other services, work out your service's share of its embodied emissions, as you would for operational emissions. Read about [allocation](/digital-sustainability/measure/data-centre-carbon). You need to know:
+If hardware is shared with other services, work out your service's share of its embodied emissions. Do this as you would for operational emissions, the emissions from running it. Read about [allocation](/digital-sustainability/measure/data-centre-carbon). You need to know:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Time allocation</dt><dd class="govuk-summary-list__value">How many hours the software used the hardware, compared with the hardware's expected lifespan</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Expected lifespan</dt><dd class="govuk-summary-list__value">The expected useful life of the hardware, in hours</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Resource allocation</dt><dd class="govuk-summary-list__value">The share of the machine's resources the software reserved, for example the vCPUs allocated to it divided by the total vCPUs on the host machine</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Time allocation</dt><dd class="govuk-summary-list__value">How many hours the software used the hardware, compared with the hardware's expected lifespan</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Expected lifespan</dt><dd class="govuk-summary-list__value">The expected useful life of the hardware, in hours</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Resource allocation</dt><dd class="govuk-summary-list__value">The share of the machine's resources the software reserved. For example, the virtual processors (vCPUs) allocated to it divided by the total vCPUs on the host machine</dd></div></dl>
 
 ## Calculate the total embodied carbon
 
-Calculate the service's embodied carbon as:
+Calculate the service's embodied carbon, in kilograms of carbon dioxide equivalent (kgCO2e), as:
 
 <div class="govuk-inset-text">
 

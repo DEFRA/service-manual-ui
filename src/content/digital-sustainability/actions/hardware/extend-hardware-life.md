@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** Defra Group IT, procurement teams and anyone who manages devices or servers, including infrastructure projects. Service teams act mainly through (iii), by designing services that work on older devices.
+**Applies to:** Defra Group IT, procurement teams and anyone who manages devices or servers, including infrastructure projects. Service teams act mainly through (iii): they design services that work on older devices.
 
 **Lead role families:** Procurement
 
@@ -35,9 +35,9 @@ Keeping existing devices in use for longer means fewer replacements, and avoids 
 
 These approaches help hardware last longer:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Proactive device maintenance</td><td class="govuk-table__cell">Physical care and power protection, good battery management, and encouraging staff to look after their devices all keep equipment working</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Redeploying hardware internally</td><td class="govuk-table__cell">A hardware return loop, where faulty or unneeded equipment is collected, repaired or refurbished, and kept as reserve stock. Devices can be redeployed within the department or across government. Older hardware can be given to less demanding tasks.</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Proactive device maintenance</td><td class="govuk-table__cell">Physical care and power protection, good battery management, and encouraging staff to look after their devices. All of these keep equipment working.</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Redeploying hardware internally</td><td class="govuk-table__cell">A hardware return loop. Faulty or unneeded equipment is collected, repaired or refurbished, and kept as reserve stock. Devices can be redeployed within the department or across government. Older hardware can be given to less demanding tasks.</td></tr></tbody></table>
 
-Extending life is not always the better choice. Newer hardware can be much more energy efficient. For power-hungry equipment such as an old server, the energy saved by replacing it can outweigh the embodied carbon of a new one. Compare both before you decide.
+Extending life is not always the better choice. Newer hardware can be much more energy efficient. Take power-hungry equipment such as an old server. The energy saved by replacing it can outweigh the embodied carbon of a new one: the carbon from making it. Compare both before you decide.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -84,7 +84,7 @@ Follow this security guidance:
 - [Supply chain guidance](https://www.npsa.gov.uk/security-best-practices/supply-chain-guidance) (National Protective Security Authority)
 - [Choosing, buying and deploying devices securely](https://www.ncsc.gov.uk/collection/device-security-guidance/getting-ready) (National Cyber Security Centre): follow this when you buy devices
 
-Ask suppliers to follow [secure sanitisation and disposal of storage media](https://www.ncsc.gov.uk/guidance/secure-sanitisation-storage-media) (National Cyber Security Centre).
+Ask suppliers to follow [secure sanitisation and disposal of storage media](https://www.ncsc.gov.uk/guidance/secure-sanitisation-storage-media) (National Cyber Security Centre). Sanitisation means removing data so it cannot be recovered.
 
 Devices that no longer get security updates must be retired, whatever their condition. Plan their reuse or disposal.
 

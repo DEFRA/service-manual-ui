@@ -22,9 +22,9 @@ supportBox:
 ---
 The [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (GOV.UK) sets out 6 sustainability objectives. The 15th Service Standard point asks services to take action and track performance against them.
 
-Service teams use the digital sustainability statement to record the sustainability actions they have taken or plan to take, and how they track sustainability performance, for each of the 6 objectives.
+Your team records this in the digital sustainability statement. For each of the 6 objectives, record the actions you have taken or plan to take. Record how you track sustainability performance too.
 
-This page lists the sustainability questions to consider at alpha and beta, for each of the 6 objectives.
+This page lists the questions to think about at alpha and beta, for each objective.
 
 For more help:
 
@@ -35,16 +35,16 @@ For more help:
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">A pragmatic approach to tracking sustainability performance and taking action</span></summary>
 <div class="govuk-details__text">
 
-Defra has the aspiration for individual projects and services to track sustainability performance for each of the 6 objectives in the digital sustainability strategy.
+Defra wants each project and service to track sustainability performance for all 6 objectives in the strategy.
 
-However, while measurement may be relatively straightforward for some objectives, for others, it may still be very challenging at present. This page lays out expectations for tracking sustainability performance for each of the 6 objectives.
+Measuring some objectives is fairly simple. For others, it can still be very hard. This page sets out what Defra expects you to track for each objective.
 
-Even in the absence of tracking particular metrics, it is important to note that many meaningful sustainability actions can be taken without explicitly quantifying and tracking the performance of a service in this regard, such as:
+You can take many useful sustainability actions without measuring and tracking your service's performance. For example:
 
 - reducing data capture and storage
 - turning off environments when not in use
 - re-using components rather than developing them from scratch
-- ensuring that any hardware is treated in as circular a manner as possible
+- treating any hardware in as circular a way as possible, so it is kept in use for longer
 
 </div>
 </details>
@@ -53,9 +53,9 @@ Even in the absence of tracking particular metrics, it is important to note that
 
 ### What this objective is about
 
-Digital technology creates carbon emissions from the electricity it consumes when operational.
+Digital technology creates carbon emissions from the electricity it uses when it runs.
 
-Embodied carbon comes through the mining, processing, manufacture, distribution and disposal of hardware used by services, as well as the processes that are followed to design and develop digital services.
+It also has embodied carbon. This is the carbon from mining, processing, manufacturing, distributing and disposing of the hardware services use. It also comes from the work of designing and developing digital services.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -63,17 +63,18 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 
 **Procurement of hosting**
 
-- Will the service require new cloud hosting or data centre capacity?
-- If so, is sustainability being factored into the choice of locations for infrastructure, in terms of the proportion of renewable energy that is available and used on site, and levels of water stress? Are suppliers being selected that are monitoring and scoring well on sustainability metrics, as well as committing to manage and report on those at the service level?
+- Will the service need new cloud hosting or data centre capacity?
+- If so, are you factoring sustainability into where the infrastructure is located? Look at how much renewable energy is available and used on site, and at water stress (how short of water the region is).
+- Are you choosing suppliers that monitor sustainability metrics and score well on them? Will they commit to manage and report on those metrics for your service?
 
 **Working with delivery suppliers**
 
-- Will the project be working with suppliers to design and develop the service?
+- Will the project work with suppliers to design and develop the service?
 - If so, have suppliers made commitments to environmental sustainability in delivery?
 
 **Planning for sustainable delivery from private beta**
 
-- Is the team aware of, and planning to follow, best practice at private beta for the delivery of efficient, appropriately provisioned and carbon aware services in terms of software, AI, architecture, UX and journey design and data management?
+- Does the team know the best practice for private beta, and plan to follow it? This covers delivering efficient, appropriately provisioned and carbon-aware services. It applies to software, AI, architecture, UX and journey design, and data management. Carbon-aware services respond to changes in the carbon intensity of the electricity grid.
 
 </div>
 </details>
@@ -84,32 +85,32 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 
 **Software**
 
-- What approaches are being taken to ensure that software solutions are as energy efficient as possible?
-- What is being done to take an approach to testing that is as efficient as possible?
+- How are you making your software as energy efficient as possible?
+- How are you making your testing as efficient as possible?
 
 **Architecture**
 
-- What approaches are being taken to ensure services are efficiently provisioned, with high server utilisation and compute efficiency?
-- How are different environments being managed so that they are only turned on when needed, and any unused assets removed?
-- Are workloads being shifted in time to match the availability of low carbon electricity, where possible?
+- How are you making sure services are efficiently provisioned, with high server utilisation and compute efficiency?
+- How do you manage environments so they are only turned on when needed? How do you remove unused assets?
+- Where possible, are you shifting workloads in time to match when low carbon electricity is available?
 
 **Data**
 
-- Is there a clear rationale for all data the service collects, avoiding 'single use' data where possible?
-- What approaches are being taken to reduce the energy consumption associated with data storage, processing and transfer?
+- Is there a clear reason for all the data the service collects? Do you avoid 'single use' data where possible?
+- How are you reducing the energy used to store, process and transfer data?
 - Are security measures proportionate and balanced against sustainability impacts?
 
 **User experience and journey design**
 
-- What approaches are being taken to design service journeys to be as sustainable as possible, including both online and offline steps, and reducing the need for users to change channels as far as possible?
-- How are web pages, notifications and documentation being designed to be as lightweight as possible?
-- Are potential rebound effects of the service, and associated sustainability impacts, being considered?
+- How are you designing service journeys to be as sustainable as possible? Include online and offline steps. Reduce the need for users to change channels as far as you can.
+- How are you making web pages, notifications and documentation as lightweight as possible?
+- Have you thought about rebound effects and their sustainability impacts? A rebound effect is when making something more efficient leads people to use it more, so the total impact can go up.
 
 **AI**
 
-- Is the service clear on the need for and benefits coming from any use of AI?
-- Has the lowest energy AI model that meets the project's needs been selected?
-- What approaches have been taken to reduce the environmental impacts of training and operating AI models?
+- Is the service clear about why it needs AI and what benefits AI brings?
+- Have you chosen the lowest energy AI model that meets the project's needs?
+- How have you reduced the environmental impacts of training and operating AI models?
 
 </div>
 </details>
@@ -127,7 +128,7 @@ Embodied carbon comes through the mining, processing, manufacture, distribution 
 
 ### What this objective is about
 
-Defra's digital sustainability strategy outlines the department's ambition to understand and act to reduce the planetary impacts of technology usage beyond carbon emissions. It covers:
+Defra's digital sustainability strategy aims to understand and reduce the planetary impacts of technology beyond carbon emissions. These are:
 
 - water consumption
 - resource use
@@ -135,12 +136,12 @@ Defra's digital sustainability strategy outlines the department's ambition to un
 - biodiversity impacts
 - local air pollution
 
-These impacts can occur through:
+These impacts can come from:
 
 - mining
 - manufacturing and processing
 - distribution processes
-- the operation of digital services, such as water used for cooling in data centres
+- running digital services, such as water used to cool data centres
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -148,8 +149,11 @@ These impacts can occur through:
 
 **Procurement of hosting**
 
-- Will the service require new cloud hosting or data centre capacity?
-- If so, is sustainability being factored into the choice of locations for infrastructure? This includes cooling methods (for example, passive air cooling or water cooling), Water Usage Effectiveness (WUE, the efficiency of water use relative to the energy used by IT equipment) and the water stress levels of the regions where data centres will be.
+- Will the service need new cloud hosting or data centre capacity?
+- If so, are you factoring sustainability into where the infrastructure is located? Look at:
+  - cooling methods, for example passive air cooling or water cooling
+  - Water Usage Effectiveness (WUE), which is how efficiently water is used compared with the energy used by IT equipment
+  - water stress levels in the regions where the data centres will be
 
 </div>
 </details>
@@ -167,7 +171,7 @@ There are no questions for this objective beyond those for objective 1.
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-Planetary impacts, such as water use or land use change, may be tracked by suppliers of hosting or hardware. Beyond supplier reporting, Defra does not currently expect services to be tracking performance for this objective.
+Suppliers of hosting or hardware may track planetary impacts, such as water use or land use change. Beyond supplier reporting, Defra does not currently expect services to track performance for this objective.
 
 </div>
 </details>
@@ -176,18 +180,18 @@ Planetary impacts, such as water use or land use change, may be tracked by suppl
 
 ### What this objective is about
 
-Circularity means minimising our demand for primary resources and preventing unnecessary resource consumption and waste generation.
+Circularity means using fewer new resources, and avoiding resource use and waste you do not need.
 
-It can apply to hardware, software, architectural components and the design patterns we utilise for service journeys.
+It can apply to hardware, software, architectural components and the design patterns we use for service journeys.
 
-Circularity can be achieved through following the 4 principles of the [Circular and Fair ICT Pact](https://circularandfairictpact.com/cfit-framework-cases/):
+You can follow the 4 principles of the [Circular and Fair ICT Pact](https://circularandfairictpact.com/cfit-framework-cases/):
 
-- **Buy Less:** Ensure that we are only purchasing new hardware and software when it is clear that existing products cannot do the job
-- **Buy Better:** If new products are necessary, then ensure that we are procuring or developing energy-efficient, durable items that are designed to be repaired, upgraded and re-used
-- **Use Better:** Optimising the use of ICT products through their functional life, through proper maintenance, upgrades and sharing
-- **Use Longer:** Extending the lifespan of devices or software to avoid premature disposal, through repair and refurbishment, and sharing to keep in use
+- **Buy Less:** only buy new hardware and software when it is clear that existing products cannot do the job
+- **Buy Better:** if you need new products, buy or develop energy-efficient, durable items that are designed to be repaired, upgraded and re-used
+- **Use Better:** get the most out of ICT products through their working life, with proper maintenance, upgrades and sharing
+- **Use Longer:** extend the life of devices or software through repair, refurbishment and sharing, so they are not thrown away too early
 
-When products reach their end of life, then we should ensure that they are appropriately recycled.
+When products reach the end of their life, make sure they are recycled properly.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -195,17 +199,17 @@ When products reach their end of life, then we should ensure that they are appro
 
 **Legacy systems and technology**
 
-- Are there legacy systems that need to be decommissioned, including hardware and software, such as zombie applications in the cloud?
-- If so, is sustainability being factored into decommissioning, and any hardware or software disposed of in as circular a manner as possible?
+- Do any legacy systems, hardware or software need to be decommissioned? This includes zombie applications in the cloud, which still run but nobody uses.
+- If so, are you factoring sustainability into decommissioning? Are you disposing of hardware and software in as circular a way as possible?
 
 **Procurement of equipment and systems**
 
-- Is there hardware being bought or rented by the service?
-- If so, are refurbished or remanufactured equipment options being considered over new?
+- Is the service buying or renting hardware?
+- If so, are you considering refurbished or remanufactured equipment before new?
 
 **Planning for sustainable delivery from private beta**
 
-- Is the team aware of, and planning to follow, the principles of circularity from private beta onwards, in terms of software, architecture and hardware management?
+- Does the team know the principles of circularity, and plan to follow them from private beta onwards? This covers software, architecture and hardware management.
 
 </div>
 </details>
@@ -216,21 +220,21 @@ When products reach their end of life, then we should ensure that they are appro
 
 **Hardware**
 
-- If hardware is being purchased or rented, what approaches are being taken to manage the lifecycle impacts and treat it in as circular a manner as possible?
-- What approaches are being taken to support older end-user devices and slower connections?
+- If you are buying or renting hardware, how are you managing its lifecycle impacts? How are you keeping it in use for as long as possible?
+- How are you supporting older end-user devices and slower connections?
 
 **Software**
 
-- Are existing software tools and components being re-used, rather than developed from scratch, where appropriate?
+- Are you re-using existing software tools and components, where appropriate, rather than developing them from scratch?
 
 **Architecture**
 
-- Are existing architectural components being re-used, rather than developed from scratch?
+- Are you re-using existing architectural components, rather than developing them from scratch?
 
 **User experience and journey design**
 
-- Are established service patterns being used to design service journeys?
-- Are existing design patterns being followed for interactions and the layout of website pages?
+- Are you using established service patterns to design service journeys?
+- Are you following existing design patterns for interactions and page layouts?
 
 </div>
 </details>
@@ -248,9 +252,9 @@ When products reach their end of life, then we should ensure that they are appro
 
 ### What this objective is about
 
-[Embedding social value](https://www.gov.uk/government/publications/ppn-002-taking-account-of-social-value-in-the-award-of-contracts/procurement-policy-note-002-the-social-value-model-html) is a core value of procurement in UK government, to ensure public spending generates additional economic, social and environmental benefits.
+[Embedding social value](https://www.gov.uk/government/publications/ppn-002-taking-account-of-social-value-in-the-award-of-contracts/procurement-policy-note-002-the-social-value-model-html) is a core value of UK government procurement. It makes sure public spending brings extra economic, social and environmental benefits.
 
-We also need to ensure that procurement considers and seeks to mitigate areas of operational supply chains that are high risk for social exploitation or inequality.
+Procurement also needs to find and reduce the risks in operational supply chains where the risk of social exploitation or inequality is high.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -258,8 +262,8 @@ We also need to ensure that procurement considers and seeks to mitigate areas of
 
 **Procurement**
 
-- Is the service conducting any procurement?
-- If so, is social value being embedded as a core component of procurement, in terms of selecting suppliers making significant commitments to deliver on social value and identifying and taking action on their own social risks and those in the supply chain?
+- Is the service doing any procurement?
+- If so, is social value a core part of it? Are you choosing suppliers that make significant social value commitments? Do they find and act on social risks, both their own and those in their supply chain?
 
 </div>
 </details>
@@ -268,9 +272,9 @@ We also need to ensure that procurement considers and seeks to mitigate areas of
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-Tracking success against this objective primarily involves reporting from suppliers and partners on:
+To track success against this objective, you mainly rely on suppliers and partners reporting on:
 
-- progress on delivering on any social value commitments made
+- progress on any social value commitments they made
 - evidence of action to uphold fair labour practices
 - actions to address modern slavery
 - actions to address equality, diversity and inclusion (EDI) risks
@@ -283,9 +287,9 @@ Tracking success against this objective primarily involves reporting from suppli
 
 ### What this objective is about
 
-The full environmental and social impacts of hardware components and other services that suppliers provide may often be obscured due to the lack of supply chain visibility beyond the first supplier.
+It is often hard to see the full environmental and social impacts of the hardware and services suppliers provide. This is because there is little visibility of the supply chain beyond the first supplier.
 
-Defra has the ambition to be an organisation that has a clear understanding of the sustainability risks and global challenges within its supply chain by 2030, in order that action can be taken to reduce these as far as possible.
+By 2030, Defra wants a clear understanding of the sustainability risks and global challenges in its supply chain. Then it can act to reduce them as far as possible.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -293,8 +297,8 @@ Defra has the ambition to be an organisation that has a clear understanding of t
 
 **Procurement**
 
-- Is the service conducting any procurement?
-- If so, are suppliers being selected that are making commitments on working towards transparency on the environmental and social impacts of processes in the supply chain?
+- Is the service doing any procurement?
+- If so, are you choosing suppliers that commit to working towards transparency? This means being open about the environmental and social impacts of processes in their supply chain.
 
 </div>
 </details>
@@ -303,7 +307,7 @@ Defra has the ambition to be an organisation that has a clear understanding of t
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-At the service level, tracking success can involve reporting from suppliers and partners on the transparency on the environmental and social impacts of processes in the technology supply chain and actions to reduce these.
+At service level, you can track success through reports from suppliers and partners. They can report on how open they are about the environmental and social impacts of processes in the technology supply chain. They can also report on what they do to reduce those impacts.
 
 </div>
 </details>
@@ -312,7 +316,11 @@ At the service level, tracking success can involve reporting from suppliers and 
 
 ### What this objective is about
 
-Defra's digital and technology operations and services may be at risk from an imminently changing climate, risks of extreme weather events and critical minerals shortages.
+Defra's digital and technology operations and services may be at risk from:
+
+- climate change in the near future
+- extreme weather events
+- shortages of critical minerals
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Questions to ask at alpha</span></summary>
@@ -320,7 +328,7 @@ Defra's digital and technology operations and services may be at risk from an im
 
 **Planning for sustainable delivery from private beta**
 
-- Is resilience to climate and extreme weather events being factored into the delivery of the service from private beta onwards?
+- From private beta onwards, are you planning for resilience to climate and extreme weather events?
 
 </div>
 </details>
@@ -331,7 +339,8 @@ Defra's digital and technology operations and services may be at risk from an im
 
 **Service delivery**
 
-- Is resilience to climate and extreme weather events being factored into service design and development, and any appropriate adaptation measures being taken?
+- Are you building resilience to climate and extreme weather events into service design and development?
+- Are you taking any adaptation measures you need? These are changes that help the service cope with a changing climate.
 - Are backups and redundancy sized and balanced appropriately, given the risks and the environmental footprint of this resilience?
 
 </div>
@@ -341,10 +350,10 @@ Defra's digital and technology operations and services may be at risk from an im
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Tracking sustainability performance for this objective</span></summary>
 <div class="govuk-details__text">
 
-Tracking success against this objective will likely primarily involve reporting from suppliers and partners on:
+To track success against this objective, you will probably rely mainly on suppliers and partners reporting on:
 
-- awareness of climate risk to the services they provide
-- evidence of appropriate mitigation and adaptation plans in place
+- how aware they are of climate risk to the services they provide
+- evidence that they have appropriate mitigation and adaptation plans in place
 
 </div>
 </details>

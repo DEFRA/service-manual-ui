@@ -1,7 +1,7 @@
 ---
 title: "6d. Take a sustainable approach to operating AI"
 caption: "Artificial intelligence"
-description: "Run AI efficiently: match each task to a suitable model, avoid repeated processing, track the tokens you use, trim agent workflows and run models locally where it helps."
+description: "Run AI efficiently. Match each task to a suitable model, avoid repeated processing, track the tokens you use, trim agent workflows and run models locally where it helps."
 layout: section
 sectionNav: nav-ds-ai
 customNav: nav-digital-sustainability
@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any team running AI in a service, internal tool or agent, on or off the Core Delivery Platform (CDP), including models you reach through a provider such as Amazon Bedrock.
+**Applies to:** any team running AI in a service, internal tool or agent, on or off the Core Delivery Platform (CDP). That includes models you reach through a provider such as Amazon Bedrock.
 
 **Lead role families:** AI engineer, architect and software
 
@@ -33,7 +33,7 @@ supportBox:
 
 A multi-tiered approach means choosing the right AI model for each task, rather than relying on one model for everything.
 
-It needs a range of AI technologies to be available, such as AI agents, large language models and decision models. Prompts and agent workflows then go to the simplest or most cost-effective model that can handle them reliably.
+Your organisation needs a range of AI technologies for this, such as AI agents (see (iv)), large language models and decision models. Each prompt or agent workflow then goes to the simplest or most cost-effective model that can handle it reliably.
 
 This avoids sending simple prompts to complex models, which cuts waste and energy use.
 
@@ -76,9 +76,9 @@ See also [6a (i) Be clear on the use case for AI](/digital-sustainability/action
 
 AI models read and write text in tokens, which are small chunks of words. Input tokens are what you send the model. Output tokens are what it sends back.
 
-Prompt caching stores the first part of a prompt, when it stays the same between requests, so the model does not reprocess those tokens every time. This lowers the input tokens processed, which cuts energy use and cost.
+Often the first part of a prompt stays the same between requests. Prompt caching stores that part, so the model does not reprocess those tokens every time. The model processes fewer input tokens, which cuts energy use and cost.
 
-Prompt caching is not the same as caching results. The AI toolkit says to [cache results](/ai-toolkit/guidance/sustainability): store the model's responses to repeated, similar requests so you do not call the model again. Use both where they fit. Cached responses can go out of date, so decide how long to keep them.
+Prompt caching is not the same as caching results. The AI toolkit says to [cache results](/ai-toolkit/guidance/sustainability). That means storing the model's responses to repeated, similar requests, so you do not call the model again. Use both where they fit. Cached responses can go out of date, so decide how long to keep them.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -119,11 +119,11 @@ Potential trade-offs may include:
 
 ## (iii) Implement token metering
 
-Token metering tracks the tokens your service uses when it calls an AI model. It can cover input tokens, from prompts, conversation history and files, and the output tokens the model generates.
+Token metering tracks the tokens your service uses when it calls an AI model. It can count input tokens, from prompts, conversation history and files. It can also count the output tokens the model generates.
 
-Token metering shows where you can make AI use more efficient. It can also guide model routing, where prompts go to smaller, task-specific models.
+Token metering shows where you can use AI more efficiently. It can also guide model routing, where prompts go to smaller, task-specific models.
 
-Measure input and output tokens together. Defra's [token optimisation pattern](/ai-toolkit/patterns/token-optimisation) found that when prompts were compressed, models wrote longer responses, which partly cancelled out the input savings. Fewer input tokens does not always mean less energy.
+Measure input and output tokens together. Defra's [token optimisation pattern](/ai-toolkit/patterns/token-optimisation) found that when prompts were compressed, models wrote longer responses. This partly cancelled out the input savings. Fewer input tokens does not always mean less energy.
 
 Log token counts, not prompt text, unless you need the content. Full logs can hold personal data.
 
@@ -172,7 +172,7 @@ AI agents are autonomous AI systems that make decisions and perform actions with
 
 Agentic AI can automate complex processes and save resources. But it also uses a lot of resources itself.
 
-Design the workflow your agents follow so it makes as few model and tool calls as it needs, while keeping output quality high. In Defra, also read [working with AI agents](/ai-toolkit/guidance/working-with-agents).
+Design the workflow your agents follow so it makes only the model and tool calls it needs, and still gives high-quality output. In Defra, also read [working with AI agents](/ai-toolkit/guidance/working-with-agents).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -214,11 +214,11 @@ Potential trade-offs may include:
 
 ## (v) Run AI models at the edge
 
-Running AI at the edge means running models on local hardware, such as laptops, mobile phones or edge servers, instead of sending data to a model in the cloud.
+Running AI at the edge means running models on local hardware, such as laptops, mobile phones or edge servers. You do not send the data to a model in the cloud.
 
-Data is processed near where it is created, which reduces network use and can reduce overall energy use.
+Data is processed near where it is created. This reduces network use and can reduce overall energy use.
 
-Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) ran small models locally. They handled short summaries well and kept the source text on Defra infrastructure, but could not produce longer, detailed summaries.
+Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) ran small models locally. They handled short summaries well and kept the source text on Defra infrastructure. But they could not produce longer, detailed summaries.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -227,7 +227,7 @@ Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) 
 Alongside sustainability impact, running AI models at the edge brings co-benefits in terms of:
 
 - security: data can stay on the device, which reduces what is sent and stored elsewhere
-- speed: local inference avoids network round trips, so responses can be faster
+- speed: running the model on the device (local inference) avoids network round trips, so responses can be faster
 - resilience: local models can keep working with a poor connection or none
 
 </div>

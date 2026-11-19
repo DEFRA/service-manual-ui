@@ -37,7 +37,7 @@ Government departments and other public sector bodies also measure environmental
 
 ## (ii) The order of impact of a digital service or project
 
-The orders of impact describe how a service's effects range from the carbon or water its systems use, through to the changes in society that new technologies and services bring.
+The orders of impact describe how far a service's effects reach. They range from the carbon or water its systems use to the changes in society that new technologies and services bring.
 
 There are usually 3 orders of impact.
 
@@ -51,8 +51,8 @@ Measure first-order impacts, which your service controls. Second-order impacts n
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Read more about the orders of environmental impacts for digital services</span></summary>
 <div class="govuk-details__text">
 
-- [ICT for sustainability](https://ethz.ch/content/dam/ethz/special-interest/mtec/cepe/cepe-dam/documents/people/baebischer/Hilty_Aebischer_2014_ICT_for_Sustainability_AAM.pdf) (Hilty and Aebischer, ETH Zurich): how information and communication technologies (ICT) can contribute to sustainability, including their direct environmental impacts and their potential to cut resource use and emissions more widely
-- [Digital Economy Report 2024](https://unctad.org/publication/digital-economy-report-2024) (UN Trade and Development): the environmental impacts of digitalisation across its lifecycle, including demand for energy, water and raw materials, and ways to make the digital economy more sustainable
+- [ICT for sustainability](https://ethz.ch/content/dam/ethz/special-interest/mtec/cepe/cepe-dam/documents/people/baebischer/Hilty_Aebischer_2014_ICT_for_Sustainability_AAM.pdf) (Hilty and Aebischer, ETH Zurich): how information and communication technologies (ICT) can contribute to sustainability. It covers their direct environmental impacts and their potential to cut resource use and emissions more widely
+- [Digital Economy Report 2024](https://unctad.org/publication/digital-economy-report-2024) (UN Trade and Development): the environmental impacts of digitalisation across its lifecycle, including demand for energy, water and raw materials. It also covers ways to make the digital economy more sustainable
 
 </div>
 </details>

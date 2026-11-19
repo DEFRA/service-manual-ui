@@ -18,7 +18,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-All services must meet the 14 points of the cross-government [Service Standard](https://www.gov.uk/service-manual/service-standard) (GOV.UK). Because of Defra's role in protecting the environment, Defra services must also meet a 15th point on sustainability.
+All services must meet the 14 points of the cross-government [Service Standard](https://www.gov.uk/service-manual/service-standard) (GOV.UK). Defra's role is to protect the environment, so Defra services must also meet a 15th point on sustainability.
 
 ## What this standard is about
 
@@ -30,7 +30,7 @@ Defra's services aim to bring real environmental benefits to society, from impro
 
 The technology behind government services also contributes to climate change and other sustainability risks. These include:
 
-- **energy use** that contributes to warming greenhouse gases
+- **energy use**, which produces the greenhouse gases that warm the climate
 - **hardware manufacturing** (mining and processing) that leads to water scarcity, resource depletion and biodiversity loss
 - **supply chains** with unintended social impacts, such as labour exploitation
 
@@ -38,14 +38,14 @@ The [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/gove
 
 ## What you need to do
 
-Design, build and run your service to be as sustainable as you can. To meet this point:
+Design, build and run your service to be as sustainable as you can. To meet this point, follow these steps.
 
 1. Complete a digital sustainability risk assessment before the end of discovery. [Assess risks and record sustainability actions](/digital-sustainability/service-standard/process) explains how.
 2. Take the [digital sustainability actions](/digital-sustainability/actions) that fit your service. The response to your risk assessment suggests which ones.
 3. [Measure the sustainability of your service](/digital-sustainability/measure) where you can, and choose metrics to track its performance.
-4. From alpha onwards, record the actions you have taken and plan to take in a digital sustainability statement, against the [6 objectives in Defra's digital sustainability strategy](/digital-sustainability/service-standard/objectives). Use the [digital sustainability statement template](https://defra.sharepoint.com/:w:/t/Team740/IQBAlG0g2QUgTZh_JAasu_VxAeLt4w-3HYfhfSz5jVmBlBk?e=DPn9y3) (Word document, requires Defra sign-in).
+4. From alpha onwards, write a digital sustainability statement. This is a document that records the actions you have taken and plan to take, against the [6 objectives in Defra's digital sustainability strategy](/digital-sustainability/service-standard/objectives). Use the [digital sustainability statement template](https://defra.sharepoint.com/:w:/t/Team740/IQBAlG0g2QUgTZh_JAasu_VxAeLt4w-3HYfhfSz5jVmBlBk?e=DPn9y3) (Word document, requires Defra sign-in).
 
-At a Defra service assessment, your statement is used to give your service a red, amber or green rating against this point. The [sustainability questions for alpha and beta](/digital-sustainability/service-standard/questions) show what to think about at each phase.
+At a Defra service assessment, assessors use your statement to rate your service red, amber or green against this point. The [sustainability questions for alpha and beta](/digital-sustainability/service-standard/questions) show what to think about at each phase.
 
 ## Find out more
 

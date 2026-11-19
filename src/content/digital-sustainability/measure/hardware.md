@@ -42,8 +42,8 @@ You can report on:
 Hardware may also have a sustainability impact report or lifecycle assessment. These can cover environmental performance and impact metrics such as:
 
 - estimated power use, in modelled idle, active and rated scenarios
-- embodied carbon
-- embodied water (cubic metres)
+- embodied carbon: the carbon from making and transporting the device
+- embodied water, in cubic metres: the water used to make the device
 - proportion and weight of recycled materials
 - use of critical minerals
 - energy efficiency certification
@@ -57,7 +57,7 @@ Metrics should be calculated in line with ISO 14040 and 14044, or another recogn
 
 ## Second-life devices
 
-Third-party certifications can show the quality of second-life devices, such as:
+Second-life devices have been used before, and are refurbished, remanufactured or reused. Third-party certifications can show the quality of second-life devices, such as:
 
 - [ISO 9001](https://www.bsigroup.com/en-GB/products-and-services/standards/iso-9001-quality-management-systems/) (quality management systems)
 - [BS 8887-220:2010](https://knowledge.bsigroup.com/products/design-for-manufacture-assembly-disassembly-and-end-of-life-processing-made-the-process-of-remanufacture-specification) (remanufactured products)
@@ -74,7 +74,9 @@ You can monitor the performance of new and second-life devices:
 - the number of devices kept beyond the standard refresh cycle
 - the number of refurbished and remanufactured devices deployed
 
-<div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>Base energy reporting on actual monitored use. Calculate greenhouse gas emissions with the location-based method, and include scope 1, 2 and 3 emissions. If market-based figures are also given, report them separately.</strong></div>
+<div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>Base energy reporting on actual monitored use. Calculate greenhouse gas emissions with the location-based method, based on the local grid, and include scope 1, 2 and 3 emissions. If market-based figures are also given, report them separately.</strong></div>
+
+Read about [scopes of emissions and the location-based method](/digital-sustainability/measure/carbon).
 
 ## End of life
 

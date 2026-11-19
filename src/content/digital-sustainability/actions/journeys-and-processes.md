@@ -1,7 +1,7 @@
 ---
 title: "2. Journeys and processes"
 caption: "Journeys and processes"
-description: "The design of user journeys and business processes decides how many interactions, transactions, devices and physical resources it takes to reach an outcome. So design choices can have a large environmental impact."
+description: "How you design user journeys and business processes decides how many interactions, transactions, devices and physical resources it takes to reach an outcome. So design choices can have a large environmental impact."
 layout: section
 sectionNav: nav-ds-journeys-and-processes
 customNav: nav-digital-sustainability
@@ -21,11 +21,11 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services on and off CDP, internal tools and the business processes behind them, including offline channels such as paper, phone and face-to-face contact.
+**Applies to:** services on and off the Core Delivery Platform (CDP), internal tools and the business processes behind them. This includes offline channels such as paper, phone and face-to-face contact.
 
 Journey design works from the outside in: it maps what a user or member of staff experiences across every step and channel. Business process design works from the inside out: it sets the internal steps, rules, resources and systems.
 
-For what counts as a service, read [what a service is](https://www.gov.uk/service-manual/service-assessments/what-a-service-is) (GOV.UK Service Manual) and the [15 principles of good service design](https://good.services/15-principles-of-good-service-design) (The School of Good Services).
+To find out what counts as a service, read [what a service is](https://www.gov.uk/service-manual/service-assessments/what-a-service-is) (GOV.UK Service Manual). The School of Good Services also publishes the [15 principles of good service design](https://good.services/15-principles-of-good-service-design).
 
 The actions in this theme are:
 

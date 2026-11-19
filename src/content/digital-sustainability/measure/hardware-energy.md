@@ -34,17 +34,17 @@ There are several ways to measure the energy a service uses.
 
 ## Measuring hardware directly
 
-When software runs on hardware you can access, such as servers and laptops, you can run controlled experiments to measure the power the service draws. You can use:
+If software runs on hardware you can access, such as servers and laptops, you can measure the power the service draws. Do this with controlled experiments. You can use:
 
-- hardware power meters: devices at the wall socket, or current clamps, that measure the total power drawn by hardware such as servers and laptops
-- power distribution units (PDUs): in a data centre, intelligent rack PDUs distribute power to several servers and, depending on the model, can measure the energy each server uses
-- hardware power sensors: circuits built into components that track the energy used by processors (central processing units, or CPUs, and graphics processing units, or GPUs), cores and memory (DRAM)
+- hardware power meters: devices at the wall socket, or current clamps, that measure the total power drawn by servers, laptops and other hardware
+- power distribution units (PDUs): in a data centre, intelligent rack PDUs send power to several servers. Depending on the model, they can measure the energy each server uses
+- hardware power sensors: circuits built into components that track the energy used by processors, cores and memory (DRAM). Processors include central processing units (CPUs) and graphics processing units (GPUs)
 
 If several services share the same hardware, allocate a share of the energy to each one. Read about [allocation](/digital-sustainability/measure/data-centre-carbon).
 
 ## Performance engineering and hardware utilisation models
 
-Hardware utilisation models map how much a system is used to how much energy it uses, without physical power meters.
+Utilisation is how much of the hardware's capacity is in use. Hardware utilisation models map utilisation to energy use, without physical power meters.
 
 Metrics for tracking utilisation include:
 
@@ -60,15 +60,15 @@ Several open-source software profilers and frameworks can automate hardware moni
 
 - CodeCarbon: samples power use (in watts or kWh) from hardware components at intervals
 - PowerAPI: a software-defined power meter toolkit that measures power use for an application
-- Green Algorithms: an open-source framework and online tool that estimates the environmental and carbon footprint of computational science, high-performance computing (HPC) and AI workloads
+- Green Algorithms: an open-source framework and online tool. It estimates the environmental and carbon footprint of computational science, high-performance computing (HPC) and AI workloads
 
 ### API-based measurement
 
-APIs can retrieve power or energy readings from hardware and infrastructure. Collect these readings over time to calculate the energy used by the hardware or workload. For example, Climatiq converts activity data for compute (CPU), storage and memory into CO2e, based on location and utilisation.
+APIs can retrieve power or energy readings from hardware and infrastructure. Collect these readings over time to calculate the energy used by the hardware or workload. For example, Climatiq converts activity data for compute (CPU), storage and memory into carbon dioxide equivalent (CO2e), based on location and utilisation.
 
 ### Other estimation models
 
-Where you cannot measure directly and have no detailed utilisation data, estimate energy use from published energy data, manufacturer specifications, supplier information or other relevant datasets.
+If you cannot measure directly and have no detailed utilisation data, estimate energy use. Use published energy data, manufacturer specifications, supplier information or other relevant datasets.
 
 For example, you can use hardware power ratings and typical utilisation to estimate the energy used by computing resources over a set period.
 

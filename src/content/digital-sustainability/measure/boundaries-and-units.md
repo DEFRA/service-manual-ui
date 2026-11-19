@@ -71,7 +71,7 @@ How you calculate the carbon footprint within this boundary depends on where the
 
 ### Setting a boundary for one component
 
-For a complex service made of several software components or architectural layers, it can help to calculate a separate SCI score for each component, as well as one for the whole service.
+Some services have several software components or architectural layers. For these, it can help to calculate an SCI score for each component, as well as one for the whole service.
 
 Components can differ a lot in the energy and resources they use and in their environmental impact. Measuring them separately shows which components contribute most, so you can target your improvements.
 
@@ -84,6 +84,8 @@ For example, a team working on data storage could set a boundary around the stor
 </div>
 
 ## Choosing a functional unit (R)
+
+The functional unit (R) is the unit of output your software scales with, such as a user or a transaction. The SCI gives carbon per functional unit.
 
 Choose a functional unit for the whole service, or for the component you are measuring.
 

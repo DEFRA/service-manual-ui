@@ -33,10 +33,10 @@ supportBox:
 
 Reusing a model means taking one already trained for a task and using it for a new one. This saves time, cost and energy compared with training a model from scratch.
 
-Transfer learning takes the patterns, features and weights a pre-trained model learned for one task and uses them as the starting point for a new or related task. Two common ways to do this are:
+Transfer learning starts a new or related task from what a pre-trained model has already learned: its patterns, features and weights. Weights are the values a model learns during training. Two common ways to do this are:
 
-- fine-tuning: unfreeze the pre-trained model's weights and train it further on a smaller, specialised dataset for your task
-- feature extraction: keep the pre-trained model's layers frozen and add new layers on top
+- fine-tuning: unfreeze the pre-trained model's weights, so they can change, and train it further on a smaller, specialised dataset for your task
+- feature extraction: keep the pre-trained model's layers frozen, so they do not change, and add new layers on top
 
 Do not train a model from scratch if a suitable pre-trained model exists. Encourage transfer learning and model sharing between teams. In Defra, the AI toolkit says to [share models across teams](/ai-toolkit/guidance/sustainability), so one model run can serve several teams' needs.
 
@@ -123,9 +123,9 @@ Potential trade-offs may include:
 
 ## (iii) Quantize AI models
 
-Quantization reduces the numerical precision of a model's parameters.
+Quantization stores a model's parameters as less precise numbers.
 
-This makes models smaller and faster without a large loss of accuracy, and reduces their energy use. It can also make a model small enough to run on hardware such as mobile devices.
+This makes models smaller and faster, and reduces their energy use, without a large loss of accuracy. It can also make a model small enough to run on hardware such as mobile devices.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -133,9 +133,9 @@ This makes models smaller and faster without a large loss of accuracy, and reduc
 
 Alongside sustainability impact, quantizing AI models brings co-benefits in terms of:
 
-- speed: lower precision speeds up inference, so responses come back faster
-- cost: quantized models need less memory and can run on smaller, cheaper instances
-- versatility: smaller models can run on laptops or phones, which opens up use at the edge
+- speed: lower precision speeds up inference (running the model to answer a request), so responses come back faster
+- cost: quantized models need less memory and can run on smaller, cheaper cloud servers (instances)
+- versatility: smaller models can run on laptops or phones, which opens up use at the edge, on local devices
 
 </div>
 </details>

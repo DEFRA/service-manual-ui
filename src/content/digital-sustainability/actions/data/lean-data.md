@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any service or project that collects or keeps data, on and off CDP, including internal tools and data platforms.
+**Applies to:** any service or project that collects or keeps data, on and off the Core Delivery Platform (CDP), including internal tools and data platforms.
 
 **Lead role families:** Data and Architecture
 
@@ -33,7 +33,7 @@ supportBox:
 
 The data your service needs may already have been collected elsewhere. Reusing it avoids the resources needed to collect, store and process duplicate data.
 
-Before you collect new data, find out whether other services or projects, in your department or in others, already hold the data your service needs.
+Before you collect new data, find out whether other services or projects already hold the data your service needs. Look in your own department and in others.
 
 Only collect new data when you have established that:
 

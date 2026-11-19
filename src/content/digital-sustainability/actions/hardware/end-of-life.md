@@ -1,7 +1,7 @@
 ---
 title: "8c. Choose the most sustainable options for hardware at end of life"
 caption: "Hardware"
-description: "Reuse devices outside Defra first, then choose the most circular end-of-life option, to keep devices, components and materials in use and cut e-waste and demand for new resources."
+description: "Reuse devices outside Defra first, then choose the most circular end-of-life option. This keeps devices and materials in use and cuts e-waste and demand for new resources."
 layout: section
 sectionNav: nav-ds-hardware
 customNav: nav-digital-sustainability
@@ -69,7 +69,7 @@ Potential trade-offs may include:
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [Make your technology sustainable](https://www.gov.uk/guidance/make-your-technology-sustainable) (Government Digital Service): guidance for point 12 of the Technology Code of Practice, including buy-back and reuse by other government projects
+- [Make your technology sustainable](https://www.gov.uk/guidance/make-your-technology-sustainable) (Government Digital Service): guidance for point 12 of the Technology Code of Practice, including buy-back and reuse across government
 - [Secure sanitisation and disposal of storage media](https://www.ncsc.gov.uk/guidance/secure-sanitisation-storage-media) (National Cyber Security Centre): removing data before devices are sold or donated
 
 </div>
@@ -81,11 +81,11 @@ Potential trade-offs may include:
 
 If a device cannot be reused or repaired at a sensible cost, use the highest option left in the waste hierarchy.
 
-The waste hierarchy applies the principle of the circular economy to rank waste options from most to least environmentally friendly. For ICT hardware, the options are:
+The waste hierarchy ranks waste options from most to least environmentally friendly. It is based on the circular economy. For ICT hardware, the options are:
 
 <table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Approach</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Reclaiming and upcycling components</td><td class="govuk-table__cell">Taking valuable components such as circuit boards, hard drives or displays to reuse, to refurbish other devices or to sell</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Recycling materials</td><td class="govuk-table__cell">Recovering valuable materials such as gold, platinum, lithium, aluminium and copper to make new electronics, industrial goods and infrastructure</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration with energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials at high temperatures to make steam, which drives turbines to generate electricity or supply district heating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Incineration without energy recovery</td><td class="govuk-table__cell">Burning non-recyclable materials, with the heat lost to the environment rather than captured for electricity or heating</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Landfill</td><td class="govuk-table__cell">Placing residual waste in engineered or open-air pits, where it slowly compacts over decades</td></tr></tbody></table>
 
-Work with partners that can show clear capability and commitment to responsible disposal, recycling and circular economy principles.
+Work with partners that can show they are able and committed to dispose of and recycle hardware responsibly, in line with circular economy principles.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and other projects from alpha onwards, on and off CDP, including internal tools and infrastructure projects.
+**Applies to:** services and other projects from alpha onwards, on and off the Core Delivery Platform (CDP), including internal tools and infrastructure projects.
 
 **Lead role families:** Product and delivery
 
@@ -35,7 +35,7 @@ At the start of a project you may be looking at several approaches or solutions.
 
 Model the environmental impact of each option, so that sustainability feeds into the choice.
 
-Where it matters, include systemic effects and changes in behaviour. One example is the rebound effect: when technology makes something more efficient, people may use it more, so the total impact can go up.
+Where it matters, include systemic effects and changes in behaviour. One example is the rebound effect. When technology makes something more efficient, people may use it more, so the total impact can go up.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -78,7 +78,7 @@ Potential trade-offs may include:
 
 Measuring the environmental impact of a service or project as it develops shows you where to improve. To do that, you need the right metrics.
 
-Metrics can measure or estimate resource use or pollution directly. Where you cannot measure directly, use a proxy, such as page weight.
+Metrics can measure or estimate resource use or pollution directly. Where you cannot measure directly, use a proxy: a measure that stands in for the one you want, such as page weight.
 
 Read [measuring the sustainability of digital services](/digital-sustainability/measure) for more on choosing metrics.
 
@@ -124,7 +124,7 @@ Potential trade-offs may include:
 
 To judge whether a service meets its environmental goals, you need something to measure against. This is called a baseline.
 
-Most services are "brownfield": they replace an existing process of some kind rather than starting from nothing. The existing service can be your baseline. As the new service develops, you can also take a snapshot of it at one point in time to use as a baseline.
+Most services are "brownfield": they replace an existing process of some kind rather than starting from nothing. The existing service can be your baseline. As the new service develops, you can also use a snapshot of it as a baseline.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

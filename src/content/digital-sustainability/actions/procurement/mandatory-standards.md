@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** every procurement of digital, data and technology goods and services, whether run by Defra Commercial or by a project team, and the suppliers who deliver them.
+**Applies to:** every procurement of digital, data and technology goods and services, and the suppliers who deliver them. That includes procurements run by Defra Commercial and by project teams.
 
 **Lead role families:** Procurement
 
@@ -33,8 +33,8 @@ supportBox:
 
 Suppliers should comply with these UK government sustainability strategies, and with any commitments that update or replace them:
 
-- the [Greening government ICT and digital services strategy 2020 to 2025](https://www.gov.uk/government/publications/greening-government-ict-and-digital-services-strategy-2020-2025) sets out how government, suppliers and industry should work together on responsible, resilient ICT and digital services that support environmental goals, including net zero and the UN Sustainable Development Goals
-- the [Greening Government Commitments 2021 to 2025](https://www.gov.uk/government/publications/greening-government-commitments-2021-to-2025/greening-government-commitments-2021-to-2025) set out how UK government organisations should reduce and report the environmental impact of their operations, including their use of ICT and digital services
+- the [Greening government ICT and digital services strategy 2020 to 2025](https://www.gov.uk/government/publications/greening-government-ict-and-digital-services-strategy-2020-2025) sets out how government, suppliers and industry should work together on responsible, resilient ICT and digital services. These services should support environmental goals, including net zero and the UN Sustainable Development Goals.
+- the [Greening Government Commitments 2021 to 2025](https://www.gov.uk/government/publications/greening-government-commitments-2021-to-2025/greening-government-commitments-2021-to-2025) set out how UK government organisations should reduce and report the environmental impact of their operations. This includes their use of ICT and digital services.
 
 Both ran to 2025. When their successors are published, use those.
 
@@ -85,7 +85,7 @@ An update to the Government Buying Standards is expected. It will set out more r
 - hosting
 - hardware
 
-Where there is no Government Buying Standard for a type of technology, encourage suppliers to meet recognised sustainability standards and frameworks, such as [Green Public Procurement criteria](https://green-forum.ec.europa.eu/green-business/green-public-procurement/gpp-criteria-and-requirements_en), [Energy Star](https://www.energystar.gov/products/computers), [TCO Certified](https://tcocertified.com/), [EPEAT](https://www.epeat.net/) or an equivalent scheme.
+Some types of technology have no Government Buying Standard. For these, encourage suppliers to meet recognised sustainability standards and frameworks, such as [Green Public Procurement criteria](https://green-forum.ec.europa.eu/green-business/green-public-procurement/gpp-criteria-and-requirements_en), [Energy Star](https://www.energystar.gov/products/computers), [TCO Certified](https://tcocertified.com/), [EPEAT](https://www.epeat.net/) or an equivalent scheme.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -127,8 +127,8 @@ Potential trade-offs may include:
 
 When designing, building and running digital services and other projects, suppliers should adopt the relevant parts of this guidance:
 
-- the [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) is a set of criteria to help government design, build and buy technology, and point 12 covers sustainable technology
-- the GOV.UK Service Manual guidance on [environmentally sustainable services](https://www.gov.uk/service-manual/design/environmentally-sustainable-services) recommends measuring and reducing environmental impact across the service lifecycle, including software, hardware, data, infrastructure, suppliers and users
+- the [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) is a set of criteria to help government design, build and buy technology. Point 12 covers sustainable technology.
+- the GOV.UK Service Manual guidance on [environmentally sustainable services](https://www.gov.uk/service-manual/design/environmentally-sustainable-services) recommends measuring and reducing environmental impact across the service lifecycle. This covers software, hardware, data, infrastructure, suppliers and users.
 
 Defra services are also assessed against [15. Deliver a sustainable service](/digital-sustainability/service-standard), Defra's own point on sustainability.
 

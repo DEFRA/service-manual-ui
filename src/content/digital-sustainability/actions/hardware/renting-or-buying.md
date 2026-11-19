@@ -33,15 +33,15 @@ supportBox:
 
 Do not replace hardware on a fixed timetable, such as after a set number of years. Update or replace it only when there is evidence that you need to.
 
-Telemetry and performance data can tell you when a device's health means it needs replacing. Examples of signals include:
+Telemetry, the data devices send automatically about their health and use, can tell you when a device needs replacing. So can other performance data. Examples of signals include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Signal</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Battery performance</td><td class="govuk-table__cell">The battery has degraded, for example its health has dropped below 70 to 80% of its original capacity</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Performance telemetry</td><td class="govuk-table__cell">Slow application launches and logons, or CPU and memory use that stays high during normal daily tasks</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Repair thresholds</td><td class="govuk-table__cell">A single out-of-warranty repair would cost more than, for example, 50% of the device's remaining value</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Security non-compliance</td><td class="govuk-table__cell">The hardware can no longer support required security protocols or Trusted Platform Module (TPM) requirements</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th class="govuk-table__header">Signal</th><th class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Battery performance</td><td class="govuk-table__cell">The battery has degraded, for example its health has dropped below 70 to 80% of its original capacity</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Performance telemetry</td><td class="govuk-table__cell">Slow application launches and logons, or processor (CPU) and memory use that stays high during normal daily tasks</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Repair thresholds</td><td class="govuk-table__cell">A single out-of-warranty repair would cost more than, for example, 50% of the device's remaining value</td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Security non-compliance</td><td class="govuk-table__cell">The hardware can no longer support required security protocols or Trusted Platform Module (TPM) requirements. A TPM is a security chip built into the device.</td></tr></tbody></table>
 
 Avoiding unnecessary refreshes avoids electronic waste and the environmental impact of replacement equipment.
 
 Suppliers that monitor device performance make these health-based refreshes possible. See (iv).
 
-You can also use device as a service (DaaS). This is a subscription where you lease IT hardware and the supplier manages its end of life and disposal. It usually helps sustainability, because devices are refreshed on performance and repair and refurbishment come first.
+You can also use device as a service (DaaS). This is a subscription where you lease IT hardware and the supplier manages its end of life and disposal. It usually helps sustainability. Devices are refreshed based on performance, and repair and refurbishment come first.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -120,7 +120,7 @@ Potential trade-offs may include:
 
 ## (iii) Choose new hardware with recognised ecolabels
 
-Ecolabels are certifications that verify, to different levels, the sustainability of electronic devices.
+Ecolabels are certifications that check how sustainable electronic devices are. Some check more thoroughly than others.
 
 There are two types:
 
@@ -135,7 +135,7 @@ When you rent or buy new hardware, choose devices that meet the highest ecolabel
 
 If no Type 1 certification is available, use another ecolabel such as Energy Star, which covers energy efficiency only.
 
-If devices have no suitable ecolabel, or several have the same level, for example EPEAT gold, ask manufacturers for lifecycle assessments (LCAs) or product carbon footprints (PCFs). These can tell you more about environmental impact.
+Sometimes devices have no suitable ecolabel, or several have the same level, for example EPEAT gold. Then ask manufacturers for lifecycle assessments (LCAs) or product carbon footprints (PCFs). An LCA measures a product's environmental impact from raw materials to disposal. A PCF gives its carbon emissions.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -177,9 +177,9 @@ Potential trade-offs may include:
 
 ## (iv) Choose suppliers that monitor end-user device performance
 
-Monitoring end-user devices can include real-time telemetry on power use and tracking lifecycle emissions.
+Monitoring end-user devices can include live telemetry on power use, and tracking emissions across each device's life.
 
-What you learn from monitoring can show where to cut power use while devices are in use.
+Monitoring can show where to cut power use while devices are in use.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -220,7 +220,7 @@ Potential trade-offs may include:
 
 ## (v) Choose suppliers that offer e-waste compensation
 
-Electronic waste (e-waste) compensation balances the purchase or lease of new hardware by collecting and responsibly recycling the same volume of old or broken equipment.
+Electronic waste (e-waste) compensation balances each new device you buy or lease. The supplier collects and responsibly recycles the same volume of old or broken equipment.
 
 It helps make sure devices are recycled responsibly, and keeps environmental impacts such as chemical leaching and carbon emissions as low as possible.
 

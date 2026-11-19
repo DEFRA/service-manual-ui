@@ -36,15 +36,15 @@ For what to ask hardware suppliers to report at end of life, read [measuring the
 
 ### Environmental impacts
 
-There is no standard method yet for measuring a service's other environmental impacts, such as resource depletion, land use change, biodiversity loss and pollution. If you are buying IT, assess these impacts through supplier assurance and contract monitoring, to check suppliers carry out due diligence and follow industry good practice.
+There is no standard method yet for measuring a service's other environmental impacts, such as resource depletion, land use change, biodiversity loss and pollution. If you are buying IT, assess these impacts through supplier assurance and contract monitoring. Check that suppliers carry out due diligence and follow industry good practice.
 
 ### Resource depletion
 
-You can use hardware consumption as a proxy for resource depletion. Metrics can include:
+You can use hardware consumption as a [proxy](/digital-sustainability/measure/data-and-proxies), an indirect measure, for resource depletion. Metrics can include:
 
 - how far you extend hardware lifespan beyond the industry average, in years
 - the quantity of hardware bought, split into new and second life
-- utilisation of existing hardware: the percentage of available capacity used over a set period, to track improvements that reduce idle capacity and the need for more hardware
+- utilisation of existing hardware: the percentage of available capacity used over a set period. Use it to track improvements that reduce idle capacity and the need for more hardware
 
 ### Social impacts
 

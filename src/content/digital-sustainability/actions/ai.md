@@ -21,21 +21,29 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any project that builds, buys or runs artificial intelligence (AI), including services on and off the Core Delivery Platform (CDP), internal tools, and software you buy with AI built in.
+**Applies to:** any project that builds, buys or runs artificial intelligence (AI). That includes services on and off the Core Delivery Platform (CDP), internal tools, and software you buy with AI built in.
 
-How much you can reduce AI's impact depends on how much control you have over the model. If you develop, fine-tune, choose or run a model, you decide its size, training, hardware, hosting and how often it is retrained. If AI is built into software you buy, the supplier controls most of this, so ask them which of these actions they take and to report on them.
+How much you can reduce AI's impact depends on how much control you have over the model. If you develop, fine-tune, choose or run a model, you decide its size, training, hardware, hosting and how often it is retrained. If AI is built into software you buy, the supplier controls most of this. Ask them which of these actions they take, and ask them to report on them.
 
 ---
 
 ## In Defra, start with the AI toolkit
 
-The AI toolkit's [sustainability guidance](/ai-toolkit/guidance/sustainability) sets out the basics: use the smallest model that meets your needs, use AI only when it is the best option, cache results and share models across teams. The actions in this theme go further.
+The AI toolkit's [sustainability guidance](/ai-toolkit/guidance/sustainability) sets out the basics:
+
+- use the smallest model that meets your needs
+- use AI only when it is the best option
+- cache results
+- share models across teams
+
+The actions in this theme go further.
 
 Before you start:
 
 - [check if AI is right for your idea](/ai-toolkit/triage/question-1)
 - [find a tool](/ai-toolkit/tools) that teams across Defra already use or are trialling
-- read about [Amazon Bedrock](/ai-toolkit/tools/aws-bedrock), the route Defra uses to reach approved models, and talk to the AI Capability and Enablement team before you use it in delivery
+- read about [Amazon Bedrock](/ai-toolkit/tools/aws-bedrock), the route Defra uses to reach approved models
+- talk to the AI Capability and Enablement team before you use Bedrock in delivery
 
 Defra has a position statement on sustainability and AI. Find it in the Ethics section of the [AI governance page](https://defra.sharepoint.com/teams/Team4303/SitePages/AI-Governance.aspx) (requires Defra sign-in).
 

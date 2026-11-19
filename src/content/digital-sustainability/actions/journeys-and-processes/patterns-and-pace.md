@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** the design of any user journey or business process, for services on and off CDP and for internal tools.
+**Applies to:** the design of any user journey or business process, for services on and off the Core Delivery Platform (CDP) and for internal tools.
 
 **Lead role families:** Design, and Product and delivery
 
@@ -41,7 +41,7 @@ Use established, proven patterns. This helps sustainability because:
 - familiar, well-tested patterns help users understand what to do, so fewer journeys fail or need repeating
 - you avoid the rework, and the resources, needed to develop and test a design from scratch
 
-Start with the [GOV.UK Design System](https://design-system.service.gov.uk/) and Defra's guidance on [components and patterns](/design/components-and-patterns). [Point 13 of the Service Standard](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns) requires services to use and contribute to open standards, common components and patterns.
+Start with the [GOV.UK Design System](https://design-system.service.gov.uk/) and Defra's guidance on [components and patterns](/design/components-and-patterns). [Point 13 of the Service Standard](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns) says services must use and contribute to open standards, common components and patterns.
 
 To reuse software components as well as design patterns, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software).
 
@@ -76,7 +76,7 @@ Alongside sustainability impact, designing with established patterns brings co-b
 
 The pace of a service is how quickly it delivers. This covers response time, processing time and how long tasks take to complete. Faster services can need more resources.
 
-Find out how soon users need a response or outcome, and whether the service could go at a slower pace without harming them. For example, if users can have an answer the next day rather than the same day, you can process work in batches and turn environments and resources off overnight.
+Find out how soon users need a response or outcome. Then check whether a slower pace would harm them. For example, if users can wait until the next day for an answer, you can process work in batches. You can also turn environments and resources off overnight.
 
 To run that work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
 

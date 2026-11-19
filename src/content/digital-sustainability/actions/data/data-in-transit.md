@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off CDP that send data over networks, including internal tools. On CDP, network settings such as protocols are usually set by the platform, so ask the CDP team.
+**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP) that send data over networks, including internal tools. On CDP, the platform usually sets network settings such as protocols, so ask the CDP team.
 
 **Lead role families:** Data and Architecture
 
@@ -31,7 +31,7 @@ supportBox:
 
 ## (i) Compress data for transit
 
-Compressing data for transit means making files smaller, or lowering their bit rate, before you send them across a network.
+Compressing data for transit means making files smaller, or lowering their bit rate, before you send them across a network. Bit rate is the amount of data sent each second.
 
 Compression can reduce network load and energy use.
 
@@ -91,7 +91,7 @@ Alongside sustainability impact, using data from its primary source brings co-be
 
 Potential trade-offs may include:
 
-- performance: it can conflict with patterns that copy data closer to users on purpose, such as caching, content delivery networks and edge computing
+- performance: it can conflict with patterns that copy data closer to users on purpose. Examples are caching, content delivery networks and edge computing
 - dependencies: your service depends on the availability and performance of the upstream system
 
 </div>

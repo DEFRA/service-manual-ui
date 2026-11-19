@@ -31,7 +31,7 @@ You can get a carbon figure in 2 ways:
 - from the cloud provider's carbon reporting, usually monthly
 - by converting more detailed cloud usage data into estimates of energy and carbon
 
-A cloud provider's emissions are Defra's scope 3 emissions. Read about [scopes of emissions](/digital-sustainability/measure/carbon).
+A cloud provider's emissions are Defra's scope 3 emissions: indirect emissions from Defra's value chain. Read about [scopes of emissions](/digital-sustainability/measure/carbon).
 
 ## Using cloud provider carbon reporting
 
@@ -39,7 +39,7 @@ Cloud providers usually give carbon figures through dashboards, monthly usage re
 
 Provider data usually includes:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Operational carbon</dt><dd class="govuk-summary-list__value">Emissions from the electricity used to power servers, network equipment, heating, ventilation and cooling systems, and from backup generators. Providers report these as their own scopes 1 and 2. Many providers offset operational emissions with renewable energy purchases, which is the market-based method. Use location-based figures where the provider gives them.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Embodied carbon</dt><dd class="govuk-summary-list__value">Emissions from the whole lifecycle of the equipment the service uses, including building the data centre and its systems. This should cover extracting and processing raw materials, manufacture, distribution and disposal. Providers report this as their scope 3.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Operational carbon</dt><dd class="govuk-summary-list__value">Emissions from the electricity used to power servers, network equipment, heating, ventilation and cooling systems, and from backup generators. Providers report these as their own scopes 1 and 2. Many providers offset operational emissions with renewable energy purchases, which is the market-based method. Use location-based figures, based on the local grid, where the provider gives them.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Embodied carbon</dt><dd class="govuk-summary-list__value">Emissions from the whole lifecycle of the equipment the service uses, including building the data centre and its systems. This should cover extracting and processing raw materials, manufacture, distribution and disposal. Providers report this as their scope 3.</dd></div></dl>
 
 <div class="govuk-inset-text">
 
@@ -47,7 +47,7 @@ For many services and projects, the carbon figures from a cloud provider's dashb
 
 </div>
 
-Several cloud providers are working to widen the scope and detail of these figures. Some organisations also use GreenOps providers, which track the environmental impact of cloud use alongside its cost, to get more accurate and detailed data.
+Several cloud providers are working to widen the scope and detail of these figures. Some organisations also use GreenOps providers to get more accurate and detailed data. GreenOps providers track the environmental impact of cloud use alongside its cost.
 
 <div class="govuk-inset-text">
 
@@ -67,4 +67,4 @@ Cloud provider monitoring tools may also give:
 
 <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Compute</dt><dd class="govuk-summary-list__value">Average and peak central processing unit (CPU) utilisation (%)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Memory</dt><dd class="govuk-summary-list__value">Average and peak memory utilisation (%)</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Resource efficiency</dt><dd class="govuk-summary-list__value">Number of idle, underused or over-provisioned resources</dd></div></dl>
 
-You can convert these usage metrics into estimated energy use (kWh) with modelling approaches and open-source tools. Then combine the energy estimates with grid carbon intensity, from the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or [Electricity Maps data](https://www.electricitymaps.com/data), to produce carbon emissions (CO2e). Read about [converting energy to carbon](/digital-sustainability/measure/carbon).
+You can convert these usage metrics into estimated energy use (kWh) with modelling approaches and open-source tools. Then combine the energy estimates with grid carbon intensity to produce carbon emissions (CO2e). For grid carbon intensity, use the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or [Electricity Maps data](https://www.electricitymaps.com/data). Read about [converting energy to carbon](/digital-sustainability/measure/carbon).

@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software on and off CDP, including internal tools. On CDP, the platform and Defra's common tools already give you shared components to build with.
+**Applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the platform and Defra's common tools already give you shared components to build with.
 
 **Lead role families:** Software and Architecture
 
@@ -88,7 +88,7 @@ Building with shared components can bring trade-offs such as:
 
 If you develop new software components, design them for reuse: modular, independent and self-contained, each doing one job. Think about how easy the code will be to refactor and update.
 
-The Service Standard requires you to [make your source code open and reusable](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable), so others can reuse it and build on it. Code in the open from the start and publish your code under an open licence. In Defra, store code in the [Defra GitHub organisation](https://github.com/DEFRA).
+The Service Standard says you must [make your source code open and reusable](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable), so others can reuse it and build on it. Code in the open from the start and publish your code under an open licence. In Defra, store code in the [Defra GitHub organisation](https://github.com/DEFRA).
 
 You can also share components through a component library, so other teams can use what you built.
 
@@ -131,7 +131,7 @@ Potential trade-offs may include:
 
 ## (iii) Use low-code and no-code approaches when they fit
 
-Low-code and no-code tools let you design and build apps with visual interfaces, drag-and-drop components and generated code, instead of writing code from scratch.
+Low-code and no-code tools let you design and build apps with visual interfaces, drag-and-drop components and generated code. You write little or no code from scratch.
 
 They can save resources by cutting development effort and rework. They can also be more efficient where the platform shares infrastructure between apps.
 

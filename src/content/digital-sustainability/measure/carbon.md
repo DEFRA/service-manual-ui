@@ -22,7 +22,7 @@ supportBox:
 ---
 Carbon is the most measured environmental impact. Calculate a carbon footprint in line with the [GHG Protocol](https://ghgprotocol.org/) and its [Product Standard](https://ghgprotocol.org/product-standard) (GHG Protocol).
 
-Carbon figures are given in carbon dioxide equivalent (CO2e): other greenhouse gases are converted to the amount of carbon dioxide with the same warming effect. Report them in kilograms (kgCO2e).
+Carbon figures are given in carbon dioxide equivalent (CO2e). Other greenhouse gases are converted to the amount of carbon dioxide with the same warming effect. Report them in kilograms (kgCO2e).
 
 ## Scopes of emissions
 
@@ -30,7 +30,7 @@ There are 3 scopes of carbon emissions:
 
 - scope 1: direct greenhouse gas emissions from sources the reporting body owns or controls, for example burning fuel in a backup generator
 - scope 2: indirect emissions from generating the energy the reporting body buys and uses
-- scope 3: all other indirect emissions across the value chain, for example the embodied emissions from making and transporting hardware, and emissions from e-waste
+- scope 3: all other indirect emissions across the value chain, such as emissions from making and transporting hardware (embodied emissions) or from e-waste
 
 Which scope your service's emissions fall into depends on who owns the hardware and buys the electricity.
 
@@ -52,7 +52,7 @@ Public cloud providers and off-premises hosting suppliers may include this in th
 
 ## Converting energy to carbon
 
-Convert energy to carbon with emission factors, such as the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or the [Electricity Maps API](https://app.electricitymaps.com/docs).
+An emission factor is the carbon produced for each unit of energy. To convert energy to carbon, use emission factors such as the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or the [Electricity Maps API](https://app.electricitymaps.com/docs).
 
 <div class="govuk-inset-text">
 

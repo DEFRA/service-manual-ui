@@ -33,11 +33,11 @@ supportBox:
 
 In Defra, the AI toolkit says to [use the smallest model that meets your needs](/ai-toolkit/guidance/sustainability). This point explains why.
 
-The size of an AI model is mainly set by its number of parameters: the internal variables it uses to process information and make predictions.
+The size of an AI model is mainly set by its number of parameters. These are the internal variables it uses to process information and make predictions.
 
-General-purpose generative models, such as large language models (LLMs), are trained on broad datasets and can do many tasks, such as writing code or generating text or images. Task-specific models are built and fine-tuned for one well-defined job, using specific datasets. General-purpose models usually have far more parameters.
+General-purpose generative models, such as large language models (LLMs), are trained on broad datasets. They can do many tasks, such as writing code or generating text or images. Task-specific models are built and fine-tuned for one well-defined job, using specific datasets. General-purpose models usually have far more parameters.
 
-Choosing the smallest model that can do the job can cut energy use a lot, in training and in inference. Inference is when a trained model runs to answer a request.
+The smallest model that can do the job can cut energy use a lot, in training and in inference. Inference is when a trained model runs to answer a request.
 
 Test a smaller model against your real task before you commit. Defra's [green summarisation pattern](/ai-toolkit/patterns/green-summarisation) found that small local models matched an LLM on short summaries, but could not produce longer, detailed ones.
 
@@ -85,9 +85,9 @@ Potential trade-offs may include:
 
 Models of similar size and purpose can still vary a lot in how much energy they use.
 
-Compare models and choose the most energy-efficient one that gives outputs of acceptable quality and accuracy for your needs. These tools compare the energy use of AI models.
+Compare models. Choose the most energy-efficient one whose outputs are accurate enough and of good enough quality for your needs. These tools compare the energy use of AI models.
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI Energy Score (Hugging Face)</th><td class="govuk-table__cell">A benchmark and 1 to 5 star rating that compares the energy efficiency of AI models during inference, using a standard method to publish scores for each task and model</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">ML.ENERGY Leaderboard</th><td class="govuk-table__cell">A public benchmark that tracks and compares the energy use and performance of open-weight large language models</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">whatmodel.sh</th><td class="govuk-table__cell">An open-source leaderboard that filters models by hardware, such as RAM, Apple Silicon and GPU type, and shows performance against resource use or price</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI Energy Score (Hugging Face)</th><td class="govuk-table__cell">A benchmark and 1 to 5 star rating of how energy-efficient AI models are during inference. It uses a standard method to score each model on each task.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">ML.ENERGY Leaderboard</th><td class="govuk-table__cell">A public benchmark that tracks and compares the energy use and performance of open-weight large language models</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">whatmodel.sh</th><td class="govuk-table__cell">An open-source leaderboard that filters models by hardware, such as memory (RAM), Apple Silicon and graphics processing unit (GPU) type. It shows performance against resource use or price.</td></tr></tbody></table>
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -95,7 +95,7 @@ Compare models and choose the most energy-efficient one that gives outputs of ac
 
 Alongside sustainability impact, choosing an energy-efficient model brings co-benefits in terms of:
 
-- cost: models that use less computing power per request are often cheaper per token
+- cost: models that use less computing power per request are often cheaper per token. Tokens are the small chunks of text a model reads and writes.
 - speed: efficient models usually respond faster, which helps users waiting for an answer
 
 </div>
@@ -128,7 +128,7 @@ Potential trade-offs may include:
 
 ## (iii) Choose a model with the minimum required modality
 
-A multimodal AI model can process and generate several types of data, such as text, images, audio and video. This can be useful, for example to write a description of an image.
+A model's modality is the types of data it can handle. A multimodal AI model can process and generate several types, such as text, images, audio and video. This can be useful, for example to write a description of an image.
 
 The more modes a model has, the more energy it tends to use.
 
@@ -173,7 +173,9 @@ Potential trade-offs may include:
 
 ## (iv) Consider open-source AI models
 
-An open-source AI model publishes its source code, model parameters (weights) and documentation under a licence that lets others use and change them. They are not in the public domain: the licence sets what you can do. Some models described as open, such as Llama, are open-weight. Their weights are published but their training data is not, and the licence may limit how you use them.
+An open-source AI model publishes its source code, model parameters (weights) and documentation. A licence lets others use and change them. They are not in the public domain: the licence sets what you can do.
+
+Some models described as open, such as Llama, are open-weight. Their weights are published but their training data is not. Their licence may limit how you use them.
 
 Open models are usually general-purpose rather than task-specific. Examples include Mistral, Llama, Gemma and GPT-OSS.
 
@@ -202,7 +204,7 @@ Potential trade-offs may include:
 
 - security: the team must check, patch and monitor the model itself, with no vendor support contract
 - licensing: some open models publish weights but restrict how they can be used, so check the licence
-- hosting: self-hosting needs GPUs and specialist skills, though some open-weight models are also offered as managed models, for example through Amazon Bedrock
+- hosting: self-hosting needs GPUs and specialist skills. Some open-weight models are also offered as managed models that a provider runs for you, for example through Amazon Bedrock
 
 </div>
 </details>

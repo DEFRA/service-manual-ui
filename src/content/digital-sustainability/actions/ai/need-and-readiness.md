@@ -86,9 +86,9 @@ See also [6d (i) Implement a multi-tiered approach to AI](/digital-sustainabilit
 
 ## (ii) Check you have suitable data for AI
 
-AI learns from data to find patterns and make predictions or decisions. Good data gives more accurate and reliable results. Poor data can give biased or flawed outputs, and may need cleaning and pipeline repair before you can use it.
+AI learns from data to find patterns and make predictions or decisions. Good data gives more accurate and reliable results. Poor data can give biased or flawed outputs. You may need to clean it, and repair the data pipelines that collect and prepare it, before you can use it.
 
-Make sure you have data that is accessible, relevant and of high enough quality for what you want AI to do. In Defra, read [using data with AI](/ai-toolkit/guidance/using-data-with-ai) before you point any tool at real data.
+Make sure your data is accessible, relevant and good enough for what you want AI to do. In Defra, read [using data with AI](/ai-toolkit/guidance/using-data-with-ai) before you point any tool at real data.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -135,7 +135,7 @@ An AI register is a catalogue of the AI systems a project or organisation uses.
 
 A register can record use cases, system types, ownership and data use, and track deployment, monitoring and compliance.
 
-Knowing which AI systems teams use helps you find chances to share and reuse tools and datasets, and to use fewer resources.
+When you know which AI systems teams use, you can share and reuse tools and datasets, and use fewer resources.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -144,7 +144,7 @@ Knowing which AI systems teams use helps you find chances to share and reuse too
 Alongside sustainability impact, creating a register of AI use brings co-benefits in terms of:
 
 - cost: a list of active AI systems helps you find redundant tools to remove and avoid duplicate purchases
-- security: a register helps you find unsanctioned tools and monitor security weaknesses
+- security: a register helps you find unapproved tools and monitor security weaknesses
 
 </div>
 </details>

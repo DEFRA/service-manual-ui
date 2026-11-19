@@ -25,7 +25,7 @@ supportBox:
 
 **When: before the end of discovery or Stage Gate 3**
 
-The Digital Defra and data transformation strategy says that all IT projects and programmes, public or internally facing, must be assessed for sustainability impacts and benefits.
+The Digital Defra and data transformation strategy says all IT projects and programmes must be assessed for sustainability impacts and benefits. This applies whether they are public or internally facing.
 
 You do this through the DDTS digital sustainability risk assessment.
 
@@ -74,37 +74,37 @@ Record your impact rating and act on the guidance before Stage Gate 3 or your al
 
 **When: from alpha onwards**
 
-Each service fills out a digital sustainability statement. It records the sustainability actions taken so far, and those planned for later stages.
+Each service fills out a digital sustainability statement. It records the sustainability actions you have taken so far, and those you plan for later stages.
 
 Use the [digital sustainability statement template](https://defra.sharepoint.com/:w:/t/Team740/IQBAlG0g2QUgTZh_JAasu_VxAeLt4w-3HYfhfSz5jVmBlBk?e=DPn9y3) (Word document, requires Defra sign-in).
 
-The statement is set out so you can record actions against each of the [6 objectives in Defra's digital sustainability strategy](/digital-sustainability/service-standard/objectives). It also has space to record any metrics that track sustainability performance.
+Use the statement to record actions against each of the [6 objectives in Defra's digital sustainability strategy](/digital-sustainability/service-standard/objectives). You can also record any metrics you use to track sustainability performance.
 
-Some services face constraints on the sustainability actions they can take. For example:
+Some services are limited in the sustainability actions they can take. These constraints can include:
 
 - technical decisions taken before the delivery team was assembled
 - procurement that took place before service delivery began
 - use of common capabilities and platforms
 - a lack of reliable data from suppliers on some environmental impacts
 
-If your team has not been able to take any actions under one or more of the 6 objectives, record this in the statement and explain the constraints.
+Your team may not have been able to take any actions under one or more of the 6 objectives. If so, record this in the statement and explain the constraints.
 
-Update the statement through private and public beta. It helps service assessors judge the sustainability approach your service has taken.
+Update the statement through private and public beta. Service assessors use it to judge your service's sustainability approach.
 
 ## 3\. Show your sustainability approach at service assessments
 
 **When: at alpha, beta and live assessments**
 
-Since 1 April 2026, Defra service assessments have assessed the sustainability approach of public-facing, transactional services that follow the agile lifecycle.
+Since 1 April 2026, Defra has assessed the sustainability approach of public-facing, transactional services that follow the agile lifecycle at its service assessments.
 
 This does not apply to services with more than 100,000 transactions a year. They have a cross-government assessment, where the 15th Service Standard point is not required.
 
-Services that have a Defra service assessment get a red, amber or green (RAG) rating for sustainability, judged against the 15th Service Standard point.
+At a Defra service assessment, your service gets a red, amber or green (RAG) rating for sustainability. Assessors judge it against the 15th Service Standard point.
 
 ### At an alpha assessment
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header" style="width: 100px">Rating</th><th scope="col" class="govuk-table__header">Qualification</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Green</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement which shows:</p><ul class="govuk-list govuk-list--bullet"><li>any sustainability actions already taken, including those relating to technology choices, procurements or the decommissioning of legacy systems</li><li>appropriate and credible actions planned for the sustainable delivery of the service from private beta onwards</li><li>appropriate metrics to track sustainability performance from private beta onwards</li><li>any constraints that limit the sustainability actions the project can take or how it can track sustainability performance</li></ul></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Amber</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement which shows:</p><ul class="govuk-list govuk-list--bullet"><li>some actions planned to support sustainable delivery from private beta onwards</li></ul><p class="govuk-body">The project has not identified and recorded a full list of appropriate sustainability actions, metrics to track sustainability performance and any constraints it faces.</p></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Red</td><td class="govuk-table__cell">The service has not completed a digital sustainability statement.</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header" style="width: 100px">Rating</th><th scope="col" class="govuk-table__header">Qualification</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Green</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement that shows:</p><ul class="govuk-list govuk-list--bullet"><li>any sustainability actions already taken, including those relating to technology choices, procurements or the decommissioning of legacy systems</li><li>appropriate and credible actions planned for the sustainable delivery of the service from private beta onwards</li><li>appropriate metrics to track sustainability performance from private beta onwards</li><li>any constraints that limit the sustainability actions the project can take or how it can track sustainability performance</li></ul></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Amber</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement that shows:</p><ul class="govuk-list govuk-list--bullet"><li>some actions planned to support sustainable delivery from private beta onwards</li></ul><p class="govuk-body">The project has not identified and recorded a full list of appropriate sustainability actions, metrics to track sustainability performance and any constraints it faces.</p></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Red</td><td class="govuk-table__cell">The service has not completed a digital sustainability statement.</td></tr></tbody></table>
 
 ### At beta and live assessments
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header" style="width: 100px">Rating</th><th scope="col" class="govuk-table__header">Qualification</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Green</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement which shows:</p><ul class="govuk-list govuk-list--bullet"><li>a range of appropriate and credible sustainability actions taken in the design and development of the service</li><li>appropriate and credible sustainability actions planned for future delivery phases</li><li>appropriate metrics being used to track the sustainability performance of the service</li><li>any constraints that limit the sustainability actions the project can take or how it can track sustainability performance</li></ul></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Amber</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement which shows:</p><ul class="govuk-list govuk-list--bullet"><li>some actions taken to deliver a sustainable service</li></ul><p class="govuk-body">The project has not identified and recorded a full list of appropriate sustainability actions taken and planned, metrics to track sustainability performance and any constraints it faces.</p></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Red</td><td class="govuk-table__cell">The service has not completed a digital sustainability statement.</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header" style="width: 100px">Rating</th><th scope="col" class="govuk-table__header">Qualification</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><td class="govuk-table__cell">Green</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement that shows:</p><ul class="govuk-list govuk-list--bullet"><li>a range of appropriate and credible sustainability actions taken in the design and development of the service</li><li>appropriate and credible sustainability actions planned for future delivery phases</li><li>appropriate metrics being used to track the sustainability performance of the service</li><li>any constraints that limit the sustainability actions the project can take or how it can track sustainability performance</li></ul></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Amber</td><td class="govuk-table__cell"><p class="govuk-body">The service has completed a digital sustainability statement that shows:</p><ul class="govuk-list govuk-list--bullet"><li>some actions taken to deliver a sustainable service</li></ul><p class="govuk-body">The project has not identified and recorded a full list of appropriate sustainability actions taken and planned, metrics to track sustainability performance and any constraints it faces.</p></td></tr><tr class="govuk-table__row"><td class="govuk-table__cell">Red</td><td class="govuk-table__cell">The service has not completed a digital sustainability statement.</td></tr></tbody></table>

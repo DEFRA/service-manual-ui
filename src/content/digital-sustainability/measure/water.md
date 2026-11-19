@@ -33,7 +33,7 @@ Few services measure water yet, and the data available may limit how much you ca
 
 ## Water used to make hardware
 
-Where suppliers have them, lifecycle assessments can show the water used to make the hardware your service uses. Few are available, and they may use different boundaries or water indicators. Check what each figure covers before you combine or compare results.
+Lifecycle assessments add up a product's impacts from raw materials to disposal. Where suppliers have them, they can show the water used to make the hardware your service uses. Few are available, and they may use different boundaries or water indicators. Check what each figure covers before you combine or compare results.
 
 If hardware is shared, allocate a share to your service, taking account of the hardware's expected lifespan and the assessment period. The method is the same as for [embodied carbon](/digital-sustainability/measure/embodied-carbon).
 

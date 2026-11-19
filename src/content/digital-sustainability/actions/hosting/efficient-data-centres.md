@@ -33,11 +33,11 @@ supportBox:
 
 A data centre's energy efficiency is often given as its Power Usage Effectiveness (PUE).
 
-PUE is the total energy a facility uses, including cooling, power conversion and lighting, divided by the energy its IT equipment uses. A lower PUE means a more energy-efficient data centre.
+PUE is the total energy a facility uses divided by the energy its IT equipment uses. The total includes cooling, power conversion and lighting. A lower PUE means a more energy-efficient data centre.
 
-When you choose a hosting provider, compare the PUE of each candidate and choose the most energy-efficient infrastructure.
+When you choose a hosting provider, compare each candidate's PUE and choose the most energy-efficient infrastructure.
 
-Choose data centres that follow the [EU Code of Conduct on Data Centre Energy Efficiency](https://knowledge-for-policy.ec.europa.eu/file/european-code-conduct-data-centre-energy-efficiency_en), or an equivalent standard. Look for [CEEDA](https://www.datacenterdynamics.com/en/ceeda/), [BREEAM](https://breeam.com/), [LEED](https://www.usgbc.org/discoverleed/certification/bd-c-data-centers/) or [EDGE](https://edge.gbci.org/) certification, or an equivalent scheme.
+Choose data centres that follow the [EU Code of Conduct on Data Centre Energy Efficiency](https://knowledge-for-policy.ec.europa.eu/file/european-code-conduct-data-centre-energy-efficiency_en), or an equivalent standard. Look for energy or sustainability certification such as [CEEDA](https://www.datacenterdynamics.com/en/ceeda/), [BREEAM](https://breeam.com/), [LEED](https://www.usgbc.org/discoverleed/certification/bd-c-data-centers/) or [EDGE](https://edge.gbci.org/), or an equivalent scheme.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -58,7 +58,7 @@ Alongside sustainability impact, choosing energy-efficient data centres brings c
 Potential trade-offs may include:
 
 - partial measure: PUE shows facility overhead, not how efficiently the IT equipment itself is used
-- water: a low PUE can come from evaporative cooling, which raises water use (see (ii))
+- water: a low PUE can come from evaporative cooling, which cools by evaporating water and so raises water use (see (ii))
 - limited choice: large cloud providers publish fleet or regional averages, and teams on CDP do not choose the facility
 
 </div>
@@ -77,15 +77,15 @@ Potential trade-offs may include:
 
 ## (ii) Choose providers with water-efficient infrastructure
 
-Many data centres need a steady supply of fresh water for cooling. Tracking water use matters most in water-stressed areas and where free air cooling is not available.
+Many data centres need a steady supply of fresh water for cooling. Tracking water use matters most in water-stressed areas, and where free air cooling (cooling with outside air) is not available.
 
-Water Usage Effectiveness (WUE) measures how much water a data centre uses for cooling and humidification, relative to the energy its IT equipment uses. A lower WUE means more efficient water use.
+Water Usage Effectiveness (WUE) measures how much water a data centre uses for cooling and humidification. It compares that water with the energy its IT equipment uses. A lower WUE means more efficient water use.
 
 When you compare providers, ask how they use water and what WUE their facilities achieve.
 
 <div class="govuk-inset-text">
 
-A lower WUE often comes with a higher PUE, and the other way round. Some newer data centres use cooling that does not need a steady supply of fresh water, such as liquid immersion cooling, closed-loop designs and direct air cooling. Some use treated municipal wastewater instead of fresh water.
+A lower WUE often comes with a higher PUE, and the other way round. Some newer data centres use cooling that does not need a steady supply of fresh water. Examples are liquid immersion cooling, closed-loop designs and direct air cooling. Some use treated municipal wastewater instead of fresh water.
 
 </div>
 
@@ -128,7 +128,7 @@ Potential trade-offs may include:
 
 Data centres turn a large share of the electricity they use into waste heat.
 
-This heat can be captured and reused, for example to heat homes and businesses through district heating, to heat swimming pools or sports centres, or in industrial and agricultural processes.
+This heat can be captured and reused. For example, it can heat homes and businesses through district heating, or heat swimming pools and sports centres. It can also be used in industrial and agricultural processes.
 
 Choose providers with data centres that reuse the waste heat from computing.
 

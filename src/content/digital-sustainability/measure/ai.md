@@ -39,9 +39,9 @@ Most approaches focus on training and inference.
 
 Results are usually given per unit of use, called a [functional unit](/digital-sustainability/measure/boundaries-and-units), such as:
 
-- per token, for large language models
+- per token, for large language models (a token is a small piece of text the model reads or writes)
 - per image, for image generation
-- per workflow run, for agentic AI
+- per workflow run, for agentic AI (AI that plans and carries out tasks in steps)
 
 ## Measuring the energy AI models use
 
@@ -57,7 +57,7 @@ AI used through APIs in the public cloud is usually paid for by input and output
 
 Ways to access it include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Approach</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Direct model APIs</th><td class="govuk-table__cell">You call a provider's own model API, such as OpenAI, Anthropic or Google AI Studio, and pay for the input and output tokens used</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI model as a service (AIaaS or MaaS)</th><td class="govuk-table__cell">Raw or pretrained AI or machine learning models delivered through cloud infrastructure and standard API endpoints, paid for by subscription or by token</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hyperscaler managed AI platforms</th><td class="govuk-table__cell">Enterprise AI suites built into the major cloud platforms of hyperscalers (very large cloud providers), such as Microsoft Azure AI Services, Amazon Bedrock, Google Cloud Vertex AI and Oracle Cloud OCI Generative AI</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Approach</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Direct model APIs</th><td class="govuk-table__cell">You call a provider's own model API, such as OpenAI, Anthropic or Google AI Studio. You pay for the input and output tokens used.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI model as a service (AIaaS or MaaS)</th><td class="govuk-table__cell">Raw or pretrained AI or machine learning models, delivered through cloud infrastructure and standard API endpoints. You pay by subscription or by token.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Hyperscaler managed AI platforms</th><td class="govuk-table__cell">Enterprise AI suites built into the cloud platforms of hyperscalers, the very large cloud providers. Examples are Microsoft Azure AI Services, Amazon Bedrock, Google Cloud Vertex AI and Oracle Cloud OCI Generative AI.</td></tr></tbody></table>
 
 You can estimate the energy used by AI models in the public cloud by:
 
@@ -76,11 +76,11 @@ Energy use scales directly with the number of tokens processed. Generating an ou
 
 Token usage data should be in provider dashboards and billing reports. Some tools estimate the energy used by input and output tokens.
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">CLEER Dashboard</th><td class="govuk-table__cell">A public tool from the Sustainable AI Group that models and estimates the energy used per token by proprietary and open source models</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">ML.Energy Dashboard</th><td class="govuk-table__cell">A benchmarking and tracking tool that measures and publishes the energy and resource use of machine learning and generative AI models, including electricity per generated token or chain-of-thought step</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">CLEER Dashboard</th><td class="govuk-table__cell">A public tool from the Sustainable AI Group that models and estimates the energy used per token by proprietary and open source models</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">ML.Energy Dashboard</th><td class="govuk-table__cell">A benchmarking and tracking tool for machine learning and generative AI models. It measures and publishes their energy and resource use, including electricity per generated token or chain-of-thought step.</td></tr></tbody></table>
 
 ### (ii) Top-down estimates from billing data
 
-Where you can work out the share of AI workloads compared with other cloud computing, you can use cloud provider metrics and reporting to estimate what an AI model uses.
+You may be able to work out what share of your cloud computing is AI. If so, you can use cloud provider metrics and reporting to estimate what an AI model uses.
 
 Read about using cloud usage data to estimate energy and carbon in [calculating carbon for services based in the cloud](/digital-sustainability/measure/cloud-carbon).
 
@@ -110,7 +110,7 @@ Read about [estimating the energy use of hardware](/digital-sustainability/measu
 
 Several software frameworks can track hardware usage during training or inference runs and log energy use. Examples for AI include:
 
-<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Software tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">EcolagM</th><td class="govuk-table__cell">Estimates and tracks the environmental footprint of generative AI models at inference</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">EcoLogits</th><td class="govuk-table__cell">An open-source Python library that tracks and calculates the environmental and energy impacts of generative AI models in real time when they are used through APIs</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">CodeCarbon</th><td class="govuk-table__cell">Monitors power use across the CPU, GPU and RAM</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Carbontracker</th><td class="govuk-table__cell">Tracks power use by hardware components such as graphics processing units (GPUs), central processing units (CPUs) and RAM</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">MIT's EnergAIzer</th><td class="govuk-table__cell">Uses predictive modelling to forecast how much electricity an AI workload will draw. It analyses the parameters of an AI task, such as training or inference jobs on GPUs, and estimates power demand in advance.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Experiment Impact Tracker</th><td class="govuk-table__cell">The <a class="govuk-link" href="https://oecd.ai/en/catalogue/tools/experiment-impact-tracker">Experiment Impact Tracker</a> (OECD.AI) is a Python library that measures energy use, hardware use and carbon emissions in real time during machine learning training</td></tr></tbody></table>
+<table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Software tool</th><th scope="col" class="govuk-table__header">Description</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">EcolagM</th><td class="govuk-table__cell">Estimates and tracks the environmental footprint of generative AI models at inference</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">EcoLogits</th><td class="govuk-table__cell">An open-source Python library. It tracks and calculates the environmental and energy impacts of generative AI models in real time, when they are used through APIs.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">CodeCarbon</th><td class="govuk-table__cell">Monitors power use across the CPU, GPU and RAM</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Carbontracker</th><td class="govuk-table__cell">Tracks power use by hardware components such as graphics processing units (GPUs), central processing units (CPUs) and RAM</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">MIT's EnergAIzer</th><td class="govuk-table__cell">Uses predictive modelling to forecast how much electricity an AI workload will draw. It analyses the parameters of an AI task, such as training or inference jobs on GPUs, and estimates power demand in advance.</td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Experiment Impact Tracker</th><td class="govuk-table__cell">The <a class="govuk-link" href="https://oecd.ai/en/catalogue/tools/experiment-impact-tracker">Experiment Impact Tracker</a> (OECD.AI) is a Python library that measures energy use, hardware use and carbon emissions in real time during machine learning training</td></tr></tbody></table>
 
 <div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>Tools may use different system boundaries, assumptions and carbon intensity data. Record the tool, version, configuration and date you used.</strong></div>
 
@@ -122,13 +122,13 @@ If AI is built into software you buy, only the supplier can measure its energy u
 
 ### (i) Energy use
 
-The supplier gives the [AI Energy Score](https://huggingface.github.io/AIEnergyScore/) (Hugging Face), or an equivalent industry-standard energy efficiency benchmark, for the proposed AI models, and reports their energy use.
+The supplier gives the [AI Energy Score](https://huggingface.github.io/AIEnergyScore/) (Hugging Face) for the proposed AI models, or an equivalent industry-standard energy efficiency benchmark. The supplier also reports their energy use.
 
 ### (ii) Lifecycle analysis (LCA)
 
-The supplier gives an attributional LCA (one that adds up the impacts attributable to the product itself) for the whole lifecycle of the proposed AI models, verified in line with ISO 14040 and 14044.
+The supplier gives an attributional LCA for the whole lifecycle of the proposed AI models, verified in line with ISO 14040 and 14044. An attributional LCA adds up the impacts that belong to the product itself.
 
-The functional unit for this LCA should include the proposed AI models and the data, hardware, networking and infrastructure they use across development, training and deployment.
+The functional unit for this LCA should include the proposed AI models. It should also include the data, hardware, networking and infrastructure they use across development, training and deployment.
 
 The LCA should cover:
 
@@ -164,7 +164,7 @@ The LCA should cover:
 The LCA should, at minimum, give:
 
 - energy use (Wh)
-- greenhouse gas emissions (kgCO2e)
+- greenhouse gas emissions (kgCO2e, kilograms of carbon dioxide equivalent)
 - water use (litres or cubic metres)
 - abiotic resource depletion (kgSb-e, kilograms of antimony equivalent)
 
@@ -174,7 +174,7 @@ If there is no LCA, the supplier gives real metrics, or verified estimates, for 
 
 - acquiring, processing and storing training data
 - training, including research and development compute, retraining and fine-tuning for the current model version
-- the inference service on a defined set of hardware, as a median per token (or per inference if the model does not use tokens)
+- the inference service on a defined set of hardware, as a median per token. Use per inference if the model does not use tokens
 - the embodied impacts of sourcing, making, transporting and disposing of the hardware used for these
 
 Metrics include:

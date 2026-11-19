@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** discovery and early research on any project, including services on and off CDP, internal tools, infrastructure projects and procurement.
+**Applies to:** discovery and early research on any project, including services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
 
 **Lead role families:** Research, and Product and delivery
 
@@ -63,7 +63,7 @@ Potential trade-offs may include:
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
 <div class="govuk-details__text">
 
-- [Greening Government Commitments](https://www.gov.uk/government/collections/greening-government-commitments) (Department for Environment, Food and Rural Affairs and Cabinet Office): the actions UK government departments and their agencies will take to reduce their impact on the environment
+- [Greening Government Commitments](https://www.gov.uk/government/collections/greening-government-commitments) (Department for Environment, Food and Rural Affairs and Cabinet Office): the actions UK government departments and agencies will take to reduce their environmental impact
 - [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (Department for Environment, Food and Rural Affairs)
 
 </div>
@@ -78,7 +78,7 @@ In discovery you learn about users, constraints, policy intent and what could be
 Questions to add to your research:
 
 - what environmental outcomes are policymakers trying to achieve?
-- where do the biggest environmental impacts happen in the current journey or process, for example in data capture and processing, travel, or the devices users and staff use?
+- where are the biggest environmental impacts in the current journey or process? For example, data capture and processing, travel or the devices users and staff use
 - where could a new or redesigned service or process reduce those impacts?
 
 What you learn can shape journeys and processes that cut environmental impact, and show the best ways to meet wider policy outcomes.
@@ -113,7 +113,7 @@ Potential trade-offs may include:
 <div class="govuk-details__text">
 
 - [How the discovery phase works](https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works) (GOV.UK Service Manual)
-- [Introducing a government as a system toolkit](https://openpolicy.blog.gov.uk/2020/03/06/introducing-a-government-as-a-system-toolkit/) (Open Policy Making blog): a new digital service may be one of several levers government can pull, and government is often most effective when it combines several "styles of action"
+- [Introducing a government as a system toolkit](https://openpolicy.blog.gov.uk/2020/03/06/introducing-a-government-as-a-system-toolkit/) (Open Policy Making blog): a new digital service may be one of several levers government can pull. Government is often most effective when it combines several "styles of action"
 
 </div>
 </details>

@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** anything you publish or send to users, including pages of services on and off CDP, internal tools, notifications and documents.
+**Applies to:** anything you publish or send to users. This includes pages of services on and off the Core Delivery Platform (CDP), internal tools, notifications and documents.
 
 **Lead role families:** Design and Software
 
@@ -46,7 +46,7 @@ To check pages against your budget, see [test for page weight](/digital-sustaina
 
 Alongside sustainability impact, setting a page weight budget brings co-benefits in terms of:
 
-- inclusion: budgets make teams think hard about what is essential for users with small screens or low bandwidth, so pages work on slow connections
+- inclusion: budgets make teams decide what is essential for users with small screens or slow connections, so pages still work for them
 
 </div>
 </details>
@@ -67,7 +67,7 @@ Alongside sustainability impact, setting a page weight budget brings co-benefits
 
 Design pages and journeys to work as text first. Users should be able to understand and complete every core task without images, video or other media.
 
-Text-first journeys also support progressive enhancement. For how to build this, see [develop pages using progressive enhancement](/digital-sustainability/actions/software/energy-efficient-software).
+Text-first journeys also support progressive enhancement, where core content works in HTML alone and extras are built on top. For how to build this, see [develop pages using progressive enhancement](/digital-sustainability/actions/software/energy-efficient-software).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -75,7 +75,7 @@ Text-first journeys also support progressive enhancement. For how to build this,
 
 Alongside sustainability impact, designing for text-based journeys brings co-benefits in terms of:
 
-- inclusion: pages perform better on slower connections and older devices, which extends the useful life of hardware and reduces pressure to upgrade
+- inclusion: pages work better on slower connections and older devices, so hardware lasts longer and people feel less pressure to upgrade
 - accessibility: well-structured text works well with screen readers, zoom, translation and different types of device
 
 </div>
@@ -85,7 +85,7 @@ Alongside sustainability impact, designing for text-based journeys brings co-ben
 
 ## (iii) Take a lean approach to multimedia and interactive content
 
-Photos, video and interactive elements such as maps can add a lot to the weight of a page, that is, its size in bytes.
+Photos, video and interactive elements such as maps can add a lot to the weight of a page.
 
 Only use multimedia and interactive content when there is a clear user need. Let users choose to open it. For loading media only when it is needed, see [use lazy loading](/digital-sustainability/actions/software/energy-efficient-software).
 
@@ -160,7 +160,7 @@ When you choose a format, pick the one with the smallest file size and the most 
 
 Choosing lightweight publishing formats brings co-benefits in terms of:
 
-- accessibility: semantic HTML works more reliably than PDF with screen readers, keyboard navigation, text resizing and user-defined styles
+- accessibility: semantic HTML describes what each part of a page is. It works more reliably than PDF with screen readers, keyboard navigation, text resizing and user-defined styles
 - user experience: users can read content straight away in the service rather than downloading and opening a separate document
 
 </div>

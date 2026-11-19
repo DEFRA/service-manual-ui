@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP cannot choose where its service is hosted, so this is a decision for the platform and commercial teams.
+**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP cannot choose where its service is hosted. The platform and commercial teams make this decision.
 
 **Lead role families:** Procurement, Product and delivery, and Architecture
 
@@ -41,7 +41,7 @@ Carbon usage effectiveness (CUE) compares a data centre's total carbon emissions
 
 <div class="govuk-inset-text">
 
-Most government services must be hosted in the UK. Carbon intensity varies across the UK, for example between south Wales and Scotland, so a cleaner site still cuts emissions.
+Most government services must be hosted in the UK. But carbon intensity, the carbon emitted for each unit of electricity, varies across the UK. For example, it differs between south Wales and Scotland. So a cleaner site still cuts emissions.
 
 </div>
 
@@ -65,7 +65,7 @@ Potential trade-offs may include:
 
 - limited choice: for services on CDP this is a platform decision
 - data residency: moving outside the UK can raise sovereignty and data protection issues
-- claims: market-based renewable claims may not match the grid mix when your service runs, so ask for location-based figures too
+- claims: market-based figures count the renewable energy a provider buys. This may not match the grid mix when your service runs, so also ask for location-based figures, based on the local grid
 
 </div>
 </details>
@@ -85,7 +85,7 @@ Potential trade-offs may include:
 
 ## (ii) Choose providers with good water availability
 
-Some data centres are in water-stressed regions, where demand for fresh water is greater than the supply for part of the year. Even within the UK, water stress varies a lot between regions.
+Some data centres are in water-stressed regions. In these regions, demand for fresh water is greater than the supply for part of the year. Even within the UK, water stress varies a lot between regions.
 
 Choose providers with data centres in regions that have good freshwater availability and are not water-stressed or likely to face shortages.
 

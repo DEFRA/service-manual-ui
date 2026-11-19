@@ -1,7 +1,7 @@
 ---
 title: "4d. Balance data backup, security and sustainability"
 caption: "Data"
-description: "Match security and backup measures to how sensitive the data is and to the risk, so you do not use resources you do not need."
+description: "Match security and backup measures to how sensitive the data is and to the risk. Then you do not use resources you do not need."
 layout: section
 sectionNav: nav-ds-data
 customNav: nav-digital-sustainability
@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off CDP, including internal tools. Security policy and your service's tier set the minimum for encryption, backups and redundancy. These points apply above that floor, and only with your security team.
+**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools. Security policy and your service's tier set the minimum for encryption, backups and redundancy. These points apply above that floor, and only with your security team.
 
 **Lead role families:** Data and Security
 
@@ -39,7 +39,7 @@ Services and other projects in UK government should follow the [Secure by Design
 
 Encryption turns readable data into code, called ciphertext, that can only be read with a key. Encrypting and decrypting data uses processing and energy, and encryption can add to the amount of data you store.
 
-Decisions on encryption are usually made for the whole organisation, not by individual services or projects. If your project is involved in a decision about encryption, work with your security team and take a risk-based approach based on how sensitive the data is. Any decision to encrypt less needs a documented risk decision, agreed with your security and data protection teams.
+Decisions on encryption are usually made for the whole organisation, not by individual services or projects. If your project is involved in a decision about encryption, work with your security team. Take a risk-based approach, based on how sensitive the data is. Any decision to encrypt less needs a documented risk decision, agreed with your security and data protection teams.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

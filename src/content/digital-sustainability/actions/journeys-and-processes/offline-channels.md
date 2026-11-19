@@ -23,11 +23,11 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services on and off CDP that use paper, phone or face-to-face channels, and the staff processes behind them.
+**Applies to:** services on and off the Core Delivery Platform (CDP) that use paper, phone or face-to-face channels, and the staff processes behind them.
 
 **Lead role families:** Design, and Product and delivery
 
-The GOV.UK Service Manual says teams must plan to keep increasing digital take-up. Digital take-up is the percentage of people who use a service online rather than through other channels. You must still provide offline channels for people who lack access to digital technology or the skills to use it, and those channels must be accessible. Read [make sure everyone can use the service](/accessibility) and [measuring digital take-up](https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up) (GOV.UK Service Manual).
+The GOV.UK Service Manual says teams must plan to keep increasing digital take-up. Digital take-up is the percentage of people who use a service online rather than through other channels. You must still provide offline channels for people who do not have access to digital technology or the skills to use it. Those channels must be accessible. Read [make sure everyone can use the service](/accessibility) and [measuring digital take-up](https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up) (GOV.UK Service Manual).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
@@ -65,7 +65,7 @@ Paper forms may still be needed for people who are digitally excluded. Staff who
 
 Some journeys involve phone calls between users and staff working for government. The infrastructure behind phone channels can use a lot of resources.
 
-Find out why people phone. Remove the reasons you can. Keep a phone line for people who need it, including people who lack digital access, trust or skills, and for assisted digital support.
+Find out why people phone. Remove the reasons you can. Keep a phone line for people who need it. This includes people without digital access, trust or skills, and people who need assisted digital support, that is, help to use a digital service.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
@@ -84,7 +84,7 @@ Some services need users or staff to travel for appointments, assessments or sit
 
 Cut travel where you can. Keep face-to-face contact where research shows it works better, or where it is needed alongside digital steps to achieve the policy outcome.
 
-Face-to-face contact can matter most for services that aim to change behaviour rather than complete a transaction, for example farmers signing up for new farming subsidies. Good social and user research shows when digital and human contact will work best.
+Face-to-face contact can matter most for services that aim to change behaviour, not just complete a transaction. One example is farmers signing up for new farming subsidies. Good social and user research shows when digital and human contact will work best.
 
 Where you can, give people the information they need to decide when to travel.
 

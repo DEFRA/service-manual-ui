@@ -21,12 +21,12 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** anyone who buys, rents, manages or retires hardware, including Defra Group IT, procurement teams and infrastructure projects, and service teams whose users rely on devices.
+**Applies to:** anyone who buys, rents, manages or retires hardware. That includes Defra Group IT, procurement teams, infrastructure projects, and service teams whose users rely on devices.
 
 Defra Group IT supplies and retires devices. Service and project teams can still:
 
 - design services that work on older devices and slow connections
-- set requirements for hardware they need, such as ecolabels or second-life devices, through Defra Group IT or the procurement
+- set requirements for hardware they need, through Defra Group IT or the procurement, such as ecolabels (independent sustainability certifications) or second-life (used and restored) devices
 - return devices they no longer need, so they can be redeployed or reused
 
 Reducing hardware use supports objective 3 of [Defra's six objectives](/digital-sustainability/service-standard/objectives): reduce natural resource use and improve our circular economy approach.
@@ -43,10 +43,10 @@ To find out what to report on devices, see [measuring the impact of hardware](/d
 
 ## Hardware and sustainability
 
-IT hardware has large embodied environmental and social impacts. They come from sourcing raw materials, processing, manufacture, distribution and disposal at the end of its life. They go beyond carbon to include:
+IT hardware has large embodied environmental and social impacts. These are the impacts of making and disposing of it, rather than using it. They come from sourcing raw materials, processing, manufacture, distribution and disposal at the end of its life. They go beyond carbon to include:
 
 - freshwater use
-- eutrophication
+- eutrophication, where excess nutrients pollute rivers, lakes and seas
 - resource depletion
 - human and ecosystem toxicity
 - worker exploitation and modern slavery
@@ -57,7 +57,7 @@ Cloud services, AI and software all need hardware to run. Using less of them can
 
 ## Circularity for hardware
 
-Circularity means using fewer primary resources and preventing unnecessary resource use and waste.
+Circularity means using fewer primary (new) resources, and preventing unnecessary resource use and waste.
 
 The [Circular and Fair ICT Pact](https://circularandfairictpact.com/cfit-framework-cases/) sets out four principles:
 
@@ -68,7 +68,7 @@ The [Circular and Fair ICT Pact](https://circularandfairictpact.com/cfit-framewo
 
 <div class="govuk-inset-text">
 
-The UK government's [Critical Minerals Strategy](https://www.gov.uk/government/publications/uk-critical-minerals-strategy/vision-2035-critical-minerals-strategy) sets out a 10-year vision for securing the materials needed for economic growth and the clean energy transition. This includes 20% sourced from recycling and the circular economy.
+The UK government's [Critical Minerals Strategy](https://www.gov.uk/government/publications/uk-critical-minerals-strategy/vision-2035-critical-minerals-strategy) sets out a 10-year vision. It aims to secure the materials the UK needs for economic growth and the move to clean energy. This includes sourcing 20% from recycling and the circular economy.
 
 </div>
 

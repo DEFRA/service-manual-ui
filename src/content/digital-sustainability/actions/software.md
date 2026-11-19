@@ -1,7 +1,7 @@
 ---
 title: "3. Software"
 caption: "Software"
-description: "How software is designed, built, tested and run decides how much computing, storage, network capacity and hardware a service needs. When code runs, that becomes energy and water use and the embodied impact of hardware."
+description: "How software is designed, built, tested and run decides how much computing, storage, network capacity and hardware a service needs. Running code uses energy and water, and adds to the embodied impact of hardware."
 layout: section
 sectionNav: nav-ds-software
 customNav: nav-digital-sustainability
@@ -21,9 +21,11 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software that Defra builds or commissions, on and off CDP, including internal tools. For software you buy as a service, use the actions to ask suppliers for evidence.
+**Applies to:** custom software that Defra builds or commissions, on and off the Core Delivery Platform (CDP), including internal tools. For software you buy as a service, use the actions to ask suppliers for evidence.
 
 These actions are mainly for teams that develop, test and run custom software. Where you buy software as a service, ask suppliers how far their applications follow the actions.
+
+The embodied impact of hardware is the impact across its whole life, from making it to disposing of it.
 
 All developers working for Defra must follow the [Defra software development standards](https://defra.github.io/software-development-standards/). Read [software development](/software-development) in this manual for more, including Defra's [common tools](/software-development#common-tools).
 

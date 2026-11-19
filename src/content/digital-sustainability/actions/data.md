@@ -21,9 +21,9 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any service or project that collects, stores or moves data, on and off CDP, including internal tools and data and reporting platforms.
+**Applies to:** any service or project that collects, stores or moves data. This includes services on and off the Core Delivery Platform (CDP), internal tools, and data and reporting platforms.
 
-These actions cover collecting only the data you need, storing and moving it efficiently, and matching backup and security to how sensitive the data is. Your security and data protection duties set the floor: read [creating a secure service](/security) and [non-functional requirements](/business-analysis/non-functional-requirements).
+These actions cover collecting only the data you need and storing and moving it efficiently. They also cover matching backup and security to how sensitive the data is. Your security and data protection duties set the floor: read [creating a secure service](/security) and [non-functional requirements](/business-analysis/non-functional-requirements).
 
 For data in government more widely, read [designing with data](https://www.gov.uk/service-manual/design/designing-with-data-an-introduction) (GOV.UK Service Manual) and the [data manual](https://www.data.gov.uk/data-manual) (National Data Library).
 

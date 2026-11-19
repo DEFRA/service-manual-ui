@@ -20,9 +20,9 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-In an on-premises data centre, an organisation owns, houses and maintains the hardware and software in its own building. Off-premises means the organisation owns or rents the hardware, but it is housed in a third-party building and may be managed by a supplier.
+In an on-premises data centre, an organisation owns, houses and maintains the hardware and software in its own building. Off-premises means the organisation owns or rents the hardware, but it sits in a third-party building. A supplier may manage it.
 
-This page is the main guidance on two things other measurement pages refer to: allocation, and adding data centre overhead with power usage effectiveness (PUE).
+Other measurement pages link here for two things: allocation, and adding data centre overhead with power usage effectiveness (PUE).
 
 ## Whole-service footprint
 
@@ -43,7 +43,7 @@ If suppliers maintain and support the data centre, they may be able to give you 
 
 ## Component-level emissions
 
-As with cloud, developers may need more detailed data on specific components, over shorter periods, to see how their development and operational decisions affect emissions.
+As with cloud, developers may need more detailed data on specific components, over shorter periods. This shows them how their development and operational decisions affect emissions.
 
 Work with the infrastructure team or hosting supplier to map the service to the physical servers, virtual machines, storage and network equipment it uses. [Estimating the energy use of hardware](/digital-sustainability/measure/hardware-energy) describes tools that can help with these calculations.
 
@@ -57,7 +57,7 @@ Infrastructure monitoring tools may also give:
 
 You can use these metrics as [proxies](/digital-sustainability/measure/data-and-proxies) without converting them to carbon. For example, better utilisation can show improved sustainability.
 
-You can also convert them into estimated energy use (kWh) with modelling approaches and open-source tools. Then combine the energy estimates with grid carbon intensity, from the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or [Electricity Maps data](https://www.electricitymaps.com/data), to produce carbon emissions (CO2e).
+You can also convert them into estimated energy use (kWh) with modelling approaches and open-source tools. Then combine the energy estimates with grid carbon intensity to produce carbon emissions (CO2e). For grid carbon intensity, use the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or [Electricity Maps data](https://www.electricitymaps.com/data).
 
 <div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>If hardware supports several services, allocate a share of its energy to the component. Follow the allocation guidance on this page.</strong></div>
 
@@ -68,7 +68,7 @@ To assess a development change, compare measurements before and after, with the 
 When servers or data centres support several services, share their emissions between those services.
 
 - Use directly measured consumption, such as electricity use, where you have it.
-- If you cannot measure directly, estimate each service's share from a relevant activity measure, such as CPU time, memory allocation or other workload activity over the measurement period. Read about [activity-based proxies](/digital-sustainability/measure/data-and-proxies).
+- If you cannot measure directly, estimate each service's share from a relevant activity measure over the measurement period. For example, use CPU time, memory allocation or other workload activity. Read about [activity-based proxies](/digital-sustainability/measure/data-and-proxies).
 - If you have no more detailed metrics, use spend.
 
 Choose the method that best reflects resource use. Write down your assumptions and use the same method each time.
@@ -77,7 +77,7 @@ Read about [allocating emissions to multiple outputs under the GHG Protocol](htt
 
 ## Data centre overhead (PUE)
 
-Once you have the energy used by the hardware, add the data centre overhead: all the energy the building uses that does not directly power computing hardware.
+Once you have the energy used by the hardware, add the data centre overhead. This is all the energy the building uses that does not directly power computing hardware.
 
 Power usage effectiveness (PUE) is the ratio of a data centre's total energy use to the energy used by its IT equipment. Multiply your hardware energy by the PUE:
 

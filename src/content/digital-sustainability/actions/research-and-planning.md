@@ -21,7 +21,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** every kind of digital work, including services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement, from discovery onwards.
+**Applies to:** every kind of digital work, from discovery onwards. That includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
 
 Most teams start here. These actions cover what to find out in discovery, what to put in the business case and plan, and how to measure progress.
 

@@ -23,7 +23,7 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** testing of custom software on and off CDP, including internal tools.
+**Applies to:** testing of custom software on and off the Core Delivery Platform (CDP), including internal tools.
 
 **Lead role families:** Software and Quality assurance testing
 
@@ -192,7 +192,7 @@ Asynchronous testing may also bring trade-offs:
 
 Test designs on a range of platforms and devices to find inefficiencies, such as heavy scripts and excessive processing. Fixing them reduces energy use.
 
-Defra's standards expect you to test on the browsers and devices GOV.UK requires, including mobile. Include older and lower-specification devices, so software works well enough on them and users do not have to replace a device they could keep.
+Defra's standards expect you to test on the browsers and devices GOV.UK requires, including mobile. Include older and lower-specification devices. Software should work well enough on them, so users do not have to replace a device they could keep.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -276,7 +276,7 @@ Potential trade-offs may include:
 
 ## (vii) Test for page weight
 
-Test web pages for their weight, their size in bytes, to find things you do not need, such as scripts, assets and dependencies. Then cut them, and check that pages stay within any page weight budget you have set.
+Test web pages for their weight, that is, their size in bytes. This shows up things you do not need, such as scripts, assets and dependencies. Then cut them, and check that pages stay within any page weight budget you have set.
 
 To set a budget, see [set page weight budgets](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
 

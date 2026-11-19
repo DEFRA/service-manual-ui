@@ -1,7 +1,7 @@
 ---
 title: "5d. Maximise efficiency for on-premises workloads"
 caption: "Architecture"
-description: "If you run workloads in your own data centres, consolidate and refresh servers where it makes sense, and keep the servers you have as busy as possible."
+description: "If you run workloads in your own data centres, consolidate and refresh servers where it makes sense. Keep the servers you have as busy as possible."
 layout: section
 sectionNav: nav-ds-architecture
 customNav: nav-digital-sustainability
@@ -31,15 +31,15 @@ supportBox:
 
 ## (i) Monitor, consolidate and refresh server hardware
 
-Powering down, sleeping or retiring servers that run at low utilisation or low energy efficiency saves energy overall.
+Utilisation is how much of a server's capacity is in use. Powering down, sleeping or retiring servers with low utilisation or low energy efficiency saves energy overall.
 
 Approaches include:
 
-- finding low-utilisation and zombie servers: track your inventory, monitor hardware power and use analytics to find servers that consistently run at low utilisation, or "zombies" that do no useful work
+- finding low-utilisation and zombie servers: track your inventory and monitor hardware power. Use analytics to find servers that consistently run at low utilisation, or "zombies" that do no useful work
 - powering down or retiring them: sleep or shut down underused, abandoned or single-purpose legacy servers
-- refreshing server hardware where it makes sense: replace older servers, storage arrays and network switches with more energy-efficient hardware, when that is the more sustainable option
+- refreshing server hardware where it makes sense: replace older servers, storage arrays and network switches with more energy-efficient hardware. Do this only when it is the more sustainable option
 
-For buying and disposing of hardware, see [take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying) and [choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life).
+For buying hardware, see [take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying). For disposing of it, see [choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
@@ -58,7 +58,7 @@ Busier servers make an on-premises data centre more efficient and use less energ
 
 Ways to increase server utilisation include:
 
-- virtualising workloads: run workloads in virtual machines (VMs) so several applications share one server, and fewer physical machines are needed
+- virtualising workloads: run workloads in virtual machines (VMs), software that acts like a separate computer. Several applications can then share one server, so you need fewer physical machines
 - consolidating workloads: move applications, databases or virtual machines that ran on separate physical servers onto fewer, higher-capacity servers
 - balancing workloads dynamically: move workloads between servers as demand changes
 

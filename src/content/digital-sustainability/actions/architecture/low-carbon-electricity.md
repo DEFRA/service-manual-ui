@@ -23,13 +23,13 @@ supportBox:
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** workloads that can wait or move, on and off CDP, in the cloud or on premises. On CDP, ask the CDP team what scheduling and region options your service has.
+**Applies to:** workloads that can wait or move, on and off the Core Delivery Platform (CDP), in the cloud or on premises. On CDP, ask the CDP team what scheduling and region options your service has.
 
 **Lead role families:** Architecture and IT operations
 
 <div class="govuk-inset-text">
 
-Shifting where cloud workloads run may not always be possible, because of contracts or data sovereignty.
+Shifting where cloud workloads run may not always be possible, because of contracts or data sovereignty. Data sovereignty means the rules about where data can be stored and processed.
 
 </div>
 
@@ -37,7 +37,7 @@ Shifting where cloud workloads run may not always be possible, because of contra
 
 ## (i) Shift workloads in time
 
-The UK electricity grid tends to have its highest mix of renewable electricity late at night and early in the morning, and on bright, windy days.
+Carbon intensity is how much carbon is emitted to generate each unit of electricity. The UK electricity grid tends to have its highest mix of renewable electricity late at night and early in the morning. It also tends to be higher on bright, windy days.
 
 Shift workloads that can wait to times when grid carbon intensity is lowest. This is often called temporal demand shifting. Workloads that suit it include:
 
@@ -48,7 +48,7 @@ Shift workloads that can wait to times when grid carbon intensity is lowest. Thi
 
 Never delay security patches, incident fixes or scans you need for a live threat.
 
-Use a carbon intensity forecast, such as the [Carbon Intensity API](https://carbonintensity.org.uk/) (National Energy System Operator), which gives regional forecasts for Great Britain about four days ahead, to find lower-carbon times. Off-peak hours are not always the lowest-carbon hours, so check the forecast rather than assume.
+Use a carbon intensity forecast to find lower-carbon times. The [Carbon Intensity API](https://carbonintensity.org.uk/) (National Energy System Operator) gives regional forecasts for Great Britain about four days ahead. An API is a service that other software can query. Off-peak hours are not always the lowest-carbon hours, so check the forecast rather than assume.
 
 To design workloads that can move in time, see [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads).
 
