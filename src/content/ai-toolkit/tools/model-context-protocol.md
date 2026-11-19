@@ -75,12 +75,16 @@ If you are using a Defra-provisioned GitHub Copilot licence, follow the [MCP set
 
 A local server runs from a package or container on your machine. If your configuration always starts the latest version, a new release can change what the server does without you knowing.
 
-Pin each server to a specific version. Do not use `latest` or leave the version out. For example:
+Pin each server to a specific version. Do not use `latest` or leave the version out.
 
-- npm (`npx`): use `npx -y PACKAGE-NAME@1.2.3`, not `npx -y PACKAGE-NAME@latest` or `npx -y PACKAGE-NAME`
-- Python (`uvx`): use `uvx PACKAGE-NAME@1.2.3`, not `uvx PACKAGE-NAME`
-- Python (`pipx`): use `pipx run --spec PACKAGE-NAME==1.2.3 PACKAGE-NAME`, not `pipx run PACKAGE-NAME`
-- Docker: use `IMAGE-NAME:1.2.3`, not `IMAGE-NAME:latest` or `IMAGE-NAME`. For a stricter pin, use the image digest, such as `IMAGE-NAME@sha256:DIGEST`
+| Runs with | Pin it like this |
+| --- | --- |
+| npm | `npx -y PACKAGE@1.2.3` |
+| uv | `uvx PACKAGE@1.2.3` |
+| pipx | `pipx run --spec PACKAGE==1.2.3 PACKAGE` |
+| Docker | `IMAGE:1.2.3` |
+
+For a stricter Docker pin, use the image digest: `IMAGE@sha256:DIGEST`.
 
 Before you move to a new version, read its release notes. Then update the version in your configuration.
 

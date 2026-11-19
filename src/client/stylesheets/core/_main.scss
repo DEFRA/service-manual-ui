@@ -36,6 +36,12 @@ main {
   }
 }
 
+// Browsers render monospace text larger than the text around it, so scale
+// inline code down to sit at the same visual size as body copy.
+main code {
+  font-size: 0.85em;
+}
+
 // Respect users who have asked the OS for reduced motion.
 // Strips transitions and animations everywhere. Focus rings and other
 // instant state changes still work, but the gentle hover/colour eases stop.
