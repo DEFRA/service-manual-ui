@@ -1,7 +1,7 @@
 ARG PORT=3000
 ARG PORT_DEBUG=9229
 
-FROM defradigital/node-development:3.2.4-node22.23.4 AS development
+FROM defradigital/node-development:3.2.7-node22.23.4 AS development
 LABEL uk.gov.defra.ffc.parent-image=defradigital/node-development:3.2.4-node22.23.4
 
 ENV TZ="Europe/London"
@@ -24,7 +24,7 @@ ENV NODE_ENV=production
 
 RUN npm run build:frontend
 
-FROM defradigital/node:3.2.4-node22.23.4 AS production
+FROM defradigital/node:3.2.7-node22.23.4 AS production
 LABEL uk.gov.defra.ffc.parent-image=defradigital/node:3.2.4-node22.23.4
 
 ENV TZ="Europe/London"
