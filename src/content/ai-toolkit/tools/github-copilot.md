@@ -97,3 +97,20 @@ Copilot should be used deliberately to support delivery, not as an unlimited exp
 
 - Copilot is a valuable accelerator
 - Responsible usage ensures sustainable access and scalable adoption
+
+## Adding an approved MCP server
+
+You can connect GitHub Copilot to an approved Model Context Protocol (MCP) server. Check the [Model Context Protocol page](/ai-toolkit/tools/model-context-protocol) for the approved servers and the rules for using them.
+
+Name each server exactly as follows, or it will not load: `sonarqube` or `playwright`.
+
+How you add a server changes often, so follow the latest official guidance:
+
+- [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+- [Adding MCP servers for GitHub Copilot CLI](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers)
+
+Use the configuration from the server's official documentation.
+
+Before you use a server, follow the rules on the Model Context Protocol page for [using MCP safely](/ai-toolkit/tools/model-context-protocol#using-mcp-safely) and [keeping tokens safe](/ai-toolkit/tools/model-context-protocol#keeping-tokens-safe).
+
+If a server will not connect or load, its configuration may not match what is allowed for Defra Copilot licences. Contact the AI Capability and Enablement team or a Principal Developer.
