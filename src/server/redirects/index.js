@@ -18,6 +18,14 @@ import { statusCodes } from '../common/constants/status-codes.js'
  * /digital-sustainability, alongside the digital sustainability actions and
  * measurement guidance.
  */
+const sustainabilityRedirects = {
+  '/sustainability': '/digital-sustainability',
+  '/sustainability/process': '/digital-sustainability/service-standard/process',
+  '/sustainability/objectives':
+    '/digital-sustainability/service-standard/objectives',
+  '/sustainability/metrics': '/digital-sustainability/service-standard/questions'
+}
+
 export const redirects = {
   plugin: {
     name: 'redirects',
@@ -49,37 +57,15 @@ export const redirects = {
         }
       ])
 
-      server.route({
-        method: 'GET',
-        path: '/sustainability',
-        handler (_request, h) {
-          return h.redirect('/digital-sustainability').code(statusCodes.movedPermanently)
-        }
-      })
-
-      server.route({
-        method: 'GET',
-        path: '/sustainability/process',
-        handler (_request, h) {
-          return h.redirect('/digital-sustainability/service-standard/process').code(statusCodes.movedPermanently)
-        }
-      })
-
-      server.route({
-        method: 'GET',
-        path: '/sustainability/objectives',
-        handler (_request, h) {
-          return h.redirect('/digital-sustainability/service-standard/objectives').code(statusCodes.movedPermanently)
-        }
-      })
-
-      server.route({
-        method: 'GET',
-        path: '/sustainability/metrics',
-        handler (_request, h) {
-          return h.redirect('/digital-sustainability/service-standard/questions').code(statusCodes.movedPermanently)
-        }
-      })
+      server.route(
+        Object.entries(sustainabilityRedirects).map(([from, to]) => ({
+          method: 'GET',
+          path: from,
+          handler (_request, h) {
+            return h.redirect(to).code(statusCodes.movedPermanently)
+          }
+        }))
+      )
     }
   }
 }
