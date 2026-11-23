@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Data"
     href: /digital-sustainability/actions/data
   - text: "4c. Optimise data for transit"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP) that send data over networks, including internal tools. On CDP, the platform usually sets network settings such as protocols, so ask the CDP team.
+<div class="app-applies-to">
+
+**This action applies to:** services and data platforms on and off the Core Delivery Platform (CDP) that send data over networks, including internal tools. On CDP, the platform usually sets network settings such as protocols, so ask the CDP team.
 
 **Lead role families:** Data and Architecture
+
+</div>
 
 ---
 

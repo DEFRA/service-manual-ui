@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "9. Procurement"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** Defra Commercial, procurement teams, and service or project teams that write requirements for something being bought. That could be hosting, software, AI, hardware or a delivery partner.
+<div class="app-applies-to">
+
+**This theme applies to:** Defra Commercial, procurement teams, and service or project teams that write requirements for something being bought. That could be hosting, software, AI, hardware or a delivery partner.
+
+</div>
 
 Procurement often happens at departmental level, through Defra Commercial, so it may be outside a service or project team's control. Project teams can still influence some procurements. Some take place once delivery has begun.
 

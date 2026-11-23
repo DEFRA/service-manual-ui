@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Architecture"
     href: /digital-sustainability/actions/architecture
   - text: "5d. Maximise efficiency for on-premises workloads"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, systems and infrastructure that run in on-premises data centres. Most Defra services run in the cloud, so this is mainly for infrastructure and IT operations teams looking after the systems that remain.
+<div class="app-applies-to">
+
+**This action applies to:** services, systems and infrastructure that run in on-premises data centres. Most Defra services run in the cloud, so this is mainly for infrastructure and IT operations teams looking after the systems that remain.
 
 **Lead role families:** Architecture and IT operations
+
+</div>
 
 ---
 
@@ -39,7 +38,7 @@ Approaches include:
 - powering down or retiring them: sleep or shut down underused, abandoned or single-purpose legacy servers
 - refreshing server hardware where it makes sense: replace older servers, storage arrays and network switches with more energy-efficient hardware. Do this only when it is the more sustainable option
 
-For buying hardware, see [take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying). For disposing of it, see [choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life).
+For buying hardware, see [take the most sustainable approaches to renting or buying hardware](/digital-sustainability/actions/hardware/renting-or-buying) (8b). For disposing of it, see [choose the most sustainable options for hardware at end of life](/digital-sustainability/actions/hardware/end-of-life) (8c).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>
@@ -62,7 +61,7 @@ Ways to increase server utilisation include:
 - consolidating workloads: move applications, databases or virtual machines that ran on separate physical servers onto fewer, higher-capacity servers
 - balancing workloads dynamically: move workloads between servers as demand changes
 
-To run batch work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+To run batch work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

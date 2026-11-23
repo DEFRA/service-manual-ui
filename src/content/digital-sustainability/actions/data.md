@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "4. Data"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any service or project that collects, stores or moves data. This includes services on and off the Core Delivery Platform (CDP), internal tools, and data and reporting platforms.
+<div class="app-applies-to">
+
+**This theme applies to:** any service or project that collects, stores or moves data. This includes services on and off the Core Delivery Platform (CDP), internal tools, and data and reporting platforms.
+
+</div>
 
 These actions cover collecting only the data you need and storing and moving it efficiently. They also cover matching backup and security to how sensitive the data is. Your security and data protection duties set the floor: read [creating a secure service](/security) and [non-functional requirements](/business-analysis/non-functional-requirements).
 

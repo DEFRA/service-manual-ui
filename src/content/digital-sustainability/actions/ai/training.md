@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Artificial intelligence"
     href: /digital-sustainability/actions/ai
   - text: "6c. Take a sustainable approach to training AI models"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** only teams that train, fine-tune or adapt their own AI models, on or off the Core Delivery Platform (CDP). If you use a ready-made model without changing it, go to [6d. Take a sustainable approach to operating AI](/digital-sustainability/actions/ai/operating).
+<div class="app-applies-to">
+
+**This action applies to:** only teams that train, fine-tune or adapt their own AI models, on or off the Core Delivery Platform (CDP). If you use a ready-made model without changing it, go to [6d. Take a sustainable approach to operating AI](/digital-sustainability/actions/ai/operating).
 
 **Lead role families:** AI engineer, architect and software
+
+</div>
 
 ---
 

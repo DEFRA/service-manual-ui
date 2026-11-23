@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "6. Artificial intelligence"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any project that builds, buys or runs artificial intelligence (AI). That includes services on and off the Core Delivery Platform (CDP), internal tools, and software you buy with AI built in.
+<div class="app-applies-to">
+
+**This theme applies to:** any project that builds, buys or runs artificial intelligence (AI). That includes services on and off the Core Delivery Platform (CDP), internal tools, and software you buy with AI built in.
+
+</div>
 
 How much you can reduce AI's impact depends on how much control you have over the model. If you develop, fine-tune, choose or run a model, you decide its size, training, hardware, hosting and how often it is retrained. If AI is built into software you buy, the supplier controls most of this. Ask them which of these actions they take, and ask them to report on them.
 

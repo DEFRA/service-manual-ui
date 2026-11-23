@@ -28,6 +28,15 @@
   }
 }
 
+// Every row as tall as the tallest, so a grid of tiles reads as one block
+.defra-tile-grid--equal {
+  grid-auto-rows: 1fr;
+
+  @media (max-width: 48.0525em) {
+    grid-auto-rows: auto;
+  }
+}
+
 .defra-tile-grid > li {
   display: flex;
 }

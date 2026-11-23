@@ -248,3 +248,14 @@ body {
 .defra-callout__button:hover {
   background-color: #006a27;
 }
+
+// Who a digital sustainability theme or action is for. Secondary text sets it
+// apart from the guidance below without a box, because inset text on these
+// pages is kept for caveats and side notes.
+.app-applies-to .govuk-body {
+  color: #505a5f;
+}
+
+.app-applies-to strong {
+  color: #0b0c0c;
+}

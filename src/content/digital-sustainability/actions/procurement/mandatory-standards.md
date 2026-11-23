@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Procurement"
     href: /digital-sustainability/actions/procurement
   - text: "9a. Follow mandatory sustainability standards and requirements"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** every procurement of digital, data and technology goods and services, and the suppliers who deliver them. That includes procurements run by Defra Commercial and by project teams.
+<div class="app-applies-to">
+
+**This action applies to:** every procurement of digital, data and technology goods and services, and the suppliers who deliver them. That includes procurements run by Defra Commercial and by project teams.
 
 **Lead role families:** Procurement
+
+</div>
 
 ---
 

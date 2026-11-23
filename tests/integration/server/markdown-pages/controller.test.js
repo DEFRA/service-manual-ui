@@ -375,4 +375,32 @@ describe('markdownPagesController', () => {
       )
     })
   })
+
+  describe('Digital sustainability beta banner', () => {
+    const banner = 'This is new guidance.'
+
+    test.each([
+      ['the landing page', '/digital-sustainability'],
+      ['the actions page', '/digital-sustainability/actions'],
+      ['an action page', '/digital-sustainability/actions/ai/training'],
+      ['a measure page', '/digital-sustainability/measure/carbon-figure']
+    ])('shows on %s, with a feedback link to the team', async (_description, url) => {
+      const { result } = await server.inject({ method: 'GET', url })
+
+      expect(result).toEqual(expect.stringContaining(banner))
+      expect(result).toEqual(
+        expect.stringContaining('href="mailto:sustainableICT@defra.gov.uk?subject=')
+      )
+    })
+
+    test.each([
+      ['the home page', '/'],
+      ['another section', '/architecture'],
+      ['the AI digital toolkit', '/ai-toolkit']
+    ])('does not show on %s', async (_description, url) => {
+      const { result } = await server.inject({ method: 'GET', url })
+
+      expect(result).not.toEqual(expect.stringContaining(banner))
+    })
+  })
 })

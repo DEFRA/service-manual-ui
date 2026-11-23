@@ -2,7 +2,9 @@
 
 {# Area landing page: hero, then sections of tiles, like the service manual and delivery groups pages. #}
 
-{% block beforeContent %}{% endblock %}
+{% block beforeContent %}
+{% include "partials/sustainability-phase-banner.njk" %}
+{% endblock %}
 
 {% block content %}
 <div class="defra-hero">

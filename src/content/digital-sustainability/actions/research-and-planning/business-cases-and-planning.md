@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Research and planning"
     href: /digital-sustainability/actions/research-and-planning
   - text: "1b. Include sustainability in business cases, requirements and planning"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any project that needs a business case, a plan or a set of requirements. This includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
+<div class="app-applies-to">
+
+**This action applies to:** any project that needs a business case, a plan or a set of requirements. This includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
 
 **Lead role families:** Product and delivery
+
+</div>
 
 ---
 
@@ -130,7 +129,7 @@ Include sustainability in your NFRs. For example, you could:
 
 - cap the cloud carbon footprint for each user transaction
 - set a minimum life for hardware
-- schedule some kinds of work to run when electricity is cleaner (see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity))
+- schedule some kinds of work to run when electricity is cleaner: [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c)
 
 Defra's guidance on [non-functional requirements](/business-analysis/non-functional-requirements) explains how to write and manage them.
 

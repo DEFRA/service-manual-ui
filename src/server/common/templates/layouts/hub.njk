@@ -1,6 +1,7 @@
 {% extends "layouts/page.njk" %}
 
 {% block beforeContent %}
+{% include "partials/sustainability-phase-banner.njk" %}
 {{ govukBreadcrumbs({
   items: breadcrumbItems or [
     { text: "Digital Defra", href: "/" },
@@ -37,18 +38,17 @@
     {% if section.description %}
     <p class="govuk-body">{{ section.description }}</p>
     {% endif %}
-    <ul class="app-hub__card-list">
+    <ul class="defra-tile-grid defra-tile-grid--equal">
       {% for item in section.items %}
-      <li class="app-hub__card">
-        <h3 class="govuk-heading-s app-hub__card-title">
-          <a href="{{ item.href }}" class="govuk-link">{{ item.text }}</a>
-        </h3>
-        {% if item.description %}
-        <p class="govuk-body-s app-hub__card-description">{{ item.description }}</p>
-        {% endif %}
-        {% if item.tag %}
-        <strong class="govuk-tag govuk-tag--{{ item.tagColour | default('green') }}">{{ item.tag }}</strong>
-        {% endif %}
+      <li>
+        <div class="defra-tile">
+          <h3 class="govuk-heading-m defra-tile__title">
+            <a href="{{ item.href }}" class="defra-tile__link">{{ item.text }}</a>
+          </h3>
+          {% if item.description %}
+          <p class="govuk-body-s defra-tile__body">{{ item.description }}</p>
+          {% endif %}
+        </div>
       </li>
       {% endfor %}
     </ul>

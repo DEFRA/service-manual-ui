@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Hardware"
     href: /digital-sustainability/actions/hardware
   - text: "8b. Take the most sustainable approaches to renting or buying hardware"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** procurement teams, Defra Group IT, and projects that rent or buy hardware, including servers for infrastructure projects. Defra Group IT buys staff devices, so service teams set their requirements through it.
+<div class="app-applies-to">
+
+**This action applies to:** procurement teams, Defra Group IT, and projects that rent or buy hardware, including servers for infrastructure projects. Defra Group IT buys staff devices, so service teams set their requirements through it.
 
 **Lead role families:** Procurement
+
+</div>
 
 ---
 

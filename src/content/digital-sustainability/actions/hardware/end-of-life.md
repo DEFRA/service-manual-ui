@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Hardware"
     href: /digital-sustainability/actions/hardware
   - text: "8c. Choose the most sustainable options for hardware at end of life"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** Defra Group IT, procurement teams writing disposal and take-back requirements, and infrastructure projects retiring servers or other equipment. Service teams return devices they no longer need to Defra Group IT.
+<div class="app-applies-to">
+
+**This action applies to:** Defra Group IT, procurement teams writing disposal and take-back requirements, and infrastructure projects retiring servers or other equipment. Service teams return devices they no longer need to Defra Group IT.
 
 **Lead role families:** Procurement
+
+</div>
 
 ---
 

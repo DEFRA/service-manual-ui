@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "5. Architecture"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, platforms and infrastructure projects, on and off the Core Delivery Platform (CDP), in the cloud or on premises.
+<div class="app-applies-to">
+
+**This theme applies to:** services, platforms and infrastructure projects, on and off the Core Delivery Platform (CDP), in the cloud or on premises.
+
+</div>
 
 In Defra, many services are moving to the [Core Delivery Platform (CDP)](/architecture-and-software-development/core-delivery-platform), which has build pipelines, hosting, logging and monitoring already in place. If your service is on CDP, the platform makes many architecture decisions for you. Work with your architect and the CDP team on the choices you still control, and read [architecture in Defra](/architecture).
 

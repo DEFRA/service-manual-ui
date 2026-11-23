@@ -15,15 +15,14 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "7. Hosting"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** anyone who chooses or runs hosting. That includes infrastructure projects, commercial teams buying hosting, and services on and off the Core Delivery Platform (CDP).
+<div class="app-applies-to">
 
-Most Defra services run on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform), which hosts them on Amazon Web Services (AWS) in a UK region. CDP and Defra Commercial choose the provider, so a team on CDP does not choose a data centre. Infrastructure projects and services hosted outside CDP do choose. Actions 7a to 7d are for them.
+**This theme applies to:** anyone who chooses or runs hosting. That includes infrastructure projects, commercial teams buying hosting, and services on and off the Core Delivery Platform (CDP).
+
+</div>
+
+Most Defra services run on the [Core Delivery Platform](/architecture-and-software-development/core-delivery-platform), which hosts them on Amazon Web Services (AWS) in a UK region. CDP and Defra Commercial choose the provider, so a team on CDP does not choose a data centre. Infrastructure projects and services hosted outside CDP do choose. [Actions 7a to 7d](#if-you-choose-a-hosting-provider) are for them.
 
 ---
 
@@ -36,7 +35,7 @@ The platform has made the hosting choice for you. You still control how your ser
 - ask the CDP team what carbon and energy figures it can give for your service
 - agree your resilience needs with the CDP team, based on your service tier in [non-functional requirements](/business-analysis/non-functional-requirements)
 
-## If you choose a hosting provider
+<h2 class="govuk-heading-m" id="if-you-choose-a-hosting-provider">If you choose a hosting provider</h2>
 
 Use these actions when you choose a provider, write hosting requirements or review a hosting contract:
 

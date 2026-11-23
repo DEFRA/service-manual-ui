@@ -452,20 +452,20 @@ nav-ds-measure:
         href: /digital-sustainability/measure
       - text: "Get a carbon figure for your service"
         href: /digital-sustainability/measure/carbon-figure
-  - title: Plan your measurement
+  - title: Plan your carbon measurement
     items:
+      - text: "Carbon"
+        href: /digital-sustainability/measure/carbon
       - text: "Choosing a level and order of measurement"
         href: /digital-sustainability/measure/level-and-order
+      - text: "The equation for carbon measurement"
+        href: /digital-sustainability/measure/carbon-formula
       - text: "Setting boundaries and functional units"
         href: /digital-sustainability/measure/boundaries-and-units
       - text: "Data availability, using proxies and direct measurement"
         href: /digital-sustainability/measure/data-and-proxies
   - title: Calculate carbon
     items:
-      - text: "Carbon"
-        href: /digital-sustainability/measure/carbon
-      - text: "The equation for carbon measurement"
-        href: /digital-sustainability/measure/carbon-formula
       - text: "Calculating carbon for services based in the cloud"
         href: /digital-sustainability/measure/cloud-carbon
       - text: "Calculating carbon for services using on-premises or off-premises data centres"
@@ -480,7 +480,7 @@ nav-ds-measure:
         href: /digital-sustainability/measure/water
       - text: "Other sustainability impacts"
         href: /digital-sustainability/measure/other-impacts
-  - title: Measure by area
+  - title: Measure part of a service
     items:
       - text: "Measuring the impact of service journeys and processes"
         href: /digital-sustainability/measure/journeys-and-processes

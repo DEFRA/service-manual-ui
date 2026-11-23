@@ -15,17 +15,12 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Choosing a level and order of measurement"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 ---
 
-## (i) The level of measurement: whole services or components
+## (i) The level of measurement: whole services or parts of services
 
-You can measure environmental and social impacts for a whole service or for a component. Choose the level that supports the decision you need to make.
+You can measure environmental and social impacts for a whole service or for part of a service. Choose the level that supports the decision you need to make.
 
 <table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Level of measurement</th><th scope="col" class="govuk-table__header">Purpose</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Whole digital service</th><td class="govuk-table__cell"><p class="govuk-body govuk-!-margin-bottom-0">Gives a benchmark that a service team can monitor and improve over time. For example, a team could measure greenhouse gas emissions per user or per transaction.</p></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Part of a service</th><td class="govuk-table__cell"><p class="govuk-body">Helps teams understand one part of the service, such as data storage, software, hosting or user devices.</p><p class="govuk-body govuk-!-margin-bottom-0">Practitioners can use the results to find improvements and check whether their actions have worked.</p></td></tr></tbody></table>
 
@@ -43,7 +38,7 @@ There are usually 3 orders of impact.
 
 <div class="govuk-inset-text">
 
-Measure first-order impacts, which your service controls. Second-order impacts need a baseline, such as the process or service being replaced, so you can find the net impact of the new service. Third-order impacts are policy outcomes.
+Measure first-order impacts, which your service controls. Second-order impacts need a baseline, such as the process or service being replaced, so you can find the net impact of the new service. Third-order impacts can be positive, and may be part of the policy outcomes a service aims to deliver. They can also increase environmental impacts, for example through changes in consumer behaviour that lead to more consumption.
 
 </div>
 

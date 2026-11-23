@@ -14,13 +14,8 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Setting boundaries and functional units"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-To measure with the [Software Carbon Intensity (SCI) formula](/digital-sustainability/measure/carbon-formula), you need to set a system boundary and choose a functional unit.
+If you are measuring the carbon or energy of a service, you need to choose a boundary. If you are also calculating a carbon intensity figure in line with the [Software Carbon Intensity (SCI) formula](/digital-sustainability/measure/carbon-formula), you need to choose a functional unit.
 
 ## Choose a system boundary
 
@@ -69,13 +64,13 @@ How you calculate the carbon footprint within this boundary depends on where the
 - [calculating carbon for services using on-premises or off-premises data centres](/digital-sustainability/measure/data-centre-carbon)
 - for software as a service and managed software, ask the supplier for the [metrics on the software page](/digital-sustainability/measure/software)
 
-### Setting a boundary for one component
+### Setting a boundary for one part of a service
 
-Some services have several software components or architectural layers. For these, it can help to calculate an SCI score for each component, as well as one for the whole service.
+Some services have several parts, such as software components or architectural layers. For these, it can help to calculate an SCI score for each part, as well as one for the whole service.
 
-Components can differ a lot in the energy and resources they use and in their environmental impact. Measuring them separately shows which components contribute most, so you can target your improvements.
+Parts of a service can differ a lot in the energy and resources they use and in their environmental impact. Measuring them separately shows which parts contribute most, so you can target your improvements.
 
-Measure the component before and after a change, with the same method and comparable workloads. This separates the effect of the change from changes in how much the service is used.
+Measure the part before and after a change, with the same method and comparable workloads. This separates the effect of the change from changes in how much the service is used.
 
 <div class="govuk-inset-text">
 
@@ -87,7 +82,7 @@ For example, a team working on data storage could set a boundary around the stor
 
 The functional unit (R) is the unit of output your software scales with, such as a user or a transaction. The SCI gives carbon per functional unit.
 
-Choose a functional unit for the whole service, or for the component you are measuring.
+Choose a functional unit for the whole service, or for the part of a service you are measuring.
 
 ### Choosing a functional unit for a whole service
 
@@ -101,9 +96,9 @@ Common functional units for a whole service include:
 - carbon per completed user transaction
 - carbon per gigabyte (GB) of data processed
 
-### Choosing a functional unit for a component
+### Choosing a functional unit for one part of a service
 
-If you calculate SCI scores for different components, the functional units can differ. Base each one on what drives that component's load.
+If you calculate SCI scores for different parts of a service, the functional units can differ. Base each one on what drives that part's load.
 
 <table class="govuk-table"><thead class="govuk-table__head"><tr class="govuk-table__row"><th scope="col" class="govuk-table__header">Aspect</th><th scope="col" class="govuk-table__header">Recommended functional unit (R)</th></tr></thead><tbody class="govuk-table__body"><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">User-facing applications</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per active user</li><li>Per user session</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">AI inference</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per token (for large language models)</li><li>Per image (for image generation)</li><li>Per workflow run (for agentic AI)</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Batch or scheduled jobs</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job run</li><li>Per database transaction</li><li>Per page processed</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">APIs and microservices</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per API request</li><li>Per transaction</li></ul></td></tr><tr class="govuk-table__row"><th scope="row" class="govuk-table__header">Data pipelines</th><td class="govuk-table__cell"><ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0"><li>Per job</li><li>Per record processed</li><li>Per gigabyte transferred</li></ul></td></tr></tbody></table>
 

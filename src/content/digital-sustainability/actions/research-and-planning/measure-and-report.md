@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Research and planning"
     href: /digital-sustainability/actions/research-and-planning
   - text: "1c. Measure and report on sustainability"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and other projects from alpha onwards, on and off the Core Delivery Platform (CDP), including internal tools and infrastructure projects.
+<div class="app-applies-to">
+
+**This action applies to:** services and other projects from alpha onwards, on and off the Core Delivery Platform (CDP), including internal tools and infrastructure projects.
 
 **Lead role families:** Product and delivery
+
+</div>
 
 ---
 

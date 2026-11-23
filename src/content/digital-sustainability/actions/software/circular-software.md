@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Software"
     href: /digital-sustainability/actions/software
   - text: "3a. Apply the principles of circularity to software"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the platform and Defra's common tools already give you shared components to build with.
+<div class="app-applies-to">
+
+**This action applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the platform and Defra's common tools already give you shared components to build with.
 
 **Lead role families:** Software and Architecture
+
+</div>
 
 ---
 
@@ -175,7 +174,7 @@ Low-code and no-code approaches can come with trade-offs such as:
 
 Decommissioning is the structured, secure process of retiring legacy, redundant or obsolete applications. Unused applications still need running servers, cooling and background processing, whether on premises or in the cloud. Retiring software you no longer need frees up that infrastructure.
 
-Plan the retirement. Tell users, move or archive any data and records you must keep, and check what else depends on the software. Then remove the infrastructure it ran on. For removing unused cloud resources, see [review and remove unused assets](/digital-sustainability/actions/architecture/cloud-provisioning).
+Plan the retirement. Tell users, move or archive any data and records you must keep, and check what else depends on the software. Then remove the infrastructure it ran on. For removing unused cloud resources, see [review and remove unused assets](/digital-sustainability/actions/architecture/cloud-provisioning) (5b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

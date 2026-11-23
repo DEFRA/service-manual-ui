@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Research and planning"
     href: /digital-sustainability/actions/research-and-planning
   - text: "1a. Factor sustainability into project research"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** discovery and early research on any project, including services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
+<div class="app-applies-to">
+
+**This action applies to:** discovery and early research on any project, including services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
 
 **Lead role families:** Research, and Product and delivery
+
+</div>
 
 ---
 

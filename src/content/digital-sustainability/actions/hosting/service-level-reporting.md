@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Hosting"
     href: /digital-sustainability/actions/hosting
   - text: "7c. Choose data centres that can manage sustainability at the service level"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP can ask the CDP team what figures it can give for its service.
+<div class="app-applies-to">
+
+**This action applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP can ask the CDP team what figures it can give for its service.
 
 **Lead role families:** Procurement, Product and delivery, and Architecture
+
+</div>
 
 ---
 

@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "1. Research and planning"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** every kind of digital work, from discovery onwards. That includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
+<div class="app-applies-to">
+
+**This theme applies to:** every kind of digital work, from discovery onwards. That includes services on and off the Core Delivery Platform (CDP), internal tools, infrastructure projects and procurement.
+
+</div>
 
 Most teams start here. These actions cover what to find out in discovery, what to put in the business case and plan, and how to measure progress.
 

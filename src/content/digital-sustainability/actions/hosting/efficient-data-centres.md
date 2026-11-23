@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Hosting"
     href: /digital-sustainability/actions/hosting
   - text: "7b. Choose data centres that are energy, heat and water-efficient"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP does not choose the data centre, but can ask the CDP team for its provider's efficiency figures.
+<div class="app-applies-to">
+
+**This action applies to:** infrastructure projects, commercial teams buying hosting, and services hosted outside the Core Delivery Platform (CDP). A team on CDP does not choose the data centre, but can ask the CDP team for its provider's efficiency figures.
 
 **Lead role families:** Procurement, Product and delivery, and Architecture
+
+</div>
 
 ---
 

@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Data"
     href: /digital-sustainability/actions/data
   - text: "4d. Balance data backup, security and sustainability"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools. Security policy and your service's tier set the minimum for encryption, backups and redundancy. These points apply above that floor, and only with your security team.
+<div class="app-applies-to">
+
+**This action applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools. Security policy and your service's tier set the minimum for encryption, backups and redundancy. These points apply above that floor, and only with your security team.
 
 **Lead role families:** Data and Security
+
+</div>
 
 <div class="govuk-inset-text">
 
@@ -129,7 +128,7 @@ Potential trade-offs may include:
 
 Security scans find vulnerabilities and other risks. Security updates fix known issues.
 
-Apply security updates, and run any scan you need for a live threat, as soon as they are needed. Do not delay them. You can schedule routine, intensive scans for times when electricity is lower carbon: see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+Apply security updates, and run any scan you need for a live threat, as soon as they are needed. Do not delay them. You can schedule routine, intensive scans for times when electricity is lower carbon: see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Further reading</span></summary>

@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Artificial intelligence"
     href: /digital-sustainability/actions/ai
   - text: "6a. Be clear on the need and readiness for AI use"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any project thinking about using AI, on or off the Core Delivery Platform (CDP), before you choose a model or a tool.
+<div class="app-applies-to">
+
+**This action applies to:** any project thinking about using AI, on or off the Core Delivery Platform (CDP), before you choose a model or a tool.
 
 **Lead role families:** AI engineer, architect and software
+
+</div>
 
 ---
 

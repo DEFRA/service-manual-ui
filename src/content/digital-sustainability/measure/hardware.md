@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Measuring the impact of hardware"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 Suppliers can give a range of metrics to show the environmental and social credentials of hardware that is rented, bought, monitored and retired.
 

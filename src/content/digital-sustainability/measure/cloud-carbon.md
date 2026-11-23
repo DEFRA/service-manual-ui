@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Calculating carbon for services based in the cloud"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 In a public cloud, a third-party provider hosts shared compute, storage and databases and delivers them over the internet. Read about the [government Cloud First policy](https://www.gov.uk/government/collections/cloud-technology-and-the-public-sector) (GOV.UK).
 

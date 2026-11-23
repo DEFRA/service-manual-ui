@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Architecture"
     href: /digital-sustainability/actions/architecture
   - text: "5a. Design workloads for modularity, portability and flexibility"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, platforms and infrastructure projects on and off the Core Delivery Platform (CDP). CDP runs services in containers, so on CDP much of the portability in point (ii) is already built in.
+<div class="app-applies-to">
+
+**This action applies to:** services, platforms and infrastructure projects on and off the Core Delivery Platform (CDP). CDP runs services in containers, so on CDP much of the portability in point (ii) is already built in.
 
 **Lead role families:** Architecture and IT operations
+
+</div>
 
 ---
 
@@ -41,7 +40,7 @@ Modular approaches can help sustainability because they:
 - let you scale parts of a service independently, so you allocate compute more efficiently and use less energy
 - make it easier to reuse components across projects, which saves the resources needed to develop and test them from scratch
 
-For reusing software components, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software).
+For reusing software components, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software) (3a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -110,7 +109,7 @@ They must not rely on any single environment or underlying infrastructure. Then 
 Portability can help sustainability because you can:
 
 - move workloads to places with more energy-efficient hardware, which uses less energy
-- run workloads where the grid has more low-carbon electricity, as set out in [shift workload location](/digital-sustainability/actions/architecture/low-carbon-electricity)
+- run workloads where the grid has more low-carbon electricity, as set out in [shift workload location](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c)
 
 CDP runs services in containers, so if you are on CDP you already have much of this. Approaches that help portability include:
 
@@ -161,7 +160,7 @@ Flexible workloads avoid relying on infrastructure sized for peak demand. They c
 
 To be time-flexible, a workload must not need to give a user an immediate response. Examples include batch jobs, data analytics, video encoding and rendering, and large-scale AI model training.
 
-For when to run them, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity). They can also use spare capacity at lower cost: see [use spot instances](/digital-sustainability/actions/architecture/cloud-provisioning).
+For when to run them, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c). They can also use spare capacity at lower cost: see [use spot instances](/digital-sustainability/actions/architecture/cloud-provisioning) (5b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

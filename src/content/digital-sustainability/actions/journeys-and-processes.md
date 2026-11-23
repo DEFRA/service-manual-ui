@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "2. Journeys and processes"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services on and off the Core Delivery Platform (CDP), internal tools and the business processes behind them. This includes offline channels such as paper, phone and face-to-face contact.
+<div class="app-applies-to">
+
+**This theme applies to:** services on and off the Core Delivery Platform (CDP), internal tools and the business processes behind them. This includes offline channels such as paper, phone and face-to-face contact.
+
+</div>
 
 Journey design works from the outside in: it maps what a user or member of staff experiences across every step and channel. Business process design works from the inside out: it sets the internal steps, rules, resources and systems.
 

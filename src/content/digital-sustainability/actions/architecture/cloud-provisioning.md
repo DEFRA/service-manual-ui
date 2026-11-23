@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Architecture"
     href: /digital-sustainability/actions/architecture
   - text: "5b. Provision cloud services efficiently"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services, platforms and infrastructure projects in the public cloud, on and off the Core Delivery Platform (CDP). On CDP, the platform manages much of the infrastructure, so ask the CDP team which of these settings you control.
+<div class="app-applies-to">
+
+**This action applies to:** services, platforms and infrastructure projects in the public cloud, on and off the Core Delivery Platform (CDP). On CDP, the platform manages much of the infrastructure, so ask the CDP team which of these settings you control.
 
 **Lead role families:** Architecture and IT operations
+
+</div>
 
 ---
 
@@ -151,7 +150,7 @@ Spot instances are spare cloud computing capacity on physical servers that are a
 
 Spot instances make better use of data centres. You get more useful output for each unit of energy, and less extra hardware is needed.
 
-To use spot instances, a workload needs flexible start and end times. Examples are batch processing and continuous integration and continuous delivery (CI/CD) pipelines, which automatically build, test and release code. See [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads).
+To use spot instances, a workload needs flexible start and end times. Examples are batch processing and continuous integration and continuous delivery (CI/CD) pipelines, which automatically build, test and release code. See [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads) (5a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -194,7 +193,7 @@ A service mesh is a layer of infrastructure that handles communication between m
 
 A service mesh can make traffic between microservices more efficient, which saves energy. But it also uses energy through extra compute and overhead.
 
-Decide carefully whether your project or service needs one. A service mesh is more likely to help a complex service. It may be unnecessary for a smaller system or a simpler architecture. For modular patterns, see [design for modular architectural patterns](/digital-sustainability/actions/architecture/flexible-workloads).
+Decide carefully whether your project or service needs one. A service mesh is more likely to help a complex service. It may be unnecessary for a smaller system or a simpler architecture. For modular patterns, see [design for modular architectural patterns](/digital-sustainability/actions/architecture/flexible-workloads) (5a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

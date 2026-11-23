@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Artificial intelligence"
     href: /digital-sustainability/actions/ai
   - text: "6b. Choose the lowest energy AI model that meets your needs"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any team choosing an AI model for a service, internal tool or agent, on or off the Core Delivery Platform (CDP). If you buy software with AI built in, ask the supplier how they chose the model.
+<div class="app-applies-to">
+
+**This action applies to:** any team choosing an AI model for a service, internal tool or agent, on or off the Core Delivery Platform (CDP). If you buy software with AI built in, ask the supplier how they chose the model.
 
 **Lead role families:** AI engineer, architect and software
+
+</div>
 
 ---
 

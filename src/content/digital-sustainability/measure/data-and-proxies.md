@@ -15,11 +15,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Data availability, using proxies and direct measurement"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 ## The measurement gap
 

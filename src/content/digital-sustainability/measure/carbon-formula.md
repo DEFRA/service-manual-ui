@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "The equation for carbon measurement"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 The [Software Carbon Intensity (SCI) specification](https://grnsft.org/sci) from the [Green Software Foundation](https://greensoftware.foundation/standards/sci/) gives a formula for the carbon produced by software and digital systems. It is an ISO standard (ISO/IEC 21031).
 

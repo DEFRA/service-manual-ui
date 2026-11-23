@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Journeys and processes"
     href: /digital-sustainability/actions/journeys-and-processes
   - text: "2a. Use established patterns and design well-paced journeys"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** the design of any user journey or business process, for services on and off the Core Delivery Platform (CDP) and for internal tools.
+<div class="app-applies-to">
+
+**This action applies to:** the design of any user journey or business process, for services on and off the Core Delivery Platform (CDP) and for internal tools.
 
 **Lead role families:** Design, and Product and delivery
+
+</div>
 
 ---
 
@@ -43,7 +42,7 @@ Use established, proven patterns. This helps sustainability because:
 
 Start with the [GOV.UK Design System](https://design-system.service.gov.uk/) and Defra's guidance on [components and patterns](/design/components-and-patterns). [Point 13 of the Service Standard](https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns) says services must use and contribute to open standards, common components and patterns.
 
-To reuse software components as well as design patterns, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software).
+To reuse software components as well as design patterns, see [apply the principles of circularity to software](/digital-sustainability/actions/software/circular-software) (3a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -78,7 +77,7 @@ The pace of a service is how quickly it delivers. This covers response time, pro
 
 Find out how soon users need a response or outcome. Then check whether a slower pace would harm them. For example, if users can wait until the next day for an answer, you can process work in batches. You can also turn environments and resources off overnight.
 
-To run that work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+To run that work when electricity is cleaner, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

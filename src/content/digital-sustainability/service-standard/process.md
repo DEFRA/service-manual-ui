@@ -17,7 +17,7 @@ breadcrumbItems:
   - text: "Assess risks and record sustainability actions"
 supportBox:
   title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
+  description: "If you are working on a digital service in Defra, the <strong>Digital Sustainability team</strong> can provide advice on preparing for service assessments."
   items:
     - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---

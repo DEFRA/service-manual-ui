@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Software"
     href: /digital-sustainability/actions/software
   - text: "3d. Factor sustainability into DevOps practices"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** teams that build and run software on and off the Core Delivery Platform (CDP), and IT operations teams. On CDP, build pipelines, hosting, logging and monitoring are already in place, so ask the CDP team which settings you control.
+<div class="app-applies-to">
+
+**This action applies to:** teams that build and run software on and off the Core Delivery Platform (CDP), and IT operations teams. On CDP, build pipelines, hosting, logging and monitoring are already in place, so ask the CDP team which settings you control.
 
 **Lead role families:** Software and IT operations
+
+</div>
 
 ---
 
@@ -33,7 +32,7 @@ supportBox:
 
 Check that your logging and retention policies fit what your service needs. Automate deleting and archiving logs you no longer use or need.
 
-Removing unused logs cuts data storage and energy use. Keep the logs you need for security and incident response, and agree retention periods with your security team. For retaining other data, see [implement a data retention policy](/digital-sustainability/actions/data/lean-data).
+Removing unused logs cuts data storage and energy use. Keep the logs you need for security and incident response, and agree retention periods with your security team. For retaining other data, see [implement a data retention policy](/digital-sustainability/actions/data/lean-data) (4a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -117,13 +116,13 @@ Trade-offs may include:
 
 ## (iii) Continue to optimise and refactor new code
 
-Keep optimising and refactoring code as it changes. For how, see [optimise code](/digital-sustainability/actions/software/energy-efficient-software).
+Keep optimising and refactoring code as it changes. For how, see [optimise code](/digital-sustainability/actions/software/energy-efficient-software) (3b).
 
 ---
 
 ## (iv) Schedule routine operations for lower-carbon times
 
-Run routine operations that can wait when electricity is lower carbon. These include batch jobs, background processing and continuous integration and continuous delivery (CI/CD) workloads, the automated building, testing and release of code. Never delay security patches or incident fixes to do this. For how, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity).
+Run routine operations that can wait when electricity is lower carbon. These include batch jobs, background processing and continuous integration and continuous delivery (CI/CD) workloads, the automated building, testing and release of code. Never delay security patches or incident fixes to do this. For how, see [shift workloads in time](/digital-sustainability/actions/architecture/low-carbon-electricity) (5c).
 
 ---
 

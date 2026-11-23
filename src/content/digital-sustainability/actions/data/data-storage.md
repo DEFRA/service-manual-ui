@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Data"
     href: /digital-sustainability/actions/data
   - text: "4b. Optimise data storage and queries"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools.
+<div class="app-applies-to">
+
+**This action applies to:** services and data platforms on and off the Core Delivery Platform (CDP), including internal tools.
 
 **Lead role families:** Data and Architecture
+
+</div>
 
 This action has two parts. Points (i) to (v) cover how you store data. Points (vi) to (ix) cover how you query it and give access to it.
 

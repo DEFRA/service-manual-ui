@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Architecture"
     href: /digital-sustainability/actions/architecture
   - text: "5c. Shift cloud demand to match low-carbon electricity"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** workloads that can wait or move, on and off the Core Delivery Platform (CDP), in the cloud or on premises. On CDP, ask the CDP team what scheduling and region options your service has.
+<div class="app-applies-to">
+
+**This action applies to:** workloads that can wait or move, on and off the Core Delivery Platform (CDP), in the cloud or on premises. On CDP, ask the CDP team what scheduling and region options your service has.
 
 **Lead role families:** Architecture and IT operations
+
+</div>
 
 <div class="govuk-inset-text">
 
@@ -50,7 +49,7 @@ Never delay security patches, incident fixes or scans you need for a live threat
 
 Use a carbon intensity forecast to find lower-carbon times. The [Carbon Intensity API](https://carbonintensity.org.uk/) (National Energy System Operator) gives regional forecasts for Great Britain about four days ahead. An API is a service that other software can query. Off-peak hours are not always the lowest-carbon hours, so check the forecast rather than assume.
 
-To design workloads that can move in time, see [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads).
+To design workloads that can move in time, see [design for time-flexible workloads](/digital-sustainability/actions/architecture/flexible-workloads) (5a).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

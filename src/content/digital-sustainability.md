@@ -22,9 +22,4 @@ hubSections:
       - text: "Meet the standard"
         href: /digital-sustainability/service-standard
         description: "Assess your risks and get ready for your 15th point assessment."
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---

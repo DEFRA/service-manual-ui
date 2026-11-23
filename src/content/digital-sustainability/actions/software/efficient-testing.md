@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Software"
     href: /digital-sustainability/actions/software
   - text: "3c. Take an efficient software testing approach"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** testing of custom software on and off the Core Delivery Platform (CDP), including internal tools.
+<div class="app-applies-to">
+
+**This action applies to:** testing of custom software on and off the Core Delivery Platform (CDP), including internal tools.
 
 **Lead role families:** Software and Quality assurance testing
+
+</div>
 
 ---
 
@@ -278,7 +277,7 @@ Potential trade-offs may include:
 
 Test web pages for their weight, that is, their size in bytes. This shows up things you do not need, such as scripts, assets and dependencies. Then cut them, and check that pages stay within any page weight budget you have set.
 
-To set a budget, see [set page weight budgets](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
+To set a budget, see [set page weight budgets](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents) (2b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

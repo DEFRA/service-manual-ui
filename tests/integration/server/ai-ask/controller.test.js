@@ -1857,6 +1857,18 @@ describe('askController', () => {
       )
     })
 
+    test.each([
+      ['the digital sustainability landing page', '/digital-sustainability'],
+      ['a digital sustainability actions page', '/digital-sustainability/actions']
+    ])('%s, outside the toolkit, does not put it in its navigation', async (_description, url) => {
+      const { result } = await server.inject({ method: 'GET', url })
+
+      expect(result).toEqual(expect.stringContaining('defra-service-navigation__link'))
+      expect(result).not.toEqual(
+        expect.stringContaining(`href="${askUrl}">Ask the toolkit</a>`)
+      )
+    })
+
     test('the toolkit landing page also offers it under Start now, as a link', async () => {
       const { result } = await server.inject({ method: 'GET', url: '/ai-toolkit' })
 

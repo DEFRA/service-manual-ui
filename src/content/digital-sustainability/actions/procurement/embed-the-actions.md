@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Procurement"
     href: /digital-sustainability/actions/procurement
   - text: "9b. Embed the digital sustainability actions into procurements"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any procurement for designing, building, hosting or running a service or other digital project, and the suppliers who deliver it.
+<div class="app-applies-to">
+
+**This action applies to:** any procurement for designing, building, hosting or running a service or other digital project, and the suppliers who deliver it.
 
 **Lead role families:** Procurement
+
+</div>
 
 ---
 

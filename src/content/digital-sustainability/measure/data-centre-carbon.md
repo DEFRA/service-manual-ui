@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Calculating carbon for services using on-premises or off-premises data centres"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 In an on-premises data centre, an organisation owns, houses and maintains the hardware and software in its own building. Off-premises means the organisation owns or rents the hardware, but it sits in a third-party building. A supplier may manage it.
 

@@ -13,11 +13,6 @@ breadcrumbItems:
   - text: "Sustainability"
     href: /digital-sustainability
   - text: "Measuring the sustainability of digital services"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 ---
 

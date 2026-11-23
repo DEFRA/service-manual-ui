@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Calculating embodied carbon"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 Embodied carbon is the total carbon emitted in making, transporting and finally disposing of physical hardware. Public cloud providers usually include it in their carbon reports. Suppliers of on-premises and off-premises hosting usually do not.
 

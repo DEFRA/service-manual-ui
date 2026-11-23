@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "8. Hardware"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** anyone who buys, rents, manages or retires hardware. That includes Defra Group IT, procurement teams, infrastructure projects, and service teams whose users rely on devices.
+<div class="app-applies-to">
+
+**This theme applies to:** anyone who buys, rents, manages or retires hardware. That includes Defra Group IT, procurement teams, infrastructure projects, and service teams whose users rely on devices.
+
+</div>
 
 Defra Group IT supplies and retires devices. Service and project teams can still:
 

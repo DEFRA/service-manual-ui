@@ -14,11 +14,6 @@ breadcrumbItems:
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
   - text: "Carbon"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 Carbon is the most measured environmental impact. Calculate a carbon footprint in line with the [GHG Protocol](https://ghgprotocol.org/) and its [Product Standard](https://ghgprotocol.org/product-standard) (GHG Protocol).
 

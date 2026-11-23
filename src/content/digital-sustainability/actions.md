@@ -1,6 +1,6 @@
 ---
 title: "Digital sustainability actions"
-description: "The digital sustainability actions are guidelines to help you design, build and run services and other digital projects that are better for the environment. They help make services resilient, efficient and circular, which means keeping things in use for longer."
+description: "The digital sustainability actions are guidelines to help you design, build and run services and other digital projects that are better for the environment. They help make services efficient, resilient and circular, which means keeping things in use for longer."
 layout: hub
 customNav: nav-digital-sustainability
 headerServiceName: Sustainability
@@ -13,7 +13,6 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
 hubSections:
   - title: "Themes"
-    description: "The actions are for anyone in Defra who designs, builds, runs or buys digital services and infrastructure. They also apply to infrastructure projects and to work that is not on the Core Delivery Platform (CDP). CDP is Defra's platform to create, deploy, test and monitor services. The actions are grouped under 9 themes."
     items:
       - text: "1. Research and planning"
         href: /digital-sustainability/actions/research-and-planning
@@ -42,13 +41,10 @@ hubSections:
       - text: "9. Procurement"
         href: /digital-sustainability/actions/procurement
         description: "How you buy technology and digital services, and manage suppliers"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
 ## About the actions
+
+The actions are for anyone in Defra who designs, builds, runs or buys digital services and infrastructure. They also apply to infrastructure projects and to work that is not on the Core Delivery Platform (CDP). CDP is Defra's platform to create, deploy, test and monitor services.
 
 Defra teams can use the actions to meet the objectives of the [Defra digital sustainability strategy 2025 to 2030](https://www.gov.uk/government/publications/defra-digital-sustainability-strategy-2025-to-2030/defra-digital-sustainability-strategy-2025-to-2030) (GOV.UK). Other departments and public sector bodies can use them as advice on good sustainability practice.
 

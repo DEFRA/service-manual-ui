@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Data"
     href: /digital-sustainability/actions/data
   - text: "4a. Take a lean approach to data collection and management"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** any service or project that collects or keeps data, on and off the Core Delivery Platform (CDP), including internal tools and data platforms.
+<div class="app-applies-to">
+
+**This action applies to:** any service or project that collects or keeps data, on and off the Core Delivery Platform (CDP), including internal tools and data platforms.
 
 **Lead role families:** Data and Architecture
+
+</div>
 
 ---
 
@@ -86,7 +85,7 @@ Potential trade-offs may include:
 
 A data retention policy sets how long data must be kept for legal or operational reasons, and how it is deleted.
 
-Delete data when you no longer need it, so redundant and unused data does not build up. This cuts long-term storage, processing and transfer, and the energy they use. For logs, see [optimise your logging and retention policy](/digital-sustainability/actions/software/devops).
+Delete data when you no longer need it, so redundant and unused data does not build up. This cuts long-term storage, processing and transfer, and the energy they use. For logs, see [optimise your logging and retention policy](/digital-sustainability/actions/software/devops) (3d).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

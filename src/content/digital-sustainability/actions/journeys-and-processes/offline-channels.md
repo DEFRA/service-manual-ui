@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Journeys and processes"
     href: /digital-sustainability/actions/journeys-and-processes
   - text: "2c. Reduce and simplify offline channels without excluding people"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** services on and off the Core Delivery Platform (CDP) that use paper, phone or face-to-face channels, and the staff processes behind them.
+<div class="app-applies-to">
+
+**This action applies to:** services on and off the Core Delivery Platform (CDP) that use paper, phone or face-to-face channels, and the staff processes behind them.
 
 **Lead role families:** Design, and Product and delivery
+
+</div>
 
 The GOV.UK Service Manual says teams must plan to keep increasing digital take-up. Digital take-up is the percentage of people who use a service online rather than through other channels. You must still provide offline channels for people who do not have access to digital technology or the skills to use it. Those channels must be accessible. Read [make sure everyone can use the service](/accessibility) and [measuring digital take-up](https://www.gov.uk/service-manual/measuring-success/measuring-digital-take-up) (GOV.UK Service Manual).
 

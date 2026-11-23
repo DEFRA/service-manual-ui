@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Journeys and processes"
     href: /digital-sustainability/actions/journeys-and-processes
   - text: "2b. Design lightweight pages, notifications and documents"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** anything you publish or send to users. This includes pages of services on and off the Core Delivery Platform (CDP), internal tools, notifications and documents.
+<div class="app-applies-to">
+
+**This action applies to:** anything you publish or send to users. This includes pages of services on and off the Core Delivery Platform (CDP), internal tools, notifications and documents.
 
 **Lead role families:** Design and Software
+
+</div>
 
 ---
 
@@ -38,7 +37,7 @@ A page weight budget helps because it:
 - makes page weight a constraint that designers, developers and content teams work to throughout delivery
 - stops page weight creeping up as you add features, media and technologies
 
-To check pages against your budget, see [test for page weight](/digital-sustainability/actions/software/efficient-testing).
+To check pages against your budget, see [test for page weight](/digital-sustainability/actions/software/efficient-testing) (3c).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -67,7 +66,7 @@ Alongside sustainability impact, setting a page weight budget brings co-benefits
 
 Design pages and journeys to work as text first. Users should be able to understand and complete every core task without images, video or other media.
 
-Text-first journeys also support progressive enhancement, where core content works in HTML alone and extras are built on top. For how to build this, see [develop pages using progressive enhancement](/digital-sustainability/actions/software/energy-efficient-software).
+Text-first journeys also support progressive enhancement, where core content works in HTML alone and extras are built on top. For how to build this, see [develop pages using progressive enhancement](/digital-sustainability/actions/software/energy-efficient-software) (3b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
@@ -87,7 +86,7 @@ Alongside sustainability impact, designing for text-based journeys brings co-ben
 
 Photos, video and interactive elements such as maps can add a lot to the weight of a page.
 
-Only use multimedia and interactive content when there is a clear user need. Let users choose to open it. For loading media only when it is needed, see [use lazy loading](/digital-sustainability/actions/software/energy-efficient-software).
+Only use multimedia and interactive content when there is a clear user need. Let users choose to open it. For loading media only when it is needed, see [use lazy loading](/digital-sustainability/actions/software/energy-efficient-software) (3b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>

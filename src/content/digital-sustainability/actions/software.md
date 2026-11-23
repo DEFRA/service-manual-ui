@@ -15,13 +15,12 @@ breadcrumbItems:
   - text: "Digital sustainability actions"
     href: /digital-sustainability/actions
   - text: "3. Software"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software that Defra builds or commissions, on and off the Core Delivery Platform (CDP), including internal tools. For software you buy as a service, use the actions to ask suppliers for evidence.
+<div class="app-applies-to">
+
+**This theme applies to:** custom software that Defra builds or commissions, on and off the Core Delivery Platform (CDP), including internal tools. For software you buy as a service, use the actions to ask suppliers for evidence.
+
+</div>
 
 These actions are mainly for teams that develop, test and run custom software. Where you buy software as a service, ask suppliers how far their applications follow the actions.
 

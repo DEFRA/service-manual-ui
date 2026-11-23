@@ -17,15 +17,14 @@ breadcrumbItems:
   - text: "Software"
     href: /digital-sustainability/actions/software
   - text: "3b. Develop energy-efficient software"
-supportBox:
-  title: Get support
-  description: "The <strong>Sustainable IT Team</strong> can help you with digital sustainability."
-  items:
-    - "Email: <a href=\"mailto:sustainableICT@defra.gov.uk\" class=\"govuk-link\">sustainableICT@defra.gov.uk</a>"
 ---
-**Applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the frontend template renders pages on the server, so much of points (i) and (iii) is already done for you.
+<div class="app-applies-to">
+
+**This action applies to:** custom software on and off the Core Delivery Platform (CDP), including internal tools. On CDP, the frontend template renders pages on the server, so much of points (i) and (iii) is already done for you.
 
 **Lead role families:** Software and Architecture
+
+</div>
 
 ---
 
@@ -37,7 +36,7 @@ It reduces reliance on heavy JavaScript and processing in the browser, so it use
 
 Defra's [software development standards](/software-development#approved-technologies-and-languages) say to build pages with the GOV.UK Frontend Nunjucks templates and vanilla JavaScript, which is plain JavaScript without a framework. They rule out frontend frameworks such as React or Vue. Following them takes you most of the way.
 
-For the design side, see [design for text-based journeys](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents).
+For the design side, see [design for text-based journeys](/digital-sustainability/actions/journeys-and-processes/lightweight-pages-and-documents) (2b).
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
