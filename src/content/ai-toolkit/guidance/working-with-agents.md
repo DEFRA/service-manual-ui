@@ -80,6 +80,8 @@ An agent is only useful if it can reach external data or tools. There is more th
 
 You do not always need MCP. Pick the simplest approach that does the job.
 
+If you do use MCP, only use the approved MCP servers. The rules are on [Model Context Protocol](/ai-toolkit/tools/model-context-protocol).
+
 Whatever you choose, the data rules still apply. Check [Using data with AI](/ai-toolkit/guidance/using-data-with-ai) and [Keeping data safe](/ai-toolkit/guidance/keeping-data-safe) before an agent touches real content.
 
 An agent that can act on its own output raises the stakes, so keep a human approval step before anything writes to a system. See [Security](/ai-toolkit/guidance/security).
