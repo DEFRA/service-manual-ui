@@ -35,4 +35,4 @@ Service embodied carbon (kgCO2e) = hardware embodied carbon (kgCO2e) × service 
 
 </div>
 
-This is M in the [Software Carbon Intensity formula](/digital-sustainability/measure/carbon-formula).
+This is M in the [Software Carbon Intensity formula](/digital-sustainability/measure/rate-of-emissions).

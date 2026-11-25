@@ -62,7 +62,7 @@ Read about [estimating the energy use of hardware](/digital-sustainability/measu
 
 ## Software as a service
 
-Software is often bought as a service, through software as a service (SaaS) or managed SaaS. The supplier hosts and maintains the software, so it is outside the direct control of teams designing and building government services. It is still inside the [recommended boundary](/digital-sustainability/measure/boundaries-and-units).
+Software is often bought as a service, through software as a service (SaaS) or managed SaaS. The supplier hosts and maintains the software, so it is outside the direct control of teams designing and building government services. It is still inside the [recommended boundary](/digital-sustainability/measure/boundary).
 
 If you are in contact with the supplier, ask for:
 
@@ -74,7 +74,7 @@ If you are in contact with the supplier, ask for:
 
 These metrics are worth collecting. You cannot change the supplier's infrastructure, but you may be able to change how the software is configured, used and managed. For example, you may be able to set data retention policies, storage settings and usage settings that affect its footprint.
 
-You can use the supplier's figures to calculate the [Software Carbon Intensity (SCI)](/digital-sustainability/measure/carbon-formula). Combine them with the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) for electricity. Then use a suitable functional unit: a unit of output, such as a user or a transaction.
+You can use the supplier's figures to calculate the [Software Carbon Intensity (SCI)](/digital-sustainability/measure/rate-of-emissions). Combine them with the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) for electricity. Then use a suitable functional unit: a unit of output, such as a user or a transaction.
 
 For complex software, it may help to calculate an SCI score for each component. A more detailed assessment can show where to target improvements.
 

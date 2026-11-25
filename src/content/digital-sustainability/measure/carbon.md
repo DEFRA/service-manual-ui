@@ -1,5 +1,5 @@
 ---
-title: "Carbon"
+title: "Carbon emissions and scopes"
 caption: "Measure sustainability"
 layout: section
 sectionNav: nav-ds-measure
@@ -13,7 +13,7 @@ breadcrumbItems:
     href: /digital-sustainability
   - text: "Measure sustainability"
     href: /digital-sustainability/measure
-  - text: "Carbon"
+  - text: "Carbon emissions and scopes"
 ---
 Carbon is the most measured environmental impact. Calculate a carbon footprint in line with the [GHG Protocol](https://ghgprotocol.org/) and its [Product Standard](https://ghgprotocol.org/product-standard) (GHG Protocol).
 
@@ -37,14 +37,6 @@ Whatever the scope, the emissions your team can influence most are the ones that
 
 </div>
 
-## Scope 1 emissions
-
-For digital services, scope 1 emissions come mainly from the backup generators that power data centres.
-
-To calculate them, multiply the total fuel used by the relevant factor in the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK).
-
-Public cloud providers and off-premises hosting suppliers may include this in their carbon reporting.
-
 ## Converting energy to carbon
 
 An emission factor is the carbon produced for each unit of energy. To convert energy to carbon, use emission factors such as the [UK government conversion factors for greenhouse gas reporting](https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting) (GOV.UK) or the [Electricity Maps API](https://app.electricitymaps.com/docs).
@@ -57,7 +49,7 @@ Carbon (kgCO2e) = energy (kWh) × emission factor (kgCO2e per kWh)
 
 There are 2 ways to convert electricity to carbon.
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Location-based</dt><dd class="govuk-summary-list__value">Uses the carbon intensity of the local electricity grid where the energy is used.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Market-based</dt><dd class="govuk-summary-list__value">Uses the electricity bought through contracts, such as renewable energy bought elsewhere on the grid, or carbon offsets.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Location-based</dt><dd class="govuk-summary-list__value">Uses the carbon intensity of the local electricity grid where the energy is used.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Market-based</dt><dd class="govuk-summary-list__value">Uses the electricity bought through contracts, such as renewable energy bought elsewhere on the grid, and energy attribute certificates such as Renewable Energy Guarantees of Origin (REGOs). Carbon offsets are not part of this method. Report them separately.</dd></div></dl>
 
 <div class="govuk-warning-text"><span class="govuk-warning-text__icon" aria-hidden="true">!</span><strong class="govuk-warning-text__text"><span class="govuk-visually-hidden">Warning</span>For government services, use the location-based method. If a supplier also gives market-based figures, record them separately and do not use them in place of location-based figures.</strong></div>
 

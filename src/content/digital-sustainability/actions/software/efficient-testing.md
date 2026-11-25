@@ -148,15 +148,15 @@ Avoiding duplicate test data may bring trade-offs such as:
 
 ---
 
-## (iv) Make use of asynchronous testing
+## (iv) Make use of parallel testing
 
-Asynchronous testing lets tests run independently of each other and in parallel. This cuts the total run time and the energy used.
+Parallel testing lets tests run independently of each other and at the same time. This cuts the total run time. It can also cut energy use, for example by shortening how long test environments need to run. But a shorter run does not always use less energy overall, because more tests run at once.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
 <div class="govuk-details__text">
 
-Alongside sustainability impact, asynchronous testing brings co-benefits in terms of:
+Alongside sustainability impact, parallel testing brings co-benefits in terms of:
 
 - delivery time: less waiting and faster test runs, so developers get feedback sooner
 
@@ -167,7 +167,7 @@ Alongside sustainability impact, asynchronous testing brings co-benefits in term
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Trade-offs</span></summary>
 <div class="govuk-details__text">
 
-Asynchronous testing may also bring trade-offs:
+Parallel testing may also bring trade-offs:
 
 - peak resource use: running many tests at once can raise peak resource use
 - complexity: test design, such as managing dependencies and order, and debugging failures both get harder

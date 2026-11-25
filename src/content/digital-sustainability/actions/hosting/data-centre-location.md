@@ -32,7 +32,7 @@ breadcrumbItems:
 
 Data centres can run on low-carbon electricity because the local grid has a high share of renewables, or because they generate clean energy on site.
 
-Where you can, choose providers with sites or regions that have more renewable energy.
+Where you can, choose providers with sites or regions that have more renewable energy. Follow the service's classification, departmental policy and data or contractual requirements when choosing a location, which could be in or outside the UK.
 
 Standards such as EnergyTag help you check a data centre's renewable energy claims and spot loopholes in them.
 
@@ -40,7 +40,7 @@ Carbon usage effectiveness (CUE) compares a data centre's total carbon emissions
 
 <div class="govuk-inset-text">
 
-Most government services must be hosted in the UK. But carbon intensity, the carbon emitted for each unit of electricity, varies across the UK. For example, it differs between south Wales and Scotland. So a cleaner site still cuts emissions.
+Most government services are hosted in the UK. But carbon intensity, the carbon emitted for each unit of electricity, varies across the UK. For example, it differs significantly between south Wales and Scotland. So a cleaner site still cuts emissions.
 
 </div>
 

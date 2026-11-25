@@ -53,7 +53,7 @@ Utilisation and electrical power are not perfectly proportional. But utilisation
 
 Several open-source software profilers and frameworks can automate hardware monitoring. For example:
 
-- CodeCarbon: samples power use (in watts or kWh) from hardware components at intervals
+- CodeCarbon: samples power in watts, or energy in kWh, from hardware components at intervals
 - PowerAPI: a software-defined power meter toolkit that measures power use for an application
 - Green Algorithms: an open-source framework and online tool. It estimates the environmental and carbon footprint of computational science, high-performance computing (HPC) and AI workloads
 

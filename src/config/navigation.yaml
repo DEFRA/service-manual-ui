@@ -454,14 +454,14 @@ nav-ds-measure:
         href: /digital-sustainability/measure/carbon-figure
   - title: Plan your carbon measurement
     items:
-      - text: "Carbon"
+      - text: "Carbon emissions and scopes"
         href: /digital-sustainability/measure/carbon
       - text: "Choosing a level and order of measurement"
         href: /digital-sustainability/measure/level-and-order
-      - text: "The equation for carbon measurement"
-        href: /digital-sustainability/measure/carbon-formula
-      - text: "Setting boundaries and functional units"
-        href: /digital-sustainability/measure/boundaries-and-units
+      - text: "Setting a boundary for measurement"
+        href: /digital-sustainability/measure/boundary
+      - text: "Calculating a rate of emissions"
+        href: /digital-sustainability/measure/rate-of-emissions
       - text: "Data availability, using proxies and direct measurement"
         href: /digital-sustainability/measure/data-and-proxies
   - title: Calculate carbon

@@ -19,7 +19,7 @@ In a public cloud, a third-party provider hosts shared compute, storage and data
 
 ## Setting the boundary
 
-For a cloud service, include the servers, instances and storage it uses. Read about the [recommended boundary](/digital-sustainability/measure/boundaries-and-units).
+For a cloud service, include the servers, instances and storage it uses. Read about the [recommended boundary](/digital-sustainability/measure/boundary).
 
 You can get a carbon figure in 2 ways:
 
@@ -34,7 +34,7 @@ Cloud providers usually give carbon figures through dashboards, monthly usage re
 
 Provider data usually includes:
 
-<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Operational carbon</dt><dd class="govuk-summary-list__value">Emissions from the electricity used to power servers, network equipment, heating, ventilation and cooling systems, and from backup generators. Providers report these as their own scopes 1 and 2. Many providers offset operational emissions with renewable energy purchases, which is the market-based method. Use location-based figures, based on the local grid, where the provider gives them.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Embodied carbon</dt><dd class="govuk-summary-list__value">Emissions from the whole lifecycle of the equipment the service uses, including building the data centre and its systems. This should cover extracting and processing raw materials, manufacture, distribution and disposal. Providers report this as their scope 3.</dd></div></dl>
+<dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Operational carbon</dt><dd class="govuk-summary-list__value">Emissions from the electricity used to power servers, network equipment, heating, ventilation and cooling systems, and from backup generators. Providers report these as their own scopes 1 and 2. Many providers use the market-based method to claim zero-emissions electricity, by buying renewable energy in other locations. Use location-based figures, based on the local grid, where the provider gives them.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Embodied carbon</dt><dd class="govuk-summary-list__value">Emissions from the whole lifecycle of the equipment the service uses, including building the data centre and its systems. This should cover extracting and processing raw materials, manufacture, distribution and disposal. Providers report this as their scope 3.</dd></div></dl>
 
 <div class="govuk-inset-text">
 

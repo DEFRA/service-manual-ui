@@ -40,18 +40,22 @@ Websites and web applications have some measures you can observe and use as [pro
 
 ### (ii) Other proxies
 
-Other proxies can also act as directional indicators: if the proxy goes down, the impact should go down too. They can guide the design of digital journey steps. These include:
+Other proxies can also act as directional indicators: if the proxy number changes, it is a sign that the resource use and carbon from the service have probably changed too. They can guide the design of digital journey steps.
 
-- user time on task, such as registering or submitting data
-- user task completion rate
-- the number of users who succeed first time, compared with those who give up or come back again
+For each proxy, know which direction is better. Use rates rather than totals, so a change in how many people use the service does not look like a change in efficiency.
+
+Proxies for digital journey steps include:
+
+- user time on task, such as registering or submitting data: lower is better
+- user task completion rate: higher is better
+- first-time success rate, the share of users who succeed first time rather than giving up or coming back again: higher is better
 
 Proxies for internal business processes might include:
 
-- support contacts per hundred registrations
-- staff processing time per completed case
-- number of processing steps or hand-offs
-- number of internal system transactions
+- support contacts per hundred registrations: lower is better
+- staff processing time per completed case: lower is better
+- number of processing steps or hand-offs: fewer is better
+- number of internal system transactions per completed case: fewer is better
 
 ---
 

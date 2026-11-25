@@ -25,7 +25,7 @@ breadcrumbItems:
 Defra Group IT supplies and retires devices. Service and project teams can still:
 
 - design services that work on older devices and slow connections
-- set requirements for hardware they need, through Defra Group IT or the procurement, such as ecolabels (independent sustainability certifications) or second-life (used and restored) devices
+- set requirements for hardware they need, through Defra Group IT or the procurement team, such as ecolabels (independent sustainability certifications) or second-life (used and restored) devices
 - return devices they no longer need, so they can be redeployed or reused
 
 Reducing hardware use supports objective 3 of [Defra's six objectives](/digital-sustainability/service-standard/objectives): reduce natural resource use and improve our circular economy approach.

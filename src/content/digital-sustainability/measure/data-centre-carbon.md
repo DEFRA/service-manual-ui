@@ -21,7 +21,7 @@ Other measurement pages link here for two things: allocation, and adding data ce
 
 ## Whole-service footprint
 
-Use the same boundary as for public cloud: the infrastructure that hosts the service. Read about the [recommended boundary](/digital-sustainability/measure/boundaries-and-units).
+Use the same boundary as for public cloud: the infrastructure that hosts the service. Read about the [recommended boundary](/digital-sustainability/measure/boundary).
 
 Getting the data may be harder than for cloud. You need:
 

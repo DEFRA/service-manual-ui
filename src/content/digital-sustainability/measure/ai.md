@@ -32,7 +32,7 @@ Most approaches focus on training and inference.
 
 </div>
 
-Results are usually given per unit of use, called a [functional unit](/digital-sustainability/measure/boundaries-and-units), such as:
+Results are usually given per unit of use, called a [functional unit](/digital-sustainability/measure/rate-of-emissions#choosing-a-functional-unit), such as:
 
 - per token, for large language models (a token is a small piece of text the model reads or writes)
 - per image, for image generation
@@ -69,7 +69,7 @@ There are 2 kinds of token:
 
 <dl class="govuk-summary-list"><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Input tokens</dt><dd class="govuk-summary-list__value">Everything you give the model before it generates an answer. This can include your prompt, system instructions, chat history, attached documents, code snippets and background data.</dd></div><div class="govuk-summary-list__row"><dt class="govuk-summary-list__key">Output tokens</dt><dd class="govuk-summary-list__value">The response the model generates. This includes the final answer, summary, table or code, and hidden reasoning (thinking) tokens.</dd></div></dl>
 
-Energy use scales directly with the number of tokens processed. Generating an output token uses much more energy than processing an input token.
+Token counts can help you estimate the energy used for inference, if the energy factor fits the model and workload. Energy also depends on the model, context length, batching and caching. Generating an output token uses much more energy than processing an input token. Where you can, keep input, output and cached tokens separate.
 
 Token usage data should be in provider dashboards and billing reports. Some tools estimate the energy used by input and output tokens.
 
