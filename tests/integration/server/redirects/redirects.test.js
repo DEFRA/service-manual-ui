@@ -96,7 +96,7 @@ describe('301 redirects', () => {
   })
 
   test.each([
-    ['/sustainability', '/digital-sustainability'],
+    ['/sustainability', '/digital-sustainability/service-standard'],
     ['/sustainability/process', '/digital-sustainability/service-standard/process'],
     ['/sustainability/objectives', '/digital-sustainability/service-standard/objectives'],
     ['/sustainability/metrics', '/digital-sustainability/service-standard/questions']

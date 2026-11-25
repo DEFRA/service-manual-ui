@@ -173,7 +173,7 @@ When you cut steps to save energy, keep a human approval step before an agent wr
 
 Agentic AI can automate complex processes and save resources. But it also uses a lot of resources itself.
 
-Design the workflow your agents follow so it makes only the model and tool calls it needs, and still gives high-quality output. In Defra, also read [working with AI agents](/ai-toolkit/guidance/working-with-agents).
+Design the workflow your agents follow so it makes only the model and tool calls it needs, and still gives high-quality output.
 
 <details class="govuk-details">
 <summary class="govuk-details__summary"><span class="govuk-details__summary-text">Co-benefits</span></summary>
