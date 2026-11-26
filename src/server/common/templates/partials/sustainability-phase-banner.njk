@@ -1,0 +1,10 @@
+{# Beta banner on the digital sustainability pages only. The guidance is new,
+   so it tells people that and asks for feedback. One copy, so the wording and
+   the feedback address change in one place. #}
+{% if currentUrl and currentUrl.startsWith('/digital-sustainability') %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: { text: "Beta" },
+  html: 'This is new guidance. <a class="govuk-link" href="mailto:sustainableICT@defra.gov.uk?subject=Digital%20sustainability%20guidance%3A%20feedback">Give feedback</a> to help us improve it.'
+}) }}
+{% endif %}

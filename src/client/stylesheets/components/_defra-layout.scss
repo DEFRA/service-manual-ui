@@ -134,7 +134,7 @@ body {
   // Align headings and body with the tiles and version banner
   .govuk-heading-l,
   .govuk-heading-m:not(.defra-tile__title),
-  .govuk-body {
+  .govuk-body:not(.defra-tile__body) {
     margin-left: -15px;
   }
 }
@@ -145,6 +145,11 @@ body {
 
 .defra-section > .govuk-body {
   margin-bottom: 12px;
+}
+
+// Line up the support box with the tile edges on landing pages
+.defra-landing-support {
+  margin: 40px -15px 0;
 }
 
 // ===== Breadcrumbs =====
@@ -242,4 +247,15 @@ body {
 
 .defra-callout__button:hover {
   background-color: #006a27;
+}
+
+// Who a digital sustainability theme or action is for. Secondary text sets it
+// apart from the guidance below without a box, because inset text on these
+// pages is kept for caveats and side notes.
+.app-applies-to .govuk-body {
+  color: #505a5f;
+}
+
+.app-applies-to strong {
+  color: #0b0c0c;
 }

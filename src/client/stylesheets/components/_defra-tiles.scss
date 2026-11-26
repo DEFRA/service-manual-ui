@@ -110,4 +110,7 @@
 
 .defra-tile__body {
   margin-bottom: 0;
+
+  // Avoid a single word on the last line
+  text-wrap: pretty;
 }

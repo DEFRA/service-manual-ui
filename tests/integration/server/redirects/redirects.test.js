@@ -94,4 +94,30 @@ describe('301 redirects', () => {
 
     expect(statusCode).toBe(statusCodes.ok)
   })
+
+  test.each([
+    ['/sustainability', '/digital-sustainability/service-standard'],
+    ['/sustainability/process', '/digital-sustainability/service-standard/process'],
+    ['/sustainability/objectives', '/digital-sustainability/service-standard/objectives'],
+    ['/sustainability/metrics', '/digital-sustainability/service-standard/questions']
+  ])('GET %s redirects to %s with 301', async (from, to) => {
+    const { statusCode, headers } = await server.inject({
+      method: 'GET',
+      url: from
+    })
+
+    expect(statusCode).toBe(statusCodes.movedPermanently)
+    expect(headers.location).toBe(to)
+  })
+
+  test('GET /digital-sustainability serves the sustainability landing page', async () => {
+    const { statusCode, result } = await server.inject({
+      method: 'GET',
+      url: '/digital-sustainability'
+    })
+
+    expect(statusCode).toBe(statusCodes.ok)
+    expect(result).toContain('class="defra-tile-grid"')
+    expect(result).toContain('href="/digital-sustainability/actions"')
+  })
 })

@@ -123,7 +123,19 @@ describe('homeController', () => {
       )
     })
 
-    test('should display three main tiles', async () => {
+    test('should display digital sustainability tile with correct link and description', async () => {
+      const { result } = await server.inject({
+        method: 'GET',
+        url: '/'
+      })
+
+      expect(result).toEqual(expect.stringContaining('>Sustainability<'))
+      expect(result).toEqual(
+        expect.stringContaining('href="/digital-sustainability"')
+      )
+    })
+
+    test('should display four main tiles', async () => {
       const { result } = await server.inject({
         method: 'GET',
         url: '/'
@@ -131,7 +143,7 @@ describe('homeController', () => {
 
       const tileMatches = result.match(/class="defra-tile"/g)
       expect(tileMatches).not.toBeNull()
-      expect(tileMatches.length).toBe(3)
+      expect(tileMatches.length).toBe(4)
     })
   })
 

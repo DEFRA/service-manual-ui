@@ -1,6 +1,7 @@
 {% extends "layouts/page.njk" %}
 
 {% block beforeContent %}
+{% include "partials/sustainability-phase-banner.njk" %}
 {{ govukBreadcrumbs({
   items: breadcrumbItems or [
     { text: "Digital Defra", href: "/" },
