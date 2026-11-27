@@ -96,14 +96,14 @@
 
 .app-hub__card-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   list-style: none;
   padding: 0;
   margin: 0;
 
-  @media (max-width: 48.0525em) {
-    grid-template-columns: 1fr;
+  @media (min-width: 48.0625em) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -111,12 +111,14 @@
   padding: 15px 15px 15px 0;
   border-bottom: 1px solid #dee0e2;
 
-  &:nth-child(odd) {
-    padding-right: 30px;
-  }
+  @media (min-width: 48.0625em) {
+    &:nth-child(odd) {
+      padding-right: 30px;
+    }
 
-  &:nth-child(even) {
-    padding-left: 15px;
+    &:nth-child(even) {
+      padding-left: 15px;
+    }
   }
 }
 
