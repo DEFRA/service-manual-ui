@@ -111,12 +111,14 @@
   padding: 15px 15px 15px 0;
   border-bottom: 1px solid #dee0e2;
 
-  &:nth-child(odd) {
-    padding-right: 30px;
-  }
+  @media (min-width: 48.0625em) {
+    &:nth-child(odd) {
+      padding-right: 30px;
+    }
 
-  &:nth-child(even) {
-    padding-left: 15px;
+    &:nth-child(even) {
+      padding-left: 15px;
+    }
   }
 }
 
