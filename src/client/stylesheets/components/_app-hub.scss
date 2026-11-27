@@ -96,14 +96,14 @@
 
 .app-hub__card-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0;
   list-style: none;
   padding: 0;
   margin: 0;
 
-  @media (max-width: 48.0525em) {
-    grid-template-columns: 1fr;
+  @media (min-width: 48.0625em) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
